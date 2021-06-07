@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
@@ -525,12 +525,25 @@ for thisOneback_run1 in oneback_run1:
 continueRoutine = True
 # update component parameters for each repeat
 nCorr = oneback_run1.data['trial_1back_run1_resp.corr'].sum() # number of correct trials
-pCorr = (nCorr*100)/14 # percentage of correct trials
+pCorr = (nCorr*100)/64 # percentage of correct trials
 pCorr = round(pCorr, 1) # round the percentage to 1 number after the decimal point
-if pCorr >= 50:
-    msg = "In diesem Block haben Sie auf " + str(pCorr) + "% der Buchstaben korrekt reagiert.\n\nWeiter so!"
+
+nCorrTarArray = oneback_run1.data['trial_1back_run1_resp.keys'] # extract response data
+nCorrTarFilter = nCorrTarArray == 'right' # index the data of the targets
+nCorrTar = sum(nCorrTarFilter) # calculate sum of correct targets aka sum of TRUE output of the filter
+pCorrTar = (nCorrTar*100)/16 # percentage of correct targets
+pCorrTar = np.around(pCorrTar, 1) # round the percentage to the decimal point
+
+nCorrNonTarArray = oneback_run1.data['trial_1back_run1_resp.keys'] # extract response data
+nCorrNonTarFilter = nCorrNonTarArray == 'left' # index the data of the non-targets
+nCorrNonTar = sum(nCorrNonTarFilter) # calculate sum of correct non-targets aka sum of TRUE output of the filter
+pCorrNonTar = (nCorrNonTar*100)/48 # percentage of correct non-targets
+pCorrNonTar = np.around(pCorrNonTar, 1) # round the percentage to the decimal point
+
+if pCorrTar >= 50 and pCorrNonTar >= 50:
+    msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf " + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nWeiter so!"
 else:
-    msg = "In diesem Block haben Sie auf " + str(pCorr) + "% der Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!"
+    msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf " + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!"
 fb_1back_run1.setText(msg)
 fb_key_1_1.keys = []
 fb_key_1_1.rt = []
