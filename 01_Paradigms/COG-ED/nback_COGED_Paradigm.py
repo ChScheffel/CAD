@@ -94,11 +94,16 @@ WelcomeKey = keyboard.Keyboard()
 # Create lists with all the different variable names for each n-back level, so the loops can refer to it
 levelList = ['1', '2', '3', '4']
 levelinwordsList = ['direkt', 'zwei', 'drei', 'vier']
+levelcolorList = ['black', 'firebrick', 'mediumblue', 'darkgreen']
+levelcolorinwordsList = ['Schwarz', 'Rot', 'Blau', 'Grün']
 instructionclockList = ['Instruction1backClock', 'Instruction2backClock', 'Instruction2backClock', 'Instruction2backClock']
 instructiontextList = ['Instruction1Text', 'Instruction2Text', 'Instruction3Text', 'Instruction4Text']
 instructionkeyList = ['Instruction1Key', 'Instruction2Key', 'Instruction3Key', 'Instruction4Key']
 instructionallkeyList = ['_Instruction1Key_allKeys', '_Instruction2Key_allKeys', '_Instruction3Key_allKeys', '_Instruction4Key_allKeys']
 instructioncompoList = ['Instruction1backComponents', 'Instruction2backComponents', 'Instruction2backComponents', 'Instruction2backComponents']
+fixcrossList = ['fixcross1', 'fixcross2', 'fixcross3', 'fixcross4']
+fixcrossclockList = ['fixcross1Clock', 'fixcross2Clock', 'fixcross3Clock', 'fixcross4Clock']
+fixcrosscompoList = ['fixcross1Components', 'fixcross2Components', 'fixcross3Components', 'fixcross4Components']
 
 runList = ['run_1back_run1', 'run_1back_run2',
 'run_2back_run1', 'run_2back_run2',
@@ -175,23 +180,24 @@ nref = [0,2,4,6]
 for x in nlevel:
     globals()[instructionclockList[x]] = core.Clock()
     globals()[instructiontextList[x]] = visual.TextStim(win=win, name=instructiontextList[x],
-        text = str(levelList[x]) + '-back\n\nIhnen werden nun nacheinander Buchstaben auf dem Bildschirm präsentiert. Wenn der aktuelle Buchstabe der gleiche ist wie der, der ' + str(levelinwordsList[x]) + ' zuvor präsentiert wurde, dann drücken Sie bitte die rechte Pfeiltaste. Wenn es nicht der gleiche Buchstabe ist, drücken sie bitte die linke Pfeiltaste.\nReagieren Sie bei jedem Buchstaben bitte so schnell und richtig wie möglich.\n\nrechts = gleicher Buchstabe wie ' + str(levelinwordsList[x]) + ' zuvor\nlinks = nicht der gleiche Buchstabe wie zuvor\n\nDrücken Sie die Leertaste, um zu beginnen.',
+        text = str(levelcolorinwordsList[x]) + 'es Level\n\nIhnen werden nun nacheinander Buchstaben auf dem Bildschirm präsentiert. Wenn der aktuelle Buchstabe der gleiche ist wie der, der ' + str(levelinwordsList[x]) + ' zuvor präsentiert wurde, dann drücken Sie bitte die rechte Pfeiltaste. Wenn es nicht der gleiche Buchstabe ist, drücken sie bitte die linke Pfeiltaste.\nReagieren Sie bei jedem Buchstaben bitte so schnell und richtig wie möglich.\n\nrechts = gleicher Buchstabe wie ' + str(levelinwordsList[x]) + ' zuvor\nlinks = nicht der gleiche Buchstabe wie zuvor\n\nDrücken Sie die Leertaste, um zu beginnen.',
         font='Open Sans',
         pos=(0, 0), height=0.03, wrapWidth=None, ori=0.0, 
-        color='black', colorSpace='rgb', opacity=None, 
+        color=levelcolorList[x], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
     globals()[instructionkeyList[x]] = keyboard.Keyboard()
 
 # Initialize components for Routine "FixationCross"
-FixationCrossClock = core.Clock()
-fixcross = visual.TextStim(win=win, name='fixcross',
-    text='+',
-    font='Courier New',
-    pos=(0, 0), height=0.03, wrapWidth=None, ori=0.0, 
-    color='black', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=0.0);
+for x in nlevel:
+    globals()[fixcrossclockList[x]] = core.Clock()
+    globals()[fixcrossList[x]] = visual.TextStim(win=win, name=fixcrossclockList[x],
+        text='+',
+        font='Courier New',
+        pos=(0, 0), height=0.03, wrapWidth=None, ori=0.0, 
+        color=levelcolorList[x], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=0.0);
 
 # Initialize Trial routines with a loop
 for x in nref:
@@ -201,7 +207,7 @@ for x in nref:
             text='',
             font='Courier New',
             pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
-            color='black', colorSpace='rgb', opacity=None, 
+            color=levelcolorList[round(x/2)], colorSpace='rgb', opacity=None, 
             languageStyle='LTR',
             depth=0.0);
         globals()[trialrespList[x+r]] = keyboard.Keyboard()
@@ -436,8 +442,8 @@ for nx in nlevel:
             routineTimer.add(2.000000)
             # update component parameters for each repeat
             # keep track of which components have finished
-            FixationCrossComponents = [fixcross]
-            for thisComponent in FixationCrossComponents:
+            globals()[fixcrosscompoList[nx]] = [globals()[fixcrossList[nx]]]
+            for thisComponent in globals()[fixcrosscompoList[nx]]:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
                 thisComponent.tStartRefresh = None
@@ -447,34 +453,34 @@ for nx in nlevel:
             # reset timers
             t = 0
             _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-            FixationCrossClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+            globals()[fixcrossclockList[nx]].reset(-_timeToFirstFrame)  # t0 is time of first possible flip
             frameN = -1
     
            # -------Run Routine "FixationCross"-------
             while continueRoutine and routineTimer.getTime() > 0:
                 # get current time
-                t = FixationCrossClock.getTime()
-                tThisFlip = win.getFutureFlipTime(clock=FixationCrossClock)
+                t = globals()[fixcrossclockList[nx]].getTime()
+                tThisFlip = win.getFutureFlipTime(clock=globals()[fixcrossclockList[nx]])
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
         
                 # *fixcross* updates
-                if fixcross.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                if globals()[fixcrossList[nx]].status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                     # keep track of start time/frame for later
-                    fixcross.frameNStart = frameN  # exact frame index
-                    fixcross.tStart = t  # local t and not account for scr refresh
-                    fixcross.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(fixcross, 'tStartRefresh')  # time at next scr refresh
-                    fixcross.setAutoDraw(True)
-                if fixcross.status == STARTED:
+                    globals()[fixcrossList[nx]].frameNStart = frameN  # exact frame index
+                    globals()[fixcrossList[nx]].tStart = t  # local t and not account for scr refresh
+                    globals()[fixcrossList[nx]].tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(globals()[fixcrossList[nx]], 'tStartRefresh')  # time at next scr refresh
+                    globals()[fixcrossList[nx]].setAutoDraw(True)
+                if globals()[fixcrossList[nx]].status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
-                    if tThisFlipGlobal > fixcross.tStartRefresh + 3.5-frameTolerance:
+                    if tThisFlipGlobal > globals()[fixcrossList[nx]].tStartRefresh + 2.0-frameTolerance:
                         # keep track of stop time/frame for later
-                        fixcross.tStop = t  # not accounting for scr refresh
-                        fixcross.frameNStop = frameN  # exact frame index
-                        win.timeOnFlip(fixcross, 'tStopRefresh')  # time at next scr refresh
-                        fixcross.setAutoDraw(False)
+                        globals()[fixcrossList[nx]].tStop = t  # not accounting for scr refresh
+                        globals()[fixcrossList[nx]].frameNStop = frameN  # exact frame index
+                        win.timeOnFlip(globals()[fixcrossList[nx]], 'tStopRefresh')  # time at next scr refresh
+                        globals()[fixcrossList[nx]].setAutoDraw(False)
         
                 # check for quit (typically the Esc key)
                 if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -484,7 +490,7 @@ for nx in nlevel:
                 if not continueRoutine:  # a component has requested a forced-end of Routine
                     break
                 continueRoutine = False  # will revert to True if at least one component still running
-                for thisComponent in FixationCrossComponents:
+                for thisComponent in globals()[fixcrosscompoList[nx]]:
                     if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                         continueRoutine = True
                         break  # at least one component has not yet finished
@@ -494,11 +500,11 @@ for nx in nlevel:
                     win.flip()
     
             # -------Ending Routine "FixationCross"-------
-            for thisComponent in FixationCrossComponents:
+            for thisComponent in globals()[fixcrosscompoList[nx]]:
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
-            globals()[runList[y]].addData('fixcross.started', fixcross.tStartRefresh)
-            globals()[runList[y]].addData('fixcross.stopped', fixcross.tStopRefresh)
+            globals()[runList[y]].addData(str(globals()[fixcrossList[nx]]) + '.started', globals()[fixcrossList[nx]].tStartRefresh)
+            globals()[runList[y]].addData(str(globals()[fixcrossList[nx]]) + '.stopped', globals()[fixcrossList[nx]].tStopRefresh)
     
             # ------Prepare to start Routine "trial_nx-back_run1/2/3"-------
             continueRoutine = True
