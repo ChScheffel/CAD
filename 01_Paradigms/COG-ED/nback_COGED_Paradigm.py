@@ -100,74 +100,76 @@ instructionkeyList = ['Instruction1Key', 'Instruction2Key', 'Instruction3Key', '
 instructionallkeyList = ['_Instruction1Key_allKeys', '_Instruction2Key_allKeys', '_Instruction3Key_allKeys', '_Instruction4Key_allKeys']
 instructioncompoList = ['Instruction1backComponents', 'Instruction2backComponents', 'Instruction2backComponents', 'Instruction2backComponents']
 
-runList = ['run_1back_run1', 'run_1back_run2', 'run_1back_run3',
-'run_2back_run1', 'run_2back_run2', 'run_2back_run3',
-'run_3back_run1', 'run_3back_run2', 'run_3back_run3',
-'run_4back_run1', 'run_4back_run2', 'run_4back_run3']
-runthisList = ['this1back_run1', 'this1back_run2', 'this1back_run3',
-'this2back_run1', 'this2back_run2', 'this2back_run3',
-'this3back_run1', 'this3back_run2', 'this3back_run3',
-'this4back_run1', 'this4back_run2', 'this4back_run3']
+runList = ['run_1back_run1', 'run_1back_run2',
+'run_2back_run1', 'run_2back_run2',
+'run_3back_run1', 'run_3back_run2',
+'run_4back_run1', 'run_4back_run2']
+runthisList = ['this1back_run1', 'this1back_run2',
+'this2back_run1', 'this2back_run2',
+'this3back_run1', 'this3back_run2',
+'this4back_run1', 'this4back_run2']
 
 
-trialclockList = ['trial_1back_run1Clock', 'trial_1back_run2Clock', 'trial_1back_run3Clock',
-'trial_2back_run1Clock', 'trial_2back_run2Clock', 'trial_2back_run3Clock',
-'trial_3back_run1Clock', 'trial_3back_run2Clock', 'trial_3back_run3Clock',
-'trial_4back_run1Clock', 'trial_4back_run2Clock', 'trial_4back_run3Clock']
-trialsList = ['trial_1back_run1', 'trial_1back_run2', 'trial_1back_run3',
-'trial_2back_run1', 'trial_2back_run2', 'trial_2back_run3',
-'trial_3back_run1', 'trial_3back_run2', 'trial_3back_run3',
-'trial_4back_run1', 'trial_4back_run2', 'trial_4back_run3']
-trialcompoList = ['trial_1back_run1Components', 'trial_1back_run2Components', 'trial_1back_run3Components',
-'trial_2back_run1Components', 'trial_2back_run2Components', 'trial_2back_run3Components',
-'trial_3back_run1Components', 'trial_3back_run2Components', 'trial_3back_run3Components',
-'trial_4back_run1Components', 'trial_4back_run2Components', 'trial_4back_run3Components']
-trialrespList = ['trial_1back_run1_resp', 'trial_1back_run2_resp', 'trial_1back_run3_resp',
-'trial_2back_run1_resp', 'trial_2back_run2_resp', 'trial_2back_run3_resp',
-'trial_3back_run1_resp', 'trial_3back_run2_resp', 'trial_3back_run3_resp',
-'trial_4back_run1_resp', 'trial_4back_run2_resp', 'trial_4back_run3_resp']
-trialallkeyList = ['_trial_1back_run1_resp_allKeys', '_trial_1back_run2_resp_allKeys', '_trial_1back_run3_resp_allKeys',
-'_trial_2back_run1_resp_allKeys', '_trial_2back_run2_resp_allKeys', '_trial_2back_run3_resp_allKeys',
-'_trial_3back_run1_resp_allKeys', '_trial_3back_run2_resp_allKeys', '_trial_3back_run3_resp_allKeys',
-'_trial_4back_run1_resp_allKeys', '_trial_4back_run2_resp_allKeys', '_trial_4back_run3_resp_allKeys']
+trialclockList = ['trial_1back_run1Clock', 'trial_1back_run2Clock',
+'trial_2back_run1Clock', 'trial_2back_run2Clock',
+'trial_3back_run1Clock', 'trial_3back_run2Clock',
+'trial_4back_run1Clock', 'trial_4back_run2Clock']
+trialsList = ['trial_1back_run1', 'trial_1back_run2',
+'trial_2back_run1', 'trial_2back_run2',
+'trial_3back_run1', 'trial_3back_run2',
+'trial_4back_run1', 'trial_4back_run2']
+trialcompoList = ['trial_1back_run1Components', 'trial_1back_run2Components',
+'trial_2back_run1Components', 'trial_2back_run2Components',
+'trial_3back_run1Components', 'trial_3back_run2Components',
+'trial_4back_run1Components', 'trial_4back_run2Components']
+trialrespList = ['trial_1back_run1_resp', 'trial_1back_run2_resp',
+'trial_2back_run1_resp', 'trial_2back_run2_resp',
+'trial_3back_run1_resp', 'trial_3back_run2_resp',
+'trial_4back_run1_resp', 'trial_4back_run2_resp']
+trialallkeyList = ['_trial_1back_run1_resp_allKeys', '_trial_1back_run2_resp_allKeys',
+'_trial_2back_run1_resp_allKeys', '_trial_2back_run2_resp_allKeys',
+'_trial_3back_run1_resp_allKeys', '_trial_3back_run2_resp_allKeys',
+'_trial_4back_run1_resp_allKeys', '_trial_4back_run2_resp_allKeys']
 
-fbclockList = ['fb_1back_run1Clock', 'fb_1back_run2Clock', 'fb_1back_run3Clock',
-'fb_2back_run1Clock', 'fb_2back_run2Clock', 'fb_2back_run3Clock',
-'fb_3back_run1Clock', 'fb_3back_run2Clock', 'fb_3back_run3Clock',
-'fb_4back_run1Clock', 'fb_4back_run2Clock', 'fb_4back_run3Clock']
-fbList = ['fb_1back_run1', 'fb_1back_run2', 'fb_1back_run3',
-'fb_2back_run1', 'fb_2back_run2', 'fb_2back_run3',
-'fb_3back_run1', 'fb_3back_run2', 'fb_3back_run3',
-'fb_4back_run1', 'fb_4back_run2', 'fb_4back_run3']
-fbcompoList = ['fb_1back_run1Components', 'fb_1back_run2Components', 'fb_1back_run3Components',
-'fb_2back_run1Components', 'fb_2back_run2Components', 'fb_2back_run3Components',
-'fb_3back_run1Components', 'fb_3back_run2Components', 'fb_3back_run3Components',
-'fb_4back_run1Components', 'fb_4back_run2Components', 'fb_4back_run3Components']
-fbkeyList = ['fb_1back_run1_key', 'fb_1back_run2_key', 'fb_1back_run3_key',
-'fb_2back_run1_key', 'fb_2back_run2_key', 'fb_2back_run3_key',
-'fb_3back_run1_key', 'fb_3back_run2_key', 'fb_3back_run3_key',
-'fb_4back_run1_key', 'fb_4back_run2_key', 'fb_4back_run3_key']
-fballkeyList = ['_fb_1back_run1_allKey', '_fb_1back_run2_allKey', '_fb_1back_run3_allKey',
-'_fb_2back_run1_allKey', '_fb_2back_run2_allKey', '_fb_2back_run3_allKey',
-'_fb_3back_run1_allKey', '_fb_3back_run2_allKey', '_fb_3back_run3_allKey',
-'_fb_4back_run1_allKey', '_fb_4back_run2_allKey', '_fb_4back_run3_allKey']
+fbclockList = ['fb_1back_run1Clock', 'fb_1back_run2Clock',
+'fb_2back_run1Clock', 'fb_2back_run2Clock',
+'fb_3back_run1Clock', 'fb_3back_run2Clock',
+'fb_4back_run1Clock', 'fb_4back_run2Clock']
+fbList = ['fb_1back_run1', 'fb_1back_run2',
+'fb_2back_run1', 'fb_2back_run2',
+'fb_3back_run1', 'fb_3back_run2',
+'fb_4back_run1', 'fb_4back_run2']
+fbcompoList = ['fb_1back_run1Components', 'fb_1back_run2Components',
+'fb_2back_run1Components', 'fb_2back_run2Components',
+'fb_3back_run1Components', 'fb_3back_run2Components',
+'fb_4back_run1Components', 'fb_4back_run2Components']
+fbkeyList = ['fb_1back_run1_key', 'fb_1back_run2_key',
+'fb_2back_run1_key', 'fb_2back_run2_key',
+'fb_3back_run1_key', 'fb_3back_run2_key',
+'fb_4back_run1_key', 'fb_4back_run2_key']
+fballkeyList = ['_fb_1back_run1_allKey', '_fb_1back_run2_allKey',
+'_fb_2back_run1_allKey', '_fb_2back_run2_allKey',
+'_fb_3back_run1_allKey', '_fb_3back_run2_allKey',
+'_fb_4back_run1_allKey', '_fb_4back_run2_allKey']
 
-stimuliList = ['..\\\\..\\\\..\\\\Stimuli\\\\1back_run1.xlsx', '..\\\\..\\\\..\\\\Stimuli\\\\1back_run2.xlsx',
-'..\\\\..\\\\..\\\\Stimuli\\\\1back_run3.xlsx', '..\\\\..\\\\..\\\\Stimuli\\\\2back_run1.xlsx',
-'..\\\\..\\\\..\\\\Stimuli\\\\2back_run2.xlsx', '..\\\\..\\\\..\\\\Stimuli\\\\2back_run3.xlsx',
-'..\\\\..\\\\..\\\\Stimuli\\\\3back_run1.xlsx', '..\\\\..\\\\..\\\\Stimuli\\\\3back_run2.xlsx',
-'..\\\\..\\\\..\\\\Stimuli\\\\3back_run3.xlsx', '..\\\\..\\\\..\\\\Stimuli\\\\4back_run1.xlsx',
-'..\\\\..\\\\..\\\\Stimuli\\\\4back_run2.xlsx', '..\\\\..\\\\..\\\\Stimuli\\\\4back_run3.xlsx']
+stimuliList = ['..\\\\..\\\\..\\\\Stimuli\\\\1back_run1.xlsx',
+'..\\\\..\\\\..\\\\Stimuli\\\\1back_run2.xlsx',
+'..\\\\..\\\\..\\\\Stimuli\\\\2back_run1.xlsx',
+'..\\\\..\\\\..\\\\Stimuli\\\\2back_run2.xlsx',
+'..\\\\..\\\\..\\\\Stimuli\\\\3back_run1.xlsx',
+'..\\\\..\\\\..\\\\Stimuli\\\\3back_run2.xlsx',
+'..\\\\..\\\\..\\\\Stimuli\\\\4back_run1.xlsx',
+'..\\\\..\\\\..\\\\Stimuli\\\\4back_run2.xlsx']
 
 # Create array corresponding to levels of n-back aka the list elements
 nlevel = list(range(4))
 
 # Consecutive numbers corresponding to the total number of runs
-nruns = list(range(3))
+nruns = list(range(2))
 
 # Create array to correctly refer to the different runs depending on n-back in the loops
 # e.g. for 3-back run1 you will have nref[2]+nruns[0] = 6 -> 6th element in trialsList is 'trial_3back_run1'
-nref = [0,3,6,9]
+nref = [0,2,4,6]
 
 # Initialize Instruction routines with a loop
 for x in nlevel:
@@ -431,7 +433,7 @@ for nx in nlevel:
     
             # ------Prepare to start Routine "FixationCross"-------
             continueRoutine = True
-            routineTimer.add(3.500000)
+            routineTimer.add(2.000000)
             # update component parameters for each repeat
             # keep track of which components have finished
             FixationCrossComponents = [fixcross]
@@ -724,7 +726,7 @@ for nx in nlevel:
         # -------Ending Routine "feedback_nx-back_run1/2/3"-------
         for thisComponent in globals()[fbcompoList[y]]:
             if hasattr(thisComponent, "setAutoDraw"):
-                thisComponent.setAutoDraw(False)
+                thisComponent.setAutoDraw(False)      
         # the Routine "feedback_nx-back_run1/2/3" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
 
