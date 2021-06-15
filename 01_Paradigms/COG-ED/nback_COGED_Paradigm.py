@@ -1,14 +1,12 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
     on Juni 02, 2021, at 15:13
 If you publish work using this script the most relevant publication is:
-
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
         PsychoPy2: Experiments in behavior made easy Behav Res 51: 195. 
         https://doi.org/10.3758/s13428-018-01193-y
-
 """
 
 from __future__ import absolute_import, division
@@ -198,6 +196,7 @@ for x in nlevel:
         color=levelcolorList[x], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
+    fixcrosskey = keyboard.Keyboard()
 
 # Initialize Trial routines with a loop
 for x in nref:
@@ -441,8 +440,11 @@ for nx in nlevel:
             continueRoutine = True
             routineTimer.add(2.000000)
             # update component parameters for each repeat
+            fixcrosskey.keys = []
+            fixcrosskey.rt = []
+            _fixcrosskey_allKeys = []
             # keep track of which components have finished
-            globals()[fixcrosscompoList[nx]] = [globals()[fixcrossList[nx]]]
+            globals()[fixcrosscompoList[nx]] = [globals()[fixcrossList[nx]], fixcrosskey]
             for thisComponent in globals()[fixcrosscompoList[nx]]:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -482,6 +484,34 @@ for nx in nlevel:
                         win.timeOnFlip(globals()[fixcrossList[nx]], 'tStopRefresh')  # time at next scr refresh
                         globals()[fixcrossList[nx]].setAutoDraw(False)
         
+                # *fixcrosskey* updates
+                waitOnFlip = False
+                if fixcrosskey.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    fixcrosskey.frameNStart = frameN  # exact frame index
+                    fixcrosskey.tStart = t  # local t and not account for scr refresh
+                    fixcrosskey.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(fixcrosskey, 'tStartRefresh')  # time at next scr refresh
+                    fixcrosskey.status = STARTED
+                    # keyboard checking is just starting
+                    waitOnFlip = True
+                    win.callOnFlip(fixcrosskey.clock.reset)  # t=0 on next screen flip
+                    win.callOnFlip(fixcrosskey.clearEvents, eventType='keyboard')  # clear events on next screen flip
+                if fixcrosskey.status == STARTED:
+                    # is it time to stop? (based on global clock, using actual start)
+                    if tThisFlipGlobal > fixcrosskey.tStartRefresh + 2.0-frameTolerance:
+                        # keep track of stop time/frame for later
+                        fixcrosskey.tStop = t  # not accounting for scr refresh
+                        fixcrosskey.frameNStop = frameN  # exact frame index
+                        win.timeOnFlip(fixcrosskey, 'tStopRefresh')  # time at next scr refresh
+                        fixcrosskey.status = FINISHED
+                if fixcrosskey.status == STARTED and not waitOnFlip:
+                    theseKeys = fixcrosskey.getKeys(keyList=['left', 'right', 'space'], waitRelease=False)
+                    _fixcrosskey_allKeys.extend(theseKeys)
+                    if len(_fixcrosskey_allKeys):
+                        fixcrosskey.keys = _fixcrosskey_allKeys[-1].name  # just the last key pressed
+                        fixcrosskey.rt = _fixcrosskey_allKeys[-1].rt
+                
                 # check for quit (typically the Esc key)
                 if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
                     core.quit()
@@ -503,9 +533,17 @@ for nx in nlevel:
             for thisComponent in globals()[fixcrosscompoList[nx]]:
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
-            globals()[runList[y]].addData(str(globals()[fixcrossList[nx]]) + '.started', globals()[fixcrossList[nx]].tStartRefresh)
-            globals()[runList[y]].addData(str(globals()[fixcrossList[nx]]) + '.stopped', globals()[fixcrossList[nx]].tStopRefresh)
-    
+            globals()[runList[y]].addData(str(fixcrossList[nx]) + '.started', globals()[fixcrossList[nx]].tStartRefresh)
+            globals()[runList[y]].addData(str(fixcrossList[nx]) + '.stopped', globals()[fixcrossList[nx]].tStopRefresh)
+            # check responses
+            if fixcrosskey.keys in ['', [], None]:  # No response was made
+                fixcrosskey.keys = None
+            globals()[runList[y]].addData('fixcrosskey.keys',fixcrosskey.keys)
+            if fixcrosskey.keys != None:  # we had a response
+                globals()[runList[y]].addData('fixcrosskey.rt', fixcrosskey.rt)
+            globals()[runList[y]].addData('fixcrosskey.started', fixcrosskey.tStartRefresh)
+            globals()[runList[y]].addData('fixcrosskey.stopped', fixcrosskey.tStopRefresh)
+
             # ------Prepare to start Routine "trial_nx-back_run1/2/3"-------
             continueRoutine = True
             routineTimer.add(1.500000)
@@ -567,6 +605,7 @@ for nx in nlevel:
                     # keyboard checking is just starting
                     waitOnFlip = True
                     win.callOnFlip(globals()[trialrespList[y]].clock.reset)  # t=0 on next screen flip
+                    win.callOnFlip(globals()[trialrespList[y]].clearEvents, eventType='keyboard') # clear events on next screen flip
                 if globals()[trialrespList[y]].status == STARTED:
                     # is it time to stop? (based on global clock, using actual start)
                     if tThisFlipGlobal > globals()[trialrespList[y]].tStartRefresh + 1.5-frameTolerance:
