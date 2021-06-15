@@ -92,7 +92,7 @@ WelcomeKey = keyboard.Keyboard()
 # Create lists with all the different variable names for each n-back level, so the loops can refer to it
 levelList = ['1', '2', '3', '4']
 levelinwordsList = ['direkt', 'zwei', 'drei', 'vier']
-levelcolorList = ['black', 'firebrick', 'mediumblue', 'darkgreen']
+levelcolorList = ['black', 'darkred', 'darkblue', 'darkgreen']
 levelcolorinwordsList = ['Schwarz', 'Rot', 'Blau', 'Grün']
 instructionclockList = ['Instruction1backClock', 'Instruction2backClock', 'Instruction2backClock', 'Instruction2backClock']
 instructiontextList = ['Instruction1Text', 'Instruction2Text', 'Instruction3Text', 'Instruction4Text']
@@ -175,55 +175,55 @@ nruns = list(range(2))
 nref = [0,2,4,6]
 
 # Initialize Instruction routines with a loop
-for x in nlevel:
-    globals()[instructionclockList[x]] = core.Clock()
-    globals()[instructiontextList[x]] = visual.TextStim(win=win, name=instructiontextList[x],
-        text = str(levelcolorinwordsList[x]) + 'es Level\n\nIhnen werden nun nacheinander Buchstaben auf dem Bildschirm präsentiert. Wenn der aktuelle Buchstabe der gleiche ist wie der, der ' + str(levelinwordsList[x]) + ' zuvor präsentiert wurde, dann drücken Sie bitte die rechte Pfeiltaste. Wenn es nicht der gleiche Buchstabe ist, drücken sie bitte die linke Pfeiltaste.\nReagieren Sie bei jedem Buchstaben bitte so schnell und richtig wie möglich.\n\nrechts = gleicher Buchstabe wie ' + str(levelinwordsList[x]) + ' zuvor\nlinks = nicht der gleiche Buchstabe wie zuvor\n\nDrücken Sie die Leertaste, um zu beginnen.',
+for nx in nlevel:
+    globals()[instructionclockList[nx]] = core.Clock()
+    globals()[instructiontextList[nx]] = visual.TextStim(win=win, name=instructiontextList[nx],
+        text = str(levelcolorinwordsList[nx]) + 'es Level\n\nIhnen werden nun nacheinander Buchstaben auf dem Bildschirm präsentiert. Wenn der aktuelle Buchstabe der gleiche ist wie der, der ' + str(levelinwordsList[nx]) + ' zuvor präsentiert wurde, dann drücken Sie bitte die rechte Pfeiltaste. Wenn es nicht der gleiche Buchstabe ist, drücken sie bitte die linke Pfeiltaste.\nReagieren Sie bei jedem Buchstaben bitte so schnell und richtig wie möglich.\n\nrechts = gleicher Buchstabe wie ' + str(levelinwordsList[nx]) + ' zuvor\nlinks = nicht der gleiche Buchstabe wie zuvor\n\nDrücken Sie die Leertaste, um zu beginnen.',
         font='Open Sans',
         pos=(0, 0), height=0.03, wrapWidth=None, ori=0.0, 
-        color=levelcolorList[x], colorSpace='rgb', opacity=None, 
+        color=levelcolorList[nx], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
-    globals()[instructionkeyList[x]] = keyboard.Keyboard()
+    globals()[instructionkeyList[nx]] = keyboard.Keyboard()
 
 # Initialize components for Routine "FixationCross"
-for x in nlevel:
-    globals()[fixcrossclockList[x]] = core.Clock()
-    globals()[fixcrossList[x]] = visual.TextStim(win=win, name=fixcrossclockList[x],
+for nx in nlevel:
+    globals()[fixcrossclockList[nx]] = core.Clock()
+    globals()[fixcrossList[nx]] = visual.TextStim(win=win, name=fixcrossclockList[nx],
         text='+',
         font='Courier New',
         pos=(0, 0), height=0.03, wrapWidth=None, ori=0.0, 
-        color=levelcolorList[x], colorSpace='rgb', opacity=None, 
+        color=levelcolorList[nx], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
     fixcrosskey = keyboard.Keyboard()
 
 # Initialize Trial routines with a loop
-for x in nref:
+for nx in nref:
     for r in nruns:
-        globals()[trialclockList[x+r]] = core.Clock()
-        globals()[trialsList[x+r]] = visual.TextStim(win=win, name=trialsList[x+r],
+        globals()[trialclockList[nx+r]] = core.Clock()
+        globals()[trialsList[nx+r]] = visual.TextStim(win=win, name=trialsList[nx+r],
             text='',
             font='Courier New',
             pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
-            color=levelcolorList[round(x/2)], colorSpace='rgb', opacity=None, 
+            color=levelcolorList[round(nx/2)], colorSpace='rgb', opacity=None, 
             languageStyle='LTR',
             depth=0.0);
-        globals()[trialrespList[x+r]] = keyboard.Keyboard()
+        globals()[trialrespList[nx+r]] = keyboard.Keyboard()
 
 # Initialize Feedback routines with a loop
-for x in nref:
+for nx in nref:
     for r in nruns:
-        globals()[fbclockList[x+r]] = core.Clock()
+        globals()[fbclockList[nx+r]] = core.Clock()
         msg='doh!'#if this comes up we forgot to update the msg!
-        globals()[fbList[x+r]] = visual.TextStim(win=win, name=fbList[x+r],
+        globals()[fbList[nx+r]] = visual.TextStim(win=win, name=fbList[nx+r],
             text='',
             font='Open Sans',
             pos=(0, 0), height=0.03, wrapWidth=None, ori=0.0, 
             color='black', colorSpace='rgb', opacity=None, 
             languageStyle='LTR',
             depth=-1.0);
-        globals()[fbkeyList[x+r]] = keyboard.Keyboard()
+        globals()[fbkeyList[nx+r]] = keyboard.Keyboard()
 
 # Create some handy timers
 globalClock = core.Clock()  # to track the time since experiment started
