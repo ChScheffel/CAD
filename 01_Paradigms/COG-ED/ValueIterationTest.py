@@ -25,6 +25,7 @@ from numpy import (sin, cos, tan, log, log10, pi, average,
 from numpy.random import random, randint, normal, shuffle, choice as randchoice
 import os  # handy system and path functions
 import sys  # to get file system encoding
+import random # for randomization of comparison order
 
 from psychopy.hardware import keyboard
 
@@ -83,7 +84,7 @@ defaultKeyboard = keyboard.Keyboard()
 # Initialize components for Routine "InstructionED"
 InstructionEDClock = core.Clock()
 text = visual.TextStim(win=win, name='text',
-    text='Nun beginnt der zweite Teil.\n\nDie unterschiedlichen Level, die Sie gerade absolviert haben, werden nun nacheinander gegenübergestellt.\nAuf dem Bildschirm erscheint die Frage "Welche Bezahlung würden Sie eher für welches Level annehmen?". Darunter befinden sich zwei Textfelder, zum Beispiel "1,00€ für das rote Level" und "1,00€ für das schwarze Level". Sie können die question beantworten, indem Sie mit der Maus (mit einem einfachen Klick) auf eins der beiden Felder klicken. Dabei geht es nicht um Schnelligkeit. Nachdem Sie geklickt haben, werden sich die Geldbeträge verändern und Sie können sich erneut entscheiden. Auf diese Weise werden alle Level miteinander verglichen werden.\n\nDrücken Sie die Leertaste, um zu beginnen.',
+    text='Nun beginnt der zweite Teil.\n\nDie unterschiedlichen Level, die Sie gerade absolviert haben, werden nun nacheinander gegenübergestellt.\nAuf dem Bildschirm erscheint die Frage "Welche Bezahlung würden Sie eher für welches Level annehmen?". Darunter befinden sich zwei Textfelder, zum Beispiel "1,00€ für das rote Level" und "1,00€ für das schwarze Level". Sie können die Frage beantworten, indem Sie mit der Maus (mit einem einfachen Klick) auf eins der beiden Felder klicken. Dabei geht es nicht um Schnelligkeit. Nachdem Sie geklickt haben, werden sich die Geldbeträge verändern und Sie können sich erneut entscheiden. Auf diese Weise werden alle Level miteinander verglichen werden.\n\nDrücken Sie die Leertaste, um zu beginnen.',
     font='Open Sans',
     pos=(0, 0), height=0.025, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
@@ -104,21 +105,29 @@ EDlevcolorList = ['black', 'darkred',
 'black', 'darkgreen',
 'darkred', 'darkgreen',
 'black', 'darkblue']
-EDroundList = ['EDround1', 'EDround2', 'EDround3', 'EDround4', 'EDround5', 'EDround6',]
+EDroundList = ['EDround1', 'EDround2', 'EDround3', 'EDround4', 'EDround5', 'EDround6']
+EDroundthisList = ['thisEDround1', 'thisEDround2', 'thisEDround3', 'thisEDround4', 'thisEDround5', 'thisEDround6']
 EDroundclockList = ['EDround1Clock', 'EDround2Clock', 'EDround3Clock', 'EDround4Clock', 'EDround5Clock', 'EDround6Clock']
+EDroundcompoList = ['EDround1Components', 'EDround2Components', 'EDround3Components', 'EDround4Components', 'EDround5Components', 'EDround6Components']
 EDleftbuttonList = ['EDleftbutton1', 'EDleftbutton2', 'EDleftbutton3', 'EDleftbutton4', 'EDleftbutton5', 'EDleftbutton6']
 EDrightbuttonList = ['EDrightbutton1', 'EDrightbutton2', 'EDrightbutton3', 'EDrightbutton4', 'EDrightbutton5', 'EDrightbutton6']
 EDclickList = ['EDclick1', 'EDclick2', 'EDclick3', 'EDclick4', 'EDclick5', 'EDclick6']
-EDsteps = [1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625]
+EDmoneyList = ['EDmoney1', 'EDmoney2', 'EDmoney3', 'EDmoney4', 'EDmoney5', 'EDmoney6', 'EDmoney7']
+EDmoneythisList = ['thisEDmoney1', 'thisEDmoney2', 'thisEDmoney3', 'thisEDmoney4', 'thisEDmoney5', 'thisEDmoney6', 'thisEDmoney7']
+EDsteps = [1,0.5,0.25,0.125,0.0625,0.03125,0.015625]
 
 # Create array corresponding to rounds of effort discounting aka the list elements
 EDrounds = list(range(6))
 
+# Create array corresponding to rounds of effort discounting aka the list elements
+EDmoney = list(range(7))
+
 # Create array corresponding to every second element in the list of comparisons (which will be randomized in the loop for every participant)
-EDcomps = [0, 2, 4, 6, 8, 10]
+EDcomps = [0,2,4,6,8,10]
 
 # Initialize components for Routine "round" with a loop
-EDshuff = random.shuffle(EDcomps)
+
+random.shuffle(EDcomps)
 
 for edx in EDrounds:
     globals()[EDroundclockList[edx]] = core.Clock()
@@ -134,12 +143,12 @@ for edx in EDrounds:
     globals()[EDclickList[edx]].mouseClock = core.Clock()
     globals()[EDleftbuttonList[edx]] = visual.ButtonStim(win, 
        # the '.2f' formats the monetary value into displaying two decimals after the dot, even if it is an integer
-       text= str(format(EDsteps[0],'.2f')) + '€ für das ' + str(EDlevcolorList[EDshuff[edx]]) + ' Level', font='Open Sans',
+       text= str(format(EDsteps[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]]) + ' Level', font='Open Sans',
        pos=[-0.3,-0.15],units='height',
        letterHeight=0.03,
        size=[0.5,0.1], borderWidth=0.0,
        fillColor='darkgrey', borderColor=None,
-       color=EDlevcolorList[EDshuff[edx]], colorSpace='rgb',
+       color=EDlevcolorList[EDcomps[edx]], colorSpace='rgb',
        opacity=None,
        bold=True, italic=False,
        padding=0.03,
@@ -147,12 +156,12 @@ for edx in EDrounds:
        name=EDleftbuttonList[edx])
     globals()[EDleftbuttonList[edx]].buttonClock = core.Clock()
     globals()[EDrightbuttonList[edx]] = visual.ButtonStim(win, 
-       text= str(format(EDsteps[0],'.2f')) + '€ für das ' + str(EDlevcolorList[EDshuff[edx]+1]) + ' Level', font='Open Sans',
+       text= str(format(EDsteps[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]+1]) + ' Level', font='Open Sans',
        pos=[0.3,-0.15],units='height',
        letterHeight=0.03,
        size=[0.5,0.1], borderWidth=0.0,
        fillColor='darkgrey', borderColor=None,
-       color=EDlevcolorList[EDshuff[edx]+1], colorSpace='rgb',
+       color=EDlevcolorList[EDcomps[edx]+1], colorSpace='rgb',
        opacity=None,
        bold=True, italic=False,
        padding=0.03,
@@ -270,53 +279,71 @@ thisExp.nextEntry()
 # the Routine "InstructionED" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
-# set up handler to look after randomisation of conditions etc
-trials_2 = data.TrialHandler(nReps=6.0, method='random', 
-    extraInfo=expInfo, originPath=-1,
-    trialList=[None],
-    seed=None, name='trials_2')
-thisExp.addLoop(trials_2)  # add the loop to the experiment
-thisTrial_2 = trials_2.trialList[0]  # so we can initialise stimuli with some values
-# abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
-if thisTrial_2 != None:
-    for paramName in thisTrial_2:
-        exec('{} = thisTrial_2[paramName]'.format(paramName))
+# -----------------------------
+# The loop for the 6 comparisons begins here
+# -----------------------------
 
-for thisTrial_2 in trials_2:
-    currentLoop = trials_2
-    # abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
-    if thisTrial_2 != None:
-        for paramName in thisTrial_2:
-            exec('{} = thisTrial_2[paramName]'.format(paramName))
-    
+for edx in EDrounds:
+
     # set up handler to look after randomisation of conditions etc
-    trials = data.TrialHandler(nReps=6.0, method='sequential', 
+    globals()[EDroundList[edx]] = data.TrialHandler(nReps=1.0, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=[None],
-        seed=None, name='trials')
-    thisExp.addLoop(trials)  # add the loop to the experiment
-    thisTrial = trials.trialList[0]  # so we can initialise stimuli with some values
-    # abbreviate parameter names if possible (e.g. rgb = thisTrial.rgb)
-    if thisTrial != None:
-        for paramName in thisTrial:
-            exec('{} = thisTrial[paramName]'.format(paramName))
+        trialList=EDrounds,
+        seed=None, name=EDroundList[edx])
+    thisExp.addLoop(globals()[EDroundList[edx]])  # add the loop to the experiment
+    globals()[EDroundthisList[edx]] = globals()[EDroundList[edx]].trialList[0]  # so we can initialise stimuli with some values
+    # abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
+    if globals()[EDroundthisList[edx]] != None:
+        for paramName in globals()[EDroundthisList[edx]]:
+            vari = ['{} = ' + str(EDroundthisList[edx]) + '[paramName]']
+            exec(vari[0].format(paramName))
+
+    for globals()[EDroundthisList[edx]] in globals()[EDroundList[edx]]:
+        currentLoop = globals()[EDroundList[edx]]
+        # abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
+        if globals()[EDroundthisList[edx]] != None:
+            for paramName in globals()[EDroundthisList[edx]]:
+                vari = ['{} = ' + str(EDroundthisList[edx]) + '[paramName]']
+                exec(vari[0].format(paramName))
+
     
-    for thisTrial in trials:
-        currentLoop = trials
+    # ----------------------------------
+    # The loop for the 7 levels of money begins here
+    # ----------------------------------
+    
+    for edy in EDmoney:
+
+        # set up handler to look after randomisation of conditions etc
+        globals()[EDmoneyList[edy]] = data.TrialHandler(nReps=1.0, method='sequential', 
+            extraInfo=expInfo, originPath=-1,
+            trialList=EDmoney,
+            seed=None, name=EDmoneyList[edy])
+        thisExp.addLoop(globals()[EDmoneyList[edy]])  # add the loop to the experiment
+        globals()[EDmoneythisList[edy]] = globals()[EDmoneyList[edy]].trialList[0]  # so we can initialise stimuli with some values
         # abbreviate parameter names if possible (e.g. rgb = thisTrial.rgb)
-        if thisTrial != None:
-            for paramName in thisTrial:
-                exec('{} = thisTrial[paramName]'.format(paramName))
-        
-        # ------Prepare to start Routine "round"-------
+        if globals()[EDmoneythisList[edy]] != None:
+            for paramName in globals()[EDmoneythisList[edy]]:
+                vari = ['{} = ' + str(EDmoneythisList[edx]) + '[paramName]']
+                exec(vari[0].format(paramName))
+
+        for globals()[EDmoneythisList[edy]] in globals()[EDmoneyList[edy]]:
+            currentLoop = globals()[EDmoneyList[edy]]
+            # abbreviate parameter names if possible (e.g. rgb = thisTrial.rgb)
+            if globals()[EDmoneythisList[edy]] != None:
+                for paramName in globals()[EDmoneythisList[edy]]:
+                    vari = ['{} = ' + str(EDmoneythisList[edx]) + '[paramName]']
+                    exec(vari[0].format(paramName))
+
+
+        # ------Prepare to start Routine -------
         continueRoutine = True
         # update component parameters for each repeat
-        # setup some python lists for storing info about the AntwortKlick
-        AntwortKlick.clicked_name = []
+        # setup some python lists for storing info about the response click
+        globals()[EDclickList[edx]].clicked_name = []
         gotValidClick = False  # until a click is received
         # keep track of which components have finished
-        roundComponents = [question, AntwortKlick, LeftButton, RightButton]
-        for thisComponent in roundComponents:
+        globals()[EDroundcompoList[edx]] = [question, globals()[EDclickList[edx]], globals()[EDleftbuttonList[edx]], globals()[EDrightbuttonList[edx]]]
+        for thisComponent in globals()[EDroundcompoList[edx]]:
             thisComponent.tStart = None
             thisComponent.tStop = None
             thisComponent.tStartRefresh = None
@@ -326,14 +353,14 @@ for thisTrial_2 in trials_2:
         # reset timers
         t = 0
         _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-        roundClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+        globals()[EDroundclockList[edx]].reset(-_timeToFirstFrame)  # t0 is time of first possible flip
         frameN = -1
         
-        # -------Run Routine "round"-------
+        # -------Run Routine -------
         while continueRoutine:
             # get current time
-            t = roundClock.getTime()
-            tThisFlip = win.getFutureFlipTime(clock=roundClock)
+            t = globals()[EDroundclockList[edx]].getTime()
+            tThisFlip = win.getFutureFlipTime(clock=globals()[EDroundclockList[edx]])
             tThisFlipGlobal = win.getFutureFlipTime(clock=None)
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
@@ -346,81 +373,81 @@ for thisTrial_2 in trials_2:
                 question.tStartRefresh = tThisFlipGlobal  # on global time
                 win.timeOnFlip(question, 'tStartRefresh')  # time at next scr refresh
                 question.setAutoDraw(True)
-            # *AntwortKlick* updates
-            if AntwortKlick.status == NOT_STARTED and t >= 0.0-frameTolerance:
+            # *response click* updates
+            if globals()[EDclickList[edx]].status == NOT_STARTED and t >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
-                AntwortKlick.frameNStart = frameN  # exact frame index
-                AntwortKlick.tStart = t  # local t and not account for scr refresh
-                AntwortKlick.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(AntwortKlick, 'tStartRefresh')  # time at next scr refresh
-                AntwortKlick.status = STARTED
-                AntwortKlick.mouseClock.reset()
-                prevButtonState = AntwortKlick.getPressed()  # if button is down already this ISN'T a new click
-            if AntwortKlick.status == STARTED:  # only update if started and not finished!
-                buttons = AntwortKlick.getPressed()
+                globals()[EDclickList[edx]].frameNStart = frameN  # exact frame index
+                globals()[EDclickList[edx]].tStart = t  # local t and not account for scr refresh
+                globals()[EDclickList[edx]].tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(globals()[EDclickList[edx]], 'tStartRefresh')  # time at next scr refresh
+                globals()[EDclickList[edx]].status = STARTED
+                globals()[EDclickList[edx]].mouseClock.reset()
+                prevButtonState = globals()[EDclickList[edx]].getPressed()  # if button is down already this ISN'T a new click
+            if globals()[EDclickList[edx]].status == STARTED:  # only update if started and not finished!
+                buttons = globals()[EDclickList[edx]].getPressed()
                 if buttons != prevButtonState:  # button state changed?
                     prevButtonState = buttons
                     if sum(buttons) > 0:  # state changed to a new click
                         # check if the mouse was inside our 'clickable' objects
                         gotValidClick = False
-                        for obj in [LeftButton,]:
-                            if obj.contains(AntwortKlick):
+                        for obj in [globals()[EDleftbuttonList[edx]],globals()[EDrightbuttonList[edx]],]:
+                            if obj.contains(globals()[EDclickList[edx]]):
                                 gotValidClick = True
-                                AntwortKlick.clicked_name.append(obj.name)
+                                globals()[EDclickList[edx]].clicked_name.append(obj.name)
                         if gotValidClick:  # abort routine on response
                             continueRoutine = False
             
             # *LeftButton* updates
-            if LeftButton.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            if globals()[EDleftbuttonList[edx]].status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
-                LeftButton.frameNStart = frameN  # exact frame index
-                LeftButton.tStart = t  # local t and not account for scr refresh
-                LeftButton.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(LeftButton, 'tStartRefresh')  # time at next scr refresh
-                LeftButton.setAutoDraw(True)
-            if LeftButton.status == STARTED:
+                globals()[EDleftbuttonList[edx]].frameNStart = frameN  # exact frame index
+                globals()[EDleftbuttonList[edx]].tStart = t  # local t and not account for scr refresh
+                globals()[EDleftbuttonList[edx]].tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(globals()[EDleftbuttonList[edx]], 'tStartRefresh')  # time at next scr refresh
+                globals()[EDleftbuttonList[edx]].setAutoDraw(True)
+            if globals()[EDleftbuttonList[edx]].status == STARTED:
                 # check whether LeftButton has been pressed
-                if LeftButton.isClicked:
-                    if not LeftButton.wasClicked:
-                        LeftButton.timesOn.append(LeftButton.buttonClock.getTime()) # store time of first click
-                        LeftButton.timesOff.append(LeftButton.buttonClock.getTime()) # store time clicked until
+                if globals()[EDleftbuttonList[edx]].isClicked:
+                    if not globals()[EDleftbuttonList[edx]].wasClicked:
+                        globals()[EDleftbuttonList[edx]].timesOn.append(globals()[EDleftbuttonList[edx]].buttonClock.getTime()) # store time of first click
+                        globals()[EDleftbuttonList[edx]].timesOff.append(globals()[EDleftbuttonList[edx]].buttonClock.getTime()) # store time clicked until
                     else:
-                        LeftButton.timesOff[-1] = LeftButton.buttonClock.getTime() # update time clicked until
-                    if not LeftButton.wasClicked:
+                        globals()[EDleftbuttonList[edx]].timesOff[-1] = globals()[EDleftbuttonList[edx]].buttonClock.getTime() # update time clicked until
+                    if not globals()[EDleftbuttonList[edx]].wasClicked:
                         continueRoutine = False  # end routine when LeftButton is clicked
                         None
-                    LeftButton.wasClicked = True  # if LeftButton is still clicked next frame, it is not a new click
+                    globals()[EDleftbuttonList[edx]].wasClicked = True  # if LeftButton is still clicked next frame, it is not a new click
                 else:
-                    LeftButton.wasClicked = False  # if LeftButton is clicked next frame, it is a new click
+                    globals()[EDleftbuttonList[edx]].wasClicked = False  # if LeftButton is clicked next frame, it is a new click
             else:
-                LeftButton.buttonClock.reset() # keep clock at 0 if button hasn't started / has finished
-                LeftButton.wasClicked = False  # if LeftButton is clicked next frame, it is a new click
+                globals()[EDleftbuttonList[edx]].buttonClock.reset() # keep clock at 0 if button hasn't started / has finished
+                globals()[EDleftbuttonList[edx]].wasClicked = False  # if LeftButton is clicked next frame, it is a new click
             
             # *RightButton* updates
-            if RightButton.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            if globals()[EDrightbuttonList[edx]].status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
-                RightButton.frameNStart = frameN  # exact frame index
-                RightButton.tStart = t  # local t and not account for scr refresh
-                RightButton.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(RightButton, 'tStartRefresh')  # time at next scr refresh
-                RightButton.setAutoDraw(True)
-            if RightButton.status == STARTED:
+                globals()[EDrightbuttonList[edx]].frameNStart = frameN  # exact frame index
+                globals()[EDrightbuttonList[edx]].tStart = t  # local t and not account for scr refresh
+                globals()[EDrightbuttonList[edx]].tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(globals()[EDrightbuttonList[edx]], 'tStartRefresh')  # time at next scr refresh
+                globals()[EDrightbuttonList[edx]].setAutoDraw(True)
+            if globals()[EDrightbuttonList[edx]].status == STARTED:
                 # check whether RightButton has been pressed
-                if RightButton.isClicked:
-                    if not RightButton.wasClicked:
-                        RightButton.timesOn.append(RightButton.buttonClock.getTime()) # store time of first click
-                        RightButton.timesOff.append(RightButton.buttonClock.getTime()) # store time clicked until
+                if globals()[EDrightbuttonList[edx]].isClicked:
+                    if not globals()[EDrightbuttonList[edx]].wasClicked:
+                        globals()[EDrightbuttonList[edx]].timesOn.append(globals()[EDrightbuttonList[edx]].buttonClock.getTime()) # store time of first click
+                        globals()[EDrightbuttonList[edx]].timesOff.append(globals()[EDrightbuttonList[edx]].buttonClock.getTime()) # store time clicked until
                     else:
-                        RightButton.timesOff[-1] = RightButton.buttonClock.getTime() # update time clicked until
-                    if not RightButton.wasClicked:
+                        globals()[EDrightbuttonList[edx]].timesOff[-1] = globals()[EDrightbuttonList[edx]].buttonClock.getTime() # update time clicked until
+                    if not globals()[EDrightbuttonList[edx]].wasClicked:
                         continueRoutine = False  # end routine when RightButton is clicked
                         None
-                    RightButton.wasClicked = True  # if RightButton is still clicked next frame, it is not a new click
+                    globals()[EDrightbuttonList[edx]].wasClicked = True  # if RightButton is still clicked next frame, it is not a new click
                 else:
-                    RightButton.wasClicked = False  # if RightButton is clicked next frame, it is a new click
+                    globals()[EDrightbuttonList[edx]].wasClicked = False  # if RightButton is clicked next frame, it is a new click
             else:
-                RightButton.buttonClock.reset() # keep clock at 0 if button hasn't started / has finished
-                RightButton.wasClicked = False  # if RightButton is clicked next frame, it is a new click
+                globals()[EDrightbuttonList[edx]].buttonClock.reset() # keep clock at 0 if button hasn't started / has finished
+                globals()[EDrightbuttonList[edx]].wasClicked = False  # if RightButton is clicked next frame, it is a new click
             
             # check for quit (typically the Esc key)
             if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -430,7 +457,7 @@ for thisTrial_2 in trials_2:
             if not continueRoutine:  # a component has requested a forced-end of Routine
                 break
             continueRoutine = False  # will revert to True if at least one component still running
-            for thisComponent in roundComponents:
+            for thisComponent in globals()[EDroundcompoList[edx]]:
                 if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                     continueRoutine = True
                     break  # at least one component has not yet finished
@@ -439,58 +466,58 @@ for thisTrial_2 in trials_2:
             if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
                 win.flip()
         
-        # -------Ending Routine "round"-------
-        for thisComponent in roundComponents:
+        # -------Ending Routine-------
+        for thisComponent in globals()[EDroundcompoList[edx]]:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
-        rounds.addData('question.started', question.tStartRefresh)
-        rounds.addData('question.stopped', question.tStopRefresh)
+        globals()[EDroundList[edx]].addData('question.started', question.tStartRefresh)
+        globals()[EDroundList[edx]].addData('question.stopped', question.tStopRefresh)
         # store data for rounds (TrialHandler)
-        x, y = AntwortKlick.getPos()
-        buttons = AntwortKlick.getPressed()
+        x, y = globals()[EDclickList[edx]].getPos()
+        buttons = globals()[EDclickList[edx]].getPressed()
         if sum(buttons):
             # check if the mouse was inside our 'clickable' objects
             gotValidClick = False
-            for obj in [LeftButton,]:
-                if obj.contains(AntwortKlick):
+            for obj in [globals()[EDleftbuttonList[edx]],globals()[EDrightbuttonList[edx]]]:
+                if obj.contains(globals()[EDclickList[edx]]):
                     gotValidClick = True
-                    AntwortKlick.clicked_name.append(obj.name)
-        rounds.addData('AntwortKlick.x', x)
-        rounds.addData('AntwortKlick.y', y)
-        rounds.addData('AntwortKlick.leftButton', buttons[0])
-        rounds.addData('AntwortKlick.midButton', buttons[1])
-        rounds.addData('AntwortKlick.rightButton', buttons[2])
+                    globals()[EDclickList[edx]].clicked_name.append(obj.name)
+        globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.x', x)
+        globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.y', y)
+        globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.leftButton', buttons[0])
+        globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.midButton', buttons[1])
+        globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.rightButton', buttons[2])
         if len(AntwortKlick.clicked_name):
-            rounds.addData('AntwortKlick.clicked_name', AntwortKlick.clicked_name[0])
-        rounds.addData('AntwortKlick.started', AntwortKlick.tStart)
-        rounds.addData('AntwortKlick.stopped', AntwortKlick.tStop)
-        rounds.addData('LeftButton.started', LeftButton.tStartRefresh)
-        rounds.addData('LeftButton.stopped', LeftButton.tStopRefresh)
-        rounds.addData('LeftButton.numClicks', LeftButton.numClicks)
-        if LeftButton.numClicks:
-           rounds.addData('LeftButton.timesOn', LeftButton.timesOn[0])
-           rounds.addData('LeftButton.timesOff', LeftButton.timesOff[0])
+            globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.clicked_name', globals()[EDclickList[edx]].clicked_name[0])
+        globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.started', globals()[EDclickList[edx]].tStart)
+        globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.stopped', globals()[EDclickList[edx]].tStop)
+        globals()[EDroundList[edx]].addData(str(EDleftbuttonList[edx]) + '.started', globals()[EDleftbuttonList[edx]].tStartRefresh)
+        globals()[EDroundList[edx]].addData(str(EDleftbuttonList[edx]) + '.stopped', globals()[EDleftbuttonList[edx]].tStopRefresh)
+        globals()[EDroundList[edx]].addData(str(EDleftbuttonList[edx]) + '.numClicks', globals()[EDleftbuttonList[edx]].numClicks)
+        if globals()[EDleftbuttonList[edx]].numClicks:
+           globals()[EDroundList[edx]].addData(str(EDleftbuttonList[edx]) + '.timesOn', globals()[EDleftbuttonList[edx]].timesOn[0])
+           globals()[EDroundList[edx]].addData(str(EDleftbuttonList[edx]) + '.timesOff', globals()[EDleftbuttonList[edx]].timesOff[0])
         else:
-           rounds.addData('LeftButton.timesOn', "")
-           rounds.addData('LeftButton.timesOff', "")
-        rounds.addData('RightButton.started', RightButton.tStartRefresh)
-        rounds.addData('RightButton.stopped', RightButton.tStopRefresh)
-        rounds.addData('RightButton.numClicks', RightButton.numClicks)
-        if RightButton.numClicks:
-           rounds.addData('RightButton.timesOn', RightButton.timesOn[0])
-           rounds.addData('RightButton.timesOff', RightButton.timesOff[0])
+           globals()[EDroundList[edx]].addData(str(EDleftbuttonList[edx]) + '.timesOn', "")
+           globals()[EDroundList[edx]].addData(str(EDleftbuttonList[edx]) + '.timesOff', "")
+        globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.started', globals()[EDrightbuttonList[edx]].tStartRefresh)
+        globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.stopped', globals()[EDrightbuttonList[edx]].tStopRefresh)
+        globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.numClicks', globals()[EDrightbuttonList[edx]].numClicks)
+        if globals()[EDrightbuttonList[edx]].numClicks:
+           globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.timesOn', globals()[EDrightbuttonList[edx]].timesOn[0])
+           globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.timesOff', globals()[EDrightbuttonList[edx]].timesOff[0])
         else:
-           rounds.addData('RightButton.timesOn', "")
-           rounds.addData('RightButton.timesOff', "")
-        # the Routine "round" was not non-slip safe, so reset the non-slip timer
+           globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.timesOn', "")
+           globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.timesOff', "")
+        # the Routine  was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
-        thisExp.nextEntry()
+
+    # the Routine was not non-slip safe, so reset the non-slip timer
+        routineTimer.reset()    
         
-    # completed 6.0 repeats of 'trials'
     
-    thisExp.nextEntry()
     
-# completed 6.0 repeats of 'trials_2'
+# completed 1.0 repeats of 'EDrounds'
 
 
 # ------Prepare to start Routine "Goodbye"-------
