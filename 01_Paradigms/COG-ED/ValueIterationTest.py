@@ -405,7 +405,7 @@ for edx in EDrounds:
                     if sum(buttons) > 0:  # state changed to a new click
                         # check if the mouse was inside our 'clickable' objects
                         gotValidClick = False
-                        for obj in [globals()[EDleftbuttonList[edx]],globals()[EDrightbuttonList[edx]],]:
+                        for obj in [globals()[EDleftbuttonList[edx]],globals()[EDrightbuttonList[edx]]]:
                             if obj.contains(globals()[EDclickList[edx]]):
                                 gotValidClick = True
                                 globals()[EDclickList[edx]].clicked_name.append(obj.name)
@@ -497,8 +497,6 @@ for edx in EDrounds:
                 if obj.contains(globals()[EDclickList[edx]]):
                     gotValidClick = True
                     globals()[EDclickList[edx]].clicked_name.append(obj.name)
-        globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.x', x)
-        globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.y', y)
         globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.leftButton', buttons[0])
         globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.midButton', buttons[1])
         globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.rightButton', buttons[2])
@@ -507,27 +505,11 @@ for edx in EDrounds:
         lastRightButton = buttons[2]
         if len(globals()[EDclickList[edx]].clicked_name):
             globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.clicked_name', globals()[EDclickList[edx]].clicked_name[0])
-        globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.started', globals()[EDclickList[edx]].tStart)
-        globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.stopped', globals()[EDclickList[edx]].tStop)
-        globals()[EDroundList[edx]].addData(str(EDleftbuttonList[edx]) + '.started', globals()[EDleftbuttonList[edx]].tStartRefresh)
-        globals()[EDroundList[edx]].addData(str(EDleftbuttonList[edx]) + '.stopped', globals()[EDleftbuttonList[edx]].tStopRefresh)
         globals()[EDroundList[edx]].addData(str(EDleftbuttonList[edx]) + '.numClicks', globals()[EDleftbuttonList[edx]].numClicks)
-        if globals()[EDleftbuttonList[edx]].numClicks:
-           globals()[EDroundList[edx]].addData(str(EDleftbuttonList[edx]) + '.timesOn', globals()[EDleftbuttonList[edx]].timesOn[0])
-           globals()[EDroundList[edx]].addData(str(EDleftbuttonList[edx]) + '.timesOff', globals()[EDleftbuttonList[edx]].timesOff[0])
-        else:
-           globals()[EDroundList[edx]].addData(str(EDleftbuttonList[edx]) + '.timesOn', "")
-           globals()[EDroundList[edx]].addData(str(EDleftbuttonList[edx]) + '.timesOff', "")
-        globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.started', globals()[EDrightbuttonList[edx]].tStartRefresh)
-        globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.stopped', globals()[EDrightbuttonList[edx]].tStopRefresh)
         globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.numClicks', globals()[EDrightbuttonList[edx]].numClicks)
-        if globals()[EDrightbuttonList[edx]].numClicks:
-           globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.timesOn', globals()[EDrightbuttonList[edx]].timesOn[0])
-           globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.timesOff', globals()[EDrightbuttonList[edx]].timesOff[0])
-        else:
-           globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.timesOn', "")
-           globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.timesOff', "")
-        
+        # open up the next row for more data
+        thisExp.nextEntry()
+
     # the Routine was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()    
         
