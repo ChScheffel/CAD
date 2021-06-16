@@ -112,14 +112,13 @@ EDroundcompoList = ['EDround1Components', 'EDround2Components', 'EDround3Compone
 EDleftbuttonList = ['EDleftbutton1', 'EDleftbutton2', 'EDleftbutton3', 'EDleftbutton4', 'EDleftbutton5', 'EDleftbutton6']
 EDrightbuttonList = ['EDrightbutton1', 'EDrightbutton2', 'EDrightbutton3', 'EDrightbutton4', 'EDrightbutton5', 'EDrightbutton6']
 EDclickList = ['EDclick1', 'EDclick2', 'EDclick3', 'EDclick4', 'EDclick5', 'EDclick6']
-EDmoneyList = ['EDmoney1', 'EDmoney2', 'EDmoney3', 'EDmoney4', 'EDmoney5', 'EDmoney6', 'EDmoney7']
-EDmoneythisList = ['thisEDmoney1', 'thisEDmoney2', 'thisEDmoney3', 'thisEDmoney4', 'thisEDmoney5', 'thisEDmoney6', 'thisEDmoney7']
-EDsteps = [1,0.5,0.25,0.125,0.0625,0.03125,0.015625]
+EDsteps = [1,1,0.5,0.25,0.125,0.0625,0.03125,0.015625]
+EDfix = [2]
 
 # Create array corresponding to rounds of effort discounting aka the list elements
 EDrounds = list(range(6))
 
-# Create array corresponding to rounds of effort discounting aka the list elements
+# Create array corresponding to rounds of effort discounting within each comparison aka the list elements
 EDmoney = list(range(7))
 
 # Create array corresponding to every second element in the list of comparisons (which will be randomized in the loop for every participant)
@@ -143,7 +142,7 @@ for edx in EDrounds:
     globals()[EDclickList[edx]].mouseClock = core.Clock()
     globals()[EDleftbuttonList[edx]] = visual.ButtonStim(win, 
        # the '.2f' formats the monetary value into displaying two decimals after the dot, even if it is an integer
-       text= str(format(EDsteps[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]]) + ' Level', font='Open Sans',
+       text= '',
        pos=[-0.3,-0.15],units='height',
        letterHeight=0.03,
        size=[0.5,0.1], borderWidth=0.0,
@@ -156,7 +155,7 @@ for edx in EDrounds:
        name=EDleftbuttonList[edx])
     globals()[EDleftbuttonList[edx]].buttonClock = core.Clock()
     globals()[EDrightbuttonList[edx]] = visual.ButtonStim(win, 
-       text= str(format(EDsteps[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]+1]) + ' Level', font='Open Sans',
+       text= '', font='Open Sans',
        pos=[0.3,-0.15],units='height',
        letterHeight=0.03,
        size=[0.5,0.1], borderWidth=0.0,
@@ -280,7 +279,7 @@ thisExp.nextEntry()
 routineTimer.reset()
 
 # -----------------------------
-# The loop for the 6 comparisons begins here
+# Loop for the 6 comparisons
 # -----------------------------
 
 for edx in EDrounds:
@@ -288,7 +287,7 @@ for edx in EDrounds:
     # set up handler to look after randomisation of conditions etc
     globals()[EDroundList[edx]] = data.TrialHandler(nReps=1.0, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=EDrounds,
+        trialList=data.importConditions('..\\\\..\\\\..\\\\Stimuli\\\\Moneyvalues.xlsx'),
         seed=None, name=EDroundList[edx])
     thisExp.addLoop(globals()[EDroundList[edx]])  # add the loop to the experiment
     globals()[EDroundthisList[edx]] = globals()[EDroundList[edx]].trialList[0]  # so we can initialise stimuli with some values
@@ -306,38 +305,55 @@ for edx in EDrounds:
                 vari = ['{} = ' + str(EDroundthisList[edx]) + '[paramName]']
                 exec(vari[0].format(paramName))
 
-    
-    # ----------------------------------
-    # The loop for the 7 levels of money begins here
-    # ----------------------------------
-    
-    for edy in EDmoney:
-
-        # set up handler to look after randomisation of conditions etc
-        globals()[EDmoneyList[edy]] = data.TrialHandler(nReps=1.0, method='sequential', 
-            extraInfo=expInfo, originPath=-1,
-            trialList=EDmoney,
-            seed=None, name=EDmoneyList[edy])
-        thisExp.addLoop(globals()[EDmoneyList[edy]])  # add the loop to the experiment
-        globals()[EDmoneythisList[edy]] = globals()[EDmoneyList[edy]].trialList[0]  # so we can initialise stimuli with some values
-        # abbreviate parameter names if possible (e.g. rgb = thisTrial.rgb)
-        if globals()[EDmoneythisList[edy]] != None:
-            for paramName in globals()[EDmoneythisList[edy]]:
-                vari = ['{} = ' + str(EDmoneythisList[edx]) + '[paramName]']
-                exec(vari[0].format(paramName))
-
-        for globals()[EDmoneythisList[edy]] in globals()[EDmoneyList[edy]]:
-            currentLoop = globals()[EDmoneyList[edy]]
-            # abbreviate parameter names if possible (e.g. rgb = thisTrial.rgb)
-            if globals()[EDmoneythisList[edy]] != None:
-                for paramName in globals()[EDmoneythisList[edy]]:
-                    vari = ['{} = ' + str(EDmoneythisList[edx]) + '[paramName]']
-                    exec(vari[0].format(paramName))
-
-
         # ------Prepare to start Routine -------
         continueRoutine = True
         # update component parameters for each repeat
+        if Currentstep == 0:
+            # in the beginning, both buttons offer 1€ for both levels
+            LB = str(format(EDsteps[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]]) + ' Level'
+            RB = str(format(EDsteps[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]+1]) + ' Level'
+        else:
+            if globals()[EDroundList[edx]].data[str(EDclickList[edx]) + '.leftButton'][0] == 1:
+            # if the participant chose the left button in the beginning, proceed as follows
+            # the right button value is fixed to 2€
+            RB = str(format(EDfix[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]+1]) + ' Level'
+                # now adapt the value of the left button depending on the previous choice
+                if Currentstep == 1:
+                    # set the left button to 1€ (because this does not fit in with the iteration process yet)
+                    LB = str(format(EDsteps[1],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]]) + ' Level' 
+                    oldvalue = EDsteps[1]
+                # iteration process
+                else:
+                    # if the cheaper option was chosen, lower that options value by the current EDsteps value
+                    if globals()[EDroundList[edx]].data[str(EDclickList[edx]) + '.leftButton'][Currentstep-1] == 1:
+                        newvalue = oldvalue - EDsteps[Currentstep]
+                    # if the pricier option was chosen, raise the other options value by the current EDsteps value
+                    else:
+                        newvalue = oldvalue + EDsteps[Currentstep]
+                    LB = str(format(newvalue,'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]]) + ' Level'
+                    oldvalue = newvalue
+            else globals()[EDroundList[edx]].data[str(EDclickList[edx]) + '.rightButton'][0] == 1:
+            # if the participant chose the right button in the beginning, proceed as follows
+            # the left button value is fixed to 2€
+            LB = str(format(EDfix[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]+1]) + ' Level'
+                # now adapt the value of the right button depending on the previous choice
+                if Currentstep == 1:
+                    # set the right button to 1€ (because this does not fit in with the iteration process yet)
+                    RB = str(format(EDsteps[1],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]]) + ' Level' 
+                    oldvalue = EDsteps[1]
+                # iteration process
+                else:
+                    # if the cheaper option was chosen, lower that options value by the current EDsteps value
+                    if globals()[EDroundList[edx]].data[str(EDclickList[edx]) + '.leftButton'][Currentstep-1] == 1:
+                        newvalue = oldvalue - EDsteps[Currentstep]
+                    # if the pricier option was chosen, raise the other options value by the current EDsteps value
+                    else:
+                        newvalue = oldvalue + EDsteps[Currentstep]
+                    RB = str(format(newvalue,'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]]) + ' Level'
+                    oldvalue = newvalue
+        
+        globals()[EDleftbuttonList[edx]].setText(LB)
+        globals()[EDrightbuttonList[edx]].setText(RB)
         # setup some python lists for storing info about the response click
         globals()[EDclickList[edx]].clicked_name = []
         gotValidClick = False  # until a click is received
@@ -509,9 +525,7 @@ for edx in EDrounds:
         else:
            globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.timesOn', "")
            globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.timesOff', "")
-        # the Routine  was not non-slip safe, so reset the non-slip timer
-        routineTimer.reset()
-
+        
     # the Routine was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()    
         
