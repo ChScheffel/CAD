@@ -112,6 +112,7 @@ EDroundcompoList = ['EDround1Components', 'EDround2Components', 'EDround3Compone
 EDleftbuttonList = ['EDleftbutton1', 'EDleftbutton2', 'EDleftbutton3', 'EDleftbutton4', 'EDleftbutton5', 'EDleftbutton6']
 EDrightbuttonList = ['EDrightbutton1', 'EDrightbutton2', 'EDrightbutton3', 'EDrightbutton4', 'EDrightbutton5', 'EDrightbutton6']
 EDclickList = ['EDclick1', 'EDclick2', 'EDclick3', 'EDclick4', 'EDclick5', 'EDclick6']
+EDstorebuttonList = ['EDstorebutton1', 'EDstorebutton2', 'EDstorebutton3', 'EDstorebutton4', 'EDstorebutton5', 'EDstorebutton6', ]
 EDsteps = [1,1,0.5,0.25,0.125,0.0625,0.03125,0.015625]
 EDfix = [2]
 
@@ -166,6 +167,7 @@ for edx in EDrounds:
        anchor='center',
        name=EDrightbuttonList[edx])
     globals()[EDrightbuttonList[edx]].buttonClock = core.Clock()
+    globals()[EDstorebuttonList[edx]] = []
 
 # Initialize components for Routine "Goodbye"
 GoodbyeClock = core.Clock()
@@ -312,7 +314,7 @@ for edx in EDrounds:
             LB = str(format(EDsteps[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]]) + ' Level'
             RB = str(format(EDsteps[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]+1]) + ' Level'
         else:
-            if lastLeftButton == 1:
+            if globals()[EDstorebuttonList[edx]][0] == EDleftbuttonList[edx]:
             # if the participant chose the left button in the beginning, proceed as follows
             # the right button value is fixed to 2€
                 RB = str(format(EDfix[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]+1]) + ' Level'
@@ -324,7 +326,7 @@ for edx in EDrounds:
                 # iteration process
                 else:
                     # if the cheaper option was chosen, lower that options value by the current EDsteps value
-                    if lastLeftButton == 1:
+                    if globals()[EDstorebuttonList[edx]][Currentstep-1] == EDleftbuttonList[edx]:
                         newvalue = oldvalue - EDsteps[Currentstep]
                     # if the pricier option was chosen, raise the other options value by the current EDsteps value
                     else:
@@ -334,21 +336,21 @@ for edx in EDrounds:
             else:
             # if the participant chose the right button in the beginning, proceed as follows
             # the left button value is fixed to 2€
-                LB = str(format(EDfix[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]+1]) + ' Level'
+                LB = str(format(EDfix[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]]) + ' Level'
                 # now adapt the value of the right button depending on the previous choice
                 if Currentstep == 1:
                     # set the right button to 1€ (because this does not fit in with the iteration process yet)
-                    RB = str(format(EDsteps[1],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]]) + ' Level' 
+                    RB = str(format(EDsteps[1],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]+1]) + ' Level' 
                     oldvalue = EDsteps[1]
                 # iteration process
                 else:
                     # if the cheaper option was chosen, lower that options value by the current EDsteps value
-                    if lastRightButton == 1:
+                    if globals()[EDstorebuttonList[edx]][Currentstep-1] == EDrightbuttonList[edx]:
                         newvalue = oldvalue - EDsteps[Currentstep]
                     # if the pricier option was chosen, raise the other options value by the current EDsteps value
                     else:
                         newvalue = oldvalue + EDsteps[Currentstep]
-                    RB = str(format(newvalue,'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]]) + ' Level'
+                    RB = str(format(newvalue,'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]+1]) + ' Level'
                     oldvalue = newvalue
         
         globals()[EDleftbuttonList[edx]].setText(LB)
@@ -397,6 +399,7 @@ for edx in EDrounds:
                 win.timeOnFlip(globals()[EDclickList[edx]], 'tStartRefresh')  # time at next scr refresh
                 globals()[EDclickList[edx]].status = STARTED
                 globals()[EDclickList[edx]].mouseClock.reset()
+                globals()[EDclickList[edx]].clickReset()
                 prevButtonState = globals()[EDclickList[edx]].getPressed()  # if button is down already this ISN'T a new click
             if globals()[EDclickList[edx]].status == STARTED:  # only update if started and not finished!
                 buttons = globals()[EDclickList[edx]].getPressed()
@@ -497,16 +500,16 @@ for edx in EDrounds:
                 if obj.contains(globals()[EDclickList[edx]]):
                     gotValidClick = True
                     globals()[EDclickList[edx]].clicked_name.append(obj.name)
-        globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.leftButton', buttons[0])
-        globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.midButton', buttons[1])
-        globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.rightButton', buttons[2])
-        # store the last response in variables to be able to use them in the iteration process
-        lastLeftButton = buttons[0]
-        lastRightButton = buttons[2]
+        globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.leftmouseclick', buttons[0])
+        globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.midmouseclick', buttons[1])
+        globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.rightmouseclick', buttons[2])
         if len(globals()[EDclickList[edx]].clicked_name):
             globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.clicked_name', globals()[EDclickList[edx]].clicked_name[0])
         globals()[EDroundList[edx]].addData(str(EDleftbuttonList[edx]) + '.numClicks', globals()[EDleftbuttonList[edx]].numClicks)
         globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.numClicks', globals()[EDrightbuttonList[edx]].numClicks)
+        # store the response in variable to be able to use it in the iteration process
+        globals()[EDstorebuttonList[edx]].append(globals()[EDclickList[edx]].clicked_name[0])
+        
         # open up the next row for more data
         thisExp.nextEntry()
 
