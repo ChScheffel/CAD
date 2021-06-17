@@ -104,7 +104,13 @@ EDlevcolorList = ['black', 'darkred',
 'darkblue', 'darkgreen',
 'black', 'darkgreen',
 'darkred', 'darkgreen',
-'black', 'darkblue']
+'black', 'darkblue'] # the system color names for all the levels
+EDlevList = [1, 2,
+2, 3,
+3, 4,
+1, 4,
+2, 4,
+1, 3] # the n-back level that corresponds to the color
 EDroundList = ['EDround1', 'EDround2', 'EDround3', 'EDround4', 'EDround5', 'EDround6']
 EDroundthisList = ['thisEDround1', 'thisEDround2', 'thisEDround3', 'thisEDround4', 'thisEDround5', 'thisEDround6']
 EDroundclockList = ['EDround1Clock', 'EDround2Clock', 'EDround3Clock', 'EDround4Clock', 'EDround5Clock', 'EDround6Clock']
@@ -113,14 +119,15 @@ EDleftbuttonList = ['EDleftbutton1', 'EDleftbutton2', 'EDleftbutton3', 'EDleftbu
 EDrightbuttonList = ['EDrightbutton1', 'EDrightbutton2', 'EDrightbutton3', 'EDrightbutton4', 'EDrightbutton5', 'EDrightbutton6']
 EDclickList = ['EDclick1', 'EDclick2', 'EDclick3', 'EDclick4', 'EDclick5', 'EDclick6']
 EDstorebuttonList = ['EDstorebutton1', 'EDstorebutton2', 'EDstorebutton3', 'EDstorebutton4', 'EDstorebutton5', 'EDstorebutton6', ]
+EDbufferscreenList = ['EDbufferscreen1', 'EDbufferscreen2', 'EDbufferscreen3', 'EDbufferscreen4', 'EDbufferscreen5', 'EDbufferscreen6']
+EDbufferscreenclockList = ['EDbufferscreen1Clock', 'EDbufferscreen2Clock', 'EDbufferscreen3Clock', 'EDbufferscreen4Clock', 'EDbufferscreen5Clock', 'EDbufferscreen6Clock']
+EDbufferscreencompoList = ['EDbufferscreen1Components', 'EDbufferscreen2Components', 'EDbufferscreen3Components', 'EDbufferscreen4Components', 'EDbufferscreen5Components', 'EDbufferscreen6Components']
+
 EDsteps = [1,1,0.5,0.25,0.125,0.0625,0.03125,0.015625]
 EDfix = [2]
 
 # Create array corresponding to rounds of effort discounting aka the list elements
 EDrounds = list(range(6))
-
-# Create array corresponding to rounds of effort discounting within each comparison aka the list elements
-EDmoney = list(range(7))
 
 # Create array corresponding to every second element in the list of comparisons (which will be randomized in the loop for every participant)
 EDcomps = [0,2,4,6,8,10]
@@ -167,6 +174,15 @@ for edx in EDrounds:
        anchor='center',
        name=EDrightbuttonList[edx])
     globals()[EDrightbuttonList[edx]].buttonClock = core.Clock()
+    globals()[EDbufferscreenclockList[edx]] = core.Clock()
+    globals()[EDbufferscreenList[edx]] = visual.TextStim(win=win, name=EDbufferscreenclockList[edx],
+        text='Welche Bezahlung würden Sie eher für welches Level annehmen?',
+        font='Open Sans',
+        pos=[0,0.1], height=0.03, wrapWidth=None, ori=0.0, 
+        color='black', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=0.0);
+    bufferscreenkey = keyboard.Keyboard()
     globals()[EDstorebuttonList[edx]] = []
 
 # Initialize components for Routine "Goodbye"
@@ -265,16 +281,11 @@ while continueRoutine:
 for thisComponent in InstructionEDComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-thisExp.addData('text.started', text.tStartRefresh)
-thisExp.addData('text.stopped', text.tStopRefresh)
 # check responses
 if key_resp.keys in ['', [], None]:  # No response was made
     key_resp.keys = None
-thisExp.addData('key_resp.keys',key_resp.keys)
 if key_resp.keys != None:  # we had a response
     thisExp.addData('key_resp.rt', key_resp.rt)
-thisExp.addData('key_resp.started', key_resp.tStartRefresh)
-thisExp.addData('key_resp.stopped', key_resp.tStopRefresh)
 thisExp.nextEntry()
 # the Routine "InstructionED" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
@@ -306,6 +317,108 @@ for edx in EDrounds:
                 vari = ['{} = ' + str(EDroundthisList[edx]) + '[paramName]']
                 exec(vari[0].format(paramName))
 
+        # ------Prepare to start Routine "bufferscreen"-------
+            continueRoutine = True
+            routineTimer.add(0.500000)
+            # update component parameters for each repeat
+            bufferscreenkey.keys = []
+            bufferscreenkey.rt = []
+            _bufferscreenkey_allKeys = []
+            # keep track of which components have finished
+            globals()[EDbufferscreencompoList[edx]] = [globals()[EDbufferscreenList[edx]], bufferscreenkey]
+            for thisComponent in globals()[EDbufferscreencompoList[edx]]:
+                thisComponent.tStart = None
+                thisComponent.tStop = None
+                thisComponent.tStartRefresh = None
+                thisComponent.tStopRefresh = None
+                if hasattr(thisComponent, 'status'):
+                    thisComponent.status = NOT_STARTED
+            # reset timers
+            t = 0
+            _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+            globals()[EDbufferscreenclockList[edx]].reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+            frameN = -1
+    
+           # -------Run Routine "bufferscreen"-------
+            while continueRoutine and routineTimer.getTime() > 0:
+                # get current time
+                t = globals()[EDbufferscreenclockList[edx]].getTime()
+                tThisFlip = win.getFutureFlipTime(clock=globals()[EDbufferscreenclockList[edx]])
+                tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+                frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+                # update/draw components on each frame
+        
+                # *bufferscreen* updates
+                if globals()[EDbufferscreenList[edx]].status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    globals()[EDbufferscreenList[edx]].frameNStart = frameN  # exact frame index
+                    globals()[EDbufferscreenList[edx]].tStart = t  # local t and not account for scr refresh
+                    globals()[EDbufferscreenList[edx]].tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(globals()[EDbufferscreenList[edx]], 'tStartRefresh')  # time at next scr refresh
+                    globals()[EDbufferscreenList[edx]].setAutoDraw(True)
+                if globals()[EDbufferscreenList[edx]].status == STARTED:
+                    # is it time to stop? (based on global clock, using actual start)
+                    if tThisFlipGlobal > globals()[EDbufferscreenList[edx]].tStartRefresh + 2.0-frameTolerance:
+                        # keep track of stop time/frame for later
+                        globals()[EDbufferscreenList[edx]].tStop = t  # not accounting for scr refresh
+                        globals()[EDbufferscreenList[edx]].frameNStop = frameN  # exact frame index
+                        win.timeOnFlip(globals()[EDbufferscreenList[edx]], 'tStopRefresh')  # time at next scr refresh
+                        globals()[EDbufferscreenList[edx]].setAutoDraw(False)
+        
+                # *bufferscreenkey* updates
+                waitOnFlip = False
+                if bufferscreenkey.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    bufferscreenkey.frameNStart = frameN  # exact frame index
+                    bufferscreenkey.tStart = t  # local t and not account for scr refresh
+                    bufferscreenkey.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(bufferscreenkey, 'tStartRefresh')  # time at next scr refresh
+                    bufferscreenkey.status = STARTED
+                    # keyboard checking is just starting
+                    waitOnFlip = True
+                    win.callOnFlip(bufferscreenkey.clock.reset)  # t=0 on next screen flip
+                    win.callOnFlip(bufferscreenkey.clearEvents, eventType='keyboard')  # clear events on next screen flip
+                if bufferscreenkey.status == STARTED:
+                    # is it time to stop? (based on global clock, using actual start)
+                    if tThisFlipGlobal > bufferscreenkey.tStartRefresh + 2.0-frameTolerance:
+                        # keep track of stop time/frame for later
+                        bufferscreenkey.tStop = t  # not accounting for scr refresh
+                        bufferscreenkey.frameNStop = frameN  # exact frame index
+                        win.timeOnFlip(bufferscreenkey, 'tStopRefresh')  # time at next scr refresh
+                        bufferscreenkey.status = FINISHED
+                if bufferscreenkey.status == STARTED and not waitOnFlip:
+                    theseKeys = bufferscreenkey.getKeys(keyList=['left', 'right', 'space'], waitRelease=False)
+                    _bufferscreenkey_allKeys.extend(theseKeys)
+                    if len(_bufferscreenkey_allKeys):
+                        bufferscreenkey.keys = _bufferscreenkey_allKeys[-1].name  # just the last key pressed
+                        bufferscreenkey.rt = _bufferscreenkey_allKeys[-1].rt
+                
+                # check for quit (typically the Esc key)
+                if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+                    core.quit()
+        
+                # check if all components have finished
+                if not continueRoutine:  # a component has requested a forced-end of Routine
+                    break
+                continueRoutine = False  # will revert to True if at least one component still running
+                for thisComponent in globals()[EDbufferscreencompoList[edx]]:
+                    if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                        continueRoutine = True
+                        break  # at least one component has not yet finished
+        
+                # refresh the screen
+                if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                    win.flip()
+    
+            # -------Ending Routine "FixationCross"-------
+            for thisComponent in globals()[EDbufferscreencompoList[edx]]:
+                if hasattr(thisComponent, "setAutoDraw"):
+                    thisComponent.setAutoDraw(False)
+            globals()[EDroundList[edx]].addData(str(EDbufferscreenList[edx]) + '.started', globals()[EDbufferscreenList[edx]].tStartRefresh)
+            # check responses
+            if bufferscreenkey.keys in ['', [], None]:  # No response was made
+                bufferscreenkey.keys = None
+        
         # ------Prepare to start Routine -------
         continueRoutine = True
         # update component parameters for each repeat
@@ -500,13 +613,21 @@ for edx in EDrounds:
                 if obj.contains(globals()[EDclickList[edx]]):
                     gotValidClick = True
                     globals()[EDclickList[edx]].clicked_name.append(obj.name)
-        globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.leftmouseclick', buttons[0])
-        globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.midmouseclick', buttons[1])
-        globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.rightmouseclick', buttons[2])
         if len(globals()[EDclickList[edx]].clicked_name):
             globals()[EDroundList[edx]].addData(str(EDclickList[edx]) + '.clicked_name', globals()[EDclickList[edx]].clicked_name[0])
-        globals()[EDroundList[edx]].addData(str(EDleftbuttonList[edx]) + '.numClicks', globals()[EDleftbuttonList[edx]].numClicks)
-        globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.numClicks', globals()[EDrightbuttonList[edx]].numClicks)
+        # which button was clicked (1 = yes, 0 = no)
+        if globals()[EDclickList[edx]].clicked_name[0] == EDleftbuttonList[edx]:
+            globals()[EDroundList[edx]].addData(str(EDleftbuttonList[edx]) + '.wasclicked', 1)
+            globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.wasclicked', 0)
+        else:
+            globals()[EDroundList[edx]].addData(str(EDleftbuttonList[edx]) + '.wasclicked', 0)
+            globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.wasclicked', 1)
+        # what value was depicted on each button
+        globals()[EDroundList[edx]].addData(str(EDleftbuttonList[edx]) + '.value', LB[0:4])
+        globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.value', RB[0:4])
+        # was levelcolor each button had
+        globals()[EDroundList[edx]].addData(str(EDleftbuttonList[edx]) + '.nback', EDlevList[EDcomps[edx]])
+        globals()[EDroundList[edx]].addData(str(EDrightbuttonList[edx]) + '.nback', EDlevList[EDcomps[edx]+1])
         # store the response in variable to be able to use it in the iteration process
         globals()[EDstorebuttonList[edx]].append(globals()[EDclickList[edx]].clicked_name[0])
         
