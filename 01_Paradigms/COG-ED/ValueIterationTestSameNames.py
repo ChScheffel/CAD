@@ -163,7 +163,7 @@ EDrightbutton = visual.ButtonStim(win,
    name='EDrightbutton')
 EDrightbutton.buttonClock = core.Clock()
 EDbufferscreenClock = core.Clock()
-EDbufferscreen = visual.TextStim(win=win, name='EDbufferscreenClock',
+EDbufferscreen = visual.TextStim(win=win, name='EDbufferscreen',
     text='Welche Bezahlung würden Sie eher für welches Level annehmen?',
     font='Open Sans',
     pos=[0,0.1], height=0.03, wrapWidth=None, ori=0.0, 
@@ -590,7 +590,6 @@ for edx in EDrounds:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
         EDround.addData('question.started', question.tStartRefresh)
-        EDround.addData('question.stopped', question.tStopRefresh)
         # store data for rounds (TrialHandler)
         x, y = EDclick.getPos()
         buttons = EDclick.getPressed()
