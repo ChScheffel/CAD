@@ -407,7 +407,7 @@ for nx in nlevel:
     routineTimer.reset()
 
     # -----------------------------------------------------------
-    # Here comes the loop that handles the 3 runs within each of the 4 n-back levels
+    # Here comes the loop that handles the 2 runs within each of the 4 n-back levels
     # -----------------------------------------------------------
 
     for rx in nruns:
@@ -534,7 +534,6 @@ for nx in nlevel:
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
             globals()[runList[y]].addData(str(fixcrossList[nx]) + '.started', globals()[fixcrossList[nx]].tStartRefresh)
-            globals()[runList[y]].addData(str(fixcrossList[nx]) + '.stopped', globals()[fixcrossList[nx]].tStopRefresh)
             # check responses
             if fixcrosskey.keys in ['', [], None]:  # No response was made
                 fixcrosskey.keys = None
@@ -542,7 +541,6 @@ for nx in nlevel:
             if fixcrosskey.keys != None:  # we had a response
                 globals()[runList[y]].addData('fixcrosskey.rt', fixcrosskey.rt)
             globals()[runList[y]].addData('fixcrosskey.started', fixcrosskey.tStartRefresh)
-            globals()[runList[y]].addData('fixcrosskey.stopped', fixcrosskey.tStopRefresh)
 
             # ------Prepare to start Routine "trial_nx-back_run1/2/3"-------
             continueRoutine = True
@@ -648,7 +646,6 @@ for nx in nlevel:
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
             globals()[runList[y]].addData(str(trialsList[y]) + '.started', globals()[trialsList[y]].tStartRefresh)
-            globals()[runList[y]].addData(str(trialsList[y]) + '.stopped', globals()[trialsList[y]].tStopRefresh)
             # check responses
             if globals()[trialrespList[y]].keys in ['', [], None]:  # No response was made
                 globals()[trialrespList[y]].keys = None
@@ -663,7 +660,6 @@ for nx in nlevel:
             if globals()[trialrespList[y]].keys != None:  # we had a response
                 globals()[runList[y]].addData(str(trialrespList[y]) + '.rt', globals()[trialrespList[y]].rt)
             globals()[runList[y]].addData(str(trialrespList[y]) + '.started', globals()[trialrespList[y]].tStartRefresh)
-            globals()[runList[y]].addData(str(trialrespList[y]) + '.stopped', globals()[trialrespList[y]].tStopRefresh)
             thisExp.nextEntry()
     
         # completed 1.0 repeats of 'nx-back_run1/2/3'
