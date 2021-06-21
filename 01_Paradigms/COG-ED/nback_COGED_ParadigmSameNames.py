@@ -108,9 +108,6 @@ nlevel = list(range(4))
 # Consecutive numbers corresponding to the total number of runs per n-back level
 nruns = list(range(2))
 
-# Consecutive numbers corresponding to grand total of runs
-nruns = list(range(len(nlevel) * len(nruns)))
-
 # Create array to correctly refer to the different runs depending on n-back in the loops
 nref = [0,2,4,6]
 
@@ -126,12 +123,12 @@ instructiontext = visual.TextStim(win=win, name='instructiontext',
 instructionkey = keyboard.Keyboard()
 
 # Initialize components for Routine "FixationCross"
-fixcrossClock = core.Clock()
+fixcross_Clock = core.Clock()
 fixcross = visual.TextStim(win=win, name='fixcross',
     text='+',
     font='Courier New',
-    pos=(0, 0), height=0.03, wrapWidth=None, ori=0.0, 
-    color='', colorSpace='rgb', opacity=None, 
+    pos=(0, 0), height=0.02, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
 fixcrosskey = keyboard.Keyboard()
@@ -261,6 +258,9 @@ for nx in nlevel:
     instructionkey.keys = []
     instructionkey.rt = []
     instruction_allKey = []
+    instructiontext.setColor(levelcolorList[nx])
+    currenttext = str(levelcolorinwordsList[nx]) + 'es Level\n\nIhnen werden nun nacheinander Buchstaben auf dem Bildschirm präsentiert. Wenn der aktuelle Buchstabe der gleiche ist wie der, der ' + str(levelinwordsList[nx]) + ' zuvor präsentiert wurde, dann drücken Sie bitte die rechte Pfeiltaste. Wenn es nicht der gleiche Buchstabe ist, drücken sie bitte die linke Pfeiltaste.\nReagieren Sie bei jedem Buchstaben bitte so schnell und richtig wie möglich.\n\nrechts = gleicher Buchstabe wie ' + str(levelinwordsList[nx]) + ' zuvor\nlinks = nicht der gleiche Buchstabe wie zuvor\n\nDrücken Sie die Leertaste, um zu beginnen.'
+    instructiontext.setText(currenttext)
     # keep track of which components have finished
     instruction_Components = [instructiontext, instructionkey]
     for thisComponent in instruction_Components:
@@ -276,6 +276,8 @@ for nx in nlevel:
     instruction_Clock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
     frameN = -1
 
+    nback_trial.setColor(levelcolorList[nx])
+    
     # -------Run Routine "Instruction nx-back"-------
     while continueRoutine:
         # get current time
@@ -293,9 +295,6 @@ for nx in nlevel:
             instructiontext.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(instructiontext, 'tStartRefresh')  # time at next scr refresh
             instructiontext.setAutoDraw(True)
-            instructiontext.setColor(levelcolorList[nx])
-            currenttext = str(levelcolorinwordsList[nx]) + 'es Level\n\nIhnen werden nun nacheinander Buchstaben auf dem Bildschirm präsentiert. Wenn der aktuelle Buchstabe der gleiche ist wie der, der ' + str(levelinwordsList[nx]) + ' zuvor präsentiert wurde, dann drücken Sie bitte die rechte Pfeiltaste. Wenn es nicht der gleiche Buchstabe ist, drücken sie bitte die linke Pfeiltaste.\nReagieren Sie bei jedem Buchstaben bitte so schnell und richtig wie möglich.\n\nrechts = gleicher Buchstabe wie ' + str(levelinwordsList[nx]) + ' zuvor\nlinks = nicht der gleiche Buchstabe wie zuvor\n\nDrücken Sie die Leertaste, um zu beginnen.'
-            instructiontext.setText(currenttext)
     
         # *Instruction nx Key* updates
         waitOnFlip = False
@@ -378,10 +377,9 @@ for nx in nlevel:
             fixcrosskey.keys = []
             fixcrosskey.rt = []
             _fixcrosskey_allKeys = []
-            fixcross.setColor(levelcolorList[nx])
             # keep track of which components have finished
-            fixcrossComponents = [fixcross, fixcrosskey]
-            for thisComponent in fixcrossComponents:
+            fixcross_Components = [fixcross, fixcrosskey]
+            for thisComponent in fixcross_Components:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
                 thisComponent.tStartRefresh = None
@@ -391,14 +389,14 @@ for nx in nlevel:
             # reset timers
             t = 0
             _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-            fixcrossClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+            fixcross_Clock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
             frameN = -1
     
            # -------Run Routine "FixationCross"-------
             while continueRoutine and routineTimer.getTime() > 0:
                 # get current time
-                t = fixcrossClock.getTime()
-                tThisFlip = win.getFutureFlipTime(clock=fixcrossClock)
+                t = fixcross_Clock.getTime()
+                tThisFlip = win.getFutureFlipTime(clock=fixcross_Clock)
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
@@ -456,7 +454,7 @@ for nx in nlevel:
                 if not continueRoutine:  # a component has requested a forced-end of Routine
                     break
                 continueRoutine = False  # will revert to True if at least one component still running
-                for thisComponent in fixcrossComponents:
+                for thisComponent in fixcross_Components:
                     if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                         continueRoutine = True
                         break  # at least one component has not yet finished
@@ -466,17 +464,13 @@ for nx in nlevel:
                     win.flip()
     
             # -------Ending Routine "FixationCross"-------
-            for thisComponent in fixcrossComponents:
+            for thisComponent in fixcross_Components:
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
             nback_run.addData('fixcross.started', fixcross.tStartRefresh)
             # check responses
             if fixcrosskey.keys in ['', [], None]:  # No response was made
                 fixcrosskey.keys = None
-            nback_run.addData('fixcrosskey.keys',fixcrosskey.keys)
-            if fixcrosskey.keys != None:  # we had a response
-                nback_run.addData('fixcrosskey.rt', fixcrosskey.rt)
-            nback_run.addData('fixcrosskey.started', fixcrosskey.tStartRefresh)
 
             # ------Prepare to start Routine "trial_nx-back_run1/2/3"-------
             continueRoutine = True
@@ -486,7 +480,6 @@ for nx in nlevel:
             trial_resp.keys = []
             trial_resp.rt = []
             trial_allKey = []
-            nback_trial.setColor(levelcolorList[nx])
             # keep track of which components have finished
             trial_Components = [nback_trial, trial_resp]
             for thisComponent in trial_Components:
@@ -605,20 +598,17 @@ for nx in nlevel:
         # ------Prepare to start Routine "feedback_nx-back_run1/2/3"-------
         continueRoutine = True
         # update component parameters for each repeat
-        current_firsttrial = (nref[nx] + rx) * 64
-        current_lasttrial = (nref[nx] + rx + 1) * 64
-
-        nCorr = nback_run.data['trial_resp.corr'][current_firsttrial:current_lasttrial].sum() # number of correct trials
+        nCorr = nback_run.data['trial_resp.corr'][-14:].sum() # number of correct trials
         pCorr = (nCorr*100)/64 # percentage of correct trials
         pCorr = round(pCorr, 1) # round the percentage to 1 number after the decimal point
 
-        nCorrTarArray = nback_run.data['trial_resp.keys'][current_firsttrial:current_lasttrial] # extract response data
+        nCorrTarArray = nback_run.data['trial_resp.keys'][-14:] # extract response data
         nCorrTarFilter = nCorrTarArray == 'right' # index the data of the targets
         nCorrTar = sum(nCorrTarFilter) # calculate sum of correct targets aka sum of TRUE output of the filter
         pCorrTar = (nCorrTar*100)/16 # percentage of correct targets
         pCorrTar = np.around(pCorrTar, 1) # round the percentage to the decimal point
 
-        nCorrNonTarArray = nback_run.data['trial_resp.keys'][current_firsttrial:current_lasttrial] # extract response data
+        nCorrNonTarArray = nback_run.data['trial_resp.keys'][-14:] # extract response data
         nCorrNonTarFilter = nCorrNonTarArray == 'left' # index the data of the non-targets
         nCorrNonTar = sum(nCorrNonTarFilter) # calculate sum of correct non-targets aka sum of TRUE output of the filter
         pCorrNonTar = (nCorrNonTar*100)/48 # percentage of correct non-targets
