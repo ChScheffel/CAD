@@ -38,6 +38,7 @@ os.chdir(_thisDir)
 psychopyVersion = '2021.1.4'
 expName1 = 't1_nback'
 expName2 = 't1_ED'
+expName3 = 't1_randomchoice'
 expInfo = {'Participant': ''}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title='t1_Paradigm')
 if dlg.OK == False:
@@ -51,6 +52,8 @@ expInfo['psychopyVersion'] = psychopyVersion
 filename1 = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['Participant'], expName1, expInfo['date'])
 # For Effort Discounting
 filename2 = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['Participant'], expName2, expInfo['date'])
+# For the final n-back level at the end that is randomly chosen
+filename3 = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['Participant'], expName3, expInfo['date'])
 
 # An ExperimentHandler isn't essential but helps with data saving
 # For n-back
@@ -59,12 +62,18 @@ thisExp1 = data.ExperimentHandler(name=expName1, version='',
     originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CogEmotED\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename1)
-# An Effort Discounting
+# For Effort Discounting
 thisExp2 = data.ExperimentHandler(name=expName2, version='',
     extraInfo=expInfo, runtimeInfo=None,
     originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CogEmotED\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename2)
+# For the final n-back level at the end that is randomly chosen
+thisExp3 = data.ExperimentHandler(name=expName3, version='',
+    extraInfo=expInfo, runtimeInfo=None,
+    originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CogEmotED\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
+    savePickle=True, saveWideText=True,
+    dataFileName=filename3)
 
 # save a log file for detail verbose info
 logFile = logging.LogFile(filename1+'.log', level=logging.EXP)
@@ -1275,6 +1284,22 @@ for edx in EDrounds:
         
     
 # Effort Discounting is complete
+
+# Now the participant goes through a 40-stimuli run of an n-back level again
+# The level is being randomly chosen from one of their choices in the 1€ vs 1€ comparisons
+
+startchoices_index = [i for i in range(0, 42, 7)] # the indices of the starting choices in the data
+startchoices_pick = random.choice(startchoices_index) # randomly picks one of the indices of the starting choice
+startchoices_choice = EDround.data['EDclick.clicked_name'][startchoices_pick] # whether the left or right button was chosen
+nlevel_again = EDround.data[str(startchoices_choice) + '.nback'][startchoices_pick] # returns the level of the chosen button
+
+lastchoice_value = EDround.data[str(startchoices_choice) + '.value'][startchoices_pick + 6] # the last value displayed on the chosen button
+lastchoice_choice = EDround.data['EDclick.clicked_name'][startchoices_pick + 6] # the choice made on that last value
+# now calculate the actual final subjective value of the choice
+if lastchoice_choice == startchoices_choice:
+    lastchoice_finalvalue = float(lastchoice_value.replace(',','.') - 0.01 # convert string to float with dot notation and subtract the last EDsteps value
+else:
+    lastchoice_finalvalue = float(lastchoice_value.replace(',','.') + 0.01 # convert string to float with dot notation and add the last EDsteps value
 
 
 # ------Prepare to start Routine "Goodbye"-------
