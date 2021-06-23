@@ -114,6 +114,10 @@ stimuliList = ['..\\\\..\\\\..\\\\Stimuli\\\\1back_run1.xlsx',
 '..\\\\..\\\\..\\\\Stimuli\\\\3back_run2.xlsx',
 '..\\\\..\\\\..\\\\Stimuli\\\\4back_run1.xlsx',
 '..\\\\..\\\\..\\\\Stimuli\\\\4back_run2.xlsx'] # will be used to import the excel files with the n-back stimuli
+finaln_stimuliList = ['..\\\\..\\\\..\\\\Stimuli\\\\1back.xlsx',
+'..\\\\..\\\\..\\\\Stimuli\\\\2back.xlsx',
+'..\\\\..\\\\..\\\\Stimuli\\\\3back.xlsx',
+'..\\\\..\\\\..\\\\Stimuli\\\\4back.xlsx'] # for import of the stimuli for the final round after the ED part
 EDlevcompList = ['schwarze', 'rote',
 'rote', 'blaue',
 'blaue', 'grüne',
@@ -291,6 +295,43 @@ GoodbyeText = visual.TextStim(win=win, name='GoodbyeText',
     color='black', colorSpace='rgb', opacity=None,
     languageStyle='LTR',
     depth=0.0);
+
+# ------------------------------
+# Final n-back round components
+# ------------------------------
+
+# Initialize n-back instruction routine
+finaln_instruction_Clock = core.Clock()
+finaln_instructiontext = visual.TextStim(win=win, name='finaln_instructiontext',
+    text='',
+    font='Open Sans',
+    pos=(0, 0), height=0.03, wrapWidth=None, ori=0.0, 
+    color='', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+finaln_instructionkey = keyboard.Keyboard()
+
+# Initialize fixation cross routine
+finaln_fixcross_Clock = core.Clock()
+finaln_fixcross = visual.TextStim(win=win, name='finaln_fixcross',
+    text='+',
+    font='Courier New',
+    pos=(0, 0), height=0.02, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+finaln_fixcrosskey = keyboard.Keyboard()
+
+# Initialize n-back stimuli presentation
+finaln_trial_Clock = core.Clock()
+finaln_nback_trial = visual.TextStim(win=win, name='finaln_trial',
+    text='',
+    font='Courier New',
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    color='', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+finaln_trial_resp = keyboard.Keyboard()
 
 # Create some handy timers
 globalClock = core.Clock()  # to track the time since experiment started
@@ -484,13 +525,10 @@ for nx in nlevel:
 
     for rx in nruns:
 
-        # create variable that will indicate the correct element within the variable name lists for every run depending on the n-back level    
-        y = nref[nx]+rx
-
         # set up handler to look after randomisation of conditions etc
         nback_run = data.TrialHandler(nReps=1.0, method='sequential', 
             extraInfo=expInfo, originPath=-1,
-            trialList=data.importConditions(stimuliList[y]),
+            trialList=data.importConditions(stimuliList[nref[nx]+rx]),
             seed=None, name='nback_run')
         thisExp1.addLoop(nback_run)  # add the loop to the experiment
         this_nback_run = nback_run.trialList[0]  # so we can initialise stimuli with some values
@@ -725,7 +763,6 @@ for nx in nlevel:
             nback_run.addData('trial_resp.corr', trial_resp.corr)
             if trial_resp.keys != None:  # we had a response
                 nback_run.addData('trial_resp.rt', trial_resp.rt)
-            nback_run.addData('trial_resp.started', trial_resp.tStartRefresh)
             thisExp1.nextEntry()
     
         # completed 1.0 repeats of 'nx-back_run1/2/3'
@@ -751,17 +788,29 @@ for nx in nlevel:
         pCorrNonTar = np.around(pCorrNonTar, 1) # round the percentage to the decimal point
 
         # Display the feedback message depending on correct trials (encouragement) and run number (what happens next)
-        if rx == 0:
-            if pCorrTar >= 50 and pCorrNonTar >= 50:
-                msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf " + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nWeiter so!\n\nDrücken Sie die Leertaste, um einen weiteren Durchgang dieses Levels zu beginnen."
+        if nx != 3:
+            if rx == 0:
+                if pCorrTar >= 50 and pCorrNonTar >= 50:
+                    msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf " + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nWeiter so!\n\nDrücken Sie die Leertaste, um einen weiteren Durchgang dieses Levels zu beginnen."
+                else:
+                    msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf " + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um einen weiteren Durchgang dieses Levels zu beginnen."
             else:
-                msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf " + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um einen weiteren Durchgang dieses Levels zu beginnen."
+                if pCorrTar >= 50 and pCorrNonTar >= 50:
+                    msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf " + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nWeiter so!\n\nDrücken Sie die Leertaste, um die Instruktion des nächsten Levels zu lesen."
+                else:
+                    msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf " + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um die Instruktion des nächsten Levels zu lesen."
         else:
-            if pCorrTar >= 50 and pCorrNonTar >= 50:
-                msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf " + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nWeiter so!\n\nDrücken Sie die Leertaste, um die Instruktion des nächsten Levels zu lesen."
+            if rx == 0:
+                if pCorrTar >= 50 and pCorrNonTar >= 50:
+                    msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf " + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nWeiter so!\n\nDrücken Sie die Leertaste, um einen weiteren Durchgang dieses Levels zu beginnen."
+                else:
+                    msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf " + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um einen weiteren Durchgang dieses Levels zu beginnen."
             else:
-                msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf " + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um die Instruktion des nächsten Levels zu lesen."
-        
+                if pCorrTar >= 50 and pCorrNonTar >= 50:
+                    msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf " + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nWeiter so!\n\nDrücken Sie die Leertaste, um mit dem nächsten Teil des Experiments zu beginnen."
+                else:
+                    msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf " + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um mit dem nächsten Teil des Experiments zu beginnen."
+
         feedback.setText(msg)
         fb_key.keys = []
         fb_key.rt = []
@@ -934,6 +983,13 @@ thisExp2.nextEntry()
 # the Routine "InstructionED" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
+# Some variables to grow within the loop
+finaln_firstchoices = [] # a variable to store the responses of the first choices in every comparison
+finaln_lastchoices = [] # a variable to store the responses of the last choices in every comparison
+finaln_leftbutton_level = [] # a variable to store the levels of the left button
+finaln_rightbutton_level = [] # a variable to store the levels of the right button
+finaln_lastvalue = [] # the last value displayed on the smaller button
+
 # -----------------------------
 # Loop for the 6 comparisons
 # -----------------------------
@@ -952,7 +1008,7 @@ for edx in EDrounds:
         for paramName in thisEDround:
             exec('{} = thisEDround[paramName]'.format(paramName))
 
-    EDstorebutton = []
+    EDstorebutton = [] # a variable to store responses in (for adapting the button values correctly)
 
     for thisEDround in EDround:
         currentLoop = EDround
@@ -1270,11 +1326,21 @@ for edx in EDrounds:
         # what value was depicted on each button
         EDround.addData('EDleftbutton.value', LB[0:4])
         EDround.addData('EDrightbutton.value', RB[0:4])
-        # was levelcolor each button had
+        # what levelcolor each button had
         EDround.addData('EDleftbutton.nback', EDlevList[EDcomps[edx]])
         EDround.addData('EDrightbutton.nback', EDlevList[EDcomps[edx]+1])
-        # store the response in variable to be able to use it in the iteration process
+        # store the necessary variables to be able to use it in the iteration process and for the random pick of the last n-back
         EDstorebutton.append(EDclick.clicked_name[0])
+        if Currentstep == 0:
+            finaln_firstchoices.append(EDclick.clicked_name[0])
+            finaln_leftbutton_level.append(EDlevList[EDcomps[edx]])
+            finaln_rightbutton_level.append(EDlevList[EDcomps[edx]+1])
+        elif Currentstep == 6:
+            finaln_lastchoices.append(EDclick.clicked_name[0])
+            if EDstorebutton[0] == 'EDleftbutton':
+                finaln_lastvalue.append(LB[0:4])
+            else:
+                finaln_lastvalue.append(RB[0:4])
         
         # open up the next row for more data
         thisExp2.nextEntry()
@@ -1286,20 +1352,356 @@ for edx in EDrounds:
 # Effort Discounting is complete
 
 # Now the participant goes through a 40-stimuli run of an n-back level again
-# The level is being randomly chosen from one of their choices in the 1€ vs 1€ comparisons
+# The level is being randomly chosen from one of their choices in the last round of each comparison
 
-startchoices_index = [i for i in range(0, 42, 7)] # the indices of the starting choices in the data
-startchoices_pick = random.choice(startchoices_index) # randomly picks one of the indices of the starting choice
-startchoices_choice = EDround.data['EDclick.clicked_name'][startchoices_pick] # whether the left or right button was chosen
-nlevel_again = EDround.data[str(startchoices_choice) + '.nback'][startchoices_pick] # returns the level of the chosen button
-
-lastchoice_value = EDround.data[str(startchoices_choice) + '.value'][startchoices_pick + 6] # the last value displayed on the chosen button
-lastchoice_choice = EDround.data['EDclick.clicked_name'][startchoices_pick + 6] # the choice made on that last value
-# now calculate the actual final subjective value of the choice
-if lastchoice_choice == startchoices_choice:
-    lastchoice_finalvalue = float(lastchoice_value.replace(',','.') - 0.01 # convert string to float with dot notation and subtract the last EDsteps value
+random_pick = random.choice(list(range(6))) # randomly picks one number from 0 to 5
+firstchoice = finaln_firstchoices[random_pick] # whether the left or right button was chosen first
+lastchoice = finaln_lastchoices[random_pick] # whether the left or right button was chosen last
+lastchoice_value = finaln_lastvalue[random_pick] # the last value displayed on the button that was chosen first
+if lastchoice == 'EDleftbutton':
+    nlevel_again = finaln_leftbutton_level[random_pick] # returns the level of the last chosen button
 else:
-    lastchoice_finalvalue = float(lastchoice_value.replace(',','.') + 0.01 # convert string to float with dot notation and add the last EDsteps value
+    nlevel_again = finaln_rightbutton_level[random_pick] # returns the level of the last chosen button
+nla = nlevel_again - 1 # subtract 1 to be able to use it for indexing list elements
+
+# now calculate the actual final subjective value of the choice
+if lastchoice == firstchoice:
+    lastchoice_finalvalue = float(lastchoice_value.replace(',','.')) - 0.01 # convert string to float with dot notation and subtract the last EDsteps value
+else:
+    lastchoice_finalvalue = 2 # if the higher button was chosen last, then its value is always 2€
+
+# ------Prepare to start Instruction routine-------
+continueRoutine = True
+# update component parameters for each repeat
+finaln_instructionkey.keys = []
+finaln_instructionkey.rt = []
+finaln_instruction_allKey = []
+finaln_instructiontext.setColor(levelcolorList[nla])
+currenttext = 'Zufällig aus Ihren Entscheidungen wurde ausgewählt:\n\n' + str(levelcolorinwordsList[nla]) + 'es Level für ' + str(format(lastchoice_finalvalue,'.2f')) + '€\n\nIhnen werden nun nacheinander Buchstaben auf dem Bildschirm präsentiert. Wenn der aktuelle Buchstabe der gleiche ist wie der, der ' + str(levelinwordsList[nla]) + ' zuvor präsentiert wurde, dann drücken Sie bitte die rechte Pfeiltaste. Wenn es nicht der gleiche Buchstabe ist, drücken sie bitte die linke Pfeiltaste.\nReagieren Sie bei jedem Buchstaben bitte so schnell und richtig wie möglich.\n\nrechts = gleicher Buchstabe wie ' + str(levelinwordsList[nla]) + ' zuvor\nlinks = nicht der gleiche Buchstabe wie zuvor\n\nDrücken Sie die Leertaste, um zu beginnen.'
+finaln_instructiontext.setText(currenttext)
+# keep track of which components have finished
+finaln_instruction_Components = [finaln_instructiontext, finaln_instructionkey]
+for thisComponent in finaln_instruction_Components:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+finaln_instruction_Clock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+finaln_nback_trial.setColor(levelcolorList[nla])
+    
+# -------Run Routine "Instruction nla-back"-------
+while continueRoutine:
+    # get current time
+    t = finaln_instruction_Clock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=finaln_instruction_Clock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+
+    # *Instruction nla Text* updates
+    if finaln_instructiontext.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        finaln_instructiontext.frameNStart = frameN  # exact frame index
+        finaln_instructiontext.tStart = t  # local t and not account for scr refresh
+        finaln_instructiontext.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(finaln_instructiontext, 'tStartRefresh')  # time at next scr refresh
+        finaln_instructiontext.setAutoDraw(True)
+
+    # *Instruction nla Key* updates
+    waitOnFlip = False
+    if finaln_instructionkey.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        finaln_instructionkey.frameNStart = frameN  # exact frame index
+        finaln_instructionkey.tStart = t  # local t and not account for scr refresh
+        finaln_instructionkey.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(finaln_instructionkey, 'tStartRefresh')  # time at next scr refresh
+        finaln_instructionkey.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(finaln_instructionkey.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(finaln_instructionkey.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if finaln_instructionkey.status == STARTED and not waitOnFlip:
+        theseKeys = finaln_instructionkey.getKeys(keyList=['space'], waitRelease=False)
+        finaln_instruction_allKey.extend(theseKeys)
+        if len(finaln_instruction_allKey):
+            finaln_instructionkey.keys = finaln_instruction_allKey[-1].name  # just the last key pressed
+            finaln_instructionkey.rt = finaln_instruction_allKey[-1].rt
+            # a response ends the routine
+            continueRoutine = False
+
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in finaln_instruction_Components:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "Instruction nla-back"-------
+for thisComponent in finaln_instruction_Components:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+# the Routine "Instruction" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
+
+# set up handler to look after randomisation of conditions etc
+finaln_nback_run = data.TrialHandler(nReps=1.0, method='sequential', 
+    extraInfo=expInfo, originPath=-1,
+    trialList=data.importConditions(finaln_stimuliList[nla]),
+    seed=None, name='finaln_nback_run')
+thisExp3.addLoop(finaln_nback_run)  # add the loop to the experiment
+this_finaln_nback_run = finaln_nback_run.trialList[0]  # so we can initialise stimuli with some values
+# abbreviate parameter names if possible (e.g. rgb = thisOneback_run1.rgb)
+if this_finaln_nback_run != None:
+    for paramName in this_finaln_nback_run:
+        exec('{} = this_finaln_nback_run[paramName]'.format(paramName))
+
+for this_finaln_nback_run in finaln_nback_run:
+    currentLoop = finaln_nback_run
+    # abbreviate parameter names if possible (e.g. rgb = thisOneback_run1.rgb)
+    if this_finaln_nback_run != None:
+        for paramName in this_finaln_nback_run:
+            exec('{} = this_finaln_nback_run[paramName]'.format(paramName))
+
+    # ------Prepare to start Routine "FixationCross"-------
+    continueRoutine = True
+    routineTimer.add(2.000000)
+    # update component parameters for each repeat
+    finaln_fixcrosskey.keys = []
+    finaln_fixcrosskey.rt = []
+    _finaln_fixcrosskey_allKeys = []
+    # keep track of which components have finished
+    finaln_fixcross_Components = [finaln_fixcross, finaln_fixcrosskey]
+    for thisComponent in finaln_fixcross_Components:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    finaln_fixcross_Clock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    frameN = -1
+
+   # -------Run Routine "FixationCross"-------
+    while continueRoutine and routineTimer.getTime() > 0:
+        # get current time
+        t = finaln_fixcross_Clock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=finaln_fixcross_Clock)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+
+        # *finaln_fixcross* updates
+        if finaln_fixcross.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            finaln_fixcross.frameNStart = frameN  # exact frame index
+            finaln_fixcross.tStart = t  # local t and not account for scr refresh
+            finaln_fixcross.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(finaln_fixcross, 'tStartRefresh')  # time at next scr refresh
+            finaln_fixcross.setAutoDraw(True)
+        if finaln_fixcross.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > finaln_fixcross.tStartRefresh + 2.0-frameTolerance:
+                # keep track of stop time/frame for later
+                finaln_fixcross.tStop = t  # not accounting for scr refresh
+                finaln_fixcross.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(finaln_fixcross, 'tStopRefresh')  # time at next scr refresh
+                finaln_fixcross.setAutoDraw(False)
+
+        # *finaln_fixcrosskey* updates
+        waitOnFlip = False
+        if finaln_fixcrosskey.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            finaln_fixcrosskey.frameNStart = frameN  # exact frame index
+            finaln_fixcrosskey.tStart = t  # local t and not account for scr refresh
+            finaln_fixcrosskey.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(finaln_fixcrosskey, 'tStartRefresh')  # time at next scr refresh
+            finaln_fixcrosskey.status = STARTED
+            # keyboard checking is just starting
+            waitOnFlip = True
+            win.callOnFlip(finaln_fixcrosskey.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(finaln_fixcrosskey.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if finaln_fixcrosskey.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > finaln_fixcrosskey.tStartRefresh + 2.0-frameTolerance:
+                # keep track of stop time/frame for later
+                finaln_fixcrosskey.tStop = t  # not accounting for scr refresh
+                finaln_fixcrosskey.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(finaln_fixcrosskey, 'tStopRefresh')  # time at next scr refresh
+                finaln_fixcrosskey.status = FINISHED
+        if finaln_fixcrosskey.status == STARTED and not waitOnFlip:
+            theseKeys = finaln_fixcrosskey.getKeys(keyList=['left', 'right', 'space'], waitRelease=False)
+            _finaln_fixcrosskey_allKeys.extend(theseKeys)
+            if len(_finaln_fixcrosskey_allKeys):
+                finaln_fixcrosskey.keys = _finaln_fixcrosskey_allKeys[-1].name  # just the last key pressed
+                finaln_fixcrosskey.rt = _finaln_fixcrosskey_allKeys[-1].rt
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in finaln_fixcross_Components:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+
+    # -------Ending Routine "FixationCross"-------
+    for thisComponent in finaln_fixcross_Components:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    finaln_nback_run.addData('finaln_fixcross.started', finaln_fixcross.tStartRefresh)
+    # check responses
+    if finaln_fixcrosskey.keys in ['', [], None]:  # No response was made
+        finaln_fixcrosskey.keys = None
+
+    # ------Prepare to start Routine "trial_nx-back_run1/2/3"-------
+    continueRoutine = True
+    routineTimer.add(1.500000)
+    # update component parameters for each repeat
+    finaln_nback_trial.setText(Letter)
+    finaln_trial_resp.keys = []
+    finaln_trial_resp.rt = []
+    finaln_trial_allKey = []
+    # keep track of which components have finished
+    finaln_trial_Components = [finaln_nback_trial, finaln_trial_resp]
+    for thisComponent in finaln_trial_Components:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    trial_Clock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    frameN = -1
+
+    # -------Run Routine "trial_nx-back_run1/2/3"-------
+    while continueRoutine and routineTimer.getTime() > 0:
+        # get current time
+        t = trial_Clock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=trial_Clock)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+
+        # *trial_nx-back_run1/2/3* updates
+        if finaln_nback_trial.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            finaln_nback_trial.frameNStart = frameN  # exact frame index
+            finaln_nback_trial.tStart = t  # local t and not account for scr refresh
+            finaln_nback_trial.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(finaln_nback_trial, 'tStartRefresh')  # time at next scr refresh
+            finaln_nback_trial.setAutoDraw(True)
+        if finaln_nback_trial.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > finaln_nback_trial.tStartRefresh + 1.5-frameTolerance:
+                # keep track of stop time/frame for later
+                finaln_nback_trial.tStop = t  # not accounting for scr refresh
+                finaln_nback_trial.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(finaln_nback_trial, 'tStopRefresh')  # time at next scr refresh
+                finaln_nback_trial.setAutoDraw(False)
+
+        # *trial_nx-back_run1/2/3_resp* updates
+        waitOnFlip = False
+        if finaln_trial_resp.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            finaln_trial_resp.frameNStart = frameN  # exact frame index
+            finaln_trial_resp.tStart = t  # local t and not account for scr refresh
+            finaln_trial_resp.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(finaln_trial_resp, 'tStartRefresh')  # time at next scr refresh
+            finaln_trial_resp.status = STARTED
+            # keyboard checking is just starting
+            waitOnFlip = True
+            win.callOnFlip(finaln_trial_resp.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(finaln_trial_resp.clearEvents, eventType='keyboard') # clear events on next screen flip
+        if finaln_trial_resp.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > finaln_trial_resp.tStartRefresh + 1.5-frameTolerance:
+                # keep track of stop time/frame for later
+                finaln_trial_resp.tStop = t  # not accounting for scr refresh
+                finaln_trial_resp.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(finaln_trial_resp, 'tStopRefresh')  # time at next scr refresh
+                finaln_trial_resp.status = FINISHED
+        if finaln_trial_resp.status == STARTED and not waitOnFlip:
+            theseKeys = finaln_trial_resp.getKeys(keyList=['left', 'right'], waitRelease=False)
+            finaln_trial_allKey.extend(theseKeys)
+            if len(finaln_trial_allKey):
+                finaln_trial_resp.keys = finaln_trial_allKey[0].name  # just the first key pressed
+                finaln_trial_resp.rt = finaln_trial_allKey[0].rt
+                # was this correct?
+                if (finaln_trial_resp.keys == str(CorrAnswer)) or (finaln_trial_resp.keys == CorrAnswer):
+                    finaln_trial_resp.corr = 1
+                else:
+                    finaln_trial_resp.corr = 0
+
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in finaln_trial_Components:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+
+    # -------Ending Routine "trial_nx-back_run1/2/3"-------
+    for thisComponent in finaln_trial_Components:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    finaln_nback_run.addData('finaln_nback_trial.started', finaln_nback_trial.tStartRefresh)
+    # check responses
+    if finaln_trial_resp.keys in ['', [], None]:  # No response was made
+        finaln_trial_resp.keys = None
+        # was no response the correct answer?!
+        if str(CorrAnswer).lower() == 'none':
+           finaln_trial_resp.corr = 1;  # correct non-response
+        else:
+           finaln_trial_resp.corr = 0;  # failed to respond (incorrectly)
+    # store data for oneback_run1 (TrialHandler)
+    finaln_nback_run.addData('finaln_trial_resp.keys', finaln_trial_resp.keys)
+    finaln_nback_run.addData('finaln_trial_resp.corr', finaln_trial_resp.corr)
+    if finaln_trial_resp.keys != None:  # we had a response
+        finaln_nback_run.addData('finaln_trial_resp.rt', finaln_trial_resp.rt)
+    finaln_nback_run.addData('finaln_level', nlevel_again) # the n-back level
+    finaln_nback_run.addData('finaln_money', lastchoice_finalvalue) # the additional money that the participant receives (for the experimenter to look it up in case they missed it during the paradigm)
+    thisExp3.nextEntry()
 
 
 # ------Prepare to start Routine "Goodbye"-------
@@ -1373,9 +1775,12 @@ thisExp1.saveAsWideText(filename1+'.csv', delim='auto')
 thisExp1.saveAsPickle(filename1)
 thisExp2.saveAsWideText(filename2+'.csv', delim='auto')
 thisExp2.saveAsPickle(filename2)
+thisExp3.saveAsWideText(filename3+'.csv', delim='auto')
+thisExp3.saveAsPickle(filename3)
 logging.flush()
 # make sure everything is closed down
 thisExp1.abort()  # or data files will save again on exit
 thisExp2.abort()
+thisExp3.abort()
 win.close()
 core.quit()
