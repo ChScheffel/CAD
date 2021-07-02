@@ -16,19 +16,19 @@ a) Association of NFC and subjective value disappears when n-back performance is
 Research Questions for t2 (ER-ED):
 
 4. What are individual subjective values of emotion regulation strategies?
-a) The individual subjective values of ER strategies is negatively correlated with the respective subjective effort rating
+a) The individual subjective values of ER strategies are negatively correlated with the respective subjective effort ratings.
 b) ...
 
 5. Individual subjective values of ER strategies are related to personality traits:
-a) Habitual use of reappraisal measured via ERQ is positively correlated with subjective value of distancing
-b) Habitual use of suppression measured via ERQ is positively correlated with subjective value of suppression
-C) Higher emotion regulation flexibility measured via FlexER is associated with higher subjective values of all strategies
+a) Habitual use of reappraisal measured via ERQ is positively correlated with subjective value of distancing.
+b) Habitual use of suppression measured via ERQ is positively correlated with subjective value of suppression.
+C) Higher emotion regulation flexibility measured via FlexER is associated with higher subjective values of all strategies.
 
 6. Emotion regulation success is associated with self-control
-a) Higher self-control is associated with more down-regulation of emotional arousal during use of ER strategies
+a) Higher self-control is associated with more down-regulation of emotional arousal during use of ER strategies.
 
 Research Questions for associations between T1 and T2
 
-7.
-a) ...
+7. How much does Effort Discounting depend on the stimulus material?
+a) The Area under the Curve values for the subjective values of T1 and T2 are highly correlated (i.e. low intra-individual ED-variability)
 b) ...
