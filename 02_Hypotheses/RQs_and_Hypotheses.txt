@@ -15,8 +15,11 @@ a) Association of NFC and subjective value disappears when n-back performance is
 
 Research Questions for t2 (ER-ED):
 
-4. Can the ED paradigm be applied to emotion regulation strategies?
-a) ...
+4. What are individual subjective values of emotion regulation strategies?
+a) The individual subjective values of ER strategies is negatively correlated with the respective subjective effort rating
 b) ...
 
-5. ...
+5. Individual subjective values of ER strategies are related to personality traits:
+a) Habitual use of reappraisal measured via ERQ is positively correlated with subjective value of distancing
+b) Habitual use of suppression measured via ERQ is positively correlated with subjective value of suppression
+C) Higher emotion regulation flexibility measured via FlexER is associated with higher subjective values of all strategies
