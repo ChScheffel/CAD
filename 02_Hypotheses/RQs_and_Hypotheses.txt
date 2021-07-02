@@ -1,0 +1,22 @@
+Research Questions for t1 (COG-ED):
+
+1. Can the revised COG-ED paradigm capture a person's actual preferences better?
+a) For participants high in NFC, the subjective value curve is right skewed. (i.e. 1-back has a lower value than 2-back)
+b) For participants low in NFC, the subjective value curve is exponential. (i.e. 1-back has the highest value)
+
+2. Can we replicate findings of Westbrook et al. (2013)?
+a1) There is a significant positive correlation between NFC and the AUC of the subjective value between 2-back and 4-back [Replication].
+a2) There is no correlation between NFC and the AUC of the subjective value between 1-back and 4-back [Extension].
+b) In a multiple regression with AUC as the second predictor, the NTLX (task load questionnaire) cannot predict NFC.
+c) In a multiple regression with NTLX as the second predictor, the AUC can predict NFC.
+
+3. Can we replicate findings of Kramer et al. (2021)?
+a) Association of NFC and subjective value disappears when n-back performance is added as a covariate.
+
+Research Questions for t2 (ER-ED):
+
+4. Can the ED paradigm be applied to emotion regulation strategies?
+a) ...
+b) ...
+
+5. ...
