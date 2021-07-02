@@ -20,4 +20,6 @@ a) The individual subjective values of ER strategies is negatively correlated wi
 b) ...
 
 5. Individual subjective values of ER strategies are related to personality traits:
-a) 
+a) Habitual use of reappraisal measured via ERQ is positively correlated with subjective value of distancing
+b) Habitual use of suppression measured via ERQ is positively correlated with subjective value of suppression
+C) Higher emotion regulation flexibility measured via FlexER is associated with higher subjective values of all strategies
