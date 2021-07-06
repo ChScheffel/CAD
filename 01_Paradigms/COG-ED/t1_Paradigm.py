@@ -1351,7 +1351,7 @@ for edx in EDrounds:
     
 # Effort Discounting is complete
 
-# Now the participant goes through a 40-stimuli run of an n-back level again
+# Now the participant goes through a run of an n-back level again
 # The level is being randomly chosen from one of their choices in the last round of each comparison
 
 random_pick = random.choice(list(range(6))) # randomly picks one number from 0 to 5
