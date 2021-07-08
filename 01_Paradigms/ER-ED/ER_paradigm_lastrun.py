@@ -537,11 +537,11 @@ continueRoutine = True
 key_resp.keys = []
 key_resp.rt = []
 _key_resp_allKeys = []
-if event.getKeys('1'):
+if thisExp.data['resp_choice.keys'] == '1':
     text_choice_distract.opacity == 1.0
-elif event.getKeys('2'):
+elif thisExp.data['resp_choice.keys'] == '2':
     text_choice_distance.opacity == 1.0
-elif event.getKeys('3'):
+elif thisExp.data['resp_choice.keys'] == '3':
     text.choice_suppress.opacity == 1.0
 # keep track of which components have finished
 Instruction_ChoiceComponents = [text_choice_distract, key_resp, text_choice_distance, text_choice_suppress]
