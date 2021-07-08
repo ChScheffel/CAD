@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on Juni 23, 2021, at 16:55
+    on Juli 08, 2021, at 15:38
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -107,6 +107,42 @@ shuffle(Block_Order)
 
 
 
+# Initialize components for Routine "Choice_reapply"
+Choice_reapplyClock = core.Clock()
+text_choice = visual.TextStim(win=win, name='text_choice',
+    text='Nun werden Sie zum letzten Mal eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen und dabei eine der vorherigen Strategien anwenden..\n\nEntscheiden Sie sich bitte nun for eine der drei Strategien.\n\nDrücken Sie bitte die Taste\n1    für Ablenken\n2    für Distanzieren\n3    für Unterdrücken',
+    font='Open Sans',
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+resp_choice = keyboard.Keyboard()
+
+# Initialize components for Routine "Instruction_Choice"
+Instruction_ChoiceClock = core.Clock()
+text_choice_distract = visual.TextStim(win=win, name='text_choice_distract',
+    text='ABLENKEN!\n\nXXX',
+    font='Open Sans',
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=0.0, 
+    languageStyle='LTR',
+    depth=0.0);
+key_resp = keyboard.Keyboard()
+text_choice_distance = visual.TextStim(win=win, name='text_choice_distance',
+    text='DISTANZIEREN',
+    font='Open Sans',
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=0.0, 
+    languageStyle='LTR',
+    depth=-2.0);
+text_choice_suppress = visual.TextStim(win=win, name='text_choice_suppress',
+    text='UNTERDRÜCKEN',
+    font='Open Sans',
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=0.0, 
+    languageStyle='LTR',
+    depth=-3.0);
+
 # Initialize components for Routine "Instruction_View"
 Instruction_ViewClock = core.Clock()
 text_ActiveViewing = visual.TextStim(win=win, name='text_ActiveViewing',
@@ -139,6 +175,40 @@ text = visual.TextStim(win=win, name='text',
     languageStyle='LTR',
     depth=0.0);
 
+# Initialize components for Routine "Slider_Arousal"
+Slider_ArousalClock = core.Clock()
+text_slider_arousal = visual.TextStim(win=win, name='text_slider_arousal',
+    text='Wie hoch schätzen Sie Ihre durchschnittliche emotionale Aufregung beim Betrachten der Bilder ein?',
+    font='Open Sans',
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+slider_arousal = visual.Slider(win=win, name='slider_arousal',
+    size=[1.0,0.1], pos=(0, -0.2), units=None,
+    labels=("sehr gering", "sehr hoch"), ticks=(0,400), granularity=0.0,
+    style='rating', styleTweaks=(), opacity=None,
+    color='black', fillColor='black', borderColor='black', colorSpace='rgb',
+    font='Open Sans', labelHeight=0.05,
+    flip=False, depth=-1, readOnly=False)
+
+# Initialize components for Routine "Slider_Effort"
+Slider_EffortClock = core.Clock()
+text_slider_effort = visual.TextStim(win=win, name='text_slider_effort',
+    text='Wie hoch schätzen Sie Ihre geistige Anstrengung während des Anwendens der Strategie ein?',
+    font='Open Sans',
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+slider_effort = visual.Slider(win=win, name='slider_effort',
+    size=(1.0,0.1), pos=(0, -0.2), units=None,
+    labels=("sehr gering","sehr hoch"), ticks=(0,400), granularity=0.0,
+    style='rating', styleTweaks=(), opacity=None,
+    color='black', fillColor='black', borderColor='black', colorSpace='rgb',
+    font='Open Sans', labelHeight=0.05,
+    flip=False, depth=-1, readOnly=False)
+
 # Initialize components for Routine "Instruction_Reg"
 Instruction_RegClock = core.Clock()
 text_Instruction = visual.TextStim(win=win, name='text_Instruction',
@@ -150,13 +220,107 @@ text_Instruction = visual.TextStim(win=win, name='text_Instruction',
     depth=0.0);
 instr_reg_resp = keyboard.Keyboard()
 
-# Initialize components for Routine "Pics_Reg_2"
-Pics_Reg_2Clock = core.Clock()
+# Initialize components for Routine "Pics_Reg"
+Pics_RegClock = core.Clock()
 image_reg = visual.ImageStim(
     win=win,
     name='image_reg', 
     image='sin', mask=None,
     ori=0.0, pos=(0, 0), size=(1,0.75),
+    color=[1,1,1], colorSpace='rgb', opacity=None,
+    flipHoriz=False, flipVert=False,
+    texRes=128.0, interpolate=True, depth=0.0)
+
+# Initialize components for Routine "fixcross"
+fixcrossClock = core.Clock()
+text = visual.TextStim(win=win, name='text',
+    text='+',
+    font='Open Sans',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+
+# Initialize components for Routine "Slider_Arousal"
+Slider_ArousalClock = core.Clock()
+text_slider_arousal = visual.TextStim(win=win, name='text_slider_arousal',
+    text='Wie hoch schätzen Sie Ihre durchschnittliche emotionale Aufregung beim Betrachten der Bilder ein?',
+    font='Open Sans',
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+slider_arousal = visual.Slider(win=win, name='slider_arousal',
+    size=[1.0,0.1], pos=(0, -0.2), units=None,
+    labels=("sehr gering", "sehr hoch"), ticks=(0,400), granularity=0.0,
+    style='rating', styleTweaks=(), opacity=None,
+    color='black', fillColor='black', borderColor='black', colorSpace='rgb',
+    font='Open Sans', labelHeight=0.05,
+    flip=False, depth=-1, readOnly=False)
+
+# Initialize components for Routine "Slider_Effort"
+Slider_EffortClock = core.Clock()
+text_slider_effort = visual.TextStim(win=win, name='text_slider_effort',
+    text='Wie hoch schätzen Sie Ihre geistige Anstrengung während des Anwendens der Strategie ein?',
+    font='Open Sans',
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+slider_effort = visual.Slider(win=win, name='slider_effort',
+    size=(1.0,0.1), pos=(0, -0.2), units=None,
+    labels=("sehr gering","sehr hoch"), ticks=(0,400), granularity=0.0,
+    style='rating', styleTweaks=(), opacity=None,
+    color='black', fillColor='black', borderColor='black', colorSpace='rgb',
+    font='Open Sans', labelHeight=0.05,
+    flip=False, depth=-1, readOnly=False)
+
+# Initialize components for Routine "placeholder_discounting"
+placeholder_discountingClock = core.Clock()
+
+# Initialize components for Routine "Choice_reapply"
+Choice_reapplyClock = core.Clock()
+text_choice = visual.TextStim(win=win, name='text_choice',
+    text='Nun werden Sie zum letzten Mal eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen und dabei eine der vorherigen Strategien anwenden..\n\nEntscheiden Sie sich bitte nun for eine der drei Strategien.\n\nDrücken Sie bitte die Taste\n1    für Ablenken\n2    für Distanzieren\n3    für Unterdrücken',
+    font='Open Sans',
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+resp_choice = keyboard.Keyboard()
+
+# Initialize components for Routine "Instruction_Choice"
+Instruction_ChoiceClock = core.Clock()
+text_choice_distract = visual.TextStim(win=win, name='text_choice_distract',
+    text='ABLENKEN!\n\nXXX',
+    font='Open Sans',
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=0.0, 
+    languageStyle='LTR',
+    depth=0.0);
+key_resp = keyboard.Keyboard()
+text_choice_distance = visual.TextStim(win=win, name='text_choice_distance',
+    text='DISTANZIEREN',
+    font='Open Sans',
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=0.0, 
+    languageStyle='LTR',
+    depth=-2.0);
+text_choice_suppress = visual.TextStim(win=win, name='text_choice_suppress',
+    text='UNTERDRÜCKEN',
+    font='Open Sans',
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=0.0, 
+    languageStyle='LTR',
+    depth=-3.0);
+
+# Initialize components for Routine "Pics_Choice"
+Pics_ChoiceClock = core.Clock()
+image = visual.ImageStim(
+    win=win,
+    name='image', 
+    image='sin', mask=None,
+    ori=0.0, pos=(0, 0), size=(0.5, 0.5),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=0.0)
@@ -269,6 +433,226 @@ thisExp.addData('WelcomeResponse.started', WelcomeResponse.tStartRefresh)
 thisExp.addData('WelcomeResponse.stopped', WelcomeResponse.tStopRefresh)
 thisExp.nextEntry()
 # the Routine "WelcomeScreen" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
+# ------Prepare to start Routine "Choice_reapply"-------
+continueRoutine = True
+# update component parameters for each repeat
+resp_choice.keys = []
+resp_choice.rt = []
+_resp_choice_allKeys = []
+# keep track of which components have finished
+Choice_reapplyComponents = [text_choice, resp_choice]
+for thisComponent in Choice_reapplyComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+Choice_reapplyClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+# -------Run Routine "Choice_reapply"-------
+while continueRoutine:
+    # get current time
+    t = Choice_reapplyClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=Choice_reapplyClock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *text_choice* updates
+    if text_choice.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        text_choice.frameNStart = frameN  # exact frame index
+        text_choice.tStart = t  # local t and not account for scr refresh
+        text_choice.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(text_choice, 'tStartRefresh')  # time at next scr refresh
+        text_choice.setAutoDraw(True)
+    
+    # *resp_choice* updates
+    waitOnFlip = False
+    if resp_choice.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        resp_choice.frameNStart = frameN  # exact frame index
+        resp_choice.tStart = t  # local t and not account for scr refresh
+        resp_choice.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(resp_choice, 'tStartRefresh')  # time at next scr refresh
+        resp_choice.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(resp_choice.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(resp_choice.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if resp_choice.status == STARTED and not waitOnFlip:
+        theseKeys = resp_choice.getKeys(keyList=['1', '2', '3'], waitRelease=False)
+        _resp_choice_allKeys.extend(theseKeys)
+        if len(_resp_choice_allKeys):
+            resp_choice.keys = _resp_choice_allKeys[-1].name  # just the last key pressed
+            resp_choice.rt = _resp_choice_allKeys[-1].rt
+            # a response ends the routine
+            continueRoutine = False
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in Choice_reapplyComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "Choice_reapply"-------
+for thisComponent in Choice_reapplyComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+thisExp.addData('text_choice.started', text_choice.tStartRefresh)
+thisExp.addData('text_choice.stopped', text_choice.tStopRefresh)
+# check responses
+if resp_choice.keys in ['', [], None]:  # No response was made
+    resp_choice.keys = None
+thisExp.addData('resp_choice.keys',resp_choice.keys)
+if resp_choice.keys != None:  # we had a response
+    thisExp.addData('resp_choice.rt', resp_choice.rt)
+thisExp.addData('resp_choice.started', resp_choice.tStartRefresh)
+thisExp.addData('resp_choice.stopped', resp_choice.tStopRefresh)
+thisExp.nextEntry()
+# the Routine "Choice_reapply" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
+# ------Prepare to start Routine "Instruction_Choice"-------
+continueRoutine = True
+# update component parameters for each repeat
+key_resp.keys = []
+key_resp.rt = []
+_key_resp_allKeys = []
+if event.getKeys('1'):
+    text_choice_distract.opacity == 1.0
+elif event.getKeys('2'):
+    text_choice_distance.opacity == 1.0
+elif event.getKeys('3'):
+    text.choice_suppress.opacity == 1.0
+# keep track of which components have finished
+Instruction_ChoiceComponents = [text_choice_distract, key_resp, text_choice_distance, text_choice_suppress]
+for thisComponent in Instruction_ChoiceComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+Instruction_ChoiceClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+# -------Run Routine "Instruction_Choice"-------
+while continueRoutine:
+    # get current time
+    t = Instruction_ChoiceClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=Instruction_ChoiceClock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *text_choice_distract* updates
+    if text_choice_distract.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        text_choice_distract.frameNStart = frameN  # exact frame index
+        text_choice_distract.tStart = t  # local t and not account for scr refresh
+        text_choice_distract.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(text_choice_distract, 'tStartRefresh')  # time at next scr refresh
+        text_choice_distract.setAutoDraw(True)
+    
+    # *key_resp* updates
+    waitOnFlip = False
+    if key_resp.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
+        # keep track of start time/frame for later
+        key_resp.frameNStart = frameN  # exact frame index
+        key_resp.tStart = t  # local t and not account for scr refresh
+        key_resp.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(key_resp, 'tStartRefresh')  # time at next scr refresh
+        key_resp.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(key_resp.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(key_resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if key_resp.status == STARTED and not waitOnFlip:
+        theseKeys = key_resp.getKeys(keyList=['space'], waitRelease=False)
+        _key_resp_allKeys.extend(theseKeys)
+        if len(_key_resp_allKeys):
+            key_resp.keys = _key_resp_allKeys[-1].name  # just the last key pressed
+            key_resp.rt = _key_resp_allKeys[-1].rt
+            # a response ends the routine
+            continueRoutine = False
+    
+    # *text_choice_distance* updates
+    if text_choice_distance.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        text_choice_distance.frameNStart = frameN  # exact frame index
+        text_choice_distance.tStart = t  # local t and not account for scr refresh
+        text_choice_distance.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(text_choice_distance, 'tStartRefresh')  # time at next scr refresh
+        text_choice_distance.setAutoDraw(True)
+    
+    # *text_choice_suppress* updates
+    if text_choice_suppress.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        text_choice_suppress.frameNStart = frameN  # exact frame index
+        text_choice_suppress.tStart = t  # local t and not account for scr refresh
+        text_choice_suppress.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(text_choice_suppress, 'tStartRefresh')  # time at next scr refresh
+        text_choice_suppress.setAutoDraw(True)
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in Instruction_ChoiceComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "Instruction_Choice"-------
+for thisComponent in Instruction_ChoiceComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+thisExp.addData('text_choice_distract.started', text_choice_distract.tStartRefresh)
+thisExp.addData('text_choice_distract.stopped', text_choice_distract.tStopRefresh)
+# check responses
+if key_resp.keys in ['', [], None]:  # No response was made
+    key_resp.keys = None
+thisExp.addData('key_resp.keys',key_resp.keys)
+if key_resp.keys != None:  # we had a response
+    thisExp.addData('key_resp.rt', key_resp.rt)
+thisExp.addData('key_resp.started', key_resp.tStartRefresh)
+thisExp.addData('key_resp.stopped', key_resp.tStopRefresh)
+thisExp.nextEntry()
+thisExp.addData('text_choice_distance.started', text_choice_distance.tStartRefresh)
+thisExp.addData('text_choice_distance.stopped', text_choice_distance.tStopRefresh)
+thisExp.addData('text_choice_suppress.started', text_choice_suppress.tStartRefresh)
+thisExp.addData('text_choice_suppress.stopped', text_choice_suppress.tStopRefresh)
+# the Routine "Instruction_Choice" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
@@ -549,6 +933,166 @@ for thisBlocks_view in blocks_view:
         
     # completed 1.0 repeats of 'trials_view'
     
+    
+    # ------Prepare to start Routine "Slider_Arousal"-------
+    continueRoutine = True
+    # update component parameters for each repeat
+    slider_arousal.reset()
+    # keep track of which components have finished
+    Slider_ArousalComponents = [text_slider_arousal, slider_arousal]
+    for thisComponent in Slider_ArousalComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    Slider_ArousalClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    frameN = -1
+    
+    # -------Run Routine "Slider_Arousal"-------
+    while continueRoutine:
+        # get current time
+        t = Slider_ArousalClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=Slider_ArousalClock)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *text_slider_arousal* updates
+        if text_slider_arousal.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_slider_arousal.frameNStart = frameN  # exact frame index
+            text_slider_arousal.tStart = t  # local t and not account for scr refresh
+            text_slider_arousal.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_slider_arousal, 'tStartRefresh')  # time at next scr refresh
+            text_slider_arousal.setAutoDraw(True)
+        
+        # *slider_arousal* updates
+        if slider_arousal.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            slider_arousal.frameNStart = frameN  # exact frame index
+            slider_arousal.tStart = t  # local t and not account for scr refresh
+            slider_arousal.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(slider_arousal, 'tStartRefresh')  # time at next scr refresh
+            slider_arousal.setAutoDraw(True)
+        
+        # Check slider_arousal for response to end routine
+        if slider_arousal.getRating() is not None and slider_arousal.status == STARTED:
+            continueRoutine = False
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in Slider_ArousalComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # -------Ending Routine "Slider_Arousal"-------
+    for thisComponent in Slider_ArousalComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    blocks_view.addData('text_slider_arousal.started', text_slider_arousal.tStartRefresh)
+    blocks_view.addData('text_slider_arousal.stopped', text_slider_arousal.tStopRefresh)
+    blocks_view.addData('slider_arousal.response', slider_arousal.getRating())
+    blocks_view.addData('slider_arousal.rt', slider_arousal.getRT())
+    blocks_view.addData('slider_arousal.started', slider_arousal.tStartRefresh)
+    blocks_view.addData('slider_arousal.stopped', slider_arousal.tStopRefresh)
+    # the Routine "Slider_Arousal" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    
+    # ------Prepare to start Routine "Slider_Effort"-------
+    continueRoutine = True
+    # update component parameters for each repeat
+    slider_effort.reset()
+    # keep track of which components have finished
+    Slider_EffortComponents = [text_slider_effort, slider_effort]
+    for thisComponent in Slider_EffortComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    Slider_EffortClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    frameN = -1
+    
+    # -------Run Routine "Slider_Effort"-------
+    while continueRoutine:
+        # get current time
+        t = Slider_EffortClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=Slider_EffortClock)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *text_slider_effort* updates
+        if text_slider_effort.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_slider_effort.frameNStart = frameN  # exact frame index
+            text_slider_effort.tStart = t  # local t and not account for scr refresh
+            text_slider_effort.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_slider_effort, 'tStartRefresh')  # time at next scr refresh
+            text_slider_effort.setAutoDraw(True)
+        
+        # *slider_effort* updates
+        if slider_effort.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            slider_effort.frameNStart = frameN  # exact frame index
+            slider_effort.tStart = t  # local t and not account for scr refresh
+            slider_effort.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(slider_effort, 'tStartRefresh')  # time at next scr refresh
+            slider_effort.setAutoDraw(True)
+        
+        # Check slider_effort for response to end routine
+        if slider_effort.getRating() is not None and slider_effort.status == STARTED:
+            continueRoutine = False
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in Slider_EffortComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # -------Ending Routine "Slider_Effort"-------
+    for thisComponent in Slider_EffortComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    blocks_view.addData('text_slider_effort.started', text_slider_effort.tStartRefresh)
+    blocks_view.addData('text_slider_effort.stopped', text_slider_effort.tStopRefresh)
+    blocks_view.addData('slider_effort.response', slider_effort.getRating())
+    blocks_view.addData('slider_effort.rt', slider_effort.getRT())
+    blocks_view.addData('slider_effort.started', slider_effort.tStartRefresh)
+    blocks_view.addData('slider_effort.stopped', slider_effort.tStopRefresh)
+    # the Routine "Slider_Effort" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
 # completed 1.0 repeats of 'blocks_view'
 
 
@@ -695,14 +1239,14 @@ for thisBlocks_reg in blocks_reg:
             for paramName in thisTrials_reg:
                 exec('{} = thisTrials_reg[paramName]'.format(paramName))
         
-        # ------Prepare to start Routine "Pics_Reg_2"-------
+        # ------Prepare to start Routine "Pics_Reg"-------
         continueRoutine = True
         routineTimer.add(3.000000)
         # update component parameters for each repeat
         image_reg.setImage(ImageFile)
         # keep track of which components have finished
-        Pics_Reg_2Components = [image_reg]
-        for thisComponent in Pics_Reg_2Components:
+        Pics_RegComponents = [image_reg]
+        for thisComponent in Pics_RegComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
             thisComponent.tStartRefresh = None
@@ -712,14 +1256,14 @@ for thisBlocks_reg in blocks_reg:
         # reset timers
         t = 0
         _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-        Pics_Reg_2Clock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+        Pics_RegClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
         frameN = -1
         
-        # -------Run Routine "Pics_Reg_2"-------
+        # -------Run Routine "Pics_Reg"-------
         while continueRoutine and routineTimer.getTime() > 0:
             # get current time
-            t = Pics_Reg_2Clock.getTime()
-            tThisFlip = win.getFutureFlipTime(clock=Pics_Reg_2Clock)
+            t = Pics_RegClock.getTime()
+            tThisFlip = win.getFutureFlipTime(clock=Pics_RegClock)
             tThisFlipGlobal = win.getFutureFlipTime(clock=None)
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
@@ -749,7 +1293,7 @@ for thisBlocks_reg in blocks_reg:
             if not continueRoutine:  # a component has requested a forced-end of Routine
                 break
             continueRoutine = False  # will revert to True if at least one component still running
-            for thisComponent in Pics_Reg_2Components:
+            for thisComponent in Pics_RegComponents:
                 if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                     continueRoutine = True
                     break  # at least one component has not yet finished
@@ -758,8 +1302,8 @@ for thisBlocks_reg in blocks_reg:
             if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
                 win.flip()
         
-        # -------Ending Routine "Pics_Reg_2"-------
-        for thisComponent in Pics_Reg_2Components:
+        # -------Ending Routine "Pics_Reg"-------
+        for thisComponent in Pics_RegComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
         trials_reg.addData('image_reg.started', image_reg.tStartRefresh)
@@ -837,9 +1381,602 @@ for thisBlocks_reg in blocks_reg:
         
     # completed 1.0 repeats of 'trials_reg'
     
+    
+    # ------Prepare to start Routine "Slider_Arousal"-------
+    continueRoutine = True
+    # update component parameters for each repeat
+    slider_arousal.reset()
+    # keep track of which components have finished
+    Slider_ArousalComponents = [text_slider_arousal, slider_arousal]
+    for thisComponent in Slider_ArousalComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    Slider_ArousalClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    frameN = -1
+    
+    # -------Run Routine "Slider_Arousal"-------
+    while continueRoutine:
+        # get current time
+        t = Slider_ArousalClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=Slider_ArousalClock)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *text_slider_arousal* updates
+        if text_slider_arousal.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_slider_arousal.frameNStart = frameN  # exact frame index
+            text_slider_arousal.tStart = t  # local t and not account for scr refresh
+            text_slider_arousal.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_slider_arousal, 'tStartRefresh')  # time at next scr refresh
+            text_slider_arousal.setAutoDraw(True)
+        
+        # *slider_arousal* updates
+        if slider_arousal.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            slider_arousal.frameNStart = frameN  # exact frame index
+            slider_arousal.tStart = t  # local t and not account for scr refresh
+            slider_arousal.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(slider_arousal, 'tStartRefresh')  # time at next scr refresh
+            slider_arousal.setAutoDraw(True)
+        
+        # Check slider_arousal for response to end routine
+        if slider_arousal.getRating() is not None and slider_arousal.status == STARTED:
+            continueRoutine = False
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in Slider_ArousalComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # -------Ending Routine "Slider_Arousal"-------
+    for thisComponent in Slider_ArousalComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    blocks_reg.addData('text_slider_arousal.started', text_slider_arousal.tStartRefresh)
+    blocks_reg.addData('text_slider_arousal.stopped', text_slider_arousal.tStopRefresh)
+    blocks_reg.addData('slider_arousal.response', slider_arousal.getRating())
+    blocks_reg.addData('slider_arousal.rt', slider_arousal.getRT())
+    blocks_reg.addData('slider_arousal.started', slider_arousal.tStartRefresh)
+    blocks_reg.addData('slider_arousal.stopped', slider_arousal.tStopRefresh)
+    # the Routine "Slider_Arousal" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    
+    # ------Prepare to start Routine "Slider_Effort"-------
+    continueRoutine = True
+    # update component parameters for each repeat
+    slider_effort.reset()
+    # keep track of which components have finished
+    Slider_EffortComponents = [text_slider_effort, slider_effort]
+    for thisComponent in Slider_EffortComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    Slider_EffortClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    frameN = -1
+    
+    # -------Run Routine "Slider_Effort"-------
+    while continueRoutine:
+        # get current time
+        t = Slider_EffortClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=Slider_EffortClock)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *text_slider_effort* updates
+        if text_slider_effort.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_slider_effort.frameNStart = frameN  # exact frame index
+            text_slider_effort.tStart = t  # local t and not account for scr refresh
+            text_slider_effort.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_slider_effort, 'tStartRefresh')  # time at next scr refresh
+            text_slider_effort.setAutoDraw(True)
+        
+        # *slider_effort* updates
+        if slider_effort.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            slider_effort.frameNStart = frameN  # exact frame index
+            slider_effort.tStart = t  # local t and not account for scr refresh
+            slider_effort.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(slider_effort, 'tStartRefresh')  # time at next scr refresh
+            slider_effort.setAutoDraw(True)
+        
+        # Check slider_effort for response to end routine
+        if slider_effort.getRating() is not None and slider_effort.status == STARTED:
+            continueRoutine = False
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in Slider_EffortComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # -------Ending Routine "Slider_Effort"-------
+    for thisComponent in Slider_EffortComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    blocks_reg.addData('text_slider_effort.started', text_slider_effort.tStartRefresh)
+    blocks_reg.addData('text_slider_effort.stopped', text_slider_effort.tStopRefresh)
+    blocks_reg.addData('slider_effort.response', slider_effort.getRating())
+    blocks_reg.addData('slider_effort.rt', slider_effort.getRT())
+    blocks_reg.addData('slider_effort.started', slider_effort.tStartRefresh)
+    blocks_reg.addData('slider_effort.stopped', slider_effort.tStopRefresh)
+    # the Routine "Slider_Effort" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
     thisExp.nextEntry()
     
 # completed 1.0 repeats of 'blocks_reg'
+
+
+# ------Prepare to start Routine "placeholder_discounting"-------
+continueRoutine = True
+# update component parameters for each repeat
+# keep track of which components have finished
+placeholder_discountingComponents = []
+for thisComponent in placeholder_discountingComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+placeholder_discountingClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+# -------Run Routine "placeholder_discounting"-------
+while continueRoutine:
+    # get current time
+    t = placeholder_discountingClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=placeholder_discountingClock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in placeholder_discountingComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "placeholder_discounting"-------
+for thisComponent in placeholder_discountingComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+# the Routine "placeholder_discounting" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
+# ------Prepare to start Routine "Choice_reapply"-------
+continueRoutine = True
+# update component parameters for each repeat
+resp_choice.keys = []
+resp_choice.rt = []
+_resp_choice_allKeys = []
+# keep track of which components have finished
+Choice_reapplyComponents = [text_choice, resp_choice]
+for thisComponent in Choice_reapplyComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+Choice_reapplyClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+# -------Run Routine "Choice_reapply"-------
+while continueRoutine:
+    # get current time
+    t = Choice_reapplyClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=Choice_reapplyClock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *text_choice* updates
+    if text_choice.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        text_choice.frameNStart = frameN  # exact frame index
+        text_choice.tStart = t  # local t and not account for scr refresh
+        text_choice.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(text_choice, 'tStartRefresh')  # time at next scr refresh
+        text_choice.setAutoDraw(True)
+    
+    # *resp_choice* updates
+    waitOnFlip = False
+    if resp_choice.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        resp_choice.frameNStart = frameN  # exact frame index
+        resp_choice.tStart = t  # local t and not account for scr refresh
+        resp_choice.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(resp_choice, 'tStartRefresh')  # time at next scr refresh
+        resp_choice.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(resp_choice.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(resp_choice.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if resp_choice.status == STARTED and not waitOnFlip:
+        theseKeys = resp_choice.getKeys(keyList=['1', '2', '3'], waitRelease=False)
+        _resp_choice_allKeys.extend(theseKeys)
+        if len(_resp_choice_allKeys):
+            resp_choice.keys = _resp_choice_allKeys[-1].name  # just the last key pressed
+            resp_choice.rt = _resp_choice_allKeys[-1].rt
+            # a response ends the routine
+            continueRoutine = False
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in Choice_reapplyComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "Choice_reapply"-------
+for thisComponent in Choice_reapplyComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+thisExp.addData('text_choice.started', text_choice.tStartRefresh)
+thisExp.addData('text_choice.stopped', text_choice.tStopRefresh)
+# check responses
+if resp_choice.keys in ['', [], None]:  # No response was made
+    resp_choice.keys = None
+thisExp.addData('resp_choice.keys',resp_choice.keys)
+if resp_choice.keys != None:  # we had a response
+    thisExp.addData('resp_choice.rt', resp_choice.rt)
+thisExp.addData('resp_choice.started', resp_choice.tStartRefresh)
+thisExp.addData('resp_choice.stopped', resp_choice.tStopRefresh)
+thisExp.nextEntry()
+# the Routine "Choice_reapply" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
+# ------Prepare to start Routine "Instruction_Choice"-------
+continueRoutine = True
+# update component parameters for each repeat
+key_resp.keys = []
+key_resp.rt = []
+_key_resp_allKeys = []
+if event.getKeys('1'):
+    text_choice_distract.opacity == 1.0
+elif event.getKeys('2'):
+    text_choice_distance.opacity == 1.0
+elif event.getKeys('3'):
+    text.choice_suppress.opacity == 1.0
+# keep track of which components have finished
+Instruction_ChoiceComponents = [text_choice_distract, key_resp, text_choice_distance, text_choice_suppress]
+for thisComponent in Instruction_ChoiceComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+Instruction_ChoiceClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+# -------Run Routine "Instruction_Choice"-------
+while continueRoutine:
+    # get current time
+    t = Instruction_ChoiceClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=Instruction_ChoiceClock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *text_choice_distract* updates
+    if text_choice_distract.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        text_choice_distract.frameNStart = frameN  # exact frame index
+        text_choice_distract.tStart = t  # local t and not account for scr refresh
+        text_choice_distract.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(text_choice_distract, 'tStartRefresh')  # time at next scr refresh
+        text_choice_distract.setAutoDraw(True)
+    
+    # *key_resp* updates
+    waitOnFlip = False
+    if key_resp.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
+        # keep track of start time/frame for later
+        key_resp.frameNStart = frameN  # exact frame index
+        key_resp.tStart = t  # local t and not account for scr refresh
+        key_resp.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(key_resp, 'tStartRefresh')  # time at next scr refresh
+        key_resp.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(key_resp.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(key_resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if key_resp.status == STARTED and not waitOnFlip:
+        theseKeys = key_resp.getKeys(keyList=['space'], waitRelease=False)
+        _key_resp_allKeys.extend(theseKeys)
+        if len(_key_resp_allKeys):
+            key_resp.keys = _key_resp_allKeys[-1].name  # just the last key pressed
+            key_resp.rt = _key_resp_allKeys[-1].rt
+            # a response ends the routine
+            continueRoutine = False
+    
+    # *text_choice_distance* updates
+    if text_choice_distance.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        text_choice_distance.frameNStart = frameN  # exact frame index
+        text_choice_distance.tStart = t  # local t and not account for scr refresh
+        text_choice_distance.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(text_choice_distance, 'tStartRefresh')  # time at next scr refresh
+        text_choice_distance.setAutoDraw(True)
+    
+    # *text_choice_suppress* updates
+    if text_choice_suppress.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        text_choice_suppress.frameNStart = frameN  # exact frame index
+        text_choice_suppress.tStart = t  # local t and not account for scr refresh
+        text_choice_suppress.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(text_choice_suppress, 'tStartRefresh')  # time at next scr refresh
+        text_choice_suppress.setAutoDraw(True)
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in Instruction_ChoiceComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "Instruction_Choice"-------
+for thisComponent in Instruction_ChoiceComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+thisExp.addData('text_choice_distract.started', text_choice_distract.tStartRefresh)
+thisExp.addData('text_choice_distract.stopped', text_choice_distract.tStopRefresh)
+# check responses
+if key_resp.keys in ['', [], None]:  # No response was made
+    key_resp.keys = None
+thisExp.addData('key_resp.keys',key_resp.keys)
+if key_resp.keys != None:  # we had a response
+    thisExp.addData('key_resp.rt', key_resp.rt)
+thisExp.addData('key_resp.started', key_resp.tStartRefresh)
+thisExp.addData('key_resp.stopped', key_resp.tStopRefresh)
+thisExp.nextEntry()
+thisExp.addData('text_choice_distance.started', text_choice_distance.tStartRefresh)
+thisExp.addData('text_choice_distance.stopped', text_choice_distance.tStopRefresh)
+thisExp.addData('text_choice_suppress.started', text_choice_suppress.tStartRefresh)
+thisExp.addData('text_choice_suppress.stopped', text_choice_suppress.tStopRefresh)
+# the Routine "Instruction_Choice" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
+# set up handler to look after randomisation of conditions etc
+trials_choice = data.TrialHandler(nReps=5.0, method='random', 
+    extraInfo=expInfo, originPath=-1,
+    trialList=data.importConditions('StimuliNegativeChoice.xlsx'),
+    seed=None, name='trials_choice')
+thisExp.addLoop(trials_choice)  # add the loop to the experiment
+thisTrials_choice = trials_choice.trialList[0]  # so we can initialise stimuli with some values
+# abbreviate parameter names if possible (e.g. rgb = thisTrials_choice.rgb)
+if thisTrials_choice != None:
+    for paramName in thisTrials_choice:
+        exec('{} = thisTrials_choice[paramName]'.format(paramName))
+
+for thisTrials_choice in trials_choice:
+    currentLoop = trials_choice
+    # abbreviate parameter names if possible (e.g. rgb = thisTrials_choice.rgb)
+    if thisTrials_choice != None:
+        for paramName in thisTrials_choice:
+            exec('{} = thisTrials_choice[paramName]'.format(paramName))
+    
+    # ------Prepare to start Routine "Pics_Choice"-------
+    continueRoutine = True
+    routineTimer.add(3.000000)
+    # update component parameters for each repeat
+    image.setImage(ImageFile)
+    # keep track of which components have finished
+    Pics_ChoiceComponents = [image]
+    for thisComponent in Pics_ChoiceComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    Pics_ChoiceClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    frameN = -1
+    
+    # -------Run Routine "Pics_Choice"-------
+    while continueRoutine and routineTimer.getTime() > 0:
+        # get current time
+        t = Pics_ChoiceClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=Pics_ChoiceClock)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *image* updates
+        if image.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            image.frameNStart = frameN  # exact frame index
+            image.tStart = t  # local t and not account for scr refresh
+            image.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(image, 'tStartRefresh')  # time at next scr refresh
+            image.setAutoDraw(True)
+        if image.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > image.tStartRefresh + 3.0-frameTolerance:
+                # keep track of stop time/frame for later
+                image.tStop = t  # not accounting for scr refresh
+                image.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(image, 'tStopRefresh')  # time at next scr refresh
+                image.setAutoDraw(False)
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in Pics_ChoiceComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # -------Ending Routine "Pics_Choice"-------
+    for thisComponent in Pics_ChoiceComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    trials_choice.addData('image.started', image.tStartRefresh)
+    trials_choice.addData('image.stopped', image.tStopRefresh)
+    
+    # ------Prepare to start Routine "fixcross"-------
+    continueRoutine = True
+    routineTimer.add(1.000000)
+    # update component parameters for each repeat
+    # keep track of which components have finished
+    fixcrossComponents = [text]
+    for thisComponent in fixcrossComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    fixcrossClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    frameN = -1
+    
+    # -------Run Routine "fixcross"-------
+    while continueRoutine and routineTimer.getTime() > 0:
+        # get current time
+        t = fixcrossClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=fixcrossClock)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *text* updates
+        if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text.frameNStart = frameN  # exact frame index
+            text.tStart = t  # local t and not account for scr refresh
+            text.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
+            text.setAutoDraw(True)
+        if text.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > text.tStartRefresh + 1.0-frameTolerance:
+                # keep track of stop time/frame for later
+                text.tStop = t  # not accounting for scr refresh
+                text.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(text, 'tStopRefresh')  # time at next scr refresh
+                text.setAutoDraw(False)
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in fixcrossComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # -------Ending Routine "fixcross"-------
+    for thisComponent in fixcrossComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    trials_choice.addData('text.started', text.tStartRefresh)
+    trials_choice.addData('text.stopped', text.tStopRefresh)
+    thisExp.nextEntry()
+    
+# completed 5.0 repeats of 'trials_choice'
 
 
 # Flip one final time so any remaining win.callOnFlip() 
