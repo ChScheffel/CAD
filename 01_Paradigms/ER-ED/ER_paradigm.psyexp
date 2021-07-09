@@ -565,8 +565,6 @@
   </Routines>
   <Flow>
     <Routine name="WelcomeScreen"/>
-    <Routine name="Choice_reapply"/>
-    <Routine name="Instruction_Choice"/>
     <LoopInitiator loopType="TrialHandler" name="blocks_view">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="[{'condsFile': 'StimuliNeutral.xlsx', 'Trigger': 1}, {'condsFile': 'StimuliNegative_1.xlsx', 'Trigger': 2}]" valType="str"/>
