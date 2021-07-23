@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on Juli 23, 2021, at 13:20
+    on Juli 23, 2021, at 14:08
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -157,6 +157,17 @@ slider_effort = visual.Slider(win=win, name='slider_effort',
     font='Open Sans', labelHeight=0.05,
     flip=False, depth=-1, readOnly=False)
 
+# Initialize components for Routine "EndScreen"
+EndScreenClock = core.Clock()
+text_end = visual.TextStim(win=win, name='text_end',
+    text='Das Training ist nun beendet.\n\nBitte wenden Sie sich an die Versuchsleitung!\n\nZum Beenden bitte Leertaste drücken.',
+    font='Open Sans',
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+resp_end = keyboard.Keyboard()
+
 # Create some handy timers
 globalClock = core.Clock()  # to track the time since experiment started
 routineTimer = core.CountdownTimer()  # to track time remaining of each (non-slip) routine 
@@ -279,7 +290,7 @@ for thisBlocks_training in blocks_training:
     # ------Prepare to start Routine "Instruction"-------
     continueRoutine = True
     # update component parameters for each repeat
-    text_instruction.setText(instr_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + instr_2 + '\n\n' + 'Zum Starten des Blocks Leertaste dürcken')
+    text_instruction.setText(instr_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + instr_2 + '\n\n' + instr_3 + '\n\n' + 'Zum Starten des Blocks Leertaste dürcken')
     instr_view_resp.keys = []
     instr_view_resp.rt = []
     _instr_view_resp_allKeys = []
@@ -695,6 +706,102 @@ for thisBlocks_training in blocks_training:
     routineTimer.reset()
 # completed 1.0 repeats of 'blocks_training'
 
+
+# ------Prepare to start Routine "EndScreen"-------
+continueRoutine = True
+# update component parameters for each repeat
+resp_end.keys = []
+resp_end.rt = []
+_resp_end_allKeys = []
+# keep track of which components have finished
+EndScreenComponents = [text_end, resp_end]
+for thisComponent in EndScreenComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+EndScreenClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+# -------Run Routine "EndScreen"-------
+while continueRoutine:
+    # get current time
+    t = EndScreenClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=EndScreenClock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *text_end* updates
+    if text_end.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        text_end.frameNStart = frameN  # exact frame index
+        text_end.tStart = t  # local t and not account for scr refresh
+        text_end.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(text_end, 'tStartRefresh')  # time at next scr refresh
+        text_end.setAutoDraw(True)
+    
+    # *resp_end* updates
+    waitOnFlip = False
+    if resp_end.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
+        # keep track of start time/frame for later
+        resp_end.frameNStart = frameN  # exact frame index
+        resp_end.tStart = t  # local t and not account for scr refresh
+        resp_end.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(resp_end, 'tStartRefresh')  # time at next scr refresh
+        resp_end.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(resp_end.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(resp_end.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if resp_end.status == STARTED and not waitOnFlip:
+        theseKeys = resp_end.getKeys(keyList=['space'], waitRelease=False)
+        _resp_end_allKeys.extend(theseKeys)
+        if len(_resp_end_allKeys):
+            resp_end.keys = _resp_end_allKeys[-1].name  # just the last key pressed
+            resp_end.rt = _resp_end_allKeys[-1].rt
+            # a response ends the routine
+            continueRoutine = False
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in EndScreenComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "EndScreen"-------
+for thisComponent in EndScreenComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+thisExp.addData('text_end.started', text_end.tStartRefresh)
+thisExp.addData('text_end.stopped', text_end.tStopRefresh)
+# check responses
+if resp_end.keys in ['', [], None]:  # No response was made
+    resp_end.keys = None
+thisExp.addData('resp_end.keys',resp_end.keys)
+if resp_end.keys != None:  # we had a response
+    thisExp.addData('resp_end.rt', resp_end.rt)
+thisExp.addData('resp_end.started', resp_end.tStartRefresh)
+thisExp.addData('resp_end.stopped', resp_end.tStopRefresh)
+thisExp.nextEntry()
+# the Routine "EndScreen" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
 
 # Flip one final time so any remaining win.callOnFlip() 
 # and win.timeOnFlip() tasks get executed before quitting
