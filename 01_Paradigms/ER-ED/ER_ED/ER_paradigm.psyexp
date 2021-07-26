@@ -80,8 +80,8 @@
       <CodeComponent name="code_shuffle_blocks">
         <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Experiment" updates="constant" val="# #################################&amp;#10;# Define correct numbe of Trials&amp;#10;# #################################&amp;#10;TotalTrialNr = 15  # 125 ?!&amp;#10;Trials_Block = 3 # 25&amp;#10;&amp;#10;# #################################&amp;#10;# Randomize negative picture sets across negative Blocks&amp;#10;# #################################&amp;#10;&amp;#10;# create a list of 4 negative blocks&amp;#10;Block_Order = list(range(1,5))&amp;#10;# randomize order&amp;#10;shuffle(Block_Order)&amp;#10;&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="&amp;#10;        // add-on: list(s: string): string[]&amp;#10;        function list(s) {&amp;#10;            // if s is a string, we return a list of its characters&amp;#10;            if (typeof s === 'string')&amp;#10;                return s.split('');&amp;#10;            else&amp;#10;                // otherwise we return s:&amp;#10;                return s;&amp;#10;        }&amp;#10;&amp;#10;        TotalTrialNr = 15;&amp;#10;Trials_Block = 3;&amp;#10;Block_Order = list(range(1, 5));&amp;#10;shuffle(Block_Order);&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="# #################################&amp;#10;# Define correct numbe of Trials&amp;#10;# #################################&amp;#10;TotalTrialNr = 15  # 125 ?!&amp;#10;Trials_Block = 3 # 25&amp;#10;&amp;#10;# #################################&amp;#10;# Randomize negative picture sets across negative Blocks&amp;#10;# #################################&amp;#10;&amp;#10;# create a list of 4 negative blocks&amp;#10;Stimuli_Order = list(range(1,6))&amp;#10;# randomize order&amp;#10;shuffle(Stimuli_Order)&amp;#10;&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="&amp;#10;        // add-on: list(s: string): string[]&amp;#10;        function list(s) {&amp;#10;            // if s is a string, we return a list of its characters&amp;#10;            if (typeof s === 'string')&amp;#10;                return s.split('');&amp;#10;            else&amp;#10;                // otherwise we return s:&amp;#10;                return s;&amp;#10;        }&amp;#10;&amp;#10;        TotalTrialNr = 15;&amp;#10;Trials_Block = 3;&amp;#10;Stimuli_Order = list(range(1, 6));&amp;#10;shuffle(Stimuli_Order);&amp;#10;" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
@@ -200,7 +200,7 @@
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="/* Syntax Error: Fix Python code */" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="if blocks_reg.thisN  == 0: # first block&amp;#10;    conds_reg_File = 'StimuliNegative_{}.xlsx'.format(Block_Order[1])&amp;#10;    &amp;#10;elif blocks_reg.thisN  == 1: # second block&amp;#10;    conds_reg_File = 'StimuliNegative_{}.xlsx'.format(Block_Order[2])&amp;#10;&amp;#10;elif blocks_reg.thisN  == 2: # third block&amp;#10;    conds_reg_File = 'StimuliNegative_{}.xlsx'.format(Block_Order[3])" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="if blocks_reg.thisN  == 0: # first regulation block&amp;#10;    conds_reg_File = 'StimuliNegative_{}.xlsx'.format(Stimuli_Order[1])&amp;#10;    &amp;#10;elif blocks_reg.thisN  == 1: # second block&amp;#10;    conds_reg_File = 'StimuliNegative_{}.xlsx'.format(Stimuli_Order[2])&amp;#10;&amp;#10;elif blocks_reg.thisN  == 2: # third block&amp;#10;    conds_reg_File = 'StimuliNegative_{}.xlsx'.format(Stimuli_Order[3])" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
@@ -262,7 +262,7 @@
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="/* Syntax Error: Fix Python code */" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="if blocks_view.thisN  == 1: # only second block&amp;#10;    conds_view_File = 'StimuliNegative_{}.xlsx'.format(Block_Order[0])&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="if blocks_view.thisN  == 1: # only second block&amp;#10;    conds_view_File = 'StimuliNegative_{}.xlsx'.format(Stimuli_Order[0])&amp;#10;" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
@@ -499,6 +499,23 @@
         <Param name="texture resolution" updates="constant" val="128" valType="num"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
       </ImageComponent>
+      <CodeComponent name="code_choice">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="Stimuli_Choice = 'StimuliNegative_{}.xlsx'.format(Stimuli_Order[4])" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="/* Syntax Error: Fix Python code */" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="code_choice" valType="code"/>
+      </CodeComponent>
     </Routine>
     <Routine name="Instruction_Choice">
       <CodeComponent name="code">
@@ -629,11 +646,11 @@
     <LoopInitiator loopType="TrialHandler" name="trials_choice">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="None" valType="str"/>
-      <Param name="conditionsFile" updates="None" val="StimuliChoice.xlsx" valType="file"/>
+      <Param name="conditionsFile" updates="None" val="$Stimuli_Choice" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="random" valType="str"/>
-      <Param name="nReps" updates="None" val="5" valType="num"/>
+      <Param name="nReps" updates="None" val="1" valType="num"/>
       <Param name="name" updates="None" val="trials_choice" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
