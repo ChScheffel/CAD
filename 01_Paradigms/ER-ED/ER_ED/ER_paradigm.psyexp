@@ -506,8 +506,8 @@
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="if ((resp_choice.keys === &quot;1&quot;)) {&amp;#10;    instr_choice = &quot;1&quot;;&amp;#10;} else {&amp;#10;    if ((resp_choice.keys === &quot;2&quot;)) {&amp;#10;        instr_choice = &quot;1&quot;;&amp;#10;    } else {&amp;#10;        if ((resp_choice.keys === &quot;3&quot;)) {&amp;#10;            instr_choice = &quot;1&quot;;&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="if resp_choice.keys == '1':&amp;#10;    instr_choice = '1'&amp;#10;elif resp_choice.keys == '2':&amp;#10;    instr_choice = '1'&amp;#10;elif resp_choice.keys == '3':&amp;#10;    instr_choice = '1'" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="if ((resp_choice.keys === &quot;1&quot;)) {&amp;#10;    instr_choice = &quot;1&quot;;&amp;#10;} else {&amp;#10;    if ((resp_choice.keys === &quot;2&quot;)) {&amp;#10;        instr_choice = &quot;2&quot;;&amp;#10;    } else {&amp;#10;        if ((resp_choice.keys === &quot;3&quot;)) {&amp;#10;            instr_choice = &quot;2&quot;;&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="if resp_choice.keys == '1':&amp;#10;    instr_choice = '1'&amp;#10;elif resp_choice.keys == '2':&amp;#10;    instr_choice = '2'&amp;#10;elif resp_choice.keys == '3':&amp;#10;    instr_choice = '2'" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
@@ -628,8 +628,8 @@
     <Routine name="Instruction_Choice"/>
     <LoopInitiator loopType="TrialHandler" name="trials_choice">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
-      <Param name="conditions" updates="None" val="[{'ImageFile': 'Stimuli/9910.jpg'}, {'ImageFile': 'Stimuli/9921.jpg'}, {'ImageFile': 'Stimuli/9940.jpg'}]" valType="str"/>
-      <Param name="conditionsFile" updates="None" val="StimuliNegativeChoice.xlsx" valType="file"/>
+      <Param name="conditions" updates="None" val="None" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="StimuliChoice.xlsx" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="random" valType="str"/>
