@@ -172,7 +172,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="num"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="set every repeat" val="$instr_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + '\n' + instr_2 + '\n\n' + instr_3 + '\n\n' + 'Zum Starten des Blocks Leertaste dürcken'&amp;#10;" valType="str"/>
+        <Param name="text" updates="set every repeat" val="$instr_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + '\n' + instr_2 + '\n\n' + 'Bitte konzentrieren Sie Ihre Regulationsbemühungen nur auf das Bild, nicht aber auf die Zeiträme zwischen den Bildern.' + '\n\n' + 'Zum Starten des Blocks Leertaste dürcken'&amp;#10;" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
@@ -523,8 +523,8 @@
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="if ((resp_choice.keys === &quot;1&quot;)) {&amp;#10;    instr_choice = &quot;1&quot;;&amp;#10;} else {&amp;#10;    if ((resp_choice.keys === &quot;2&quot;)) {&amp;#10;        instr_choice = &quot;2&quot;;&amp;#10;    } else {&amp;#10;        if ((resp_choice.keys === &quot;3&quot;)) {&amp;#10;            instr_choice = &quot;2&quot;;&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="if resp_choice.keys == '1':&amp;#10;    instr_choice = '1'&amp;#10;elif resp_choice.keys == '2':&amp;#10;    instr_choice = '2'&amp;#10;elif resp_choice.keys == '3':&amp;#10;    instr_choice = '2'" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="if ((resp_choice.keys === &quot;1&quot;)) {&amp;#10;    instr_choice_1 = &quot;ABLENKEN&quot;;&amp;#10;    instr_choice_2 = &quot;Denken Sie w\u00e4hrend des Betrachtens der Bilder an etwas Neutrales, das mit dem Bild nichts zu tun hat. Das k\u00f6nnten geometrische Figuren, Alltagst\u00e4tigkeiten oder bekannte Orte sein.&quot;;&amp;#10;} else {&amp;#10;    if ((resp_choice.keys === &quot;2&quot;)) {&amp;#10;        instr_choice_1 = &quot;DISTANZIEREN&quot;;&amp;#10;        instr_choice_2 = &quot;Nehmen Sie die Position eines uninvolvierten Beobachters ein. Denken Sie \u00fcber das Bild in einer neutralen Weise nach.&quot;;&amp;#10;    } else {&amp;#10;        if ((resp_choice.keys === &quot;3&quot;)) {&amp;#10;            instr_choice_1 = &quot;UNTERDR\u00dcCKEN&quot;;&amp;#10;            instr_choice_2 = &quot;Unterdr\u00fccken Sie alle aufkommenden Emotionen. Wenn Sie also die Bilder ansehen, verhalten Sie sich so, dass eine au\u00dfenstehende Person nicht sehen kann, welche Emotionen Sie gerade empfinden.&quot;;&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="if resp_choice.keys == '1':&amp;#10;    instr_choice_1 = 'ABLENKEN'&amp;#10;    instr_choice_2 = 'Denken Sie während des Betrachtens der Bilder an etwas Neutrales, das mit dem Bild nichts zu tun hat. Das könnten geometrische Figuren, Alltagstätigkeiten oder bekannte Orte sein.'&amp;#10;elif resp_choice.keys == '2':&amp;#10;    instr_choice_1 = 'DISTANZIEREN'&amp;#10;    instr_choice_2 = 'Nehmen Sie die Position eines uninvolvierten Beobachters ein. Denken Sie über das Bild in einer neutralen Weise nach.'&amp;#10;elif resp_choice.keys == '3':&amp;#10;    instr_choice_1 = 'UNTERDRÜCKEN'&amp;#10;    instr_choice_2 = 'Unterdrücken Sie alle aufkommenden Emotionen. Wenn Sie also die Bilder ansehen, verhalten Sie sich so, dass eine außenstehende Person nicht sehen kann, welche Emotionen Sie gerade empfinden.'" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
@@ -556,7 +556,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="num"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="set every repeat" val="$instr_choice" valType="str"/>
+        <Param name="text" updates="set every repeat" val="$instr_choice_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + '\n' + instr_choice_2 + '\n\n' + 'Bitte konzentrieren Sie Ihre Regulationsbemühungen nur auf das Bild, nicht aber auf die Zeiträme zwischen den Bildern.' + '\n\n' + 'Zum Starten des Blocks Leertaste dürcken'" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
