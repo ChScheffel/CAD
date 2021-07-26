@@ -160,7 +160,7 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.05" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="0.04" valType="num"/>
         <Param name="name" updates="None" val="text_Instruction" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -409,7 +409,7 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.05" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="0.04" valType="num"/>
         <Param name="name" updates="None" val="text_choice" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -489,7 +489,7 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="size" updates="constant" val="(0.5, 0.5)" valType="list"/>
+        <Param name="size" updates="constant" val="(1.0, 0.75)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="num"/>
@@ -544,7 +544,7 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.05" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="0.04" valType="num"/>
         <Param name="name" updates="None" val="text_instr_choice" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
