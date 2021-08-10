@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="Paradigm_Scheme.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="2"
+     inkscape:cx="282.75"
+     inkscape:cy="260.75"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible;"
+       id="marker34693"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt;"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path34691" />
+    </marker>
+    <marker
+       style="overflow:visible;"
+       id="Arrow1Mend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4) rotate(180) translate(10,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt;"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path34424" />
+    </marker>
+    <marker
+       style="overflow:visible;"
+       id="Arrow1Lend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt;"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path34418" />
+    </marker>
+    <inkscape:path-effect
+       effect="simplify"
+       id="path-effect34286"
+       is_visible="true"
+       lpeversion="1"
+       steps="1"
+       threshold="0.000408163"
+       smooth_angles="360"
+       helper_size="0"
+       simplify_individual_paths="false"
+       simplify_just_coalesce="false" />
+    <inkscape:path-effect
+       effect="simplify"
+       id="path-effect34282"
+       is_visible="true"
+       lpeversion="1"
+       steps="1"
+       threshold="0.000408163"
+       smooth_angles="360"
+       helper_size="0"
+       simplify_individual_paths="false"
+       simplify_just_coalesce="false" />
+    <inkscape:path-effect
+       effect="simplify"
+       id="path-effect34278"
+       is_visible="true"
+       lpeversion="1"
+       steps="1"
+       threshold="0.000408163"
+       smooth_angles="360"
+       helper_size="0"
+       simplify_individual_paths="false"
+       simplify_just_coalesce="false" />
+    <inkscape:path-effect
+       effect="simplify"
+       id="path-effect34274"
+       is_visible="true"
+       lpeversion="1"
+       steps="1"
+       threshold="0.000408163"
+       smooth_angles="360"
+       helper_size="0"
+       simplify_individual_paths="false"
+       simplify_just_coalesce="false" />
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend-9"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path34418-4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend-5"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path34418-7" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend-4"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path34418-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend-0"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path34418-2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path34418-45" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend-02"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path34418-0" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path34418-93" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend-04"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path34418-6" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend-54"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path34418-8" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend-48"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path34418-09" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend-481"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path34418-5" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ffffff;fill-rule:evenodd;stroke:#f2d71f;stroke-width:0.194901;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect31"
+       width="89.542656"
+       height="89.287704"
+       x="16.960312"
+       y="28.150457" />
+    <rect
+       style="fill:#ffffff;fill-rule:evenodd;stroke:#d7592b;stroke-width:0.185718;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect31-3"
+       width="89.087631"
+       height="51.556133"
+       x="14.218849"
+       y="25.768496" />
+    <rect
+       style="fill:#ffffff;fill-rule:evenodd;stroke:#de201e;stroke-width:0.211327;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect31-6"
+       width="88.885307"
+       height="30.666077"
+       x="11.048876"
+       y="24.135269" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.181921px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-5)"
+       d="m 49.585708,70.120399 4.986079,-0.01377"
+       id="path34413-5"
+       inkscape:transform-center-x="0.097749018"
+       inkscape:transform-center-y="0.0024833967" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.181921px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-4)"
+       d="m 52.628416,93.139149 4.986079,-0.01377"
+       id="path34413-9"
+       inkscape:transform-center-x="0.097749018"
+       inkscape:transform-center-y="0.0024833967" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.181921px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-0)"
+       d="m 52.628416,101.73811 4.986079,-0.0138"
+       id="path34413-4"
+       inkscape:transform-center-x="0.097749018"
+       inkscape:transform-center-y="0.0024833967" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.181921px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-1)"
+       d="m 52.893,110.33707 4.986079,-0.0138"
+       id="path34413-95"
+       inkscape:transform-center-x="0.097749018"
+       inkscape:transform-center-y="0.0024833967" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="14.179823"
+       y="29.481569"
+       id="text7383"><tspan
+         sodipodi:role="line"
+         id="tspan20302"
+         x="14.179823"
+         y="29.481569">Westbrook et al. (2013):</tspan><tspan
+         sodipodi:role="line"
+         id="tspan20304"
+         x="14.179823"
+         y="33.009346">Comparing each difficult level with the easy one</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="17.102671"
+       y="60.069855"
+       id="text7383-7"><tspan
+         sodipodi:role="line"
+         id="tspan20324"
+         x="17.102671"
+         y="60.069855">Addition 1:</tspan><tspan
+         sodipodi:role="line"
+         id="tspan20326"
+         x="17.102671"
+         y="63.59763">Comparing the more difficult level with the most difficult level</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="20.201832"
+       y="82.726891"
+       id="text7383-7-4"><tspan
+         sodipodi:role="line"
+         id="tspan20382"
+         x="20.201832"
+         y="82.726891">Addition 2:</tspan><tspan
+         sodipodi:role="line"
+         id="tspan20384"
+         x="20.201832"
+         y="86.254669">Comparing all levels using both reference directions</tspan></text>
+    <rect
+       style="fill:#dedede;fill-opacity:1;stroke:none;stroke-width:0.249498;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect17949"
+       width="30.743475"
+       height="8.2370005"
+       x="14.179823"
+       y="34.995754" />
+    <rect
+       style="fill:#dedede;fill-opacity:1;stroke:none;stroke-width:0.249498;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect17949-9"
+       width="30.743475"
+       height="8.2370005"
+       x="14.179823"
+       y="43.761921" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="16.650892"
+       y="40.036976"
+       id="text22354"><tspan
+         sodipodi:role="line"
+         id="tspan33558">B for 2$ or A for 1$?</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="53.492695"
+       y="40.156029"
+       id="text22354-3"><tspan
+         sodipodi:role="line"
+         id="tspan34962"
+         x="53.492695"
+         y="40.156029">A for 1.99$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="77.095039"
+       y="40.156033"
+       id="text22354-3-12"><tspan
+         sodipodi:role="line"
+         id="tspan35365">SV B(A) = 0.995</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="77.157745"
+       y="48.689533"
+       id="text22354-3-12-1"><tspan
+         sodipodi:role="line"
+         id="tspan35412">SV C(A) = 0.900</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="79.816673"
+       y="71.046829"
+       id="text22354-3-12-1-8"><tspan
+         sodipodi:role="line"
+         id="tspan35459">SV C(B) = 0.600</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="83.653122"
+       y="93.933289"
+       id="text22354-3-12-1-9"><tspan
+         sodipodi:role="line"
+         id="tspan35530">SV B(C) = 0.950</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="83.65313"
+       y="102.39995"
+       id="text22354-3-12-1-3"><tspan
+         sodipodi:role="line"
+         id="tspan35550">SV A(B) = 0.300</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="83.785416"
+       y="111.39578"
+       id="text22354-3-12-1-0"><tspan
+         sodipodi:role="line"
+         id="tspan35570">SV A(C) = 0.550</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="53.679417"
+       y="48.75499"
+       id="text22354-3-1"><tspan
+         sodipodi:role="line"
+         id="tspan35009">A for 1.80$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="56.457542"
+       y="71.112282"
+       id="text22354-3-5"><tspan
+         sodipodi:role="line"
+         id="tspan35046">B for 1.20$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="59.764832"
+       y="94.131035"
+       id="text22354-3-10"><tspan
+         sodipodi:role="line"
+         id="tspan35083">C for 1.90$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="59.764832"
+       y="102.72999"
+       id="text22354-3-0"><tspan
+         sodipodi:role="line"
+         id="tspan35120">B for 0.60$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="59.897121"
+       y="111.59353"
+       id="text22354-3-2"><tspan
+         sodipodi:role="line"
+         id="tspan35157">C for 1.10$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="16.564795"
+       y="48.55032"
+       id="text22354-4"><tspan
+         sodipodi:role="line"
+         id="tspan33605"
+         x="16.564795"
+         y="48.55032">C for 2$ or A for 1$?</tspan></text>
+    <rect
+       style="fill:#dedede;fill-opacity:1;stroke:none;stroke-width:0.249498;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect17949-9-3"
+       width="30.743475"
+       height="8.2370005"
+       x="17.18169"
+       y="66.039749" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="19.566664"
+       y="70.828148"
+       id="text22354-4-3"><tspan
+         sodipodi:role="line"
+         id="tspan33839">C for 2$ or B for 1$?</tspan></text>
+    <rect
+       style="fill:#dedede;fill-opacity:1;stroke:none;stroke-width:0.249498;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect17949-9-8"
+       width="30.743475"
+       height="8.2370005"
+       x="20.17511"
+       y="88.864571" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="22.560081"
+       y="93.652969"
+       id="text22354-4-5"><tspan
+         sodipodi:role="line"
+         id="tspan34162">B for 2$ or C for 1$?</tspan></text>
+    <rect
+       style="fill:#dedede;fill-opacity:1;stroke:none;stroke-width:0.249498;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect17949-9-6"
+       width="30.743475"
+       height="8.2370005"
+       x="20.175112"
+       y="97.630737" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="22.560083"
+       y="102.41914"
+       id="text22354-4-6"><tspan
+         sodipodi:role="line"
+         id="tspan34182">A for 2$ or B for 1$?</tspan></text>
+    <rect
+       style="fill:#dedede;fill-opacity:1;stroke:none;stroke-width:0.249498;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect17949-9-9"
+       width="30.743475"
+       height="8.2370005"
+       x="20.175112"
+       y="106.3969" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="22.560083"
+       y="111.18531"
+       id="text22354-4-58"><tspan
+         sodipodi:role="line"
+         id="tspan34202">A for 2$ or C for 1$?</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.181921px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 46.576697,39.206322 4.986079,-0.01377"
+       id="path34413"
+       inkscape:transform-center-x="0.097749018"
+       inkscape:transform-center-y="0.0024833967" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.181921px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-02)"
+       d="m 69.694041,39.164149 4.986079,-0.01377"
+       id="path34413-39"
+       inkscape:transform-center-x="0.097749018"
+       inkscape:transform-center-y="0.0024833967" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.181921px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-8)"
+       d="m 69.826333,47.895399 4.986079,-0.01377"
+       id="path34413-8"
+       inkscape:transform-center-x="0.097749018"
+       inkscape:transform-center-y="0.0024833967" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.181921px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-04)"
+       d="m 72.604457,70.252691 4.986079,-0.01377"
+       id="path34413-52"
+       inkscape:transform-center-x="0.097749018"
+       inkscape:transform-center-y="0.0024833967" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.181921px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-54)"
+       d="m 76.044041,93.139149 4.986079,-0.01377"
+       id="path34413-51"
+       inkscape:transform-center-x="0.097749018"
+       inkscape:transform-center-y="0.0024833967" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.181921px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-48)"
+       d="m 76.044041,101.8704 4.986079,-0.0138"
+       id="path34413-6"
+       inkscape:transform-center-x="0.097749018"
+       inkscape:transform-center-y="0.0024833967" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.181921px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-481)"
+       d="m 76.176332,110.60165 4.986079,-0.0138"
+       id="path34413-90"
+       inkscape:transform-center-x="0.097749018"
+       inkscape:transform-center-y="0.0024833967" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.181921px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-9)"
+       d="m 46.542999,47.895399 4.986079,-0.01377"
+       id="path34413-3"
+       inkscape:transform-center-x="0.097749018"
+       inkscape:transform-center-y="0.0024833967" />
+  </g>
+</svg>
