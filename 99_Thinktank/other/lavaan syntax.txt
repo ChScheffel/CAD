@@ -1,0 +1,17 @@
+sem_model <- '
+  # measurement model
+    SelfControl =~ SCFB1 + SCFB2 + SCFB3 + SCFB3
+    Success =~ OBJ + SUBJ
+  # structural model
+    Success ~ SelfControl'
+
+  # Determine the model fit
+ fit <- sem(
+    model = sem_model,
+    data  = your_data,
+    estimator = "MLR"
+  )
+
+  # Get summary
+ fit_summ <- summary(fit, fit.measures = TRUE, standardize = TRUE, rsquare = TRUE,
+          estimates = TRUE, ci = TRUE)

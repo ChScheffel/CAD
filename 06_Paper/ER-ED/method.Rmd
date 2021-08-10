@@ -4,6 +4,12 @@ output:
     keep_tex: true
 ---
 
-#2. Method
+# 2. Method
 
 ## 2.1 Participants
+
+xxx.
+
+## 2.2 
+
+xxx.
