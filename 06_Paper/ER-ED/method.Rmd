@@ -4,8 +4,14 @@ output:
     keep_tex: true
 ---
 
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(targets)
+```
+
 # 2. Method
 
+"We report how we determined our sample size, all data exlusions (if any), all manipulations, and all measures in the study" in compliance with the 21-word-solution of open science 
 ## 2.1 Participants
 
 xxx.
