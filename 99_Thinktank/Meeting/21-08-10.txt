@@ -1,0 +1,26 @@
+* NASA-TLX:
+- am Ende jedes Blockes
+- vorzugsweise in RedCap und damit auf dem Tablett
+- bei T2 nicht verwenden
+
+* Fragebögen:
+- 2 Tage nachher - hoffentlich automatisiert
+- PANAS: Entscheidung dagegen
+- häufige Fragen zu generellem Wohlbefinden oder COVID: Entscheidung dagegen; dafür 1 mal WHO-5
+- FlexER noch einbauen
+- NASA-TLX einprogrammieren (hoffentlich kann man anklicken, dass man den 4 mal macht
+
+* Erinnerung an T2 rausschicken
+
+* Stichprobengröße:
+- Pilot: 20
+- Haupterhebung: vermutlich mittels Pilot ausrechnen
+
+* Analyseskripte:
+- entstehen durch den Pilot
+
+* Einverständniserklärung:
+- Eine Einwilligungserklärung für T1 und T2 zusammen
+
+
+
