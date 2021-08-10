@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on Juli 26, 2021, at 15:02
+    on August 10, 2021, at 09:08
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -178,7 +178,7 @@ Instruction_RegClock = core.Clock()
 text_Instruction = visual.TextStim(win=win, name='text_Instruction',
     text='',
     font='Open Sans',
-    pos=(0, 0), height=0.045, wrapWidth=None, ori=0.0, 
+    pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -247,7 +247,7 @@ Choice_reapplyClock = core.Clock()
 text_choice = visual.TextStim(win=win, name='text_choice',
     text='Nun werden Sie zum letzten Mal eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen und dabei eine der vorherigen Strategien anwenden. Sie können sich nun entscheiden, welche der drei Strategien Sie einsetzen möchten.\n\nEntscheiden Sie sich bitte nun for eine der drei Strategien.\n\nDrücken Sie bitte die Taste\n1    für Ablenken\n2    für Distanzieren\n3    für Unterdrücken',
     font='Open Sans',
-    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -258,7 +258,7 @@ Instruction_ChoiceClock = core.Clock()
 text_instr_choice = visual.TextStim(win=win, name='text_instr_choice',
     text='',
     font='Open Sans',
-    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-1.0);
@@ -270,7 +270,7 @@ image = visual.ImageStim(
     win=win,
     name='image', 
     image='sin', mask=None,
-    ori=0.0, pos=(0, 0), size=(0.5, 0.5),
+    ori=0.0, pos=(0, 0), size=(1.0, 0.75),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=0.0)
