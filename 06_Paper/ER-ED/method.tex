@@ -60,6 +60,26 @@
 \ifluatex
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \author{}
 \date{\vspace{-2.5em}}
@@ -68,6 +88,10 @@
 
 \hypertarget{method}{%
 \section{2. Method}\label{method}}
+
+``We report how we determined our sample size, all data exlusions (if
+any), all manipulations, and all measures in the study'' in compliance
+with the 21-word-solution of open science (Simmons et al., 2012)
 
 \hypertarget{participants}{%
 \subsection{2.1 Participants}\label{participants}}
@@ -88,5 +112,14 @@
 \tightlist
 \item
 \end{enumerate}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\hypertarget{ref-simmons2012}{}%
+Simmons, J. P., Nelson, L. D., \& Simonsohn, U. A. (2012). A 21 word
+solution. \emph{SSRN Electronic Journal}.
+\url{https://doi.org/10.2139/ssrn.2160588}
+
+\end{CSLReferences}
 
 \end{document}
