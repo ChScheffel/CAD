@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+
+### JabRef ###
+*.bak
+*.sav
