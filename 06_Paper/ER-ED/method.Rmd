@@ -13,12 +13,16 @@ library(targets)
 
 # 2. Method
 
-"We report how we determined our sample size, all data exlusions (if any), all manipulations, and all measures in the study" in compliance with the 21-word-solution of open science [@simmons2012]
+"We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study" in compliance with the 21-word-solution of open science [@simmons2012]
 
-## 2.1 Participants
+## 2.1 Power analysis and participants
 
 xxx.
 
-## 2.2 
+## 2.2 Experimental procedure
+
+All session took place in a shielded cabin with constant lighting. Participants received information about the 
+
+## 2.3 Emotion regulation paradigm 
 
 xxx.
