@@ -106,18 +106,18 @@ defaultKeyboard = keyboard.Keyboard()
 levelinwordsList = ['direkt', 'zwei', 'drei', 'vier'] # will be used in the instructions
 levelcolorList = ['black', 'darkred', 'darkblue', 'darkgreen'] # will be used to change the colors of the stimuli
 levelcolorinwordsList = ['Schwarz', 'Rot', 'Blau', 'Grün'] # will be used in the instructions
-stimuliList = ['..\\\\..\\\\..\\\\Stimuli\\\\1back_run1.xlsx',
-'..\\\\..\\\\..\\\\Stimuli\\\\1back_run2.xlsx',
-'..\\\\..\\\\..\\\\Stimuli\\\\2back_run1.xlsx',
-'..\\\\..\\\\..\\\\Stimuli\\\\2back_run2.xlsx',
-'..\\\\..\\\\..\\\\Stimuli\\\\3back_run1.xlsx',
-'..\\\\..\\\\..\\\\Stimuli\\\\3back_run2.xlsx',
-'..\\\\..\\\\..\\\\Stimuli\\\\4back_run1.xlsx',
-'..\\\\..\\\\..\\\\Stimuli\\\\4back_run2.xlsx'] # will be used to import the excel files with the n-back stimuli
-finaln_stimuliList = ['..\\\\..\\\\..\\\\Stimuli\\\\1back.xlsx',
-'..\\\\..\\\\..\\\\Stimuli\\\\2back.xlsx',
-'..\\\\..\\\\..\\\\Stimuli\\\\3back.xlsx',
-'..\\\\..\\\\..\\\\Stimuli\\\\4back.xlsx'] # for import of the stimuli for the final round after the ED part
+stimuliList = ['C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CogEmotED\\01_Paradigms\\COG-ED\\Stimuli\\1back_run1.xlsx',
+'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CogEmotED\\01_Paradigms\\COG-ED\\Stimuli\\1back_run2.xlsx',
+'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CogEmotED\\01_Paradigms\\COG-ED\\Stimuli\\2back_run1.xlsx',
+'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CogEmotED\\01_Paradigms\\COG-ED\\Stimuli\\2back_run2.xlsx',
+'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CogEmotED\\01_Paradigms\\COG-ED\\Stimuli\\3back_run1.xlsx',
+'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CogEmotED\\01_Paradigms\\COG-ED\\Stimuli\\3back_run2.xlsx',
+'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CogEmotED\\01_Paradigms\\COG-ED\\Stimuli\\4back_run1.xlsx',
+'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CogEmotED\\01_Paradigms\\COG-ED\\Stimuli\\4back_run2.xlsx'] # will be used to import the excel files with the n-back stimuli
+finaln_stimuliList = ['C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CogEmotED\\01_Paradigms\\COG-ED\\Stimuli\\1back.xlsx',
+'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CogEmotED\\01_Paradigms\\COG-ED\\Stimuli\\2back.xlsx',
+'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CogEmotED\\01_Paradigms\\COG-ED\\Stimuli\\3back.xlsx',
+'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CogEmotED\\01_Paradigms\\COG-ED\\Stimuli\\4back.xlsx'] # for import of the stimuli for the final round after the ED part
 EDlevcompList = ['schwarze', 'rote',
 'rote', 'blaue',
 'blaue', 'grüne',
@@ -1018,7 +1018,7 @@ for edx in EDrounds:
     # set up handler to look after randomisation of conditions etc
     EDround = data.TrialHandler(nReps=1.0, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions('..\\\\..\\\\..\\\\Stimuli\\\\Moneyvalues.xlsx'),
+        trialList=data.importConditions('C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CogEmotED\\01_Paradigms\\COG-ED\\Stimuli\\Moneyvalues.xlsx'),
         seed=None, name='EDround')
     thisExp2.addLoop(EDround)  # add the loop to the experiment
     thisEDround = EDround.trialList[0]  # so we can initialise stimuli with some values
