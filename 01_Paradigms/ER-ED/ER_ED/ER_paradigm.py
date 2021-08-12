@@ -92,22 +92,16 @@ else:
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard()
 
-
-# #################################
-# Define correct number of Trials
-# #################################
-TotalTrialNr = 15  # 120 ?!
-Trials_Block = 3 # 20
-
-
-# #################################
 # Randomize negative picture sets across negative Blocks
-# #################################
-
 # create a list of 4 negative blocks
 Stimuli_Order = list(range(1,6))
 # randomize order
 shuffle(Stimuli_Order)
+
+# create jitter for fixation cross
+
+FIXjitter = [-1,-1,-1-,1,-0.5,-0.5,-0.5,-0.5,0,0,0,0,0.5,0.5,0.5,0.5,1,1,1,1]
+
 
 # Create lists with all the different variable names
 EDstratcompList = ['Ablenken', 'Distanzieren',
@@ -126,6 +120,10 @@ EDrounds = list(range(6))
 # Create array corresponding to every second element in the list of comparisons, which will be randomized for every participant
 EDcomps = [0,2,4]
 shuffle(EDcomps)
+
+############################
+# INITIALIZE ALL COMPONENTS
+############################
 
 # Initialize components for Routine "WelcomeScreen"
 WelcomeScreenClock = core.Clock()
@@ -465,6 +463,11 @@ _timeToFirstFrame = win.getFutureFlipTime(clock="now")
 WelcomeScreenClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
 
+#########################
+# START EXPERIMENT
+#########################
+
+
 # -------Run Routine "WelcomeScreen"-------
 while continueRoutine:
     # get current time
@@ -670,7 +673,7 @@ for thisBlocks_view in blocks_view:
         
         # ------Prepare to start Routine "Pics_View"-------
         continueRoutine = True
-        routineTimer.add(3.000000)
+        routineTimer.add(6.000000)
         # update component parameters for each repeat
         image_view.setImage(ImageFile)
         # keep track of which components have finished
@@ -707,7 +710,7 @@ for thisBlocks_view in blocks_view:
                 image_view.setAutoDraw(True)
             if image_view.status == STARTED:
                 # is it time to stop? (based on global clock, using actual start)
-                if tThisFlipGlobal > image_view.tStartRefresh + 3.0-frameTolerance:
+                if tThisFlipGlobal > image_view.tStartRefresh + 6.0-frameTolerance:
                     # keep track of stop time/frame for later
                     image_view.tStop = t  # not accounting for scr refresh
                     image_view.frameNStop = frameN  # exact frame index
@@ -740,7 +743,7 @@ for thisBlocks_view in blocks_view:
         
         # ------Prepare to start Routine "fixcross"-------
         continueRoutine = True
-        routineTimer.add(1.000000)
+        routineTimer.add(4.000000)
         # update component parameters for each repeat
         # keep track of which components have finished
         fixcrossComponents = [text]
@@ -776,7 +779,7 @@ for thisBlocks_view in blocks_view:
                 text.setAutoDraw(True)
             if text.status == STARTED:
                 # is it time to stop? (based on global clock, using actual start)
-                if tThisFlipGlobal > text.tStartRefresh + 1.0-frameTolerance:
+                if tThisFlipGlobal > text.tStartRefresh + 4.0 + -frameTolerance:
                     # keep track of stop time/frame for later
                     text.tStop = t  # not accounting for scr refresh
                     text.frameNStop = frameN  # exact frame index
@@ -1107,7 +1110,7 @@ for thisBlocks_reg in blocks_reg:
         
         # ------Prepare to start Routine "Pics_Reg"-------
         continueRoutine = True
-        routineTimer.add(3.000000)
+        routineTimer.add(6.000000)
         # update component parameters for each repeat
         image_reg.setImage(ImageFile)
         # keep track of which components have finished
