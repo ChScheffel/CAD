@@ -40,11 +40,11 @@ psychopyVersion = '2021.1.4'
 expName1 = 'ER_paradigm'  
 expName2 = 'ER_ED'
 expInfo = {'participant': ''}
-dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
+dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName1)
 if dlg.OK == False:
     core.quit()  # user pressed cancel
 expInfo['date'] = data.getDateStr()  # add a simple timestamp
-expInfo['expName'] = expName
+expInfo['expName'] = expName1
 expInfo['psychopyVersion'] = psychopyVersion
 
 # Data file name stem = absolute path + name; later add .psyexp, .csv, .log, etc
@@ -67,7 +67,7 @@ thisExp2 = data.ExperimentHandler(name=expName2, version='',
     dataFileName=filename1)
 
 # save a log file for detail verbose info
-logFile = logging.LogFile(filename+'.log', level=logging.EXP)
+logFile = logging.LogFile(filename1 +'.log', level=logging.EXP)
 logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a file
 
 endExpNow = False  # flag for 'escape' or other condition => quit the exp
@@ -125,7 +125,7 @@ EDfix = [2.00]
 EDrounds = list(range(6))
 # Create array corresponding to every second element in the list of comparisons, which will be randomized for every participant
 EDcomps = [0,2,4]
-random.shuffle(EDcomps)
+shuffle(EDcomps)
 
 # Initialize components for Routine "WelcomeScreen"
 WelcomeScreenClock = core.Clock()
@@ -1338,12 +1338,8 @@ for thisBlocks_reg in blocks_reg:
     for thisComponent in Slider_ArousalComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    blocks_reg.addData('text_slider_arousal.started', text_slider_arousal.tStartRefresh)
-    blocks_reg.addData('text_slider_arousal.stopped', text_slider_arousal.tStopRefresh)
     blocks_reg.addData('slider_arousal.response', slider_arousal.getRating())
     blocks_reg.addData('slider_arousal.rt', slider_arousal.getRT())
-    blocks_reg.addData('slider_arousal.started', slider_arousal.tStartRefresh)
-    blocks_reg.addData('slider_arousal.stopped', slider_arousal.tStopRefresh)
     # the Routine "Slider_Arousal" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
@@ -1418,15 +1414,10 @@ for thisBlocks_reg in blocks_reg:
     for thisComponent in Slider_EffortComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    blocks_reg.addData('text_slider_effort.started', text_slider_effort.tStartRefresh)
-    blocks_reg.addData('text_slider_effort.stopped', text_slider_effort.tStopRefresh)
     blocks_reg.addData('slider_effort.response', slider_effort.getRating())
     blocks_reg.addData('slider_effort.rt', slider_effort.getRT())
-    blocks_reg.addData('slider_effort.started', slider_effort.tStartRefresh)
-    blocks_reg.addData('slider_effort.stopped', slider_effort.tStopRefresh)
     # the Routine "Slider_Effort" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
-    thisExp1.nextEntry()
     
 # completed 1.0 repeats of 'blocks_reg'
 
@@ -1966,7 +1957,7 @@ if resp_choice.keys in ['', [], None]:  # No response was made
     resp_choice.keys = None
 thisExp1.addData('resp_choice.keys',resp_choice.keys)
 if resp_choice.keys != None:  # we had a response
-    thisExp.1addData('resp_choice.rt', resp_choice.rt)
+    thisExp1.addData('resp_choice.rt', resp_choice.rt)
 thisExp1.addData('resp_choice.started', resp_choice.tStartRefresh)
 thisExp1.addData('resp_choice.stopped', resp_choice.tStopRefresh)
 thisExp1.nextEntry()
