@@ -36,8 +36,10 @@ os.chdir(_thisDir)
 
 # Store info about the experiment session
 psychopyVersion = '2021.1.4'
-expName = 'ER_paradigm'  # from the Builder filename that created this script
-expInfo = {'participant': '', 'session': '001'}
+# two separate files for ER paradigm and ER discounting
+expName1 = 'ER_paradigm'  
+expName2 = 'ER_ED'
+expInfo = {'participant': ''}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
 if dlg.OK == False:
     core.quit()  # user pressed cancel
@@ -46,7 +48,9 @@ expInfo['expName'] = expName
 expInfo['psychopyVersion'] = psychopyVersion
 
 # Data file name stem = absolute path + name; later add .psyexp, .csv, .log, etc
-filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])
+# For ER paradigm
+filename1 = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expName1, expInfo['date'])
+filename2 = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expName1, expInfo['date'])
 
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
@@ -238,6 +242,85 @@ slider_effort = visual.Slider(win=win, name='slider_effort',
     color='black', fillColor='black', borderColor='black', colorSpace='rgb',
     font='Open Sans', labelHeight=0.05,
     flip=False, depth=-1, readOnly=False)
+
+# ------------------------------
+# Effort Discounting components
+# ------------------------------
+
+# Initialize components for ED instruction routine
+InstructionEDClock = core.Clock()
+text = visual.TextStim(win=win, name='text',
+    text='Nun beginnt der nächste Teil.\n\nDie unterschiedlichen Strategien, die Sie gerade genutzt haben, werden nun nacheinander gegenübergestellt.\n'\
+         'Auf dem Bildschirm erscheint die Frage "Welche Bezahlung würden Sie eher für welche Strategie annehmen?". Darunter befinden sich zwei Textfelder, '\
+        'zum Beispiel "1,00€ für Strategie Ablenken" und "1,00€ für Strategie Distanzieren". Sie können die Frage beantworten, indem Sie mit der Maus '\
+        '(mit einem einfachen Klick) auf eins der beiden Felder klicken. Dabei geht es nicht um Schnelligkeit. Nachdem Sie geklickt haben, '\
+        'werden sich die Geldbeträge verändern und Sie können sich erneut entscheiden. Auf diese Weise werden alle Strategien miteinander verglichen werden.\n'\
+        'Bitte entscheiden Sie sich so, dass Sie mit dem Verhältnis der Optionen wirklich zufrieden sind. \n\n'\
+        'Drücken Sie die Leertaste, um zu beginnen.',
+    font='Open Sans',
+    pos=(0, 0), height=0.025, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+key_resp = keyboard.Keyboard()
+
+# Initialize ED question routine
+EDroundClock = core.Clock()
+question = visual.TextStim(win=win, name='question',
+    text='Welche Bezahlung würden Sie eher für welche Strategie annehmen?',
+    font='Open Sans',
+    pos=[0,0.1], height=0.03, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+
+# Initialize ED mouse click routine
+EDclick = event.Mouse(win=win)
+x, y = [None, None]
+EDclick.mouseClock = core.Clock()
+
+# Initialize ED left button
+EDleftbutton = visual.ButtonStim(win, 
+    text= '', font='Open Sans',
+    pos=[-0.3,-0.15],units='height',
+    letterHeight=0.03,
+    size=[0.5,0.1], borderWidth=0.0,
+    fillColor='darkgrey', borderColor=None,
+    color='', colorSpace='rgb',
+    opacity=None,
+    bold=True, italic=False,
+    padding=0.03,
+    anchor='center',
+    name='EDleftbutton')
+EDleftbutton.buttonClock = core.Clock()
+
+# Initialize ED right button
+EDrightbutton = visual.ButtonStim(win, 
+   text= '', font='Open Sans',
+   pos=[0.3,-0.15],units='height',
+   letterHeight=0.03,
+   size=[0.5,0.1], borderWidth=0.0,
+   fillColor='darkgrey', borderColor=None,
+   color='', colorSpace='rgb',
+   opacity=None,
+   bold=True, italic=False,
+   padding=0.03,
+   anchor='center',
+   name='EDrightbutton')
+EDrightbutton.buttonClock = core.Clock()
+
+# Initialize ED buffer screen for between button clicks
+EDbufferscreenClock = core.Clock()
+EDbufferscreen = visual.TextStim(win=win, name='EDbufferscreen',
+    text='Welche Bezahlung würden Sie eher für welche Strategie annehmen?',
+    font='Open Sans',
+    pos=[0,0.1], height=0.03, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+bufferscreenkey = keyboard.Keyboard()
+EDstorebutton = []
+
 
 # Initialize components for Routine "Choice_reapply"
 Choice_reapplyClock = core.Clock()
