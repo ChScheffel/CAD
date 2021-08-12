@@ -11,20 +11,36 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+-	in everyday life, effort and reward are closely intertwined (Botvinik 2009)
+-	a reward is subjectively more valuable if it is obtained with less effort, i.e. “effort sets in place a reference point against which rewards are measured” (Botvinik 2009, p. 1)
+-	research has not yet established which function best describes the relationship of effort and cost (Kool & Botvinick, 2018)
+-	investigating effort and cost is challenging, because “effort is not a property of the target task alone, but also a function of the individual’s cognitive capacities, as well as the degree of effort voluntarily mobilized for the task, which in turn is a function of the individual’s reward sensitivity” (Kool & Botvinick, 2018, p. 902)
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+-	the n-back task as it is known today, i.e. a working memory task with up to six levels of n, was developed by Mackworth in 1959
+-	the n-back task is considered a working memory task because it requires simultaneous storage of past stimuli and processing of new stimuli (Jonides et al., 1997)
+-	the n-back task monotonically increases activation in brain areas of working memory (Jonides et al., 1997; Owen et al., 2005)
+-	errors and reaction time increase monotonically with levels of n (Jaeggi et al., 2010)
+-	reliability measures of the n-back task are extremely mixed, presumably caused by ceiling effects in the easiest level, which might be the reason for its debatable validity, i.e. inconsistent associations of n-back performance and other measures such as tasks of executive functioning and fluid intelligence (Jaeggi et al., 2010)
 
-```{r cars}
-summary(cars)
-```
+-	higher n-back levels and more difficult signal-to-noise audio comprehension task levels are discounted in similar ways in the COG-ED paradigm -> doesn’t just work for n-back (Crawford et al., 2021)
+-	there are strong within-subjects associations of the SV of different cognitive domains, i.e. n-back and audio comprehension, even after controlling for performance d’, and even though the audio task was rated as less mentally demanding and effortful (Crawford et al., 2021)
 
-## Including Plots
+-	n-back performance is not associated with NFC (and neither are a battery of other tasks of executive functioning) -> NFC reflects a motivation, not ability (Gärtner et al., 2021)
+-	however, NFC is associated with brain flexibility on multiple levels (He et al., 2019)
+-	NFC correlates with greater automatic attention allocation (measured in ERPs) in easier tasks and also with greater voluntary attention allocation in more difficult tasks (Enge et al., 2008)
+-	NFC is positively related to gf and gc but not working memory (Hill et al., 2013)
+-	NFC is not associated with memory and gf, and anecdotally with gc (Fleischhauer et al., 2010)
+-	performance, indexed by d’, was not a reliable predictor of SV across SCZ patients and healthy controls (Culbreth et al., 2016)
+-	when adding the performance scores d’ as a mean performance score as a covariate, the effects of NFC on SV disappeared -> willingness to invest effort might have partially been driven by the prospect of success (Kramer et al., 2021)
+-	in a multilevel model, task load was associated with SVs beyond performance d’ (Westbrook et al., 2013)
+-	older adults make the SV decisions more with their performance in mind than young adults (McLaughlin et al., 2021)
 
-You can also embed plots, for example:
+-	higher NFC means higher motivation to voluntarily mobilize effort for the task, because it is perceived as intrinsically rewarding
+-	the SV of n=1 vs n=2 correlates positively with NFC in children, but not of n=1 vs n=3 (Chevalier, 2018)
+-	the SV of n=1 vs n=3 correlates positively with NFC in adolescents, but not of n=1 vs n=2
+(Kramer et al., 2021)
+-	no association of SV and NFC in either n-back or audio comprehension in a sample of 31 adults (Crawford et al., 2021)
+Justifying changes in the COG-ED procedure:
+-	subjective values did not decline between n=4 and n=5 (Culbreth et al., 2016) -> n=5 is too universally difficult to be valid
+-	only higher n-back levels are reliable for performance computation (Jaeggi et al., 2010) -> we will not include n = 1 in our performance measure
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
