@@ -227,7 +227,9 @@ text = visual.TextStim(win=win, name='text',
         'Auf dem Bildschirm erscheint die Frage "Welche Bezahlung würden Sie eher für welches Level annehmen?". Darunter befinden sich zwei Textfelder, '\
         'zum Beispiel "1,00€ für das rote Level" und "1,00€ für das schwarze Level". Sie können die Frage beantworten, indem Sie mit der Maus '\
         '(mit einem einfachen Klick) auf eins der beiden Felder klicken. Dabei geht es nicht um Schnelligkeit. Nachdem Sie geklickt haben, '\
-        'werden sich die Geldbeträge verändern und Sie können sich erneut entscheiden. Auf diese Weise werden alle Level miteinander verglichen werden.\n\n'\
+        'werden sich die Geldbeträge verändern und Sie können sich erneut entscheiden. Auf diese Weise werden alle Level miteinander verglichen werden.\n'\
+        'Bitte entscheiden Sie sich so, dass Sie mit dem Verhältnis der Optionen wirklich zufrieden sind.\n'\
+        'Eine Ihrer Entscheidungen wird anschließend zufällig für einen erneuten Durchgang ausgewählt.\n\n'\
         'Drücken Sie die Leertaste, um zu beginnen.',
     font='Open Sans',
     pos=(0, 0), height=0.025, wrapWidth=None, ori=0.0, 
