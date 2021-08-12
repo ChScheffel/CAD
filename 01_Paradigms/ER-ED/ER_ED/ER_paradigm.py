@@ -526,16 +526,12 @@ while continueRoutine:
 for thisComponent in WelcomeScreenComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-thisExp1.addData('WelcomeText.started', WelcomeText.tStartRefresh)
-thisExp1.addData('WelcomeText.stopped', WelcomeText.tStopRefresh)
 # check responses
 if WelcomeResponse.keys in ['', [], None]:  # No response was made
     WelcomeResponse.keys = None
 thisExp1.addData('WelcomeResponse.keys',WelcomeResponse.keys)
 if WelcomeResponse.keys != None:  # we had a response
     thisExp1.addData('WelcomeResponse.rt', WelcomeResponse.rt)
-thisExp1.addData('WelcomeResponse.started', WelcomeResponse.tStartRefresh)
-thisExp1.addData('WelcomeResponse.stopped', WelcomeResponse.tStopRefresh)
 thisExp1.nextEntry()
 # the Routine "WelcomeScreen" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
@@ -644,16 +640,12 @@ for thisBlocks_view in blocks_view:
     for thisComponent in Instruction_ViewComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    blocks_view.addData('text_ActiveViewing.started', text_ActiveViewing.tStartRefresh)
-    blocks_view.addData('text_ActiveViewing.stopped', text_ActiveViewing.tStopRefresh)
     # check responses
     if instr_view_resp.keys in ['', [], None]:  # No response was made
         instr_view_resp.keys = None
     blocks_view.addData('instr_view_resp.keys',instr_view_resp.keys)
     if instr_view_resp.keys != None:  # we had a response
         blocks_view.addData('instr_view_resp.rt', instr_view_resp.rt)
-    blocks_view.addData('instr_view_resp.started', instr_view_resp.tStartRefresh)
-    blocks_view.addData('instr_view_resp.stopped', instr_view_resp.tStopRefresh)
     # the Routine "Instruction_View" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
@@ -890,12 +882,8 @@ for thisBlocks_view in blocks_view:
     for thisComponent in Slider_ArousalComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    blocks_view.addData('text_slider_arousal.started', text_slider_arousal.tStartRefresh)
-    blocks_view.addData('text_slider_arousal.stopped', text_slider_arousal.tStopRefresh)
     blocks_view.addData('slider_arousal.response', slider_arousal.getRating())
     blocks_view.addData('slider_arousal.rt', slider_arousal.getRT())
-    blocks_view.addData('slider_arousal.started', slider_arousal.tStartRefresh)
-    blocks_view.addData('slider_arousal.stopped', slider_arousal.tStopRefresh)
     # the Routine "Slider_Arousal" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
@@ -970,12 +958,8 @@ for thisBlocks_view in blocks_view:
     for thisComponent in Slider_EffortComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    blocks_view.addData('text_slider_effort.started', text_slider_effort.tStartRefresh)
-    blocks_view.addData('text_slider_effort.stopped', text_slider_effort.tStopRefresh)
     blocks_view.addData('slider_effort.response', slider_effort.getRating())
     blocks_view.addData('slider_effort.rt', slider_effort.getRT())
-    blocks_view.addData('slider_effort.started', slider_effort.tStartRefresh)
-    blocks_view.addData('slider_effort.stopped', slider_effort.tStopRefresh)
     # the Routine "Slider_Effort" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
 # completed 1.0 repeats of 'blocks_view'
@@ -1092,16 +1076,13 @@ for thisBlocks_reg in blocks_reg:
     for thisComponent in Instruction_RegComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    blocks_reg.addData('text_Instruction.started', text_Instruction.tStartRefresh)
-    blocks_reg.addData('text_Instruction.stopped', text_Instruction.tStopRefresh)
     # check responses
     if instr_reg_resp.keys in ['', [], None]:  # No response was made
         instr_reg_resp.keys = None
     blocks_reg.addData('instr_reg_resp.keys',instr_reg_resp.keys)
     if instr_reg_resp.keys != None:  # we had a response
         blocks_reg.addData('instr_reg_resp.rt', instr_reg_resp.rt)
-    blocks_reg.addData('instr_reg_resp.started', instr_reg_resp.tStartRefresh)
-    blocks_reg.addData('instr_reg_resp.stopped', instr_reg_resp.tStopRefresh)
+  
     # the Routine "Instruction_Reg" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
@@ -1950,16 +1931,14 @@ while continueRoutine:
 for thisComponent in Choice_reapplyComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-thisExp1.addData('text_choice.started', text_choice.tStartRefresh)
-thisExp1.addData('text_choice.stopped', text_choice.tStopRefresh)
+
 # check responses
 if resp_choice.keys in ['', [], None]:  # No response was made
     resp_choice.keys = None
 thisExp1.addData('resp_choice.keys',resp_choice.keys)
 if resp_choice.keys != None:  # we had a response
     thisExp1.addData('resp_choice.rt', resp_choice.rt)
-thisExp1.addData('resp_choice.started', resp_choice.tStartRefresh)
-thisExp1.addData('resp_choice.stopped', resp_choice.tStopRefresh)
+
 thisExp1.nextEntry()
 # the Routine "Choice_reapply" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
@@ -2056,16 +2035,14 @@ while continueRoutine:
 for thisComponent in Instruction_ChoiceComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-thisExp1.addData('text_instr_choice.started', text_instr_choice.tStartRefresh)
-thisExp1.addData('text_instr_choice.stopped', text_instr_choice.tStopRefresh)
+
 # check responses
 if key_resp.keys in ['', [], None]:  # No response was made
     key_resp.keys = None
 thisExp1.addData('key_resp.keys',key_resp.keys)
 if key_resp.keys != None:  # we had a response
     thisExp1.addData('key_resp.rt', key_resp.rt)
-thisExp1.addData('key_resp.started', key_resp.tStartRefresh)
-thisExp1.addData('key_resp.stopped', key_resp.tStopRefresh)
+
 thisExp1.nextEntry()
 # the Routine "Instruction_Choice" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
@@ -2303,12 +2280,9 @@ while continueRoutine:
 for thisComponent in Slider_ArousalComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-thisExp1.addData('text_slider_arousal.started', text_slider_arousal.tStartRefresh)
-thisExp1.addData('text_slider_arousal.stopped', text_slider_arousal.tStopRefresh)
 thisExp1.addData('slider_arousal.response', slider_arousal.getRating())
 thisExp1.addData('slider_arousal.rt', slider_arousal.getRT())
-thisExp1.addData('slider_arousal.started', slider_arousal.tStartRefresh)
-thisExp1.addData('slider_arousal.stopped', slider_arousal.tStopRefresh)
+
 # the Routine "Slider_Arousal" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -2383,12 +2357,9 @@ while continueRoutine:
 for thisComponent in Slider_EffortComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-thisExp1.addData('text_slider_effort.started', text_slider_effort.tStartRefresh)
-thisExp1.addData('text_slider_effort.stopped', text_slider_effort.tStopRefresh)
 thisExp1.addData('slider_effort.response', slider_effort.getRating())
 thisExp1.addData('slider_effort.rt', slider_effort.getRT())
-thisExp1.addData('slider_effort.started', slider_effort.tStartRefresh)
-thisExp1.addData('slider_effort.stopped', slider_effort.tStopRefresh)
+
 # the Routine "Slider_Effort" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -2474,16 +2445,12 @@ while continueRoutine:
 for thisComponent in EndScreenComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-thisExp1.addData('text_end.started', text_end.tStartRefresh)
-thisExp1.addData('text_end.stopped', text_end.tStopRefresh)
 # check responses
 if key_resp_2.keys in ['', [], None]:  # No response was made
     key_resp_2.keys = None
 thisExp1.addData('key_resp_2.keys',key_resp_2.keys)
 if key_resp_2.keys != None:  # we had a response
     thisExp1.addData('key_resp_2.rt', key_resp_2.rt)
-thisExp1.addData('key_resp_2.started', key_resp_2.tStartRefresh)
-thisExp1.addData('key_resp_2.stopped', key_resp_2.tStopRefresh)
 thisExp1.nextEntry()
 # the Routine "EndScreen" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
@@ -2493,10 +2460,13 @@ routineTimer.reset()
 win.flip()
 
 # these shouldn't be strictly necessary (should auto-save)
-thisExp1.saveAsWideText(filename+'.csv', delim='auto')
-thisExp1.saveAsPickle(filename)
+thisExp1.saveAsWideText(filename1+'.csv', delim='auto')
+thisExp1.saveAsPickle(filename1)
+thisExp2.saveAsWideText(filename2+'.csv', delim='auto')
+thisExp2.saveAsPickle(filename2)
 logging.flush()
 # make sure everything is closed down
 thisExp1.abort()  # or data files will save again on exit
+thisExp2.abort()
 win.close()
 core.quit()
