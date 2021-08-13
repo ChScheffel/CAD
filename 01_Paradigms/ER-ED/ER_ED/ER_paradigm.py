@@ -25,6 +25,7 @@ from numpy import (sin, cos, tan, log, log10, pi, average,
 from numpy.random import random, randint, normal, shuffle, choice as randchoice
 import os  # handy system and path functions
 import sys  # to get file system encoding
+import random # for randomization of comparison order
 
 from psychopy.hardware import keyboard
 
@@ -100,7 +101,7 @@ shuffle(Stimuli_Order)
 
 # create jitter for fixation cross
 
-FIXjitter = [-1,-1,-1-,1,-0.5,-0.5,-0.5,-0.5,0,0,0,0,0.5,0.5,0.5,0.5,1,1,1,1]
+FIXjitter = [-1,-1,-1,-1,-0.5,-0.5,-0.5,-0.5,0,0,0,0,0.5,0.5,0.5,0.5,1,1,1,1]
 
 
 # Create lists with all the different variable names
@@ -116,10 +117,10 @@ EDsteps = [1.00,1.00,0.50,0.25,0.125,0.0625,0.03125,0.015625]
 # The constant monetary value that will be assigned to the option that was not chosen in the 1€ vs 1€ comparison
 EDfix = [2.00]
 # Create array corresponding to rounds of effort discounting aka the list elements
-EDrounds = list(range(6))
+EDrounds = list(range(3))
 # Create array corresponding to every second element in the list of comparisons, which will be randomized for every participant
 EDcomps = [0,2,4]
-shuffle(EDcomps)
+random.shuffle(EDcomps)
 
 ############################
 # INITIALIZE ALL COMPONENTS
@@ -130,7 +131,7 @@ WelcomeScreenClock = core.Clock()
 WelcomeText = visual.TextStim(win=win, name='WelcomeText',
     text='Willkommen!\n\nDas Experiment besteht aus zwei Teilen.\nIm ersten Teil werden Sie  Bilder betrachten und mittels verschiedener Strategien Ihre Emotionen regulieren.\n\nIm zweiten Teil werden Sie die verschiedenen Emotionsregulationsstrategien miteinander vergleichen.\n\nZum Forfahren Leertaste drücken.',
     font='Open Sans',
-    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    pos=(0, 0), height=0.03, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -141,7 +142,7 @@ WelcomeResponse = keyboard.Keyboard()
 # Initialize components for Routine "Instruction_View"
 Instruction_ViewClock = core.Clock()
 text_ActiveViewing = visual.TextStim(win=win, name='text_ActiveViewing',
-    text='ANSCHAUEN\n\nIn diesem Block werden Sie eine Reihe von Bildern sehen.\nDiese sollen Sie aufmerksam ansehen. Bitte reagieren\nSie natürlich auf die Bildinhalte ohne aufkommende \nEmotionen zu verändern!.\n\nZum Starten des Blocks bitte Leertaste drücken.',
+    text='ANSCHAUEN\n\nIn diesem Block werden Sie eine Reihe von Bildern sehen.\nDiese sollen Sie aufmerksam ansehen. Bitte reagieren\nSie natürlich auf die Bildinhalte ohne aufkommende \nEmotionen zu verändern!\n\nZum Starten des Blocks bitte Leertaste drücken.',
     font='Open Sans',
     pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
@@ -162,7 +163,7 @@ image_view = visual.ImageStim(
 
 # Initialize components for Routine "fixcross"
 fixcrossClock = core.Clock()
-text = visual.TextStim(win=win, name='text',
+text_fixcross = visual.TextStim(win=win, name='text_fixcross',
     text='+',
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
@@ -170,39 +171,6 @@ text = visual.TextStim(win=win, name='text',
     languageStyle='LTR',
     depth=0.0);
 
-# Initialize components for Routine "Slider_Arousal"
-Slider_ArousalClock = core.Clock()
-text_slider_arousal = visual.TextStim(win=win, name='text_slider_arousal',
-    text='Wie hoch schätzen Sie Ihre durchschnittliche emotionale Aufregung beim Betrachten der Bilder ein?',
-    font='Open Sans',
-    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
-    color='black', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=0.0);
-slider_arousal = visual.Slider(win=win, name='slider_arousal',
-    size=[1.0,0.1], pos=(0, -0.2), units=None,
-    labels=("sehr gering", "sehr hoch"), ticks=(0,400), granularity=0.0,
-    style='rating', styleTweaks=(), opacity=None,
-    color='black', fillColor='black', borderColor='black', colorSpace='rgb',
-    font='Open Sans', labelHeight=0.05,
-    flip=False, depth=-1, readOnly=False)
-
-# Initialize components for Routine "Slider_Effort"
-Slider_EffortClock = core.Clock()
-text_slider_effort = visual.TextStim(win=win, name='text_slider_effort',
-    text='Wie hoch schätzen Sie Ihre geistige Anstrengung während des Anwendens der Strategie ein?',
-    font='Open Sans',
-    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
-    color='black', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=0.0);
-slider_effort = visual.Slider(win=win, name='slider_effort',
-    size=(1.0,0.1), pos=(0, -0.2), units=None,
-    labels=("sehr gering","sehr hoch"), ticks=(0,400), granularity=0.0,
-    style='rating', styleTweaks=(), opacity=None,
-    color='black', fillColor='black', borderColor='black', colorSpace='rgb',
-    font='Open Sans', labelHeight=0.05,
-    flip=False, depth=-1, readOnly=False)
 
 # Initialize components for Routine "Instruction_Reg"
 Instruction_RegClock = core.Clock()
@@ -226,15 +194,6 @@ image_reg = visual.ImageStim(
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=0.0)
 
-# Initialize components for Routine "fixcross"
-fixcrossClock = core.Clock()
-text = visual.TextStim(win=win, name='text',
-    text='+',
-    font='Open Sans',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
-    color='black', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=0.0);
 
 # Initialize components for Routine "Slider_Arousal"
 Slider_ArousalClock = core.Clock()
@@ -276,7 +235,7 @@ slider_effort = visual.Slider(win=win, name='slider_effort',
 
 # Initialize components for ED instruction routine
 InstructionEDClock = core.Clock()
-text = visual.TextStim(win=win, name='text',
+text_EDinstruction = visual.TextStim(win=win, name='text_EDinstruction',
     text='Nun beginnt der nächste Teil.\n\nDie unterschiedlichen Strategien, die Sie gerade genutzt haben, werden nun nacheinander gegenübergestellt.\n'\
          'Auf dem Bildschirm erscheint die Frage "Welche Bezahlung würden Sie eher für welche Strategie annehmen?". Darunter befinden sich zwei Textfelder, '\
         'zum Beispiel "1,00€ für Strategie Ablenken" und "1,00€ für Strategie Distanzieren". Sie können die Frage beantworten, indem Sie mit der Maus '\
@@ -309,11 +268,11 @@ EDclick.mouseClock = core.Clock()
 # Initialize ED left button
 EDleftbutton = visual.ButtonStim(win, 
     text= '', font='Open Sans',
-    pos=[-0.3,-0.15],units='height',
+    pos=[-0.35,-0.15],units='height',
     letterHeight=0.03,
-    size=[0.5,0.1], borderWidth=0.0,
+    size=[0.6,0.1], borderWidth=0.0,
     fillColor='darkgrey', borderColor=None,
-    color='', colorSpace='rgb',
+    color='black', colorSpace='rgb',
     opacity=None,
     bold=True, italic=False,
     padding=0.03,
@@ -324,11 +283,11 @@ EDleftbutton.buttonClock = core.Clock()
 # Initialize ED right button
 EDrightbutton = visual.ButtonStim(win, 
    text= '', font='Open Sans',
-   pos=[0.3,-0.15],units='height',
+   pos=[0.35,-0.15],units='height',
    letterHeight=0.03,
-   size=[0.5,0.1], borderWidth=0.0,
+   size=[0.6,0.1], borderWidth=0.0,
    fillColor='darkgrey', borderColor=None,
-   color='', colorSpace='rgb',
+   color='black', colorSpace='rgb',
    opacity=None,
    bold=True, italic=False,
    padding=0.03,
@@ -383,49 +342,7 @@ image = visual.ImageStim(
     texRes=128.0, interpolate=True, depth=0.0)
 Stimuli_Choice = 'StimuliNegative_{}.xlsx'.format(Stimuli_Order[4])
 
-# Initialize components for Routine "fixcross"
-fixcrossClock = core.Clock()
-text = visual.TextStim(win=win, name='text',
-    text='+',
-    font='Open Sans',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
-    color='black', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=0.0);
 
-# Initialize components for Routine "Slider_Arousal"
-Slider_ArousalClock = core.Clock()
-text_slider_arousal = visual.TextStim(win=win, name='text_slider_arousal',
-    text='Wie hoch schätzen Sie Ihre durchschnittliche emotionale Aufregung beim Betrachten der Bilder ein?',
-    font='Open Sans',
-    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
-    color='black', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=0.0);
-slider_arousal = visual.Slider(win=win, name='slider_arousal',
-    size=[1.0,0.1], pos=(0, -0.2), units=None,
-    labels=("sehr gering", "sehr hoch"), ticks=(0,400), granularity=0.0,
-    style='rating', styleTweaks=(), opacity=None,
-    color='black', fillColor='black', borderColor='black', colorSpace='rgb',
-    font='Open Sans', labelHeight=0.05,
-    flip=False, depth=-1, readOnly=False)
-
-# Initialize components for Routine "Slider_Effort"
-Slider_EffortClock = core.Clock()
-text_slider_effort = visual.TextStim(win=win, name='text_slider_effort',
-    text='Wie hoch schätzen Sie Ihre geistige Anstrengung während des Anwendens der Strategie ein?',
-    font='Open Sans',
-    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
-    color='black', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=0.0);
-slider_effort = visual.Slider(win=win, name='slider_effort',
-    size=(1.0,0.1), pos=(0, -0.2), units=None,
-    labels=("sehr gering","sehr hoch"), ticks=(0,400), granularity=0.0,
-    style='rating', styleTweaks=(), opacity=None,
-    color='black', fillColor='black', borderColor='black', colorSpace='rgb',
-    font='Open Sans', labelHeight=0.05,
-    flip=False, depth=-1, readOnly=False)
 
 # Initialize components for Routine "EndScreen"
 EndScreenClock = core.Clock()
@@ -746,7 +663,7 @@ for thisBlocks_view in blocks_view:
         routineTimer.add(4.000000)
         # update component parameters for each repeat
         # keep track of which components have finished
-        fixcrossComponents = [text]
+        fixcrossComponents = [text_fixcross]
         for thisComponent in fixcrossComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
@@ -769,22 +686,22 @@ for thisBlocks_view in blocks_view:
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
             
-            # *text* updates
-            if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # *text_fixcross* updates
+            if text_fixcross.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
-                text.frameNStart = frameN  # exact frame index
-                text.tStart = t  # local t and not account for scr refresh
-                text.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
-                text.setAutoDraw(True)
-            if text.status == STARTED:
+                text_fixcross.frameNStart = frameN  # exact frame index
+                text_fixcross.tStart = t  # local t and not account for scr refresh
+                text_fixcross.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(text_fixcross, 'tStartRefresh')  # time at next scr refresh
+                text_fixcross.setAutoDraw(True)
+            if text_fixcross.status == STARTED:
                 # is it time to stop? (based on global clock, using actual start)
-                if tThisFlipGlobal > text.tStartRefresh + 4.0-frameTolerance:
+                if tThisFlipGlobal > text_fixcross.tStartRefresh + 4.0-frameTolerance:
                     # keep track of stop time/frame for later
-                    text.tStop = t  # not accounting for scr refresh
-                    text.frameNStop = frameN  # exact frame index
-                    win.timeOnFlip(text, 'tStopRefresh')  # time at next scr refresh
-                    text.setAutoDraw(False)
+                    text_fixcross.tStop = t  # not accounting for scr refresh
+                    text_fixcross.frameNStop = frameN  # exact frame index
+                    win.timeOnFlip(text_fixcross, 'tStopRefresh')  # time at next scr refresh
+                    text_fixcross.setAutoDraw(False)
             
             # check for quit (typically the Esc key)
             if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -807,8 +724,8 @@ for thisBlocks_view in blocks_view:
         for thisComponent in fixcrossComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
-        trials_view.addData('text.started', text.tStartRefresh)
-        trials_view.addData('text.stopped', text.tStopRefresh)
+        trials_view.addData('text_fixcross.started', text_fixcross.tStartRefresh)
+        trials_view.addData('text_fixcross.stopped', text_fixcross.tStopRefresh)
         thisExp1.nextEntry()
         
     # completed 1.0 repeats of 'trials_view'
@@ -990,7 +907,7 @@ for thisBlocks_reg in blocks_reg:
     # ------Prepare to start Routine "Instruction_Reg"-------
     continueRoutine = True
     # update component parameters for each repeat
-    text_Instruction.setText(instr_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + '\n' + instr_2 + '\n\n' + 'Bitte konzentrieren Sie Ihre Regulationsbemühungen nur auf das Bild, nicht aber auf die Zeiträme zwischen den Bildern.' + '\n\n' + 'Zum Starten des Blocks Leertaste dürcken'
+    text_Instruction.setText(instr_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + '\n' + instr_2 + '\n\n' + 'Bitte konzentrieren Sie Ihre Regulationsbemühungen nur auf das Bild, nicht aber auf die Zeiträume zwischen den Bildern.' + '\n\n' + 'Zum Starten des Blocks Leertaste dürcken'
 )
     instr_reg_resp.keys = []
     instr_reg_resp.rt = []
@@ -1183,7 +1100,7 @@ for thisBlocks_reg in blocks_reg:
         routineTimer.add(1.000000)
         # update component parameters for each repeat
         # keep track of which components have finished
-        fixcrossComponents = [text]
+        fixcrossComponents = [text_fixcross]
         for thisComponent in fixcrossComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
@@ -1206,22 +1123,22 @@ for thisBlocks_reg in blocks_reg:
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
             
-            # *text* updates
-            if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # *text_fixcross* updates
+            if text_fixcross.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
-                text.frameNStart = frameN  # exact frame index
-                text.tStart = t  # local t and not account for scr refresh
-                text.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
-                text.setAutoDraw(True)
-            if text.status == STARTED:
+                text_fixcross.frameNStart = frameN  # exact frame index
+                text_fixcross.tStart = t  # local t and not account for scr refresh
+                text_fixcross.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(text_fixcross, 'tStartRefresh')  # time at next scr refresh
+                text_fixcross.setAutoDraw(True)
+            if text_fixcross.status == STARTED:
                 # is it time to stop? (based on global clock, using actual start)
-                if tThisFlipGlobal > text.tStartRefresh + 4.0-frameTolerance:
+                if tThisFlipGlobal > text_fixcross.tStartRefresh + 4.0-frameTolerance:
                     # keep track of stop time/frame for later
-                    text.tStop = t  # not accounting for scr refresh
-                    text.frameNStop = frameN  # exact frame index
-                    win.timeOnFlip(text, 'tStopRefresh')  # time at next scr refresh
-                    text.setAutoDraw(False)
+                    text_fixcross.tStop = t  # not accounting for scr refresh
+                    text_fixcross.frameNStop = frameN  # exact frame index
+                    win.timeOnFlip(text_fixcross, 'tStopRefresh')  # time at next scr refresh
+                    text_fixcross.setAutoDraw(False)
             
             # check for quit (typically the Esc key)
             if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1244,8 +1161,8 @@ for thisBlocks_reg in blocks_reg:
         for thisComponent in fixcrossComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
-        trials_reg.addData('text.started', text.tStartRefresh)
-        trials_reg.addData('text.stopped', text.tStopRefresh)
+        trials_reg.addData('text_fixcross.started', text_fixcross.tStartRefresh)
+        trials_reg.addData('text_fixcross.stopped', text_fixcross.tStopRefresh)
         thisExp1.nextEntry()
         
     # completed 1.0 repeats of 'trials_reg'
@@ -1412,7 +1329,7 @@ key_resp.keys = []
 key_resp.rt = []
 _key_resp_allKeys = []
 # keep track of which components have finished
-InstructionEDComponents = [text, key_resp]
+InstructionEDComponents = [text_EDinstruction, key_resp]
 for thisComponent in InstructionEDComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -1435,14 +1352,14 @@ while continueRoutine:
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
     
-    # *text* updates
-    if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+    # *text_EDinstruction* updates
+    if text_EDinstruction.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
         # keep track of start time/frame for later
-        text.frameNStart = frameN  # exact frame index
-        text.tStart = t  # local t and not account for scr refresh
-        text.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
-        text.setAutoDraw(True)
+        text_EDinstruction.frameNStart = frameN  # exact frame index
+        text_EDinstruction.tStart = t  # local t and not account for scr refresh
+        text_EDinstruction.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(text_EDinstruction, 'tStartRefresh')  # time at next scr refresh
+        text_EDinstruction.setAutoDraw(True)
     
     # *key_resp* updates
     waitOnFlip = False
@@ -1509,7 +1426,7 @@ for edx in EDrounds:
     # set up handler to look after randomisation of conditions etc
     EDround = data.TrialHandler(nReps=1.0, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions('..\\\\..\\\\..\\\\Stimuli\\\\Moneyvalues.xlsx'),
+        trialList=data.importConditions('Moneyvalues.xlsx'),
         seed=None, name='EDround')
     thisExp2.addLoop(EDround)  # add the loop to the experiment
     thisEDround = EDround.trialList[0]  # so we can initialise stimuli with some values
@@ -1673,7 +1590,7 @@ for edx in EDrounds:
                     # if the pricier option was chosen, raise the other options value by the current EDsteps value
                     else:
                         newvalue = oldvalue + EDsteps[Currentstep]
-                    RB = str(format(newvalue,'.2f')) + '€ für Strateige' + str(EDstratcompList[EDcomps[edx]+1])
+                    RB = str(format(newvalue,'.2f')) + '€ für Strategie' + str(EDstratcompList[EDcomps[edx]+1])
                     oldvalue = newvalue
         
         EDleftbutton.setText(LB)
@@ -1837,8 +1754,8 @@ for edx in EDrounds:
                 # store the necessary variables to be able to use it in the iteration process and for the random pick of the last n-back
         EDstorebutton.append(EDclick.clicked_name[0])
         if Currentstep == 0:
-            finals_leftbutton_strat.append(EDlevList[EDcomps[edx]])
-            finals_rightbutton_strat.append(EDlevList[EDcomps[edx]+1])
+            finals_leftbutton_strat.append(EDstratList[EDcomps[edx]])
+            finals_rightbutton_strat.append(EDstratList[EDcomps[edx]+1])
         elif Currentstep == 6:
             finals_leftbutton_value.append(LB[0:4])
             finals_rightbutton_value.append(RB[0:4])
@@ -1958,7 +1875,7 @@ elif resp_choice.keys == '2':
 elif resp_choice.keys == '3':
     instr_choice_1 = 'UNTERDRÜCKEN'
     instr_choice_2 = 'Unterdrücken Sie alle aufkommenden Emotionen. Wenn Sie also die Bilder ansehen, verhalten Sie sich so, dass eine außenstehende Person nicht sehen kann, welche Emotionen Sie gerade empfinden.'
-text_instr_choice.setText(instr_choice_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + '\n' + instr_choice_2 + '\n\n' + 'Bitte konzentrieren Sie Ihre Regulationsbemühungen nur auf das Bild, nicht aber auf die Zeiträme zwischen den Bildern.' + '\n\n' + 'Zum Starten des Blocks Leertaste dürcken')
+text_instr_choice.setText(instr_choice_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + '\n' + instr_choice_2 + '\n\n' + 'Bitte konzentrieren Sie Ihre Regulationsbemühungen nur auf das Bild, nicht aber auf die Zeiträume zwischen den Bildern.' + '\n\n' + 'Zum Starten des Blocks Leertaste dürcken')
 key_resp.keys = []
 key_resp.rt = []
 _key_resp_allKeys = []
@@ -2144,7 +2061,7 @@ for thisTrials_choice in trials_choice:
     routineTimer.add(1.000000)
     # update component parameters for each repeat
     # keep track of which components have finished
-    fixcrossComponents = [text]
+    fixcrossComponents = [text_fixcross]
     for thisComponent in fixcrossComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -2167,22 +2084,22 @@ for thisTrials_choice in trials_choice:
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
         
-        # *text* updates
-        if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # *text_fixcross* updates
+        if text_fixcross.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            text.frameNStart = frameN  # exact frame index
-            text.tStart = t  # local t and not account for scr refresh
-            text.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
-            text.setAutoDraw(True)
-        if text.status == STARTED:
+            text_fixcross.frameNStart = frameN  # exact frame index
+            text_fixcross.tStart = t  # local t and not account for scr refresh
+            text_fixcross.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_fixcross, 'tStartRefresh')  # time at next scr refresh
+            text_fixcross.setAutoDraw(True)
+        if text_fixcross.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > text.tStartRefresh + 4.0-frameTolerance:
+            if tThisFlipGlobal > text_fixcross.tStartRefresh + 4.0-frameTolerance:
                 # keep track of stop time/frame for later
-                text.tStop = t  # not accounting for scr refresh
-                text.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(text, 'tStopRefresh')  # time at next scr refresh
-                text.setAutoDraw(False)
+                text_fixcross.tStop = t  # not accounting for scr refresh
+                text_fixcross.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(text_fixcross, 'tStopRefresh')  # time at next scr refresh
+                text_fixcross.setAutoDraw(False)
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -2205,8 +2122,8 @@ for thisTrials_choice in trials_choice:
     for thisComponent in fixcrossComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    trials_choice.addData('text.started', text.tStartRefresh)
-    trials_choice.addData('text.stopped', text.tStopRefresh)
+    trials_choice.addData('text_fixcross.started', text_fixcross.tStartRefresh)
+    trials_choice.addData('text_fixcross.stopped', text_fixcross.tStopRefresh)
     thisExp1.nextEntry()
     
 # completed 1.0 repeats of 'trials_choice'
