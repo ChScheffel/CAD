@@ -120,7 +120,7 @@ EDfix = [2.00]
 EDrounds = list(range(6))
 # Create array corresponding to every second element in the list of comparisons, which will be randomized for every participant
 EDcomps = [0,2,4]
-shuffle(EDcomps)
+random.shuffle(EDcomps)
 
 ############################
 # INITIALIZE ALL COMPONENTS
@@ -1754,8 +1754,8 @@ for edx in EDrounds:
                 # store the necessary variables to be able to use it in the iteration process and for the random pick of the last n-back
         EDstorebutton.append(EDclick.clicked_name[0])
         if Currentstep == 0:
-            finals_leftbutton_strat.append(EDlevList[EDcomps[edx]])
-            finals_rightbutton_strat.append(EDlevList[EDcomps[edx]+1])
+            finals_leftbutton_strat.append(EDstratList[EDcomps[edx]])
+            finals_rightbutton_strat.append(EDstratList[EDcomps[edx]+1])
         elif Currentstep == 6:
             finals_leftbutton_value.append(LB[0:4])
             finals_rightbutton_value.append(RB[0:4])
