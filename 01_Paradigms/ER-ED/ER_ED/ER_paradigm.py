@@ -163,7 +163,7 @@ image_view = visual.ImageStim(
 
 # Initialize components for Routine "fixcross"
 fixcrossClock = core.Clock()
-text = visual.TextStim(win=win, name='text',
+text = visual.TextStim(win=win, name='text_fixcross',
     text='+',
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
@@ -235,7 +235,7 @@ slider_effort = visual.Slider(win=win, name='slider_effort',
 
 # Initialize components for ED instruction routine
 InstructionEDClock = core.Clock()
-text = visual.TextStim(win=win, name='text',
+text = visual.TextStim(win=win, name='text_EDinstruction',
     text='Nun beginnt der nächste Teil.\n\nDie unterschiedlichen Strategien, die Sie gerade genutzt haben, werden nun nacheinander gegenübergestellt.\n'\
          'Auf dem Bildschirm erscheint die Frage "Welche Bezahlung würden Sie eher für welche Strategie annehmen?". Darunter befinden sich zwei Textfelder, '\
         'zum Beispiel "1,00€ für Strategie Ablenken" und "1,00€ für Strategie Distanzieren". Sie können die Frage beantworten, indem Sie mit der Maus '\
@@ -686,22 +686,22 @@ for thisBlocks_view in blocks_view:
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
             
-            # *text* updates
-            if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # *text_fixcross* updates
+            if text_fixcross.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
-                text.frameNStart = frameN  # exact frame index
-                text.tStart = t  # local t and not account for scr refresh
-                text.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
-                text.setAutoDraw(True)
-            if text.status == STARTED:
+                text_fixcross.frameNStart = frameN  # exact frame index
+                text_fixcross.tStart = t  # local t and not account for scr refresh
+                text_fixcross.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(text_fixcross, 'tStartRefresh')  # time at next scr refresh
+                text_fixcross.setAutoDraw(True)
+            if text_fixcross.status == STARTED:
                 # is it time to stop? (based on global clock, using actual start)
-                if tThisFlipGlobal > text.tStartRefresh + 4.0 + -frameTolerance:
+                if tThisFlipGlobal > text_fixcross.tStartRefresh + 4.0 + -frameTolerance:
                     # keep track of stop time/frame for later
-                    text.tStop = t  # not accounting for scr refresh
-                    text.frameNStop = frameN  # exact frame index
-                    win.timeOnFlip(text, 'tStopRefresh')  # time at next scr refresh
-                    text.setAutoDraw(False)
+                    text_fixcross.tStop = t  # not accounting for scr refresh
+                    text_fixcross.frameNStop = frameN  # exact frame index
+                    win.timeOnFlip(text_fixcross, 'tStopRefresh')  # time at next scr refresh
+                    text_fixcross.setAutoDraw(False)
             
             # check for quit (typically the Esc key)
             if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -724,8 +724,8 @@ for thisBlocks_view in blocks_view:
         for thisComponent in fixcrossComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
-        trials_view.addData('text.started', text.tStartRefresh)
-        trials_view.addData('text.stopped', text.tStopRefresh)
+        trials_view.addData('text_fixcross.started', text_fixcross.tStartRefresh)
+        trials_view.addData('text_fixcross.stopped', text_fixcross.tStopRefresh)
         thisExp1.nextEntry()
         
     # completed 1.0 repeats of 'trials_view'
@@ -1123,22 +1123,22 @@ for thisBlocks_reg in blocks_reg:
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
             
-            # *text* updates
-            if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # *text_fixcross* updates
+            if text_fixcross.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
-                text.frameNStart = frameN  # exact frame index
-                text.tStart = t  # local t and not account for scr refresh
-                text.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
-                text.setAutoDraw(True)
-            if text.status == STARTED:
+                text_fixcross.frameNStart = frameN  # exact frame index
+                text_fixcross.tStart = t  # local t and not account for scr refresh
+                text_fixcross.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(text_fixcross, 'tStartRefresh')  # time at next scr refresh
+                text_fixcross.setAutoDraw(True)
+            if text_fixcross.status == STARTED:
                 # is it time to stop? (based on global clock, using actual start)
-                if tThisFlipGlobal > text.tStartRefresh + 1.0-frameTolerance:
+                if tThisFlipGlobal > text_fixcross.tStartRefresh + 1.0-frameTolerance:
                     # keep track of stop time/frame for later
-                    text.tStop = t  # not accounting for scr refresh
-                    text.frameNStop = frameN  # exact frame index
-                    win.timeOnFlip(text, 'tStopRefresh')  # time at next scr refresh
-                    text.setAutoDraw(False)
+                    text_fixcross.tStop = t  # not accounting for scr refresh
+                    text_fixcross.frameNStop = frameN  # exact frame index
+                    win.timeOnFlip(text_fixcross, 'tStopRefresh')  # time at next scr refresh
+                    text_fixcross.setAutoDraw(False)
             
             # check for quit (typically the Esc key)
             if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1161,8 +1161,8 @@ for thisBlocks_reg in blocks_reg:
         for thisComponent in fixcrossComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
-        trials_reg.addData('text.started', text.tStartRefresh)
-        trials_reg.addData('text.stopped', text.tStopRefresh)
+        trials_reg.addData('text_fixcross.started', text_fixcross.tStartRefresh)
+        trials_reg.addData('text_fixcross.stopped', text_fixcross.tStopRefresh)
         thisExp1.nextEntry()
         
     # completed 1.0 repeats of 'trials_reg'
@@ -1329,7 +1329,7 @@ key_resp.keys = []
 key_resp.rt = []
 _key_resp_allKeys = []
 # keep track of which components have finished
-InstructionEDComponents = [text, key_resp]
+InstructionEDComponents = [text_EDinstruction, key_resp]
 for thisComponent in InstructionEDComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -1352,14 +1352,14 @@ while continueRoutine:
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
     
-    # *text* updates
-    if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+    # *text_EDinstruction* updates
+    if text_EDinstruction.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
         # keep track of start time/frame for later
-        text.frameNStart = frameN  # exact frame index
-        text.tStart = t  # local t and not account for scr refresh
-        text.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
-        text.setAutoDraw(True)
+        text_EDinstruction.frameNStart = frameN  # exact frame index
+        text_EDinstruction.tStart = t  # local t and not account for scr refresh
+        text_EDinstruction.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(text_EDinstruction, 'tStartRefresh')  # time at next scr refresh
+        text_EDinstruction.setAutoDraw(True)
     
     # *key_resp* updates
     waitOnFlip = False
@@ -2084,22 +2084,22 @@ for thisTrials_choice in trials_choice:
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
         
-        # *text* updates
-        if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # *text_fixcross* updates
+        if text_fixcross.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            text.frameNStart = frameN  # exact frame index
-            text.tStart = t  # local t and not account for scr refresh
-            text.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
-            text.setAutoDraw(True)
-        if text.status == STARTED:
+            text_fixcross.frameNStart = frameN  # exact frame index
+            text_fixcross.tStart = t  # local t and not account for scr refresh
+            text_fixcross.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_fixcross, 'tStartRefresh')  # time at next scr refresh
+            text_fixcross.setAutoDraw(True)
+        if text_fixcross.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > text.tStartRefresh + 1.0-frameTolerance:
+            if tThisFlipGlobal > text_fixcross.tStartRefresh + 1.0-frameTolerance:
                 # keep track of stop time/frame for later
-                text.tStop = t  # not accounting for scr refresh
-                text.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(text, 'tStopRefresh')  # time at next scr refresh
-                text.setAutoDraw(False)
+                text_fixcross.tStop = t  # not accounting for scr refresh
+                text_fixcross.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(text_fixcross, 'tStopRefresh')  # time at next scr refresh
+                text_fixcross.setAutoDraw(False)
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -2122,8 +2122,8 @@ for thisTrials_choice in trials_choice:
     for thisComponent in fixcrossComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    trials_choice.addData('text.started', text.tStartRefresh)
-    trials_choice.addData('text.stopped', text.tStopRefresh)
+    trials_choice.addData('text_fixcross.started', text_fixcross.tStartRefresh)
+    trials_choice.addData('text_fixcross.stopped', text_fixcross.tStopRefresh)
     thisExp1.nextEntry()
     
 # completed 1.0 repeats of 'trials_choice'
