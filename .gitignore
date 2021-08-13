@@ -3,10 +3,9 @@
 .RData
 .Ruserdata
 
-### JabRef ###
-*.bak
-*.sav
 
-### PsychPy Logfiles ###
-*.log
-*.psydat
+### PsychoPy Logfiles ###
+# COG-ED
+**/01_Paradigms/COG-ED/data/
+# ER-ED
+**/01_Paradigms/ER-ED/data/
