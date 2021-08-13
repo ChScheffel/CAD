@@ -117,7 +117,7 @@ EDsteps = [1.00,1.00,0.50,0.25,0.125,0.0625,0.03125,0.015625]
 # The constant monetary value that will be assigned to the option that was not chosen in the 1€ vs 1€ comparison
 EDfix = [2.00]
 # Create array corresponding to rounds of effort discounting aka the list elements
-EDrounds = list(range(6))
+EDrounds = list(range(3))
 # Create array corresponding to every second element in the list of comparisons, which will be randomized for every participant
 EDcomps = [0,2,4]
 random.shuffle(EDcomps)
