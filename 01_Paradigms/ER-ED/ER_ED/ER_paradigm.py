@@ -244,7 +244,7 @@ text_EDinstruction = visual.TextStim(win=win, name='text_EDinstruction',
         'Bitte entscheiden Sie sich so, dass Sie mit dem Verhältnis der Optionen wirklich zufrieden sind. \n\n'\
         'Drücken Sie die Leertaste, um zu beginnen.',
     font='Open Sans',
-    pos=(0, 0), height=0.025, wrapWidth=None, ori=0.0, 
+    pos=(0, 0), height=0.03, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -268,9 +268,9 @@ EDclick.mouseClock = core.Clock()
 # Initialize ED left button
 EDleftbutton = visual.ButtonStim(win, 
     text= '', font='Open Sans',
-    pos=[-0.35,-0.15],units='height',
+    pos=[-0.2,-0.25],units='height',
     letterHeight=0.03,
-    size=[0.6,0.1], borderWidth=0.0,
+    size=[0.3,0.3], borderWidth=0.0,
     fillColor='darkgrey', borderColor=None,
     color='black', colorSpace='rgb',
     opacity=None,
@@ -283,9 +283,9 @@ EDleftbutton.buttonClock = core.Clock()
 # Initialize ED right button
 EDrightbutton = visual.ButtonStim(win, 
    text= '', font='Open Sans',
-   pos=[0.35,-0.15],units='height',
+   pos=[0.2,-0.25],units='height',
    letterHeight=0.03,
-   size=[0.6,0.1], borderWidth=0.0,
+   size=[0.3,0.3], borderWidth=0.0,
    fillColor='darkgrey', borderColor=None,
    color='black', colorSpace='rgb',
    opacity=None,
