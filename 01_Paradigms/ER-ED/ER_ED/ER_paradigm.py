@@ -163,7 +163,7 @@ image_view = visual.ImageStim(
 
 # Initialize components for Routine "fixcross"
 fixcrossClock = core.Clock()
-text = visual.TextStim(win=win, name='text_fixcross',
+text_fixcross = visual.TextStim(win=win, name='text_fixcross',
     text='+',
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
@@ -235,7 +235,7 @@ slider_effort = visual.Slider(win=win, name='slider_effort',
 
 # Initialize components for ED instruction routine
 InstructionEDClock = core.Clock()
-text = visual.TextStim(win=win, name='text_EDinstruction',
+text_EDinstruction = visual.TextStim(win=win, name='text_EDinstruction',
     text='Nun beginnt der nächste Teil.\n\nDie unterschiedlichen Strategien, die Sie gerade genutzt haben, werden nun nacheinander gegenübergestellt.\n'\
          'Auf dem Bildschirm erscheint die Frage "Welche Bezahlung würden Sie eher für welche Strategie annehmen?". Darunter befinden sich zwei Textfelder, '\
         'zum Beispiel "1,00€ für Strategie Ablenken" und "1,00€ für Strategie Distanzieren". Sie können die Frage beantworten, indem Sie mit der Maus '\
