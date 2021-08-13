@@ -343,39 +343,6 @@ image = visual.ImageStim(
 Stimuli_Choice = 'StimuliNegative_{}.xlsx'.format(Stimuli_Order[4])
 
 
-# Initialize components for Routine "Slider_Arousal"
-Slider_ArousalClock = core.Clock()
-text_slider_arousal = visual.TextStim(win=win, name='text_slider_arousal',
-    text='Wie hoch schätzen Sie Ihre durchschnittliche emotionale Aufregung beim Betrachten der Bilder ein?',
-    font='Open Sans',
-    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
-    color='black', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=0.0);
-slider_arousal = visual.Slider(win=win, name='slider_arousal',
-    size=[1.0,0.1], pos=(0, -0.2), units=None,
-    labels=("sehr gering", "sehr hoch"), ticks=(0,400), granularity=0.0,
-    style='rating', styleTweaks=(), opacity=None,
-    color='black', fillColor='black', borderColor='black', colorSpace='rgb',
-    font='Open Sans', labelHeight=0.05,
-    flip=False, depth=-1, readOnly=False)
-
-# Initialize components for Routine "Slider_Effort"
-Slider_EffortClock = core.Clock()
-text_slider_effort = visual.TextStim(win=win, name='text_slider_effort',
-    text='Wie hoch schätzen Sie Ihre geistige Anstrengung während des Anwendens der Strategie ein?',
-    font='Open Sans',
-    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
-    color='black', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=0.0);
-slider_effort = visual.Slider(win=win, name='slider_effort',
-    size=(1.0,0.1), pos=(0, -0.2), units=None,
-    labels=("sehr gering","sehr hoch"), ticks=(0,400), granularity=0.0,
-    style='rating', styleTweaks=(), opacity=None,
-    color='black', fillColor='black', borderColor='black', colorSpace='rgb',
-    font='Open Sans', labelHeight=0.05,
-    flip=False, depth=-1, readOnly=False)
 
 # Initialize components for Routine "EndScreen"
 EndScreenClock = core.Clock()
