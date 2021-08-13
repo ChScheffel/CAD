@@ -779,7 +779,7 @@ for thisBlocks_view in blocks_view:
                 text.setAutoDraw(True)
             if text.status == STARTED:
                 # is it time to stop? (based on global clock, using actual start)
-                if tThisFlipGlobal > text.tStartRefresh + 4.0 + -frameTolerance:
+                if tThisFlipGlobal > text.tStartRefresh + 4.0-frameTolerance:
                     # keep track of stop time/frame for later
                     text.tStop = t  # not accounting for scr refresh
                     text.frameNStop = frameN  # exact frame index
@@ -1216,7 +1216,7 @@ for thisBlocks_reg in blocks_reg:
                 text.setAutoDraw(True)
             if text.status == STARTED:
                 # is it time to stop? (based on global clock, using actual start)
-                if tThisFlipGlobal > text.tStartRefresh + 1.0-frameTolerance:
+                if tThisFlipGlobal > text.tStartRefresh + 4.0-frameTolerance:
                     # keep track of stop time/frame for later
                     text.tStop = t  # not accounting for scr refresh
                     text.frameNStop = frameN  # exact frame index
@@ -2108,7 +2108,7 @@ for thisTrials_choice in trials_choice:
             image.setAutoDraw(True)
         if image.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > image.tStartRefresh + 3.0-frameTolerance:
+            if tThisFlipGlobal > image.tStartRefresh + 6.0-frameTolerance:
                 # keep track of stop time/frame for later
                 image.tStop = t  # not accounting for scr refresh
                 image.frameNStop = frameN  # exact frame index
@@ -2177,7 +2177,7 @@ for thisTrials_choice in trials_choice:
             text.setAutoDraw(True)
         if text.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > text.tStartRefresh + 1.0-frameTolerance:
+            if tThisFlipGlobal > text.tStartRefresh + 4.0-frameTolerance:
                 # keep track of stop time/frame for later
                 text.tStop = t  # not accounting for scr refresh
                 text.frameNStop = frameN  # exact frame index
