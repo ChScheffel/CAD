@@ -248,7 +248,7 @@ text_EDinstruction = visual.TextStim(win=win, name='text_EDinstruction',
     color='black', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
-key_resp = keyboard.Keyboard()
+key_resp = keyboard.Keyboard() 
 
 # Initialize ED question routine
 EDroundClock = core.Clock()
@@ -499,6 +499,7 @@ for thisBlocks_view in blocks_view:
     Instruction_ViewClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
     frameN = -1
     
+"""
     # -------Run Routine "Instruction_View"-------
     while continueRoutine:
         # get current time
@@ -1321,7 +1322,7 @@ for thisBlocks_reg in blocks_reg:
     routineTimer.reset()
     
 # completed 1.0 repeats of 'blocks_reg'
-
+"""
 # ------Prepare to start Routine "InstructionED"-------
 continueRoutine = True
 # update component parameters for each repeat
@@ -1551,17 +1552,17 @@ for edx in EDrounds:
         # update component parameters for each repeat
         if Currentstep == 0:
             # in the beginning, both buttons offer 1€ for both levels
-            LB = str(format(EDsteps[0],'.2f')) + '€ für Strategie ' + str(EDstratcompList[EDcomps[edx]])
-            RB = str(format(EDsteps[0],'.2f')) + '€ für Strategie ' + str(EDstratcompList[EDcomps[edx]+1])
+            LB = str(format(EDsteps[0],'.2f')) + ' € \n\nfür Strategie \n\n' + str(EDstratcompList[EDcomps[edx]])
+            RB = str(format(EDsteps[0],'.2f')) + ' € \n\nfür Strategie \n\n' + str(EDstratcompList[EDcomps[edx]+1])
         else:
             if EDstorebutton[0] == 'EDleftbutton':
             # if the participant chose the left button in the beginning, proceed as follows
             # the right button value is fixed to 2€
-                RB = str(format(EDfix[0],'.2f')) + '€ für Strategie ' + str(EDstratcompList[EDcomps[edx]+1])
+                RB = str(format(EDfix[0],'.2f')) + ' € \n\nfür Strategie \n\n' + str(EDstratcompList[EDcomps[edx]+1])
                 # now adapt the value of the left button depending on the previous choice
                 if Currentstep == 1:
                     # set the left button to 1€ (because this does not fit in with the iteration process yet)
-                    LB = str(format(EDsteps[1],'.2f')) + '€ für Strategie ' + str(EDstratcompList[EDcomps[edx]])
+                    LB = str(format(EDsteps[1],'.2f')) + ' € \n\nfür Strategie \n\n' + str(EDstratcompList[EDcomps[edx]])
                     oldvalue = EDsteps[1]
                 # iteration process
                 else:
@@ -1571,16 +1572,16 @@ for edx in EDrounds:
                     # if the pricier option was chosen, raise the other options value by the current EDsteps value
                     else:
                         newvalue = oldvalue + EDsteps[Currentstep]
-                    LB = str(format(newvalue,'.2f')) + '€ für Strategie ' + str(EDstratcompList[EDcomps[edx]])
+                    LB = str(format(newvalue,'.2f')) + ' € \n\nfür Strategie \n\n' + str(EDstratcompList[EDcomps[edx]])
                     oldvalue = newvalue
             else:
             # if the participant chose the right button in the beginning, proceed as follows
             # the left button value is fixed to 2€
-                LB = str(format(EDfix[0],'.2f')) + '€ für Strategie ' + str(EDstratcompList[EDcomps[edx]])
+                LB = str(format(EDfix[0],'.2f')) + ' € \n\nfür Strategie \n\n' + str(EDstratcompList[EDcomps[edx]])
                 # now adapt the value of the right button depending on the previous choice
                 if Currentstep == 1:
                     # set the right button to 1€ (because this does not fit in with the iteration process yet)
-                    RB = str(format(EDsteps[1],'.2f')) + '€ für das Strategie ' + str(EDstratcompList[EDcomps[edx]+1])
+                    RB = str(format(EDsteps[1],'.2f')) + ' € \n\nfür das Strategie \n\n' + str(EDstratcompList[EDcomps[edx]+1])
                     oldvalue = EDsteps[1]
                 # iteration process
                 else:
@@ -1590,7 +1591,7 @@ for edx in EDrounds:
                     # if the pricier option was chosen, raise the other options value by the current EDsteps value
                     else:
                         newvalue = oldvalue + EDsteps[Currentstep]
-                    RB = str(format(newvalue,'.2f')) + '€ für Strategie ' + str(EDstratcompList[EDcomps[edx]+1])
+                    RB = str(format(newvalue,'.2f')) + ' € \n\nfür Strategie \n\n' + str(EDstratcompList[EDcomps[edx]+1])
                     oldvalue = newvalue
         
         EDleftbutton.setText(LB)
