@@ -131,7 +131,7 @@ WelcomeScreenClock = core.Clock()
 WelcomeText = visual.TextStim(win=win, name='WelcomeText',
     text='Willkommen!\n\nDas Experiment besteht aus zwei Teilen.\nIm ersten Teil werden Sie  Bilder betrachten und mittels verschiedener Strategien Ihre Emotionen regulieren.\n\nIm zweiten Teil werden Sie die verschiedenen Emotionsregulationsstrategien miteinander vergleichen.\n\nZum Forfahren Leertaste drücken.',
     font='Open Sans',
-    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    pos=(0, 0), height=0.03, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
