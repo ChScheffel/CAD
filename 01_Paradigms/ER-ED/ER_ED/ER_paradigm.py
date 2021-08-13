@@ -57,13 +57,13 @@ filename2 = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expN
 # For ER paradigm
 thisExp1 = data.ExperimentHandler(name=expName1, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CogEmotED\\01_Paradigms\\ER-ED\\ER_ED\\ER_paradigm.py',
+    originPath='C:\\Users\\scheffel\\Scheffel\\Forschung\\A_Projects\\2021_COG-ER-ED\\COG-ER-ED\\01_Paradigms\\ER-ED\\ER_ED\\ER_paradigm.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename1)
 # For ER paradigm
 thisExp2 = data.ExperimentHandler(name=expName2, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CogEmotED\\01_Paradigms\\ER-ED\\ER_ED\\ER_paradigm.py',
+    originPath='C:\\Users\\scheffel\\Scheffel\\Forschung\\A_Projects\\2021_COG-ER-ED\\COG-ER-ED\\01_Paradigms\\ER-ED\\ER_ED\\ER_paradigm.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename1)
 
