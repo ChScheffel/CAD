@@ -6,3 +6,7 @@
 ### JabRef ###
 *.bak
 *.sav
+
+### PsychPy Logfiles ###
+*.log
+*.psydat
