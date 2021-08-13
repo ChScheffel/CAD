@@ -374,15 +374,6 @@ image = visual.ImageStim(
     texRes=128.0, interpolate=True, depth=0.0)
 Stimuli_Choice = 'StimuliNegative_{}.xlsx'.format(Stimuli_Order[4])
 
-# Initialize components for Routine "fixcross"
-fixcrossClock = core.Clock()
-text = visual.TextStim(win=win, name='text',
-    text='+',
-    font='Open Sans',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
-    color='black', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=0.0);
 
 # Initialize components for Routine "Slider_Arousal"
 Slider_ArousalClock = core.Clock()
