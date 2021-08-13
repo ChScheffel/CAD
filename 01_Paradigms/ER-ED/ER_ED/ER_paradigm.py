@@ -27,6 +27,7 @@ import os  # handy system and path functions
 import sys  # to get file system encoding
 import random # for randomization of comparison order
 
+
 from psychopy.hardware import keyboard
 
 
@@ -268,7 +269,7 @@ EDclick.mouseClock = core.Clock()
 # Initialize ED left button
 EDleftbutton = visual.ButtonStim(win, 
     text= '', font='Open Sans',
-    pos=[-0.2,-0.25],units='height',alignText='center',
+    pos=[-0.2,-0.25],units='height',
     letterHeight=0.03,
     size=[0.3,0.3], borderWidth=0.0,
     fillColor='darkgrey', borderColor=None,
@@ -283,7 +284,7 @@ EDleftbutton.buttonClock = core.Clock()
 # Initialize ED right button
 EDrightbutton = visual.ButtonStim(win, 
    text= '', font='Open Sans',
-   pos=[0.2,-0.25],units='height',alignText='center',
+   pos=[0.2,-0.25],units='height',
    letterHeight=0.03,
    size=[0.3,0.3], borderWidth=0.0,
    fillColor='darkgrey', borderColor=None,
@@ -499,7 +500,6 @@ for thisBlocks_view in blocks_view:
     Instruction_ViewClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
     frameN = -1
     
-"""
     # -------Run Routine "Instruction_View"-------
     while continueRoutine:
         # get current time
@@ -1322,7 +1322,7 @@ for thisBlocks_reg in blocks_reg:
     routineTimer.reset()
     
 # completed 1.0 repeats of 'blocks_reg'
-"""
+
 # ------Prepare to start Routine "InstructionED"-------
 continueRoutine = True
 # update component parameters for each repeat
