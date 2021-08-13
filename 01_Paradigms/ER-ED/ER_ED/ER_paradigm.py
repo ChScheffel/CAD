@@ -907,7 +907,7 @@ for thisBlocks_reg in blocks_reg:
     # ------Prepare to start Routine "Instruction_Reg"-------
     continueRoutine = True
     # update component parameters for each repeat
-    text_Instruction.setText(instr_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + '\n' + instr_2 + '\n\n' + 'Bitte konzentrieren Sie Ihre Regulationsbemühungen nur auf das Bild, nicht aber auf die Zeiträme zwischen den Bildern.' + '\n\n' + 'Zum Starten des Blocks Leertaste dürcken'
+    text_Instruction.setText(instr_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + '\n' + instr_2 + '\n\n' + 'Bitte konzentrieren Sie Ihre Regulationsbemühungen nur auf das Bild, nicht aber auf die Zeiträume zwischen den Bildern.' + '\n\n' + 'Zum Starten des Blocks Leertaste dürcken'
 )
     instr_reg_resp.keys = []
     instr_reg_resp.rt = []
@@ -1875,7 +1875,7 @@ elif resp_choice.keys == '2':
 elif resp_choice.keys == '3':
     instr_choice_1 = 'UNTERDRÜCKEN'
     instr_choice_2 = 'Unterdrücken Sie alle aufkommenden Emotionen. Wenn Sie also die Bilder ansehen, verhalten Sie sich so, dass eine außenstehende Person nicht sehen kann, welche Emotionen Sie gerade empfinden.'
-text_instr_choice.setText(instr_choice_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + '\n' + instr_choice_2 + '\n\n' + 'Bitte konzentrieren Sie Ihre Regulationsbemühungen nur auf das Bild, nicht aber auf die Zeiträme zwischen den Bildern.' + '\n\n' + 'Zum Starten des Blocks Leertaste dürcken')
+text_instr_choice.setText(instr_choice_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + '\n' + instr_choice_2 + '\n\n' + 'Bitte konzentrieren Sie Ihre Regulationsbemühungen nur auf das Bild, nicht aber auf die Zeiträume zwischen den Bildern.' + '\n\n' + 'Zum Starten des Blocks Leertaste dürcken')
 key_resp.keys = []
 key_resp.rt = []
 _key_resp_allKeys = []
