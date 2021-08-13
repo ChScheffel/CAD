@@ -663,7 +663,7 @@ for thisBlocks_view in blocks_view:
         routineTimer.add(4.000000)
         # update component parameters for each repeat
         # keep track of which components have finished
-        fixcrossComponents = [text]
+        fixcrossComponents = [text_fixcross]
         for thisComponent in fixcrossComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
@@ -1100,7 +1100,7 @@ for thisBlocks_reg in blocks_reg:
         routineTimer.add(1.000000)
         # update component parameters for each repeat
         # keep track of which components have finished
-        fixcrossComponents = [text]
+        fixcrossComponents = [text_fixcross]
         for thisComponent in fixcrossComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
@@ -2061,7 +2061,7 @@ for thisTrials_choice in trials_choice:
     routineTimer.add(1.000000)
     # update component parameters for each repeat
     # keep track of which components have finished
-    fixcrossComponents = [text]
+    fixcrossComponents = [text_fixcross]
     for thisComponent in fixcrossComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
