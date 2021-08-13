@@ -101,7 +101,7 @@ shuffle(Stimuli_Order)
 
 # create jitter for fixation cross
 
-FIXjitter = [-1,-1,-1-,1,-0.5,-0.5,-0.5,-0.5,0,0,0,0,0.5,0.5,0.5,0.5,1,1,1,1]
+FIXjitter = [-1,-1,-1-,-1,-0.5,-0.5,-0.5,-0.5,0,0,0,0,0.5,0.5,0.5,0.5,1,1,1,1]
 
 
 # Create lists with all the different variable names
