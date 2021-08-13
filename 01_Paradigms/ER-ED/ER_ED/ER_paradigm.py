@@ -1064,7 +1064,7 @@ for thisBlocks_reg in blocks_reg:
                 image_reg.setAutoDraw(True)
             if image_reg.status == STARTED:
                 # is it time to stop? (based on global clock, using actual start)
-                if tThisFlipGlobal > image_reg.tStartRefresh + 3.0-frameTolerance:
+                if tThisFlipGlobal > image_reg.tStartRefresh + 6.0-frameTolerance:
                     # keep track of stop time/frame for later
                     image_reg.tStop = t  # not accounting for scr refresh
                     image_reg.frameNStop = frameN  # exact frame index
@@ -1590,7 +1590,7 @@ for edx in EDrounds:
                     # if the pricier option was chosen, raise the other options value by the current EDsteps value
                     else:
                         newvalue = oldvalue + EDsteps[Currentstep]
-                    RB = str(format(newvalue,'.2f')) + '€ für Strategie' + str(EDstratcompList[EDcomps[edx]+1])
+                    RB = str(format(newvalue,'.2f')) + '€ für Strategie ' + str(EDstratcompList[EDcomps[edx]+1])
                     oldvalue = newvalue
         
         EDleftbutton.setText(LB)
