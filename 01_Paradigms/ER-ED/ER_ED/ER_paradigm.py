@@ -450,9 +450,6 @@ for thisComponent in WelcomeScreenComponents:
 # check responses
 if WelcomeResponse.keys in ['', [], None]:  # No response was made
     WelcomeResponse.keys = None
-thisExp1.addData('WelcomeResponse.keys',WelcomeResponse.keys)
-if WelcomeResponse.keys != None:  # we had a response
-    thisExp1.addData('WelcomeResponse.rt', WelcomeResponse.rt)
 thisExp1.nextEntry()
 # the Routine "WelcomeScreen" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
@@ -564,9 +561,6 @@ for thisBlocks_view in blocks_view:
     # check responses
     if instr_view_resp.keys in ['', [], None]:  # No response was made
         instr_view_resp.keys = None
-    blocks_view.addData('instr_view_resp.keys',instr_view_resp.keys)
-    if instr_view_resp.keys != None:  # we had a response
-        blocks_view.addData('instr_view_resp.rt', instr_view_resp.rt)
     # the Routine "Instruction_View" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
@@ -725,8 +719,6 @@ for thisBlocks_view in blocks_view:
         for thisComponent in fixcrossComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
-        trials_view.addData('text_fixcross.started', text_fixcross.tStartRefresh)
-        trials_view.addData('text_fixcross.stopped', text_fixcross.tStopRefresh)
         thisExp1.nextEntry()
         
     # completed 1.0 repeats of 'trials_view'
@@ -1000,9 +992,6 @@ for thisBlocks_reg in blocks_reg:
     # check responses
     if instr_reg_resp.keys in ['', [], None]:  # No response was made
         instr_reg_resp.keys = None
-    blocks_reg.addData('instr_reg_resp.keys',instr_reg_resp.keys)
-    if instr_reg_resp.keys != None:  # we had a response
-        blocks_reg.addData('instr_reg_resp.rt', instr_reg_resp.rt)
   
     # the Routine "Instruction_Reg" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -1162,8 +1151,6 @@ for thisBlocks_reg in blocks_reg:
         for thisComponent in fixcrossComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
-        trials_reg.addData('text_fixcross.started', text_fixcross.tStartRefresh)
-        trials_reg.addData('text_fixcross.stopped', text_fixcross.tStopRefresh)
         thisExp1.nextEntry()
         
     # completed 1.0 repeats of 'trials_reg'
@@ -1542,7 +1529,6 @@ for edx in EDrounds:
             for thisComponent in EDbufferscreenComponents:
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
-            EDround.addData('EDbufferscreen.started', EDbufferscreen.tStartRefresh)
             # check responses
             if bufferscreenkey.keys in ['', [], None]:  # No response was made
                 bufferscreenkey.keys = None
@@ -2123,8 +2109,6 @@ for thisTrials_choice in trials_choice:
     for thisComponent in fixcrossComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    trials_choice.addData('text_fixcross.started', text_fixcross.tStartRefresh)
-    trials_choice.addData('text_fixcross.stopped', text_fixcross.tStopRefresh)
     thisExp1.nextEntry()
     
 # completed 1.0 repeats of 'trials_choice'
@@ -2369,9 +2353,6 @@ for thisComponent in EndScreenComponents:
 # check responses
 if key_resp_2.keys in ['', [], None]:  # No response was made
     key_resp_2.keys = None
-thisExp1.addData('key_resp_2.keys',key_resp_2.keys)
-if key_resp_2.keys != None:  # we had a response
-    thisExp1.addData('key_resp_2.rt', key_resp_2.rt)
 thisExp1.nextEntry()
 # the Routine "EndScreen" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
