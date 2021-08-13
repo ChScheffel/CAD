@@ -1590,7 +1590,7 @@ for edx in EDrounds:
                     # if the pricier option was chosen, raise the other options value by the current EDsteps value
                     else:
                         newvalue = oldvalue + EDsteps[Currentstep]
-                    RB = str(format(newvalue,'.2f')) + '€ für Strateige' + str(EDstratcompList[EDcomps[edx]+1])
+                    RB = str(format(newvalue,'.2f')) + '€ für Strategie' + str(EDstratcompList[EDcomps[edx]+1])
                     oldvalue = newvalue
         
         EDleftbutton.setText(LB)
