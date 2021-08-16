@@ -44,14 +44,10 @@ Nevertheless, a possible association of NFC and task performance might be second
 But since other studies utilizing the COG-ED paradigm found the association of NFC and SVs to disappear after correcting for performance [@Kramer2021] or found no association of NFC and SVs at all [@Crawford2021], more research is needed to shed light on this issue.
 
 The present study contributes to the investigation of effort and SVs by changing one fundamental assumption of the original COG-ED paradigm: The assumption that the easiest n-back level has the highest SV.
+We adapted the COG-ED paradigm in such a way that it allows the computation of SVs for different n-back levels without presuming that all individuals inherently prefer 1-back.
+In fact, our COG-ED adaptation allows the computations of SVs, even if the individual does not have a clear preference for one task level.
+In the present study, we will validate this adaptation by replicating the findings of Westbrook et al. [-@Westbrook2013].
+Additionally, we will apply the adaption to a task with different emotion regulation strategies to establish an effort discounting paradigm for task varieties that have no objective order of task load.
+The COG-ED paradigm has been applied to tasks with different domains before, showing that SVs across task domains correlate [@Crawford2021], but it has not been applied to tasks without objective task load so far.
 
-
-
--	higher n-back levels and more difficult signal-to-noise audio comprehension task levels are discounted in similar ways in the COG-ED paradigm -> doesn’t just work for n-back (Crawford et al., 2021)
--	there are strong within-subjects associations of the SV of different cognitive domains, i.e. n-back and audio comprehension, even after controlling for performance d’, and even though the audio task was rated as less mentally demanding and effortful (Crawford et al., 2021)
-
-
-Justifying changes in the COG-ED procedure:
--	subjective values did not decline between n=4 and n=5 (Culbreth et al., 2016) -> n=5 is too universally difficult to be valid
--	only higher n-back levels are reliable for performance computation (Jaeggi et al., 2010) -> we will not include n = 1 in our performance measure
 
