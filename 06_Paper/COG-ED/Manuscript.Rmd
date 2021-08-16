@@ -27,36 +27,30 @@ However, reliability measures of the n-back task are mixed, presumably due to ce
 A way to quantify the subjective cost of each n-back level has been developed by Westbrook et al. [-@Westbrook2013], called the Cognitive Effort Discounting Paradigm (COG-ED).
 First, the participants complete n-back level one to six to familiarize themselves with the task.
 Then, each level two to six is being compared with level one by asking the participants to decide between receiving 2\$ for the more difficult level or 1\$ for level one.
-It they choose the more difficult level, the reward for level one increases by 0.50\$, if the choose level one, it decreases by 0.50\$.
+If they choose the more difficult level, the reward for level one increases by 0.50\$, if the choose level one, it decreases by 0.50\$.
 This is repeated five more times, with each adjustment of the level one reward being half as big as in the previous step, while the reward for the more difficult level remains fixed at 2\$.
 The idea is to estimate the participants' subjective cost of the more difficult level by identifying the smallest reward they would still be okay with being paid for doing level one.
 Therefore, the higher the difficult level, the smaller the reward that the participants would accept for level one.
-The subjective value (SV) of each difficult level is then calculated by dividing the final reward value of level one by the fixed 2\$ reward of the difficult level.
+The subjective value (SV) of each difficult level is then calculated by dividing the final reward value of level one by the fixed 2\$ reward of the more difficult level.
 Westbrook et al. [-@Westbrook2013] used these SVs to investigate interindividual differences in effort discounting by plotting the SVs and computing an area under the curve (AUC).
 Younger participants had a larger AUC than older participants, i.e. they needed a lower monetary incentive for choosing the more difficult levels over level one.
 
-The AUC in the study by Westbrook et al. [-@Westbrook2013] was also associated with the participants' Need for Cognition score, a personality trait describing individuals who actively seek and enjoy effortful cognitive activities [@Cacioppo1982].
+The AUC in the study by Westbrook et al. [-@Westbrook2013] was also associated with the participants' Need for Cognition (NFC) score, a personality trait describing individuals who actively seek and enjoy effortful cognitive activities [@Cacioppo1982].
+On the surface, this association stands to reason, as individuals with higher NFC are more motivated to mobilize cognitive effort because they perceive it as intrinsically rewarding.
+However, the relation of NFC and SVs might be confounded with task performance itself, since subjective task values have been shown to depend on both the exerted effort [@Wang2017] and the expected performance [@Yee2021].
+Findings on NFC and n-back performance are heterogenous.
+On one hand individuals with higher NFC neither had better n-back performance [@Gaertner2021] nor better working memory [@Fleischhauer 2010; @Hill2013], on the other hand they showed greater attention allocation [@Enge2008] and brain flexibility [@He2019].
+Nevertheless, a possible association of NFC and task performance might be secondary, since task load has been shown to be a better predictor of SVs than task performance [@Culbreth2016; @Westbrook2013; @Westbrook2019].
+But since other studies utilizing the COG-ED paradigm found the association of NFC and SVs to disappear after correcting for performance [@Kramer2021] or found no association of NFC and SVs at all [@Crawford2021], more research is needed to shed light on this issue.
+
+The present study contributes to the investigation of effort and SVs by changing one fundamental assumption of the original COG-ED paradigm: The assumption that the easiest n-back level has the highest SV.
 
 
 
 -	higher n-back levels and more difficult signal-to-noise audio comprehension task levels are discounted in similar ways in the COG-ED paradigm -> doesn’t just work for n-back (Crawford et al., 2021)
 -	there are strong within-subjects associations of the SV of different cognitive domains, i.e. n-back and audio comprehension, even after controlling for performance d’, and even though the audio task was rated as less mentally demanding and effortful (Crawford et al., 2021)
 
--	n-back performance is not associated with NFC (and neither are a battery of other tasks of executive functioning) -> NFC reflects a motivation, not ability (Gärtner et al., 2021)
--	however, NFC is associated with brain flexibility on multiple levels (He et al., 2019)
--	NFC correlates with greater automatic attention allocation (measured in ERPs) in easier tasks and also with greater voluntary attention allocation in more difficult tasks (Enge et al., 2008)
--	NFC is positively related to gf and gc but not working memory (Hill et al., 2013)
--	NFC is not associated with memory and gf, and anecdotally with gc (Fleischhauer et al., 2010)
--	performance, indexed by d’, was not a reliable predictor of SV across SCZ patients and healthy controls (Culbreth et al., 2016)
--	when adding the performance scores d’ as a mean performance score as a covariate, the effects of NFC on SV disappeared -> willingness to invest effort might have partially been driven by the prospect of success (Kramer et al., 2021)
--	in a multilevel model, task load was associated with SVs beyond performance d’ (Westbrook et al., 2013)
--	older adults make the SV decisions more with their performance in mind than young adults (McLaughlin et al., 2021)
 
--	higher NFC means higher motivation to voluntarily mobilize effort for the task, because it is perceived as intrinsically rewarding
--	the SV of n=1 vs n=2 correlates positively with NFC in children, but not of n=1 vs n=3 (Chevalier, 2018)
--	the SV of n=1 vs n=3 correlates positively with NFC in adolescents, but not of n=1 vs n=2
-(Kramer et al., 2021)
--	no association of SV and NFC in either n-back or audio comprehension in a sample of 31 adults (Crawford et al., 2021)
 Justifying changes in the COG-ED procedure:
 -	subjective values did not decline between n=4 and n=5 (Culbreth et al., 2016) -> n=5 is too universally difficult to be valid
 -	only higher n-back levels are reliable for performance computation (Jaeggi et al., 2010) -> we will not include n = 1 in our performance measure
