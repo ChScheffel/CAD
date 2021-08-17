@@ -435,10 +435,10 @@ while continueRoutine:
         waitOnFlip = True
         win.callOnFlip(WelcomeResponse.clock.reset)  # t=0 on next screen flip
         win.callOnFlip(WelcomeResponse.clearEvents, eventType='keyboard')  # clear events on next screen flip
-        win.callOnFlip(sendTrigger(100))
     if WelcomeResponse.status == STARTED and not waitOnFlip:
         theseKeys = WelcomeResponse.getKeys(keyList=['space'], waitRelease=False)
         _WelcomeResponse_allKeys.extend(theseKeys)
+        sendTrigger(trigger.space)
         if len(_WelcomeResponse_allKeys):
             WelcomeResponse.keys = _WelcomeResponse_allKeys[-1].name  # just the last key pressed
             WelcomeResponse.rt = _WelcomeResponse_allKeys[-1].rt
