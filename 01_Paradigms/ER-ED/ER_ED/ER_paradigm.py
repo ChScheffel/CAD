@@ -128,6 +128,14 @@ EDrounds = list(range(3))
 EDcomps = [0,2,4]
 random.shuffle(EDcomps)
 
+# Function to send triggers
+def sendTrigger(triggerCode):
+        if isinstance(triggerCode, np.integer):
+            triggerCode = triggerCode.item()
+        parallel.setData(triggerCode)
+        core.wait(0.005) #wait 5 ms
+        parallel.setData(0) # set Trigger Channel back to 0
+
 ############################
 # INITIALIZE ALL COMPONENTS
 ############################
@@ -430,7 +438,8 @@ while continueRoutine:
             WelcomeResponse.rt = _WelcomeResponse_allKeys[-1].rt
             # a response ends the routine
             continueRoutine = False
-    
+    sendTrigger(100)
+
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
         core.quit()
