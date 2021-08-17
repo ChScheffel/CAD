@@ -373,6 +373,10 @@ key_resp_2 = keyboard.Keyboard()
 globalClock = core.Clock()  # to track the time since experiment started
 routineTimer = core.CountdownTimer()  # to track time remaining of each (non-slip) routine 
 
+#########################
+# START EXPERIMENT
+#########################
+
 # ------Prepare to start Routine "WelcomeScreen"-------
 continueRoutine = True
 # update component parameters for each repeat
@@ -393,11 +397,6 @@ t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
 WelcomeScreenClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
-
-#########################
-# START EXPERIMENT
-#########################
-
 
 # -------Run Routine "WelcomeScreen"-------
 while continueRoutine:
