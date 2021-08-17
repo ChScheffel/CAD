@@ -19,6 +19,11 @@ from psychopy import sound, gui, visual, core, data, event, logging, clock, colo
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER)
 
+# import parallel port for triggers
+from psychopy import parallel
+parallel.setPortAddress('0x0378') # needs to be checked !!!
+
+
 import numpy as np  # whole numpy lib is available, prepend 'np.'
 from numpy import (sin, cos, tan, log, log10, pi, average,
                    sqrt, std, deg2rad, rad2deg, linspace, asarray)
