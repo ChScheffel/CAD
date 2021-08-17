@@ -136,6 +136,10 @@ def sendTrigger(triggerCode):
         core.wait(0.005) #wait 5 ms
         parallel.setData(0) # set Trigger Channel back to 0
 
+# define trigger for events
+trigger_ExpStart = 100
+trigger_ExpEnd = 200
+
 # define trigger for specific buttons
 trigger_space = 4
 trigger_1 = 1
@@ -420,6 +424,7 @@ while continueRoutine:
         WelcomeText.tStart = t  # local t and not account for scr refresh
         WelcomeText.tStartRefresh = tThisFlipGlobal  # on global time
         win.timeOnFlip(WelcomeText, 'tStartRefresh')  # time at next scr refresh
+        win.callOnFlip(sendTrigger, trigger_ExpStart) 
         WelcomeText.setAutoDraw(True)
     
     # *WelcomeResponse* updates
@@ -438,10 +443,10 @@ while continueRoutine:
     if WelcomeResponse.status == STARTED and not waitOnFlip:
         theseKeys = WelcomeResponse.getKeys(keyList=['space'], waitRelease=False)
         _WelcomeResponse_allKeys.extend(theseKeys)
-        sendTrigger(trigger.space)
         if len(_WelcomeResponse_allKeys):
             WelcomeResponse.keys = _WelcomeResponse_allKeys[-1].name  # just the last key pressed
             WelcomeResponse.rt = _WelcomeResponse_allKeys[-1].rt
+            sendTrigger(trigger_space)
             # a response ends the routine
             continueRoutine = False
 
