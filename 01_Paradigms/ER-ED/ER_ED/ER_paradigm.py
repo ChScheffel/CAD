@@ -438,7 +438,8 @@ while continueRoutine:
             WelcomeResponse.rt = _WelcomeResponse_allKeys[-1].rt
             # a response ends the routine
             continueRoutine = False
-    sendTrigger(100)
+            #
+            sendTrigger(100)
 
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -2364,6 +2365,10 @@ while continueRoutine:
 for thisComponent in EndScreenComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
+
+# Trigger End Experiment
+sendTrigger(200)
+
 # check responses
 if key_resp_2.keys in ['', [], None]:  # No response was made
     key_resp_2.keys = None
