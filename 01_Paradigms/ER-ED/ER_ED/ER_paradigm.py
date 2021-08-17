@@ -140,6 +140,10 @@ def sendTrigger(triggerCode):
 trigger_ExpStart = 100
 trigger_ExpEnd = 200
 
+trigger_instr = 15
+
+trigger_Fix = 10
+
 # define trigger for specific buttons
 trigger_space = 4
 trigger_1 = 1
@@ -537,6 +541,7 @@ for thisBlocks_view in blocks_view:
             text_ActiveViewing.tStart = t  # local t and not account for scr refresh
             text_ActiveViewing.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(text_ActiveViewing, 'tStartRefresh')  # time at next scr refresh
+            win.callOnFlip(sendTrigger, trigger_instr) # send trigger for instruction
             text_ActiveViewing.setAutoDraw(True)
         
         # *instr_view_resp* updates
@@ -558,6 +563,7 @@ for thisBlocks_view in blocks_view:
             if len(_instr_view_resp_allKeys):
                 instr_view_resp.keys = _instr_view_resp_allKeys[-1].name  # just the last key pressed
                 instr_view_resp.rt = _instr_view_resp_allKeys[-1].rt
+                sendTrigger(trigger_space) # send trigger for press for space bar
                 # a response ends the routine
                 continueRoutine = False
         
@@ -643,6 +649,7 @@ for thisBlocks_view in blocks_view:
                 image_view.tStart = t  # local t and not account for scr refresh
                 image_view.tStartRefresh = tThisFlipGlobal  # on global time
                 win.timeOnFlip(image_view, 'tStartRefresh')  # time at next scr refresh
+                win.callOnFlip(sendTrigger, TriggerBlockView) # send trigger for each picture -> same trigger for whole block
                 image_view.setAutoDraw(True)
             if image_view.status == STARTED:
                 # is it time to stop? (based on global clock, using actual start)
@@ -712,6 +719,7 @@ for thisBlocks_view in blocks_view:
                 text_fixcross.tStart = t  # local t and not account for scr refresh
                 text_fixcross.tStartRefresh = tThisFlipGlobal  # on global time
                 win.timeOnFlip(text_fixcross, 'tStartRefresh')  # time at next scr refresh
+                win.callOnFlip(sendTrigger, trigger_Fix) # send trigger for fix cross
                 text_fixcross.setAutoDraw(True)
             if text_fixcross.status == STARTED:
                 # is it time to stop? (based on global clock, using actual start)
@@ -968,6 +976,7 @@ for thisBlocks_reg in blocks_reg:
             text_Instruction.tStart = t  # local t and not account for scr refresh
             text_Instruction.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(text_Instruction, 'tStartRefresh')  # time at next scr refresh
+            win.callOnFlip(sendTrigger, trigger_instr) # send trigger for instructions
             text_Instruction.setAutoDraw(True)
         
         # *instr_reg_resp* updates
@@ -1075,6 +1084,7 @@ for thisBlocks_reg in blocks_reg:
                 image_reg.tStart = t  # local t and not account for scr refresh
                 image_reg.tStartRefresh = tThisFlipGlobal  # on global time
                 win.timeOnFlip(image_reg, 'tStartRefresh')  # time at next scr refresh
+                win.callOnFlip(sendTrigger, TriggerBlockReg) # send trigger for each picture 
                 image_reg.setAutoDraw(True)
             if image_reg.status == STARTED:
                 # is it time to stop? (based on global clock, using actual start)
@@ -1144,6 +1154,7 @@ for thisBlocks_reg in blocks_reg:
                 text_fixcross.tStart = t  # local t and not account for scr refresh
                 text_fixcross.tStartRefresh = tThisFlipGlobal  # on global time
                 win.timeOnFlip(text_fixcross, 'tStartRefresh')  # time at next scr refresh
+                win.callOnFlip(sendTrigger, trigger_Fix) # send trigger for fix cross
                 text_fixcross.setAutoDraw(True)
             if text_fixcross.status == STARTED:
                 # is it time to stop? (based on global clock, using actual start)
@@ -1838,6 +1849,15 @@ while continueRoutine:
         if len(_resp_choice_allKeys):
             resp_choice.keys = _resp_choice_allKeys[-1].name  # just the last key pressed
             resp_choice.rt = _resp_choice_allKeys[-1].rt
+            
+            # send trigger according to button press
+            if resp_choice.keys == '1'
+            sendTrigger(trigger_1)
+            elif resp_choice.keys == '2'
+            sendTrigger(trigger_2)
+            elif resp_choice.keys == '3'
+            sendTrigger(trigger_3)
+
             # a response ends the routine
             continueRoutine = False
     
@@ -1921,6 +1941,7 @@ while continueRoutine:
         text_instr_choice.tStart = t  # local t and not account for scr refresh
         text_instr_choice.tStartRefresh = tThisFlipGlobal  # on global time
         win.timeOnFlip(text_instr_choice, 'tStartRefresh')  # time at next scr refresh
+        win.callOnFlip(sendTrigger,trigger_instr) # send trigger for 
         text_instr_choice.setAutoDraw(True)
     
     # *key_resp* updates
@@ -1942,6 +1963,7 @@ while continueRoutine:
         if len(_key_resp_allKeys):
             key_resp.keys = _key_resp_allKeys[-1].name  # just the last key pressed
             key_resp.rt = _key_resp_allKeys[-1].rt
+            sendTrigger(trigger_space) # send trigger for button press
             # a response ends the routine
             continueRoutine = False
     
