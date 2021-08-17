@@ -1,0 +1,1308 @@
+15.7691 	WARNING 	User requested fullscreen with size [1024  768], but screen is actually [1920, 1080]. Using actual size
+20.6678 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, autoLog=True, backendConf=UNKNOWN, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x000001F367F0A208>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x000001F367FA5908>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+20.6686 	EXP 	window1: mouseVisible = True
+20.6687 	EXP 	window1: recordFrameIntervals = False
+20.8334 	EXP 	window1: recordFrameIntervals = True
+21.0170 	EXP 	window1: recordFrameIntervals = False
+21.6764 	EXP 	Created WelcomeText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([-1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='WelcomeText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+21.6799 	EXP 	Created instructiontext = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([0, 0, 0]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='instructiontext', opacity=0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+21.6994 	EXP 	Created fixcross = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([-1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Courier New', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='fixcross', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='+', units='height', win=Window(...), wrapWidth=1)
+21.7044 	EXP 	Created trial = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([0, 0, 0]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Courier New', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='trial', opacity=0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+21.7072 	EXP 	Created feedback = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([-1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='feedback', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+21.9827 	EXP 	Created text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([-1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.025, italic=False, languageStyle='LTR', name='text', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+22.0195 	EXP 	Created question = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([-1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='question', opacity=1, ori=0.0, pos=array([0. , 0.1]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+22.0198 	EXP 	window1: mouseVisible = True
+22.0713 	EXP 	window1: mouseVisible = True
+22.1153 	EXP 	window1: mouseVisible = True
+22.1249 	EXP 	Created EDbufferscreen = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([-1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='EDbufferscreen', opacity=1, ori=0.0, pos=array([0. , 0.1]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+22.1465 	EXP 	Created GoodbyeText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([-1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='GoodbyeText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+22.1477 	EXP 	Created finaln_instructiontext = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([0, 0, 0]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='finaln_instructiontext', opacity=0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+22.1534 	EXP 	Created finaln_fixcross = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([-1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Courier New', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='finaln_fixcross', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='+', units='height', win=Window(...), wrapWidth=1)
+22.1547 	EXP 	Created finaln_trial = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([0, 0, 0]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Courier New', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='finaln_trial', opacity=0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+22.2025 	EXP 	WelcomeText: autoDraw = True
+23.6415 	DATA 	Keypress: space
+23.7772 	EXP 	WelcomeText: autoDraw = False
+23.7772 	EXP 	instructiontext: text = 'Schwarzes Level\n\nIhnen werden nun nacheinander Buchstaben auf dem Bildschirm präsentiert. Wenn der aktuelle Buchstabe der gleiche ist wie der, der direkt zuvor präsentiert wurde, dann drücken Sie bitte die rechte Pfeiltaste. Wenn es nicht der gleiche Buchstabe ist, drücken sie bitte die linke Pfeiltaste.\nReagieren Sie bei jedem Buchstaben bitte so schnell und richtig wie möglich.\n\nrechts = gleicher Buchstabe wie direkt zuvor\nlinks = nicht der gleiche Buchstabe wie zuvor\n\nDrücken Sie die Leertaste, um zu beginnen.'
+23.7772 	EXP 	instructiontext: autoDraw = True
+24.6053 	EXP 	Imported C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\Stimuli_Short\1back_run1.xlsx as conditions, 14 conditions, 3 params
+24.6065 	EXP 	Created sequence: sequential, trialTypes=14, nReps=1, seed=None
+24.6076 	EXP 	New trial (rep=0, index=0): {'Letter': 'H', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+24.6161 	DATA 	Keypress: space
+24.6194 	EXP 	instructiontext: autoDraw = False
+24.6194 	EXP 	fixcross: autoDraw = True
+26.6067 	EXP 	fixcross: autoDraw = False
+26.6067 	EXP 	trial: text = 'H'
+26.6067 	EXP 	trial: autoDraw = True
+26.9086 	DATA 	Keypress: left
+28.0862 	EXP 	New trial (rep=0, index=1): {'Letter': 'Q', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+28.0996 	EXP 	trial: autoDraw = False
+28.0996 	EXP 	fixcross: autoDraw = True
+30.1067 	EXP 	fixcross: autoDraw = False
+30.1067 	EXP 	trial: text = 'Q'
+30.1067 	EXP 	trial: autoDraw = True
+30.4414 	DATA 	Keypress: left
+31.5836 	EXP 	New trial (rep=0, index=2): {'Letter': 'Q', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+31.5990 	EXP 	trial: autoDraw = False
+31.5990 	EXP 	fixcross: autoDraw = True
+33.5993 	EXP 	fixcross: autoDraw = False
+33.5993 	EXP 	trial: text = 'Q'
+33.5993 	EXP 	trial: autoDraw = True
+33.9082 	DATA 	Keypress: right
+35.0852 	EXP 	New trial (rep=0, index=3): {'Letter': 'T', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+35.0989 	EXP 	trial: autoDraw = False
+35.0989 	EXP 	fixcross: autoDraw = True
+37.1029 	EXP 	fixcross: autoDraw = False
+37.1029 	EXP 	trial: text = 'T'
+37.1029 	EXP 	trial: autoDraw = True
+37.4405 	DATA 	Keypress: left
+38.5847 	EXP 	New trial (rep=0, index=4): {'Letter': 'Q', 'CorrAnswer': 'left', 'Stimulus': 'Lure'}
+38.5989 	EXP 	trial: autoDraw = False
+38.5989 	EXP 	fixcross: autoDraw = True
+40.5986 	EXP 	fixcross: autoDraw = False
+40.5986 	EXP 	trial: text = 'Q'
+40.5986 	EXP 	trial: autoDraw = True
+40.9896 	DATA 	Keypress: left
+42.0841 	EXP 	New trial (rep=0, index=5): {'Letter': 'L', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+42.0988 	EXP 	trial: autoDraw = False
+42.0988 	EXP 	fixcross: autoDraw = True
+44.1026 	EXP 	fixcross: autoDraw = False
+44.1026 	EXP 	trial: text = 'L'
+44.1026 	EXP 	trial: autoDraw = True
+44.5404 	DATA 	Keypress: left
+45.5842 	EXP 	New trial (rep=0, index=6): {'Letter': 'V', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+45.5986 	EXP 	trial: autoDraw = False
+45.5986 	EXP 	fixcross: autoDraw = True
+47.6049 	EXP 	fixcross: autoDraw = False
+47.6049 	EXP 	trial: text = 'V'
+47.6049 	EXP 	trial: autoDraw = True
+48.1245 	DATA 	Keypress: left
+49.0839 	EXP 	New trial (rep=0, index=7): {'Letter': 'V', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+49.0981 	EXP 	trial: autoDraw = False
+49.0981 	EXP 	fixcross: autoDraw = True
+51.0981 	EXP 	fixcross: autoDraw = False
+51.0981 	EXP 	trial: text = 'V'
+51.0981 	EXP 	trial: autoDraw = True
+51.5403 	DATA 	Keypress: left
+52.5836 	EXP 	New trial (rep=0, index=8): {'Letter': 'K', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+52.5981 	EXP 	trial: autoDraw = False
+52.5981 	EXP 	fixcross: autoDraw = True
+54.6021 	EXP 	fixcross: autoDraw = False
+54.6021 	EXP 	trial: text = 'K'
+54.6021 	EXP 	trial: autoDraw = True
+55.1229 	DATA 	Keypress: left
+56.0845 	EXP 	New trial (rep=0, index=9): {'Letter': 'G', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+56.0978 	EXP 	trial: autoDraw = False
+56.0978 	EXP 	fixcross: autoDraw = True
+58.1045 	EXP 	fixcross: autoDraw = False
+58.1045 	EXP 	trial: text = 'G'
+58.1045 	EXP 	trial: autoDraw = True
+58.4231 	DATA 	Keypress: left
+59.5840 	EXP 	New trial (rep=0, index=10): {'Letter': 'G', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+59.5975 	EXP 	trial: autoDraw = False
+59.5975 	EXP 	fixcross: autoDraw = True
+61.5976 	EXP 	fixcross: autoDraw = False
+61.5976 	EXP 	trial: text = 'G'
+61.5976 	EXP 	trial: autoDraw = True
+62.1079 	DATA 	Keypress: left
+63.0834 	EXP 	New trial (rep=0, index=11): {'Letter': 'G', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+63.0975 	EXP 	trial: autoDraw = False
+63.0975 	EXP 	fixcross: autoDraw = True
+65.0975 	EXP 	fixcross: autoDraw = False
+65.0975 	EXP 	trial: text = 'G'
+65.0975 	EXP 	trial: autoDraw = True
+65.3912 	DATA 	Keypress: right
+66.5830 	EXP 	New trial (rep=0, index=12): {'Letter': 'P', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+66.5972 	EXP 	trial: autoDraw = False
+66.5972 	EXP 	fixcross: autoDraw = True
+68.6014 	EXP 	fixcross: autoDraw = False
+68.6014 	EXP 	trial: text = 'P'
+68.6014 	EXP 	trial: autoDraw = True
+69.2554 	DATA 	Keypress: left
+70.0831 	EXP 	New trial (rep=0, index=13): {'Letter': 'P', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+70.0971 	EXP 	trial: autoDraw = False
+70.0971 	EXP 	fixcross: autoDraw = True
+72.0971 	EXP 	fixcross: autoDraw = False
+72.0971 	EXP 	trial: text = 'P'
+72.0971 	EXP 	trial: autoDraw = True
+72.3567 	DATA 	Keypress: right
+73.6835 	EXP 	trial: autoDraw = False
+73.6835 	EXP 	feedback: text = 'In diesem Block haben Sie auf 18.8% der sich wiederholenden und auf 20.8% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um einen weiteren Durchgang dieses Levels zu beginnen.'
+73.6835 	EXP 	feedback: autoDraw = True
+74.2480 	EXP 	Imported C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\Stimuli_Short\1back_run2.xlsx as conditions, 14 conditions, 3 params
+74.2492 	EXP 	Created sequence: sequential, trialTypes=14, nReps=1, seed=None
+74.2503 	EXP 	New trial (rep=0, index=0): {'Letter': 'R', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+74.2573 	DATA 	Keypress: space
+74.2605 	EXP 	feedback: autoDraw = False
+74.2605 	EXP 	fixcross: autoDraw = True
+76.2517 	EXP 	fixcross: autoDraw = False
+76.2517 	EXP 	trial: text = 'R'
+76.2517 	EXP 	trial: autoDraw = True
+76.5724 	DATA 	Keypress: left
+77.7336 	EXP 	New trial (rep=0, index=1): {'Letter': 'V', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+77.7468 	EXP 	trial: autoDraw = False
+77.7468 	EXP 	fixcross: autoDraw = True
+79.7466 	EXP 	fixcross: autoDraw = False
+79.7466 	EXP 	trial: text = 'V'
+79.7466 	EXP 	trial: autoDraw = True
+80.2379 	DATA 	Keypress: left
+81.2326 	EXP 	New trial (rep=0, index=2): {'Letter': 'N', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+81.2465 	EXP 	trial: autoDraw = False
+81.2465 	EXP 	fixcross: autoDraw = True
+83.2520 	EXP 	fixcross: autoDraw = False
+83.2520 	EXP 	trial: text = 'N'
+83.2520 	EXP 	trial: autoDraw = True
+83.6390 	DATA 	Keypress: left
+84.7325 	EXP 	New trial (rep=0, index=3): {'Letter': 'N', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+84.7462 	EXP 	trial: autoDraw = False
+84.7462 	EXP 	fixcross: autoDraw = True
+86.7462 	EXP 	fixcross: autoDraw = False
+86.7462 	EXP 	trial: text = 'N'
+86.7462 	EXP 	trial: autoDraw = True
+87.0723 	DATA 	Keypress: right
+88.2320 	EXP 	New trial (rep=0, index=4): {'Letter': 'S', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+88.2461 	EXP 	trial: autoDraw = False
+88.2461 	EXP 	fixcross: autoDraw = True
+90.2506 	EXP 	fixcross: autoDraw = False
+90.2506 	EXP 	trial: text = 'S'
+90.2506 	EXP 	trial: autoDraw = True
+90.5711 	DATA 	Keypress: left
+91.7319 	EXP 	New trial (rep=0, index=5): {'Letter': 'N', 'CorrAnswer': 'left', 'Stimulus': 'Lure'}
+91.7459 	EXP 	trial: autoDraw = False
+91.7459 	EXP 	fixcross: autoDraw = True
+93.7462 	EXP 	fixcross: autoDraw = False
+93.7462 	EXP 	trial: text = 'N'
+93.7462 	EXP 	trial: autoDraw = True
+94.4220 	DATA 	Keypress: left
+95.2316 	EXP 	New trial (rep=0, index=6): {'Letter': 'Z', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+95.2458 	EXP 	trial: autoDraw = False
+95.2458 	EXP 	fixcross: autoDraw = True
+97.2502 	EXP 	fixcross: autoDraw = False
+97.2502 	EXP 	trial: text = 'Z'
+97.2502 	EXP 	trial: autoDraw = True
+97.7200 	DATA 	Keypress: right
+98.7316 	EXP 	New trial (rep=0, index=7): {'Letter': 'L', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+98.7457 	EXP 	trial: autoDraw = False
+98.7457 	EXP 	fixcross: autoDraw = True
+100.7456 	EXP 	fixcross: autoDraw = False
+100.7456 	EXP 	trial: text = 'L'
+100.7456 	EXP 	trial: autoDraw = True
+101.3208 	DATA 	Keypress: left
+102.2314 	EXP 	New trial (rep=0, index=8): {'Letter': 'L', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+102.2454 	EXP 	trial: autoDraw = False
+102.2454 	EXP 	fixcross: autoDraw = True
+104.2451 	EXP 	fixcross: autoDraw = False
+104.2451 	EXP 	trial: text = 'L'
+104.2451 	EXP 	trial: autoDraw = True
+104.7887 	DATA 	Keypress: right
+105.7312 	EXP 	New trial (rep=0, index=9): {'Letter': 'H', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+105.7452 	EXP 	trial: autoDraw = False
+105.7452 	EXP 	fixcross: autoDraw = True
+107.7470 	EXP 	fixcross: autoDraw = False
+107.7470 	EXP 	trial: text = 'H'
+107.7470 	EXP 	trial: autoDraw = True
+108.4707 	DATA 	Keypress: left
+109.2310 	EXP 	New trial (rep=0, index=10): {'Letter': 'L', 'CorrAnswer': 'left', 'Stimulus': 'Lure'}
+109.2449 	EXP 	trial: autoDraw = False
+109.2449 	EXP 	fixcross: autoDraw = True
+111.2449 	EXP 	fixcross: autoDraw = False
+111.2449 	EXP 	trial: text = 'L'
+111.2449 	EXP 	trial: autoDraw = True
+111.6039 	DATA 	Keypress: left
+112.7307 	EXP 	New trial (rep=0, index=11): {'Letter': 'X', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+112.7448 	EXP 	trial: autoDraw = False
+112.7448 	EXP 	fixcross: autoDraw = True
+114.7528 	EXP 	fixcross: autoDraw = False
+114.7528 	EXP 	trial: text = 'X'
+114.7528 	EXP 	trial: autoDraw = True
+115.3045 	DATA 	Keypress: left
+116.2303 	EXP 	New trial (rep=0, index=12): {'Letter': 'X', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+116.2445 	EXP 	trial: autoDraw = False
+116.2445 	EXP 	fixcross: autoDraw = True
+118.2445 	EXP 	fixcross: autoDraw = False
+118.2445 	EXP 	trial: text = 'X'
+118.2445 	EXP 	trial: autoDraw = True
+118.8536 	DATA 	Keypress: left
+119.7304 	EXP 	New trial (rep=0, index=13): {'Letter': 'X', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+119.7448 	EXP 	trial: autoDraw = False
+119.7448 	EXP 	fixcross: autoDraw = True
+120.1132 	WARNING 	Got keycode {} but that code isn't yet known
+120.1133 	WARNING 	Keypress was given unknown key code (174)
+120.4136 	WARNING 	Got keycode {} but that code isn't yet known
+120.4137 	WARNING 	Keypress was given unknown key code (174)
+120.8142 	WARNING 	Got keycode {} but that code isn't yet known
+120.8143 	WARNING 	Keypress was given unknown key code (174)
+121.1987 	WARNING 	Got keycode {} but that code isn't yet known
+121.1988 	WARNING 	Keypress was given unknown key code (174)
+121.5971 	WARNING 	Got keycode {} but that code isn't yet known
+121.5972 	WARNING 	Keypress was given unknown key code (174)
+121.7450 	EXP 	fixcross: autoDraw = False
+121.7450 	EXP 	trial: text = 'X'
+121.7450 	EXP 	trial: autoDraw = True
+121.9800 	WARNING 	Got keycode {} but that code isn't yet known
+121.9801 	WARNING 	Keypress was given unknown key code (174)
+122.3697 	DATA 	Keypress: right
+122.9810 	WARNING 	Got keycode {} but that code isn't yet known
+122.9811 	WARNING 	Keypress was given unknown key code (174)
+123.2865 	EXP 	trial: autoDraw = False
+123.2865 	EXP 	feedback: text = 'In diesem Block haben Sie auf 25.0% der sich wiederholenden und auf 20.8% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um die Instruktion des nächsten Levels zu lesen.'
+123.2865 	EXP 	feedback: autoDraw = True
+123.9629 	WARNING 	Got keycode {} but that code isn't yet known
+123.9630 	WARNING 	Keypress was given unknown key code (174)
+125.4661 	DATA 	Keypress: space
+125.4698 	EXP 	feedback: autoDraw = False
+125.4698 	EXP 	instructiontext: text = 'Rotes Level\n\nIhnen werden nun nacheinander Buchstaben auf dem Bildschirm präsentiert. Wenn der aktuelle Buchstabe der gleiche ist wie der, der zwei zuvor präsentiert wurde, dann drücken Sie bitte die rechte Pfeiltaste. Wenn es nicht der gleiche Buchstabe ist, drücken sie bitte die linke Pfeiltaste.\nReagieren Sie bei jedem Buchstaben bitte so schnell und richtig wie möglich.\n\nrechts = gleicher Buchstabe wie zwei zuvor\nlinks = nicht der gleiche Buchstabe wie zuvor\n\nDrücken Sie die Leertaste, um zu beginnen.'
+125.4698 	EXP 	instructiontext: autoDraw = True
+126.5795 	EXP 	Imported C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\Stimuli_Short\2back_run1.xlsx as conditions, 14 conditions, 3 params
+126.5806 	EXP 	Created sequence: sequential, trialTypes=14, nReps=1, seed=None
+126.5818 	EXP 	New trial (rep=0, index=0): {'Letter': 'F', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+126.5885 	DATA 	Keypress: space
+126.5917 	EXP 	instructiontext: autoDraw = False
+126.5917 	EXP 	fixcross: autoDraw = True
+128.5820 	EXP 	fixcross: autoDraw = False
+128.5820 	EXP 	trial: text = 'F'
+128.5820 	EXP 	trial: autoDraw = True
+129.0687 	DATA 	Keypress: left
+130.0636 	EXP 	New trial (rep=0, index=1): {'Letter': 'N', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+130.0773 	EXP 	trial: autoDraw = False
+130.0773 	EXP 	fixcross: autoDraw = True
+132.0771 	EXP 	fixcross: autoDraw = False
+132.0771 	EXP 	trial: text = 'N'
+132.0771 	EXP 	trial: autoDraw = True
+133.2894 	DATA 	Keypress: right
+133.5632 	EXP 	New trial (rep=0, index=2): {'Letter': 'V', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+133.5771 	EXP 	trial: autoDraw = False
+133.5771 	EXP 	fixcross: autoDraw = True
+135.5780 	EXP 	fixcross: autoDraw = False
+135.5780 	EXP 	trial: text = 'V'
+135.5780 	EXP 	trial: autoDraw = True
+137.0627 	EXP 	New trial (rep=0, index=3): {'Letter': 'N', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+137.0771 	EXP 	trial: autoDraw = False
+137.0771 	EXP 	fixcross: autoDraw = True
+139.0768 	EXP 	fixcross: autoDraw = False
+139.0768 	EXP 	trial: text = 'N'
+139.0768 	EXP 	trial: autoDraw = True
+139.9037 	DATA 	Keypress: left
+140.5626 	EXP 	New trial (rep=0, index=4): {'Letter': 'N', 'CorrAnswer': 'left', 'Stimulus': 'Lure'}
+140.5765 	EXP 	trial: autoDraw = False
+140.5765 	EXP 	fixcross: autoDraw = True
+142.5766 	EXP 	fixcross: autoDraw = False
+142.5766 	EXP 	trial: text = 'N'
+142.5766 	EXP 	trial: autoDraw = True
+143.3034 	DATA 	Keypress: left
+144.0628 	EXP 	New trial (rep=0, index=5): {'Letter': 'X', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+144.0765 	EXP 	trial: autoDraw = False
+144.0765 	EXP 	fixcross: autoDraw = True
+146.0767 	EXP 	fixcross: autoDraw = False
+146.0767 	EXP 	trial: text = 'X'
+146.0767 	EXP 	trial: autoDraw = True
+146.9860 	DATA 	Keypress: left
+147.5622 	EXP 	New trial (rep=0, index=6): {'Letter': 'G', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+147.5762 	EXP 	trial: autoDraw = False
+147.5762 	EXP 	fixcross: autoDraw = True
+149.5763 	EXP 	fixcross: autoDraw = False
+149.5763 	EXP 	trial: text = 'G'
+149.5763 	EXP 	trial: autoDraw = True
+150.5684 	DATA 	Keypress: right
+151.0620 	EXP 	New trial (rep=0, index=7): {'Letter': 'H', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+151.0767 	EXP 	trial: autoDraw = False
+151.0767 	EXP 	fixcross: autoDraw = True
+153.0806 	EXP 	fixcross: autoDraw = False
+153.0806 	EXP 	trial: text = 'H'
+153.0806 	EXP 	trial: autoDraw = True
+153.5840 	DATA 	Keypress: left
+154.5618 	EXP 	New trial (rep=0, index=8): {'Letter': 'G', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+154.5761 	EXP 	trial: autoDraw = False
+154.5761 	EXP 	fixcross: autoDraw = True
+156.5759 	EXP 	fixcross: autoDraw = False
+156.5759 	EXP 	trial: text = 'G'
+156.5759 	EXP 	trial: autoDraw = True
+157.1517 	DATA 	Keypress: left
+158.0620 	EXP 	New trial (rep=0, index=9): {'Letter': 'H', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+158.0759 	EXP 	trial: autoDraw = False
+158.0759 	EXP 	fixcross: autoDraw = True
+160.0756 	EXP 	fixcross: autoDraw = False
+160.0756 	EXP 	trial: text = 'H'
+160.0756 	EXP 	trial: autoDraw = True
+161.0176 	DATA 	Keypress: left
+161.5614 	EXP 	New trial (rep=0, index=10): {'Letter': 'T', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+161.5755 	EXP 	trial: autoDraw = False
+161.5755 	EXP 	fixcross: autoDraw = True
+163.5756 	EXP 	fixcross: autoDraw = False
+163.5756 	EXP 	trial: text = 'T'
+163.5756 	EXP 	trial: autoDraw = True
+164.1005 	DATA 	Keypress: right
+165.0616 	EXP 	New trial (rep=0, index=11): {'Letter': 'K', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+165.0755 	EXP 	trial: autoDraw = False
+165.0755 	EXP 	fixcross: autoDraw = True
+167.0766 	EXP 	fixcross: autoDraw = False
+167.0766 	EXP 	trial: text = 'K'
+167.0766 	EXP 	trial: autoDraw = True
+167.5504 	DATA 	Keypress: left
+168.5611 	EXP 	New trial (rep=0, index=12): {'Letter': 'T', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+168.5753 	EXP 	trial: autoDraw = False
+168.5753 	EXP 	fixcross: autoDraw = True
+170.5751 	EXP 	fixcross: autoDraw = False
+170.5751 	EXP 	trial: text = 'T'
+170.5751 	EXP 	trial: autoDraw = True
+171.1002 	DATA 	Keypress: left
+172.0612 	EXP 	New trial (rep=0, index=13): {'Letter': 'T', 'CorrAnswer': 'left', 'Stimulus': 'Lure'}
+172.0752 	EXP 	trial: autoDraw = False
+172.0752 	EXP 	fixcross: autoDraw = True
+174.0752 	EXP 	fixcross: autoDraw = False
+174.0752 	EXP 	trial: text = 'T'
+174.0752 	EXP 	trial: autoDraw = True
+174.6001 	DATA 	Keypress: left
+175.6128 	EXP 	trial: autoDraw = False
+175.6128 	EXP 	feedback: text = 'In diesem Block haben Sie auf 18.8% der sich wiederholenden und auf 20.8% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um einen weiteren Durchgang dieses Levels zu beginnen.'
+175.6128 	EXP 	feedback: autoDraw = True
+176.7167 	DATA 	Keypress: space
+176.7620 	EXP 	Imported C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\Stimuli_Short\2back_run2.xlsx as conditions, 14 conditions, 3 params
+176.7631 	EXP 	Created sequence: sequential, trialTypes=14, nReps=1, seed=None
+176.7643 	EXP 	New trial (rep=0, index=0): {'Letter': 'B', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+176.7726 	EXP 	feedback: autoDraw = False
+176.7726 	EXP 	fixcross: autoDraw = True
+178.7597 	EXP 	fixcross: autoDraw = False
+178.7597 	EXP 	trial: text = 'B'
+178.7597 	EXP 	trial: autoDraw = True
+179.1683 	DATA 	Keypress: left
+180.2454 	EXP 	New trial (rep=0, index=1): {'Letter': 'F', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+180.2583 	EXP 	trial: autoDraw = False
+180.2583 	EXP 	fixcross: autoDraw = True
+182.2584 	EXP 	fixcross: autoDraw = False
+182.2584 	EXP 	trial: text = 'F'
+182.2584 	EXP 	trial: autoDraw = True
+182.8673 	DATA 	Keypress: left
+183.7442 	EXP 	New trial (rep=0, index=2): {'Letter': 'B', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+183.7578 	EXP 	trial: autoDraw = False
+183.7578 	EXP 	fixcross: autoDraw = True
+185.7577 	EXP 	fixcross: autoDraw = False
+185.7577 	EXP 	trial: text = 'B'
+185.7577 	EXP 	trial: autoDraw = True
+186.1669 	DATA 	Keypress: left
+187.2440 	EXP 	New trial (rep=0, index=3): {'Letter': 'V', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+187.2576 	EXP 	trial: autoDraw = False
+187.2576 	EXP 	fixcross: autoDraw = True
+189.2573 	EXP 	fixcross: autoDraw = False
+189.2573 	EXP 	trial: text = 'V'
+189.2573 	EXP 	trial: autoDraw = True
+189.9494 	DATA 	Keypress: left
+190.7436 	EXP 	New trial (rep=0, index=4): {'Letter': 'G', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+190.7575 	EXP 	trial: autoDraw = False
+190.7575 	EXP 	fixcross: autoDraw = True
+192.7574 	EXP 	fixcross: autoDraw = False
+192.7574 	EXP 	trial: text = 'G'
+192.7574 	EXP 	trial: autoDraw = True
+193.2493 	DATA 	Keypress: left
+194.2429 	EXP 	New trial (rep=0, index=5): {'Letter': 'B', 'CorrAnswer': 'left', 'Stimulus': 'Lure'}
+194.2572 	EXP 	trial: autoDraw = False
+194.2572 	EXP 	fixcross: autoDraw = True
+196.2570 	EXP 	fixcross: autoDraw = False
+196.2570 	EXP 	trial: text = 'B'
+196.2570 	EXP 	trial: autoDraw = True
+196.6503 	DATA 	Keypress: left
+197.7435 	EXP 	New trial (rep=0, index=6): {'Letter': 'G', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+197.7571 	EXP 	trial: autoDraw = False
+197.7571 	EXP 	fixcross: autoDraw = True
+199.7579 	EXP 	fixcross: autoDraw = False
+199.7579 	EXP 	trial: text = 'G'
+199.7579 	EXP 	trial: autoDraw = True
+200.3646 	DATA 	Keypress: right
+201.2424 	EXP 	New trial (rep=0, index=7): {'Letter': 'Y', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+201.2566 	EXP 	trial: autoDraw = False
+201.2566 	EXP 	fixcross: autoDraw = True
+203.2597 	EXP 	fixcross: autoDraw = False
+203.2597 	EXP 	trial: text = 'Y'
+203.2597 	EXP 	trial: autoDraw = True
+203.8304 	DATA 	Keypress: left
+204.7421 	EXP 	New trial (rep=0, index=8): {'Letter': 'P', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+204.7566 	EXP 	trial: autoDraw = False
+204.7566 	EXP 	fixcross: autoDraw = True
+206.7565 	EXP 	fixcross: autoDraw = False
+206.7565 	EXP 	trial: text = 'P'
+206.7565 	EXP 	trial: autoDraw = True
+207.3982 	DATA 	Keypress: left
+208.2431 	EXP 	New trial (rep=0, index=9): {'Letter': 'Y', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+208.2564 	EXP 	trial: autoDraw = False
+208.2564 	EXP 	fixcross: autoDraw = True
+210.2564 	EXP 	fixcross: autoDraw = False
+210.2564 	EXP 	trial: text = 'Y'
+210.2564 	EXP 	trial: autoDraw = True
+210.7649 	DATA 	Keypress: left
+211.7426 	EXP 	New trial (rep=0, index=10): {'Letter': 'X', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+211.7563 	EXP 	trial: autoDraw = False
+211.7563 	EXP 	fixcross: autoDraw = True
+213.7562 	EXP 	fixcross: autoDraw = False
+213.7562 	EXP 	trial: text = 'X'
+213.7562 	EXP 	trial: autoDraw = True
+214.3814 	DATA 	Keypress: right
+215.2420 	EXP 	New trial (rep=0, index=11): {'Letter': 'Y', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+215.2560 	EXP 	trial: autoDraw = False
+215.2560 	EXP 	fixcross: autoDraw = True
+217.2560 	EXP 	fixcross: autoDraw = False
+217.2560 	EXP 	trial: text = 'Y'
+217.2560 	EXP 	trial: autoDraw = True
+217.6647 	DATA 	Keypress: left
+218.7419 	EXP 	New trial (rep=0, index=12): {'Letter': 'N', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+218.7560 	EXP 	trial: autoDraw = False
+218.7560 	EXP 	fixcross: autoDraw = True
+220.7562 	EXP 	fixcross: autoDraw = False
+220.7562 	EXP 	trial: text = 'N'
+220.7562 	EXP 	trial: autoDraw = True
+222.2418 	EXP 	New trial (rep=0, index=13): {'Letter': 'Y', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+222.2558 	EXP 	trial: autoDraw = False
+222.2558 	EXP 	fixcross: autoDraw = True
+224.2558 	EXP 	fixcross: autoDraw = False
+224.2558 	EXP 	trial: text = 'Y'
+224.2558 	EXP 	trial: autoDraw = True
+225.7916 	EXP 	trial: autoDraw = False
+225.7916 	EXP 	feedback: text = 'In diesem Block haben Sie auf 12.5% der sich wiederholenden und auf 20.8% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um die Instruktion des nächsten Levels zu lesen.'
+225.7916 	EXP 	feedback: autoDraw = True
+229.8304 	DATA 	Keypress: space
+229.9354 	EXP 	feedback: autoDraw = False
+229.9354 	EXP 	instructiontext: text = 'Blaues Level\n\nIhnen werden nun nacheinander Buchstaben auf dem Bildschirm präsentiert. Wenn der aktuelle Buchstabe der gleiche ist wie der, der drei zuvor präsentiert wurde, dann drücken Sie bitte die rechte Pfeiltaste. Wenn es nicht der gleiche Buchstabe ist, drücken sie bitte die linke Pfeiltaste.\nReagieren Sie bei jedem Buchstaben bitte so schnell und richtig wie möglich.\n\nrechts = gleicher Buchstabe wie drei zuvor\nlinks = nicht der gleiche Buchstabe wie zuvor\n\nDrücken Sie die Leertaste, um zu beginnen.'
+229.9354 	EXP 	instructiontext: autoDraw = True
+231.3808 	DATA 	Keypress: space
+231.4230 	EXP 	Imported C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\Stimuli_Short\3back_run1.xlsx as conditions, 14 conditions, 3 params
+231.4241 	EXP 	Created sequence: sequential, trialTypes=14, nReps=1, seed=None
+231.4252 	EXP 	New trial (rep=0, index=0): {'Letter': 'R', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+231.4343 	EXP 	instructiontext: autoDraw = False
+231.4343 	EXP 	fixcross: autoDraw = True
+233.4236 	EXP 	fixcross: autoDraw = False
+233.4236 	EXP 	trial: text = 'R'
+233.4236 	EXP 	trial: autoDraw = True
+233.7311 	DATA 	Keypress: left
+234.9087 	EXP 	New trial (rep=0, index=1): {'Letter': 'P', 'CorrAnswer': 'left', 'Stimulus': 'Lure'}
+234.9220 	EXP 	trial: autoDraw = False
+234.9220 	EXP 	fixcross: autoDraw = True
+236.9218 	EXP 	fixcross: autoDraw = False
+236.9218 	EXP 	trial: text = 'P'
+236.9218 	EXP 	trial: autoDraw = True
+237.2320 	DATA 	Keypress: left
+238.4062 	EXP 	New trial (rep=0, index=2): {'Letter': 'V', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+238.4212 	EXP 	trial: autoDraw = False
+238.4212 	EXP 	fixcross: autoDraw = True
+240.4216 	EXP 	fixcross: autoDraw = False
+240.4216 	EXP 	trial: text = 'V'
+240.4216 	EXP 	trial: autoDraw = True
+240.8126 	DATA 	Keypress: left
+241.9072 	EXP 	New trial (rep=0, index=3): {'Letter': 'P', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+241.9216 	EXP 	trial: autoDraw = False
+241.9216 	EXP 	fixcross: autoDraw = True
+243.9220 	EXP 	fixcross: autoDraw = False
+243.9220 	EXP 	trial: text = 'P'
+243.9220 	EXP 	trial: autoDraw = True
+244.4296 	DATA 	Keypress: left
+245.4083 	EXP 	New trial (rep=0, index=4): {'Letter': 'Z', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+245.4211 	EXP 	trial: autoDraw = False
+245.4211 	EXP 	fixcross: autoDraw = True
+247.4211 	EXP 	fixcross: autoDraw = False
+247.4211 	EXP 	trial: text = 'Z'
+247.4211 	EXP 	trial: autoDraw = True
+248.1458 	DATA 	Keypress: left
+248.9074 	EXP 	New trial (rep=0, index=5): {'Letter': 'L', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+248.9210 	EXP 	trial: autoDraw = False
+248.9210 	EXP 	fixcross: autoDraw = True
+250.9211 	EXP 	fixcross: autoDraw = False
+250.9211 	EXP 	trial: text = 'L'
+250.9211 	EXP 	trial: autoDraw = True
+251.3455 	DATA 	Keypress: left
+252.4068 	EXP 	New trial (rep=0, index=6): {'Letter': 'P', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+252.4210 	EXP 	trial: autoDraw = False
+252.4210 	EXP 	fixcross: autoDraw = True
+254.4208 	EXP 	fixcross: autoDraw = False
+254.4208 	EXP 	trial: text = 'P'
+254.4208 	EXP 	trial: autoDraw = True
+254.7625 	DATA 	Keypress: right
+255.9088 	EXP 	New trial (rep=0, index=7): {'Letter': 'S', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+255.9207 	EXP 	trial: autoDraw = False
+255.9207 	EXP 	fixcross: autoDraw = True
+257.9206 	EXP 	fixcross: autoDraw = False
+257.9206 	EXP 	trial: text = 'S'
+257.9206 	EXP 	trial: autoDraw = True
+258.5121 	DATA 	Keypress: left
+259.4064 	EXP 	New trial (rep=0, index=8): {'Letter': 'L', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+259.4207 	EXP 	trial: autoDraw = False
+259.4207 	EXP 	fixcross: autoDraw = True
+261.4203 	EXP 	fixcross: autoDraw = False
+261.4203 	EXP 	trial: text = 'L'
+261.4203 	EXP 	trial: autoDraw = True
+261.9618 	DATA 	Keypress: right
+262.9062 	EXP 	New trial (rep=0, index=9): {'Letter': 'D', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+262.9203 	EXP 	trial: autoDraw = False
+262.9203 	EXP 	fixcross: autoDraw = True
+264.9212 	EXP 	fixcross: autoDraw = False
+264.9212 	EXP 	trial: text = 'D'
+264.9212 	EXP 	trial: autoDraw = True
+265.5439 	DATA 	Keypress: left
+266.4066 	EXP 	New trial (rep=0, index=10): {'Letter': 'G', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+266.4199 	EXP 	trial: autoDraw = False
+266.4199 	EXP 	fixcross: autoDraw = True
+268.4198 	EXP 	fixcross: autoDraw = False
+268.4198 	EXP 	trial: text = 'G'
+268.4198 	EXP 	trial: autoDraw = True
+268.8615 	DATA 	Keypress: left
+269.9070 	EXP 	New trial (rep=0, index=11): {'Letter': 'M', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+269.9198 	EXP 	trial: autoDraw = False
+269.9198 	EXP 	fixcross: autoDraw = True
+271.9236 	EXP 	fixcross: autoDraw = False
+271.9236 	EXP 	trial: text = 'M'
+271.9236 	EXP 	trial: autoDraw = True
+272.2616 	DATA 	Keypress: left
+273.4060 	EXP 	New trial (rep=0, index=12): {'Letter': 'Y', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+273.4199 	EXP 	trial: autoDraw = False
+273.4199 	EXP 	fixcross: autoDraw = True
+275.4197 	EXP 	fixcross: autoDraw = False
+275.4197 	EXP 	trial: text = 'Y'
+275.4197 	EXP 	trial: autoDraw = True
+275.7977 	DATA 	Keypress: left
+276.9063 	EXP 	New trial (rep=0, index=13): {'Letter': 'V', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+276.9195 	EXP 	trial: autoDraw = False
+276.9195 	EXP 	fixcross: autoDraw = True
+277.5455 	DATA 	Keypress: left
+278.9198 	EXP 	fixcross: autoDraw = False
+278.9198 	EXP 	trial: text = 'V'
+278.9198 	EXP 	trial: autoDraw = True
+279.1775 	DATA 	Keypress: left
+280.4617 	EXP 	trial: autoDraw = False
+280.4617 	EXP 	feedback: text = 'In diesem Block haben Sie auf 12.5% der sich wiederholenden und auf 22.9% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um einen weiteren Durchgang dieses Levels zu beginnen.'
+280.4617 	EXP 	feedback: autoDraw = True
+281.7249 	EXP 	Imported C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\Stimuli_Short\3back_run2.xlsx as conditions, 14 conditions, 3 params
+281.7261 	EXP 	Created sequence: sequential, trialTypes=14, nReps=1, seed=None
+281.7272 	EXP 	New trial (rep=0, index=0): {'Letter': 'H', 'CorrAnswer': 'left', 'Stimulus': 'Lure'}
+281.7342 	DATA 	Keypress: space
+281.7378 	EXP 	feedback: autoDraw = False
+281.7378 	EXP 	fixcross: autoDraw = True
+283.7205 	EXP 	fixcross: autoDraw = False
+283.7205 	EXP 	trial: text = 'H'
+283.7205 	EXP 	trial: autoDraw = True
+284.1944 	DATA 	Keypress: left
+285.2064 	EXP 	New trial (rep=0, index=1): {'Letter': 'B', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+285.2194 	EXP 	trial: autoDraw = False
+285.2194 	EXP 	fixcross: autoDraw = True
+287.2189 	EXP 	fixcross: autoDraw = False
+287.2189 	EXP 	trial: text = 'B'
+287.2189 	EXP 	trial: autoDraw = True
+288.7047 	EXP 	New trial (rep=0, index=2): {'Letter': 'T', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+288.7192 	EXP 	trial: autoDraw = False
+288.7192 	EXP 	fixcross: autoDraw = True
+290.7188 	EXP 	fixcross: autoDraw = False
+290.7188 	EXP 	trial: text = 'T'
+290.7188 	EXP 	trial: autoDraw = True
+292.2051 	EXP 	New trial (rep=0, index=3): {'Letter': 'R', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+292.2189 	EXP 	trial: autoDraw = False
+292.2189 	EXP 	fixcross: autoDraw = True
+294.2192 	EXP 	fixcross: autoDraw = False
+294.2192 	EXP 	trial: text = 'R'
+294.2192 	EXP 	trial: autoDraw = True
+294.6605 	DATA 	Keypress: left
+295.7046 	EXP 	New trial (rep=0, index=4): {'Letter': 'H', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+295.7186 	EXP 	trial: autoDraw = False
+295.7186 	EXP 	fixcross: autoDraw = True
+297.7190 	EXP 	fixcross: autoDraw = False
+297.7190 	EXP 	trial: text = 'H'
+297.7190 	EXP 	trial: autoDraw = True
+298.1603 	DATA 	Keypress: left
+299.2045 	EXP 	New trial (rep=0, index=5): {'Letter': 'K', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+299.2187 	EXP 	trial: autoDraw = False
+299.2187 	EXP 	fixcross: autoDraw = True
+301.2209 	EXP 	fixcross: autoDraw = False
+301.2209 	EXP 	trial: text = 'K'
+301.2209 	EXP 	trial: autoDraw = True
+301.7437 	DATA 	Keypress: left
+302.7051 	EXP 	New trial (rep=0, index=6): {'Letter': 'G', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+302.7181 	EXP 	trial: autoDraw = False
+302.7181 	EXP 	fixcross: autoDraw = True
+304.7183 	EXP 	fixcross: autoDraw = False
+304.7183 	EXP 	trial: text = 'G'
+304.7183 	EXP 	trial: autoDraw = True
+305.1594 	DATA 	Keypress: left
+306.2043 	EXP 	New trial (rep=0, index=7): {'Letter': 'H', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+306.2184 	EXP 	trial: autoDraw = False
+306.2184 	EXP 	fixcross: autoDraw = True
+308.2193 	EXP 	fixcross: autoDraw = False
+308.2193 	EXP 	trial: text = 'H'
+308.2193 	EXP 	trial: autoDraw = True
+308.6111 	DATA 	Keypress: right
+309.7042 	EXP 	New trial (rep=0, index=8): {'Letter': 'Y', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+309.7177 	EXP 	trial: autoDraw = False
+309.7177 	EXP 	fixcross: autoDraw = True
+311.7176 	EXP 	fixcross: autoDraw = False
+311.7176 	EXP 	trial: text = 'Y'
+311.7176 	EXP 	trial: autoDraw = True
+311.9601 	DATA 	Keypress: left
+313.2039 	EXP 	New trial (rep=0, index=9): {'Letter': 'S', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+313.2178 	EXP 	trial: autoDraw = False
+313.2178 	EXP 	fixcross: autoDraw = True
+315.2192 	EXP 	fixcross: autoDraw = False
+315.2192 	EXP 	trial: text = 'S'
+315.2192 	EXP 	trial: autoDraw = True
+316.0597 	DATA 	Keypress: left
+316.7051 	EXP 	New trial (rep=0, index=10): {'Letter': 'P', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+316.7175 	EXP 	trial: autoDraw = False
+316.7175 	EXP 	fixcross: autoDraw = True
+318.7175 	EXP 	fixcross: autoDraw = False
+318.7175 	EXP 	trial: text = 'P'
+318.7175 	EXP 	trial: autoDraw = True
+319.1093 	DATA 	Keypress: left
+320.2036 	EXP 	New trial (rep=0, index=11): {'Letter': 'Y', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+320.2173 	EXP 	trial: autoDraw = False
+320.2173 	EXP 	fixcross: autoDraw = True
+322.2181 	EXP 	fixcross: autoDraw = False
+322.2181 	EXP 	trial: text = 'Y'
+322.2181 	EXP 	trial: autoDraw = True
+322.5579 	DATA 	Keypress: right
+323.7034 	EXP 	New trial (rep=0, index=12): {'Letter': 'H', 'CorrAnswer': 'left', 'Stimulus': 'Lure'}
+323.7173 	EXP 	trial: autoDraw = False
+323.7173 	EXP 	fixcross: autoDraw = True
+325.1758 	DATA 	Keypress: right
+325.6749 	DATA 	Keypress: right
+325.7168 	EXP 	fixcross: autoDraw = False
+325.7168 	EXP 	trial: text = 'H'
+325.7168 	EXP 	trial: autoDraw = True
+326.0912 	DATA 	Keypress: right
+327.2028 	EXP 	New trial (rep=0, index=13): {'Letter': 'Q', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+327.2168 	EXP 	trial: autoDraw = False
+327.2168 	EXP 	fixcross: autoDraw = True
+329.2169 	EXP 	fixcross: autoDraw = False
+329.2169 	EXP 	trial: text = 'Q'
+329.2169 	EXP 	trial: autoDraw = True
+329.5422 	DATA 	Keypress: left
+330.7489 	EXP 	trial: autoDraw = False
+330.7489 	EXP 	feedback: text = 'In diesem Block haben Sie auf 18.8% der sich wiederholenden und auf 18.8% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um die Instruktion des nächsten Levels zu lesen.'
+330.7489 	EXP 	feedback: autoDraw = True
+332.3145 	DATA 	Keypress: space
+332.3186 	EXP 	feedback: autoDraw = False
+332.3186 	EXP 	instructiontext: text = 'Grünes Level\n\nIhnen werden nun nacheinander Buchstaben auf dem Bildschirm präsentiert. Wenn der aktuelle Buchstabe der gleiche ist wie der, der vier zuvor präsentiert wurde, dann drücken Sie bitte die rechte Pfeiltaste. Wenn es nicht der gleiche Buchstabe ist, drücken sie bitte die linke Pfeiltaste.\nReagieren Sie bei jedem Buchstaben bitte so schnell und richtig wie möglich.\n\nrechts = gleicher Buchstabe wie vier zuvor\nlinks = nicht der gleiche Buchstabe wie zuvor\n\nDrücken Sie die Leertaste, um zu beginnen.'
+332.3186 	EXP 	instructiontext: autoDraw = True
+333.0111 	DATA 	Keypress: space
+333.0519 	EXP 	Imported C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\Stimuli_Short\4back_run1.xlsx as conditions, 14 conditions, 3 params
+333.0530 	EXP 	Created sequence: sequential, trialTypes=14, nReps=1, seed=None
+333.0541 	EXP 	New trial (rep=0, index=0): {'Letter': 'R', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+333.0636 	EXP 	instructiontext: autoDraw = False
+333.0636 	EXP 	fixcross: autoDraw = True
+335.0503 	EXP 	fixcross: autoDraw = False
+335.0503 	EXP 	trial: text = 'R'
+335.0503 	EXP 	trial: autoDraw = True
+335.3591 	DATA 	Keypress: left
+336.5366 	EXP 	New trial (rep=0, index=1): {'Letter': 'F', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+336.5496 	EXP 	trial: autoDraw = False
+336.5496 	EXP 	fixcross: autoDraw = True
+338.5496 	EXP 	fixcross: autoDraw = False
+338.5496 	EXP 	trial: text = 'F'
+338.5496 	EXP 	trial: autoDraw = True
+338.9093 	DATA 	Keypress: left
+340.0359 	EXP 	New trial (rep=0, index=2): {'Letter': 'P', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+340.0493 	EXP 	trial: autoDraw = False
+340.0493 	EXP 	fixcross: autoDraw = True
+342.0508 	EXP 	fixcross: autoDraw = False
+342.0508 	EXP 	trial: text = 'P'
+342.0508 	EXP 	trial: autoDraw = True
+342.4903 	DATA 	Keypress: left
+343.5358 	EXP 	New trial (rep=0, index=3): {'Letter': 'H', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+343.5495 	EXP 	trial: autoDraw = False
+343.5495 	EXP 	fixcross: autoDraw = True
+345.5511 	EXP 	fixcross: autoDraw = False
+345.5511 	EXP 	trial: text = 'H'
+345.5511 	EXP 	trial: autoDraw = True
+345.8914 	DATA 	Keypress: left
+347.0352 	EXP 	New trial (rep=0, index=4): {'Letter': 'Z', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+347.0490 	EXP 	trial: autoDraw = False
+347.0490 	EXP 	fixcross: autoDraw = True
+349.0489 	EXP 	fixcross: autoDraw = False
+349.0489 	EXP 	trial: text = 'Z'
+349.0489 	EXP 	trial: autoDraw = True
+349.3751 	DATA 	Keypress: left
+350.5357 	EXP 	New trial (rep=0, index=5): {'Letter': 'T', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+350.5492 	EXP 	trial: autoDraw = False
+350.5492 	EXP 	fixcross: autoDraw = True
+352.5500 	EXP 	fixcross: autoDraw = False
+352.5500 	EXP 	trial: text = 'T'
+352.5500 	EXP 	trial: autoDraw = True
+352.9739 	DATA 	Keypress: left
+354.0353 	EXP 	New trial (rep=0, index=6): {'Letter': 'P', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+354.0492 	EXP 	trial: autoDraw = False
+354.0492 	EXP 	fixcross: autoDraw = True
+356.0494 	EXP 	fixcross: autoDraw = False
+356.0494 	EXP 	trial: text = 'P'
+356.0494 	EXP 	trial: autoDraw = True
+356.4082 	DATA 	Keypress: left
+357.5350 	EXP 	New trial (rep=0, index=7): {'Letter': 'G', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+357.5487 	EXP 	trial: autoDraw = False
+357.5487 	EXP 	fixcross: autoDraw = True
+359.5485 	EXP 	fixcross: autoDraw = False
+359.5485 	EXP 	trial: text = 'G'
+359.5485 	EXP 	trial: autoDraw = True
+359.9405 	DATA 	Keypress: left
+361.0352 	EXP 	New trial (rep=0, index=8): {'Letter': 'L', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+361.0485 	EXP 	trial: autoDraw = False
+361.0485 	EXP 	fixcross: autoDraw = True
+363.0484 	EXP 	fixcross: autoDraw = False
+363.0484 	EXP 	trial: text = 'L'
+363.0484 	EXP 	trial: autoDraw = True
+363.5741 	DATA 	Keypress: left
+364.5354 	EXP 	New trial (rep=0, index=9): {'Letter': 'P', 'CorrAnswer': 'left', 'Stimulus': 'Lure'}
+364.5485 	EXP 	trial: autoDraw = False
+364.5485 	EXP 	fixcross: autoDraw = True
+366.5487 	EXP 	fixcross: autoDraw = False
+366.5487 	EXP 	trial: text = 'P'
+366.5487 	EXP 	trial: autoDraw = True
+367.0078 	DATA 	Keypress: left
+368.0348 	EXP 	New trial (rep=0, index=10): {'Letter': 'Q', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+368.0481 	EXP 	trial: autoDraw = False
+368.0481 	EXP 	fixcross: autoDraw = True
+370.0479 	EXP 	fixcross: autoDraw = False
+370.0479 	EXP 	trial: text = 'Q'
+370.0479 	EXP 	trial: autoDraw = True
+370.3896 	DATA 	Keypress: left
+371.5343 	EXP 	New trial (rep=0, index=11): {'Letter': 'D', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+371.5478 	EXP 	trial: autoDraw = False
+371.5478 	EXP 	fixcross: autoDraw = True
+373.5478 	EXP 	fixcross: autoDraw = False
+373.5478 	EXP 	trial: text = 'D'
+373.5478 	EXP 	trial: autoDraw = True
+373.9733 	DATA 	Keypress: left
+375.0340 	EXP 	New trial (rep=0, index=12): {'Letter': 'M', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+375.0477 	EXP 	trial: autoDraw = False
+375.0477 	EXP 	fixcross: autoDraw = True
+377.0480 	EXP 	fixcross: autoDraw = False
+377.0480 	EXP 	trial: text = 'M'
+377.0480 	EXP 	trial: autoDraw = True
+377.5553 	DATA 	Keypress: right
+378.5336 	EXP 	New trial (rep=0, index=13): {'Letter': 'C', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+378.5476 	EXP 	trial: autoDraw = False
+378.5476 	EXP 	fixcross: autoDraw = True
+380.5557 	EXP 	fixcross: autoDraw = False
+380.5557 	EXP 	trial: text = 'C'
+380.5557 	EXP 	trial: autoDraw = True
+382.0857 	EXP 	trial: autoDraw = False
+382.0857 	EXP 	feedback: text = 'In diesem Block haben Sie auf 6.2% der sich wiederholenden und auf 25.0% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um einen weiteren Durchgang dieses Levels zu beginnen.'
+382.0857 	EXP 	feedback: autoDraw = True
+382.1734 	DATA 	Keypress: right
+383.3651 	EXP 	Imported C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\Stimuli_Short\4back_run2.xlsx as conditions, 14 conditions, 3 params
+383.3664 	EXP 	Created sequence: sequential, trialTypes=14, nReps=1, seed=None
+383.3675 	EXP 	New trial (rep=0, index=0): {'Letter': 'J', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+383.3742 	DATA 	Keypress: space
+383.3773 	EXP 	feedback: autoDraw = False
+383.3773 	EXP 	fixcross: autoDraw = True
+385.3701 	EXP 	fixcross: autoDraw = False
+385.3701 	EXP 	trial: text = 'J'
+385.3701 	EXP 	trial: autoDraw = True
+385.6563 	DATA 	Keypress: left
+386.8505 	EXP 	New trial (rep=0, index=1): {'Letter': 'G', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+386.8640 	EXP 	trial: autoDraw = False
+386.8640 	EXP 	fixcross: autoDraw = True
+388.8638 	EXP 	fixcross: autoDraw = False
+388.8638 	EXP 	trial: text = 'G'
+388.8638 	EXP 	trial: autoDraw = True
+389.1892 	DATA 	Keypress: left
+390.3503 	EXP 	New trial (rep=0, index=2): {'Letter': 'Z', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+390.3637 	EXP 	trial: autoDraw = False
+390.3637 	EXP 	fixcross: autoDraw = True
+392.3636 	EXP 	fixcross: autoDraw = False
+392.3636 	EXP 	trial: text = 'Z'
+392.3636 	EXP 	trial: autoDraw = True
+392.7058 	DATA 	Keypress: left
+393.8492 	EXP 	New trial (rep=0, index=3): {'Letter': 'F', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+393.8635 	EXP 	trial: autoDraw = False
+393.8635 	EXP 	fixcross: autoDraw = True
+395.8634 	EXP 	fixcross: autoDraw = False
+395.8634 	EXP 	trial: text = 'F'
+395.8634 	EXP 	trial: autoDraw = True
+396.2052 	DATA 	Keypress: left
+397.3490 	EXP 	New trial (rep=0, index=4): {'Letter': 'J', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+397.3635 	EXP 	trial: autoDraw = False
+397.3635 	EXP 	fixcross: autoDraw = True
+398.1564 	DATA 	Keypress: right
+399.3633 	EXP 	fixcross: autoDraw = False
+399.3633 	EXP 	trial: text = 'J'
+399.3633 	EXP 	trial: autoDraw = True
+399.8548 	DATA 	Keypress: right
+400.8487 	EXP 	New trial (rep=0, index=5): {'Letter': 'G', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+400.8632 	EXP 	trial: autoDraw = False
+400.8632 	EXP 	fixcross: autoDraw = True
+402.8597 	DATA 	Keypress: left
+402.8630 	EXP 	fixcross: autoDraw = False
+402.8630 	EXP 	trial: text = 'G'
+402.8630 	EXP 	trial: autoDraw = True
+404.3484 	EXP 	New trial (rep=0, index=6): {'Letter': 'H', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+404.3632 	EXP 	trial: autoDraw = False
+404.3632 	EXP 	fixcross: autoDraw = True
+406.3629 	EXP 	fixcross: autoDraw = False
+406.3629 	EXP 	trial: text = 'H'
+406.3629 	EXP 	trial: autoDraw = True
+406.8384 	DATA 	Keypress: left
+407.8487 	EXP 	New trial (rep=0, index=7): {'Letter': 'P', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+407.8627 	EXP 	trial: autoDraw = False
+407.8627 	EXP 	fixcross: autoDraw = True
+409.8592 	DATA 	Keypress: left
+409.8626 	EXP 	fixcross: autoDraw = False
+409.8626 	EXP 	trial: text = 'P'
+409.8626 	EXP 	trial: autoDraw = True
+411.3484 	EXP 	New trial (rep=0, index=8): {'Letter': 'G', 'CorrAnswer': 'left', 'Stimulus': 'Lure'}
+411.3626 	EXP 	trial: autoDraw = False
+411.3626 	EXP 	fixcross: autoDraw = True
+413.3624 	EXP 	fixcross: autoDraw = False
+413.3624 	EXP 	trial: text = 'G'
+413.3624 	EXP 	trial: autoDraw = True
+414.1540 	DATA 	Keypress: right
+414.8481 	EXP 	New trial (rep=0, index=9): {'Letter': 'S', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+414.8623 	EXP 	trial: autoDraw = False
+414.8623 	EXP 	fixcross: autoDraw = True
+416.8621 	EXP 	fixcross: autoDraw = False
+416.8621 	EXP 	trial: text = 'S'
+416.8621 	EXP 	trial: autoDraw = True
+417.2213 	DATA 	Keypress: right
+418.3479 	EXP 	New trial (rep=0, index=10): {'Letter': 'R', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+418.3624 	EXP 	trial: autoDraw = False
+418.3624 	EXP 	fixcross: autoDraw = True
+420.3621 	EXP 	fixcross: autoDraw = False
+420.3621 	EXP 	trial: text = 'R'
+420.3621 	EXP 	trial: autoDraw = True
+420.5207 	DATA 	Keypress: right
+421.8497 	EXP 	New trial (rep=0, index=11): {'Letter': 'T', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+421.8619 	EXP 	trial: autoDraw = False
+421.8619 	EXP 	fixcross: autoDraw = True
+423.5525 	DATA 	Keypress: right
+423.8617 	EXP 	fixcross: autoDraw = False
+423.8617 	EXP 	trial: text = 'T'
+423.8617 	EXP 	trial: autoDraw = True
+424.4205 	DATA 	Keypress: right
+425.3481 	EXP 	New trial (rep=0, index=12): {'Letter': 'X', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+425.3618 	EXP 	trial: autoDraw = False
+425.3618 	EXP 	fixcross: autoDraw = True
+427.3620 	EXP 	fixcross: autoDraw = False
+427.3620 	EXP 	trial: text = 'X'
+427.3620 	EXP 	trial: autoDraw = True
+427.6703 	DATA 	Keypress: right
+428.8475 	EXP 	New trial (rep=0, index=13): {'Letter': 'F', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+428.8615 	EXP 	trial: autoDraw = False
+428.8615 	EXP 	fixcross: autoDraw = True
+430.8616 	EXP 	fixcross: autoDraw = False
+430.8616 	EXP 	trial: text = 'F'
+430.8616 	EXP 	trial: autoDraw = True
+431.2705 	DATA 	Keypress: right
+432.4126 	EXP 	trial: autoDraw = False
+432.4126 	EXP 	feedback: text = 'In diesem Block haben Sie auf 43.8% der sich wiederholenden und auf 10.4% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um mit dem nächsten Teil des Experiments zu beginnen.'
+432.4126 	EXP 	feedback: autoDraw = True
+434.2401 	DATA 	Keypress: space
+434.2456 	EXP 	feedback: autoDraw = False
+434.2456 	EXP 	text: autoDraw = True
+436.7040 	EXP 	Imported C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\Stimuli_Short\Moneyvalues.xlsx as conditions, 7 conditions, 1 params
+436.7051 	EXP 	Created sequence: sequential, trialTypes=7, nReps=1, seed=None
+436.7060 	EXP 	New trial (rep=0, index=0): {'Currentstep': 0}
+436.7141 	DATA 	Keypress: space
+436.7171 	EXP 	text: autoDraw = False
+436.7171 	EXP 	EDbufferscreen: autoDraw = True
+437.1958 	EXP 	EDbufferscreen: autoDraw = False
+437.1958 	EXP 	question: autoDraw = True
+438.7298 	DATA 	Mouse: Left button down, pos=(684,387)
+438.7429 	EXP 	New trial (rep=0, index=1): {'Currentstep': 1}
+438.7522 	EXP 	question: autoDraw = False
+438.7522 	EXP 	EDbufferscreen: autoDraw = True
+438.9538 	DATA 	Mouse:  Left button up, pos=(684,387)
+439.0950 	EXP 	EDbufferscreen: autoDraw = False
+439.0950 	EXP 	question: autoDraw = True
+439.4981 	DATA 	Mouse: Left button down, pos=(684,387)
+439.5102 	EXP 	New trial (rep=0, index=2): {'Currentstep': 2}
+439.5203 	EXP 	question: autoDraw = False
+439.5203 	EXP 	EDbufferscreen: autoDraw = True
+439.7046 	DATA 	Mouse:  Left button up, pos=(684,387)
+439.8607 	EXP 	EDbufferscreen: autoDraw = False
+439.8607 	EXP 	question: autoDraw = True
+440.3286 	DATA 	Mouse: Left button down, pos=(684,387)
+440.3373 	EXP 	New trial (rep=0, index=3): {'Currentstep': 3}
+440.3482 	EXP 	question: autoDraw = False
+440.3482 	EXP 	EDbufferscreen: autoDraw = True
+440.5535 	DATA 	Mouse:  Left button up, pos=(684,387)
+440.6833 	EXP 	EDbufferscreen: autoDraw = False
+440.6833 	EXP 	question: autoDraw = True
+441.2301 	DATA 	Mouse: Left button down, pos=(1044,386)
+441.2418 	EXP 	New trial (rep=0, index=4): {'Currentstep': 4}
+441.2509 	EXP 	question: autoDraw = False
+441.2509 	EXP 	EDbufferscreen: autoDraw = True
+441.4531 	DATA 	Mouse:  Left button up, pos=(1044,386)
+441.6046 	EXP 	EDbufferscreen: autoDraw = False
+441.6046 	EXP 	question: autoDraw = True
+441.9843 	DATA 	Mouse: Left button down, pos=(1044,386)
+441.9964 	EXP 	New trial (rep=0, index=5): {'Currentstep': 5}
+442.0056 	EXP 	question: autoDraw = False
+442.0056 	EXP 	EDbufferscreen: autoDraw = True
+442.2040 	DATA 	Mouse:  Left button up, pos=(1044,386)
+442.3624 	EXP 	EDbufferscreen: autoDraw = False
+442.3624 	EXP 	question: autoDraw = True
+442.8985 	DATA 	Mouse: Left button down, pos=(824,399)
+442.9112 	EXP 	New trial (rep=0, index=6): {'Currentstep': 6}
+442.9206 	EXP 	question: autoDraw = False
+442.9206 	EXP 	EDbufferscreen: autoDraw = True
+443.1367 	DATA 	Mouse:  Left button up, pos=(824,399)
+443.2509 	EXP 	EDbufferscreen: autoDraw = False
+443.2509 	EXP 	question: autoDraw = True
+443.7710 	DATA 	Mouse: Left button down, pos=(824,399)
+443.8034 	EXP 	Imported C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\Stimuli_Short\Moneyvalues.xlsx as conditions, 7 conditions, 1 params
+443.8045 	EXP 	Created sequence: sequential, trialTypes=7, nReps=1, seed=None
+443.8059 	EXP 	New trial (rep=0, index=0): {'Currentstep': 0}
+443.8155 	EXP 	question: autoDraw = False
+443.8155 	EXP 	EDbufferscreen: autoDraw = True
+444.0021 	DATA 	Mouse:  Left button up, pos=(824,399)
+444.1493 	EXP 	EDbufferscreen: autoDraw = False
+444.1493 	EXP 	question: autoDraw = True
+445.1672 	DATA 	Mouse: Left button down, pos=(824,399)
+445.1812 	EXP 	New trial (rep=0, index=1): {'Currentstep': 1}
+445.1894 	EXP 	question: autoDraw = False
+445.1894 	EXP 	EDbufferscreen: autoDraw = True
+445.3870 	DATA 	Mouse:  Left button up, pos=(824,399)
+445.5314 	EXP 	EDbufferscreen: autoDraw = False
+445.5314 	EXP 	question: autoDraw = True
+445.7763 	DATA 	Mouse: Left button down, pos=(824,399)
+445.7886 	EXP 	New trial (rep=0, index=2): {'Currentstep': 2}
+445.7978 	EXP 	question: autoDraw = False
+445.7978 	EXP 	EDbufferscreen: autoDraw = True
+445.9862 	DATA 	Mouse:  Left button up, pos=(824,399)
+446.1324 	EXP 	EDbufferscreen: autoDraw = False
+446.1324 	EXP 	question: autoDraw = True
+446.5517 	DATA 	Mouse: Left button down, pos=(824,399)
+446.5632 	EXP 	New trial (rep=0, index=3): {'Currentstep': 3}
+446.5726 	EXP 	question: autoDraw = False
+446.5726 	EXP 	EDbufferscreen: autoDraw = True
+446.7866 	DATA 	Mouse:  Left button up, pos=(824,399)
+446.9181 	EXP 	EDbufferscreen: autoDraw = False
+446.9181 	EXP 	question: autoDraw = True
+447.1392 	DATA 	Mouse: Left button down, pos=(824,399)
+447.1522 	EXP 	New trial (rep=0, index=4): {'Currentstep': 4}
+447.1608 	EXP 	question: autoDraw = False
+447.1608 	EXP 	EDbufferscreen: autoDraw = True
+447.3530 	DATA 	Mouse:  Left button up, pos=(824,399)
+447.5012 	EXP 	EDbufferscreen: autoDraw = False
+447.5012 	EXP 	question: autoDraw = True
+447.8234 	DATA 	Mouse: Left button down, pos=(824,399)
+447.8351 	EXP 	New trial (rep=0, index=5): {'Currentstep': 5}
+447.8457 	EXP 	question: autoDraw = False
+447.8457 	EXP 	EDbufferscreen: autoDraw = True
+448.0195 	DATA 	Mouse:  Left button up, pos=(824,399)
+448.1953 	EXP 	EDbufferscreen: autoDraw = False
+448.1953 	EXP 	question: autoDraw = True
+448.3985 	DATA 	Mouse: Left button down, pos=(824,399)
+448.4120 	EXP 	New trial (rep=0, index=6): {'Currentstep': 6}
+448.4217 	EXP 	question: autoDraw = False
+448.4217 	EXP 	EDbufferscreen: autoDraw = True
+448.6197 	DATA 	Mouse:  Left button up, pos=(824,399)
+448.7691 	EXP 	EDbufferscreen: autoDraw = False
+448.7691 	EXP 	question: autoDraw = True
+449.1284 	DATA 	Mouse: Left button down, pos=(824,399)
+449.1588 	EXP 	Imported C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\Stimuli_Short\Moneyvalues.xlsx as conditions, 7 conditions, 1 params
+449.1598 	EXP 	Created sequence: sequential, trialTypes=7, nReps=1, seed=None
+449.1607 	EXP 	New trial (rep=0, index=0): {'Currentstep': 0}
+449.1700 	EXP 	question: autoDraw = False
+449.1700 	EXP 	EDbufferscreen: autoDraw = True
+449.3690 	DATA 	Mouse:  Left button up, pos=(824,399)
+449.5037 	EXP 	EDbufferscreen: autoDraw = False
+449.5037 	EXP 	question: autoDraw = True
+450.8069 	DATA 	Mouse: Left button down, pos=(1170,413)
+450.8212 	EXP 	New trial (rep=0, index=1): {'Currentstep': 1}
+450.8308 	EXP 	question: autoDraw = False
+450.8308 	EXP 	EDbufferscreen: autoDraw = True
+451.0190 	DATA 	Mouse:  Left button up, pos=(1170,413)
+451.1644 	EXP 	EDbufferscreen: autoDraw = False
+451.1644 	EXP 	question: autoDraw = True
+451.5489 	DATA 	Mouse: Left button down, pos=(1170,413)
+451.5603 	EXP 	New trial (rep=0, index=2): {'Currentstep': 2}
+451.5692 	EXP 	question: autoDraw = False
+451.5692 	EXP 	EDbufferscreen: autoDraw = True
+451.7688 	DATA 	Mouse:  Left button up, pos=(1170,413)
+451.8942 	EXP 	EDbufferscreen: autoDraw = False
+451.8942 	EXP 	question: autoDraw = True
+452.2947 	DATA 	Mouse: Left button down, pos=(1170,413)
+452.3055 	EXP 	New trial (rep=0, index=3): {'Currentstep': 3}
+452.3146 	EXP 	question: autoDraw = False
+452.3146 	EXP 	EDbufferscreen: autoDraw = True
+452.5193 	DATA 	Mouse:  Left button up, pos=(1170,413)
+452.6543 	EXP 	EDbufferscreen: autoDraw = False
+452.6543 	EXP 	question: autoDraw = True
+453.1255 	DATA 	Mouse: Left button down, pos=(730,401)
+453.1363 	EXP 	New trial (rep=0, index=4): {'Currentstep': 4}
+453.1476 	EXP 	question: autoDraw = False
+453.1476 	EXP 	EDbufferscreen: autoDraw = True
+453.3518 	DATA 	Mouse:  Left button up, pos=(730,401)
+453.4790 	EXP 	EDbufferscreen: autoDraw = False
+453.4790 	EXP 	question: autoDraw = True
+453.9213 	DATA 	Mouse: Left button down, pos=(1191,372)
+453.9321 	EXP 	New trial (rep=0, index=5): {'Currentstep': 5}
+453.9421 	EXP 	question: autoDraw = False
+453.9421 	EXP 	EDbufferscreen: autoDraw = True
+454.1522 	DATA 	Mouse:  Left button up, pos=(1191,372)
+454.2782 	EXP 	EDbufferscreen: autoDraw = False
+454.2782 	EXP 	question: autoDraw = True
+454.7134 	DATA 	Mouse: Left button down, pos=(787,403)
+454.7248 	EXP 	New trial (rep=0, index=6): {'Currentstep': 6}
+454.7336 	EXP 	question: autoDraw = False
+454.7336 	EXP 	EDbufferscreen: autoDraw = True
+454.9362 	DATA 	Mouse:  Left button up, pos=(787,403)
+455.0678 	EXP 	EDbufferscreen: autoDraw = False
+455.0678 	EXP 	question: autoDraw = True
+455.4196 	DATA 	Mouse: Left button down, pos=(787,403)
+455.4533 	EXP 	Imported C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\Stimuli_Short\Moneyvalues.xlsx as conditions, 7 conditions, 1 params
+455.4544 	EXP 	Created sequence: sequential, trialTypes=7, nReps=1, seed=None
+455.4553 	EXP 	New trial (rep=0, index=0): {'Currentstep': 0}
+455.4647 	EXP 	question: autoDraw = False
+455.4647 	EXP 	EDbufferscreen: autoDraw = True
+455.6354 	DATA 	Mouse:  Left button up, pos=(787,403)
+455.7810 	EXP 	EDbufferscreen: autoDraw = False
+455.7810 	EXP 	question: autoDraw = True
+456.2491 	DATA 	Mouse: Left button down, pos=(1183,396)
+456.2621 	EXP 	New trial (rep=0, index=1): {'Currentstep': 1}
+456.2710 	EXP 	question: autoDraw = False
+456.2710 	EXP 	EDbufferscreen: autoDraw = True
+456.4684 	DATA 	Mouse:  Left button up, pos=(1183,396)
+456.6103 	EXP 	EDbufferscreen: autoDraw = False
+456.6103 	EXP 	question: autoDraw = True
+457.1971 	DATA 	Mouse: Left button down, pos=(805,403)
+457.2052 	EXP 	New trial (rep=0, index=2): {'Currentstep': 2}
+457.2137 	EXP 	question: autoDraw = False
+457.2137 	EXP 	EDbufferscreen: autoDraw = True
+457.4186 	DATA 	Mouse:  Left button up, pos=(805,403)
+457.5434 	EXP 	EDbufferscreen: autoDraw = False
+457.5434 	EXP 	question: autoDraw = True
+457.8894 	DATA 	Mouse: Left button down, pos=(805,403)
+457.8998 	EXP 	New trial (rep=0, index=3): {'Currentstep': 3}
+457.9080 	EXP 	question: autoDraw = False
+457.9080 	EXP 	EDbufferscreen: autoDraw = True
+458.1014 	DATA 	Mouse:  Left button up, pos=(805,403)
+458.2546 	EXP 	EDbufferscreen: autoDraw = False
+458.2546 	EXP 	question: autoDraw = True
+458.5592 	DATA 	Mouse: Left button down, pos=(805,403)
+458.5706 	EXP 	New trial (rep=0, index=4): {'Currentstep': 4}
+458.5805 	EXP 	question: autoDraw = False
+458.5805 	EXP 	EDbufferscreen: autoDraw = True
+458.7855 	DATA 	Mouse:  Left button up, pos=(805,403)
+458.9152 	EXP 	EDbufferscreen: autoDraw = False
+458.9152 	EXP 	question: autoDraw = True
+459.2825 	DATA 	Mouse: Left button down, pos=(805,403)
+459.2946 	EXP 	New trial (rep=0, index=5): {'Currentstep': 5}
+459.3040 	EXP 	question: autoDraw = False
+459.3040 	EXP 	EDbufferscreen: autoDraw = True
+459.5187 	DATA 	Mouse:  Left button up, pos=(805,403)
+459.6594 	EXP 	EDbufferscreen: autoDraw = False
+459.6594 	EXP 	question: autoDraw = True
+460.0816 	DATA 	Mouse: Left button down, pos=(1202,400)
+460.0933 	EXP 	New trial (rep=0, index=6): {'Currentstep': 6}
+460.1032 	EXP 	question: autoDraw = False
+460.1032 	EXP 	EDbufferscreen: autoDraw = True
+460.3022 	DATA 	Mouse:  Left button up, pos=(1202,400)
+460.4317 	EXP 	EDbufferscreen: autoDraw = False
+460.4317 	EXP 	question: autoDraw = True
+460.8145 	DATA 	Mouse: Left button down, pos=(1202,400)
+460.8433 	EXP 	Imported C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\Stimuli_Short\Moneyvalues.xlsx as conditions, 7 conditions, 1 params
+460.8443 	EXP 	Created sequence: sequential, trialTypes=7, nReps=1, seed=None
+460.8453 	EXP 	New trial (rep=0, index=0): {'Currentstep': 0}
+460.8537 	EXP 	question: autoDraw = False
+460.8537 	EXP 	EDbufferscreen: autoDraw = True
+461.0352 	DATA 	Mouse:  Left button up, pos=(1202,400)
+461.1672 	EXP 	EDbufferscreen: autoDraw = False
+461.1672 	EXP 	question: autoDraw = True
+462.4116 	DATA 	Mouse: Left button down, pos=(782,376)
+462.4254 	EXP 	New trial (rep=0, index=1): {'Currentstep': 1}
+462.4337 	EXP 	question: autoDraw = False
+462.4337 	EXP 	EDbufferscreen: autoDraw = True
+462.6519 	DATA 	Mouse:  Left button up, pos=(782,376)
+462.7615 	EXP 	EDbufferscreen: autoDraw = False
+462.7615 	EXP 	question: autoDraw = True
+463.0455 	DATA 	Mouse: Left button down, pos=(782,376)
+463.0582 	EXP 	New trial (rep=0, index=2): {'Currentstep': 2}
+463.0681 	EXP 	question: autoDraw = False
+463.0681 	EXP 	EDbufferscreen: autoDraw = True
+463.2687 	DATA 	Mouse:  Left button up, pos=(782,376)
+463.3947 	EXP 	EDbufferscreen: autoDraw = False
+463.3947 	EXP 	question: autoDraw = True
+463.5950 	DATA 	Mouse: Left button down, pos=(782,376)
+463.6028 	EXP 	New trial (rep=0, index=3): {'Currentstep': 3}
+463.6137 	EXP 	question: autoDraw = False
+463.6137 	EXP 	EDbufferscreen: autoDraw = True
+463.8182 	DATA 	Mouse:  Left button up, pos=(782,376)
+463.9550 	EXP 	EDbufferscreen: autoDraw = False
+463.9550 	EXP 	question: autoDraw = True
+464.6296 	DATA 	Mouse: Left button down, pos=(1150,373)
+464.6410 	EXP 	New trial (rep=0, index=4): {'Currentstep': 4}
+464.6490 	EXP 	question: autoDraw = False
+464.6490 	EXP 	EDbufferscreen: autoDraw = True
+464.8509 	DATA 	Mouse:  Left button up, pos=(1150,373)
+464.9862 	EXP 	EDbufferscreen: autoDraw = False
+464.9862 	EXP 	question: autoDraw = True
+465.1439 	DATA 	Mouse: Left button down, pos=(1150,373)
+465.1549 	EXP 	New trial (rep=0, index=5): {'Currentstep': 5}
+465.1638 	EXP 	question: autoDraw = False
+465.1638 	EXP 	EDbufferscreen: autoDraw = True
+465.3840 	DATA 	Mouse:  Left button up, pos=(1150,373)
+465.4933 	EXP 	EDbufferscreen: autoDraw = False
+465.4933 	EXP 	question: autoDraw = True
+465.9172 	DATA 	Mouse: Left button down, pos=(750,380)
+465.9275 	EXP 	New trial (rep=0, index=6): {'Currentstep': 6}
+465.9362 	EXP 	question: autoDraw = False
+465.9362 	EXP 	EDbufferscreen: autoDraw = True
+466.1526 	DATA 	Mouse:  Left button up, pos=(750,380)
+466.2802 	EXP 	EDbufferscreen: autoDraw = False
+466.2802 	EXP 	question: autoDraw = True
+466.5103 	DATA 	Mouse: Left button down, pos=(750,380)
+466.5387 	EXP 	Imported C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\Stimuli_Short\Moneyvalues.xlsx as conditions, 7 conditions, 1 params
+466.5395 	EXP 	Created sequence: sequential, trialTypes=7, nReps=1, seed=None
+466.5403 	EXP 	New trial (rep=0, index=0): {'Currentstep': 0}
+466.5501 	EXP 	question: autoDraw = False
+466.5501 	EXP 	EDbufferscreen: autoDraw = True
+466.7182 	DATA 	Mouse:  Left button up, pos=(750,380)
+466.8663 	EXP 	EDbufferscreen: autoDraw = False
+466.8663 	EXP 	question: autoDraw = True
+466.9771 	DATA 	Mouse: Left button down, pos=(750,380)
+466.9897 	EXP 	New trial (rep=0, index=1): {'Currentstep': 1}
+466.9981 	EXP 	question: autoDraw = False
+466.9981 	EXP 	EDbufferscreen: autoDraw = True
+467.2015 	DATA 	Mouse:  Left button up, pos=(750,380)
+467.3308 	EXP 	EDbufferscreen: autoDraw = False
+467.3308 	EXP 	question: autoDraw = True
+467.8387 	DATA 	Mouse: Left button down, pos=(750,380)
+467.8505 	EXP 	New trial (rep=0, index=2): {'Currentstep': 2}
+467.8597 	EXP 	question: autoDraw = False
+467.8597 	EXP 	EDbufferscreen: autoDraw = True
+468.0511 	DATA 	Mouse:  Left button up, pos=(750,380)
+468.1987 	EXP 	EDbufferscreen: autoDraw = False
+468.1987 	EXP 	question: autoDraw = True
+468.3590 	DATA 	Mouse: Left button down, pos=(750,380)
+468.3677 	EXP 	New trial (rep=0, index=3): {'Currentstep': 3}
+468.3764 	EXP 	question: autoDraw = False
+468.3764 	EXP 	EDbufferscreen: autoDraw = True
+468.5855 	DATA 	Mouse:  Left button up, pos=(750,380)
+468.7147 	EXP 	EDbufferscreen: autoDraw = False
+468.7147 	EXP 	question: autoDraw = True
+468.9161 	DATA 	Mouse: Left button down, pos=(750,380)
+468.9281 	EXP 	New trial (rep=0, index=4): {'Currentstep': 4}
+468.9376 	EXP 	question: autoDraw = False
+468.9376 	EXP 	EDbufferscreen: autoDraw = True
+469.1519 	DATA 	Mouse:  Left button up, pos=(750,380)
+469.2812 	EXP 	EDbufferscreen: autoDraw = False
+469.2812 	EXP 	question: autoDraw = True
+469.5349 	DATA 	Mouse: Left button down, pos=(750,380)
+469.5474 	EXP 	New trial (rep=0, index=5): {'Currentstep': 5}
+469.5567 	EXP 	question: autoDraw = False
+469.5567 	EXP 	EDbufferscreen: autoDraw = True
+469.7514 	DATA 	Mouse:  Left button up, pos=(750,380)
+469.8982 	EXP 	EDbufferscreen: autoDraw = False
+469.8982 	EXP 	question: autoDraw = True
+470.5376 	DATA 	Mouse: Left button down, pos=(1146,404)
+470.5501 	EXP 	New trial (rep=0, index=6): {'Currentstep': 6}
+470.5589 	EXP 	question: autoDraw = False
+470.5589 	EXP 	EDbufferscreen: autoDraw = True
+470.7673 	DATA 	Mouse:  Left button up, pos=(1146,404)
+470.9007 	EXP 	EDbufferscreen: autoDraw = False
+470.9007 	EXP 	question: autoDraw = True
+471.2406 	DATA 	Mouse: Left button down, pos=(1146,404)
+471.3572 	EXP 	question: autoDraw = False
+471.3572 	EXP 	finaln_instructiontext: text = 'Eine Ihrer Entscheidungen lautete:\n\n"Das Schwarze Level für 2.00€ oder das Rote Level für 0.34€?"\n\nZufällig ausgewählt wurde das Schwarze Level für 2.00€.\n\nIhnen werden nun nacheinander Buchstaben auf dem Bildschirm präsentiert. Wenn der aktuelle Buchstabe der gleiche ist wie der, der direkt zuvor präsentiert wurde, dann drücken Sie bitte die rechte Pfeiltaste. Wenn es nicht der gleiche Buchstabe ist, drücken sie bitte die linke Pfeiltaste.\nReagieren Sie bei jedem Buchstaben bitte so schnell und richtig wie möglich.\n\nrechts = gleicher Buchstabe wie direkt zuvor\nlinks = nicht der gleiche Buchstabe wie zuvor\n\nDrücken Sie die Leertaste, um zu beginnen.'
+471.3572 	EXP 	finaln_instructiontext: autoDraw = True
+471.4523 	DATA 	Mouse:  Left button up, pos=(1146,404)
+475.8520 	DATA 	Keypress: space
+475.8935 	EXP 	Imported C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\Stimuli_Short\1back.xlsx as conditions, 14 conditions, 3 params
+475.8945 	EXP 	Created sequence: sequential, trialTypes=14, nReps=1, seed=None
+475.8956 	EXP 	New trial (rep=0, index=0): {'Letter': 'T', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+475.9068 	EXP 	finaln_instructiontext: autoDraw = False
+475.9068 	EXP 	finaln_fixcross: autoDraw = True
+477.8923 	EXP 	finaln_fixcross: autoDraw = False
+477.8923 	EXP 	finaln_trial: text = 'T'
+477.8923 	EXP 	finaln_trial: autoDraw = True
+478.3181 	DATA 	Keypress: left
+479.3793 	EXP 	New trial (rep=0, index=1): {'Letter': 'F', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+479.3922 	EXP 	finaln_trial: autoDraw = False
+479.3922 	EXP 	finaln_fixcross: autoDraw = True
+481.3925 	EXP 	finaln_fixcross: autoDraw = False
+481.3925 	EXP 	finaln_trial: text = 'F'
+481.3925 	EXP 	finaln_trial: autoDraw = True
+481.7353 	DATA 	Keypress: left
+482.8793 	EXP 	New trial (rep=0, index=2): {'Letter': 'G', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+482.8921 	EXP 	finaln_trial: autoDraw = False
+482.8921 	EXP 	finaln_fixcross: autoDraw = True
+484.8920 	EXP 	finaln_fixcross: autoDraw = False
+484.8920 	EXP 	finaln_trial: text = 'G'
+484.8920 	EXP 	finaln_trial: autoDraw = True
+485.2001 	DATA 	Keypress: left
+486.3781 	EXP 	New trial (rep=0, index=3): {'Letter': 'V', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+486.3921 	EXP 	finaln_trial: autoDraw = False
+486.3921 	EXP 	finaln_fixcross: autoDraw = True
+488.3976 	EXP 	finaln_fixcross: autoDraw = False
+488.3976 	EXP 	finaln_trial: text = 'V'
+488.3976 	EXP 	finaln_trial: autoDraw = True
+488.8670 	DATA 	Keypress: left
+489.8788 	EXP 	New trial (rep=0, index=4): {'Letter': 'H', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+489.8918 	EXP 	finaln_trial: autoDraw = False
+489.8918 	EXP 	finaln_fixcross: autoDraw = True
+491.8888 	DATA 	Keypress: right
+491.8917 	EXP 	finaln_fixcross: autoDraw = False
+491.8917 	EXP 	finaln_trial: text = 'H'
+491.8917 	EXP 	finaln_trial: autoDraw = True
+493.3776 	EXP 	New trial (rep=0, index=5): {'Letter': 'C', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+493.3917 	EXP 	finaln_trial: autoDraw = False
+493.3917 	EXP 	finaln_fixcross: autoDraw = True
+495.3946 	EXP 	finaln_fixcross: autoDraw = False
+495.3946 	EXP 	finaln_trial: text = 'C'
+495.3946 	EXP 	finaln_trial: autoDraw = True
+495.8832 	DATA 	Keypress: left
+496.8772 	EXP 	New trial (rep=0, index=6): {'Letter': 'C', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+496.8915 	EXP 	finaln_trial: autoDraw = False
+496.8915 	EXP 	finaln_fixcross: autoDraw = True
+498.8916 	EXP 	finaln_fixcross: autoDraw = False
+498.8916 	EXP 	finaln_trial: text = 'C'
+498.8916 	EXP 	finaln_trial: autoDraw = True
+499.2999 	DATA 	Keypress: right
+500.3776 	EXP 	New trial (rep=0, index=7): {'Letter': 'C', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+500.3914 	EXP 	finaln_trial: autoDraw = False
+500.3914 	EXP 	finaln_fixcross: autoDraw = True
+501.0684 	DATA 	Keypress: left
+502.3910 	EXP 	finaln_fixcross: autoDraw = False
+502.3910 	EXP 	finaln_trial: text = 'C'
+502.3910 	EXP 	finaln_trial: autoDraw = True
+502.8004 	DATA 	Keypress: left
+503.8771 	EXP 	New trial (rep=0, index=8): {'Letter': 'W', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+503.8910 	EXP 	finaln_trial: autoDraw = False
+503.8910 	EXP 	finaln_fixcross: autoDraw = True
+505.8904 	EXP 	finaln_fixcross: autoDraw = False
+505.8904 	EXP 	finaln_trial: text = 'W'
+505.8904 	EXP 	finaln_trial: autoDraw = True
+506.0132 	DATA 	Keypress: right
+507.3769 	EXP 	New trial (rep=0, index=9): {'Letter': 'R', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+507.3911 	EXP 	finaln_trial: autoDraw = False
+507.3911 	EXP 	finaln_fixcross: autoDraw = True
+507.9669 	DATA 	Keypress: left
+509.5058 	EXP 	finaln_fixcross: autoDraw = False
+509.5058 	EXP 	finaln_trial: text = 'R'
+509.5058 	EXP 	finaln_trial: autoDraw = True
+509.8160 	DATA 	Keypress: left
+510.8770 	EXP 	New trial (rep=0, index=10): {'Letter': 'R', 'CorrAnswer': 'right', 'Stimulus': 'Target'}
+510.8905 	EXP 	finaln_trial: autoDraw = False
+510.8905 	EXP 	finaln_fixcross: autoDraw = True
+512.8906 	EXP 	finaln_fixcross: autoDraw = False
+512.8906 	EXP 	finaln_trial: text = 'R'
+512.8906 	EXP 	finaln_trial: autoDraw = True
+512.9019 	DATA 	Keypress: left
+513.7160 	DATA 	Keypress: left
+514.3778 	EXP 	New trial (rep=0, index=11): {'Letter': 'Z', 'CorrAnswer': 'left', 'Stimulus': 'Distractor'}
+514.3903 	EXP 	finaln_trial: autoDraw = False
+514.3903 	EXP 	finaln_fixcross: autoDraw = True
+516.3903 	EXP 	finaln_fixcross: autoDraw = False
+516.3903 	EXP 	finaln_trial: text = 'Z'
+516.3903 	EXP 	finaln_trial: autoDraw = True
+516.8822 	DATA 	Keypress: left
+517.8766 	EXP 	New trial (rep=0, index=12): {'Letter': 'R', 'CorrAnswer': 'left', 'Stimulus': 'Lure'}
+517.8905 	EXP 	finaln_trial: autoDraw = False
+517.8905 	EXP 	finaln_fixcross: autoDraw = True
+519.1322 	DATA 	Keypress: right
+519.8903 	EXP 	finaln_fixcross: autoDraw = False
+519.8903 	EXP 	finaln_trial: text = 'R'
+519.8903 	EXP 	finaln_trial: autoDraw = True
+520.2150 	DATA 	Keypress: right
+521.3765 	EXP 	New trial (rep=0, index=13): {'Letter': 'H', 'CorrAnswer': 'left', 'Stimulus': 'Pretarget'}
+521.3904 	EXP 	finaln_trial: autoDraw = False
+521.3904 	EXP 	finaln_fixcross: autoDraw = True
+523.3905 	EXP 	finaln_fixcross: autoDraw = False
+523.3905 	EXP 	finaln_trial: text = 'H'
+523.3905 	EXP 	finaln_trial: autoDraw = True
+523.6981 	DATA 	Keypress: right
+524.8902 	EXP 	finaln_trial: autoDraw = False
+524.8902 	EXP 	GoodbyeText: autoDraw = True
+526.5467 	DATA 	Keypress: escape
+529.1909 	EXP 	window1: mouseVisible = True
