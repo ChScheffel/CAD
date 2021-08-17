@@ -136,6 +136,12 @@ def sendTrigger(triggerCode):
         core.wait(0.005) #wait 5 ms
         parallel.setData(0) # set Trigger Channel back to 0
 
+# define trigger for specific buttons
+trigger.space = 4
+trigger.1 = 1
+trigger.2 = 2
+trigger.3 = 3
+
 ############################
 # INITIALIZE ALL COMPONENTS
 ############################
