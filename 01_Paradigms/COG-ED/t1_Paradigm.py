@@ -773,6 +773,7 @@ for nx in nlevel:
             # store data for oneback_run1 (TrialHandler)
             nback_run.addData('trial_resp.keys', trial_resp.keys)
             nback_run.addData('trial_resp.corr', trial_resp.corr)
+            nback_run.addData('currentlevel', nx+1)
             if trial_resp.keys != None:  # we had a response
                 nback_run.addData('trial_resp.rt', trial_resp.rt)
             thisExp1.nextEntry()
