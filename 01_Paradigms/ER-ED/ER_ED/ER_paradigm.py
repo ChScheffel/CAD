@@ -2376,7 +2376,7 @@ for thisComponent in EndScreenComponents:
         thisComponent.setAutoDraw(False)
 
 # Trigger End Experiment
-sendTrigger(200)
+sendTrigger(trigger_ExpEnd)
 
 # check responses
 if key_resp_2.keys in ['', [], None]:  # No response was made
