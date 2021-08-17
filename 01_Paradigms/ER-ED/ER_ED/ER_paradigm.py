@@ -21,7 +21,7 @@ from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
 
 # import parallel port for triggers
 from psychopy import parallel
-parallel.setPortAddress('0x0378') # needs to be checked !!!
+parallel.setPortAddress('0xEFF8') # needs to be checked !!!
 
 
 import numpy as np  # whole numpy lib is available, prepend 'np.'
