@@ -50,17 +50,29 @@ In the present study, we will validate this adaptation by replicating the findin
 Additionally, we will apply the adaption to a task with different emotion regulation strategies to establish an effort discounting paradigm for task varieties that have no objective order of task load.
 The COG-ED paradigm has been applied to tasks with different domains before, showing that SVs across task domains correlate [@Crawford2021], but it has not been applied to tasks without objective task load so far.
 
-```{r}
+```{r libraries, echo=FALSE, message=FALSE, warning=FALSE}
 
-library(here)         # to set a directory without defined paths
-library(tidyverse)    # plotting and managing data
-
-# set top level directory to source file
-here::i_am("Manuscript.Rmd")
-
-# import n-back data into a list
-datalist_nback = lapply(list.files(pattern = "nback.*csv"), read.csv(here("Sampledata")), stringsAsFactors = FALSE, header = TRUE)
+  library(here)         # to set a directory without defined paths
+  library(tidyverse)    # plotting and managing data
+  
 
 ```
 
+```{r import, echo=FALSE, message=FALSE, warning=FALSE}
+
+  # set top level directory to source file
+
+  here::i_am("Manuscript.Rmd")
+  
+  # import n-back and effort discounting data into a list each
+
+  datalist_nback = lapply(list.files(here("Sampledata"), pattern = '.*nback.*csv', full.names = TRUE),
+                          read.csv, stringsAsFactors = FALSE, header = TRUE)
+  datalist_ED = lapply(list.files(here("Sampledata"), pattern = '.*ED.*csv', full.names = TRUE),
+                          read.csv, stringsAsFactors = FALSE, header = TRUE)
+  
+  # put relevant data into a dataframe
+  
+  
+```
 
