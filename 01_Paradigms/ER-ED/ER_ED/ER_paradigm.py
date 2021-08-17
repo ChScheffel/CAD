@@ -137,10 +137,10 @@ def sendTrigger(triggerCode):
         parallel.setData(0) # set Trigger Channel back to 0
 
 # define trigger for specific buttons
-trigger.space = 4
-trigger.1 = 1
-trigger.2 = 2
-trigger.3 = 3
+trigger_space = 4
+trigger_1 = 1
+trigger_2 = 2
+trigger_3 = 3
 
 ############################
 # INITIALIZE ALL COMPONENTS
