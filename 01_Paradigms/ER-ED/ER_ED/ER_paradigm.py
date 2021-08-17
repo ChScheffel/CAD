@@ -19,6 +19,11 @@ from psychopy import sound, gui, visual, core, data, event, logging, clock, colo
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER)
 
+# import parallel port for triggers
+from psychopy import parallel
+parallel.setPortAddress('0xEFF8') # needs to be checked !!!
+
+
 import numpy as np  # whole numpy lib is available, prepend 'np.'
 from numpy import (sin, cos, tan, log, log10, pi, average,
                    sqrt, std, deg2rad, rad2deg, linspace, asarray)
@@ -122,6 +127,14 @@ EDrounds = list(range(3))
 # Create array corresponding to every second element in the list of comparisons, which will be randomized for every participant
 EDcomps = [0,2,4]
 random.shuffle(EDcomps)
+
+# Function to send triggers
+def sendTrigger(triggerCode):
+        if isinstance(triggerCode, np.integer):
+            triggerCode = triggerCode.item()
+        parallel.setData(triggerCode)
+        core.wait(0.005) #wait 5 ms
+        parallel.setData(0) # set Trigger Channel back to 0
 
 ############################
 # INITIALIZE ALL COMPONENTS
@@ -425,7 +438,9 @@ while continueRoutine:
             WelcomeResponse.rt = _WelcomeResponse_allKeys[-1].rt
             # a response ends the routine
             continueRoutine = False
-    
+            #
+            sendTrigger(100)
+
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
         core.quit()
@@ -2350,6 +2365,10 @@ while continueRoutine:
 for thisComponent in EndScreenComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
+
+# Trigger End Experiment
+sendTrigger(200)
+
 # check responses
 if key_resp_2.keys in ['', [], None]:  # No response was made
     key_resp_2.keys = None
