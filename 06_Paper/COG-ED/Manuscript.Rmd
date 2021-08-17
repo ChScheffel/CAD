@@ -71,8 +71,56 @@ The COG-ED paradigm has been applied to tasks with different domains before, sho
   datalist_ED = lapply(list.files(here("Sampledata"), pattern = '.*ED.*csv', full.names = TRUE),
                           read.csv, stringsAsFactors = FALSE, header = TRUE)
   
-  # put relevant data into a dataframe
+  # create empty data frames for loops to feed into
   
+  data_nback <- data.frame(subject = character(), level = double(), target = character(),
+                           response = character(), correct = double(), rt = double())
+  data_ED <- data.frame(subject = character(), step = double(), choice = character(),
+                           LBvalue = double(), LBlevel = double(), RBvalue = double(), RBlevel = double())
+
   
+  # put relevant data into a dataframes
+  
+  for (i in 1:length(datalist_nback)) {
+    
+    newdata <- data.frame(datalist_nback[[i]][["Participant"]], datalist_nback[[i]][["currentlevel"]],
+                          datalist_nback[[i]][["Stimulus"]], datalist_nback[[i]][["trial_resp.keys"]],
+                          datalist_nback[[i]][["trial_resp.corr"]], datalist_nback[[i]][["trial_resp.rt"]])
+    colnames(newdata) <- names(data_nback)
+    data_nback <- rbind(data_nback, newdata)
+  }
+  
+  for (i in 1:length(datalist_ED)) {
+    
+    newdata <- data.frame(datalist_ED[[i]][["Participant"]][2:length(datalist_ED[[i]][["Participant"]])],
+                          datalist_ED[[i]][["EDround.thisN"]][2:length(datalist_ED[[i]][["EDround.thisN"]])],
+                          datalist_ED[[i]][["EDclick.clicked_name"]][2:length(datalist_ED[[i]][["EDclick.clicked_name"]])],
+                          datalist_ED[[i]][["EDleftbutton.value"]][2:length(datalist_ED[[i]][["EDleftbutton.value"]])],
+                          datalist_ED[[i]][["EDleftbutton.nback"]][2:length(datalist_ED[[i]][["EDleftbutton.nback"]])],
+                          datalist_ED[[i]][["EDrightbutton.value"]][2:length(datalist_ED[[i]][["EDrightbutton.value"]])],
+                          datalist_ED[[i]][["EDrightbutton.nback"]][2:length(datalist_ED[[i]][["EDrightbutton.nback"]])])
+    colnames(newdata) <- names(data_ED)
+    data_ED <- rbind(data_ED, newdata)
+  }
+  
+  # replace some columns with 'easy to work with' values
+  
+  # the target column will contain 1 for targets and 0 for all non-targets
+  data_nback[data_nback == "Target"] <- 1
+  data_nback[data_nback == "Pretarget"|data_nback == "Lure"|data_nback == "Distractor"] <- 0
+  data_nback$target <- as.numeric(data_nback$target)
+  # the response column will contain 1 for responses and 0 for all non-responses
+  data_nback[data_nback == "left"|data_nback == "right"] <- 1
+  data_nback[data_nback == "None"] <- 0
+  data_nback$response <- as.numeric(data_nback$response)
+  # the choice column will contain 1 for the left button and 2 for the right button
+  data_ED[data_ED == "EDleftbutton"] <- 1
+  data_ED[data_ED == "EDrightbutton"] <- 2
+  data_ED$choice <- as.numeric(data_ED$choice)
+  
+  # since only the last choice of each comparison is relevant, we will keep only those rows
+  
+  data_ED <- data_ED[data_ED$step == 6,]
+
 ```
 
