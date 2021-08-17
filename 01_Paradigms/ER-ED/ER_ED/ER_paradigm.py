@@ -429,6 +429,7 @@ while continueRoutine:
         waitOnFlip = True
         win.callOnFlip(WelcomeResponse.clock.reset)  # t=0 on next screen flip
         win.callOnFlip(WelcomeResponse.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        win.callOnFlip(sendTrigger(100))
     if WelcomeResponse.status == STARTED and not waitOnFlip:
         theseKeys = WelcomeResponse.getKeys(keyList=['space'], waitRelease=False)
         _WelcomeResponse_allKeys.extend(theseKeys)
@@ -437,8 +438,6 @@ while continueRoutine:
             WelcomeResponse.rt = _WelcomeResponse_allKeys[-1].rt
             # a response ends the routine
             continueRoutine = False
-            #
-            sendTrigger(100)
 
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
