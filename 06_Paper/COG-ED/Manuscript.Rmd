@@ -50,10 +50,10 @@ But since other studies utilizing the COG-ED paradigm found the association of N
 <!-- auch hier eine Zwischenüberschrift um es etwas besser in Blöcke einzuteilen -->
 The present study contributes to the investigation of effort and SVs by changing one fundamental assumption of the original COG-ED paradigm: The assumption that the easiest n-back level has the highest SV.
 We adapted the COG-ED paradigm in such a way that it allows the computation of SVs for different n-back levels without presuming that all individuals inherently prefer the easiest level (i.e., 1-back).
-In fact, our COG-ED adaptation allows the computations of SVs, even if the individual does not have a clear preference for one task level.
+In fact, our COG-ED adaptation allows the computations of SVs, even if the individual does not have a clear preference for one task level. <!-- vielleicht eher "Additionally, our COG-ED adaption... -->
 In the present study, we will validate this adaptation by replicating the findings of Westbrook et al. [-@Westbrook2013].
 Additionally, we will apply the adaption to a task with different emotion regulation strategies to establish an effort discounting paradigm for task varieties that have no objective order of task load.
-The COG-ED paradigm has been applied to tasks with different domains before, showing that SVs across task domains correlate [@Crawford2021], but it has not been applied to tasks without objective task load so far.
+The COG-ED paradigm has been applied to tasks with different domains before, showing that SVs across task domains correlate [@Crawford2021], but it has not been applied to tasks without objective task load so far. <!-- Wortwiederholung "apply" und der Satz klingt etwas sperrig... vielleicht 2 drauß machen? --> 
 
 ```{r libraries, echo=FALSE, message=FALSE, warning=FALSE}
 
