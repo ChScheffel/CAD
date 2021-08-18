@@ -238,3 +238,64 @@ The COG-ED paradigm has been applied to tasks with different domains before, sho
   }
 ```
 
+```{r Hypothesis_1a, echo=FALSE, message=FALSE, warning=FALSE}
+
+  # H1a: Performance measured by signal detection d’ declines with increasing n-back level.
+
+  # set the number of targets and non-targets, so in case the paradigm will be changed it is easily accessible
+  # they are multiplied by 2, because there are two runs per n-back level
+
+  num_targets <- 16*2
+  num_nontargets <- 48*2
+  
+  # compute index of rows in which the levels change
+  
+  levelindex <- c(1,which(data_nback$level != dplyr::lag(data_nback$level)),nrow(data_nback))
+  
+  # set up empty data frame for the loop to feed into
+  
+  dprime <- data.frame(subject = character(), level = double(), hitrate = double(), falsealarmrate = double())
+  
+  # calculate hits and false alarms per participant
+  
+  for (i in 1:(length(levelindex)-1)) {
+    
+    hits <- length(which(data_nback$target[c(levelindex[i]:(levelindex[i+1])-1)] == 1 &
+                           data_nback$correct[c(levelindex[i]:(levelindex[i+1])-1)] == 1))
+    falsealarms <- length(which(data_nback$target[c(levelindex[i]:(levelindex[i+1])-1)] == 0 &
+                           data_nback$correct[c(levelindex[i]:(levelindex[i+1])-1)] == 0))
+    newdata <- data.frame(subject = data_nback$subject[levelindex[i]],
+                          level = data_nback$level[levelindex[i]],
+                          hitrate = hits/num_targets,
+                          falsealarmrate = falsealarms/num_nontargets)
+    dprime <- rbind(dprime, newdata)
+    
+  }
+  
+  # z-transform the hit rate and the false alarm rate
+  
+  for (i in 1:4) {
+    
+    mean_hitrate <- mean(dprime$hitrate[dprime$level == i])
+    sd_hitrate <- sd(dprime$hitrate[dprime$level == i])
+    mean_falsealarmrate <- mean(dprime$falsealarmrate[dprime$level == i])
+    sd_falsealarmrate <- sd(dprime$falsealarmrate[dprime$level == i])
+    
+    for (j in 1:length(which(dprime$level == i))) {
+      
+      dprime$hitrate[which(dprime$level == i)[j]] <- (dprime$hitrate[which(dprime$level == i)[j]] - mean_hitrate)/sd_hitrate
+      dprime$falsealarmrate[which(dprime$level == i)[j]] <- (dprime$falsealarmrate[which(dprime$level == i)[j]] -
+                                                               mean_falsealarmrate)/sd_falsealarmrate
+    }
+  }
+  
+  # calculate d'
+  
+  dprime$d <- dprime$hitrate - dprime$falsealarmrate
+  
+  # ANOVA with three linear contrasts, contrasting the d’ of two n-back levels (2,3,4) at a time
+  
+  
+
+```
+
