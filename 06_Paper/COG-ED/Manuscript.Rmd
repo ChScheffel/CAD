@@ -126,6 +126,7 @@ The COG-ED paradigm has been applied to tasks with different domains before, sho
   # import questionnaire data from RedCap
   
   data_quest <- read.csv(here("Sampledata","COGERED_DATA.csv"), stringsAsFactors = FALSE, header = TRUE)
+  colnames(data_quest)[1] <- "set" # rename the first column
 
 ```
 
@@ -359,18 +360,18 @@ The COG-ED paradigm has been applied to tasks with different domains before, sho
   
       # make a temporary copy of the rt data frame without 1-back
       
-      h2a_data <- rt[rt$level != 1,]
-      h2a_data$level <- as.factor(h2a_data$level)
+      h1b_data <- rt[rt$level != 1,]
+      h1b_data$level <- as.factor(h1b_data$level)
       
       # define contrasts
       
-      contrasts(h2a_data$level) <- cbind(c(1,-1,0), c(0,1,-1), c(1,0,-1))
+      contrasts(h1b_data$level) <- cbind(c(1,-1,0), c(0,1,-1), c(1,0,-1))
       
       # calculate ANOVA
       
-      hypothesis2a_anova <- summary(aov(h2a_data$meanrt ~ h2a_data$level))
-      hypothesis2a_posthoc <- TukeyHSD(aov(h2a_data$meanrt ~ h2a_data$level))
-      remove(h2a_data)
+      hypothesis1b_anova <- summary(aov(h1b_data$meanrt ~ h1b_data$level))
+      hypothesis1b_posthoc <- TukeyHSD(aov(h1b_data$meanrt ~ h1b_data$level))
+      remove(h1b_data)
 
 ```
 
@@ -378,45 +379,66 @@ The COG-ED paradigm has been applied to tasks with different domains before, sho
 
   # H1c: Ratings on all NTLX dimensions increase with increasing n-back level.
 
-  # aggregate NTLX data per participant per level
+  # compute index of rows in which the data sets change
+  
+  setindex <- c(1,which(data_quest$set != dplyr::lag(data_quest$set)),nrow(data_quest))
+
+  # set up empty data frame for the loop to feed into
 
   data_ntlx <- data.frame(subject = character(), level = double(),
                           mental = double(), physical = double(), time = double(),
                           performance = double(), effort = double(), frustration = double())
+  
+  # feed NTLX data per participant per level into data frame
+  
+  for (i in 1:(length(setindex)-1)) {
+    
+    for (j in 1:4) {
+      
+      newdata <- data.frame(subject = data_quest$subject[setindex[i]], level = j,
+                            mental = data_quest$nasa_tlx_01[setindex[i]+j+2],
+                            physical = data_quest$nasa_tlx_02[setindex[i]+j+2],
+                            time = data_quest$nasa_tlx_03[setindex[i]+j+2],
+                            performance = data_quest$nasa_tlx_04[setindex[i]+j+2],
+                            effort = data_quest$nasa_tlx_05[setindex[i]+j+2],
+                            frustration = data_quest$nasa_tlx_06[setindex[i]+j+2])
+      data_ntlx <- rbind(data_ntlx, newdata)
+    }
+  }
 
   # six ANOVAs with six linear contrasts, contrasting the subscale scores of two n-back levels (1,2,3,4) at a time
   
       # make a temporary copy of the NTLX data frame
       
-      h3a_data <- data_ntlx
-      h3a_data$level <- as.factor(h3a_data$level)
+      h1c_data <- data_ntlx
+      h1c_data$level <- as.factor(h1c_data$level)
       
       # define contrasts
       
-      contrasts(h3a_data$level) <- cbind(c(1,-1,0,0), c(0,1,-1,0), c(0,0,1,-1),
+      contrasts(h1c_data$level) <- cbind(c(1,-1,0,0), c(0,1,-1,0), c(0,0,1,-1),
                                          c(1,0,-1,0), c(1,0,0,-1), c(0,1,0,-1))
       
       # calculate ANOVAs
       
-      hypothesis3a1_anova <- summary(aov(h3a_data$mental ~ h3a_data$level))
-      hypothesis3a1_posthoc <- TukeyHSD(aov(h3a_data$mental ~ h3a_data$level))
+      hypothesis1c1_anova <- summary(aov(h1c_data$mental ~ h1c_data$level))
+      hypothesis1c1_posthoc <- TukeyHSD(aov(h1c_data$mental ~ h1c_data$level))
 
-      hypothesis3a2_anova <- summary(aov(h3a_data$physical ~ h3a_data$level))
-      hypothesis3a2_posthoc <- TukeyHSD(aov(h3a_data$physical ~ h3a_data$level))
+      hypothesis1c2_anova <- summary(aov(h1c_data$physical ~ h1c_data$level))
+      hypothesis1c2_posthoc <- TukeyHSD(aov(h1c_data$physical ~ h1c_data$level))
 
-      hypothesis3a3_anova <- summary(aov(h3a_data$time ~ h3a_data$level))
-      hypothesis3a3_posthoc <- TukeyHSD(aov(h3a_data$time ~ h3a_data$level))
+      hypothesis1c3_anova <- summary(aov(h1c_data$time ~ h1c_data$level))
+      hypothesis1c3_posthoc <- TukeyHSD(aov(h1c_data$time ~ h1c_data$level))
 
-      hypothesis3a4_anova <- summary(aov(h3a_data$performance ~ h3a_data$level))
-      hypothesis3a4_posthoc <- TukeyHSD(aov(h3a_data$performance ~ h3a_data$level))
+      hypothesis1c4_anova <- summary(aov(h1c_data$performance ~ h1c_data$level))
+      hypothesis1c4_posthoc <- TukeyHSD(aov(h1c_data$performance ~ h1c_data$level))
 
-      hypothesis3a5_anova <- summary(aov(h3a_data$effort ~ h3a_data$level))
-      hypothesis3a5_posthoc <- TukeyHSD(aov(h3a_data$effort ~ h3a_data$level))
+      hypothesis1c5_anova <- summary(aov(h1c_data$effort ~ h1c_data$level))
+      hypothesis1c5_posthoc <- TukeyHSD(aov(h1c_data$effort ~ h1c_data$level))
 
-      hypothesis3a6_anova <- summary(aov(h3a_data$frustration ~ h3a_data$level))
-      hypothesis3a6_posthoc <- TukeyHSD(aov(h3a_data$frustration ~ h3a_data$level))
+      hypothesis1c6_anova <- summary(aov(h1c_data$frustration ~ h1c_data$level))
+      hypothesis1c6_posthoc <- TukeyHSD(aov(h1c_data$frustration ~ h1c_data$level))
 
-      remove(h3a_data)
+      remove(h1c_data)
 
 ```
 
