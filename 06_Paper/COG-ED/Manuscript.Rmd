@@ -270,9 +270,9 @@ The COG-ED paradigm has been applied to tasks with different domains before, sho
   for (i in 1:(length(levelindex)-1)) {
     
     hits <- length(which(data_nback$target[c(levelindex[i]:(levelindex[i+1])-1)] == 1 &
-                           data_nback$correct[c(levelindex[i]:(levelindex[i+1])-1)] == 1))
+                           data_nback$correct[c(levelindex[i]:(levelindex[i+1])-1)] == 1) + (levelindex[i]-1))
     falsealarms <- length(which(data_nback$target[c(levelindex[i]:(levelindex[i+1])-1)] == 0 &
-                           data_nback$correct[c(levelindex[i]:(levelindex[i+1])-1)] == 0))
+                           data_nback$correct[c(levelindex[i]:(levelindex[i+1])-1)] == 0) + (levelindex[i]-1))
     newdata <- data.frame(subject = data_nback$subject[levelindex[i]],
                           level = data_nback$level[levelindex[i]],
                           hitrate = hits/num_targets,
@@ -285,12 +285,16 @@ The COG-ED paradigm has been applied to tasks with different domains before, sho
   
   for (i in 1:4) {
     
+    # calculate the mean and sd of hit rate and false alarm rate per n-back level i
+    
     mean_hitrate <- mean(dprime$hitrate[dprime$level == i])
     sd_hitrate <- sd(dprime$hitrate[dprime$level == i])
     mean_falsealarmrate <- mean(dprime$falsealarmrate[dprime$level == i])
     sd_falsealarmrate <- sd(dprime$falsealarmrate[dprime$level == i])
     
     for (j in 1:length(which(dprime$level == i))) {
+      
+      # z-transform each subject j's hit rate and false alarm rate within the level i
       
       dprime$hitrate[which(dprime$level == i)[j]] <- (dprime$hitrate[which(dprime$level == i)[j]] - mean_hitrate)/sd_hitrate
       dprime$falsealarmrate[which(dprime$level == i)[j]] <- (dprime$falsealarmrate[which(dprime$level == i)[j]] -
@@ -322,6 +326,47 @@ The COG-ED paradigm has been applied to tasks with different domains before, sho
       hypothesis1a_anova <- summary(aov(h1a_data$d ~ h1a_data$level))
       hypothesis1a_posthoc <- TukeyHSD(aov(h1a_data$d ~ h1a_data$level))
       remove(h1a_data)
+
+```
+
+```{r Hypothesis_1b, echo=FALSE, message=FALSE, warning=FALSE}
+
+  # H1b: Performance measured by reaction time declines with increasing n-back level.
+  
+  # set up empty data frame for the loop to feed into
+  
+  rt <- data.frame(subject = character(), level = double(), meanrt = double())
+  
+  # calculate mean reaction time per participant per level
+  
+  for (i in 1:(length(levelindex)-1)) {
+    
+    meanrt <- mean(data_nback$rt[which(data_nback$correct[c(levelindex[i]:(levelindex[i+1])-1)] == 1)
+                                 +(levelindex[i]-1)], na.rm = TRUE)
+    
+    newdata <- data.frame(subject = data_nback$subject[levelindex[i]],
+                          level = data_nback$level[levelindex[i]],
+                          meanrt = meanrt)
+    rt <- rbind(rt, newdata)
+    
+  }
+
+  # ANOVA with three linear contrasts, contrasting the mean rt of two n-back levels (2,3,4) at a time
+  
+      # make a temporary copy of the dprime data frame without 1-back
+      
+      h2a_data <- rt[rt$level != 1,]
+      h2a_data$level <- as.factor(h2a_data$level)
+      
+      # define contrasts
+      
+      contrasts(h2a_data$level) <- cbind(c(1,-1,0), c(0,1,-1), c(1,0,-1))
+      
+      # calculate ANOVA
+      
+      hypothesis2a_anova <- summary(aov(h2a_data$meanrt ~ h2a_data$level))
+      hypothesis2a_posthoc <- TukeyHSD(aov(h2a_data$meanrt ~ h2a_data$level))
+      remove(h2a_data)
 
 ```
 
