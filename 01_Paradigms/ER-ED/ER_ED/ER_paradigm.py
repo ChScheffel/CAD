@@ -683,8 +683,14 @@ for thisBlocks_view in blocks_view:
         
         # ------Prepare to start Routine "fixcross"-------
         continueRoutine = True
-        routineTimer.add(4.000000)
         # update component parameters for each repeat
+        
+        # random jitter between 3 and 5 seconds
+        jitter = random.uniform(3,5)
+        jitter = round(jitter, 1)
+        # add jitter to log file
+        thisExp1.addData('jitter', jitter)
+        
         # keep track of which components have finished
         fixcrossComponents = [text_fixcross]
         for thisComponent in fixcrossComponents:
@@ -1849,11 +1855,11 @@ while continueRoutine:
             
             # send trigger according to button press
             if resp_choice.keys == '1':
-            sendTrigger(trigger_1)
+                sendTrigger(trigger_1)
             elif resp_choice.keys == '2':
-            sendTrigger(trigger_2)
+                sendTrigger(trigger_2)
             elif resp_choice.keys == '3':
-            sendTrigger(trigger_3)
+                sendTrigger(trigger_3)
 
             # a response ends the routine
             continueRoutine = False
