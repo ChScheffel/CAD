@@ -36,6 +36,8 @@ The subjective value (SV) of each difficult level is then calculated by dividing
 Westbrook et al. [-@Westbrook2013] used these SVs to investigate inter-individual differences in effort discounting by plotting the SVs and computing an area under the curve (AUC). <!-- kann man das so sagen? Mit dem plotten? Vielleicht sollte man einfach nur sagen, die AUC wurde berechnet? -->
 Younger participants showed lower effort discounting, i.e. they needed a lower monetary incentive for choosing the more difficult levels over level one. <!--Würde bei dieser Aussage eine Ebene höher gehen und dann also vom Effort Discounting sprechen -->
 
+## Effort discounting and need for cognition 
+<!-- denke eine Zwischenüberschrift könnte das noch etwas deutlicher unterteilen-->
 The AUC in the study by Westbrook et al. [-@Westbrook2013] was also associated with the participants' Need for Cognition (NFC) score, a personality trait describing individuals who actively seek and enjoy effortful cognitive activities [@Cacioppo1982].
 On the surface, this association stands to reason, as individuals with higher NFC are more motivated to mobilize cognitive effort because they perceive it as intrinsically rewarding.
 However, the relation of NFC and SVs might be confounded with task performance itself, since subjective task values have been shown to depend on both the exerted effort [@Wang2017] and the expected performance [@Yee2021].
