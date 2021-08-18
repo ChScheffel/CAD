@@ -240,6 +240,11 @@ The COG-ED paradigm has been applied to tasks with different domains before, sho
     data_SV <- rbind(data_SV, newdata)
     
   }
+  
+  # remove temporary variables
+  
+  remove(tempone, temptwo, tempthree, tempfour)
+  
 ```
 
 ```{r Hypothesis_1a, echo=FALSE, message=FALSE, warning=FALSE}
@@ -293,13 +298,30 @@ The COG-ED paradigm has been applied to tasks with different domains before, sho
     }
   }
   
+  # remove temporary variables
+  
+  remove(mean_hitrate, sd_hitrate, mean_falsealarmrate, sd_falsealarmrate)
+  
   # calculate d'
   
   dprime$d <- dprime$hitrate - dprime$falsealarmrate
   
   # ANOVA with three linear contrasts, contrasting the d’ of two n-back levels (2,3,4) at a time
   
-  
+      # make a temporary copy of the dprime data frame without 1-back
+      
+      h1a_data <- dprime[dprime$level != 1,]
+      h1a_data$level <- as.factor(h1a_data$level)
+      
+      # define contrasts
+      
+      contrasts(h1a_data$level) <- cbind(c(1,-1,0), c(0,1,-1), c(1,0,-1))
+      
+      # calculate ANOVA
+      
+      hypothesis1a_anova <- summary(aov(h1a_data$d ~ h1a_data$level))
+      hypothesis1a_posthoc <- TukeyHSD(aov(h1a_data$d ~ h1a_data$level))
+      remove(h1a_data)
 
 ```
 
