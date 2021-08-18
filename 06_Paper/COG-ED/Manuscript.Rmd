@@ -26,7 +26,7 @@ It requires simultaneous storage of past stimuli and processing of new stimuli [
 The n-back task is well suited to investigate effort because it is an almost continuous manipulation of task load, as has been shown by monotonic increases in error rates and reaction times [@Jaeggi2010] as well as monotonic increases in brain activity in areas associated with working memory [@Jonides1997; @Owen2005].
 However, reliability measures of the n-back task are mixed, presumably due to ceiling effects in performance in the easiest level, causing inconsistent associations of n-back performance and measures such as executive functioning and fluid intelligence [@Jaeggi2010]. <!-- Ist hier als Reliabilität die Korrelation zum Außenkriterium gemeint (EF und gf?); Falls nicht, wären doch fehlende Reliabilitäten und Korrelationen zwei verschiedene Punkte-->
 
-A way to quantify the subjective cost of each n-back level has been developed by Westbrook et al. [-@Westbrook2013], called the Cognitive Effort Discounting Paradigm (COG-ED).
+A way to quantify the subjective cost of each n-back level has been developed by Westbrook et al. [-@Westbrook2013], called the Cognitive Effort Discounting Paradigm (COG-ED). <!-- gibt es keine Möglichkeit, die Quelle automatisiert pasten zu lassen? Sonst müsste man an der Stelle auch zuerst alle drei Autoren nennen, oder?  -->
 First, the participants complete n-back level one to six to familiarize themselves with the task.
 Then, each level two to six is being compared with level one by asking the participants to decide between receiving 2\$ for the more difficult level or 1\$ for level one.
 If they choose the more difficult level, the reward for level one increases by 0.50\$, if the choose level one, it decreases by 0.50\$.
