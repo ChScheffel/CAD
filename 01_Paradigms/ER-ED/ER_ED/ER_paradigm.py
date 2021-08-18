@@ -144,6 +144,8 @@ trigger_instr = 15
 
 trigger_Fix = 10
 
+trigger_choice = 26
+
 # define trigger for specific buttons
 trigger_space = 4
 trigger_1 = 1
@@ -1121,7 +1123,7 @@ for thisBlocks_reg in blocks_reg:
         
         # ------Prepare to start Routine "fixcross"-------
         continueRoutine = True
-        routineTimer.add(1.000000)
+        routineTimer.add(4.000000)
         # update component parameters for each repeat
         # keep track of which components have finished
         fixcrossComponents = [text_fixcross]
@@ -1851,11 +1853,11 @@ while continueRoutine:
             resp_choice.rt = _resp_choice_allKeys[-1].rt
             
             # send trigger according to button press
-            if resp_choice.keys == '1'
+            if resp_choice.keys == '1':
             sendTrigger(trigger_1)
-            elif resp_choice.keys == '2'
+            elif resp_choice.keys == '2':
             sendTrigger(trigger_2)
-            elif resp_choice.keys == '3'
+            elif resp_choice.keys == '3':
             sendTrigger(trigger_3)
 
             # a response ends the routine
@@ -2021,7 +2023,7 @@ for thisTrials_choice in trials_choice:
     
     # ------Prepare to start Routine "Pics_Choice"-------
     continueRoutine = True
-    routineTimer.add(3.000000)
+    routineTimer.add(6.000000)
     # update component parameters for each repeat
     image.setImage(ImageFile)
     # keep track of which components have finished
@@ -2055,6 +2057,7 @@ for thisTrials_choice in trials_choice:
             image.tStart = t  # local t and not account for scr refresh
             image.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(image, 'tStartRefresh')  # time at next scr refresh
+            win.callOnFlip(sendTrigger, trigger_choice)
             image.setAutoDraw(True)
         if image.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
@@ -2124,6 +2127,7 @@ for thisTrials_choice in trials_choice:
             text_fixcross.tStart = t  # local t and not account for scr refresh
             text_fixcross.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(text_fixcross, 'tStartRefresh')  # time at next scr refresh
+            win.callOnFlip(sendTrigger, trigger_Fix)
             text_fixcross.setAutoDraw(True)
         if text_fixcross.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
