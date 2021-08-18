@@ -19,7 +19,9 @@ A reward is subjectively more valuable if it is obtained with less effort, so th
 However, the cost of the effort itself is also subjective, and research has not yet established which function best describes the relationship between effort and cost [@Kool2018].
 Investigating effort and cost is challenging because “effort is not a property of the target task alone, but also a function of the individual’s cognitive capacities, as well as the degree of effort voluntarily mobilized for the task, which in turn is a function of the individual’s reward sensitivity” [@Kool2018, p. 209].
 
-One task that is often used to investigate effort is the n-back task, a working memory task in which a continuous stream of stimuli, e.g. letters, is presented on screen and participants indicate via button press whether the current stimulus is the same as *n* stimuli before, with *n* being the level of difficulty between one and six [@Mackworth1959].
+One task that is often used to investigate effort is the n-back task. <!-- Satz war sehr lang, ich ihn aufgeteilt und etwas umgestellt -->
+In this working memory task, a continuous stream of stimuli, e.g. letters, is presented on screen. <!-- zweiter Teilsatz -->
+Participants indicate via button press whether the current stimulus is the same as *n* stimuli before, with *n* being the level of difficulty between one and six [@Mackworth1959]. <!-- dritter Teilsatz-->
 It requires simultaneous storage of past stimuli and processing of new stimuli [@Jonides1997], and participants are asked to respond as quickly and as accurately as they can.
 The n-back task is well suited to investigate effort because it is an almost continuous manipulation of task load, as has been shown by monotonic increases in error rates and reaction times [@Jaeggi2010] as well as monotonic increases in brain activity in areas associated with working memory [@Jonides1997; @Owen2005].
 However, reliability measures of the n-back task are mixed, presumably due to ceiling effects in performance in the easiest level, causing inconsistent associations of n-back performance and measures such as executive functioning and fluid intelligence [@Jaeggi2010].
