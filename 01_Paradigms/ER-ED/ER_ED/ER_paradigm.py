@@ -2099,8 +2099,12 @@ for thisTrials_choice in trials_choice:
     
     # ------Prepare to start Routine "fixcross"-------
     continueRoutine = True
-    routineTimer.add(1.000000)
     # update component parameters for each repeat
+    # random jitter between 3 and 5 seconds
+        jitter = random.uniform(3,5)
+        jitter = round(jitter, 1)
+        # add jitter to log file
+        thisExp1.addData('jitter', jitter)
     # keep track of which components have finished
     fixcrossComponents = [text_fixcross]
     for thisComponent in fixcrossComponents:
@@ -2117,7 +2121,7 @@ for thisTrials_choice in trials_choice:
     frameN = -1
     
     # -------Run Routine "fixcross"-------
-    while continueRoutine and routineTimer.getTime() > 0:
+    while continueRoutine:
         # get current time
         t = fixcrossClock.getTime()
         tThisFlip = win.getFutureFlipTime(clock=fixcrossClock)
@@ -2136,7 +2140,7 @@ for thisTrials_choice in trials_choice:
             text_fixcross.setAutoDraw(True)
         if text_fixcross.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > text_fixcross.tStartRefresh + 4.0-frameTolerance:
+            if tThisFlipGlobal > text_fixcross.tStartRefresh + jitter-frameTolerance:
                 # keep track of stop time/frame for later
                 text_fixcross.tStop = t  # not accounting for scr refresh
                 text_fixcross.frameNStop = frameN  # exact frame index
