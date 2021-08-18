@@ -2101,10 +2101,10 @@ for thisTrials_choice in trials_choice:
     continueRoutine = True
     # update component parameters for each repeat
     # random jitter between 3 and 5 seconds
-        jitter = random.uniform(3,5)
-        jitter = round(jitter, 1)
-        # add jitter to log file
-        thisExp1.addData('jitter', jitter)
+    jitter = random.uniform(3,5)
+    jitter = round(jitter, 1)
+    # add jitter to log file
+    thisExp1.addData('jitter', jitter)
     # keep track of which components have finished
     fixcrossComponents = [text_fixcross]
     for thisComponent in fixcrossComponents:
