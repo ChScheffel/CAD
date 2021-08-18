@@ -33,7 +33,7 @@ If they choose the more difficult level, the reward for level one increases by 0
 This is repeated five more times, with each adjustment of the level one reward being half as big as in the previous step, while the reward for the more difficult level remains fixed at 2\$.
 The idea is to estimate subjective equivalence, i.e., both offers are equally preferred [@Westbrook2013]. 
 The subjective value (SV) of each difficult level is then calculated by dividing the final reward value of level one by the fixed 2\$ reward of the more difficult level.
-Westbrook et al. [-@Westbrook2013] used these SVs to investigate inter-individual differences in effort discounting by plotting the SVs and computing an area under the curve (AUC).
+Westbrook et al. [-@Westbrook2013] used these SVs to investigate inter-individual differences in effort discounting by plotting the SVs and computing an area under the curve (AUC). <!-- kann man das so sagen? Mit dem plotten? Vielleicht sollte man einfach nur sagen, die AUC wurde berechnet? -->
 Younger participants showed lower effort discounting, i.e. they needed a lower monetary incentive for choosing the more difficult levels over level one. <!--Würde bei dieser Aussage eine Ebene höher gehen und dann also vom Effort Discounting sprechen -->
 
 The AUC in the study by Westbrook et al. [-@Westbrook2013] was also associated with the participants' Need for Cognition (NFC) score, a personality trait describing individuals who actively seek and enjoy effortful cognitive activities [@Cacioppo1982].
