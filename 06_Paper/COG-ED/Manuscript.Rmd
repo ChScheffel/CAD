@@ -31,8 +31,7 @@ First, the participants complete the n-back levels to familiarize themselves wit
 Then, level one is compared with all following levels by asking the participants to decide between receiving 2\$ for the more difficult level or 1\$ for level one. <!-- s. vorheriger Kommentar -->
 If they choose the more difficult level, the reward for level one increases by 0.50\$, if the choose level one, it decreases by 0.50\$.
 This is repeated five more times, with each adjustment of the level one reward being half as big as in the previous step, while the reward for the more difficult level remains fixed at 2\$.
-The idea is to estimate the participants' subjective cost of the more difficult level by identifying the smallest reward they would still be okay with being paid for doing level one.
-Therefore, the higher the difficult level, the smaller the reward that the participants would accept for level one.
+The idea is to estimate subjective equivalence, i.e., both offers are equally preferred [@Westbrook2013]. 
 The subjective value (SV) of each difficult level is then calculated by dividing the final reward value of level one by the fixed 2\$ reward of the more difficult level.
 Westbrook et al. [-@Westbrook2013] used these SVs to investigate interindividual differences in effort discounting by plotting the SVs and computing an area under the curve (AUC).
 Younger participants had a larger AUC than older participants, i.e. they needed a lower monetary incentive for choosing the more difficult levels over level one.
