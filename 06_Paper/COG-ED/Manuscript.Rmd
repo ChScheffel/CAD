@@ -46,6 +46,8 @@ On one hand individuals with higher NFC neither had better n-back performance [@
 Nevertheless, a possible association of NFC and task performance might be secondary, since task load has been shown to be a better predictor of SVs than task performance [@Culbreth2016; @Westbrook2013; @Westbrook2019].
 But since other studies utilizing the COG-ED paradigm found the association of NFC and SVs to disappear after correcting for performance [@Kramer2021] or found no association of NFC and SVs at all [@Crawford2021], more research is needed to shed light on this issue.
 
+## The present study
+<!-- auch hier eine Zwischenüberschrift um es etwas besser in Blöcke einzuteilen -->
 The present study contributes to the investigation of effort and SVs by changing one fundamental assumption of the original COG-ED paradigm: The assumption that the easiest n-back level has the highest SV.
 We adapted the COG-ED paradigm in such a way that it allows the computation of SVs for different n-back levels without presuming that all individuals inherently prefer 1-back.
 In fact, our COG-ED adaptation allows the computations of SVs, even if the individual does not have a clear preference for one task level.
