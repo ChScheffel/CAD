@@ -19,27 +19,29 @@ A reward is subjectively more valuable if it is obtained with less effort, so th
 However, the cost of the effort itself is also subjective, and research has not yet established which function best describes the relationship between effort and cost [@Kool2018].
 Investigating effort and cost is challenging because “effort is not a property of the target task alone, but also a function of the individual’s cognitive capacities, as well as the degree of effort voluntarily mobilized for the task, which in turn is a function of the individual’s reward sensitivity” [@Kool2018, p. 209].
 
-One task that is often used to investigate effort is the n-back task. <!-- Satz war sehr lang, ich ihn aufgeteilt und etwas umgestellt -->
-In this working memory task, a continuous stream of stimuli, e.g. letters, is presented on screen. <!-- zweiter Teilsatz -->
-Participants indicate via button press whether the current stimulus is the same as *n* stimuli before, with *n* being the level of difficulty between one and six [@Mackworth1959]; and are asked to respond as quickly and as accurately as they can. <!-- dritter Teilsatz-->
-It requires simultaneous storage of past stimuli and processing of new stimuli [@Jonides1997]. <!-- Teilsatz nach dem Komma wirkt etwas out of place: der erste Teil beschäftigt sich mit cognitiven Anforderungen an die Teilnehmenden, der zweite aber mit einem Auftrag an die Probanden; Deshalb habe ich den Satz aufgeteilt und den zweiten Teil mit dem ersten verbunden -->
-The n-back task is well suited to investigate effort because it is an almost continuous manipulation of task load, as has been shown by monotonic increases in error rates and reaction times [@Jaeggi2010] as well as monotonic increases in brain activity in areas associated with working memory [@Jonides1997; @Owen2005].
-However, reliability measures of the n-back task are mixed, presumably due to ceiling effects in performance in the easiest level, causing inconsistent associations of n-back performance and measures such as executive functioning and fluid intelligence [@Jaeggi2010]. <!-- Ist hier als Reliabilität die Korrelation zum Außenkriterium gemeint (EF und gf?); Falls nicht, wären doch fehlende Reliabilitäten und Korrelationen zwei verschiedene Punkte-->
+One task that is often used to investigate effort is the n-back task.
+In this working memory task, a continuous stream of stimuli, e.g. letters, is presented on screen.
+Participants indicate via button press whether the current stimulus is the same as *n* stimuli before, with *n* being the level of difficulty between one and six [@Mackworth1959]; and are asked to respond as quickly and as accurately as they can.
+The n-back task requires simultaneous storage of past stimuli and processing of new stimuli [@Jonides1997].
+It is well suited to investigate effort because it is an almost continuous manipulation of task load, as has been shown by monotonic increases in error rates and reaction times [@Jaeggi2010] as well as monotonic increases in brain activity in areas associated with working memory [@Jonides1997; @Owen2005].
+However, reliability measures of the n-back task are mixed, presumably due to ceiling effects in performance in the easiest level [@Jaeggi2010].
+Additionally, associations of n-back performance and measures such as executive functioning and fluid intelligence are often inconsistent [@Jaeggi2010].
 
-A way to quantify the subjective cost of each n-back level has been developed by Westbrook et al. [-@Westbrook2013], called the Cognitive Effort Discounting Paradigm (COG-ED). <!-- gibt es keine Möglichkeit, die Quelle automatisiert pasten zu lassen? Sonst müsste man an der Stelle auch zuerst alle drei Autoren nennen, oder?  -->
-First, the participants complete the n-back levels to familiarize themselves with the task. <!-- habe es mal allgemeiner gehalten, da wir selbst auch keine sechs level haben  -->
-Then, level one is compared with all following levels by asking the participants to decide between receiving 2\$ for the more difficult level or 1\$ for level one. <!-- s. vorheriger Kommentar -->
+A way to quantify the subjective cost of each n-back level has been developed by Westbrook, Kester, and Braver [-@Westbrook2013], called the Cognitive Effort Discounting Paradigm (COG-ED).
+First, the participants complete the n-back levels to familiarize themselves with the task.
+Then, level one is compared with each more difficult level by asking the participants to decide between receiving 2\$ for the more difficult level or 1\$ for level one.
 If they choose the more difficult level, the reward for level one increases by 0.50\$, if the choose level one, it decreases by 0.50\$.
 This is repeated five more times, with each adjustment of the level one reward being half as big as in the previous step, while the reward for the more difficult level remains fixed at 2\$.
-The idea is to estimate subjective equivalence, i.e., both offers are equally preferred [@Westbrook2013]. 
+The idea is to estimate the point of subjective equivalence, i.e. the monetary ratio in which both offers are equally preferred [@Westbrook2013]. 
 The subjective value (SV) of each difficult level is then calculated by dividing the final reward value of level one by the fixed 2\$ reward of the more difficult level.
-Westbrook et al. [-@Westbrook2013] used these SVs to investigate inter-individual differences in effort discounting by plotting the SVs and computing an area under the curve (AUC). <!-- kann man das so sagen? Mit dem plotten? Vielleicht sollte man einfach nur sagen, die AUC wurde berechnet? -->
-Younger participants showed lower effort discounting, i.e. they needed a lower monetary incentive for choosing the more difficult levels over level one. <!--Würde bei dieser Aussage eine Ebene höher gehen und dann also vom Effort Discounting sprechen -->
+Westbrook et al. [-@Westbrook2013] used these SVs to investigate inter-individual differences in effort discounting (ED) by computing an area under the curve (AUC).
+Younger participants showed lower ED, i.e. they needed a lower monetary incentive for choosing the more difficult levels over level one.
 
-## Effort discounting and need for cognition 
-<!-- denke eine Zwischenüberschrift könnte das noch etwas deutlicher unterteilen-->
-The AUC in the study by Westbrook et al. [-@Westbrook2013] was also associated with the participants' Need for Cognition (NFC) score, a personality trait describing individuals who actively seek and enjoy effortful cognitive activities [@Cacioppo1982]. <!-- Eventuell könnte man als Anfang für diesen Abschnitt nochmal kurz NFC definieren (zweiter Teilsatz) und kurz sagen, womit das assoziiert ist... also vor allem mit Traits, die danach klingen, als könnte Effort Discounting eine Rolle spielen; Dann mit Westbrook in Verbindung bringen, aber vielleicht nicht von der AUC reden, sondern lieber wieder von Effort Discounting? -->
+## Effort discounting and Need for Cognition 
+The individual degree of ED in the study by Westbrook et al. [-@Westbrook2013] was also associated with the participants' Need for Cognition (NFC) score, a personality trait describing individuals who actively seek and enjoy effortful cognitive activities [@Cacioppo1982]. <!-- Eventuell könnte man als Anfang für diesen Abschnitt nochmal kurz NFC definieren (zweiter Teilsatz) und kurz sagen, womit das assoziiert ist... also vor allem mit Traits, die danach klingen, als könnte Effort Discounting eine Rolle spielen; Dann mit Westbrook in Verbindung bringen, aber vielleicht nicht von der AUC reden, sondern lieber wieder von Effort Discounting? -->
+Westbrook et al. [-@Westbrook2013] conceptualized NFC as a trait measure of effortful task engagement, providing a subjective self-report of ED for each participant which could then be related to the SVs ad an objective measure of ED.
 On the surface, this association stands to reason, as individuals with higher NFC are more motivated to mobilize cognitive effort because they perceive it as intrinsically rewarding.
+*Individuals with higher NFC report more regulation of effort [@Tan2020]*
 However, the relation of NFC and SVs might be confounded with task performance itself, since subjective task values have been shown to depend on both the exerted effort [@Wang2017] and the expected performance [@Yee2021].
 Findings on NFC and n-back performance are heterogenous.
 On one hand individuals with higher NFC neither had better n-back performance [@Gaertner2021] nor better working memory [@Fleischhauer 2010; @Hill2013], on the other hand they showed greater attention allocation [@Enge2008] and brain flexibility [@He2019].
@@ -47,13 +49,14 @@ Nevertheless, a possible association of NFC and task performance might be second
 But since other studies utilizing the COG-ED paradigm found the association of NFC and SVs to disappear after correcting for performance [@Kramer2021] or found no association of NFC and SVs at all [@Crawford2021], more research is needed to shed light on this issue.
 
 ## The present study
-<!-- auch hier eine Zwischenüberschrift um es etwas besser in Blöcke einzuteilen -->
 The present study contributes to the investigation of effort and SVs by changing one fundamental assumption of the original COG-ED paradigm: The assumption that the easiest n-back level has the highest SV.
 We adapted the COG-ED paradigm in such a way that it allows the computation of SVs for different n-back levels without presuming that all individuals inherently prefer the easiest level (i.e., 1-back).
-In fact, our COG-ED adaptation allows the computations of SVs, even if the individual does not have a clear preference for one task level. <!-- vielleicht eher "Additionally, our COG-ED adaption... -->
+Additionally, our COG-ED adaptation allows the computations of SVs, even if the individual does not have a clear preference for one task level.
 In the present study, we will validate this adaptation by replicating the findings of Westbrook et al. [-@Westbrook2013].
-Additionally, we will apply the adaption to a task with different emotion regulation strategies to establish an effort discounting paradigm for task varieties that have no objective order of task load.
-The COG-ED paradigm has been applied to tasks with different domains before, showing that SVs across task domains correlate [@Crawford2021], but it has not been applied to tasks without objective task load so far. <!-- Wortwiederholung "apply" und der Satz klingt etwas sperrig... vielleicht 2 drauß machen? --> 
+Furthermore, the COG-ED paradigm has been applied to tasks with different domains before, showing that SVs across task domains correlate [@Crawford2021].
+However, these tasks had an objective order of task load in the form of increasing n-back levels or decreasing intensity of auditory signals.
+In order to establish an ED paradigm for task varieties that do not have an objective order of task load, we will also apply the COG-ED adaption to a task with different emotion regulation strategies.
+
 
 ```{r libraries, echo=FALSE, message=FALSE, warning=FALSE}
 
