@@ -168,7 +168,7 @@ In order to establish an ED paradigm for task varieties that do not have an obje
   
   # create empty data frame for the loop to feed into
   
-  data_SV <- data.frame(subject = character(), sv1 = double(), sv2 = double(), sv3 = double(), sv4 = double())
+  data_SV <- data.frame(subject = character(), level = double(), sv = double())
   
   # compute subjective values per n-back level and feed into data frame
   
@@ -247,8 +247,9 @@ In order to establish an ED paradigm for task varieties that do not have an obje
     
     # put the mean subjective value of the three values per n-back level in the respective column and add to data frame
     
-    newdata <- data.frame(data_ED$subject[subjectindex[i]], mean(tempone), mean(temptwo), mean(tempthree), mean(tempfour))
-    colnames(newdata) <- names(data_SV)
+    newdata <- data.frame(subject = rep(data_ED$subject[subjectindex[i]],4),
+                          level = c(1:4),
+                          sv = c(mean(tempone), mean(temptwo), mean(tempthree), mean(tempfour)))
     data_SV <- rbind(data_SV, newdata)
     
   }
@@ -452,6 +453,8 @@ In order to establish an ED paradigm for task varieties that do not have an obje
 ```{r Hypothesis_2a, echo=FALSE, message=FALSE, warning=FALSE}
 
   # H2a: Subjective values decline with increasing n-back level.
+
+  
 
 # for each participant subjective values (SVs) for 1-, 2-, 3-, and 4-back will be calculated
 # an ANOVA with six linear contrasts will be calculated, contrasting the SVs of two n-back levels at a time
