@@ -38,10 +38,9 @@ Westbrook et al. [-@Westbrook2013] used these SVs to investigate inter-individua
 Younger participants showed lower ED, i.e. they needed a lower monetary incentive for choosing the more difficult levels over level one.
 
 ## Effort discounting and Need for Cognition 
-The individual degree of ED in the study by Westbrook et al. [-@Westbrook2013] was also associated with the participants' Need for Cognition (NFC) score, a personality trait describing individuals who actively seek and enjoy effortful cognitive activities [@Cacioppo1982]. <!-- Eventuell könnte man als Anfang für diesen Abschnitt nochmal kurz NFC definieren (zweiter Teilsatz) und kurz sagen, womit das assoziiert ist... also vor allem mit Traits, die danach klingen, als könnte Effort Discounting eine Rolle spielen; Dann mit Westbrook in Verbindung bringen, aber vielleicht nicht von der AUC reden, sondern lieber wieder von Effort Discounting? -->
-Westbrook et al. [-@Westbrook2013] conceptualized NFC as a trait measure of effortful task engagement, providing a subjective self-report of ED for each participant which could then be related to the SVs ad an objective measure of ED.
+The individual degree of ED in the study by Westbrook et al. [-@Westbrook2013] was also associated with the participants' Need for Cognition (NFC) score, a personality trait describing individuals who actively seek and enjoy effortful cognitive activities [@Cacioppo1982].
+Westbrook et al. [-@Westbrook2013] conceptualized NFC as a trait measure of effortful task engagement, providing a subjective self-report of ED for each participant which could then be related to the SVs as an objective measure of ED.
 On the surface, this association stands to reason, as individuals with higher NFC are more motivated to mobilize cognitive effort because they perceive it as intrinsically rewarding.
-*Individuals with higher NFC report more regulation of effort [@Tan2020]*
 However, the relation of NFC and SVs might be confounded with task performance itself, since subjective task values have been shown to depend on both the exerted effort [@Wang2017] and the expected performance [@Yee2021].
 Findings on NFC and n-back performance are heterogenous.
 On one hand individuals with higher NFC neither had better n-back performance [@Gaertner2021] nor better working memory [@Fleischhauer 2010; @Hill2013], on the other hand they showed greater attention allocation [@Enge2008] and brain flexibility [@He2019].
@@ -76,7 +75,7 @@ In order to establish an ED paradigm for task varieties that do not have an obje
 
   datalist_nback = lapply(list.files(here("Sampledata"), pattern = '.*nback.*csv', full.names = TRUE),
                           read.csv, stringsAsFactors = FALSE, header = TRUE)
-  datalist_ED = lapply(list.files(here("Sampledata"), pattern = '.*ED.*csv', full.names = TRUE),
+  datalist_ED = lapply(list.files(here("Sampledata"), pattern = '.*_ED.*csv', full.names = TRUE),
                           read.csv, stringsAsFactors = FALSE, header = TRUE)
   
   # create empty data frames for loops to feed into
@@ -383,7 +382,7 @@ In order to establish an ED paradigm for task varieties that do not have an obje
 
 ```
 
-```{r Hypothesis_1c, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
+```{r Hypothesis_1c, echo=FALSE, message=FALSE, warning=FALSE}
 
   # H1c: Ratings on all NTLX dimensions increase with increasing n-back level.
 
@@ -425,7 +424,7 @@ In order to establish an ED paradigm for task varieties that do not have an obje
       
       contrasts(h1c_data$level) <- cbind(c(1,-1,0,0), c(0,1,-1,0), c(0,0,1,-1),
                                          c(1,0,-1,0), c(1,0,0,-1), c(0,1,0,-1))
-      ## CS: das sieht mit den Kontrasten usw. irgendwie etwas kompliziert aus... Kannst gern mal beim ESER Code die ANOVAS mit dem aov_ez Package anschauen, vielleicht erleichtert es das Ganze
+      
       # calculate ANOVAs
       
       hypothesis1c1_anova <- summary(aov(h1c_data$mental ~ h1c_data$level))
@@ -448,5 +447,47 @@ In order to establish an ED paradigm for task varieties that do not have an obje
 
       remove(h1c_data)
 
+```
+
+```{r Hypothesis_2a, echo=FALSE, message=FALSE, warning=FALSE}
+
+  # H2a: Subjective values decline with increasing n-back level.
+
+# for each participant subjective values (SVs) for 1-, 2-, 3-, and 4-back will be calculated
+# an ANOVA with six linear contrasts will be calculated, contrasting the SVs of two n-back levels at a time
+
+```
+
+```{r Hypothesis_2b, echo=FALSE, message=FALSE, warning=FALSE}
+
+  # H2b: Subjective values decline with increasing n-back level, even after controlling for declining task
+  # performance measured by signal detection d’ and reaction time.
+
+
+```
+
+```{r Hypothesis_3a, echo=FALSE, message=FALSE, warning=FALSE}
+
+  # H3a: Subjective values predict individual NCS scores.
+
+# for each participant subjective values for 1-, 2-, 3-, and 4-back will be calculated
+# an area under the curve (AUC) will be calculated per participant
+# regression
+```
+
+```{r Hypothesis_3b, echo=FALSE, message=FALSE, warning=FALSE}
+
+  # H3b: NTLX scores do not predict individual NCS scores.
+
+# per participant, calculate one AUC for each NTLX subscale, then average the AUC within each participant
+# predictor 1 is NTLX-AUC, predictor 2 is SV-AUC
+# multiple regression to predict NFC
+```
+
+```{r Hypothesis_3c, echo=FALSE, message=FALSE, warning=FALSE}
+
+  # H3c: The NTLX dimensions effort and mental load predict individual NCS scores.
+
+# repeat H3b analysis with only the effort NTLX subscale AUC, not the composite of all subscales
 ```
 
