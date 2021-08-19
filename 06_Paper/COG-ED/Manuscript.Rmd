@@ -59,9 +59,9 @@ In order to establish an ED paradigm for task varieties that do not have an obje
 
 ```{r libraries, echo=FALSE, message=FALSE, warning=FALSE}
 
-  library(here)         # to set a directory without defined paths
-  library(tidyverse)    # plotting and managing data
-  
+  library(here)         # to set a directory without defined paths, "here" package
+  library(tidyverse)    # plotting and managing data, "tidyverse" package
+  library(bayestestR)   # computing area under the curve, "bayestestR" package
 
 ```
 
@@ -486,6 +486,8 @@ In order to establish an ED paradigm for task varieties that do not have an obje
 ```{r Hypothesis_3a, echo=FALSE, message=FALSE, warning=FALSE}
 
   # H3a: Subjective values predict individual NCS scores.
+
+#auc(data_SV$level[1:4], data_SV$sv[1:4], method = "trapezoid", sort = FALSE) ->> gives you 2.23, which can't be
 
 # for each participant subjective values for 1-, 2-, 3-, and 4-back will be calculated
 # an area under the curve (AUC) will be calculated per participant
