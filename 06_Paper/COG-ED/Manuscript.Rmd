@@ -454,10 +454,24 @@ In order to establish an ED paradigm for task varieties that do not have an obje
 
   # H2a: Subjective values decline with increasing n-back level.
 
+  # ANOVA with six linear contrasts, contrasting the SVs of two n-back levels (1,2,3,4) at a time
   
-
-# for each participant subjective values (SVs) for 1-, 2-, 3-, and 4-back will be calculated
-# an ANOVA with six linear contrasts will be calculated, contrasting the SVs of two n-back levels at a time
+  # make a temporary copy of the SV data frame
+  
+  h2a_data <- data_SV
+  h2a_data$level <- as.factor(h2a_data$level)
+  
+  # define contrasts
+  
+  contrasts(h2a_data$level) <- cbind(c(1,-1,0,0), c(0,1,-1,0), c(0,0,1,-1),
+                                     c(1,0,-1,0), c(1,0,0,-1), c(0,1,0,-1))
+  
+  # calculate ANOVAs
+  
+  hypothesis2a_anova <- summary(aov(h2a_data$sv ~ h2a_data$level))
+  hypothesis2a_posthoc <- TukeyHSD(aov(h2a_data$sv ~ h2a_data$level))
+  
+  remove(h2a_data)
 
 ```
 
