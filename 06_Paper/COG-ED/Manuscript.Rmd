@@ -509,14 +509,14 @@ In order to establish an ED paradigm for task varieties that do not have an obje
 
   # prepare empty data frame for the loop to feed into
 
-  data_hyp3 <- data.frame(subject = character(), auc = double())
+  data_hyp3 <- data.frame(subject = character(), auc_sv = double())
 
   # calculate AUC of SVs per subject
   
   for (i in 1:(length(subjectindex)-1)) {
     
     newdata <- data.frame(subject = data_SV$subject[subjectindex[i]],
-                         auc = auc(data_SV$level[subjectindex[i]:(subjectindex[i+1]-1)], data_SV$sv[subjectindex[i]:(subjectindex[i+1]-1)],
+                          auc_sv = auc(data_SV$level[subjectindex[i]:(subjectindex[i+1]-1)], data_SV$sv[subjectindex[i]:(subjectindex[i+1]-1)],
                                    method = "trapezoid", sort = FALSE))
     data_hyp3 <- rbind(data_hyp3, newdata)
     
@@ -547,23 +547,69 @@ In order to establish an ED paradigm for task varieties that do not have an obje
   
   # calculate linear model to estimate prediction of NFC by SVs
   
-  hypothesis3a <- summary(lm(data_hyp3$nfc ~ data_hyp3$auc))
+  hypothesis3a <- summary(lm(data_hyp3$nfc ~ data_hyp3$auc_sv))
 
 ```
 
 ```{r Hypothesis_3b, echo=FALSE, message=FALSE, warning=FALSE}
 
   # H3b: NTLX scores do not predict individual NCS scores.
+  
+  # create an index for the rows in which the participants change
 
-# per participant, calculate one AUC for each NTLX subscale, then average the AUC within each participant
-# predictor 1 is NTLX-AUC, predictor 2 is SV-AUC
-# multiple regression to predict NFC
+  subjectindex <- c(1,which(data_ntlx$subject != dplyr::lag(data_ntlx$subject)),nrow(data_ntlx))
+  
+  # prepare temporary data frame for loop to feed into
+  
+  ntlx <- data.frame(subject = character(), auc_mental = double(), auc_physical = double(), auc_time = double(),
+                          auc_performance = double(), auc_effort = double(), auc_frustration = double())
+
+  # calculate AUCs per NTLX subscale per participant
+
+  for (i in 1:(length(subjectindex)-1)) {
+    
+    newdata <- data.frame(subject = data_ntlx$subject[subjectindex[i]],
+                          auc_mental = auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
+                                           data_ntlx$mental[subjectindex[i]:(subjectindex[i+1]-1)], method = "trapezoid", sort = FALSE),
+                          auc_physical = auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
+                                           data_ntlx$physical[subjectindex[i]:(subjectindex[i+1]-1)], method = "trapezoid", sort = FALSE),
+                          auc_time = auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
+                                           data_ntlx$time[subjectindex[i]:(subjectindex[i+1]-1)], method = "trapezoid", sort = FALSE),
+                          auc_performance = auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
+                                           data_ntlx$performance[subjectindex[i]:(subjectindex[i+1]-1)], method = "trapezoid", sort = FALSE),
+                          auc_effort = auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
+                                           data_ntlx$effort[subjectindex[i]:(subjectindex[i+1]-1)], method = "trapezoid", sort = FALSE),
+                          auc_frustration = auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
+                                           data_ntlx$frustration[subjectindex[i]:(subjectindex[i+1]-1)], method = "trapezoid", sort = FALSE))
+    ntlx <- rbind(ntlx, newdata)
+    
+  }
+  
+  # add column containing the average of the NTLX subscale AUCs
+  
+  ntlx <- cbind(ntlx, auc_ntlx = rowMeans(ntlx[ ,grep("auc", colnames(ntlx))]))
+  
+  # merge data frames based on subject
+  
+  data_hyp3 <- merge(data_hyp3, ntlx)
+  
+  # delete temporary data frame
+  
+  remove(ntlx)
+  
+  # compute multiple linear regression to predict NCS based on SV AUC and NTLX AUC
+  
+  hypothesis3b <- summary(lm(data_hyp3$nfc ~ data_hyp3$auc_sv + data_hyp3$auc_ntlx))
+
 ```
 
 ```{r Hypothesis_3c, echo=FALSE, message=FALSE, warning=FALSE}
 
   # H3c: The NTLX dimensions effort and mental load predict individual NCS scores.
 
-# repeat H3b analysis with only the effort NTLX subscale AUC, not the composite of all subscales
+  # compute multiple linear regression to predict NCS based on SV AUC, Effort AUC and Mental Load AUC
+  
+  hypothesis3c <- summary(lm(data_hyp3$nfc ~ data_hyp3$auc_sv + data_hyp3$auc_mental + data_hyp3$auc_effort))
+
 ```
 
