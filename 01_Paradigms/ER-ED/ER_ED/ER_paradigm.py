@@ -618,7 +618,7 @@ for thisBlocks_view in blocks_view:
         jitter = random.uniform(3,5)
         jitter = round(jitter, 1)
         # add jitter to log file
-        thisExp1.addData('jitter', jitter)
+        thisExp1.addData('Fix_jitter', jitter)
         
         # keep track of which components have finished
         fixcrossComponents = [text_fixcross]
@@ -683,11 +683,10 @@ for thisBlocks_view in blocks_view:
         for thisComponent in fixcrossComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
-        thisExp1.nextEntry()
-
+        
         # ------Prepare to start Routine "Pics_View"-------
         continueRoutine = True
-        routineTimer.add(6.000000)
+        #routineTimer.add(6.000000)
         # update component parameters for each repeat
         image_view.setImage(ImageFile)
         # keep track of which components have finished
@@ -706,7 +705,7 @@ for thisBlocks_view in blocks_view:
         frameN = -1
         
         # -------Run Routine "Pics_View"-------
-        while continueRoutine and routineTimer.getTime() > 0:
+        while continueRoutine:# and routineTimer.getTime() > 0:
             # get current time
             t = Pics_ViewClock.getTime()
             tThisFlip = win.getFutureFlipTime(clock=Pics_ViewClock)
@@ -754,8 +753,10 @@ for thisBlocks_view in blocks_view:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
         trials_view.addData('image_view.started', image_view.tStartRefresh)
+        trials_view.addData('image_view.lasted', image_view.tStop)
         trials_view.addData('image_view.stopped', image_view.tStopRefresh)
         
+        thisExp1.nextEntry()
     # completed 1.0 repeats of 'trials_view'
     
     # ------Prepare to start Routine "Slider_Arousal"-------
@@ -909,6 +910,8 @@ for thisBlocks_view in blocks_view:
     blocks_view.addData('slider_effort.rt', slider_effort.getRT())
     # the Routine "Slider_Effort" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
+
+    thisExp1.nextEntry()
 # completed 1.0 repeats of 'blocks_view'
 
 
@@ -1057,7 +1060,7 @@ for thisBlocks_reg in blocks_reg:
         jitter = random.uniform(3,5)
         jitter = round(jitter, 1)
         # add jitter to log file
-        thisExp1.addData('jitter', jitter)
+        thisExp1.addData('Fix_jitter', jitter)
         # keep track of which components have finished
         fixcrossComponents = [text_fixcross]
         for thisComponent in fixcrossComponents:
@@ -1121,11 +1124,10 @@ for thisBlocks_reg in blocks_reg:
         for thisComponent in fixcrossComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
-        thisExp1.nextEntry()
-
+        
         # ------Prepare to start Routine "Pics_Reg"-------
         continueRoutine = True
-        routineTimer.add(6.000000)
+        #routineTimer.add(6.000000)
         # update component parameters for each repeat
         image_reg.setImage(ImageFile)
         # keep track of which components have finished
@@ -1144,7 +1146,7 @@ for thisBlocks_reg in blocks_reg:
         frameN = -1
         
         # -------Run Routine "Pics_Reg"-------
-        while continueRoutine and routineTimer.getTime() > 0:
+        while continueRoutine: # and routineTimer.getTime() > 0:
             # get current time
             t = Pics_RegClock.getTime()
             tThisFlip = win.getFutureFlipTime(clock=Pics_RegClock)
@@ -1192,8 +1194,10 @@ for thisBlocks_reg in blocks_reg:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
         trials_reg.addData('image_reg.started', image_reg.tStartRefresh)
+        trials_reg.addData('image_reg.lasted', image_reg.tStop)
         trials_reg.addData('image_reg.stopped', image_reg.tStopRefresh)
         
+        thisExp1.nextEntry()
     # completed 1.0 repeats of 'trials_reg'
     
     # ------Prepare to start Routine "Slider_Arousal"-------
@@ -1348,6 +1352,7 @@ for thisBlocks_reg in blocks_reg:
     # the Routine "Slider_Effort" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
+    thisExp1.nextEntry()
 # completed 1.0 repeats of 'blocks_reg'
 
 # ------Prepare to start Routine "InstructionED"-------
@@ -2130,7 +2135,7 @@ for thisTrials_choice in trials_choice:
     jitter = random.uniform(3,5)
     jitter = round(jitter, 1)
     # add jitter to log file
-    thisExp1.addData('jitter', jitter)
+    thisExp1.addData('Fix_jitter', jitter)
     # keep track of which components have finished
     fixcrossComponents = [text_fixcross]
     for thisComponent in fixcrossComponents:
@@ -2194,11 +2199,10 @@ for thisTrials_choice in trials_choice:
     for thisComponent in fixcrossComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    thisExp1.nextEntry()
-
+    
     # ------Prepare to start Routine "Pics_Choice"-------
     continueRoutine = True
-    routineTimer.add(6.000000)
+    #routineTimer.add(6.000000)
     # update component parameters for each repeat
     image.setImage(ImageFile)
     # keep track of which components have finished
@@ -2217,7 +2221,7 @@ for thisTrials_choice in trials_choice:
     frameN = -1
     
     # -------Run Routine "Pics_Choice"-------
-    while continueRoutine and routineTimer.getTime() > 0:
+    while continueRoutine: #and routineTimer.getTime() > 0:
         # get current time
         t = Pics_ChoiceClock.getTime()
         tThisFlip = win.getFutureFlipTime(clock=Pics_ChoiceClock)
@@ -2265,8 +2269,10 @@ for thisTrials_choice in trials_choice:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     trials_choice.addData('image.started', image.tStartRefresh)
+    trials_choice.addData('image.lased', image.tStop)
     trials_choice.addData('image.stopped', image.tStopRefresh)
     
+    thisExp1.nextEntry()
 # completed 1.0 repeats of 'trials_choice'
 
 
