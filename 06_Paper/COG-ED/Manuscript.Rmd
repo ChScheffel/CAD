@@ -153,6 +153,29 @@ In order to establish an ED paradigm for task varieties that do not have an obje
 
 ```
 
+# Methods
+
+We used *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages *tidyverse* [@Wickham2019] and *basetestR* [@Makowski2019] for all our analyses.
+The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at github.com/ChScheffel/COG-ER-ED.
+
+##Revising the COG-ED paradigm
+The thought process behind this revision is illustrated in Figure 1.
+It shows how different modifications of the COG-ED paradigm by Westbrook et al. [-@Westbrook2013] return SVs that do or do not reflect the true preference of a hypothetical participant, who likes 2-back the most, 3-back less, and 1-back the least.
+We adapted the COG-ED paradigm until it accurately reflected this preference, arriving at our version, the Cognitive and Emotion Regulation Effort Discounting Paradigm (COG-ER-ED).
+The COG-ED paradigm sets the SV of 1-back to 1, so regardless of the response pattern, the SV of 1-back does not change.
+Adding an ED round comparing 2-back and 3-back shows more differentiation between the SVs those two levels, but leaves the SV of 1-back unchanged.
+Adding three ED rounds comparing the same levels but using the easier level as reference does approach the true preference, but has two disadvantages.
+First, the SVs still contain the non-true SVs returned by the original paradigm, and second, including more task levels would lead to an exponential growth of necessary comparisons.
+Therefore, the solution and our final COG-ER-ED paradigm reduces the number of necessary comparisons by presenting an ED round for each possible pair of levels, and by starting each ED round with a choice between equal prices.
+For example, the participant is presented with the choice of receiving 1€ for 2-back or 1€ for 4-back.
+The n-back level chosen by the participant will then be used as the level with a flexible value, which starts at 1€ and is changed in every iteration.
+The n-back level that was not chosen will be set to a fixed value of 2€.
+This procedure allows to compute SVs based on actual individual preference instead of objective task load.
+Each level's SV is calculated as the mean of this level's SVs from each comparison in which it appeared.
+If the participant has a clear preference for one level, this level's SV will be 1.
+If not, then no level's SV will be 1, but each level's SV is still an absolute and a relative value, which allows the computation of an AUC and therefore a quantification of the participant's ED behaviour.
+
+
 ```{r SVcomputation, echo=FALSE, message=FALSE, warning=FALSE}
 
   # apply the addition or subtraction of 0.015625 to the last choices
