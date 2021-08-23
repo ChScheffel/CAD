@@ -232,7 +232,7 @@ text_slider_arousal = visual.TextStim(win=win, name='text_slider_arousal',
 slider_arousal = visual.Slider(win=win, name='slider_arousal',
     size=[1.0,0.1], pos=(0, -0.2), units=None,
     labels=("sehr gering", "sehr hoch"), ticks=(0,400), granularity=0.0,
-    style='rating', styleTweaks=(), opacity=None,
+    style='slider', styleTweaks=(), opacity=None,
     color='black', fillColor='black', borderColor='black', colorSpace='rgb',
     font='Open Sans', labelHeight=0.05,
     flip=False, depth=-1, readOnly=False)
@@ -249,7 +249,7 @@ text_slider_effort = visual.TextStim(win=win, name='text_slider_effort',
 slider_effort = visual.Slider(win=win, name='slider_effort',
     size=(1.0,0.1), pos=(0, -0.2), units=None,
     labels=("sehr gering","sehr hoch"), ticks=(0,400), granularity=0.0,
-    style='rating', styleTweaks=(), opacity=None,
+    style='slider', styleTweaks=(), opacity=None,
     color='black', fillColor='black', borderColor='black', colorSpace='rgb',
     font='Open Sans', labelHeight=0.05,
     flip=False, depth=-1, readOnly=False)
@@ -2195,7 +2195,7 @@ for thisTrials_choice in trials_choice:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     thisExp1.nextEntry()
-    
+
     # ------Prepare to start Routine "Pics_Choice"-------
     continueRoutine = True
     routineTimer.add(6.000000)
