@@ -595,7 +595,7 @@ In order to establish an ED paradigm for task varieties that do not have an obje
   
   # delete temporary data frame
   
-  remove(ntlx)
+  remove(ntlx, newdata)
   
   # compute multiple linear regression to predict NCS based on SV AUC and NTLX AUC
   
