@@ -610,77 +610,6 @@ for thisBlocks_view in blocks_view:
             for paramName in thisTrials_view:
                 exec('{} = thisTrials_view[paramName]'.format(paramName))
         
-        # ------Prepare to start Routine "Pics_View"-------
-        continueRoutine = True
-        routineTimer.add(6.000000)
-        # update component parameters for each repeat
-        image_view.setImage(ImageFile)
-        # keep track of which components have finished
-        Pics_ViewComponents = [image_view]
-        for thisComponent in Pics_ViewComponents:
-            thisComponent.tStart = None
-            thisComponent.tStop = None
-            thisComponent.tStartRefresh = None
-            thisComponent.tStopRefresh = None
-            if hasattr(thisComponent, 'status'):
-                thisComponent.status = NOT_STARTED
-        # reset timers
-        t = 0
-        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-        Pics_ViewClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
-        frameN = -1
-        
-        # -------Run Routine "Pics_View"-------
-        while continueRoutine and routineTimer.getTime() > 0:
-            # get current time
-            t = Pics_ViewClock.getTime()
-            tThisFlip = win.getFutureFlipTime(clock=Pics_ViewClock)
-            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-            # update/draw components on each frame
-            
-            # *image_view* updates
-            if image_view.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                # keep track of start time/frame for later
-                image_view.frameNStart = frameN  # exact frame index
-                image_view.tStart = t  # local t and not account for scr refresh
-                image_view.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(image_view, 'tStartRefresh')  # time at next scr refresh
-                win.callOnFlip(sendTrigger, TriggerBlockView) # send trigger for each picture -> same trigger for whole block
-                image_view.setAutoDraw(True)
-            if image_view.status == STARTED:
-                # is it time to stop? (based on global clock, using actual start)
-                if tThisFlipGlobal > image_view.tStartRefresh + 6.0-frameTolerance:
-                    # keep track of stop time/frame for later
-                    image_view.tStop = t  # not accounting for scr refresh
-                    image_view.frameNStop = frameN  # exact frame index
-                    win.timeOnFlip(image_view, 'tStopRefresh')  # time at next scr refresh
-                    image_view.setAutoDraw(False)
-            
-            # check for quit (typically the Esc key)
-            if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                core.quit()
-            
-            # check if all components have finished
-            if not continueRoutine:  # a component has requested a forced-end of Routine
-                break
-            continueRoutine = False  # will revert to True if at least one component still running
-            for thisComponent in Pics_ViewComponents:
-                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                    continueRoutine = True
-                    break  # at least one component has not yet finished
-            
-            # refresh the screen
-            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-                win.flip()
-        
-        # -------Ending Routine "Pics_View"-------
-        for thisComponent in Pics_ViewComponents:
-            if hasattr(thisComponent, "setAutoDraw"):
-                thisComponent.setAutoDraw(False)
-        trials_view.addData('image_view.started', image_view.tStartRefresh)
-        trials_view.addData('image_view.stopped', image_view.tStopRefresh)
-        
         # ------Prepare to start Routine "fixcross"-------
         continueRoutine = True
         # update component parameters for each repeat
@@ -755,9 +684,79 @@ for thisBlocks_view in blocks_view:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
         thisExp1.nextEntry()
+
+        # ------Prepare to start Routine "Pics_View"-------
+        continueRoutine = True
+        routineTimer.add(6.000000)
+        # update component parameters for each repeat
+        image_view.setImage(ImageFile)
+        # keep track of which components have finished
+        Pics_ViewComponents = [image_view]
+        for thisComponent in Pics_ViewComponents:
+            thisComponent.tStart = None
+            thisComponent.tStop = None
+            thisComponent.tStartRefresh = None
+            thisComponent.tStopRefresh = None
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        # reset timers
+        t = 0
+        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+        Pics_ViewClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+        frameN = -1
+        
+        # -------Run Routine "Pics_View"-------
+        while continueRoutine and routineTimer.getTime() > 0:
+            # get current time
+            t = Pics_ViewClock.getTime()
+            tThisFlip = win.getFutureFlipTime(clock=Pics_ViewClock)
+            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
+            
+            # *image_view* updates
+            if image_view.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                image_view.frameNStart = frameN  # exact frame index
+                image_view.tStart = t  # local t and not account for scr refresh
+                image_view.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(image_view, 'tStartRefresh')  # time at next scr refresh
+                win.callOnFlip(sendTrigger, TriggerBlockView) # send trigger for each picture -> same trigger for whole block
+                image_view.setAutoDraw(True)
+            if image_view.status == STARTED:
+                # is it time to stop? (based on global clock, using actual start)
+                if tThisFlipGlobal > image_view.tStartRefresh + 6.0-frameTolerance:
+                    # keep track of stop time/frame for later
+                    image_view.tStop = t  # not accounting for scr refresh
+                    image_view.frameNStop = frameN  # exact frame index
+                    win.timeOnFlip(image_view, 'tStopRefresh')  # time at next scr refresh
+                    image_view.setAutoDraw(False)
+            
+            # check for quit (typically the Esc key)
+            if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+                core.quit()
+            
+            # check if all components have finished
+            if not continueRoutine:  # a component has requested a forced-end of Routine
+                break
+            continueRoutine = False  # will revert to True if at least one component still running
+            for thisComponent in Pics_ViewComponents:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
+        
+        # -------Ending Routine "Pics_View"-------
+        for thisComponent in Pics_ViewComponents:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
+        trials_view.addData('image_view.started', image_view.tStartRefresh)
+        trials_view.addData('image_view.stopped', image_view.tStopRefresh)
         
     # completed 1.0 repeats of 'trials_view'
-    
     
     # ------Prepare to start Routine "Slider_Arousal"-------
     continueRoutine = True
@@ -1051,78 +1050,7 @@ for thisBlocks_reg in blocks_reg:
             for paramName in thisTrials_reg:
                 exec('{} = thisTrials_reg[paramName]'.format(paramName))
         
-        # ------Prepare to start Routine "Pics_Reg"-------
-        continueRoutine = True
-        routineTimer.add(6.000000)
-        # update component parameters for each repeat
-        image_reg.setImage(ImageFile)
-        # keep track of which components have finished
-        Pics_RegComponents = [image_reg]
-        for thisComponent in Pics_RegComponents:
-            thisComponent.tStart = None
-            thisComponent.tStop = None
-            thisComponent.tStartRefresh = None
-            thisComponent.tStopRefresh = None
-            if hasattr(thisComponent, 'status'):
-                thisComponent.status = NOT_STARTED
-        # reset timers
-        t = 0
-        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-        Pics_RegClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
-        frameN = -1
-        
-        # -------Run Routine "Pics_Reg"-------
-        while continueRoutine and routineTimer.getTime() > 0:
-            # get current time
-            t = Pics_RegClock.getTime()
-            tThisFlip = win.getFutureFlipTime(clock=Pics_RegClock)
-            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-            # update/draw components on each frame
-            
-            # *image_reg* updates
-            if image_reg.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                # keep track of start time/frame for later
-                image_reg.frameNStart = frameN  # exact frame index
-                image_reg.tStart = t  # local t and not account for scr refresh
-                image_reg.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(image_reg, 'tStartRefresh')  # time at next scr refresh
-                win.callOnFlip(sendTrigger, TriggerBlockReg) # send trigger for each picture 
-                image_reg.setAutoDraw(True)
-            if image_reg.status == STARTED:
-                # is it time to stop? (based on global clock, using actual start)
-                if tThisFlipGlobal > image_reg.tStartRefresh + 6.0-frameTolerance:
-                    # keep track of stop time/frame for later
-                    image_reg.tStop = t  # not accounting for scr refresh
-                    image_reg.frameNStop = frameN  # exact frame index
-                    win.timeOnFlip(image_reg, 'tStopRefresh')  # time at next scr refresh
-                    image_reg.setAutoDraw(False)
-            
-            # check for quit (typically the Esc key)
-            if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                core.quit()
-            
-            # check if all components have finished
-            if not continueRoutine:  # a component has requested a forced-end of Routine
-                break
-            continueRoutine = False  # will revert to True if at least one component still running
-            for thisComponent in Pics_RegComponents:
-                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                    continueRoutine = True
-                    break  # at least one component has not yet finished
-            
-            # refresh the screen
-            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-                win.flip()
-        
-        # -------Ending Routine "Pics_Reg"-------
-        for thisComponent in Pics_RegComponents:
-            if hasattr(thisComponent, "setAutoDraw"):
-                thisComponent.setAutoDraw(False)
-        trials_reg.addData('image_reg.started', image_reg.tStartRefresh)
-        trials_reg.addData('image_reg.stopped', image_reg.tStopRefresh)
-        
-        # ------Prepare to start Routine "fixcross"-------
+         # ------Prepare to start Routine "fixcross"-------
         continueRoutine = True
         # update component parameters for each repeat
         # random jitter between 3 and 5 seconds
@@ -1194,9 +1122,79 @@ for thisBlocks_reg in blocks_reg:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
         thisExp1.nextEntry()
+
+        # ------Prepare to start Routine "Pics_Reg"-------
+        continueRoutine = True
+        routineTimer.add(6.000000)
+        # update component parameters for each repeat
+        image_reg.setImage(ImageFile)
+        # keep track of which components have finished
+        Pics_RegComponents = [image_reg]
+        for thisComponent in Pics_RegComponents:
+            thisComponent.tStart = None
+            thisComponent.tStop = None
+            thisComponent.tStartRefresh = None
+            thisComponent.tStopRefresh = None
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        # reset timers
+        t = 0
+        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+        Pics_RegClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+        frameN = -1
+        
+        # -------Run Routine "Pics_Reg"-------
+        while continueRoutine and routineTimer.getTime() > 0:
+            # get current time
+            t = Pics_RegClock.getTime()
+            tThisFlip = win.getFutureFlipTime(clock=Pics_RegClock)
+            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
+            
+            # *image_reg* updates
+            if image_reg.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                image_reg.frameNStart = frameN  # exact frame index
+                image_reg.tStart = t  # local t and not account for scr refresh
+                image_reg.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(image_reg, 'tStartRefresh')  # time at next scr refresh
+                win.callOnFlip(sendTrigger, TriggerBlockReg) # send trigger for each picture 
+                image_reg.setAutoDraw(True)
+            if image_reg.status == STARTED:
+                # is it time to stop? (based on global clock, using actual start)
+                if tThisFlipGlobal > image_reg.tStartRefresh + 6.0-frameTolerance:
+                    # keep track of stop time/frame for later
+                    image_reg.tStop = t  # not accounting for scr refresh
+                    image_reg.frameNStop = frameN  # exact frame index
+                    win.timeOnFlip(image_reg, 'tStopRefresh')  # time at next scr refresh
+                    image_reg.setAutoDraw(False)
+            
+            # check for quit (typically the Esc key)
+            if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+                core.quit()
+            
+            # check if all components have finished
+            if not continueRoutine:  # a component has requested a forced-end of Routine
+                break
+            continueRoutine = False  # will revert to True if at least one component still running
+            for thisComponent in Pics_RegComponents:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
+        
+        # -------Ending Routine "Pics_Reg"-------
+        for thisComponent in Pics_RegComponents:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
+        trials_reg.addData('image_reg.started', image_reg.tStartRefresh)
+        trials_reg.addData('image_reg.stopped', image_reg.tStopRefresh)
         
     # completed 1.0 repeats of 'trials_reg'
-    
     
     # ------Prepare to start Routine "Slider_Arousal"-------
     continueRoutine = True
@@ -2125,77 +2123,6 @@ for thisTrials_choice in trials_choice:
         for paramName in thisTrials_choice:
             exec('{} = thisTrials_choice[paramName]'.format(paramName))
     
-    # ------Prepare to start Routine "Pics_Choice"-------
-    continueRoutine = True
-    routineTimer.add(6.000000)
-    # update component parameters for each repeat
-    image.setImage(ImageFile)
-    # keep track of which components have finished
-    Pics_ChoiceComponents = [image]
-    for thisComponent in Pics_ChoiceComponents:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    # reset timers
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    Pics_ChoiceClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
-    frameN = -1
-    
-    # -------Run Routine "Pics_Choice"-------
-    while continueRoutine and routineTimer.getTime() > 0:
-        # get current time
-        t = Pics_ChoiceClock.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=Pics_ChoiceClock)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        
-        # *image* updates
-        if image.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            image.frameNStart = frameN  # exact frame index
-            image.tStart = t  # local t and not account for scr refresh
-            image.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(image, 'tStartRefresh')  # time at next scr refresh
-            win.callOnFlip(sendTrigger, trigger_choice)
-            image.setAutoDraw(True)
-        if image.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > image.tStartRefresh + 6.0-frameTolerance:
-                # keep track of stop time/frame for later
-                image.tStop = t  # not accounting for scr refresh
-                image.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(image, 'tStopRefresh')  # time at next scr refresh
-                image.setAutoDraw(False)
-        
-        # check for quit (typically the Esc key)
-        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-            core.quit()
-        
-        # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in Pics_ChoiceComponents:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-        
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    
-    # -------Ending Routine "Pics_Choice"-------
-    for thisComponent in Pics_ChoiceComponents:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    trials_choice.addData('image.started', image.tStartRefresh)
-    trials_choice.addData('image.stopped', image.tStopRefresh)
-    
     # ------Prepare to start Routine "fixcross"-------
     continueRoutine = True
     # update component parameters for each repeat
@@ -2268,6 +2195,77 @@ for thisTrials_choice in trials_choice:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     thisExp1.nextEntry()
+    
+    # ------Prepare to start Routine "Pics_Choice"-------
+    continueRoutine = True
+    routineTimer.add(6.000000)
+    # update component parameters for each repeat
+    image.setImage(ImageFile)
+    # keep track of which components have finished
+    Pics_ChoiceComponents = [image]
+    for thisComponent in Pics_ChoiceComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    Pics_ChoiceClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    frameN = -1
+    
+    # -------Run Routine "Pics_Choice"-------
+    while continueRoutine and routineTimer.getTime() > 0:
+        # get current time
+        t = Pics_ChoiceClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=Pics_ChoiceClock)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *image* updates
+        if image.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            image.frameNStart = frameN  # exact frame index
+            image.tStart = t  # local t and not account for scr refresh
+            image.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(image, 'tStartRefresh')  # time at next scr refresh
+            win.callOnFlip(sendTrigger, trigger_choice)
+            image.setAutoDraw(True)
+        if image.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > image.tStartRefresh + 6.0-frameTolerance:
+                # keep track of stop time/frame for later
+                image.tStop = t  # not accounting for scr refresh
+                image.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(image, 'tStopRefresh')  # time at next scr refresh
+                image.setAutoDraw(False)
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in Pics_ChoiceComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # -------Ending Routine "Pics_Choice"-------
+    for thisComponent in Pics_ChoiceComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    trials_choice.addData('image.started', image.tStartRefresh)
+    trials_choice.addData('image.stopped', image.tStopRefresh)
     
 # completed 1.0 repeats of 'trials_choice'
 
