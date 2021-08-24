@@ -171,7 +171,22 @@ We used *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages *tidyvers
 The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at github.com/ChScheffel/COG-ER-ED.
 
 ## Procedure
-
+Participants for the pilot study were recruited using the software *ORSEE* [@Greiner2015].
+The final sample consisted of $N=$ `r length(datalist_ED)` participants (`r round((table(data_quest$gender)[2]/length(datalist_ED))*100, digits = 1)`% female, $M=$`r round(mean(data_quest$age, na.rm = TRUE), digits = 1)`($SD=$`r round(sd(data_quest$age, na.rm = TRUE), digits = 1)`) years old).
+Each participant completed two sessions in the lab one week apart, and a battery of personality questionnaires at least two days after the second session.
+In the first session, participants provided informed consent and demographic data before completing the computer-based paradigm.
+The paradigm started with the n-back levels one to four, presented sequentially with two runs per level, consisting of 64 consonants (16 targets, 48 non-targets) per run.
+The levels were referred to by colour (1-back black, 2-back red, 3-back blue, 4-back green) to avoid anchor effects in the ED procedure.
+After each level, participants filled out the NASA-TLX questionnaire [@Hart1988] on a tablet to assess their perceived task load.
+Then, they completed the ED procedure on screen, where each possible pairing of the four n-back levels was presented in a randomized order.
+Participants were instructed to decide as realistically as possible, because one of their choices from the last iteration steps would be randomly chosen for one final run of n-back.
+The level and its monetary value were presented on screen and participants completed one run, but this was only to incentivise truthful behaviour in the ED procedure, so the n-back data of this part was not analyzed.
+The second session consisted of an emotion regulation task with negative pictures and the instruction to suppress facial reactions, detach cognitively from the picture content, and distract oneself, respectively.
+The paradigm followed the same structure of task, ED procedure, and repetition of a random "level" as in session one.
+There were many more measures and hypotheses regarding session two, which will be the topic of a different registered report.
+Two days after the second session, participants received a link to the personality questionnaires (only the NFC scale [@Bless1994; @Cacioppo1984] was analyzed in the present study, the full list of questionnaires can be found in Appendix 1).
+Participants received 8€ per hour, about 30€ in total, or course credit for participation.
+Study data were collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden [@Harris2009; @Harris2019].
 
 
 ```{r SVcomputation, echo=FALSE, message=FALSE, warning=FALSE}
