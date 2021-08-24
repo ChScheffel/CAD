@@ -50,11 +50,23 @@ But since other studies utilizing the COG-ED paradigm found the association of N
 ## The present study
 The present study contributes to the investigation of effort and SVs by changing one fundamental assumption of the original COG-ED paradigm: The assumption that the easiest n-back level has the highest SV.
 We adapted the COG-ED paradigm in such a way that it allows the computation of SVs for different n-back levels without presuming that all individuals inherently prefer the easiest level (i.e., 1-back).
-Additionally, our COG-ED adaptation allows the computations of SVs, even if the individual does not have a clear preference for one task level.
-In the present study, we will validate this adaptation by replicating the findings of Westbrook et al. [-@Westbrook2013].
-Furthermore, the COG-ED paradigm has been applied to tasks with different domains before, showing that SVs across task domains correlate [@Crawford2021].
-However, these tasks had an objective order of task load in the form of increasing n-back levels or decreasing intensity of auditory signals.
-In order to establish an ED paradigm for task varieties that do not have an objective order of task load, we will also apply the COG-ED adaption to a task with different emotion regulation strategies.
+Figure 1 illustrates how different modifications of the COG-ED paradigm by Westbrook et al. [-@Westbrook2013] return SVs that do or do not reflect the true preference of a hypothetical participant, who likes 2-back the most, 3-back less, and 1-back the least.
+The COG-ED paradigm sets the SV of 1-back to 1, regardless of the response pattern.
+Adding an ED round comparing 2-back and 3-back allows the SVs of those two levels to be more differentiated, but leaves the SV of 1-back unchanged.
+Adding three ED rounds comparing the same levels but using the easier level as reference does approach the true preference, but has two disadvantages.
+First, the SVs are still distorted by the non-true SVs returned by the original paradigm, and second, including more task levels would lead to an exponential growth of necessary comparisons.
+Therefore, the solution lies in reducing the number of necessary comparisons by presenting an ED round for each possible pair of levels, and by starting each ED round with a choice between equal prices.
+For example, the participant is presented with the choice of receiving 1€ for 2-back or 1€ for 4-back.
+The n-back level chosen by the participant will then be used as the level with a flexible value, which starts at 1€ and is changed in every iteration.
+The n-back level that was not chosen will be set to a fixed value of 2€.
+This procedure allows to compute SVs based on actual individual preference instead of objective task load.
+Each level's SV is calculated as the mean of this level's SVs from all comparisons in which it appeared.
+If the participant has a clear preference for one level, this level's SV will be 1.
+If not, then no level's SV will be 1, but each level's SV can still be interpreted as an absolute value and in relation to the other levels' SVs, so the computation of an AUC and therefore the quantification of the participant's ED behaviour is still possible.
+Since we aim to establish this paradigm for the assessment of tasks with no objective task load, e.g. emotion regulation tasks, we call it the Cognitive and Emotion Regulation Effort Discounting Paradigm (COG-ER-ED).
+In the present study, we will validate the COG-ER-ED paradigm by conceptually replicating the findings of Westbrook et al. [-@Westbrook2013].
+Additionally, we will compare the ED behaviour of participants regarding the n-back task and an emotion regulation task.
+The COG-ED paradigm has been applied to tasks with different domains before, showing that SVs across task domains correlate [@Crawford2021], but these tasks had an objective order of task load in the form of increasing n-back levels or decreasing intensity of auditory signals.
 
 
 ```{r libraries, echo=FALSE, message=FALSE, warning=FALSE}
