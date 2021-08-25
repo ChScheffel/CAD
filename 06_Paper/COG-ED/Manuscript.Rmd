@@ -68,6 +68,12 @@ In the present study, we will validate the COG-ER-ED paradigm by conceptually re
 Additionally, we will compare the ED behaviour of participants regarding the n-back task and an emotion regulation task.
 The COG-ED paradigm has been applied to tasks with different domains before, showing that SVs across task domains correlate [@Crawford2021], but these tasks had an objective order of task load in the form of increasing n-back levels or decreasing intensity of auditory signals.
 
+## Hypotheses
+Our hypotheses were derived from the results of Westbrook et al. [-@Westbrook2013].
+Regarding the associations of subjective and objective task load measures we hypothesized that (1a) performance measured by signal detection *d'* declines with increasing n-back level, (1b) performance measured by reaction time declines with increasing n-back level, and (1c) perceived task load increases with increasing n-back level.
+Regarding the associations of task load and ED we hypothesized that (2a) SVs decline with increasing n-back level, and (2b) SVs decline with increasing n-back level even after controlling for declining task performance.
+And regarding individual differences in ED we hypothesized that (3a) SVs predict individual NFC scores, and (3b) perceived task load does not predict individual NFC scores.
+However, since NFC is conceptually related to cognitive but not physical effort, we added the hypothesis that (3c) perceived mental load and perceived effort predict individual NFC scores.
 
 ```{r libraries, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -170,6 +176,12 @@ The COG-ED paradigm has been applied to tasks with different domains before, sho
 We used *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages *tidyverse* [@Wickham2019] and *basetestR* [@Makowski2019] for all our analyses.
 The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at github.com/ChScheffel/COG-ER-ED.
 
+## Questionnaires
+To assess perceived task load, we used the NASA Task Load Index (NTLX) [@Hart1988], a 6-item questionnaire with the dimensions mental load, physical load, effort, frustration, performance, and time pressure.
+Need for Cognition was assessed using the 16-item short form of the Need for Cognition Scale [@Bless1994; @Cacioppo1984].
+Several other personality questionnaires were used in this study but are the topic of the registered report for the second lab session regarding ED in emotion regulation tasks and will not be analyzed here.
+A full list of questionnaires and measures can be found in Appendix 1.
+
 ## Procedure
 Participants for the pilot study were recruited using the software *ORSEE* [@Greiner2015].
 The final sample consisted of $N=$ `r length(datalist_ED)` participants (`r round((table(data_quest$gender)[2]/length(datalist_ED))*100, digits = 1)`% female, $M=$`r round(mean(data_quest$age, na.rm = TRUE), digits = 1)`($SD=$`r round(sd(data_quest$age, na.rm = TRUE), digits = 1)`) years old).
@@ -177,16 +189,33 @@ Each participant completed two sessions in the lab one week apart, and a battery
 In the first session, participants provided informed consent and demographic data before completing the computer-based paradigm.
 The paradigm started with the n-back levels one to four, presented sequentially with two runs per level, consisting of 64 consonants (16 targets, 48 non-targets) per run.
 The levels were referred to by colour (1-back black, 2-back red, 3-back blue, 4-back green) to avoid anchor effects in the ED procedure.
-After each level, participants filled out the NASA-TLX questionnaire [@Hart1988] on a tablet to assess their perceived task load.
+After each level, participants filled out the NTLX on a tablet to provide a state measure of cognitive effort.
 Then, they completed the ED procedure on screen, where each possible pairing of the four n-back levels was presented in a randomized order.
 Participants were instructed to decide as realistically as possible, because one of their choices from the last iteration steps would be randomly chosen for one final run of n-back.
 The level and its monetary value were presented on screen and participants completed one run, but this was only to incentivise truthful behaviour in the ED procedure, so the n-back data of this part was not analyzed.
 The second session consisted of an emotion regulation task with negative pictures and the instruction to suppress facial reactions, detach cognitively from the picture content, and distract oneself, respectively.
 The paradigm followed the same structure of task, ED procedure, and repetition of a random "level" as in session one.
 There were many more measures and hypotheses regarding session two, which will be the topic of a different registered report.
-Two days after the second session, participants received a link to the personality questionnaires (only the NFC scale [@Bless1994; @Cacioppo1984] was analyzed in the present study, the full list of questionnaires can be found in Appendix 1).
-Participants received 8€ per hour, about 30€ in total, or course credit for participation.
+Two days after the second session, participants received a link to the NFC scale and other personality questionnaires to provide a trait measure of preference for cognitive effort.
+Participants received 8€ per hour or course credit for participation, plus payment for the randomly chosen level.
 Study data were collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden [@Harris2009; @Harris2019].
+
+## Analysis
+We conducted all analysis as described in Westbrook et al. [-@Westbrook2013].
+The performance measure *d'* was computed as the difference of the *z*-transformed hit rate and the *z*-transformed false alarm rate [@Macmillan1990].
+Declining performance was investigated by calculating an analysis of variance (ANOVA) with three linear contrasts comparing *d'* between two levels of 2-, 3-, and 4-back at a time.
+Another ANOVA with three linear contrasts was computed to compare the mean reaction time (RT) between two levels of 2-, 3-, and 4-back at a time.
+To investigate changes in NTLX ratings, six ANOVAs were computed, one for each NTLX subscale, and each with six linear contrasts comparing the ratings between two levels of 1-, 2-, 3-, and 4-back at a time.
+The SVs were calculated by adding or subtracting the final iteration value of 0.015625 from the monetary value of the flexible level for each ED round, depending on the participant's choice in the last iteration.
+Then, the final monetary values were divided by 2€, and the SV of each level per participant was computed by averaging all final monetary values of each level, regardless of whether it was fixed or flexible.
+An ANOVA with six linear contrasts was computed, comparing the SVs between two levels of 1-, 2-, 3-, and 4-back at a time.
+Each ANOVA in the analysis was followed up by a Tukey's test.
+To determine the influence of task performance in the association of SVs and n-back level, we set up a multi-level model.
+**MLM explanation goes here**
+The association of ED and NFC was done using three separate regressions.
+One regression used the AUC of each participant's SVs to predict their NFC score.
+The second regression additionally included the mean of the NTLX subscales' AUCs of each participant as a predictor.
+And the last regression used the AUC of each participant's SV, the AUC of the NTLX mental load subscale, and the AUC of the NTLX effort subscale to predict each participant's NFC score.
 
 
 ```{r SVcomputation, echo=FALSE, message=FALSE, warning=FALSE}
