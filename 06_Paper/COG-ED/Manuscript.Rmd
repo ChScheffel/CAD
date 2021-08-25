@@ -87,13 +87,13 @@ However, since NFC is conceptually related to cognitive but not physical effort,
 
   # set top level directory to source file
 
-  here::i_am("Manuscript.Rmd")
+  here::i_am("flag_project_root.txt")
   
   # import n-back and effort discounting data into a list each
 
-  datalist_nback = lapply(list.files(here("Sampledata"), pattern = '.*nback.*csv', full.names = TRUE),
+  datalist_nback = lapply(list.files(here("04_RawData", "Sampledata"), pattern = '.*nback.*csv', full.names = TRUE),
                           read.csv, stringsAsFactors = FALSE, header = TRUE)
-  datalist_ED = lapply(list.files(here("Sampledata"), pattern = '.*_ED.*csv', full.names = TRUE),
+  datalist_ED = lapply(list.files(here("04_RawData", "Sampledata"), pattern = '.*_ED.*csv', full.names = TRUE),
                           read.csv, stringsAsFactors = FALSE, header = TRUE)
   
   # create empty data frames for loops to feed into
@@ -150,7 +150,7 @@ However, since NFC is conceptually related to cognitive but not physical effort,
   
   # import questionnaire data from RedCap
   
-  data_quest <- read.csv(here("Sampledata","COGERED_DATA.csv"), stringsAsFactors = FALSE, header = TRUE)
+  data_quest <- read.csv(here("04_RawData", "Sampledata", "COGERED_DATA.csv"), stringsAsFactors = FALSE, header = TRUE)
   colnames(data_quest)[1] <- "set" # rename the first column
   
   # remove unnecessary variables from questionnaire data frame
