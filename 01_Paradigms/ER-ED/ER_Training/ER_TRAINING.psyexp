@@ -373,8 +373,8 @@
       <Param name="name" updates="None" val="trials" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
-    <Routine name="Pics"/>
     <Routine name="fixcross"/>
+    <Routine name="Pics"/>
     <LoopTerminator name="trials"/>
     <Routine name="Slider_Arousal"/>
     <Routine name="Slider_Effort"/>
