@@ -1,7 +1,5 @@
 ---
-output: 
-  pdf_document:
-    keep_tex: true
+output: html_document
 bibliography: ER_ED.bib
 csl: apa7.csl
 ---
