@@ -87,7 +87,7 @@ However, since NFC is conceptually related to cognitive but not physical effort,
 
   # set top level directory to source file
 
-  here::i_am("flag_project_root.txt")
+  here::i_am("flag_project_root_COGERED.txt")
   
   # import n-back and effort discounting data into a list each
 

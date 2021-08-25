@@ -1,0 +1,1 @@
+This file is simply a lighting house for the R-scripts to find the top level directory and easily navigate to subfolders for data import and result storage.
