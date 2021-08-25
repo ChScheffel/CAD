@@ -11,6 +11,9 @@ knitr::opts_chunk$set(echo = FALSE)
 library(targets)
 library(readxl)
 library(here)
+
+# set top level directory to source file
+here::i_am("flag_project_root.txt")
 ```
 
 # 2. Method
@@ -31,7 +34,8 @@ The ER task followed a block design (see Figure X). Participants were told to ac
 
 ```{r stimvalues, echo = FALSE}
 
-stim
+StimNeg
+
 
 ```
 ## 2.4. Stimuli
