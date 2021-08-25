@@ -13,7 +13,7 @@ library(readxl)
 library(here)
 
 # set top level directory to source file
-here::i_am("flag_project_root.txt")
+here::i_am("flag_project_root_COGERED.txt")
 ```
 
 # 2. Method
@@ -33,9 +33,11 @@ All session took place in a shielded cabin with constant lighting. Participants 
 The ER task followed a block design (see Figure X). Participants were told to actively view neutral and negative pictures (see [2.4. Stimuli](##stimuli)).
 
 ```{r stimvalues, echo = FALSE}
+# import excel list with neutral and negative pictures
+# lists contain arousal and valence values of each picture
+stim_negative = readxl::read_xlsx(file.path(here("01_Paradigms","ER-ED","ER_ED","Stimuli","negative.xlsx")), range = cell_cols("A:D"))
 
-StimNeg
-
+stim_neutral = readxl::read_xlsx(file.path(here("01_Paradigms","ER-ED","ER_ED","Stimuli","neutral.xlsx")))
 
 ```
 ## 2.4. Stimuli
