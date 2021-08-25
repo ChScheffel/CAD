@@ -212,7 +212,10 @@ An ANOVA with six linear contrasts was computed, comparing the SVs between two l
 Each ANOVA in the analysis was followed up by a Tukey's test.
 To determine the influence of task performance in the association of SVs and n-back level, we set up a multi-level model.
 **MLM explanation goes here**
-
+The association of ED and NFC was done using three separate regressions.
+One regression used the AUC of each participant's SVs to predict their NFC score.
+The second regression additionally included the mean of the NTLX subscales' AUCs of each participant as a predictor.
+And the last regression used the AUC of each participant's SV, the AUC of the NTLX mental load subscale, and the AUC of the NTLX effort subscale to predict each participant's NFC score.
 
 
 ```{r SVcomputation, echo=FALSE, message=FALSE, warning=FALSE}
