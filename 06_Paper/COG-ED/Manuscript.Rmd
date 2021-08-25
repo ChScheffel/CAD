@@ -64,7 +64,7 @@ Each level's SV is calculated as the mean of this level's SVs from all compariso
 If the participant has a clear preference for one level, this level's SV will be 1.
 If not, then no level's SV will be 1, but each level's SV can still be interpreted as an absolute value and in relation to the other levels' SVs, so the computation of an AUC and therefore the quantification of the participant's ED behaviour is still possible.
 Since we aim to establish this paradigm for the assessment of tasks with no objective task load, e.g. emotion regulation tasks, we call it the Cognitive and Emotion Regulation Effort Discounting Paradigm (COG-ER-ED).
-In the present study, we will validate the COG-ER-ED paradigm by conceptually replicating the findings of Westbrook et al. [-@Westbrook2013].
+In the present study, we will validate the COG-ER-ED paradigm by conceptually replicating the ED and NFC findings of Westbrook et al. [-@Westbrook2013].
 Additionally, we will compare the ED behaviour of participants regarding the n-back task and an emotion regulation task.
 The COG-ED paradigm has been applied to tasks with different domains before, showing that SVs across task domains correlate [@Crawford2021], but these tasks had an objective order of task load in the form of increasing n-back levels or decreasing intensity of auditory signals.
 
@@ -80,6 +80,7 @@ However, since NFC is conceptually related to cognitive but not physical effort,
   library(here)         # to set a directory without defined paths, "here" package
   library(tidyverse)    # plotting and managing data, "tidyverse" package
   library(bayestestR)   # computing area under the curve, "bayestestR" package
+  library(papaja)       # APA conform output, "papaja" package
 
 ```
 
@@ -423,6 +424,13 @@ And the last regression used the AUC of each participant's SV, the AUC of the NT
 
 ```
 
+# Results
+
+## Associations of subjective and objective task load measures
+We first looked at how performance measures and NTLX ratings change as n-back levels increase.
+Linear contrasts ANOVAs revealed decreasing performance *d'* with increasing n-back level (`r apa_print(hypothesis1a_anova)$full_result`).
+Tukey's test confirmed that *d'* was smaller for *...(and put in row 1/2/3 ->)* (`r hypothesis1a_posthoc[["h1a_data$level"]][1,4]`).
+
 ```{r Hypothesis_1b, echo=FALSE, message=FALSE, warning=FALSE}
 
   # H1b: Performance measured by reaction time declines with increasing n-back level.
@@ -463,6 +471,10 @@ And the last regression used the AUC of each participant's SV, the AUC of the NT
       remove(h1b_data)
 
 ```
+
+Likewise, linear contrasts ANOVAs confirmed increases in RT with increasing n-back level (`r apa_print(hypothesis1b_anova)$full_result`).
+Tukey's test showed that this was the case for *...(and put in row 1/2/3 ->)* (`r hypothesis1b_posthoc[["h1b_data$level"]][1,4]`).
+Overall, the decreases in *d'* and increases in RT indicate the increase in objective task load with higher n-back levels.
 
 ```{r Hypothesis_1c, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -530,6 +542,10 @@ And the last regression used the AUC of each participant's SV, the AUC of the NT
       remove(h1c_data)
 
 ```
+
+Increases in subjective task load were investigated with linear contrast ANOVAs for each NTLX subscale, now including 1-back.
+Perceived mental load increased with n-back (`r apa_print(hypothesis1c1_anova)$full_result`), especially from *...(and put in row 1/2/3/4/5/6 ->)* (`r hypothesis1c1_posthoc[["h1c_data$level"]][1,4]`).
+Physical load increased as well, but not as strongly (`r apa_print(hypothesis1c2_anova)$full_result`), mainly from *...(and put in row 1/2/3/4/5/6 ->)* (`r hypothesis1c2_posthoc[["h1c_data$level"]][1,4]`).
 
 ```{r Hypothesis_2a, echo=FALSE, message=FALSE, warning=FALSE}
 
