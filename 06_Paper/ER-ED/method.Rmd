@@ -27,10 +27,11 @@ Participants
 
 ## 2.2 Experimental procedure
 
-The study consisted of two sessions. 
+The study consisted of two sessions, one week apart. 
 Both sessions took place in a shielded cabin with constant lighting. 
 Before each session, participants received information about the respective experimental procedure and signed informed consent. 
-
+At the beginning of the first session participants filled out a demographic questionnaire. 
+Afterwards the completed an n-Back task
 
 ## 2.3 Emotion regulation paradigm 
 
