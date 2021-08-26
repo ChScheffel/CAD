@@ -9,7 +9,7 @@ for i=1:max(cat_mat)
 end
 
 m_cluster_std = std(m_cluster);
-
+m_cluster_std(3) = m_cluster_std(3)*2;
 
 
 fit = sum(m_cluster_std(2:3));
