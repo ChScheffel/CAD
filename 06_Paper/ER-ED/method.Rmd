@@ -21,13 +21,13 @@ here::i_am("flag_project_root_COGERED.txt")
  
 "We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study" in compliance with the 21-word-solution of open science [@Simmons2012]
 
-## 2.1 Power analysis and participants
+## 2.1 Participants
 
-xxx.
+Participants 
 
 ## 2.2 Experimental procedure
 
-All session took place in a shielded cabin with constant lighting. Participants received information about the 
+The study consisted of two sessions. Both sessions took place in a shielded cabin with constant lighting. Participants received information about the procedure, signed an informed consent form and filled out a 
 
 ## 2.3 Emotion regulation paradigm 
 
