@@ -195,7 +195,7 @@ Then, they completed the ED procedure on screen, where each possible pairing of 
 Participants were instructed to decide as realistically as possible, because one of their choices from the last iteration steps would be randomly chosen for one final run of n-back.
 The level and its monetary value were presented on screen and participants completed one run, but this was only to incentivise truthful behaviour in the ED procedure, so the n-back data of this part was not analyzed.
 The second session consisted of an emotion regulation task with negative pictures and the instruction to suppress facial reactions, detach cognitively from the picture content, and distract oneself, respectively.
-The paradigm followed the same structure of task, ED procedure, and repetition of a random "level" as in session one.
+The paradigm followed the same structure of task, ED procedure, and repetition of a random "level" as in session one. <!--CS: Achtung: das wurde verändert: Sie wiederhuolen nicht random ein Level sondern können sich nochmal frei entscheiden! -->
 There were many more measures and hypotheses regarding session two, which will be the topic of a different registered report.
 Two days after the second session, participants received a link to the NFC scale and other personality questionnaires to provide a trait measure of preference for cognitive effort.
 Participants received 8€ per hour or course credit for participation, plus payment for the randomly chosen level.
