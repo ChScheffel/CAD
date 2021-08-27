@@ -19,7 +19,9 @@ here::i_am("flag_project_root_COGERED.txt")
 # 2. Method
 
 The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at github.com/ChScheffel/COG-ER-ED. 
-"We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study" in compliance with the 21-word-solution of open science [@Simmons2012]
+"We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study" in compliance with the 21-word-solution of open science [@Simmons2012]. 
+A complete list of all measures assessed in the study can be found at the OSF (https://osf.io/vnj8x/) and GitHub (github.com/ChScheffel/COG-ER-ED). <!-- Attention! OSF is still private -->
+All procedures performed in this study were in accordance with the ethical standards of the institutional and/or national research committee and with the 1964 Helsinki declaration and its later amendments or comparable ethical standards.
 
 ## 2.1 Participants
 
@@ -31,7 +33,7 @@ The study consisted of two sessions, one week apart.
 Both sessions took place in a shielded cabin with constant lighting. 
 Before each session, participants received information about the respective experimental procedure and signed informed consent. 
 At the beginning of the first session participants filled out a demographic questionnaire. 
-Afterwards the completed an n-Back task
+Afterwards the completed an n-Back task with the levels one to four. 
 
 ## 2.3 Emotion regulation paradigm 
 
@@ -43,7 +45,6 @@ The ER task followed a block design (see Figure X). Participants were told to ac
 stim_negative = readxl::read_xlsx(file.path(here("01_Paradigms","ER-ED","ER_ED","Stimuli","negative.xlsx")), range = cell_cols("A:D"))
 
 stim_neutral = readxl::read_xlsx(file.path(here("01_Paradigms","ER-ED","ER_ED","Stimuli","neutral.xlsx")), range = cell_rows(1:21))
-
 ```
 ## 2.4. Stimuli
 
