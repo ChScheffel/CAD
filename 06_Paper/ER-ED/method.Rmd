@@ -18,7 +18,7 @@ here::i_am("flag_project_root_COGERED.txt")
 
 # 2. Method
 
- 
+The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at github.com/ChScheffel/COG-ER-ED. 
 "We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study" in compliance with the 21-word-solution of open science [@Simmons2012]
 
 ## 2.1 Participants
