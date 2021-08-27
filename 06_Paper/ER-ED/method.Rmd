@@ -48,7 +48,9 @@ Study data were collected and managed using REDCap electronic data capture tools
 
 ## 2.3 Emotion regulation paradigm 
 
-The ER paradigm roughly consisted of two parts. 
+The ER paradigm roughly consisted of three parts that will be described in the following.
+
+_Part one: ER task._ <br>
 Part one could be described as standard ER task that followed a block design (see Figure X), similar to paradigms previously used by our group [@Scheffel2021]. 
 Participants were told to actively view neutral and negative pictures (see [2.4. Stimuli](##stimuli)) or to regulate all upcoming emotions by means of distraction, distancing and expressive suppression, respectively. 
 Every participant first had the condition "active viewing-neutral" that served as a baseline condition.
@@ -59,6 +61,19 @@ During the third, fourth, and fifth block, participants saw negative pictures an
 In order to achieve distraction, participants were asked to think of a geometric object or an everyday activity, like brushing their teeth.
 During distancing, participants were asked to "take the position of a non-involved observer, thinking about the picture in a neutral way."
 Participants were told not to re-interpret the situation or attaching a different meaning to the situation.
+During suppression, participants were told to "suppress their emotional facial expression."
+They should imagine being observed by a third person that should not be able to tell just by looking at the facial expression whether the person is looking at an emotional picture.
+Participants were instructed not to suppress their thoughts or change their facial expression to the opposite [@Scheffel2021].
+All participants received written instruction and completed a training session.
+After the training session, participants were asked about their applied ER strategies to avoid misapplication.
+The order of the three regulation blocks (distraction, distancing, and suppression) was randomized between participants.
+
+_Part two: ER effort discounting._ <br>
+In the second part, ER effort discounting took place.
+Each possible pairing of strategies (distraction vs. distancing, distraction vs. suppression, and distancing vs. suppression) was presented in a randomized order.
+Participants were instructed to decide as realistically as possible, imaging the displayed money would really be up for election.
+
+_Part three: ER choice._ <br>
 
 
 ## 2.4. Stimuli
