@@ -49,13 +49,16 @@ Study data were collected and managed using REDCap electronic data capture tools
 ## 2.3 Emotion regulation paradigm 
 
 The ER paradigm roughly consisted of two parts. 
-Part one could be described as standard ER task that followed a block design (see Figure X). 
+Part one could be described as standard ER task that followed a block design (see Figure X), similar to paradigms previously used by our group [@Scheffel2021]. 
 Participants were told to actively view neutral and negative pictures (see [2.4. Stimuli](##stimuli)) or to regulate all upcoming emotions by means of distraction, distancing and expressive suppression, respectively. 
 Every participant first had the condition "active viewing-neutral" that served as a baseline condition.
 During this block, 20 neutral pictures were presented.
 Participants were asked to "actively view all pictures and permit all emotions that may arise."
 In the second block, participants actively viewed negative pictures.
 During the third, fourth, and fifth block, participants saw negative pictures and were asked to regulate their emotions using distraction, distancing, and suppression.
+In order to achieve distraction, participants were asked to think of a geometric object or an everyday activity, like brushing their teeth.
+During distancing, participants were asked to "take the position of a non-involved observer, thinking about the picture in a neutral way."
+Participants were told not to re-interpret the situation or attaching a different meaning to the situation.
 
 
 ## 2.4. Stimuli
