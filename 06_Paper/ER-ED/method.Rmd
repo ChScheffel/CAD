@@ -33,12 +33,22 @@ The study consisted of two sessions, one week apart.
 Both sessions took place in a shielded cabin with constant lighting. 
 Before each session, participants received information about the respective experimental procedure and signed informed consent. 
 At the beginning of the first session participants filled out a demographic questionnaire. 
-Afterwards the completed an n-Back task with the levels one to four. 
+Afterwards the completed an n-Back task with the levels one to four.
+Then, they completed an ED procedure on screen, followed by a random repetition of one n-back level.
+The second session, containing the ER paradigm, took place exactly one week after session one.
+Participants gave signed informed consent for the second session.
+Afterwards the ER paradigm was conducted.
+Participants first received written instructions on the ER paradigm and ER strategies that they should apply.
+A training session was performed to ensure that all participants were able to implement the ER strategies.
+Next, electrodes to measure EMG were attached and the ER paradigm was conducted. 
+Two days after the secon sessoin, participants received a link to an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
+
 
 ## 2.3 Emotion regulation paradigm 
 
 The ER task followed a block design (see Figure X). Participants were told to actively view neutral and negative pictures (see [2.4. Stimuli](##stimuli)).
 
+## 2.4. Stimuli
 ```{r stimvalues, echo = FALSE}
 # import excel list with neutral and negative pictures
 # lists contain arousal and valence values of each picture
@@ -46,7 +56,6 @@ stim_negative = readxl::read_xlsx(file.path(here("01_Paradigms","ER-ED","ER_ED",
 
 stim_neutral = readxl::read_xlsx(file.path(here("01_Paradigms","ER-ED","ER_ED","Stimuli","neutral.xlsx")), range = cell_rows(1:21))
 ```
-## 2.4. Stimuli
 
 Pictures used in the paradigm were selected from the Emotional Picture Set (EmoPicS) [@Wessa2010] and the International Affective Picture System (IAPS) [@Lang2008]. 
 The 20 neutral pictures (Valence (V): _M_ $\pm$ _SD_ = `r round(mean(stim_neutral$valence), digits = 2)` $\pm$ `r round(sd(stim_neutral$valence), digits = 2)`; Arousal (A): _M_ $\pm$ _SD_ = `r round(mean(stim_neutral$arousal), digits = 2)` $\pm$ `r round(sd(stim_neutral$arousal), digits = 2)`) depicted content related to the categories persons, objects, and scenes.
