@@ -63,8 +63,8 @@ This procedure allows to compute SVs based on actual individual preference inste
 Each level's SV is calculated as the mean of this level's SVs from all comparisons in which it appeared.
 If the participant has a clear preference for one level, this level's SV will be 1.
 If not, then no level's SV will be 1, but each level's SV can still be interpreted as an absolute value and in relation to the other levels' SVs, so the computation of an AUC and therefore the quantification of the participant's ED behaviour is still possible.
-Since we aim to establish this paradigm for the assessment of tasks with no objective task load, e.g. emotion regulation tasks, we call it the Cognitive and Emotion Regulation Effort Discounting Paradigm (COG-ER-ED).
-In the present study, we will validate the COG-ER-ED paradigm by conceptually replicating the ED and NFC findings of Westbrook et al. [-@Westbrook2013].
+Since we aim to establish this paradigm for the assessment of tasks with no objective task load, e.g. emotion regulation tasks, we call it the Cognitive and Emotion Regulation Effort Discounting Paradigm (CERED).
+In the present study, we will validate the CERED paradigm by conceptually replicating the ED and NFC findings of Westbrook et al. [-@Westbrook2013].
 Additionally, we will compare the ED behaviour of participants regarding the n-back task and an emotion regulation task.
 The COG-ED paradigm has been applied to tasks with different domains before, showing that SVs across task domains correlate [@Crawford2021], but these tasks had an objective order of task load in the form of increasing n-back levels or decreasing intensity of auditory signals.
 
@@ -151,7 +151,7 @@ However, since NFC is conceptually related to cognitive but not physical effort,
   
   # import questionnaire data from RedCap
   
-  data_quest <- read.csv(here("04_RawData", "Sampledata", "COGERED_DATA.csv"), stringsAsFactors = FALSE, header = TRUE)
+  data_quest <- read.csv(here("04_RawData", "Sampledata", "CERED_DATA.csv"), stringsAsFactors = FALSE, header = TRUE)
   colnames(data_quest)[1] <- "set" # rename the first column
   
   # remove unnecessary variables from questionnaire data frame
@@ -175,7 +175,7 @@ However, since NFC is conceptually related to cognitive but not physical effort,
 # Methods
 
 We used *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages *tidyverse* [@Wickham2019] and *basetestR* [@Makowski2019] for all our analyses.
-The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at github.com/ChScheffel/COG-ER-ED.
+The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at github.com/ChScheffel/CERED.
 
 ## Questionnaires
 To assess perceived task load, we used the NASA Task Load Index (NTLX) [@Hart1988], a 6-item questionnaire with the dimensions mental load, physical load, effort, frustration, performance, and time pressure.
