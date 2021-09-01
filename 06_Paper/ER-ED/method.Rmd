@@ -23,9 +23,9 @@ The R Markdown file used to analyze the data and write this document, as well as
 A complete list of all measures assessed in the study can be found at the OSF (https://osf.io/vnj8x/) and GitHub (github.com/ChScheffel/COG-ER-ED). <!-- Attention! OSF is still private -->
 All procedures performed in this study were in accordance with the ethical standards of the institutional and/or national research committee and with the 1964 Helsinki declaration and its later amendments or comparable ethical standards.
 
-## 2.1 Participants
+## 2.1 Sampling plan
 
-Participants 
+Participants will be healthy adults in the age of 18 to 30, recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden. Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.  
 
 ## 2.2 Experimental procedure
 
