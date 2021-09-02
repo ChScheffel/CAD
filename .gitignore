@@ -3,6 +3,7 @@
 .RData
 .Ruserdata
 
+.html
 
 ### PsychoPy Logfiles ###
 # COG-ED
@@ -10,5 +11,4 @@
 # ER-ED
 **/01_Paradigms/ER-ED/ER_ED/data/
 
-### RMarkdown output ###
-.html
+
