@@ -77,6 +77,8 @@ Each possible pairing of strategies (distraction vs. distancing, distraction vs.
 Participants were instructed to decide as realistically as possible, imaging the displayed money would really be up for election.
 
 _Part three: ER choice._ <br>
+After the discounting part, participants could choose which of the three ER strategies (distraction, distancing or suppression) they wanted to reapply.
+Importantly, there were no further instruction, on what basis they should make their decision.
 
 
 ## 2.4. Stimuli
