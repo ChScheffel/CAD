@@ -807,33 +807,33 @@ for nx in nlevel:
         if nx != 3:
             if rx == 0:
                 if pCorrTar >= 50 and pCorrNonTar >= 50:
-                    msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf "\
-                        + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nWeiter so!\n\nDrücken Sie die Leertaste, um einen weiteren Durchgang dieses Levels zu beginnen."
+                    msg = "In diesem Block haben Sie auf " + str(pCorrTar) + "% der sich wiederholenden und auf "\
+                        + str(pCorrNonTar) + "% der einzelnen Buchstaben korrekt reagiert.\n\nWeiter so!\n\nDrücken Sie die Leertaste, um einen weiteren Durchgang dieses Levels zu beginnen."
                 else:
-                    msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf "\
-                        + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um einen weiteren Durchgang dieses Levels zu beginnen."
+                    msg = "In diesem Block haben Sie auf " + str(pCorrTar) + "% der sich wiederholenden und auf "\
+                        + str(pCorrNonTar) + "% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um einen weiteren Durchgang dieses Levels zu beginnen."
             else:
                 if pCorrTar >= 50 and pCorrNonTar >= 50:
-                    msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf "\
-                        + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nWeiter so!\n\nDrücken Sie die Leertaste, um die Instruktion des nächsten Levels zu lesen."
+                    msg = "In diesem Block haben Sie auf " + str(pCorrTar) + "% der sich wiederholenden und auf "\
+                        + str(pCorrNonTar) + "% der einzelnen Buchstaben korrekt reagiert.\n\nWeiter so!\n\nDrücken Sie die Leertaste, um die Instruktion des nächsten Levels zu lesen."
                 else:
-                    msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf "\
-                        + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um die Instruktion des nächsten Levels zu lesen."
+                    msg = "In diesem Block haben Sie auf " + str(pCorrTar) + "% der sich wiederholenden und auf "\
+                        + str(pCorrNonTar) + "% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um die Instruktion des nächsten Levels zu lesen."
         else:
             if rx == 0:
                 if pCorrTar >= 50 and pCorrNonTar >= 50:
-                    msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf "\
-                        + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nWeiter so!\n\nDrücken Sie die Leertaste, um einen weiteren Durchgang dieses Levels zu beginnen."
+                    msg = "In diesem Block haben Sie auf " + str(pCorrTar) + "% der sich wiederholenden und auf "\
+                        + str(pCorrNonTar) + "% der einzelnen Buchstaben korrekt reagiert.\n\nWeiter so!\n\nDrücken Sie die Leertaste, um einen weiteren Durchgang dieses Levels zu beginnen."
                 else:
-                    msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf "\
-                        + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um einen weiteren Durchgang dieses Levels zu beginnen."
+                    msg = "In diesem Block haben Sie auf " + str(pCorrTar) + "% der sich wiederholenden und auf "\
+                        + str(pCorrNonTar) + "% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um einen weiteren Durchgang dieses Levels zu beginnen."
             else:
                 if pCorrTar >= 50 and pCorrNonTar >= 50:
-                    msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf "\
-                        + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nWeiter so!\n\nDrücken Sie die Leertaste, um mit dem nächsten Teil des Experiments zu beginnen."
+                    msg = "In diesem Block haben Sie auf " + str(pCorrTar) + "% der sich wiederholenden und auf "\
+                        + str(pCorrNonTar) + "% der einzelnen Buchstaben korrekt reagiert.\n\nWeiter so!\n\nDrücken Sie die Leertaste, um mit dem nächsten Teil des Experiments zu beginnen."
                 else:
-                    msg = "In diesem Block haben Sie auf " + str(pCorrTar[0]) + "% der sich wiederholenden und auf "\
-                        + str(pCorrNonTar[0]) + "% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um mit dem nächsten Teil des Experiments zu beginnen."
+                    msg = "In diesem Block haben Sie auf " + str(pCorrTar) + "% der sich wiederholenden und auf "\
+                        + str(pCorrNonTar) + "% der einzelnen Buchstaben korrekt reagiert.\n\nBitte strengen Sie sich mehr an!\n\nDrücken Sie die Leertaste, um mit dem nächsten Teil des Experiments zu beginnen."
 
         feedback.setText(msg)
         fb_key.keys = []
