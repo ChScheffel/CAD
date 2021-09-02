@@ -1,0 +1,10 @@
+---
+title: "report"
+author: "Christoph Scheffel"
+output: html_document
+---
+
+``` {r child = "intro.Rmd"}
+```
+
+```{r child = "method.Rmd"}
