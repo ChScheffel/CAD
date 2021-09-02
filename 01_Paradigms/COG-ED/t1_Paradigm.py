@@ -788,15 +788,18 @@ for nx in nlevel:
         pCorr = (nCorr*100)/64 # percentage of correct trials
         pCorr = round(pCorr, 1) # round the percentage to 1 number after the decimal point
 
-        nCorrTarArray = nback_run.data['trial_resp.keys'][-64:] # extract response data
-        nCorrTarFilter = nCorrTarArray == 'right' # index the data of the targets
-        nCorrTar = sum(nCorrTarFilter) # calculate sum of correct targets aka sum of TRUE output of the filter
+        nCorrTarArray = np.array(nback_run.data['trial_resp.keys'][-64:]) # extract response data as numpy array
+        corrResp = np.array(nback_run.data['trial_resp.corr'][-64:]) # extract correctness data as numpy array
+        nCorrTarFilter = np.where((nCorrTarArray == 'right') & (corrResp == 1)) # index where targets were correctly responded to
+        nCorrTar = corrResp[nCorrTarFilter] # elements of correct responses to targets
+        nCorrTar = len(nCorrTar) # calculate sum of correct responses to targets
         pCorrTar = (nCorrTar*100)/16 # percentage of correct targets
         pCorrTar = np.around(pCorrTar, 1) # round the percentage to the decimal point
 
-        nCorrNonTarArray = nback_run.data['trial_resp.keys'][-64:] # extract response data
-        nCorrNonTarFilter = nCorrNonTarArray == 'left' # index the data of the non-targets
-        nCorrNonTar = sum(nCorrNonTarFilter) # calculate sum of correct non-targets aka sum of TRUE output of the filter
+        nCorrNonTarArray = np.array(nback_run.data['trial_resp.keys'][-64:]) # extract response data as numpy array
+        nCorrNonTarFilter = np.where((nCorrNonTarArray == 'left') & (corrResp == 1)) # index where non-targets were correctly responded to
+        nCorrNonTar = corrResp[nCorrNonTarFilter]  # elements of correct responses to non-targets
+        nCorrNonTar = len(nCorrNonTar) # calculate sum of correct responses to non-targets
         pCorrNonTar = (nCorrNonTar*100)/48 # percentage of correct non-targets
         pCorrNonTar = np.around(pCorrNonTar, 1) # round the percentage to the decimal point
 
