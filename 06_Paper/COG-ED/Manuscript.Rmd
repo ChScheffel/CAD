@@ -88,7 +88,7 @@ However, since NFC is conceptually related to cognitive but not physical effort,
 
   # set top level directory to source file
 
-  here::i_am("flag_project_root_COGERED.txt")
+  here::i_am("flag_project_root_CERED.txt")
   
   # import n-back and effort discounting data into a list each
 
@@ -151,7 +151,7 @@ However, since NFC is conceptually related to cognitive but not physical effort,
   
   # import questionnaire data from RedCap
   
-  data_quest <- read.csv(here("04_RawData", "Sampledata", "CERED_DATA.csv"), stringsAsFactors = FALSE, header = TRUE)
+  data_quest <- read.csv(here("04_RawData", "Sampledata", "COGED_DATA.csv"), stringsAsFactors = FALSE, header = TRUE)
   colnames(data_quest)[1] <- "set" # rename the first column
   
   # remove unnecessary variables from questionnaire data frame
