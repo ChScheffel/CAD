@@ -2,7 +2,8 @@
 
 1. Associations of subjective and objective task load measures:
 a) Performance measured by signal detection d’ declines with increasing n-back level.
-b) Performance measured by reaction time declines with increasing n-back level.
+b) Performance measured by reaction time declines with increasing n-back level. 
+	#CK: should'nt RT increase with increasing n-back level?
 c) Ratings on all NTLX subscales increase with increasing n-back level.
 
 2. Associations of task load and effort discounting:
