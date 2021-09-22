@@ -73,8 +73,16 @@ The order of the three regulation blocks (distraction, distancing, and suppressi
 
 _Part two: ER effort discounting._ <br>
 In the second part, ER effort discounting took place.
-Each possible pairing of strategies (distraction vs. distancing, distraction vs. suppression, and distancing vs. suppression) was presented in a randomized order.
+The procedure of the discounting followed the COG-ED paradigm by Westbrook et al. [-@Westbrook2013] with an addition to be useful for the current study.
+We used an adaption that allowed the computation of SVs for different strategies without presuming that all individuals would inherently evaluate the same strategy as the easiest one.
+
+[...]
+For each possible pairing (distraction vs. distancing, distraction vs. suppression, and distancing vs. suppression), two strategies  with monetary values were presented.
+The order of the comparisons was randomized.
+Because there is no strategy that is objectively more difficult, all comparisons began with 
 Participants were instructed to decide as realistically as possible, imaging the displayed money would really be up for election.
+
+
 
 _Part three: ER choice._ <br>
 After the discounting part, participants could choose which of the three ER strategies (distraction, distancing or suppression) they wanted to reapply.
@@ -95,3 +103,9 @@ The 20 neutral pictures (Valence (V): _M_ $\pm$ _SD_ = `r round(mean(stim_neutra
 Further, 100 negative pictures, featuring categories animals, body, disaster, disgust, injury, suffering, violence, and weapons, were used. 
 An evolutionary algorithm [@Yu2010] was used to cluster these pictures into five sets with comparable valence and arousal values (set one: V: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$valence[stim_negative$set == 1]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 1]), digits = 2)`, A: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$arousal[stim_negative$set == 1]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 1]), digits = 2)`; set two: V: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$valence[stim_negative$set == 2]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 2]), digits = 2)`, A: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$arousal[stim_negative$set == 2]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 2]), digits = 2)`; set three: V: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$valence[stim_negative$set == 3]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 3]), digits = 2)`, A: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$arousal[stim_negative$set == 3]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 3]), digits = 2)`; set four: V: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$valence[stim_negative$set == 4]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 4]), digits = 2)`, A: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$arousal[stim_negative$set == 4]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 4]), digits = 2)`; set five: V: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$valence[stim_negative$set == 5]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 5]), digits = 2)`, A: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$arousal[stim_negative$set == 5]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 5]), digits = 2)`).
 A complete list of all pictures and their classification into sets can be found in supplementary material X.
+
+## 2.5 Electromyography
+
+## 2.6 Psychometric measures
+
+## 2.7 Statistics 
