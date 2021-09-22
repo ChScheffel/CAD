@@ -352,6 +352,8 @@ continueRoutine = True
 WelcomeKey.keys = []
 WelcomeKey.rt = []
 _WelcomeKey_allKeys = []
+# hide mouse cursor
+win.mouseVisible = False
 # keep track of which components have finished
 WelcomeScreenComponents = [WelcomeText, WelcomeKey]
 for thisComponent in WelcomeScreenComponents:
@@ -450,6 +452,8 @@ for nx in nlevel:
         'Wenn es nicht der gleiche Buchstabe ist, drücken sie bitte die linke Pfeiltaste.\nReagieren Sie bei jedem Buchstaben bitte so schnell und richtig wie möglich.\n\n'\
         'rechts = gleicher Buchstabe wie ' + str(levelinwordsList[nx]) + ' zuvor\nlinks = nicht der gleiche Buchstabe wie zuvor\n\nDrücken Sie die Leertaste, um zu beginnen.'
     instructiontext.setText(currenttext)
+    # hide mouse cursor
+    win.mouseVisible = False
     # keep track of which components have finished
     instruction_Components = [instructiontext, instructionkey]
     for thisComponent in instruction_Components:
@@ -563,6 +567,8 @@ for nx in nlevel:
             fixcrosskey.keys = []
             fixcrosskey.rt = []
             _fixcrosskey_allKeys = []
+            # hide mouse cursor
+            win.mouseVisible = False
             # keep track of which components have finished
             fixcross_Components = [fixcross, fixcrosskey]
             for thisComponent in fixcross_Components:
@@ -666,6 +672,8 @@ for nx in nlevel:
             trial_resp.keys = []
             trial_resp.rt = []
             trial_allKey = []
+            # hide mouse cursor
+            win.mouseVisible = False
             # keep track of which components have finished
             trial_Components = [nback_trial, trial_resp]
             for thisComponent in trial_Components:
@@ -839,6 +847,8 @@ for nx in nlevel:
         fb_key.keys = []
         fb_key.rt = []
         fb_allKey = []
+        # hide mouse cursor
+        win.mouseVisible = False
         # keep track of which components have finished
         fb_Components = [feedback, fb_key]
         for thisComponent in fb_Components:
@@ -915,6 +925,8 @@ for nx in nlevel:
         for thisComponent in fb_Components:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)      
+        # make mouse cursor visible again
+        win.mouseVisible = True
         # the Routine "feedback_nx-back_run1/2/3" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
 
@@ -924,6 +936,8 @@ continueRoutine = True
 key_resp.keys = []
 key_resp.rt = []
 _key_resp_allKeys = []
+# make mouse cursor visible
+win.mouseVisible = True
 # keep track of which components have finished
 InstructionEDComponents = [text, key_resp]
 for thisComponent in InstructionEDComponents:
@@ -1047,6 +1061,8 @@ for edx in EDrounds:
         bufferscreenkey.keys = []
         bufferscreenkey.rt = []
         _bufferscreenkey_allKeys = []
+        # make mouse cursor visible
+        win.mouseVisible = True
         # keep track of which components have finished
         EDbufferscreenComponents = [EDbufferscreen, bufferscreenkey]
         for thisComponent in EDbufferscreenComponents:
@@ -1194,6 +1210,8 @@ for edx in EDrounds:
         # setup some python lists for storing info about the response click
         EDclick.clicked_name = []
         gotValidClick = False  # until a click is received
+        # make mouse cursor visible
+        win.mouseVisible = True
         # keep track of which components have finished
         EDroundComponents = [question, EDclick, EDleftbutton, EDrightbutton]
         for thisComponent in EDroundComponents:
@@ -1371,6 +1389,8 @@ for edx in EDrounds:
     bufferscreenkey.keys = []
     bufferscreenkey.rt = []
     _bufferscreenkey_allKeys = []
+    # make mouse cursor visible
+    win.mouseVisible = True
     # keep track of which components have finished
     EDbufferscreenComponents = [EDbufferscreen, bufferscreenkey]
     for thisComponent in EDbufferscreenComponents:
@@ -1461,6 +1481,8 @@ for edx in EDrounds:
     for thisComponent in EDbufferscreenComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
+    # hide mouse cursor
+    win.mouseVisible = False
     # check responses
     if bufferscreenkey.keys in ['', [], None]:  # No response was made
         bufferscreenkey.keys = None
@@ -1509,6 +1531,8 @@ currenttext = 'Eine Ihrer Entscheidungen lautete:\n\n"Das ' + str(levelcolorinwo
     'drücken sie bitte die linke Pfeiltaste.\nReagieren Sie bei jedem Buchstaben bitte so schnell und richtig wie möglich.\n\n'\
     'rechts = gleicher Buchstabe wie ' + str(levelinwordsList[finaln_tasklevel]) + ' zuvor\nlinks = nicht der gleiche Buchstabe wie zuvor\n\nDrücken Sie die Leertaste, um zu beginnen.'
 finaln_instructiontext.setText(currenttext)
+# hide mouse cursor
+win.mouseVisible = False
 # keep track of which components have finished
 finaln_instruction_Components = [finaln_instructiontext, finaln_instructionkey]
 for thisComponent in finaln_instruction_Components:
@@ -1617,6 +1641,8 @@ for this_finaln_nback_run in finaln_nback_run:
     finaln_fixcrosskey.keys = []
     finaln_fixcrosskey.rt = []
     _finaln_fixcrosskey_allKeys = []
+    # hide mouse cursor
+    win.mouseVisible = False
     # keep track of which components have finished
     finaln_fixcross_Components = [finaln_fixcross, finaln_fixcrosskey]
     for thisComponent in finaln_fixcross_Components:
@@ -1720,6 +1746,8 @@ for this_finaln_nback_run in finaln_nback_run:
     finaln_trial_resp.keys = []
     finaln_trial_resp.rt = []
     finaln_trial_allKey = []
+    # hide mouse cursor
+    win.mouseVisible = False
     # keep track of which components have finished
     finaln_trial_Components = [finaln_nback_trial, finaln_trial_resp]
     for thisComponent in finaln_trial_Components:
@@ -1836,7 +1864,8 @@ for this_finaln_nback_run in finaln_nback_run:
 
 # ------Prepare to start Routine "Goodbye"-------
 continueRoutine = True
-# update component parameters for each repeat
+# hide mouse cursor
+win.mouseVisible = False
 # keep track of which components have finished
 GoodbyeComponents = [GoodbyeText]
 for thisComponent in GoodbyeComponents:
@@ -1891,6 +1920,8 @@ while continueRoutine:
 for thisComponent in GoodbyeComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
+# make mouse cursor visible again
+win.mouseVisible = True
 
 # the Routine "Goodbye" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
