@@ -14,6 +14,5 @@ Individual subjective values (SV) of cognitive effort have been quantified using
 In the original study by Westbrook et al. [-@Westbrook2013], cognitive load was varied using the *N*-back task. 
 Participants had to decide whether repeating a higher *N*-back level for larger, fixed monetary reward, or a lower level for a smaller, varying reward. 
 In the current study, we want to use this paradigm to determine SVs of ER strategies.
-In doing so, we need to make an important change: we have to change the assumption that the easiest *N*-back level has the highest SV.
-That is necessary, because there is nothing like an objectively easier and less effortful strategy.
-As we have shown in previous studies, there are inter-individual differences in the preference of ER strategies [Scheffel2021].
+In doing so, we need to make an important change: we have to adapt the assumption that the easiest *N*-back level has the highest SV.
+As we have shown in previous studies, there are large inter-individual differences in the preference and perceived subjective effort of ER strategies [@Scheffel2021].
