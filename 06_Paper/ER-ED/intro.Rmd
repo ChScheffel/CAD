@@ -7,4 +7,7 @@ output: html_document
 # 1. Introduction
 
 [...]
+Individual subjective values of cognitive effort have been quantified using the cognitive effort discounting paradigm (COG-ED) [@Westbrook2013]. 
+
+## Adapting an effort discounting paradigm
 
