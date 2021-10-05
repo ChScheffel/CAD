@@ -4,5 +4,15 @@ author: "Christoph Scheffel"
 output: html_document
 ---
 
+# 1. Introduction
 
-Das ist nur eine Test-Intro
+[...]
+Individual subjective values (SV) of cognitive effort have been quantified using the cognitive effort discounting paradigm (COG-ED) [@Westbrook2013]. 
+
+## Adapting an effort discounting paradigm
+
+In the original study by Westbrook et al. [-@Westbrook2013], cognitive load was varied using the *N*-back task. 
+Participants had to decide whether repeating a higher *N*-back level for larger, fixed monetary reward, or a lower level for a smaller, varying reward. 
+In the current study, we want to use this paradigm to determine SVs of ER strategies.
+In doing so, we need to make an important change: we have to adapt the assumption that the easiest *N*-back level has the highest SV.
+As we have shown in previous studies, there are large inter-individual differences in the preference and perceived subjective effort of ER strategies [@Scheffel2021].
