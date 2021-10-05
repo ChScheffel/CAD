@@ -85,7 +85,7 @@ Participants were instructed to decide as realistically as possible, imaging the
 
 
 _Part three: ER choice._ <br>
-After the discounting part, participants could choose which of the three ER strategies (distraction, distancing or suppression) they wanted to reapply.
+After the discounting part, participants chose which of the three ER strategies (distraction, distancing or suppression) they wanted to reapply.
 Importantly, there were no further instruction, on what basis they should make their decision.
 
 
@@ -106,6 +106,12 @@ A complete list of all pictures and their classification into sets can be found 
 
 ## 2.5 Electromyography
 
+[...]
+
 ## 2.6 Psychometric measures
 
+[...]
+
 ## 2.7 Statistics 
+
+[...]
