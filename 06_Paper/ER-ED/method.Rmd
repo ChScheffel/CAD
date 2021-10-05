@@ -112,7 +112,9 @@ A complete list of all pictures and their classification into sets can be found 
 
 Two days after the T2 ER session, participants receive an email containing the link to the online survey. 
 This survey contains a number of questionnaires.
+General psychological well-being was assessed using the WHO-5 scale [@Bech2004; German version: @Braehler2007].
 Dispositional use of ER was assessed using the Emotion Regulation Questionnaire (ERQ) [@GrossJohn2003;German version: @Abler2009].
+For the assessment of ER ability we used the Flexible Emotion Regulation Scale (FlexER) [@Doerfel2019]. 
 
 
 ## 2.7 Statistics 
