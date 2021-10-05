@@ -113,6 +113,8 @@ This survey contained a number of questionnaires:
 General psychological well-being was assessed using the WHO-5 scale [@Bech2004; German version: @Braehler2007].
 Dispositional use of ER was assessed using the Emotion Regulation Questionnaire (ERQ) [@GrossJohn2003;German version: @Abler2009].
 For the assessment of ER ability we used the Flexible Emotion Regulation Scale (FlexER) [@Doerfel2019].
+Implicit theories of willpower in emotion control were assessed using the implicit theories questionnaire from Bernecker and Job [-@Bernecker2017] was used.
+
 To assess need for cognition, the short form of the Need for Cognition Scale [@Cacioppo1982; German version: @Bless1994] was used.
 
 
