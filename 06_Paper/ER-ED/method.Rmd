@@ -111,7 +111,9 @@ A complete list of all pictures and their classification into sets can be found 
 ## 2.6 Psychometric measures
 
 Two days after the T2 ER session, participants receive an email containing the link to the online survey. 
-This survey contains a variety of questionnaires.
+This survey contains a number of questionnaires.
+Dispositional use of ER was assessed using the Emotion Regulation Questionnaire (ERQ) [@GrossJohn2003;German version: @Abler2009].
+
 
 ## 2.7 Statistics 
 
