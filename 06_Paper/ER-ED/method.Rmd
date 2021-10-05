@@ -110,6 +110,7 @@ A complete list of all pictures and their classification into sets can be found 
 
 Two days after the T2 ER session, participants receive an email containing the link to the online survey. 
 This survey contained a number of questionnaires: General psychological well-being was assessed using the WHO-5 scale [@Bech2004; German version: @Braehler2007].
+To capture the construct of resilience, the 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; German version: @Sarubin2015] was used. 
 Dispositional use of ER was assessed using the Emotion Regulation Questionnaire (ERQ) [@GrossJohn2003;German version: @Abler2009].
 For the assessment of ER ability we used the Flexible Emotion Regulation Scale (FlexER) [@Doerfel2019].
 Implicit theories of willpower in emotion control were assessed using the implicit theories questionnaire from Bernecker and Job [-@Bernecker2017] was used.
