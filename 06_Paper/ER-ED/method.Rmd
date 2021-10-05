@@ -109,14 +109,13 @@ A complete list of all pictures and their classification into sets can be found 
 ## 2.6 Psychometric measures
 
 Two days after the T2 ER session, participants receive an email containing the link to the online survey. 
-This survey contained a number of questionnaires:
-General psychological well-being was assessed using the WHO-5 scale [@Bech2004; German version: @Braehler2007].
+This survey contained a number of questionnaires: General psychological well-being was assessed using the WHO-5 scale [@Bech2004; German version: @Braehler2007].
 Dispositional use of ER was assessed using the Emotion Regulation Questionnaire (ERQ) [@GrossJohn2003;German version: @Abler2009].
 For the assessment of ER ability we used the Flexible Emotion Regulation Scale (FlexER) [@Doerfel2019].
 Implicit theories of willpower in emotion control were assessed using the implicit theories questionnaire from Bernecker and Job [-@Bernecker2017] was used.
-
 To assess need for cognition, the short form of the Need for Cognition Scale [@Cacioppo1982; German version: @Bless1994] was used.
-
+To assess self-control, sum scores of the following questionnaires were used [@Paschke2016]: the Self-Regulation Scale (SRS) [@Schwarzer1999], the Brief Self-Control Scale (BSCS) @Tangney2004; German version: @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11) [@Patton1995; German version: @Hartmann2011].
+Attentional control was assessed using the Attentional Control Scale (ACS) [@Derryberry2002].
 
 ## 2.7 Statistics 
 
