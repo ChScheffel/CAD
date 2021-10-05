@@ -106,7 +106,7 @@ A complete list of all pictures and their classification into sets can be found 
 
 ## 2.5 Electromyography
 
-[...] <-- Anne tried to implement a sentence here. -->
+[...] <!-- Anne tried to implement a sentence here. -->
 
 ## 2.6 Psychometric measures
 
