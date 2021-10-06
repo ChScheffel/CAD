@@ -17,3 +17,4 @@ In the current study, we want to use this paradigm to determine SVs of ER strate
 In doing so, we need to make an important change: we have to adapt the assumption that the easiest *N*-back level has the highest SV.
 As we have shown in previous studies, there are large inter-individual differences in the preference and perceived subjective effort of ER strategies [@Scheffel2021].
 Moreover, there is nothing like the objectively easiest ER strategy.
+Therefore, we have to add an additional step were we 
