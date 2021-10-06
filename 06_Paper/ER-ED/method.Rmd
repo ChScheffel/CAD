@@ -55,7 +55,7 @@ The ER paradigm roughly consisted of three parts that will be described in the f
 
 _Part one: ER task._ <br>
 Part one could be described as standard ER task that followed a block design (see Figure X), similar to paradigms previously used by our group [@Scheffel2021]. 
-Participants were told to actively view neutral and negative pictures (see [2.4. Stimuli](##stimuli)) or to regulate all upcoming emotions by means of distraction, distancing and expressive suppression, respectively. 
+Participants were told to actively view neutral and negative pictures (see [2.4](##stimuli)) or to regulate all upcoming emotions by means of distraction, distancing and expressive suppression, respectively. 
 Every participant first had the condition "active viewing-neutral" that served as a baseline condition.
 During this block, 20 neutral pictures were presented.
 Participants were asked to "actively view all pictures and permit all emotions that may arise."
@@ -73,11 +73,8 @@ The order of the three regulation blocks (distraction, distancing, and suppressi
 
 _Part two: ER effort discounting._ <br>
 In the second part, ER effort discounting took place.
-The procedure of the discounting followed the COG-ED paradigm by Westbrook et al. [-@Westbrook2013] with an addition to be useful for the current study.
-We used an adaption that allowed the computation of SVs for different strategies without presuming that all individuals would inherently evaluate the same strategy as the easiest one.
-
-[...]
-For each possible pairing (distraction vs. distancing, distraction vs. suppression, and distancing vs. suppression), two strategies  with monetary values were presented.
+The procedure of the discounting followed the COG-ED paradigm by Westbrook et al. [-@Westbrook2013] with major change (see [1.1](##adapting an effort discounting paradigm)).
+We used the following adaption that allowed the computation of SVs for different strategies without presuming that all individuals would inherently evaluate the same strategy as the easiest one: For each possible pairing (distraction vs. distancing, distraction vs. suppression, and distancing vs. suppression), two strategies with monetary values were presented.
 The order of the comparisons was randomized.
 Because there is no strategy that is objectively more difficult, all comparisons began with 
 Participants were instructed to decide as realistically as possible, imaging the displayed money would really be up for election.
@@ -86,8 +83,7 @@ _Part three: ER choice._ <br>
 After the discounting part, participants chose which of the three ER strategies (distraction, distancing or suppression) they wanted to reapply.
 Importantly, there were no further instruction, on what basis they should make their decision.
 
-
-## 2.4. Stimuli
+## 2.4 Stimuli
 ```{r stimvalues, echo = FALSE}
 # import excel list with neutral and negative pictures
 # lists contain arousal and valence values of each picture
