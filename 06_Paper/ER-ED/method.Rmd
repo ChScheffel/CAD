@@ -73,7 +73,7 @@ The order of the three regulation blocks (distraction, distancing, and suppressi
 
 _Part two: ER effort discounting._ <br>
 In the second part, ER effort discounting took place.
-The procedure of the discounting followed the COG-ED paradigm by Westbrook et al. [-@Westbrook2013] with major change (see [1.1](##adapting an effort discounting paradigm)).
+The procedure of the discounting followed the COG-ED paradigm by Westbrook et al. [-@Westbrook2013] with major change.
 We used the following adaption that allowed the computation of SVs for different strategies without presuming that all individuals would inherently evaluate the same strategy as the easiest one: For each possible pairing (distraction vs. distancing, distraction vs. suppression, and distancing vs. suppression), two strategies with monetary values were presented.
 The order of the comparisons was randomized.
 Because there is no strategy that is objectively more difficult, all comparisons began with the option "1 EUR for strategy A or 1 EUR for strategy B".
