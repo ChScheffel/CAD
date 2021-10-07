@@ -20,3 +20,8 @@ Moreover, there is nothing like the objectively easiest ER strategy.
 Therefore, we have to add an additional step were the option with the higher subjective value is determined. 
 In this step, the same monetary value (i.e., 1 EUR) is assigned to both options.
 The assumption is that participants now choose the option that has the higher SV for them.
+In the next step we return to the original paradigm.
+The higher monetary value (i.e., 2 EUR) is assigned to the option that was not chosen in the first step and therefore is assumed to have the lower SV.
+
+
+## Hypotheses
