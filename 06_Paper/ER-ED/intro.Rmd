@@ -36,3 +36,4 @@ We also want to find out whether the SVs are associated with subjective and phys
 We expect that (1) distancing and distraction lead to higher decrease in emotional arousal (subjective ratings, corrugator and levator activity) than suppression, (2a) people select the ER strategy that is less effortful if they have a choice, (2b) distancing is subjectively effortful than distraction and suppression.
 Regarding SVs of ER strategies we expect that (3a) people chose to re-apply the strategy with the highest SV, (3b) SVs of strategies are predicted by subjective arousal and levator and corrugator activity and subjective effort.
 Regarding personality traits, we expect that (4a) self-regulation is associated with ER success and (4b) people with higher ER flexibility show no clearly preferred strategy in SVs. 
+<!-- to specific ? to unspecific? -->
