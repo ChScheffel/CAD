@@ -7,6 +7,7 @@ output: html_document
 # 1. Introduction
 
 [...]
+<!-- SVs wären gut um um besser sachen ausrechnen zu können-->
 Individual subjective values (SV) of cognitive effort have been quantified using the cognitive effort discounting paradigm (COG-ED) [@Westbrook2013]. 
 
 ## 1.1 ER strategies discounting
@@ -29,5 +30,6 @@ In case a participant has a clear preference for one strategy, the SV of this st
 But our paradigm can also account for the case that a person does not have a clear preference.
 Then no SV will be 1, but at least the SVs of all strategies can be interpreted as absolute values and in relation to the other strategy's SVs.
 The aim of the present study is to evaluate, if this paradigm is suitable for determining SVs of ER strategies. 
+We also want to find out whether the SVs are associated with subjective and physiological ER success, subjective effort, ER choice, and relevant personality traits.
 
 ## Hypotheses
