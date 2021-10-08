@@ -28,5 +28,6 @@ The SV of each strategy is calculated as the mean of this strategy's SV from all
 In case a participant has a clear preference for one strategy, the SV of this strategy will be 1.
 But our paradigm can also account for the case that a person does not have a clear preference.
 Then no SV will be 1, but at least the SVs of all strategies can be interpreted as absolute values and in relation to the other strategy's SVs.
+The aim of the present study is to evaluate, if this paradigm is suitable for determining SVs of ER strategies. 
 
 ## Hypotheses
