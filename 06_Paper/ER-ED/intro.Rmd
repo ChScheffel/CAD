@@ -29,7 +29,10 @@ The SV of each strategy is calculated as the mean of this strategy's SV from all
 In case a participant has a clear preference for one strategy, the SV of this strategy will be 1.
 But our paradigm can also account for the case that a person does not have a clear preference.
 Then no SV will be 1, but at least the SVs of all strategies can be interpreted as absolute values and in relation to the other strategy's SVs.
+
+## 1.2 The present study
 The aim of the present study is to evaluate, if this paradigm is suitable for determining SVs of ER strategies. 
 We also want to find out whether the SVs are associated with subjective and physiological ER success, subjective effort, ER choice, and relevant personality traits.
-
-## Hypotheses
+We expect that (1) distancing and distraction lead to higher decrease in emotional arousal (subjective ratings, corrugator and levator activity) than suppression, (2a) people select the ER strategy that is less effortful if they have a choice, (2b) distancing is subjectively effortful than distraction and suppression.
+Regarding SVs of ER strategies we expect that (3a) people chose to re-apply the strategy with the highest SV, (3b) SVs of strategies are predicted by subjective arousal and levator and corrugator activity and subjective effort.
+Regarding personality traits, we expect that (4a) self-regulation is associated with ER success and (4b) people with higher ER flexibility show no clearly preferred strategy in SVs. 
