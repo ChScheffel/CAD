@@ -22,6 +22,6 @@ In this step, the same monetary value (i.e., 1 EUR) is assigned to both options.
 The assumption is that participants now choose the option that has the higher SV for them.
 In the next step we return to the original paradigm.
 The higher monetary value (i.e., 2 EUR) is assigned to the option that was not chosen in the first step and therefore is assumed to have the lower SV.
-
+In the following steps, the lower value is changed in every iteration according to Westbrook et al. [-@Westbrook2013] until the indifference point is reached.
 
 ## Hypotheses
