@@ -426,22 +426,65 @@ And the last regression used the AUC of each participant's SV, the AUC of the NT
   dprime$d <- dprime$hitrate - dprime$falsealarmrate
   
   # ANOVA with three linear contrasts, contrasting the d’ of two n-back levels (2,3,4) at a time
+  # FIXME:  actually, I guess, we have a MANOVA here as we look at repeated measures of a subject's reaction time 
+  #         under different load levels (= time points)
   
       # make a temporary copy of the dprime data frame without 1-back
       
-      h1a_data <- dprime[dprime$level != 1,]
+      h1a_data <- dprime[dprime$level != 1,]      # Westbrook et al. exclude level 1, do you understand why?
       h1a_data$level <- as.factor(h1a_data$level)
       
       # define contrasts
       
-      contrasts(h1a_data$level) <- cbind(c(1,-1,0), c(0,1,-1), c(1,0,-1))
+      contrasts(h1a_data$level) <- cbind(c(1,-1,0), c(0,1,-1), c(1,0,-1))     # there are predefined contrasts that may fit like contr.sum(3); contr.treatment(); contr.poly() 
       
       # calculate ANOVA
       
-      hypothesis1a_anova <- summary(aov(h1a_data$d ~ h1a_data$level))
-      hypothesis1a_posthoc <- TukeyHSD(aov(h1a_data$d ~ h1a_data$level))
-      # TODO  check for posthoc test alternative
-      #       anova calculation
+      hypothesis1a_anova <- summary(aov(h1a_data$d ~ h1a_data$level))         # this calculates ANOVA without the specified contrasts and might be redundant
+      hypothesis1a_anova.lm <- summary.lm(aov(h1a_data$d ~ h1a_data$level))   # this gives you the contrasted result
+      hypothesis1a_posthoc <- TukeyHSD(aov(h1a_data$d ~ h1a_data$level))      # post hoc analyses should be redundant as we already contrasted the levels
+      
+  # FIXME:  actually, I guess, we have a MANOVA here as we have repeated measures of a subject's reaction time 
+  #         under different load levels (= time points)
+      library(ez) # compute repeated measurement ANOVA
+      h1a_data$subject <- factor(h1a_data$subject)
+      # if there are reasonable concerns that we have NAs within our data set, we need to exclude this data beforehand 
+      
+      # https://stackoverflow.com/questions/35891062/planned-contrasts-using-ezanova-output-in-r
+      # set orthogonal contrasts
+      options(contrasts = c("contr.sum", "contr.poly"))
+      hypothesis1a_Manova <- ezANOVA(h1a_data, dv = d, wid = subject, within = level, type = 3, return_aov = T) 
+      # I propose to use type-III sums of squares even if we do have a balanced design, but we may discuss that. 
+      # alternatively we could use afex, results might be plotted easier; it is also possible to set up a linear model
+      # TODO: find a way to plot means
+        # if Mauchly's Test for Sphericity is sign > report Greenhouse-Geisser Epsilon (GGe) or Huynh-Feldt-Epsilon (HFe)
+      
+      # get emmeans
+      library(emmeans)
+      # this only works without the manually defined contrasts in line 439
+      hypothesis1a_emm <- emmeans(hypothesis1a_Manova$aov, ~ level) 
+      # these means should be used for reporting/ plotting the means per load level
+  
+      # get the contrasts
+      pairs(hypothesis1a_emm, adjust = "Holm")
+      # or
+      contrast(hypothesis1a_emm, list(c1 = c(1,-1,0), c2 = c(1,0,-1), c3 = c(0,1,-1)))
+      
+      # alternatively, post hoc tests can be run
+      # as we have 3 levels in factor load level, we would run a fisher's least significant differences (FLSD)
+      hypothesis1a_fisher <- ezStats(h1a_data, dv = d, wid = subject, within = level, type = 3)
+  
+      #calculate and save mean differences
+      p1.p2 <- hypothesis1a_fisher$Mean[1] - hypothesis1a_fisher$Mean[2]
+      p1.p3 <- hypothesis1a_fisher$Mean[1] - hypothesis1a_fisher$Mean[3]
+      p2.p3 <- hypothesis1a_fisher$Mean[2] - hypothesis1a_fisher$Mean[3]
+      
+      #if absolute value is higher than fsld, the pairwise comparison is significant
+      abs(p1.p2) > hypothesis1a_fisher$FLSD[1]
+      abs(p1.p3) > hypothesis1a_fisher$FLSD[1]   
+      abs(p2.p3) > hypothesis1a_fisher$FLSD[1]   
+      
+      
       remove(h1a_data)
 
 ```
