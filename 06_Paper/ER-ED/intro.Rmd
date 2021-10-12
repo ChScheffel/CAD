@@ -7,12 +7,33 @@ output: html_document
 # 1. Introduction
 
 [...]
+<!-- SVs wären gut um um besser sachen ausrechnen zu können-->
 Individual subjective values (SV) of cognitive effort have been quantified using the cognitive effort discounting paradigm (COG-ED) [@Westbrook2013]. 
 
-## Adapting an effort discounting paradigm
+## 1.1 ER strategies discounting
 
 In the original study by Westbrook et al. [-@Westbrook2013], cognitive load was varied using the *N*-back task. 
 Participants had to decide whether repeating a higher *N*-back level for larger, fixed monetary reward, or a lower level for a smaller, varying reward. 
 In the current study, we want to use this paradigm to determine SVs of ER strategies.
 In doing so, we need to make an important change: we have to adapt the assumption that the easiest *N*-back level has the highest SV.
 As we have shown in previous studies, there are large inter-individual differences in the preference and perceived subjective effort of ER strategies [@Scheffel2021].
+Moreover, there is nothing like the objectively easiest ER strategy.
+Therefore, we have to add an additional step were the option with the higher subjective value is determined. 
+In this step, the same monetary value (i.e., 1 EUR) is assigned to both options.
+The assumption is that participants now choose the option that has the higher SV for them.
+In the next step we return to the original paradigm.
+The higher monetary value (i.e., 2 EUR) is assigned to the option that was not chosen in the first step and therefore is assumed to have the lower SV.
+In the following steps, the lower value is changed in every iteration according to Westbrook et al. [-@Westbrook2013] until the indifference point is reached.
+This procedure will be repeated until all strategies have been compared.
+The SV of each strategy is calculated as the mean of this strategy's SV from all comparisons.
+In case a participant has a clear preference for one strategy, the SV of this strategy will be 1.
+But our paradigm can also account for the case that a person does not have a clear preference.
+Then no SV will be 1, but at least the SVs of all strategies can be interpreted as absolute values and in relation to the other strategy's SVs.
+
+## 1.2 The present study
+The aim of the present study is to evaluate, if this paradigm is suitable for determining SVs of ER strategies. 
+We also want to find out whether the SVs are associated with subjective and physiological ER success, subjective effort, ER choice, and relevant personality traits.
+We expect that (1) distancing and distraction lead to higher decrease in emotional arousal (subjective ratings, corrugator and levator activity) than suppression, (2a) people select the ER strategy that is less effortful if they have a choice, (2b) distancing is subjectively effortful than distraction and suppression.
+Regarding SVs of ER strategies we expect that (3a) people chose to re-apply the strategy with the highest SV, (3b) SVs of strategies are predicted by subjective arousal and levator and corrugator activity and subjective effort.
+Regarding personality traits, we expect that (4a) self-regulation is associated with ER success and (4b) people with higher ER flexibility show no clearly preferred strategy in SVs. 
+<!-- to specific ? to unspecific? -->

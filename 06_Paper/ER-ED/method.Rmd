@@ -53,9 +53,9 @@ Study data were collected and managed using REDCap electronic data capture tools
 
 The ER paradigm roughly consisted of three parts that will be described in the following.
 
-_Part one: ER task._ <br>
+*Part one: ER task.* <br>
 Part one could be described as standard ER task that followed a block design (see Figure X), similar to paradigms previously used by our group [@Scheffel2021]. 
-Participants were told to actively view neutral and negative pictures (see [2.4. Stimuli](##stimuli)) or to regulate all upcoming emotions by means of distraction, distancing and expressive suppression, respectively. 
+Participants were told to actively view neutral and negative pictures (see [2.4](##stimuli)) or to regulate all upcoming emotions by means of distraction, distancing and expressive suppression, respectively. 
 Every participant first had the condition "active viewing-neutral" that served as a baseline condition.
 During this block, 20 neutral pictures were presented.
 Participants were asked to "actively view all pictures and permit all emotions that may arise."
@@ -71,25 +71,25 @@ All participants received written instruction and completed a training session.
 After the training session, participants were asked about their applied ER strategies to avoid misapplication.
 The order of the three regulation blocks (distraction, distancing, and suppression) was randomized between participants.
 
-_Part two: ER effort discounting._ <br>
+*Part two: ER effort discounting.* <br>
 In the second part, ER effort discounting took place.
-The procedure of the discounting followed the COG-ED paradigm by Westbrook et al. [-@Westbrook2013] with an addition to be useful for the current study.
-We used an adaption that allowed the computation of SVs for different strategies without presuming that all individuals would inherently evaluate the same strategy as the easiest one.
-
-[...]
-For each possible pairing (distraction vs. distancing, distraction vs. suppression, and distancing vs. suppression), two strategies  with monetary values were presented.
+The procedure of the discounting followed the COG-ED paradigm by Westbrook et al. [-@Westbrook2013] with major change.
+We used the following adaption that allowed the computation of SVs for different strategies without presuming that all individuals would inherently evaluate the same strategy as the easiest one: For each possible pairing (distraction vs. distancing, distraction vs. suppression, and distancing vs. suppression), two strategies with monetary values were presented.
 The order of the comparisons was randomized.
-Because there is no strategy that is objectively more difficult, all comparisons began with 
+Because there is no strategy that is objectively more difficult, we added an initial comparison that began with the option "1 EUR for strategy A or 1 EUR for strategy B".
+The strategy that was not chosen was assigned the value 2 EUR.
+From this point on, comparisons between strategies followed the original COG-ED paradigm [@Westbrook2013].
 Participants were instructed to decide as realistically as possible, imaging the displayed money would really be up for election.
 
-
-
-_Part three: ER choice._ <br>
+*Part three: ER choice.* <br>
 After the discounting part, participants chose which of the three ER strategies (distraction, distancing or suppression) they wanted to reapply.
 Importantly, there were no further instruction, on what basis they should make their decision.
+Participants should make their decision freely, according to the criteria they considered important for themselves.
+However, participants were asked to state the reasons for the decision afterwards.
+As soon as they had decided, they saw the respective instruction. 
+After, the block with another 20 negative pictures started.
 
-
-## 2.4. Stimuli
+## 2.4 Stimuli
 ```{r stimvalues, echo = FALSE}
 # import excel list with neutral and negative pictures
 # lists contain arousal and valence values of each picture
@@ -106,11 +106,21 @@ A complete list of all pictures and their classification into sets can be found 
 
 ## 2.5 Electromyography
 
-[...]
+Bipolar electromyography (EMG) was recorded in the region of the *corrugator supercilii* and the *levator labii* at 1000 Hz sampling rate using Brain Vision Recorder (Brain Products Inc., Gilching, Germany).
+Passive surface Ag/AgCl electrodes (XX mm diameter, XX distance between electrodes) filled with electrolyte gel were used.
+[...] <!-- Anne tried to implement a sentence here. -->
 
 ## 2.6 Psychometric measures
 
-[...]
+Two days after the T2 ER session, participants receive an email containing the link to the online survey. 
+This survey contained a number of questionnaires: General psychological well-being was assessed using the WHO-5 scale [@Bech2004; German version: @Braehler2007].
+To capture the construct of resilience, the 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; German version: @Sarubin2015] was used. 
+Dispositional use of ER was assessed using the Emotion Regulation Questionnaire (ERQ) [@GrossJohn2003;German version: @Abler2009].
+For the assessment of ER ability we used the Flexible Emotion Regulation Scale (FlexER) [@Doerfel2019].
+Implicit theories of willpower in emotion control were assessed using the implicit theories questionnaire from Bernecker and Job [-@Bernecker2017] was used.
+To assess need for cognition, the short form of the Need for Cognition Scale [@Cacioppo1982; German version: @Bless1994] was used.
+To assess self-control, sum scores of the following questionnaires were used [@Paschke2016]: the Self-Regulation Scale (SRS) [@Schwarzer1999], the Brief Self-Control Scale (BSCS) @Tangney2004; German version: @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11) [@Patton1995; German version: @Hartmann2011].
+Attentional control was assessed using the Attentional Control Scale (ACS) [@Derryberry2002].
 
 ## 2.7 Statistics 
 
