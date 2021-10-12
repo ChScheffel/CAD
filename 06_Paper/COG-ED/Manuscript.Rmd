@@ -8,6 +8,7 @@ bibliography      : ref_COG-ED.bib
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+# FIXME I propose to put the packages required here at the very beginning.
 library(bibtex)
 ```
 
@@ -81,6 +82,8 @@ However, since NFC is conceptually related to cognitive but not physical effort,
   library(tidyverse)    # plotting and managing data, "tidyverse" package
   library(bayestestR)   # computing area under the curve, "bayestestR" package
   library(papaja)       # APA conform output, "papaja" package
+  library(nlme)         # fitting nonlinear mixed-effects model
+# we could add the package versions here additionally
 
 ```
 
@@ -105,7 +108,7 @@ However, since NFC is conceptually related to cognitive but not physical effort,
                            LBvalue = double(), LBlevel = double(), RBvalue = double(), RBlevel = double())
 
   
-  # put relevant data into a dataframes
+  # put relevant data into data frames
   
   for (i in 1:length(datalist_nback)) {
     
@@ -139,13 +142,13 @@ However, since NFC is conceptually related to cognitive but not physical effort,
   data_nback[data_nback == "left"|data_nback == "right"] <- 1
   data_nback[data_nback == "None"] <- 0
   data_nback$response <- as.numeric(data_nback$response)
+  
   # the choice column will contain 1 for the left button and 2 for the right button
   data_ED[data_ED == "EDleftbutton"] <- 1
   data_ED[data_ED == "EDrightbutton"] <- 2
   data_ED$choice <- as.numeric(data_ED$choice)
   
   # since only the last choice of each comparison is relevant, we will keep only those rows
-  
   data_ED <- data_ED[data_ED$step == 6,]
   data_ED <- subset(data_ED, select = -c(step))
   
@@ -175,11 +178,18 @@ However, since NFC is conceptually related to cognitive but not physical effort,
 # Methods
 
 We used *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages *tidyverse* [@Wickham2019] and *basetestR* [@Makowski2019] for all our analyses.
+# FIXME add version no. and packages
 The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at github.com/ChScheffel/CERED.
 
 ## Questionnaires
 To assess perceived task load, we used the NASA Task Load Index (NTLX) [@Hart1988], a 6-item questionnaire with the dimensions mental load, physical load, effort, frustration, performance, and time pressure.
+FIXME: NTLX seems not to be the commonly used abbreviation. We my refer to NASA TLX / NASA-TLX or just TLX. We may provide more information (see Strobel et al. 2020):
+In the NASA-TLX, participants evaluate their subjective perception of the mental, physical and temporal svs of a particular task, as well as their performance, effort and frustration during the task on a 20-point scale for each dimension. In its original, the NASA-TLX also requires comparisons of two dimensions each. For this study, we relinquished the comparison due to time restrictions.
+
 Need for Cognition was assessed using the 16-item short form of the Need for Cognition Scale [@Bless1994; @Cacioppo1984].
+FIXME: We may need to add information on example items, rating scale and reliability (see diffpp):
+_Need for Cognition_ was assessed with the 16-item short version of the German NFC scale [@Bless1994]. Responses to each item (e.g., "Thinking is not my idea of fun", recoded) were recorded on a 7-point Likert scale ranging from -3 (completely disagree) to +3 (completely agree). The scale shows comparably high internal consistency [Cronbach’s $\alpha$ > .80; @Bless1994; @Fleischhauer2010]. 
+
 Several other personality questionnaires were used in this study but are the topic of the registered report for the second lab session regarding ED in emotion regulation tasks and will not be analyzed here.
 A full list of questionnaires and measures can be found in Appendix 1.
 
@@ -222,6 +232,7 @@ And the last regression used the AUC of each participant's SV, the AUC of the NT
 ```{r SVcomputation, echo=FALSE, message=FALSE, warning=FALSE}
 
   # apply the addition or subtraction of 0.015625 to the last choices
+# FIXME why do we have to do this?
 
   for (i in 1:nrow(data_ED)) {
     
@@ -377,6 +388,15 @@ And the last regression used the AUC of each participant's SV, the AUC of the NT
   }
   
   # z-transform the hit rate and the false alarm rate
+  # FIXME: What makes this transformation necessary? Why per n-back level separately? Is this the standard procedure?
+  # FIXME: for z-transformation we could use function scale: 
+  
+  # # create new variables
+  # dprime$falsealarmrate.z = dprime$hitrate.z =NA
+  # for (i in 1:4) {
+  #    dprime$hitrate.z[which(dprime$level == i)]        <- scale(dprime$hitrate[which(dprime$level == i)])
+  #    dprime$falsealarmrate.z[which(dprime$level == i)] <- scale(dprime$falsealarmrate[which(dprime$level == i)])
+  # }
   
   for (i in 1:4) {
     
@@ -420,6 +440,8 @@ And the last regression used the AUC of each participant's SV, the AUC of the NT
       
       hypothesis1a_anova <- summary(aov(h1a_data$d ~ h1a_data$level))
       hypothesis1a_posthoc <- TukeyHSD(aov(h1a_data$d ~ h1a_data$level))
+      # TODO  check for posthoc test alternative
+      #       anova calculation
       remove(h1a_data)
 
 ```
@@ -452,6 +474,11 @@ Tukey's test confirmed that *d'* was smaller for *...(and put in row 1/2/3 ->)* 
     rt <- rbind(rt, newdata)
     
   }
+
+# FIXME what about RT preprocessing
+  # correct / postcorrect     *see Westbrook et al. 2013, table 1: correct trials
+  # log-transformation
+  # valid answers: false alarm vs. missing -> plausible responses
 
   # ANOVA with three linear contrasts, contrasting the mean rt of two n-back levels (2,3,4) at a time
   
@@ -577,6 +604,78 @@ Physical load increased as well, but not as strongly (`r apa_print(hypothesis1c2
   # H2b: Subjective values decline with increasing n-back level, even after controlling for declining task
   # performance measured by signal detection d’ and reaction time.
 
+# define variables -------------------------------------------------------------
+# dependent variable:     SV                    numeric                 data_SV
+# indepenendent variable: n-back level [1-4]    numeric                       
+# controlled regressors:  d'                    numeric                 dprime
+#                         mRT                   numeric                 rt
+
+# get all relevant variables ---------------------------------------------------
+  
+h2b_data <- cbind(data_SV, dprime["d"], rt["meanrt"])
+
+# check and specify correct data types -----------------------------------------
+str(h2b_data)
+
+# center predictors ------------------------------------------------------------
+# center level 1 predictors
+# two ways: centering at the grand mean (CGM) vs. centering within cluster (CWC) = group mean centering
+# level 1 predictor (SV) is of substantive interest
+# > CWC
+
+# d'
+h2b_data$d.mwc <- ave(h2b_data$d, h2b_data$subject, FUN = function(x) mean(x, na.rm = T))
+h2b_data$d.cwc <- h2b_data$d - h2b_data$d.mwc
+
+# mRT
+h2b_data$meanrt.mwc <- ave(h2b_data$meanrt, h2b_data$subject, FUN = function(x) mean(x, na.rm = T))
+h2b_data$meanrt.cwc <- h2b_data$meanrt - h2b_data$meanrt.mwc
+
+# level
+h2b_data$level.mwc <- ave(h2b_data$level, h2b_data$subject, FUN = function(x) mean(x, na.rm = T))
+h2b_data$level.cwc <- h2b_data$level - h2b_data$level.mwc
+
+# no level 2 predictors
+
+# change global coding to orthogonal sum-to-zero contrast by -------------------
+options(contrasts = c("contr.sum", "contr.poly"))
+
+
+# null model -------------------------------------------------------------------
+# m0_h2b <- nlme(model = sv ~ 1,
+#                data = h2b_data,
+#                random = ~ 1 | subject, 
+#                method = "REML")
+
+# full model -------------------------------------------------------------------
+# random intercept vs. random slope ???
+# "subject-specific intercepts" speaks for random-slopes-model, as within this model 
+# the slope is allowed to vary between subjects 
+
+# m1_h2b <- nlme(sv ~ d.cwc + meanrt.cwc + level.cwc + (level.cwc| subject),
+#                data = h2b_data,
+#                fixed = ...,
+#                random = ...,
+#                control = ...,
+#                method = "REML")
+
+# initVals <- getInitial(sv ~ d.cwc + meanrt.cwc + level.cwc, data = h2b_data)
+
+# get initial values for mlm start
+fm.lm <- lm(sv ~ d.cwc + meanrt.cwc + level.cwc, h2b_data)
+st <- coef(fm.lm)
+
+m1_h2b <- nlme(sv ~ d.cwc + meanrt.cwc + level.cwc,
+               data = h2b_data,
+               #fixed = d.cwc + meanrt.cwc + level.cwc ~ 1,
+               fixed = list(d.cwc ~ 1, meanrt ~ 1, level.cwc ~ 1),
+               random = level.cwc ~ 1 | subject,
+               start = list(fixed = st[2:4]),
+               method = "REML")
+
+
+# change global coding to default ----------------------------------------------
+options(contrasts = c("contr.treatment", "contr.poly"))
 
 ```
 
