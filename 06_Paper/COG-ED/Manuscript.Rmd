@@ -6,7 +6,7 @@ output            : html_document
 bibliography      : ref_COG-ED.bib
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 
   knitr::opts_chunk$set(echo = TRUE)
   library(bibtex)
@@ -83,16 +83,6 @@ Regarding the associations of task load and ED we hypothesized that (2a) SVs dec
 And regarding individual differences in ED we hypothesized that (3a) SVs predict individual NFC scores, and (3b) perceived task load does not predict individual NFC scores.
 However, since NFC is conceptually related to cognitive but not physical effort, we added the hypothesis that (3c) perceived mental load and perceived effort predict individual NFC scores.
 
-```{r libraries, echo=FALSE, message=FALSE, warning=FALSE}
-
-  library(here)         # to set a directory without defined paths, "here" package
-  library(tidyverse)    # plotting and managing data, "tidyverse" package
-  library(bayestestR)   # computing area under the curve, "bayestestR" package
-  library(papaja)       # APA conform output, "papaja" package
-  library(nlme)         # fitting nonlinear mixed-effects model
-# we could add the package versions here additionally
-
-```
 
 ```{r import, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -149,6 +139,14 @@ However, since NFC is conceptually related to cognitive but not physical effort,
   data_nback[data_nback == "left"|data_nback == "right"] <- 1
   data_nback[data_nback == "None"] <- 0
   data_nback$response <- as.numeric(data_nback$response)
+  
+  # exclude trials after incorrect responses
+  
+  data_nback <- data_nback[-c(which(data_nback$correct == 1) + 1), ]
+  
+  # exclude trials with reaction times below 200 ms
+  
+  data_nback <- data_nback[-c(which(data_nback$rt < 0.2)), ]
   
   # the choice column will contain 1 for the left button and 2 for the right button
   data_ED[data_ED == "EDleftbutton"] <- 1
