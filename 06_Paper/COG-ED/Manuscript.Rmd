@@ -7,9 +7,16 @@ bibliography      : ref_COG-ED.bib
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-# FIXME I propose to put the packages required here at the very beginning.
-library(bibtex)
+
+  knitr::opts_chunk$set(echo = TRUE)
+  library(bibtex)
+  library(here)         # to set a directory without defined paths, "here" package
+  library(tidyverse)    # plotting and managing data, "tidyverse" package
+  library(bayestestR)   # computing area under the curve, "bayestestR" package
+  library(papaja)       # APA conform output, "papaja" package
+  library(nlme)         # fitting nonlinear mixed-effects model
+  # we will add the package versions before submission
+
 ```
 
 # Introduction
