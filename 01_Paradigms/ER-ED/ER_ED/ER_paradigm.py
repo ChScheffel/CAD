@@ -44,8 +44,8 @@ os.chdir(_thisDir)
 # Store info about the experiment session
 psychopyVersion = '2021.1.4'
 # two separate files for ER paradigm and ER discounting
-expName1 = 'ER_paradigm'  
-expName2 = 'ER_ED'
+expName1 = 'ER'  
+expName2 = 'ER'
 expInfo = {'participant': ''}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName1)
 if dlg.OK == False:
@@ -56,8 +56,8 @@ expInfo['psychopyVersion'] = psychopyVersion
 
 # Data file name stem = absolute path + name; later add .psyexp, .csv, .log, etc
 # For ER paradigm
-filename1 = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expName1, expInfo['date'])
-filename2 = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expName1, expInfo['date'])
+filename1 = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expName1)
+filename2 = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expName2)
 
 # An ExperimentHandler isn't essential but helps with data saving
 # For ER paradigm
