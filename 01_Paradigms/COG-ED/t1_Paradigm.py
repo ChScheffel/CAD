@@ -49,11 +49,11 @@ expInfo['psychopyVersion'] = psychopyVersion
 
 # Data file name stem = absolute path + name; later add .psyexp, .csv, .log, etc
 # For n-back
-filename1 = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['Participant'], expName1, expInfo['date'])
+filename1 = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['Participant'], expName1)
 # For Effort Discounting
-filename2 = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['Participant'], expName2, expInfo['date'])
+filename2 = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['Participant'], expName2)
 # For the final n-back level at the end that is randomly chosen
-filename3 = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['Participant'], expName3, expInfo['date'])
+filename3 = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['Participant'], expName3)
 
 # An ExperimentHandler isn't essential but helps with data saving
 # For n-back
