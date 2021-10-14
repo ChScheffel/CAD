@@ -56,8 +56,8 @@ expInfo['psychopyVersion'] = psychopyVersion
 
 # Data file name stem = absolute path + name; later add .psyexp, .csv, .log, etc
 # For ER paradigm
-filename1 = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expName1)
-filename2 = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expName2)
+filename1 = _thisDir + os.sep + u'data/%s_%s' % (expInfo['participant'], expName1)
+filename2 = _thisDir + os.sep + u'data/%s_%s' % (expInfo['participant'], expName2)
 
 # An ExperimentHandler isn't essential but helps with data saving
 # For ER paradigm
