@@ -218,14 +218,15 @@ Study data were collected and managed using REDCap electronic data capture tools
 ## Analysis
 We aimed to conduct all analysis as described in Westbrook et al. [-@Westbrook2013], but the level of detail was not always sufficient, so there might be deviations in terms of data cleaning and degrees of freedom in the statistical procedures.
 The performance measure *d'* was computed as the difference of the *z*-transformed hit rate and the *z*-transformed false alarm rate [@Macmillan1990].
+Reaction time (RT) data was trimmed by excluding all trials with responses faster than 200 ms, as the relevant cognitive processes could not have been completed before [@Ashby1980; @Whelan2008; @Berger2021].
+Post-error trials were also excluded, because RT on those trials is longer due to more cautious behaviour [@Dutilh2012; @Houtman2012].
 Declining performance was investigated by calculating an analysis of variance (ANOVA) with three linear contrasts comparing *d'* between two levels of 2-, 3-, and 4-back at a time.
-Another ANOVA with three linear contrasts was computed to compare the mean reaction time (RT) between two levels of 2-, 3-, and 4-back at a time.
+Another ANOVA with three linear contrasts was computed to compare the mean RT between two levels of 2-, 3-, and 4-back at a time.
 To investigate changes in NTLX ratings, six ANOVAs were computed, one for each NTLX subscale, and each with six linear contrasts comparing the ratings between two levels of 1-, 2-, 3-, and 4-back at a time.
 The SVs were calculated by adding or subtracting the final iteration value of 0.015625 from the monetary value of the flexible level for each ED round, depending on the participant's choice in the last iteration.
 Then, the final monetary values were divided by 2€, and the SV of each level per participant was computed by averaging all final monetary values of each level, regardless of whether it was fixed or flexible.
 An ANOVA with six linear contrasts was computed, comparing the SVs between two levels of 1-, 2-, 3-, and 4-back at a time.
 Each ANOVA in the analysis was followed up by a Tukey's test.
-# would it be possible to compare the originally calculated SV with our new one?
 To determine the influence of task performance in the association of SVs and n-back level, we set up a multi-level model.
 **MLM explanation goes here**
 The association of ED and NFC was done using three separate regressions.
@@ -237,7 +238,6 @@ And the last regression used the AUC of each participant's SV, the AUC of the NT
 ```{r SVcomputation, echo=FALSE, message=FALSE, warning=FALSE}
 
   # apply the addition or subtraction of 0.015625 to the last choices
-# FIXME why do we have to do this?
 
   for (i in 1:nrow(data_ED)) {
     
@@ -393,38 +393,16 @@ And the last regression used the AUC of each participant's SV, the AUC of the NT
   }
   
   # z-transform the hit rate and the false alarm rate
-  # FIXME: What makes this transformation necessary? Why per n-back level separately? Is this the standard procedure?
-  # FIXME: for z-transformation we could use function scale: 
   
-  # # create new variables
-  # dprime$falsealarmrate.z = dprime$hitrate.z =NA
-  # for (i in 1:4) {
-  #    dprime$hitrate.z[which(dprime$level == i)]        <- scale(dprime$hitrate[which(dprime$level == i)])
-  #    dprime$falsealarmrate.z[which(dprime$level == i)] <- scale(dprime$falsealarmrate[which(dprime$level == i)])
-  # }
+  dprime$falsealarmrate.z = NA
+  dprime$hitrate.z = NA
   
   for (i in 1:4) {
     
-    # calculate the mean and sd of hit rate and false alarm rate per n-back level i
+    dprime$hitrate.z[which(dprime$level == i)]        <- scale(dprime$hitrate[which(dprime$level == i)])
+    dprime$falsealarmrate.z[which(dprime$level == i)] <- scale(dprime$falsealarmrate[which(dprime$level == i)])
     
-    mean_hitrate <- mean(dprime$hitrate[dprime$level == i])
-    sd_hitrate <- sd(dprime$hitrate[dprime$level == i])
-    mean_falsealarmrate <- mean(dprime$falsealarmrate[dprime$level == i])
-    sd_falsealarmrate <- sd(dprime$falsealarmrate[dprime$level == i])
-    
-    for (j in 1:length(which(dprime$level == i))) {
-      
-      # z-transform each subject j's hit rate and false alarm rate within the level i
-      
-      dprime$hitrate[which(dprime$level == i)[j]] <- (dprime$hitrate[which(dprime$level == i)[j]] - mean_hitrate)/sd_hitrate
-      dprime$falsealarmrate[which(dprime$level == i)[j]] <- (dprime$falsealarmrate[which(dprime$level == i)[j]] -
-                                                               mean_falsealarmrate)/sd_falsealarmrate
-    }
   }
-  
-  # remove temporary variables
-  
-  remove(mean_hitrate, sd_hitrate, mean_falsealarmrate, sd_falsealarmrate)
   
   # calculate d'
   
