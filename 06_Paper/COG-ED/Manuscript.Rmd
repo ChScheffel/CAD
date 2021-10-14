@@ -132,21 +132,24 @@ However, since NFC is conceptually related to cognitive but not physical effort,
   # replace some columns with 'easy to work with' values
   
   # the target column will contain 1 for targets and 0 for all non-targets
+  
   data_nback[data_nback == "Target"] <- 1
   data_nback[data_nback == "Pretarget"|data_nback == "Lure"|data_nback == "Distractor"] <- 0
   data_nback$target <- as.numeric(data_nback$target)
+  
   # the response column will contain 1 for responses and 0 for all non-responses
+  
   data_nback[data_nback == "left"|data_nback == "right"] <- 1
   data_nback[data_nback == "None"] <- 0
   data_nback$response <- as.numeric(data_nback$response)
   
-  # exclude trials after incorrect responses
+  # create a new data frame for the data that is being used for reaction time analysis
+  # (we cannot exclude trials from the main data frame because the computation of d prime depends on hit-ratios, not reaction time)
   
-  data_nback <- data_nback[-c(which(data_nback$correct == 1) + 1), ]
+  # exclude trials after incorrect responses and with reaction times below 200 ms
   
-  # exclude trials with reaction times below 200 ms
-  
-  data_nback <- data_nback[-c(which(data_nback$rt < 0.2)), ]
+  data_RT <- data_nback[-c(which(data_nback$correct == 1) + 1), ]
+  data_RT <- data_RT[-c(which(data_RT$rt < 0.2)), ]
   
   # the choice column will contain 1 for the left button and 2 for the right button
   data_ED[data_ED == "EDleftbutton"] <- 1
@@ -183,18 +186,14 @@ However, since NFC is conceptually related to cognitive but not physical effort,
 # Methods
 
 We used *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages *tidyverse* [@Wickham2019] and *basetestR* [@Makowski2019] for all our analyses.
-# FIXME add version no. and packages
 The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at github.com/ChScheffel/CERED.
 
 ## Questionnaires
-To assess perceived task load, we used the NASA Task Load Index (NTLX) [@Hart1988], a 6-item questionnaire with the dimensions mental load, physical load, effort, frustration, performance, and time pressure.
-FIXME: NTLX seems not to be the commonly used abbreviation. We my refer to NASA TLX / NASA-TLX or just TLX. We may provide more information (see Strobel et al. 2020):
-In the NASA-TLX, participants evaluate their subjective perception of the mental, physical and temporal svs of a particular task, as well as their performance, effort and frustration during the task on a 20-point scale for each dimension. In its original, the NASA-TLX also requires comparisons of two dimensions each. For this study, we relinquished the comparison due to time restrictions.
-
+To assess perceived task load, we used the 6-item NASA Task Load Index (NASA-TLX) [@Hart1988].
+In the NASA-TLX, participants evaluate their subjective perception of mental load, physical load, effort, frustration, performance, and time pressure during the task on a 20-point scale.
 Need for Cognition was assessed using the 16-item short form of the Need for Cognition Scale [@Bless1994; @Cacioppo1984].
-FIXME: We may need to add information on example items, rating scale and reliability (see diffpp):
-_Need for Cognition_ was assessed with the 16-item short version of the German NFC scale [@Bless1994]. Responses to each item (e.g., "Thinking is not my idea of fun", recoded) were recorded on a 7-point Likert scale ranging from -3 (completely disagree) to +3 (completely agree). The scale shows comparably high internal consistency [Cronbach’s $\alpha$ > .80; @Bless1994; @Fleischhauer2010]. 
-
+Responses to each item (e.g., "Thinking is not my idea of fun", recoded) were recorded on a 7-point Likert scale ranging from -3 (completely disagree) to +3 (completely agree).
+The scale shows comparably high internal consistency [Cronbach’s $\alpha$ > .80; @Bless1994; @Fleischhauer2010].
 Several other personality questionnaires were used in this study but are the topic of the registered report for the second lab session regarding ED in emotion regulation tasks and will not be analyzed here.
 A full list of questionnaires and measures can be found in Appendix 1.
 
@@ -210,14 +209,14 @@ Then, they completed the ED procedure on screen, where each possible pairing of 
 Participants were instructed to decide as realistically as possible, because one of their choices from the last iteration steps would be randomly chosen for one final run of n-back.
 The level and its monetary value were presented on screen and participants completed one run, but this was only to incentivise truthful behaviour in the ED procedure, so the n-back data of this part was not analyzed.
 The second session consisted of an emotion regulation task with negative pictures and the instruction to suppress facial reactions, detach cognitively from the picture content, and distract oneself, respectively.
-The paradigm followed the same structure of task, ED procedure, and repetition of a random "level" as in session one. <!--CS: Achtung: das wurde verändert: Sie wiederhuolen nicht random ein Level sondern können sich nochmal frei entscheiden! -->
+The paradigm followed the same structure of task and ED procedure, but the emotion regulation strategy at the end was not randomly chosen, instaed participants could decide which strategy they wanted to use again.
 There were many more measures and hypotheses regarding session two, which will be the topic of a different registered report.
 Two days after the second session, participants received a link to the NFC scale and other personality questionnaires to provide a trait measure of preference for cognitive effort.
-Participants received 8€ per hour or course credit for participation, plus payment for the randomly chosen level.
+Participants received 30€ in total or course credit for participation.
 Study data were collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden [@Harris2009; @Harris2019].
 
 ## Analysis
-We conducted all analysis as described in Westbrook et al. [-@Westbrook2013].
+We aimed to conduct all analysis as described in Westbrook et al. [-@Westbrook2013], but the level of detail was not always sufficient, so there might be deviations in terms of data cleaning and degrees of freedom in the statistical procedures.
 The performance measure *d'* was computed as the difference of the *z*-transformed hit rate and the *z*-transformed false alarm rate [@Macmillan1990].
 Declining performance was investigated by calculating an analysis of variance (ANOVA) with three linear contrasts comparing *d'* between two levels of 2-, 3-, and 4-back at a time.
 Another ANOVA with three linear contrasts was computed to compare the mean reaction time (RT) between two levels of 2-, 3-, and 4-back at a time.
