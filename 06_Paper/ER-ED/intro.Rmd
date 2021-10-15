@@ -10,9 +10,9 @@ output: html_document
 <!-- Als Überleitung: Maladaptive ER Strategien zu ER Flexibility -->
 Implications of subjectively reported habitual use of emotion regulation strategies for affect and well-being have been discussed [@GrossJohn2003]. 
 Especially suppression is generally associated with poorer outcomes (i.e., more negative affect, lower general well-being), which led to the assumption of *adaptive* and *maladaptive* strategies.
-This postulation was challenged with the concept of ER flexibility [@Aldao2015].
-<!-- flexibility: etwas andere Sichtweise -->
-ER flexibility has been described as an approach to 
+This postulation was questioned with the concept of ER flexibility [@Aldao2015].
+*Maladaptive* now refers to inflexible strategy use or use of strategies that are hindering in the achievement of goals.
+<!-- Kommentare zu  ER Choice -->
 [...]
 <!-- Überleitung zu SVs-->
 Individual subjective values (SV) of cognitive effort have been quantified using the cognitive effort discounting paradigm (COG-ED) [@Westbrook2013]. 
