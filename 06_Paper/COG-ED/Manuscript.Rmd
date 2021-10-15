@@ -15,6 +15,7 @@ bibliography      : ref_COG-ED.bib
   library(bayestestR)   # computing area under the curve, "bayestestR" package
   library(papaja)       # APA conform output, "papaja" package
   library(nlme)         # fitting nonlinear mixed-effects model
+  library(ez)           # compute repeated measures ANOVA
   # we will add the package versions before submission
 
 ```
@@ -394,8 +395,8 @@ And the last regression used the AUC of each participant's SV, the AUC of the NT
   
   # z-transform the hit rate and the false alarm rate
   
-  dprime$falsealarmrate.z = NA
   dprime$hitrate.z = NA
+  dprime$falsealarmrate.z = NA
   
   for (i in 1:4) {
     
@@ -406,7 +407,7 @@ And the last regression used the AUC of each participant's SV, the AUC of the NT
   
   # calculate d'
   
-  dprime$d <- dprime$hitrate - dprime$falsealarmrate
+  dprime$d <- dprime$hitrate.z - dprime$falsealarmrate.z
   
   # ANOVA with three linear contrasts, contrasting the d’ of two n-back levels (2,3,4) at a time
   # FIXME:  actually, I guess, we have a rmANOVA here as we look at repeated measures of a subject's reaction time 
@@ -414,7 +415,7 @@ And the last regression used the AUC of each participant's SV, the AUC of the NT
   
       # make a temporary copy of the dprime data frame without 1-back
       
-      h1a_data <- dprime[dprime$level != 1,]      # FIXME: Westbrook et al. exclude level 1, do you understand why?
+      h1a_data <- dprime[dprime$level != 1, ]
       h1a_data$level <- as.factor(h1a_data$level)
       
       # define contrasts
@@ -428,7 +429,6 @@ And the last regression used the AUC of each participant's SV, the AUC of the NT
       hypothesis1a_posthoc <- TukeyHSD(aov(h1a_data$d ~ h1a_data$level))      # post hoc analyses should be redundant as we already contrasted the levels
       
   # FIXME:  rmANOVA
-      library(ez) # compute repeated measurement ANOVA
       h1a_data$subject <- factor(h1a_data$subject)
       # if there are reasonable concerns that we have NAs within our data set, we need to exclude this data beforehand 
       
