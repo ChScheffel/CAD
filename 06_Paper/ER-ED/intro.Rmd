@@ -7,7 +7,11 @@ output: html_document
 # 1. Introduction
 
 [...]
-Associations between subjectively reported habitual use of emotion regulation strategies <!-- Als Überleitung: Maladaptive ER Strategien zu ER Flexibility -->  
+<!-- Als Überleitung: Maladaptive ER Strategien zu ER Flexibility -->
+Implications of subjectively reported habitual use of emotion regulation strategies for affect and well-being have been discussed [@GrossJohn2003]. 
+Especially suppression is generally associated with poorer outcomes (i.e., more negative affect, lower general well-being), which led to the assumption of *adaptive* and *maladaptive* strategies.
+This postulation was challenged with the concept of ER flexibility [@Aldao2015].
+<!-- flexibility: etwas andere Sichtweise -->
 ER flexibility has been described as an approach to 
 [...]
 <!-- Überleitung zu SVs-->
