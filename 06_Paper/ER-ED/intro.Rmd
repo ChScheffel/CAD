@@ -7,7 +7,10 @@ output: html_document
 # 1. Introduction
 
 [...]
-<!-- SVs wären gut um um besser sachen ausrechnen zu können-->
+Associations between subjectively reported habitual use of emotion regulation strategies <!-- Als Überleitung: Maladaptive ER Strategien zu ER Flexibility -->  
+ER flexibility has been described as an approach to 
+[...]
+<!-- Überleitung zu SVs-->
 Individual subjective values (SV) of cognitive effort have been quantified using the cognitive effort discounting paradigm (COG-ED) [@Westbrook2013]. 
 
 ## 1.1 ER strategies discounting
