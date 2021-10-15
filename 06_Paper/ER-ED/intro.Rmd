@@ -10,8 +10,10 @@ output: html_document
 <!-- Als Überleitung: Maladaptive ER Strategien zu ER Flexibility -->
 Implications of subjectively reported habitual use of emotion regulation strategies for affect and well-being have been discussed [@GrossJohn2003]. 
 Especially suppression is generally associated with poorer outcomes (i.e., more negative affect, lower general well-being), which led to the assumption of *adaptive* and *maladaptive* strategies.
-This postulation was questioned with the concept of ER flexibility [@Aldao2015].
-*Maladaptive* now refers to inflexible strategy use or use of strategies that are hindering in the achievement of goals.
+This postulation was questioned with the concept of ER flexibility.
+*Maladaptive* now refers to inflexible strategy use or use of strategies that are hindering in the achievement of goals [@Aldao2015].
+There was now a greater focus on how ER strategies are being chosen.
+For example it was shown that the intensity of a stimulus or situation plays a role in the choice [@Sheppes2011].  
 <!-- Kommentare zu  ER Choice -->
 [...]
 <!-- Überleitung zu SVs-->
