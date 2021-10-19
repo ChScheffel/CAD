@@ -189,30 +189,31 @@ However, since NFC is conceptually related to cognitive but not physical effort,
 # Methods
 
 We used *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages *tidyverse* [@Wickham2019] and *basetestR* [@Makowski2019] for all our analyses.
-The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at github.com/ChScheffel/CERED.
+The R Markdown file used to analyze the data and write this document is freely available at github.com/ChScheffel/CERED.
+The data can be downloaded from osf.io/vnj8x/.
 
 ## Questionnaires
-To assess perceived task load, we used the 6-item NASA Task Load Index (NASA-TLX) [@Hart1988].
+To assess perceived task load, we will use the 6-item NASA Task Load Index (NASA-TLX) [@Hart1988].
 In the NASA-TLX, participants evaluate their subjective perception of mental load, physical load, effort, frustration, performance, and time pressure during the task on a 20-point scale.
-Need for Cognition was assessed using the 16-item short form of the Need for Cognition Scale [@Bless1994; @Cacioppo1984].
-Responses to each item (e.g., "Thinking is not my idea of fun", recoded) were recorded on a 7-point Likert scale ranging from -3 (completely disagree) to +3 (completely agree).
+Need for Cognition will be assessed using the 16-item short form of the Need for Cognition Scale [@Bless1994; @Cacioppo1984].
+Responses to each item (e.g., "Thinking is not my idea of fun", recoded) will be recorded on a 7-point Likert scale ranging from -3 (completely disagree) to +3 (completely agree).
 The scale shows comparably high internal consistency [Cronbach’s $\alpha$ > .80; @Bless1994; @Fleischhauer2010].
-Several other personality questionnaires were used in this study but are the topic of the registered report for the second lab session regarding ED in emotion regulation tasks and will not be analyzed here.
+Several other personality questionnaires will be used in this study but are the topic of the registered report for the second lab session regarding ED in emotion regulation tasks and will not be analyzed here.
 A full list of questionnaires and measures can be found in Appendix 1.
 
 ## Procedure
 Participants for the pilot study were recruited using the software *ORSEE* [@Greiner2015].
 The final sample consisted of $N=$ `r length(datalist_ED)` participants (`r round((table(data_quest$gender)[2]/length(datalist_ED))*100, digits = 1)`% female, $M=$`r round(mean(data_quest$age, na.rm = TRUE), digits = 1)`($SD=$`r round(sd(data_quest$age, na.rm = TRUE), digits = 1)`) years old).
-Each participant completed two sessions in the lab one week apart, and a battery of personality questionnaires at least two days after the second session.
+Each participant completed two sessions in the lab one week apart, and a battery of personality questionnaires two days after the second session.
 In the first session, participants provided informed consent and demographic data before completing the computer-based paradigm.
 The paradigm started with the n-back levels one to four, presented sequentially with two runs per level, consisting of 64 consonants (16 targets, 48 non-targets) per run.
-The levels were referred to by colour (1-back black, 2-back red, 3-back blue, 4-back green) to avoid anchor effects in the ED procedure.
-After each level, participants filled out the NTLX on a tablet to provide a state measure of cognitive effort.
+The levels were referred to by color (1-back black, 2-back red, 3-back blue, 4-back green) to avoid anchor effects in the ED procedure.
+After each level, participants filled out the NASA-TLX on a tablet to provide a state measure of cognitive effort.
 Then, they completed the ED procedure on screen, where each possible pairing of the four n-back levels was presented in a randomized order.
 Participants were instructed to decide as realistically as possible, because one of their choices from the last iteration steps would be randomly chosen for one final run of n-back.
-The level and its monetary value were presented on screen and participants completed one run, but this was only to incentivise truthful behaviour in the ED procedure, so the n-back data of this part was not analyzed.
+The level and its monetary value were presented on screen and participants completed one run, but this was only to incentivise truthful behavior in the ED procedure, so the n-back data of this part was not analyzed.
 The second session consisted of an emotion regulation task with negative pictures and the instruction to suppress facial reactions, detach cognitively from the picture content, and distract oneself, respectively.
-The paradigm followed the same structure of task and ED procedure, but the emotion regulation strategy at the end was not randomly chosen, instaed participants could decide which strategy they wanted to use again.
+The paradigm followed the same structure of task and ED procedure, but the emotion regulation strategy at the end was not randomly chosen, instead participants could decide which strategy they wanted to use again.
 There were many more measures and hypotheses regarding session two, which will be the topic of a different registered report.
 Two days after the second session, participants received a link to the NFC scale and other personality questionnaires to provide a trait measure of preference for cognitive effort.
 Participants received 30€ in total or course credit for participation.
@@ -222,20 +223,20 @@ Study data were collected and managed using REDCap electronic data capture tools
 We aimed to conduct all analysis as described in Westbrook et al. [-@Westbrook2013], but the level of detail was not always sufficient, so there might be deviations in terms of data cleaning and degrees of freedom in the statistical procedures.
 The performance measure *d'* was computed as the difference of the *z*-transformed hit rate and the *z*-transformed false alarm rate [@Macmillan1990].
 Reaction time (RT) data was trimmed by excluding all trials with responses faster than 200 ms, as the relevant cognitive processes could not have been completed before [@Ashby1980; @Whelan2008; @Berger2021].
-Post-error trials were also excluded, because RT on those trials is longer due to more cautious behaviour [@Dutilh2012; @Houtman2012].
-Declining performance was investigated by calculating an analysis of variance (ANOVA) with three linear contrasts comparing *d'* between two levels of 2-, 3-, and 4-back at a time.
-Another ANOVA with three linear contrasts was computed to compare the mean RT between two levels of 2-, 3-, and 4-back at a time.
-To investigate changes in NTLX ratings, six ANOVAs were computed, one for each NTLX subscale, and each with six linear contrasts comparing the ratings between two levels of 1-, 2-, 3-, and 4-back at a time.
+Post-error trials were also excluded, because RT on those trials is longer due to more cautious behavior [@Dutilh2012; @Houtman2012].
+Declining performance was investigated by calculating a repeated measures analysis of variance (rmANOVA) with three paired contrasts comparing *d'* between two levels of 2-, 3-, and 4-back at a time.
+Another rmANOVA with three paired contrasts was computed to compare the mean RT between two levels of 2-, 3-, and 4-back at a time.
+To investigate changes in NASA-TLX ratings, six rmANOVAs were computed, one for each NASA-TLX subscale, and each with six paired contrasts comparing the ratings between two levels of 1-, 2-, 3-, and 4-back at a time.
 The SVs were calculated by adding or subtracting the final iteration value of 0.015625 from the monetary value of the flexible level for each ED round, depending on the participant's choice in the last iteration.
 Then, the final monetary values were divided by 2€, and the SV of each level per participant was computed by averaging all final monetary values of each level, regardless of whether it was fixed or flexible.
-An ANOVA with six linear contrasts was computed, comparing the SVs between two levels of 1-, 2-, 3-, and 4-back at a time.
-Each ANOVA in the analysis was followed up by a Tukey's test.
+A rmANOVA with six paired contrasts was computed, comparing the SVs between two levels of 1-, 2-, 3-, and 4-back at a time.
+Tukey method was used for the paired contrasts of each rmANOVA, including *p*-value adjustment.
 To determine the influence of task performance in the association of SVs and n-back level, we set up a multi-level model.
 **MLM explanation goes here**
-The association of ED and NFC was done using three separate regressions.
+The association of ED and NFC was examined using three separate regressions.
 One regression used the AUC of each participant's SVs to predict their NFC score.
-The second regression additionally included the mean of the NTLX subscales' AUCs of each participant as a predictor.
-And the last regression used the AUC of each participant's SV, the AUC of the NTLX mental load subscale, and the AUC of the NTLX effort subscale to predict each participant's NFC score.
+The second regression additionally included the mean of the NASA-TLX subscales' AUCs of each participant as a predictor.
+And the last regression used the AUC of each participant's SV, the AUC of the NASA-TLX mental load subscale, and the AUC of the NASA-TLX effort subscale to predict each participant's NFC score.
 
 
 ```{r SVcomputation, echo=FALSE, message=FALSE, warning=FALSE}
@@ -439,12 +440,12 @@ And the last regression used the AUC of each participant's SV, the AUC of the NT
 
 ```
 
-# Results
+## Results of the pilot study
 
-## Associations of subjective and objective task load measures
-We first looked at how performance measures and NTLX ratings change as n-back levels increase.
-Linear contrasts ANOVAs revealed decreasing performance *d'* with increasing n-back level (`r apa_print(hypothesis1a_anova)$full_result`).
-Tukey's test confirmed that *d'* was smaller for *...(and put in row 1/2/3 ->)* (`r hypothesis1a_posthoc[["h1a_data$level"]][1,4]`).
+### Associations of subjective and objective task load measures
+We first looked at how performance measures and NASA-TLX ratings change as n-back levels increase.
+The rmANOVA revealed decreasing performance *d'* with increasing n-back level (`r apa_print(hypothesis1a_rmanova)$full_result`).
+Paired contrasts showed that *d'* was smaller for *...(and put in element 1/2/3 ->)* (`r apa_print(hypothesis1a_contrasts)$statistic[1]`).
 
 ```{r Hypothesis_1b, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -496,13 +497,13 @@ Tukey's test confirmed that *d'* was smaller for *...(and put in row 1/2/3 ->)* 
 
 ```
 
-Likewise, linear contrasts ANOVAs confirmed increases in RT with increasing n-back level (`r apa_print(hypothesis1b_anova)$full_result`).
-Tukey's test showed that this was the case for *...(and put in row 1/2/3 ->)* (`r hypothesis1b_posthoc[["h1b_data$level"]][1,4]`).
+Likewise, RT increased with increasing n-back level (`r apa_print(hypothesis1b_rmanova)$full_result`).
+Here, RTs were longer for *...(and put in element 1/2/3 ->)* (`r apa_print(hypothesis1b_contrasts)$statistic[1]`).
 Overall, the decreases in *d'* and increases in RT indicate the increase in objective task load with higher n-back levels.
 
 ```{r Hypothesis_1c, echo=FALSE, message=FALSE, warning=FALSE}
 
-  # H1c: Ratings on all NTLX dimensions increase with increasing n-back level.
+  # H1c: Ratings on all NASA-TLX dimensions increase with increasing n-back level.
 
   # compute index of rows in which the data sets change
   
@@ -514,7 +515,7 @@ Overall, the decreases in *d'* and increases in RT indicate the increase in obje
                           mental = double(), physical = double(), time = double(),
                           performance = double(), effort = double(), frustration = double())
   
-  # feed NTLX data per participant per level into data frame
+  # feed NASA-TLX data per participant per level into data frame
   
   for (i in 1:(length(setindex)-1)) {
     
@@ -533,7 +534,7 @@ Overall, the decreases in *d'* and increases in RT indicate the increase in obje
 
   # six ANOVAs with six linear contrasts, contrasting the subscale scores of two n-back levels (1,2,3,4) at a time
   
-      # make a temporary copy of the NTLX data frame
+      # make a temporary copy of the NASA-TLX data frame
       
       h1c_data <- data_ntlx
       h1c_data$level <- as.factor(h1c_data$level)
@@ -585,9 +586,8 @@ Overall, the decreases in *d'* and increases in RT indicate the increase in obje
       
 ```
 
-Increases in subjective task load were investigated with linear contrast ANOVAs for each NTLX subscale, now including 1-back.
-Perceived mental load increased with n-back (`r apa_print(hypothesis1c1_anova)$full_result`), especially from *...(and put in row 1/2/3/4/5/6 ->)* (`r hypothesis1c1_posthoc[["h1c_data$level"]][1,4]`).
-Physical load increased as well, but not as strongly (`r apa_print(hypothesis1c2_anova)$full_result`), mainly from *...(and put in row 1/2/3/4/5/6 ->)* (`r hypothesis1c2_posthoc[["h1c_data$level"]][1,4]`).
+Increases in subjective task load were investigated for each NASA-TLX subscale, now including 1-back.
+All subscales showed increases from 1-back to 4-back (mental: `r apa_print(hypothesis1c_mental_contrasts)$statistic$X1_X4`, physical: `r apa_print(hypothesis1c_pysical_contrasts)$statistic$X1_X4`, time: `r apa_print(hypothesis1c_time_contrasts)$statistic$X1_X4`, performance: `r apa_print(hypothesis1c_performance_contrasts)$statistic$X1_X4`, effort: `r apa_print(hypothesis1c_effort_contrasts)$statistic$X1_X4`, frustration: `r apa_print(hypothesis1c_frustration_contrasts)$statistic$X1_X4`).
 
 ```{r Hypothesis_2a, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -617,6 +617,11 @@ Physical load increased as well, but not as strongly (`r apa_print(hypothesis1c2
   remove(h2a_data)
 
 ```
+
+### Changes in subjective values depending on n-back level
+While the rmANOVA indicated significant differences between SVs depending on n-back level (`r apa_print(hypothesis2a_rmanova)$full_result`), paired contrasts indicated that this was not the case for every pair of n-back levels.
+SVs were higher for *n*-back than for *n*-back *insert row!!* (`r apa_print(hypothesis2a_contrasts)$statistic$X1_X4`) and for *n*-back (`r apa_print(hypothesis2a_contrasts)$statistic$X1_X4`).
+The SVs of all other n-back level pairs were not significantly different.
 
 ```{r Hypothesis_2b, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -737,92 +742,6 @@ Physical load increased as well, but not as strongly (`r apa_print(hypothesis1c2
                                            nfc = sum(nfc)))
   }
   
-# further preprocessing of nfc-data ---------------------------------------------
-  # FIXME: actually we would now
-  # 1. determine deviation from univariate normality using Shapiro Wilk test
-  # 2. normalize and standardize sum scores by Blom's formula (1954)
-  # 3. again determine deviation from univariate normality of data from second step using Shapiro Wilk test
-  # this would mean:
-  
-  # required scripts (might be best at the beginning, following the packages) --
-
-  ## for normalizing variables
-normalize.gen <- function(data, whichFormula=2, whichMeanSD=1) {
-  # normalizes DATA using one of the formulae:
-  #
-  # 1 = Van der Waerden (1952): r * / (n + 1)
-  # 2 = Blom (1954):           (r - 3/8) / (n + 1/4) (default)
-  # 3 = Bliss (1956; Rankit):  (r - 1/2) / n
-  # 4 = Tukey (1962):          (r - 1/3) / (n + 1/3)
-  #
-  # Ties will be treated as average, and the output will be rescaled
-  # to have mean = 0 and sd = 1, if you enter 1 for mean0.sd1 (default);
-  # if you want to keep the mean and sd of the original variable, enter 0.
-  
-  normalize = function(data,normalize.formula=whichFormula,mean0.sd1=whichMeanSD) {
-    r = rank(data, na.last="keep", ties.method = ("average"))
-    n = sum(!is.na(r))
-    
-    if (normalize.formula == 1)
-      x = r/(n+1)
-    if (normalize.formula == 2)
-      x = (r-3/8)/(n+1/4)
-    if (normalize.formula == 3)
-      x = (r-1/2)/n
-    if (normalize.formula == 4)
-      x = (r-1/3)/(n+1/3)
-    
-    if (mean0.sd1 == 1)
-      normal = qnorm(x, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
-    else
-      normal = qnorm(x, mean = mean(data,na.rm = T), sd = sd(data,na.rm = T), lower.tail = TRUE, log.p = FALSE)
-  }
-  
-  if (class(data)=="numeric") { 
-    normal=normalize(data,whichFormula,whichMeanSD)
-  } else {
-    normal=NULL
-    for (i in 1:dim(data)[2]) {
-      normal=cbind(normal,normalize(data[,i],whichFormula,whichMeanSD))
-    }
-    colnames(normal)=names(data)
-  }
-  
-  return(normal)
-  
-}
-
-  ## wrapper for shapiro.test() 
-sw <- function(x) {
-  x = data.frame(x)
-  d = dim(x)
-  n = names(x)
-  r = NULL
-  for (i in 1:dim(x)[2]) {
-    y = shapiro.test(x[,i])
-    v = cbind(y$statistic,y$p.value)
-    colnames(v) = c("W","p")
-    rownames(v) = n[i]
-    r = rbind(r,v)
-  }
-  return(round(r,3))
-}
-
-#------------------------------------------------------------------------------------
-
-#determine deviation from univariate normality using Shapiro Wilk test
-shapiro.summary = sw(data_nfc$nfc) 
-
-#normalize and standardize sum scores by Blom's formula (1954)
-data_nfc$nnfc = data.frame(normalize.gen(data_nfc$nfc))
-colnames(data_nfc$nnfc) = "nfc.normal"
-
-#determine deviation from univariate normality using Shapiro Wilk test
-shapiro.summary = rbind(shapiro.summary, sw(data_nfc$nnfc))
-
-# end --------------------------------------------------------------------------
-
-
   # merge the NFC data frame into the AUC data frame by row
   
   h3_data <- merge(h3_data, data_nfc)
@@ -833,20 +752,20 @@ shapiro.summary = rbind(shapiro.summary, sw(data_nfc$nnfc))
   
   # calculate linear model to estimate prediction of NFC by SVs
   
-  hypothesis3a.lm <- summary(lm(h3_data$nfc ~ h3_data$auc_sv))
+  hypothesis3a <- summary(lm(h3_data$nfc ~ h3_data$auc_sv))
   
-  # FIXME: additionally, we could calculate the multiple correlation between both variables
-  hypothesis3a.mcorr <- sqrt(hypothesis3a.lm$r.squared)
-  # this correlation seems surprisingly high ...
   
 
 ```
 
+The AUC of SVs predicted a significant amount of variance in individual NFC scores (`r apa_print(hypothesis3a)$statistic$modelfit$r2`, `r apa_print(hypothesis3a)$estimate$modelfit$r2`).
+An increase in one AUC value corresponded, on average, to an increase of `r round(hypothesis3a$coefficients[2], digits = 1)` on the NFC scale (`r apa_print(hypothesis3a)$estimate$h3_data_auc_sv`).
+
 ```{r Hypothesis_3b, echo=FALSE, message=FALSE, warning=FALSE}
 
-  # H3b: NTLX scores do not predict individual NCS scores.
+  # H3b: NASA-TLX scores do not predict individual NCS scores.
   
-  # create an index for the rows in which the participants change
+  # create an index for the rows in which the participant ID changes
 
   subjectindex <- c(1,which(data_ntlx$subject != dplyr::lag(data_ntlx$subject)),nrow(data_ntlx))
   
@@ -855,7 +774,7 @@ shapiro.summary = rbind(shapiro.summary, sw(data_nfc$nnfc))
   ntlx <- data.frame(subject = character(), auc_mental = double(), auc_physical = double(), auc_time = double(),
                           auc_performance = double(), auc_effort = double(), auc_frustration = double())
 
-  # calculate AUCs per NTLX subscale per participant
+  # calculate AUCs per NASA-TLX subscale per participant
 
   for (i in 1:(length(subjectindex)-1)) {
     
@@ -876,7 +795,7 @@ shapiro.summary = rbind(shapiro.summary, sw(data_nfc$nnfc))
     
   }
   
-  # add column containing the average of the NTLX subscale AUCs
+  # add column containing the average of the NASA-TLX subscale AUCs
   
   ntlx <- cbind(ntlx, auc_ntlx = rowMeans(ntlx[ ,grep("auc", colnames(ntlx))]))
   
@@ -888,15 +807,17 @@ shapiro.summary = rbind(shapiro.summary, sw(data_nfc$nnfc))
   
   remove(ntlx, newdata)
   
-  # compute multiple linear regression to predict NCS based on SV AUC and NTLX AUC
+  # compute multiple linear regression to predict NCS based on SV AUC and NASA-TLX AUC
   
   hypothesis3b <- summary(lm(h3_data$nfc ~ h3_data$auc_sv + h3_data$auc_ntlx))
 
 ```
 
+When including the AUC of all NASA-TLX subscales as a predictor, it could not explain any variance in NFC beyond the one explained by the SVs (`r apa_print(hypothesis3b)$statistic$modelfit$r2`, `r apa_print(hypothesis3b)$estimate$modelfit$r2`).
+
 ```{r Hypothesis_3c, echo=FALSE, message=FALSE, warning=FALSE}
 
-  # H3c: The NTLX dimensions effort and mental load predict individual NCS scores.
+  # H3c: The NASA-TLX dimensions effort and mental load predict individual NCS scores.
 
   # compute multiple linear regression to predict NCS based on SV AUC, Effort AUC and Mental Load AUC
   
@@ -904,3 +825,4 @@ shapiro.summary = rbind(shapiro.summary, sw(data_nfc$nnfc))
 
 ```
 
+However, when only taking the AUC of the mental and the AUC of the effort subscale of the NASA-TLX into account, it explained variance in NFC scores beyond SVs (`r apa_print(hypothesis3c)$statistic$modelfit$r2`, `r apa_print(hypothesis3c)$estimate$modelfit$r2`).
