@@ -84,7 +84,7 @@ Our hypotheses were derived from the results of Westbrook et al. [-@Westbrook201
 Regarding the associations of subjective and objective task load measures we hypothesized that (1a) performance measured by signal detection *d'* declines with increasing n-back level, (1b) performance measured by reaction time declines with increasing n-back level, and (1c) perceived task load increases with increasing n-back level.
 Regarding the associations of task load and ED we hypothesized that (2a) SVs decline with increasing n-back level, and (2b) SVs decline with increasing n-back level even after controlling for declining task performance.
 And regarding individual differences in ED we hypothesized that (3a) SVs predict individual NFC scores, and (3b) perceived task load does not predict individual NFC scores.
-However, since NFC is conceptually related to cognitive but not physical effort, we added the hypothesis that (3c) perceived mental load and perceived effort predict individual NFC scores.
+However, we propose that (3c) when taking individual preferences for different n-back levels into account, the prediction of NFC scores by SVs can be improved significantly.
 
 
 ```{r import, echo=FALSE, message=FALSE, warning=FALSE}
@@ -236,7 +236,7 @@ To determine the influence of task performance in the association of SVs and n-b
 The association of ED and NFC was examined using three separate regressions.
 One regression used the AUC of each participant's SVs to predict their NFC score.
 The second regression additionally included the mean of the NASA-TLX subscales' AUCs of each participant as a predictor.
-And the last regression used the AUC of each participant's SV, the AUC of the NASA-TLX mental load subscale, and the AUC of the NASA-TLX effort subscale to predict each participant's NFC score.
+And the last regression **insert method**.
 
 
 ```{r SVcomputation, echo=FALSE, message=FALSE, warning=FALSE}
@@ -817,11 +817,30 @@ When including the AUC of all NASA-TLX subscales as a predictor, it could not ex
 
 ```{r Hypothesis_3c, echo=FALSE, message=FALSE, warning=FALSE}
 
-  # H3c: The NASA-TLX dimensions effort and mental load predict individual NCS scores.
+  # H3c: When putting the SVs in descending order before computing the AUC, the prediction of NFC scores by SVs can be improved significantly.
 
-  # compute multiple linear regression to predict NCS based on SV AUC, Effort AUC and Mental Load AUC
+  # prepare empty data frame for the loop to feed into
+
+  h3c_data <- data.frame(subject = character(), auc_sv = double())
+
+  # calculate AUC of SVs per subject
   
-  hypothesis3c <- summary(lm(h3_data$nfc ~ h3_data$auc_sv + h3_data$auc_mental + h3_data$auc_effort))
+  for (i in 1:(length(subjectindex)-1)) {
+    
+    newdata <- data.frame(subject = data_SV$subject[subjectindex[i]],
+                          auc_sv = auc(data_SV$level[subjectindex[i]:(subjectindex[i+1]-1)], data_SV$sv[subjectindex[i]:(subjectindex[i+1]-1)],
+                                   method = "trapezoid", sort = TRUE))
+    h3c_data <- rbind(h3c_data, newdata)
+    
+  }
+
+  # merge the NFC data frame into the AUC data frame by row
+  
+  h3_data <- merge(h3_data, data_nfc)
+
+  # compute linear regression to predict NCS based on SV AUC
+  
+  hypothesis3c <- summary(lm(h3_data$nfc ~ h3_data$auc_sv))
 
 ```
 
