@@ -15,8 +15,8 @@ bibliography      : ref_COG-ED.bib
   library(bayestestR)   # computing area under the curve, "bayestestR" package
   library(papaja)       # APA conform output, "papaja" package
   library(nlme)         # fitting nonlinear mixed-effects model
-  library(ez)           # compute repeated measures ANOVA
-  library(emmeans)      # for custom contrasts in ANOVAs
+  library(afex)         # compute repeated measures ANOVA, "afex" package
+  library(emmeans)      # for custom contrasts in ANOVAs, "emmeans" package
 
   # we will add the package versions before submission
 
@@ -468,11 +468,6 @@ Tukey's test confirmed that *d'* was smaller for *...(and put in row 1/2/3 ->)* 
     
   }
 
-# FIXME what about RT preprocessing?
-  # correct / postcorrect     *see Westbrook et al. 2013, table 1: correct trials
-  # log-transformation
-  # valid answers: false alarm vs. missing -> plausible responses
-
   # ANOVA with three linear contrasts, contrasting the mean rt of two n-back levels (2,3,4) at a time
   
       # make a temporary copy of the rt data frame without 1-back
@@ -480,14 +475,23 @@ Tukey's test confirmed that *d'* was smaller for *...(and put in row 1/2/3 ->)* 
       h1b_data <- rt[rt$level != 1,]
       h1b_data$level <- as.factor(h1b_data$level)
       
-      # define contrasts
-      
-      contrasts(h1b_data$level) <- cbind(c(1,-1,0), c(0,1,-1), c(1,0,-1))
-      
       # calculate ANOVA
       
-      hypothesis1b_anova <- summary(aov(h1b_data$meanrt ~ h1b_data$level))
-      hypothesis1b_posthoc <- TukeyHSD(aov(h1b_data$meanrt ~ h1b_data$level))
+      hypothesis1b_rmanova <- afex::aov_ez(data = h1b_data,
+                                           dv = "meanrt",
+                                           id = "subject",
+                                           within = "level",
+                                           type = 3,
+                                           include_aov = TRUE)
+      
+      # specify contrasts
+      
+      hypothesis1b_emm <- emmeans(object = hypothesis1b_rmanova$aov,
+                                  specs = "level")
+      hypothesis1b_contrasts <- pairs(hypothesis1b_emm)
+    
+      # remove the temporary variable
+      
       remove(h1b_data)
 
 ```
@@ -534,46 +538,51 @@ Overall, the decreases in *d'* and increases in RT indicate the increase in obje
       h1c_data <- data_ntlx
       h1c_data$level <- as.factor(h1c_data$level)
       
-      # define contrasts
-      
-      contrasts(h1c_data$level) <- cbind(c(1,-1,0,0), c(0,1,-1,0), c(0,0,1,-1),
-                                         c(1,0,-1,0), c(1,0,0,-1), c(0,1,0,-1))
-      
       # calculate ANOVAs
       
-      hypothesis1c1_anova <- summary(aov(h1c_data$mental ~ h1c_data$level))
-      hypothesis1c1_posthoc <- TukeyHSD(aov(h1c_data$mental ~ h1c_data$level))
-
-      hypothesis1c2_anova <- summary(aov(h1c_data$physical ~ h1c_data$level))
-      hypothesis1c2_posthoc <- TukeyHSD(aov(h1c_data$physical ~ h1c_data$level))
-
-      hypothesis1c3_anova <- summary(aov(h1c_data$time ~ h1c_data$level))
-      hypothesis1c3_posthoc <- TukeyHSD(aov(h1c_data$time ~ h1c_data$level))
-
-      hypothesis1c4_anova <- summary(aov(h1c_data$performance ~ h1c_data$level))
-      hypothesis1c4_posthoc <- TukeyHSD(aov(h1c_data$performance ~ h1c_data$level))
-
-      hypothesis1c5_anova <- summary(aov(h1c_data$effort ~ h1c_data$level))
-      hypothesis1c5_posthoc <- TukeyHSD(aov(h1c_data$effort ~ h1c_data$level))
-
-      hypothesis1c6_anova <- summary(aov(h1c_data$frustration ~ h1c_data$level))
-      hypothesis1c6_posthoc <- TukeyHSD(aov(h1c_data$frustration ~ h1c_data$level))
+      hypothesis1c_mental_rmanova <- afex::aov_ez(data = h1c_data,
+                                                  dv = "mental", id = "subject", within = "level",
+                                                  type = 3, include_aov = TRUE)
+      hypothesis1c_physical_rmanova <- afex::aov_ez(data = h1c_data,
+                                                  dv = "physical", id = "subject", within = "level",
+                                                  type = 3, include_aov = TRUE)
+      hypothesis1c_time_rmanova <- afex::aov_ez(data = h1c_data,
+                                                  dv = "time", id = "subject", within = "level",
+                                                  type = 3, include_aov = TRUE)
+      hypothesis1c_performance_rmanova <- afex::aov_ez(data = h1c_data,
+                                                  dv = "performance", id = "subject", within = "level",
+                                                  type = 3, include_aov = TRUE)
+      hypothesis1c_effort_rmanova <- afex::aov_ez(data = h1c_data,
+                                                  dv = "effort", id = "subject", within = "level",
+                                                  type = 3, include_aov = TRUE)
+      hypothesis1c_frustration_rmanova <- afex::aov_ez(data = h1c_data,
+                                                  dv = "frustration", id = "subject", within = "level",
+                                                  type = 3, include_aov = TRUE)
       
-      # TODO: see H1a. 
-      num_vars <- c("mental", "physical", "time", "performance", "effort", "frustration")
-      h1c_data[num_vars] <- lapply(h1c_data[num_vars], as.numeric)
-      hypothesis1c_rmanova <- ezANOVA(h1c_data, dv = mental, wid = subject, within = level, 
-                                       type = 3, return_aov = T)
-      #...
+      # specify contrasts
       
-      # We may also run a rmMANOVA
-      # https://cran.r-project.org/web/packages/MANOVA.RM/vignettes/Introduction_to_MANOVA.RM.html
-      library(MANOVA.RM)
-      # we need to convert our data frame to clean wide or long format
+      hypothesis1c_emm <- emmeans(object = hypothesis1c_mental_rmanova$aov, specs = "level")
+      hypothesis1c_mental_contrasts <- pairs(hypothesis1c_emm)
       
+      hypothesis1c_emm <- emmeans(object = hypothesis1c_physical_rmanova$aov, specs = "level")
+      hypothesis1c_physical_contrasts <- pairs(hypothesis1c_emm)
       
-      remove(h1c_data)
-
+      hypothesis1c_emm <- emmeans(object = hypothesis1c_time_rmanova$aov, specs = "level")
+      hypothesis1c_time_contrasts <- pairs(hypothesis1c_emm)
+      
+      hypothesis1c_emm <- emmeans(object = hypothesis1c_performance_rmanova$aov, specs = "level")
+      hypothesis1c_peformance_contrasts <- pairs(hypothesis1c_emm)
+      
+      hypothesis1c_emm <- emmeans(object = hypothesis1c_effort_rmanova$aov, specs = "level")
+      hypothesis1c_effort_contrasts <- pairs(hypothesis1c_emm)
+      
+      hypothesis1c_emm <- emmeans(object = hypothesis1c_frustration_rmanova$aov, specs = "level")
+      hypothesis1c_frustration_contrasts <- pairs(hypothesis1c_emm)
+    
+      # remove the temporary variable
+      
+      remove(h1c_data, hypothesis1c_emm)
+      
 ```
 
 Increases in subjective task load were investigated with linear contrast ANOVAs for each NTLX subscale, now including 1-back.
@@ -591,15 +600,19 @@ Physical load increased as well, but not as strongly (`r apa_print(hypothesis1c2
   h2a_data <- data_SV
   h2a_data$level <- as.factor(h2a_data$level)
   
-  # define contrasts
+  # calculate ANOVA
   
-  contrasts(h2a_data$level) <- cbind(c(1,-1,0,0), c(0,1,-1,0), c(0,0,1,-1),
-                                     c(1,0,-1,0), c(1,0,0,-1), c(0,1,0,-1))
+  hypothesis2a_rmanova <- afex::aov_ez(data = h2a_data,
+                                       dv = "sv", id = "subject", within = "level",
+                                       type = 3, include_aov = TRUE)
   
-  # calculate ANOVAs
+  # specify contrasts
   
-  hypothesis2a_anova <- summary(aov(h2a_data$sv ~ h2a_data$level))
-  hypothesis2a_posthoc <- TukeyHSD(aov(h2a_data$sv ~ h2a_data$level))
+  hypothesis2a_emm <- emmeans(object = hypothesis2a_rmanova$aov,
+                              specs = "level")
+  hypothesis2a_contrasts <- pairs(hypothesis2a_emm)
+
+  # remove the temporary variable
   
   remove(h2a_data)
 
@@ -610,78 +623,78 @@ Physical load increased as well, but not as strongly (`r apa_print(hypothesis1c2
   # H2b: Subjective values decline with increasing n-back level, even after controlling for declining task
   # performance measured by signal detection d’ and reaction time.
 
-# define variables -------------------------------------------------------------
-# dependent variable:     SV                    numeric                 data_SV
-# indepenendent variable: n-back level [1-4]    numeric                       
-# controlled regressors:  d'                    numeric                 dprime
-#                         mRT                   numeric                 rt
-
-# get all relevant variables ---------------------------------------------------
+  # define variables -------------------------------------------------------------
+  # dependent variable:     SV                    numeric                 data_SV
+  # indepenendent variable: n-back level [1-4]    numeric                       
+  # controlled regressors:  d'                    numeric                 dprime
+  #                         mRT                   numeric                 rt
   
-h2b_data <- cbind(data_SV, dprime["d"], rt["meanrt"])
-
-# check and specify correct data types -----------------------------------------
-str(h2b_data)
-
-# center predictors ------------------------------------------------------------
-# center level 1 predictors
-# two ways: centering at the grand mean (CGM) vs. centering within cluster (CWC) = group mean centering
-# level 1 predictor (SV) is of substantive interest
-# > CWC
-
-# d'
-h2b_data$d.mwc <- ave(h2b_data$d, h2b_data$subject, FUN = function(x) mean(x, na.rm = T))
-h2b_data$d.cwc <- h2b_data$d - h2b_data$d.mwc
-
-# mRT
-h2b_data$meanrt.mwc <- ave(h2b_data$meanrt, h2b_data$subject, FUN = function(x) mean(x, na.rm = T))
-h2b_data$meanrt.cwc <- h2b_data$meanrt - h2b_data$meanrt.mwc
-
-# level
-h2b_data$level.mwc <- ave(h2b_data$level, h2b_data$subject, FUN = function(x) mean(x, na.rm = T))
-h2b_data$level.cwc <- h2b_data$level - h2b_data$level.mwc
-
-# no level 2 predictors
-
-# change global coding to orthogonal sum-to-zero contrast by -------------------
-options(contrasts = c("contr.sum", "contr.poly"))
-
-
-# null model -------------------------------------------------------------------
-# m0_h2b <- nlme(model = sv ~ 1,
-#                data = h2b_data,
-#                random = ~ 1 | subject, 
-#                method = "REML")
-
-# full model -------------------------------------------------------------------
-# random intercept vs. random slope ???
-# "subject-specific intercepts" speaks for random-slopes-model, as within this model 
-# the slope is allowed to vary between subjects 
-
-# m1_h2b <- nlme(sv ~ d.cwc + meanrt.cwc + level.cwc + (level.cwc| subject),
-#                data = h2b_data,
-#                fixed = ...,
-#                random = ...,
-#                control = ...,
-#                method = "REML")
-
-# initVals <- getInitial(sv ~ d.cwc + meanrt.cwc + level.cwc, data = h2b_data)
-
-# get initial values for mlm start
-fm.lm <- lm(sv ~ d.cwc + meanrt.cwc + level.cwc, h2b_data)
-st <- coef(fm.lm)
-
-m1_h2b <- nlme(sv ~ d.cwc + meanrt.cwc + level.cwc,
-               data = h2b_data,
-               #fixed = d.cwc + meanrt.cwc + level.cwc ~ 1,
-               fixed = list(d.cwc ~ 1, meanrt ~ 1, level.cwc ~ 1),
-               random = level.cwc ~ 1 | subject,
-               start = list(fixed = st[2:4]),
-               method = "REML")
-
-
-# change global coding to default ----------------------------------------------
-options(contrasts = c("contr.treatment", "contr.poly"))
+  # get all relevant variables ---------------------------------------------------
+    
+  h2b_data <- cbind(data_SV, dprime["d"], rt["meanrt"])
+  
+  # check and specify correct data types -----------------------------------------
+  str(h2b_data)
+  
+  # center predictors ------------------------------------------------------------
+  # center level 1 predictors
+  # two ways: centering at the grand mean (CGM) vs. centering within cluster (CWC) = group mean centering
+  # level 1 predictor (SV) is of substantive interest
+  # > CWC
+  
+  # d'
+  h2b_data$d.mwc <- ave(h2b_data$d, h2b_data$subject, FUN = function(x) mean(x, na.rm = T))
+  h2b_data$d.cwc <- h2b_data$d - h2b_data$d.mwc
+  
+  # mRT
+  h2b_data$meanrt.mwc <- ave(h2b_data$meanrt, h2b_data$subject, FUN = function(x) mean(x, na.rm = T))
+  h2b_data$meanrt.cwc <- h2b_data$meanrt - h2b_data$meanrt.mwc
+  
+  # level
+  h2b_data$level.mwc <- ave(h2b_data$level, h2b_data$subject, FUN = function(x) mean(x, na.rm = T))
+  h2b_data$level.cwc <- h2b_data$level - h2b_data$level.mwc
+  
+  # no level 2 predictors
+  
+  # change global coding to orthogonal sum-to-zero contrast by -------------------
+  options(contrasts = c("contr.sum", "contr.poly"))
+  
+  
+  # null model -------------------------------------------------------------------
+  # m0_h2b <- nlme(model = sv ~ 1,
+  #                data = h2b_data,
+  #                random = ~ 1 | subject, 
+  #                method = "REML")
+  
+  # full model -------------------------------------------------------------------
+  # random intercept vs. random slope ???
+  # "subject-specific intercepts" speaks for random-slopes-model, as within this model 
+  # the slope is allowed to vary between subjects 
+  
+  # m1_h2b <- nlme(sv ~ d.cwc + meanrt.cwc + level.cwc + (level.cwc| subject),
+  #                data = h2b_data,
+  #                fixed = ...,
+  #                random = ...,
+  #                control = ...,
+  #                method = "REML")
+  
+  # initVals <- getInitial(sv ~ d.cwc + meanrt.cwc + level.cwc, data = h2b_data)
+  
+  # get initial values for mlm start
+  fm.lm <- lm(sv ~ d.cwc + meanrt.cwc + level.cwc, h2b_data)
+  st <- coef(fm.lm)
+  
+  m1_h2b <- nlme(sv ~ d.cwc + meanrt.cwc + level.cwc,
+                 data = h2b_data,
+                 #fixed = d.cwc + meanrt.cwc + level.cwc ~ 1,
+                 fixed = list(d.cwc ~ 1, meanrt ~ 1, level.cwc ~ 1),
+                 random = level.cwc ~ 1 | subject,
+                 start = list(fixed = st[2:4]),
+                 method = "REML")
+  
+  
+  # change global coding to default ----------------------------------------------
+  options(contrasts = c("contr.treatment", "contr.poly"))
 
 ```
 
@@ -689,7 +702,7 @@ options(contrasts = c("contr.treatment", "contr.poly"))
 
   # H3a: Subjective values predict individual NCS scores.
 
-  # create an index for the rows in which the participants change
+  # create an index for the rows in which the participant ID changes
 
   subjectindex <- c(1,which(data_SV$subject != dplyr::lag(data_SV$subject)),nrow(data_SV))
 
