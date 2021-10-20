@@ -821,14 +821,14 @@ When including the AUC of all NASA-TLX subscales as a predictor, it could not ex
 
   # prepare empty data frame for the loop to feed into
 
-  h3c_data <- data.frame(subject = character(), auc_sv = double())
+  h3c_data <- data.frame(subject = character(), auc_sv_sorted = double())
 
   # calculate AUC of SVs per subject
   
   for (i in 1:(length(subjectindex)-1)) {
     
     newdata <- data.frame(subject = data_SV$subject[subjectindex[i]],
-                          auc_sv = auc(data_SV$level[subjectindex[i]:(subjectindex[i+1]-1)], data_SV$sv[subjectindex[i]:(subjectindex[i+1]-1)],
+                          auc_sv_sorted = auc(data_SV$level[subjectindex[i]:(subjectindex[i+1]-1)], data_SV$sv[subjectindex[i]:(subjectindex[i+1]-1)],
                                    method = "trapezoid", sort = TRUE))
     h3c_data <- rbind(h3c_data, newdata)
     
@@ -836,12 +836,16 @@ When including the AUC of all NASA-TLX subscales as a predictor, it could not ex
 
   # merge the NFC data frame into the AUC data frame by row
   
-  h3_data <- merge(h3_data, data_nfc)
+  h3_data <- merge(h3_data, h3c_data)
+  
+  # remove temporary variable
+  
+  remove(h3c_data)
 
   # compute linear regression to predict NCS based on SV AUC
   
-  hypothesis3c <- summary(lm(h3_data$nfc ~ h3_data$auc_sv))
+  hypothesis3c <- summary(lm(h3_data$nfc ~ h3_data$auc_sv_sorted))
 
 ```
 
-However, when only taking the AUC of the mental and the AUC of the effort subscale of the NASA-TLX into account, it explained variance in NFC scores beyond SVs (`r apa_print(hypothesis3c)$statistic$modelfit$r2`, `r apa_print(hypothesis3c)$estimate$modelfit$r2`).
+
