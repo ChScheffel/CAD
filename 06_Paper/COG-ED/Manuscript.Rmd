@@ -701,8 +701,30 @@ The SVs of all other n-back level pairs were not significantly different.
   
   # (3) if (1) and (2) do not help, start reducing the model stepwise
   
+  ## plot model fit of the final model ----
+  plot_model(mfinal_h2b, type = "diag")
+  
+  # FIXME: do we want to include  a table like Table 3. in Westbrook et al.?
+    # if we decide to include a table of mlm results, I propose to include a table with
+    # term/parameter - Beta - SE - p-value - random effects (SD)
+  
+  # TODO: Corinna go on here :) 
+    # -> get results for reporting
+    # -> get means for plotting, plot results (if requested)
+    # -> write methods
+    # -> write results
+    
+  # TODO: it would be easy to integrate NFC as level 2 predictor into the analysis
+    # to identify the personality influence on sv
+    # it goes in the same direction as hypothesis 3a, but would hold some more information
+    # a corresponding hypothesis could be
+    # "SVs decline stronger with increasing load level for individuals with low compared to high NFC scores" 
+    # What do you think?
+  
 
 ```
+
+### Changes in subjective values depend reliably on n-back level
 
 **something is wrong with the AUC calculation**
 
