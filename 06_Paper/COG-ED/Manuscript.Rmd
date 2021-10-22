@@ -726,8 +726,6 @@ The SVs of all other n-back level pairs were not significantly different.
 
 ### Changes in subjective values depend reliably on n-back level
 
-**something is wrong with the AUC calculation**
-
 ```{r AUC_demo, echo=FALSE, message=FALSE, warning=FALSE}
 
 require(gtools)
