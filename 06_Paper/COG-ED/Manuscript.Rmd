@@ -18,6 +18,9 @@ bibliography      : ref_COG-ED.bib
   library(afex)         # compute repeated measures ANOVA, "afex" package
   library(emmeans)      # for custom contrasts in ANOVAs, "emmeans" package
 
+  set_sum_contrasts()   # sets orthogonal contrasts for mixed-effects model 
+                        # and rmANOVA globally in order to get meaningful Type-III tests
+
   # we will add the package versions before submission
 
 ```
@@ -420,7 +423,6 @@ And the last regression **insert method**.
       h1a_data$level <- as.factor(h1a_data$level)
       
       # calculate ANOVA
-      
       hypothesis1a_rmanova <- afex::aov_ez(data = h1a_data,
                                            dv = "d",
                                            id = "subject",
@@ -428,10 +430,10 @@ And the last regression **insert method**.
                                            type = 3,
                                            include_aov = TRUE)
       
-      # specify contrasts
-      
+      # obtain estimated marginal means for ANOVA model
       hypothesis1a_emm <- emmeans(object = hypothesis1a_rmanova$aov,
                                   specs = "level")
+      # calculate pairwise comparisons on estimated marginal means
       hypothesis1a_contrasts <- pairs(hypothesis1a_emm)
     
       # remove the temporary variable
@@ -485,10 +487,10 @@ Paired contrasts showed that *d'* was smaller for *...(and put in element 1/2/3 
                                            type = 3,
                                            include_aov = TRUE)
       
-      # specify contrasts
-      
+      # obtain estimated marginal means for ANOVA model
       hypothesis1b_emm <- emmeans(object = hypothesis1b_rmanova$aov,
                                   specs = "level")
+      # calculate pairwise comparisons on estimated marginal means
       hypothesis1b_contrasts <- pairs(hypothesis1b_emm)
     
       # remove the temporary variable
@@ -560,7 +562,8 @@ Overall, the decreases in *d'* and increases in RT indicate the increase in obje
                                                   dv = "frustration", id = "subject", within = "level",
                                                   type = 3, include_aov = TRUE)
       
-      # specify contrasts
+      # obtain estimated marginal means for ANOVA model and
+      # calculate pairwise comparisons on estimated marginal means
       
       hypothesis1c_emm <- emmeans(object = hypothesis1c_mental_rmanova$aov, specs = "level")
       hypothesis1c_mental_contrasts <- pairs(hypothesis1c_emm)
@@ -606,10 +609,10 @@ All subscales showed increases from 1-back to 4-back (mental: `r apa_print(hypot
                                        dv = "sv", id = "subject", within = "level",
                                        type = 3, include_aov = TRUE)
   
-  # specify contrasts
-  
+  # obtain estimated marginal means for ANOVA model
   hypothesis2a_emm <- emmeans(object = hypothesis2a_rmanova$aov,
                               specs = "level")
+  # calculate pairwise comparisons on estimated marginal means
   hypothesis2a_contrasts <- pairs(hypothesis2a_emm)
 
   # remove the temporary variable
