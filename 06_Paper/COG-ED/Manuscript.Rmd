@@ -739,16 +739,14 @@ for (n in 1:(nrow(demo_data)/4)) {
   m = m + 4
 }
 subjectindex <- c(1,which(demo_data$subject != dplyr::lag(demo_data$subject)),nrow(demo_data))
-demo_sv <- data.frame(subject = character(), auc_sv = double(), auc_sv_unsorted = double(),
-                      ascent_mean = double(), ascent_sum = double(), auc_x_ascentmean = double())
+demo_sv <- data.frame(subject = character(), auc_sv = double(),
+                      ascent_mean = double(), ascent_sum = double(), auc_x_ascentmean = double(),
+                      auc_westbrook = double())
 for (i in 1:(length(subjectindex)-1)) {
   sv_sorted <- sort(demo_data$sv[subjectindex[i]:(subjectindex[i]+3)])
   newdata <- data.frame(subject = demo_data$subject[subjectindex[i]],
                         auc_sv = auc(demo_data$level[subjectindex[i]:(subjectindex[i]+3)], demo_data$sv[subjectindex[i]:(subjectindex[i]+3)],
                                    method = "trapezoid"),
-                        auc_sv_unsorted = (0.5 * (demo_data$sv[subjectindex[i]] + demo_data$sv[subjectindex[i]+1]) +
-                                               0.5 * (demo_data$sv[subjectindex[i]+1] + demo_data$sv[subjectindex[i]+2]) +
-                                               0.5 * (demo_data$sv[subjectindex[i]+2] + demo_data$sv[subjectindex[i]+3])),
                         auc_sv_sorted = (0.5 * (sv_sorted[1] + sv_sorted[2]) +
                                            0.5 * (sv_sorted[2] + sv_sorted[3]) +
                                            0.5 * (sv_sorted[3] + sv_sorted[4])),
@@ -761,9 +759,14 @@ for (i in 1:(length(subjectindex)-1)) {
                         auc_x_ascentmean = auc(demo_data$level[subjectindex[i]:(subjectindex[i]+3)], demo_data$sv[subjectindex[i]:(subjectindex[i]+3)],
                                                method = "trapezoid") * (((demo_data$sv[subjectindex[i]+3] - demo_data$sv[subjectindex[i]+2]) +
                                         (demo_data$sv[subjectindex[i]+2] - demo_data$sv[subjectindex[i]+1]) +
-                                        (demo_data$sv[subjectindex[i]+1] - demo_data$sv[subjectindex[i]]))/3))
+                                        (demo_data$sv[subjectindex[i]+1] - demo_data$sv[subjectindex[i]]))/3),
+                        auc_westbrook = (0.5 * (sv_sorted[1] + sv_sorted[2]) +
+                                           0.5 * (sv_sorted[1] + sv_sorted[3]) +
+                                           0.5 * (sv_sorted[1] + sv_sorted[4]))/3)
   demo_sv <- rbind(demo_sv, newdata)
 }
+demo_cor <- cor(demo_sv$auc_sv, demo_sv$auc_westbrook)
+
 ggplot(demo_data, aes(x=level, y=sv, group=subject)) +
   geom_line(aes(color=subject), size = 1)
 
