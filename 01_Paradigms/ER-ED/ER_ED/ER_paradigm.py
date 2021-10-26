@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
@@ -45,7 +45,7 @@ os.chdir(_thisDir)
 psychopyVersion = '2021.1.4'
 # two separate files for ER paradigm and ER discounting
 expName1 = 'ER'  
-expName2 = 'ER'
+expName2 = 'ED'
 expInfo = {'participant': ''}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName1)
 if dlg.OK == False:
@@ -154,7 +154,7 @@ trigger_3 = 3
 # Initialize components for Routine "WelcomeScreen"
 WelcomeScreenClock = core.Clock()
 WelcomeText = visual.TextStim(win=win, name='WelcomeText',
-    text='Willkommen!\n\nDas Experiment besteht aus zwei Teilen.\nIm ersten Teil werden Sie  Bilder betrachten und mittels verschiedener Strategien Ihre Emotionen regulieren.\n\nIm zweiten Teil werden Sie die verschiedenen Emotionsregulationsstrategien miteinander vergleichen.\n\nZum Forfahren Leertaste drücken.',
+    text='Willkommen!\n\nDas Experiment besteht aus zwei Teilen.\nIm ersten Teil werden Sie Bilder betrachten und mittels verschiedener Strategien Ihre Emotionen regulieren.\n\nIm zweiten Teil werden Sie die verschiedenen Emotionsregulationsstrategien miteinander vergleichen.\n\nZum Fortfahren drücken Sie bitte die Leertaste.',
     font='Open Sans',
     pos=(0, 0), height=0.03, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
@@ -167,7 +167,7 @@ WelcomeResponse = keyboard.Keyboard()
 # Initialize components for Routine "Instruction_View"
 Instruction_ViewClock = core.Clock()
 text_ActiveViewing = visual.TextStim(win=win, name='text_ActiveViewing',
-    text='ANSCHAUEN\n\nIn diesem Block werden Sie eine Reihe von Bildern sehen.\nDiese sollen Sie aufmerksam ansehen. Bitte reagieren\nSie natürlich auf die Bildinhalte ohne aufkommende \nEmotionen zu verändern!\n\nZum Starten des Blocks bitte Leertaste drücken.',
+    text='ANSCHAUEN\n\nIn diesem Block werden Sie eine Reihe von Bildern sehen.\nDiese sollen Sie aufmerksam ansehen. Bitte reagieren\nSie natürlich auf die Bildinhalte, ohne aufkommende \nEmotionen zu verändern!\n\nZum Starten des Blocks drücken Sie bitte die Leertaste.',
     font='Open Sans',
     pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
@@ -336,7 +336,7 @@ EDstorebutton = []
 # Initialize components for Routine "Choice_reapply"
 Choice_reapplyClock = core.Clock()
 text_choice = visual.TextStim(win=win, name='text_choice',
-    text='Nun werden Sie zum letzten Mal eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen und dabei eine der vorherigen Strategien anwenden. Sie können sich nun entscheiden, welche der drei Strategien Sie einsetzen möchten.\n\nEntscheiden Sie sich bitte nun for eine der drei Strategien.\n\nDrücken Sie bitte die Taste\n1    für Ablenken\n2    für Distanzieren\n3    für Unterdrücken',
+    text='Nun werden Sie zum letzten Mal eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen und dabei eine der vorherigen Strategien anwenden. Sie können sich nun entscheiden, welche der drei Strategien Sie einsetzen möchten.\n\nEntscheiden Sie sich bitte nun für eine der drei Strategien.\n\nDrücken Sie bitte die Taste\n1    für Ablenken\n2    für Distanzieren\n3    für Unterdrücken',
     font='Open Sans',
     pos=(0, 0), height=0.04, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
@@ -937,7 +937,7 @@ for thisBlocks_reg in blocks_reg:
     # ------Prepare to start Routine "Instruction_Reg"-------
     continueRoutine = True
     # update component parameters for each repeat
-    text_Instruction.setText(instr_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + '\n' + instr_2 + '\n\n' + 'Bitte konzentrieren Sie Ihre Regulationsbemühungen nur auf das Bild, nicht aber auf die Zeiträume zwischen den Bildern.' + '\n\n' + 'Zum Starten des Blocks Leertaste dürcken'
+    text_Instruction.setText(instr_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + '\n' + instr_2 + '\n\n' + 'Bitte konzentrieren Sie Ihre Regulationsbemühungen nur auf das Bild, nicht aber auf die Zeiträume zwischen den Bildern.' + '\n\n' + 'Zum Starten des Blocks Leertaste drücken'
 )
     instr_reg_resp.keys = []
     instr_reg_resp.rt = []
@@ -1612,7 +1612,7 @@ for edx in EDrounds:
                 # now adapt the value of the right button depending on the previous choice
                 if Currentstep == 1:
                     # set the right button to 1€ (because this does not fit in with the iteration process yet)
-                    RB = str(format(EDsteps[1],'.2f')) + ' € \n\nfür das Strategie \n\n' + str(EDstratcompList[EDcomps[edx]+1])
+                    RB = str(format(EDsteps[1],'.2f')) + ' € \n\nfür Strategie \n\n' + str(EDstratcompList[EDcomps[edx]+1])
                     oldvalue = EDsteps[1]
                 # iteration process
                 else:
@@ -2014,8 +2014,8 @@ elif resp_choice.keys == '2':
     instr_choice_2 = 'Nehmen Sie die Position eines uninvolvierten Beobachters ein. Denken Sie über das Bild in einer neutralen Weise nach.'
 elif resp_choice.keys == '3':
     instr_choice_1 = 'UNTERDRÜCKEN'
-    instr_choice_2 = 'Unterdrücken Sie alle aufkommenden Emotionen. Wenn Sie also die Bilder ansehen, verhalten Sie sich so, dass eine außenstehende Person nicht sehen kann, welche Emotionen Sie gerade empfinden.'
-text_instr_choice.setText(instr_choice_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + '\n' + instr_choice_2 + '\n\n' + 'Bitte konzentrieren Sie Ihre Regulationsbemühungen nur auf das Bild, nicht aber auf die Zeiträume zwischen den Bildern.' + '\n\n' + 'Zum Starten des Blocks Leertaste dürcken')
+    instr_choice_2 = 'Unterdrücken Sie alle aufkommenden emotionalen Ausdrücke. Wenn Sie also die Bilder ansehen, verhalten Sie sich so, dass eine außenstehende Person nicht sehen kann, welche Emotionen Sie gerade empfinden.'
+text_instr_choice.setText(instr_choice_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + '\n' + instr_choice_2 + '\n\n' + 'Bitte konzentrieren Sie Ihre Regulationsbemühungen nur auf das Bild, nicht aber auf die Zeiträume zwischen den Bildern.' + '\n\n' + 'Zum Starten des Blocks Leertaste drücken')
 key_resp.keys = []
 key_resp.rt = []
 _key_resp_allKeys = []
