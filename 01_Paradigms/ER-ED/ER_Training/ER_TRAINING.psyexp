@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" ?>
-<PsychoPy2experiment encoding="utf-8" version="2021.1.4">
+<PsychoPy2experiment encoding="utf-8" version="2021.2.3">
   <Settings>
     <Param name="Audio latency priority" updates="None" val="use prefs" valType="str"/>
     <Param name="Audio lib" updates="None" val="use prefs" valType="str"/>
@@ -16,6 +16,7 @@
     <Param name="Resources" updates="None" val="[]" valType="list"/>
     <Param name="Save csv file" updates="None" val="False" valType="bool"/>
     <Param name="Save excel file" updates="None" val="False" valType="bool"/>
+    <Param name="Save hdf5 file" updates="None" val="False" valType="bool"/>
     <Param name="Save log file" updates="None" val="True" valType="bool"/>
     <Param name="Save psydat file" updates="None" val="True" valType="bool"/>
     <Param name="Save wide csv file" updates="None" val="True" valType="bool"/>
@@ -28,9 +29,29 @@
     <Param name="blendMode" updates="None" val="avg" valType="str"/>
     <Param name="color" updates="None" val="$[0,0,0]" valType="color"/>
     <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
+    <Param name="elAddress" updates="None" val="100.1.1.1" valType="str"/>
+    <Param name="elDataFiltering" updates="None" val="FILTER_LEVEL_2" valType="str"/>
+    <Param name="elLiveFiltering" updates="None" val="FILTER_LEVEL_OFF" valType="str"/>
+    <Param name="elModel" updates="None" val="EYELINK 1000 DESKTOP" valType="str"/>
+    <Param name="elPupilAlgorithm" updates="None" val="ELLIPSE_FIT" valType="str"/>
+    <Param name="elPupilMeasure" updates="None" val="PUPIL_AREA" valType="str"/>
+    <Param name="elSampleRate" updates="None" val="1000" valType="num"/>
+    <Param name="elSimMode" updates="None" val="False" valType="bool"/>
+    <Param name="elTrackEyes" updates="None" val="RIGHT_EYE" valType="str"/>
+    <Param name="elTrackingMode" updates="None" val="PUPIL_CR_TRACKING" valType="str"/>
     <Param name="expName" updates="None" val="ER_paradigm" valType="str"/>
     <Param name="exportHTML" updates="None" val="on Sync" valType="str"/>
+    <Param name="eyetracker" updates="None" val="None" valType="str"/>
+    <Param name="gpAddress" updates="None" val="127.0.0.1" valType="str"/>
+    <Param name="gpPort" updates="None" val="4242" valType="num"/>
     <Param name="logging level" updates="None" val="exp" valType="code"/>
+    <Param name="mgBlink" updates="None" val="MIDDLE_BUTTON" valType="list"/>
+    <Param name="mgMove" updates="None" val="CONTINUOUS" valType="str"/>
+    <Param name="mgSaccade" updates="None" val="0.5" valType="num"/>
+    <Param name="tbLicenseFile" updates="None" val="" valType="str"/>
+    <Param name="tbModel" updates="None" val="" valType="str"/>
+    <Param name="tbSampleRate" updates="None" val="60" valType="num"/>
+    <Param name="tbSerialNo" updates="None" val="" valType="str"/>
   </Settings>
   <Routines>
     <Routine name="WelcomeScreen">
@@ -55,7 +76,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="num"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="Willkommen!&amp;#10;&amp;#10;In diesem Training sollen Sie drei Emotionsregulations-Strategien kennen lernen und diese erproben. Außerdem sollen Sie die verschiedenen Fragen am Ende jedes Blockes kennen lernen.&amp;#10;&amp;#10;Während des Experimentes werden noch keine Messungen vorgenommen.&amp;#10;&amp;#10;Zum Forfahren Leertaste drücken." valType="str"/>
+        <Param name="text" updates="constant" val="Willkommen!&amp;#10;&amp;#10;In diesem Training sollen Sie drei Emotionsregulations-Strategien kennen lernen und diese erproben. Außerdem sollen Sie die verschiedenen Fragen am Ende jedes Blockes kennen lernen.&amp;#10;&amp;#10;Während des Experimentes werden noch keine Messungen vorgenommen.&amp;#10;&amp;#10;Zum Fortfahren Leertaste drücken." valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
@@ -143,6 +164,7 @@
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
         <Param name="granularity" updates="constant" val="0" valType="num"/>
+        <Param name="initVal" updates="None" val="" valType="code"/>
         <Param name="labels" updates="constant" val="(&quot;sehr gering&quot;, &quot;sehr hoch&quot;)" valType="list"/>
         <Param name="letterHeight" updates="constant" val="0.05" valType="num"/>
         <Param name="name" updates="None" val="slider_arousal" valType="code"/>
@@ -161,7 +183,7 @@
         <Param name="storeRating" updates="constant" val="True" valType="bool"/>
         <Param name="storeRatingTime" updates="constant" val="True" valType="bool"/>
         <Param name="styleTweaks" updates="constant" val="()" valType="list"/>
-        <Param name="styles" updates="constant" val="rating" valType="str"/>
+        <Param name="styles" updates="constant" val="slider" valType="str"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="ticks" updates="constant" val="(0,400)" valType="list"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
@@ -205,6 +227,7 @@
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
         <Param name="granularity" updates="constant" val="0" valType="num"/>
+        <Param name="initVal" updates="None" val="" valType="code"/>
         <Param name="labels" updates="constant" val="(&quot;sehr gering&quot;,&quot;sehr hoch&quot;)" valType="list"/>
         <Param name="letterHeight" updates="constant" val="0.05" valType="num"/>
         <Param name="name" updates="None" val="slider_effort" valType="code"/>
@@ -223,7 +246,7 @@
         <Param name="storeRating" updates="constant" val="True" valType="bool"/>
         <Param name="storeRatingTime" updates="constant" val="True" valType="bool"/>
         <Param name="styleTweaks" updates="constant" val="()" valType="list"/>
-        <Param name="styles" updates="constant" val="rating" valType="str"/>
+        <Param name="styles" updates="constant" val="slider" valType="str"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="ticks" updates="constant" val="(0,400)" valType="list"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
@@ -251,7 +274,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="num"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="set every repeat" val="$instr_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + '\n' + instr_2 + '\n\n' + instr_3 + '\n\n' + 'Zum Starten des Blocks Leertaste dürcken'" valType="str"/>
+        <Param name="text" updates="set every repeat" val="$instr_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + '\n' + instr_2 + '\n\n' + instr_3 + '\n\n' + 'Zum Starten des Blocks Leertaste drücken'" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
