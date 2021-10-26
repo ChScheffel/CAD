@@ -394,6 +394,8 @@ continueRoutine = True
 WelcomeResponse.keys = []
 WelcomeResponse.rt = []
 _WelcomeResponse_allKeys = []
+# hide mouse cursor
+win.mouseVisible = False
 # keep track of which components have finished
 WelcomeScreenComponents = [WelcomeText, WelcomeResponse]
 for thisComponent in WelcomeScreenComponents:
@@ -504,6 +506,8 @@ for thisBlocks_view in blocks_view:
     instr_view_resp.keys = []
     instr_view_resp.rt = []
     _instr_view_resp_allKeys = []
+    # hide mouse cursor
+    win.mouseVisible = False
     if blocks_view.thisN  == 1: # only second block
         conds_view_File = 'StimuliNegative_{}.xlsx'.format(Stimuli_Order[0])
     
@@ -620,6 +624,9 @@ for thisBlocks_view in blocks_view:
         # add jitter to log file
         thisExp1.addData('Fix_jitter', jitter)
         
+        # hide mouse cursor
+        win.mouseVisible = False
+        
         # keep track of which components have finished
         fixcrossComponents = [text_fixcross]
         for thisComponent in fixcrossComponents:
@@ -689,6 +696,10 @@ for thisBlocks_view in blocks_view:
         #routineTimer.add(6.000000)
         # update component parameters for each repeat
         image_view.setImage(ImageFile)
+
+        # hide mouse cursor
+        win.mouseVisible = False
+
         # keep track of which components have finished
         Pics_ViewComponents = [image_view]
         for thisComponent in Pics_ViewComponents:
@@ -942,6 +953,9 @@ for thisBlocks_reg in blocks_reg:
     instr_reg_resp.keys = []
     instr_reg_resp.rt = []
     _instr_reg_resp_allKeys = []
+    # hide mouse cursor
+    win.mouseVisible = False
+
     if blocks_reg.thisN  == 0: # first regulation block
         conds_reg_File = 'StimuliNegative_{}.xlsx'.format(Stimuli_Order[1])
         
@@ -1061,6 +1075,10 @@ for thisBlocks_reg in blocks_reg:
         jitter = round(jitter, 1)
         # add jitter to log file
         thisExp1.addData('Fix_jitter', jitter)
+
+        # hide mouse cursor
+        win.mouseVisible = False
+
         # keep track of which components have finished
         fixcrossComponents = [text_fixcross]
         for thisComponent in fixcrossComponents:
@@ -1130,6 +1148,10 @@ for thisBlocks_reg in blocks_reg:
         #routineTimer.add(6.000000)
         # update component parameters for each repeat
         image_reg.setImage(ImageFile)
+
+        # hide mouse cursor
+        win.mouseVisible = False
+
         # keep track of which components have finished
         Pics_RegComponents = [image_reg]
         for thisComponent in Pics_RegComponents:
@@ -1906,6 +1928,8 @@ continueRoutine = True
 resp_choice.keys = []
 resp_choice.rt = []
 _resp_choice_allKeys = []
+# hide mouse cursor
+win.mouseVisible = False
 # keep track of which components have finished
 Choice_reapplyComponents = [text_choice, resp_choice]
 for thisComponent in Choice_reapplyComponents:
@@ -2019,6 +2043,8 @@ text_instr_choice.setText(instr_choice_1 + '\n\n' + 'In diesem Block werden Sie 
 key_resp.keys = []
 key_resp.rt = []
 _key_resp_allKeys = []
+# hide mouse cursor
+win.mouseVisible = False
 # keep track of which components have finished
 Instruction_ChoiceComponents = [text_instr_choice, key_resp]
 for thisComponent in Instruction_ChoiceComponents:
@@ -2136,6 +2162,10 @@ for thisTrials_choice in trials_choice:
     jitter = round(jitter, 1)
     # add jitter to log file
     thisExp1.addData('Fix_jitter', jitter)
+
+    # hide mouse cursor
+    win.mouseVisible = False
+
     # keep track of which components have finished
     fixcrossComponents = [text_fixcross]
     for thisComponent in fixcrossComponents:
@@ -2205,6 +2235,10 @@ for thisTrials_choice in trials_choice:
     #routineTimer.add(6.000000)
     # update component parameters for each repeat
     image.setImage(ImageFile)
+
+    # hide mouse cursor
+    win.mouseVisible = False
+    
     # keep track of which components have finished
     Pics_ChoiceComponents = [image]
     for thisComponent in Pics_ChoiceComponents:
@@ -2436,6 +2470,9 @@ continueRoutine = True
 key_resp_2.keys = []
 key_resp_2.rt = []
 _key_resp_2_allKeys = []
+# hide mouse cursor
+win.mouseVisible = False
+
 # keep track of which components have finished
 EndScreenComponents = [text_end, key_resp_2]
 for thisComponent in EndScreenComponents:
