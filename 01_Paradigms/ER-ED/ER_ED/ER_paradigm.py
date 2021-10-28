@@ -774,6 +774,8 @@ for thisBlocks_view in blocks_view:
     continueRoutine = True
     # update component parameters for each repeat
     slider_arousal.reset()
+    # show mouse cursor
+    win.mouseVisible = True
     # keep track of which components have finished
     Slider_ArousalComponents = [text_slider_arousal, slider_arousal]
     for thisComponent in Slider_ArousalComponents:
@@ -850,6 +852,8 @@ for thisBlocks_view in blocks_view:
     continueRoutine = True
     # update component parameters for each repeat
     slider_effort.reset()
+    # show mouse cursor
+    win.mouseVisible = True
     # keep track of which components have finished
     Slider_EffortComponents = [text_slider_effort, slider_effort]
     for thisComponent in Slider_EffortComponents:
@@ -1226,6 +1230,8 @@ for thisBlocks_reg in blocks_reg:
     continueRoutine = True
     # update component parameters for each repeat
     slider_arousal.reset()
+    # show mouse cursor
+    win.mouseVisible = True
     # keep track of which components have finished
     Slider_ArousalComponents = [text_slider_arousal, slider_arousal]
     for thisComponent in Slider_ArousalComponents:
@@ -1302,6 +1308,8 @@ for thisBlocks_reg in blocks_reg:
     continueRoutine = True
     # update component parameters for each repeat
     slider_effort.reset()
+    # show mouse cursor
+    win.mouseVisible = True
     # keep track of which components have finished
     Slider_EffortComponents = [text_slider_effort, slider_effort]
     for thisComponent in Slider_EffortComponents:
@@ -1383,6 +1391,8 @@ continueRoutine = True
 key_resp.keys = []
 key_resp.rt = []
 _key_resp_allKeys = []
+# show mouse cursor
+win.mouseVisible = True
 # keep track of which components have finished
 InstructionEDComponents = [text_EDinstruction, key_resp]
 for thisComponent in InstructionEDComponents:
@@ -2314,6 +2324,8 @@ for thisTrials_choice in trials_choice:
 continueRoutine = True
 # update component parameters for each repeat
 slider_arousal.reset()
+# show mouse cursor
+win.mouseVisible = True
 # keep track of which components have finished
 Slider_ArousalComponents = [text_slider_arousal, slider_arousal]
 for thisComponent in Slider_ArousalComponents:
@@ -2391,6 +2403,8 @@ routineTimer.reset()
 continueRoutine = True
 # update component parameters for each repeat
 slider_effort.reset()
+# show mouse cursor
+win.mouseVisible = True
 # keep track of which components have finished
 Slider_EffortComponents = [text_slider_effort, slider_effort]
 for thisComponent in Slider_EffortComponents:
