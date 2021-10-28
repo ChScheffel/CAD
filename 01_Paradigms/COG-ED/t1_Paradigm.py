@@ -1053,10 +1053,10 @@ for edx in EDrounds:
         if thisEDround != None:
             for paramName in thisEDround:
                 exec('{} = thisEDround[paramName]'.format(paramName))
-
+        
         # ------Prepare to start Routine "bufferscreen"-------
         continueRoutine = True
-        routineTimer.add(0.300000)
+        routineTimer.add(2.000000)
         # update component parameters for each repeat
         bufferscreenkey.keys = []
         bufferscreenkey.rt = []
@@ -1086,7 +1086,7 @@ for edx in EDrounds:
             tThisFlipGlobal = win.getFutureFlipTime(clock=None)
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
-    
+
             # *bufferscreen* updates
             if EDbufferscreen.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
@@ -1103,7 +1103,7 @@ for edx in EDrounds:
                     EDbufferscreen.frameNStop = frameN  # exact frame index
                     win.timeOnFlip(EDbufferscreen, 'tStopRefresh')  # time at next scr refresh
                     EDbufferscreen.setAutoDraw(False)
-    
+
             # *bufferscreenkey* updates
             waitOnFlip = False
             if bufferscreenkey.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -1135,7 +1135,7 @@ for edx in EDrounds:
             # check for quit (typically the Esc key)
             if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
                 core.quit()
-    
+
             # check if all components have finished
             if not continueRoutine:  # a component has requested a forced-end of Routine
                 break
@@ -1144,7 +1144,7 @@ for edx in EDrounds:
                 if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                     continueRoutine = True
                     break  # at least one component has not yet finished
-    
+
             # refresh the screen
             if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
                 win.flip()
@@ -1153,7 +1153,8 @@ for edx in EDrounds:
         for thisComponent in EDbufferscreenComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
-        EDround.addData('EDbufferscreen.started', EDbufferscreen.tStartRefresh)
+        # hide mouse cursor
+        win.mouseVisible = False
         # check responses
         if bufferscreenkey.keys in ['', [], None]:  # No response was made
             bufferscreenkey.keys = None
@@ -1381,113 +1382,8 @@ for edx in EDrounds:
         
         # open up the next row for more data
         thisExp2.nextEntry()
-
-    # ------Prepare to start Routine "bufferscreen"-------
-    continueRoutine = True
-    routineTimer.add(2.000000)
-    # update component parameters for each repeat
-    bufferscreenkey.keys = []
-    bufferscreenkey.rt = []
-    _bufferscreenkey_allKeys = []
-    # make mouse cursor visible
-    win.mouseVisible = True
-    # keep track of which components have finished
-    EDbufferscreenComponents = [EDbufferscreen, bufferscreenkey]
-    for thisComponent in EDbufferscreenComponents:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    # reset timers
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    EDbufferscreenClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
-    frameN = -1
-
-    # -------Run Routine "bufferscreen"-------
-    while continueRoutine and routineTimer.getTime() > 0:
-        # get current time
-        t = EDbufferscreenClock.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=EDbufferscreenClock)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-
-        # *bufferscreen* updates
-        if EDbufferscreen.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            EDbufferscreen.frameNStart = frameN  # exact frame index
-            EDbufferscreen.tStart = t  # local t and not account for scr refresh
-            EDbufferscreen.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(EDbufferscreen, 'tStartRefresh')  # time at next scr refresh
-            EDbufferscreen.setAutoDraw(True)
-        if EDbufferscreen.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > EDbufferscreen.tStartRefresh + 2.0-frameTolerance:
-                # keep track of stop time/frame for later
-                EDbufferscreen.tStop = t  # not accounting for scr refresh
-                EDbufferscreen.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(EDbufferscreen, 'tStopRefresh')  # time at next scr refresh
-                EDbufferscreen.setAutoDraw(False)
-
-        # *bufferscreenkey* updates
-        waitOnFlip = False
-        if bufferscreenkey.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            bufferscreenkey.frameNStart = frameN  # exact frame index
-            bufferscreenkey.tStart = t  # local t and not account for scr refresh
-            bufferscreenkey.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(bufferscreenkey, 'tStartRefresh')  # time at next scr refresh
-            bufferscreenkey.status = STARTED
-            # keyboard checking is just starting
-            waitOnFlip = True
-            win.callOnFlip(bufferscreenkey.clock.reset)  # t=0 on next screen flip
-            win.callOnFlip(bufferscreenkey.clearEvents, eventType='keyboard')  # clear events on next screen flip
-        if bufferscreenkey.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > bufferscreenkey.tStartRefresh + 2.0-frameTolerance:
-                # keep track of stop time/frame for later
-                bufferscreenkey.tStop = t  # not accounting for scr refresh
-                bufferscreenkey.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(bufferscreenkey, 'tStopRefresh')  # time at next scr refresh
-                bufferscreenkey.status = FINISHED
-        if bufferscreenkey.status == STARTED and not waitOnFlip:
-            theseKeys = bufferscreenkey.getKeys(keyList=['left', 'right', 'space'], waitRelease=False)
-            _bufferscreenkey_allKeys.extend(theseKeys)
-            if len(_bufferscreenkey_allKeys):
-                bufferscreenkey.keys = _bufferscreenkey_allKeys[-1].name  # just the last key pressed
-                bufferscreenkey.rt = _bufferscreenkey_allKeys[-1].rt
         
-        # check for quit (typically the Esc key)
-        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-            core.quit()
-
-        # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in EDbufferscreenComponents:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-
-    # -------Ending Routine "Bufferscreen"-------
-    for thisComponent in EDbufferscreenComponents:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    # hide mouse cursor
-    win.mouseVisible = False
-    # check responses
-    if bufferscreenkey.keys in ['', [], None]:  # No response was made
-        bufferscreenkey.keys = None
-    
-    # the Routine was not non-slip safe, so reset the non-slip timer
+        # the Routine was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()    
         
     
