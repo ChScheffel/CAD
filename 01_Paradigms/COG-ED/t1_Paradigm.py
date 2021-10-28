@@ -1056,7 +1056,7 @@ for edx in EDrounds:
         
         # ------Prepare to start Routine "bufferscreen"-------
         continueRoutine = True
-        routineTimer.add(2.000000)
+        routineTimer.add(0.500000)
         # update component parameters for each repeat
         bufferscreenkey.keys = []
         bufferscreenkey.rt = []
