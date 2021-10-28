@@ -254,6 +254,18 @@ slider_effort = visual.Slider(win=win, name='slider_effort',
     font='Open Sans', labelHeight=0.05,
     flip=False, depth=-1, readOnly=False)
 
+# Initialize buffer screen between ratings
+RATINGbufferscreenClock = core.Clock()
+RATINGbufferscreen = visual.TextStim(win=win, name='RATINGbufferscreen',
+    text='',
+    font='Open Sans',
+    pos=[0,0.1], height=0.03, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+bufferscreenkey = keyboard.Keyboard()
+RATINGstorebutton = []
+
 # ------------------------------
 # Effort Discounting components
 # ------------------------------
@@ -847,7 +859,108 @@ for thisBlocks_view in blocks_view:
     blocks_view.addData('slider_arousal.rt', slider_arousal.getRT())
     # the Routine "Slider_Arousal" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
-    
+
+    # ------Prepare to start Routine "bufferscreen"-------
+    continueRoutine = True
+    routineTimer.add(0.500000)
+    # update component parameters for each repeat
+    bufferscreenkey.keys = []
+    bufferscreenkey.rt = []
+    _bufferscreenkey_allKeys = []
+    # keep track of which components have finished
+    RATINGbufferscreenComponents = [RATINGbufferscreen, bufferscreenkey]
+    for thisComponent in RATINGbufferscreenComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    RATINGbufferscreenClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    frameN = -1
+
+    # -------Run Routine "bufferscreen"-------
+    while continueRoutine and routineTimer.getTime() > 0:
+        # get current time
+        t = RATINGbufferscreenClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=RATINGbufferscreenClock)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+
+        # *bufferscreen* updates
+        if RATINGbufferscreen.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            RATINGbufferscreen.frameNStart = frameN  # exact frame index
+            RATINGbufferscreen.tStart = t  # local t and not account for scr refresh
+            RATINGbufferscreen.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(RATINGbufferscreen, 'tStartRefresh')  # time at next scr refresh
+            RATINGbufferscreen.setAutoDraw(True)
+        if RATINGbufferscreen.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > RATINGbufferscreen.tStartRefresh + 2.0-frameTolerance:
+                # keep track of stop time/frame for later
+                RATINGbufferscreen.tStop = t  # not accounting for scr refresh
+                RATINGbufferscreen.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(RATINGbufferscreen, 'tStopRefresh')  # time at next scr refresh
+                RATINGbufferscreen.setAutoDraw(False)
+
+        # *bufferscreenkey* updates
+        waitOnFlip = False
+        if bufferscreenkey.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            bufferscreenkey.frameNStart = frameN  # exact frame index
+            bufferscreenkey.tStart = t  # local t and not account for scr refresh
+            bufferscreenkey.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(bufferscreenkey, 'tStartRefresh')  # time at next scr refresh
+            bufferscreenkey.status = STARTED
+            # keyboard checking is just starting
+            waitOnFlip = True
+            win.callOnFlip(bufferscreenkey.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(bufferscreenkey.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if bufferscreenkey.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > bufferscreenkey.tStartRefresh + 2.0-frameTolerance:
+                # keep track of stop time/frame for later
+                bufferscreenkey.tStop = t  # not accounting for scr refresh
+                bufferscreenkey.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(bufferscreenkey, 'tStopRefresh')  # time at next scr refresh
+                bufferscreenkey.status = FINISHED
+        if bufferscreenkey.status == STARTED and not waitOnFlip:
+            theseKeys = bufferscreenkey.getKeys(keyList=['left', 'right', 'space'], waitRelease=False)
+            _bufferscreenkey_allKeys.extend(theseKeys)
+            if len(_bufferscreenkey_allKeys):
+                bufferscreenkey.keys = _bufferscreenkey_allKeys[-1].name  # just the last key pressed
+                bufferscreenkey.rt = _bufferscreenkey_allKeys[-1].rt
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in RATINGbufferscreenComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+
+    # -------Ending Routine "Bufferscreen"-------
+    for thisComponent in RATINGbufferscreenComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    # check responses
+    if bufferscreenkey.keys in ['', [], None]:  # No response was made
+        bufferscreenkey.keys = None
+
     # ------Prepare to start Routine "Slider_Effort"-------
     continueRoutine = True
     # update component parameters for each repeat
@@ -1303,6 +1416,107 @@ for thisBlocks_reg in blocks_reg:
     blocks_reg.addData('slider_arousal.rt', slider_arousal.getRT())
     # the Routine "Slider_Arousal" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
+
+    # ------Prepare to start Routine "bufferscreen"-------
+    continueRoutine = True
+    routineTimer.add(0.500000)
+    # update component parameters for each repeat
+    bufferscreenkey.keys = []
+    bufferscreenkey.rt = []
+    _bufferscreenkey_allKeys = []
+    # keep track of which components have finished
+    RATINGbufferscreenComponents = [RATINGbufferscreen, bufferscreenkey]
+    for thisComponent in RATINGbufferscreenComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    RATINGbufferscreenClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    frameN = -1
+
+    # -------Run Routine "bufferscreen"-------
+    while continueRoutine and routineTimer.getTime() > 0:
+        # get current time
+        t = RATINGbufferscreenClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=RATINGbufferscreenClock)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+
+        # *bufferscreen* updates
+        if RATINGbufferscreen.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            RATINGbufferscreen.frameNStart = frameN  # exact frame index
+            RATINGbufferscreen.tStart = t  # local t and not account for scr refresh
+            RATINGbufferscreen.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(RATINGbufferscreen, 'tStartRefresh')  # time at next scr refresh
+            RATINGbufferscreen.setAutoDraw(True)
+        if RATINGbufferscreen.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > RATINGbufferscreen.tStartRefresh + 2.0-frameTolerance:
+                # keep track of stop time/frame for later
+                RATINGbufferscreen.tStop = t  # not accounting for scr refresh
+                RATINGbufferscreen.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(RATINGbufferscreen, 'tStopRefresh')  # time at next scr refresh
+                RATINGbufferscreen.setAutoDraw(False)
+
+        # *bufferscreenkey* updates
+        waitOnFlip = False
+        if bufferscreenkey.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            bufferscreenkey.frameNStart = frameN  # exact frame index
+            bufferscreenkey.tStart = t  # local t and not account for scr refresh
+            bufferscreenkey.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(bufferscreenkey, 'tStartRefresh')  # time at next scr refresh
+            bufferscreenkey.status = STARTED
+            # keyboard checking is just starting
+            waitOnFlip = True
+            win.callOnFlip(bufferscreenkey.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(bufferscreenkey.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if bufferscreenkey.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > bufferscreenkey.tStartRefresh + 2.0-frameTolerance:
+                # keep track of stop time/frame for later
+                bufferscreenkey.tStop = t  # not accounting for scr refresh
+                bufferscreenkey.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(bufferscreenkey, 'tStopRefresh')  # time at next scr refresh
+                bufferscreenkey.status = FINISHED
+        if bufferscreenkey.status == STARTED and not waitOnFlip:
+            theseKeys = bufferscreenkey.getKeys(keyList=['left', 'right', 'space'], waitRelease=False)
+            _bufferscreenkey_allKeys.extend(theseKeys)
+            if len(_bufferscreenkey_allKeys):
+                bufferscreenkey.keys = _bufferscreenkey_allKeys[-1].name  # just the last key pressed
+                bufferscreenkey.rt = _bufferscreenkey_allKeys[-1].rt
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in RATINGbufferscreenComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+
+    # -------Ending Routine "Bufferscreen"-------
+    for thisComponent in RATINGbufferscreenComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    # check responses
+    if bufferscreenkey.keys in ['', [], None]:  # No response was made
+        bufferscreenkey.keys = None    
     
     # ------Prepare to start Routine "Slider_Effort"-------
     continueRoutine = True
@@ -2299,6 +2513,107 @@ thisExp1.addData('slider_arousal.rt', slider_arousal.getRT())
 
 # the Routine "Slider_Arousal" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
+    
+# ------Prepare to start Routine "bufferscreen"-------
+continueRoutine = True
+routineTimer.add(0.500000)
+# update component parameters for each repeat
+bufferscreenkey.keys = []
+bufferscreenkey.rt = []
+_bufferscreenkey_allKeys = []
+# keep track of which components have finished
+RATINGbufferscreenComponents = [RATINGbufferscreen, bufferscreenkey]
+for thisComponent in RATINGbufferscreenComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+RATINGbufferscreenClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+# -------Run Routine "bufferscreen"-------
+while continueRoutine and routineTimer.getTime() > 0:
+    # get current time
+    t = RATINGbufferscreenClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=RATINGbufferscreenClock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+
+    # *bufferscreen* updates
+    if RATINGbufferscreen.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        RATINGbufferscreen.frameNStart = frameN  # exact frame index
+        RATINGbufferscreen.tStart = t  # local t and not account for scr refresh
+        RATINGbufferscreen.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(RATINGbufferscreen, 'tStartRefresh')  # time at next scr refresh
+        RATINGbufferscreen.setAutoDraw(True)
+    if RATINGbufferscreen.status == STARTED:
+        # is it time to stop? (based on global clock, using actual start)
+        if tThisFlipGlobal > RATINGbufferscreen.tStartRefresh + 2.0-frameTolerance:
+            # keep track of stop time/frame for later
+            RATINGbufferscreen.tStop = t  # not accounting for scr refresh
+            RATINGbufferscreen.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(RATINGbufferscreen, 'tStopRefresh')  # time at next scr refresh
+            RATINGbufferscreen.setAutoDraw(False)
+
+    # *bufferscreenkey* updates
+    waitOnFlip = False
+    if bufferscreenkey.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        bufferscreenkey.frameNStart = frameN  # exact frame index
+        bufferscreenkey.tStart = t  # local t and not account for scr refresh
+        bufferscreenkey.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(bufferscreenkey, 'tStartRefresh')  # time at next scr refresh
+        bufferscreenkey.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(bufferscreenkey.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(bufferscreenkey.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if bufferscreenkey.status == STARTED:
+        # is it time to stop? (based on global clock, using actual start)
+        if tThisFlipGlobal > bufferscreenkey.tStartRefresh + 2.0-frameTolerance:
+            # keep track of stop time/frame for later
+            bufferscreenkey.tStop = t  # not accounting for scr refresh
+            bufferscreenkey.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(bufferscreenkey, 'tStopRefresh')  # time at next scr refresh
+            bufferscreenkey.status = FINISHED
+    if bufferscreenkey.status == STARTED and not waitOnFlip:
+        theseKeys = bufferscreenkey.getKeys(keyList=['left', 'right', 'space'], waitRelease=False)
+        _bufferscreenkey_allKeys.extend(theseKeys)
+        if len(_bufferscreenkey_allKeys):
+            bufferscreenkey.keys = _bufferscreenkey_allKeys[-1].name  # just the last key pressed
+            bufferscreenkey.rt = _bufferscreenkey_allKeys[-1].rt
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in RATINGbufferscreenComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "Bufferscreen"-------
+for thisComponent in RATINGbufferscreenComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+# check responses
+if bufferscreenkey.keys in ['', [], None]:  # No response was made
+    bufferscreenkey.keys = None
 
 # ------Prepare to start Routine "Slider_Effort"-------
 continueRoutine = True
