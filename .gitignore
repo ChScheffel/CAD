@@ -3,7 +3,7 @@
 .RData
 .Ruserdata
 
-.html
+*.html
 
 ### PsychoPy Logfiles ###
 # COG-ED
