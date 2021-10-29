@@ -13,12 +13,18 @@ Especially suppression is generally associated with poorer outcomes (i.e., more 
 For example, it could be shown that maladaptive ER strategies mediate the effect between Neurotizism and depressive symptoms [@Yoon2013].
 Also, meta-analytic evidence exists linking a number of ER strategies with psychological disorders [@Aldao2010].
 The postulation of *adaptive* and *maladaptive* strategies was put in a new perspective with the concept of ER flexibility.
-*Maladaptive* now refers to inflexible strategy use or use of strategies that are hindering in the achievement of goals [@Aldao2015].
+Similar to other psychological domains, e.g., attention and goal pursuit, *maladaptive* now refers to inflexible strategy use or use of strategies that are hindering in the achievement of goals [@Aldao2015].
 To 
 For example it was shown that the intensity of a stimulus or situation plays a role in the choice [@Sheppes2011].  
 <!-- Kommentare zu  ER Choice -->
 [...]
 <!-- Überleitung zu SVs-->
+What was missing in this research so far was the information regarding the strategy not chosen. 
+People choose a strategy that they prefer, for whatever reason. 
+However, nothing is revealed about the strategy that is not chosen.
+On the one hand, it could be possible that the chosen strategy is the clear preference, the unchosen strategy is not a realistic option for the individual. 
+On the other hand, it could also be that two strategies available for selection could represent almost equivalent options for the individual.
+<!-- Evtl. Forschung zum Repertoire --> 
 Individual subjective values (SV) of cognitive effort have been quantified using the cognitive effort discounting paradigm (COG-ED) [@Westbrook2013]. 
 
 ## 1.1 ER strategies discounting
