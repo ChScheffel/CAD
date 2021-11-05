@@ -150,14 +150,6 @@ However, we propose that (3c) when taking individual preferences for different n
   data_nback[data_nback == "None"] <- 0
   data_nback$response <- as.numeric(data_nback$response)
   
-  # create a new data frame for the data that is being used for reaction time analysis
-  # (we cannot exclude trials from the main data frame because the computation of d prime depends on hit-ratios, not reaction time)
-  
-  # exclude trials after incorrect responses and with reaction times below 200 ms
-  
-  data_RT <- data_nback[-c(which(data_nback$correct == 1) + 1), ]
-  data_RT <- data_RT[-c(which(data_RT$rt < 0.2)), ]
-  
   # the choice column will contain 1 for the left button and 2 for the right button
   data_ED[data_ED == "EDleftbutton"] <- 1
   data_ED[data_ED == "EDrightbutton"] <- 2
@@ -188,6 +180,56 @@ However, we propose that (3c) when taking individual preferences for different n
                                                who5_timestamp, who5_complete, acs_timestamp, acs_complete, cdrisc_timestamp,
                                                cdrisc_complete, flexer_timestamp, flexer_complete))
 
+```
+
+```{r preprocessing, echo=FALSE, message=FALSE, warning=FALSE}
+
+  # create new data frames for the specification curve analysis
+  # the data frame names are a combination of three letters from each of these categories, indicating how they will be preprocessed:
+  #
+  # RT transformations:
+  #   (R) raw/none
+  #   (L) log
+  #   (I) inverse
+  #   (S) square-root
+  # RT outlier exclusion:
+  #   (N) none
+  #   (2) 2 SDs from the mean
+  #   (5) 2.5 SDs from the mean
+  #   (3) 3 SDs from the mean
+  #   (T) 0-200 ms after stimulus onset
+  # Post-error trials:
+  #   (E) excluded
+  #   (N) not excluded
+  #
+  # Example: the data frame "RT_L3E" has log-transformed RT data with no data points beyond 3 SD from the mean and with no trials that followed misses/false alarms
+
+  # one data frame without transformations is a simple copy of the original data frame
+  RT_RNN <- data_nback
+
+  # loop across participants and levels for log, inverse and square-root transform
+  
+      # make three more copies of the original data frame as a base
+      RT_L <- data_nback
+      RT_I <- data_nback
+      RT_S <- data_nback
+
+      # create index of rows in which the level changes
+      levelindex <- c(1,which(data_nback$level != dplyr::lag(data_nback$level)),nrow(data_nback))
+      
+      for (i in 1:(length(levelindex)-1)) {
+        
+        RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"] <- log10(RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"])
+        RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"] <- 1/(RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"])
+        RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"] <- sqrt(RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"])
+      }
+
+
+  # exclude trials after incorrect responses and with reaction times below 200 ms
+  
+  data_RT <- data_nback[-c(which(data_nback$correct == 1) + 1), ]
+  data_RT <- data_RT[-c(which(data_RT$rt < 0.2)), ]
+  
 ```
 
 # Methods
