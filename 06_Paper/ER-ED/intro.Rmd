@@ -24,17 +24,19 @@ Further influencing factors are for example extrinsic motivation (e.g., monetary
 Especially for effort, Scheffel and colleagues [-@Scheffel2021] could show that the choice for an ER strategy is mainly influenced by effort.
 In this study, participants used the strategies distancing and suppression while inspecting emotional pictures.
 Afterwards they could choose, which strategy they want to use again.
-Participants tended to re-apply the strategy that was less effortful, even though it was not the most effective one.
+Participants tended to re-apply the strategy that was less effortful, even though it was not the most effective one - in this case: suppression.
+Interestingly, the choice was independent of self reported habitual use of suppression and reappraisal.
 
-[...]
 
-What was missing in this research so far was the information regarding the strategy not chosen. 
-People choose a strategy that they prefer, for whatever reason. 
+However, what has been missing in research on ER choice so far is information regarding the strategy *not* chosen.
+People choose a strategy that they prefer, for different, relatively well-known reasons. 
 However, nothing is revealed about the strategy that is not chosen.
-On the one hand, it could be possible that the chosen strategy is the clear preference, the unchosen strategy is not a realistic option for the individual. 
+On the one hand, it could be possible that the chosen strategy represents the clear preference of an individual.
+The strategy that was not chosen is not a realistic option for the individual. 
 On the other hand, it could also be that two strategies available for selection could represent almost equivalent options for the individual.
-This leads to the question of how individual subjective values of ER strategies are characterized an how one can determine them. 
-Individual subjective values (SV) of effortful tasks have been quantified using the cognitive effort discounting paradigm (COG-ED) [@Westbrook2013]. 
+To investigate this question, the individual subjective values of each strategy available for selection would have to be determined.
+Promising approaches can be found in studies on difficulty levels of effortful cognitive tasks.  
+Individual subjective values (SV) of effortful cognitive tasks have been quantified using the cognitive effort discounting paradigm (COG-ED) [@Westbrook2013]. 
 
 ## 1.1 ER strategies discounting
 
