@@ -19,9 +19,13 @@ For example, greater ER variability is related to reduced negative affect and th
 Second, strategies have to be chosen from the repertoire that are useful for goal achieving.
 This selection of strategies is influenced by numerous factors.
 For example, it was shown that the intensity of a stimulus or situation plays a role in the choice [@Sheppes2011]. 
-Higher intensity of the stimulus leads to a choice of rather disengaging strategies, like distraction.
+Higher intensity of the stimulus leads to a choice of rather disengaging strategies, like distraction[@Sheppes2011;@Sheppes2014].
+Further influencing factors are for example extrinsic motivation (e.g., monetary incentives), motivational determinants (i.e., hedonic regulatory goals), and effort [@Sheppes2014;@Scheffel2021].
+Especially for effort, Scheffel and colleagues [-@Scheffel2021] could show that the choice for an ER strategy is mainly influenced by effort.
+In this study, participants used the strategies distancing and suppression while inspecting emotional pictures.
+Afterwards they could choose, which strategy they want to use again.
+Participants tended to re-apply the strategy that was less effortful, even though it was not the most effective one.
 
-<!-- Weitere Einflussfaktoren aufzuählen zu  ER Choice -->
 [...]
 
 What was missing in this research so far was the information regarding the strategy not chosen. 
