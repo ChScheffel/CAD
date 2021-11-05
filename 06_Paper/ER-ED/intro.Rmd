@@ -6,8 +6,8 @@ output: html_document
 
 # 1. Introduction
 
+<!-- Einführung ER -->
 [...]
-<!-- Als Überleitung: Maladaptive ER Strategien zu ER Flexibility -->
 Implications of subjectively reported habitual use of emotion regulation strategies for affect and well-being have been discussed [@GrossJohn2003]. 
 Especially suppression is generally associated with poorer outcomes (i.e., more negative affect, lower general well-being), which led to the assumption of *adaptive* and *maladaptive* strategies.
 For example, it could be shown that maladaptive ER strategies mediate the effect between Neurotizism and depressive symptoms [@Yoon2013].
@@ -17,7 +17,7 @@ Similar to other psychological domains, e.g., attention and goal pursuit, *malad
 First, adaptive flexible ER requires having a large repertoire of ER strategies [@Aldao2015]. 
 For example, greater ER variability is related to reduced negative affect and therefore adaptive in daily life [@Blanke2020].
 Second, strategies have to be chosen from the repertoire that are useful for goal achieving.
-This selection of strategies is influenced by numerous facotrs.
+This selection of strategies is influenced by numerous factors.
 For example, it was shown that the intensity of a stimulus or situation plays a role in the choice [@Sheppes2011]. 
 Higher intensity of the stimulus leads to a choice of rather disengaging strategies, like distraction.
 
