@@ -185,8 +185,13 @@ However, we propose that (3c) when taking individual preferences for different n
 ```{r preprocessing, echo=FALSE, message=FALSE, warning=FALSE}
 
   # create new data frames for the specification curve analysis
-  # the data frame names are a combination of three letters from each of these categories, indicating how they will be preprocessed:
+  # the data frame names are a combination of the letters from each of these categories, indicating how they will be preprocessed:
   #
+  # across which dimensions the tranformation and outlier exclusion will be done:
+  #   (AA) across subjects, across n-back levels
+  #   (AW) across subjects, within n-back levels
+  #   (WW) within subjects, within n-back levels
+  #   (WA) within subjects, across n-back levels
   # RT transformations:
   #   (R) raw/none
   #   (L) log
@@ -195,40 +200,106 @@ However, we propose that (3c) when taking individual preferences for different n
   # RT outlier exclusion:
   #   (N) none
   #   (2) 2 SDs from the mean
-  #   (5) 2.5 SDs from the mean
   #   (3) 3 SDs from the mean
   #   (T) 0-200 ms after stimulus onset
   # Post-error trials:
   #   (E) excluded
   #   (N) not excluded
   #
-  # Example: the data frame "RT_L3E" has log-transformed RT data with no data points beyond 3 SD from the mean and with no trials that followed misses/false alarms
+  # Example: the data frame "AWL3E" has log-transformed RT data with no data points beyond 3 SD
+  # from the mean and with no trials that followed misses/false alarms
+  #
+  # Some combinations are nonsensical, so we will not include them: Raw data sets (__R___) with either no outlier
+  # exclusion (___N_) or time-based outlier exclusion (___T_) do not need the different dimensions (A/W), and
+  # time-based exclusion is nonsensical for transformed data sets.
+
 
   # one data frame without transformations is a simple copy of the original data frame
-  RT_RNN <- data_nback
+  # put that data frame in a list in which all data frames will be and replace the RTs of incorrect trials with NA
 
-  # loop across participants and levels for log, inverse and square-root transform
+  pipelines_data <- list("RNN" = data_nback)
+  pipelines_data[["RNN"]]$rt[pipelines_data[["RNN"]]$correct == 0] <- NA
+
+  # add raw version without post-error trials
+
+  pipelines_data[["RNE"]] <- pipelines_data[["RNN"]][-c(which(pipelines_data[["RNN"]]$correct == 0) + 1), ]
   
-      # make three more copies of the original data frame as a base
-      RT_L <- data_nback
-      RT_I <- data_nback
-      RT_S <- data_nback
+  # add raw versions with 0-200ms exclusion
+  
+  pipelines_data[["RTN"]] <- pipelines_data[["RNN"]][-c(which(pipelines_data[["RNN"]]$rt < 0.2)), ]
+  pipelines_data[["RTE"]] <- pipelines_data[["RTN"]][-c(which(pipelines_data[["RTN"]]$correct == 0) + 1), ]
 
+  # group 1: across subjects, across conditions
+  
+    # raw versions
+    
+    tempmean <- mean(pipelines_data[["RNN"]]$rt[pipelines_data[["RNN"]]$correct == 1])
+    tempsd <- sd(pipelines_data[["RNN"]]$rt[pipelines_data[["RNN"]]$correct == 1])
+    
+    pipelines_data[["AAR2N"]] <- pipelines_data[["RNN"]][c(which(pipelines_data[["RNN"]]$rt < (tempmean+2*tempsd) & pipelines_data[["RNN"]]$rt > (tempmean-2*tempsd))), ]
+    pipelines_data[["AAR2E"]] <- pipelines_data[["AAR2N"]][-c(which(pipelines_data[["AAR2N"]]$correct == 0) + 1), ]
+    pipelines_data[["AAR3N"]] <- pipelines_data[["RNN"]][c(which(pipelines_data[["RNN"]]$rt < (tempmean+3*tempsd) & pipelines_data[["RNN"]]$rt > (tempmean-3*tempsd))), ]
+    pipelines_data[["AAR3E"]] <- pipelines_data[["AAR3N"]][-c(which(pipelines_data[["AAR3N"]]$correct == 0) + 1), ]
+  
+    # log transformed versions
+    
+    pipelines_data[["AALNN"]] <- pipelines_data[["RNN"]]
+    pipelines_data[["AALNN"]]$rt[pipelines_data[["AALNN"]]$correct == 1] <- log10(pipelines_data[["AALNN"]]$rt[pipelines_data[["AALNN"]]$correct == 1])
+    
+    tempmean <- mean(pipelines_data[["AALNN"]]$rt[pipelines_data[["AALNN"]]$correct == 1])
+    tempsd <- sd(pipelines_data[["AALNN"]]$rt[pipelines_data[["AALNN"]]$correct == 1])
+    
+    pipelines_data[["AALNE"]] <- pipelines_data[["AALNN"]][-c(which(pipelines_data[["AALNN"]]$correct == 0) + 1), ]
+    pipelines_data[["AAL2N"]] <- pipelines_data[["AALNN"]][c(which(pipelines_data[["AALNN"]]$rt < (tempmean+2*tempsd) & pipelines_data[["AALNN"]]$rt > (tempmean-2*tempsd))), ]
+    pipelines_data[["AAL2E"]] <- pipelines_data[["AAL2N"]][-c(which(pipelines_data[["AAL2N"]]$correct == 0) + 1), ]
+    pipelines_data[["AAL3N"]] <- pipelines_data[["AALNN"]][c(which(pipelines_data[["AALNN"]]$rt < (tempmean+3*tempsd) & pipelines_data[["AALNN"]]$rt > (tempmean-3*tempsd))), ]
+    pipelines_data[["AAL3E"]] <- pipelines_data[["AAL3N"]][-c(which(pipelines_data[["AAL3N"]]$correct == 0) + 1), ]
+  
+    # inverse transformed versions
+    
+    pipelines_data[["AAINN"]] <- pipelines_data[["RNN"]]
+    pipelines_data[["AAINN"]]$rt[pipelines_data[["AAINN"]]$correct == 1] <- 1/(pipelines_data[["AAINN"]]$rt[pipelines_data[["AAINN"]]$correct == 1])
+    
+    tempmean <- mean(pipelines_data[["AAINN"]]$rt[pipelines_data[["AAINN"]]$correct == 1])
+    tempsd <- sd(pipelines_data[["AAINN"]]$rt[pipelines_data[["AAINN"]]$correct == 1])
+    
+    pipelines_data[["AAINE"]] <- pipelines_data[["AAINN"]][-c(which(pipelines_data[["AAINN"]]$correct == 0) + 1), ]
+    pipelines_data[["AAI2N"]] <- pipelines_data[["AAINN"]][c(which(pipelines_data[["AAINN"]]$rt < (tempmean+2*tempsd) & pipelines_data[["AAINN"]]$rt > (tempmean-2*tempsd))), ]
+    pipelines_data[["AAI2E"]] <- pipelines_data[["AAI2N"]][-c(which(pipelines_data[["AAI2N"]]$correct == 0) + 1), ]
+    pipelines_data[["AAI3N"]] <- pipelines_data[["AAINN"]][c(which(pipelines_data[["AAINN"]]$rt < (tempmean+3*tempsd) & pipelines_data[["AAINN"]]$rt > (tempmean-3*tempsd))), ]
+    pipelines_data[["AAI3E"]] <- pipelines_data[["AAI3N"]][-c(which(pipelines_data[["AAI3N"]]$correct == 0) + 1), ]
+  
+    # square root transformed versions
+    
+    pipelines_data[["AASNN"]] <- pipelines_data[["RNN"]]
+    pipelines_data[["AASNN"]]$rt[pipelines_data[["AASNN"]]$correct == 1] <- sqrt(pipelines_data[["AASNN"]]$rt[pipelines_data[["AASNN"]]$correct == 1])
+    
+    tempmean <- mean(pipelines_data[["AASNN"]]$rt[pipelines_data[["AASNN"]]$correct == 1])
+    tempsd <- sd(pipelines_data[["AASNN"]]$rt[pipelines_data[["AASNN"]]$correct == 1])
+    
+    pipelines_data[["AASNE"]] <- pipelines_data[["AASNN"]][-c(which(pipelines_data[["AASNN"]]$correct == 0) + 1), ]
+    pipelines_data[["AAS2N"]] <- pipelines_data[["AASNN"]][c(which(pipelines_data[["AASNN"]]$rt < (tempmean+2*tempsd) & pipelines_data[["AASNN"]]$rt > (tempmean-2*tempsd))), ]
+    pipelines_data[["AAS2E"]] <- pipelines_data[["AAS2N"]][-c(which(pipelines_data[["AAS2N"]]$correct == 0) + 1), ]
+    pipelines_data[["AAS3N"]] <- pipelines_data[["AASNN"]][c(which(pipelines_data[["AASNN"]]$rt < (tempmean+3*tempsd) & pipelines_data[["AASNN"]]$rt > (tempmean-3*tempsd))), ]
+    pipelines_data[["AAS3E"]] <- pipelines_data[["AAS3N"]][-c(which(pipelines_data[["AAS3N"]]$correct == 0) + 1), ]
+  
+  # group 2: across subjects, within conditions
+  
+  # group 3: within subjects, within conditions
+  
+  # group 4: within subjects, across conditions
+  
+  
       # create index of rows in which the level changes
-      levelindex <- c(1,which(data_nback$level != dplyr::lag(data_nback$level)),nrow(data_nback))
+      #levelindex <- c(1,which(data_nback$level != dplyr::lag(data_nback$level)),nrow(data_nback))
       
-      for (i in 1:(length(levelindex)-1)) {
+      #for (i in 1:(length(levelindex)-1)) {
         
-        RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"] <- log10(RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"])
-        RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"] <- 1/(RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"])
-        RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"] <- sqrt(RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"])
-      }
+        #RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"] <- log10(RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"])
+        #RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"] <- 1/(RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"])
+        #RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"] <- sqrt(RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"])
+      #}
 
-
-  # exclude trials after incorrect responses and with reaction times below 200 ms
-  
-  data_RT <- data_nback[-c(which(data_nback$correct == 1) + 1), ]
-  data_RT <- data_RT[-c(which(data_RT$rt < 0.2)), ]
   
 ```
 
