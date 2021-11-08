@@ -8,3 +8,4 @@ output: html_document
 ```
 
 ```{r child = "method.Rmd"}
+```
