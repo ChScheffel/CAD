@@ -231,6 +231,7 @@ However, we propose that (3c) when taking individual preferences for different n
 
   # group 1: across subjects, across conditions
   
+  
     # raw versions
     
     tempmean <- mean(pipelines_data[["RNN"]]$rt[pipelines_data[["RNN"]]$correct == 1])
