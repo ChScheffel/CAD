@@ -7,10 +7,12 @@ output: html_document
 # 1. Introduction
 
 Every day we are confronted with stressful or emotionally demanding situations. 
-The ability to regulate emotions is an important cognitive skill. 
+The ability to modify emotional experiences, expressions and physiology [@Gross1998antecedent] regulate emotions is an important cognitive skill. 
 It is therefore not surprising that emotion regulation (ER) has substantial implications for well-being and adaptive functioning [@Gross1998emerging].
-
-<!-- Einführung ER -->
+ 
+<!-- Nun ER Strategies aufzählen -->
+<!-- Wirksamkeit von ER Strategien -> Meta Analyse Webb -->
+<!-- Evtl noch auf einzelne Strategien eingehen (Distancing, Distraction, Suppression) -->
 [...]
 Implications of subjectively reported habitual use of emotion regulation strategies for affect and well-being have been discussed [@GrossJohn2003]. 
 Especially suppression is generally associated with poorer outcomes (i.e., more negative affect, lower general well-being), which led to the assumption of *adaptive* and *maladaptive* strategies.
