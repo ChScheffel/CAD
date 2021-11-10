@@ -6,7 +6,10 @@ output: html_document
 
 # 1. Introduction
 
-Every day we are confronted with stressful or emotionally demanding situations. Therefore, the ability to regulate emotions is an important cognitive skill.
+Every day we are confronted with stressful or emotionally demanding situations. 
+The ability to regulate emotions is an important cognitive skill. 
+It is therefore not surprising that emotion regulation (ER) has substantial implications for well-being and adaptive functioning [@Gross1998emerging].
+
 <!-- Einführung ER -->
 [...]
 Implications of subjectively reported habitual use of emotion regulation strategies for affect and well-being have been discussed [@GrossJohn2003]. 
