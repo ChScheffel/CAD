@@ -9,14 +9,15 @@ output: html_document
 Every day we are confronted with stressful or emotionally demanding situations. 
 The ability to modify emotional experiences, expressions and physiology [@Gross1998antecedent] regulate emotions is an important cognitive skill. 
 It is therefore not surprising that emotion regulation (ER) has substantial implications for well-being and adaptive functioning [@Gross1998emerging].
-Different strategies can be used to regulate emotions.
-So called antecedent-focused strategies, i.e., situation selection, situation modification, attentional deployment, and cognitive change take effect early in the emotion generation process.
-The strategy response modification, in contrast, takes place late in the process and is therefore conceptualized as response-focused strategy [@Gross1998antecedent].
+Different strategies can be used to regulate emotions, namely situation selection, situation modification, attentional deployment, cognitive change, and response modification [@Gross1998antecedent], and, following the taxonomy of Powers and LaBar [-@Power2019], individuals can implement ER strategies by means of different tactics.
+So called antecedent-focused strategies, e.g., attentional deployment and cognitive change, take effect early in the emotion generation process [@Gross1998antecedent].
+In contrast, response modification takes place late in the process and is therefore conceptualized as response-focused strategy [@Gross1998antecedent].
+
 
 <!-- Nun ER Strategies aufzählen -->
 <!-- Wirksamkeit von ER Strategien -> Meta Analyse Webb -->
 <!-- Evtl noch auf einzelne Strategien eingehen (Distancing, Distraction, Suppression) -->
-[...]
+
 Implications of subjectively reported habitual use of emotion regulation strategies for affect and well-being have been discussed [@GrossJohn2003]. 
 Especially suppression is generally associated with poorer outcomes (i.e., more negative affect, lower general well-being), which led to the assumption of *adaptive* and *maladaptive* strategies.
 For example, it could be shown that maladaptive ER strategies mediate the effect between Neurotizism and depressive symptoms [@Yoon2013].
