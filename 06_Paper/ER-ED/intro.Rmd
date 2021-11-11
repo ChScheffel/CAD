@@ -9,7 +9,10 @@ output: html_document
 Every day we are confronted with stressful or emotionally demanding situations. 
 The ability to modify emotional experiences, expressions and physiology [@Gross1998antecedent] regulate emotions is an important cognitive skill. 
 It is therefore not surprising that emotion regulation (ER) has substantial implications for well-being and adaptive functioning [@Gross1998emerging].
- 
+Different strategies can be used to regulate emotions.
+So called antecedent-focused strategies, i.e., situation selection, situation modification, attentional deployment, and cognitive change take effect early in the emotion generation process.
+The strategy response modification, in contrast, takes place late in the process and is therefore conceptualized as response-focused strategy [@Gross1998antecedent].
+
 <!-- Nun ER Strategies aufzählen -->
 <!-- Wirksamkeit von ER Strategien -> Meta Analyse Webb -->
 <!-- Evtl noch auf einzelne Strategien eingehen (Distancing, Distraction, Suppression) -->
