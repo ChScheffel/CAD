@@ -12,7 +12,7 @@ It is therefore not surprising that emotion regulation (ER) has substantial impl
 Different strategies can be used to regulate emotions, namely situation selection, situation modification, attentional deployment, cognitive change, and response modification [@Gross1998antecedent], and, following the taxonomy of Powers and LaBar [-@Power2019], individuals can implement ER strategies by means of different tactics.
 So called antecedent-focused strategies, e.g., attentional deployment and cognitive change, take effect early in the emotion generation process [@Gross1998antecedent].
 In contrast, response modification takes place late in the process and is therefore conceptualized as response-focused strategy [@Gross1998antecedent].
-
+It is meta-analytically proven that these strategies reduce emotional arousal. 
 
 <!-- Nun ER Strategies aufzählen -->
 <!-- Wirksamkeit von ER Strategien -> Meta Analyse Webb -->
