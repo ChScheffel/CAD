@@ -2,6 +2,7 @@
 title: "report"
 author: "Christoph Scheffel"
 output: html_document
+bibliography: ER_ED.bib
 ---
 
 ``` {r child = "intro.Rmd"}
