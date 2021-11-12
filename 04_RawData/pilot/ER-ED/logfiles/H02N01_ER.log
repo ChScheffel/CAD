@@ -1,0 +1,1407 @@
+1.5937 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+9.2237 	WARNING 	Requested an unavailable screen number - using first available.
+10.7030 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, autoLog=True, backendConf=UNKNOWN, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x0000022671272908>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x00000226711A0630>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=1, size=array([1920, 1080]), stencilBits=0, stereo=False, units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+10.7037 	EXP 	window1: mouseVisible = True
+10.7038 	EXP 	window1: recordFrameIntervals = False
+10.8688 	EXP 	window1: recordFrameIntervals = True
+11.0525 	EXP 	window1: recordFrameIntervals = False
+11.5716 	EXP 	Created WelcomeText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='WelcomeText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+11.5993 	EXP 	Created text_ActiveViewing = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='text_ActiveViewing', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+11.6055 	EXP 	Created image_view = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='image_view', opacity=1, ori=0.0, pos=array([0., 0.]), size=array([1.  , 0.75]), texRes=128.0, units='height', win=Window(...))
+11.6126 	EXP 	Created text_fixcross = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='text_fixcross', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='+', units='height', win=Window(...), wrapWidth=1)
+11.6140 	EXP 	Created text_Instruction = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='text_Instruction', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+11.6183 	EXP 	Created image_reg = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='image_reg', opacity=1, ori=0.0, pos=array([0., 0.]), size=array([1.  , 0.75]), texRes=128.0, units='height', win=Window(...))
+11.6388 	EXP 	Created text_slider_arousal = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='text_slider_arousal', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+11.6474 	EXP 	window1: mouseVisible = True
+11.6627 	EXP 	Created slider_arousal = Slider(__class__=<class 'psychopy.visual.slider.Slider'>, autoDraw=False, autoLog=True, borderColor=None, color=None, colorSpace='rgb', depth=-1, fillColor=None, flip=False, font='Open Sans', granularity=0.0, labelHeight=0.05, labelWrapWidth=None, labels=('sehr gering', 'sehr hoch'), name='slider_arousal', opacity=None, pos=(0, -0.2), readOnly=False, self=UNKNOWN, size=[1.0, 0.1], startValue=None, style=method-wrapper(...), styleTweaks=method-wrapper(...), ticks=array([  0, 400]), units='height', win=Window(...))
+11.6757 	EXP 	Created text_slider_effort = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='text_slider_effort', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+11.6823 	EXP 	window1: mouseVisible = True
+11.6948 	EXP 	Created slider_effort = Slider(__class__=<class 'psychopy.visual.slider.Slider'>, autoDraw=False, autoLog=True, borderColor=None, color=None, colorSpace='rgb', depth=-1, fillColor=None, flip=False, font='Open Sans', granularity=0.0, labelHeight=0.05, labelWrapWidth=None, labels=('sehr gering', 'sehr hoch'), name='slider_effort', opacity=None, pos=(0, -0.2), readOnly=False, self=UNKNOWN, size=(1.0, 0.1), startValue=None, style=method-wrapper(...), styleTweaks=method-wrapper(...), ticks=array([  0, 400]), units='height', win=Window(...))
+11.7523 	EXP 	Created text_EDinstruction = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='text_EDinstruction', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+11.7627 	EXP 	Created question = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='question', opacity=1, ori=0.0, pos=array([0. , 0.1]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+11.7628 	EXP 	window1: mouseVisible = True
+11.7737 	EXP 	window1: mouseVisible = True
+11.7841 	EXP 	window1: mouseVisible = True
+11.7892 	EXP 	Created EDbufferscreen = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='EDbufferscreen', opacity=1, ori=0.0, pos=array([0. , 0.1]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+11.8220 	EXP 	Created text_choice = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='text_choice', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+11.8234 	EXP 	Created text_instr_choice = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='text_instr_choice', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+11.8280 	EXP 	Created image = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='image', opacity=1, ori=0.0, pos=array([0., 0.]), size=array([1.  , 0.75]), texRes=128.0, units='height', win=Window(...))
+11.8456 	EXP 	Created text_end = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='text_end', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+11.8845 	EXP 	slider_arousal: autoLog = True
+11.8845 	EXP 	slider_arousal: markerPos = None
+11.8845 	EXP 	slider_arousal: rating = None
+11.8845 	EXP 	slider_arousal: markerPos = None
+11.8845 	EXP 	slider_arousal: contrast = 1.0
+11.8845 	EXP 	slider_arousal: autoLog = True
+11.8845 	EXP 	slider_arousal: styleTweaks = []
+11.8845 	EXP 	slider_arousal: style = 'slider'
+11.8845 	EXP 	slider_arousal: styleTweaks = []
+11.8845 	EXP 	slider_effort: autoLog = True
+11.8845 	EXP 	slider_effort: markerPos = None
+11.8845 	EXP 	slider_effort: rating = None
+11.8845 	EXP 	slider_effort: markerPos = None
+11.8845 	EXP 	slider_effort: contrast = 1.0
+11.8845 	EXP 	slider_effort: autoLog = True
+11.8845 	EXP 	slider_effort: styleTweaks = []
+11.8845 	EXP 	slider_effort: style = 'slider'
+11.8845 	EXP 	slider_effort: styleTweaks = []
+11.8845 	EXP 	WelcomeText: autoDraw = True
+83.3210 	DATA 	Keypress: space
+83.3407 	EXP 	Imported blocks_view.xlsx as conditions, 2 conditions, 5 params
+83.3413 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+83.3418 	EXP 	New trial (rep=0, index=0): {'Block': 1, 'conds_view_File': 'StimuliNeutral.xlsx', 'n_reps': 1, 'instr_1': 'ANSCHAUEN', 'TriggerBlockView': 21}
+83.3495 	EXP 	WelcomeText: autoDraw = False
+83.3495 	EXP 	text_ActiveViewing: autoDraw = True
+90.1213 	DATA 	Keypress: space
+90.1424 	EXP 	Imported StimuliNeutral.xlsx as conditions, 20 conditions, 2 params
+90.1431 	EXP 	Created sequence: random, trialTypes=20, nReps=1, seed=None
+90.1435 	EXP 	New trial (rep=0, index=0): {'ImageFile': 'Stimuli/140.jpg', 'Trigger': 1}
+90.1512 	EXP 	text_ActiveViewing: autoDraw = False
+90.1512 	EXP 	text_fixcross: autoDraw = True
+93.9121 	EXP 	text_fixcross: autoDraw = False
+93.9121 	EXP 	text_fixcross: autoDraw = False
+93.9121 	EXP 	image_view: image = 'Stimuli/140.jpg'
+93.9121 	EXP 	image_view: autoDraw = True
+99.9066 	EXP 	New trial (rep=0, index=1): {'ImageFile': 'Stimuli/7185.jpg', 'Trigger': 1}
+99.9202 	EXP 	image_view: autoDraw = False
+99.9202 	EXP 	image_view: autoDraw = False
+99.9202 	EXP 	text_fixcross: autoDraw = True
+103.9747 	EXP 	text_fixcross: autoDraw = False
+103.9747 	EXP 	text_fixcross: autoDraw = False
+103.9747 	EXP 	image_view: image = 'Stimuli/7185.jpg'
+103.9747 	EXP 	image_view: autoDraw = True
+109.9723 	EXP 	New trial (rep=0, index=2): {'ImageFile': 'Stimuli/107.jpg', 'Trigger': 1}
+109.9864 	EXP 	image_view: autoDraw = False
+109.9864 	EXP 	image_view: autoDraw = False
+109.9864 	EXP 	text_fixcross: autoDraw = True
+114.6352 	EXP 	text_fixcross: autoDraw = False
+114.6352 	EXP 	text_fixcross: autoDraw = False
+114.6352 	EXP 	image_view: image = 'Stimuli/107.jpg'
+114.6352 	EXP 	image_view: autoDraw = True
+120.6224 	EXP 	New trial (rep=0, index=3): {'ImageFile': 'Stimuli/7150.jpg', 'Trigger': 1}
+120.6362 	EXP 	image_view: autoDraw = False
+120.6362 	EXP 	image_view: autoDraw = False
+120.6362 	EXP 	text_fixcross: autoDraw = True
+125.2883 	EXP 	text_fixcross: autoDraw = False
+125.2883 	EXP 	text_fixcross: autoDraw = False
+125.2883 	EXP 	image_view: image = 'Stimuli/7150.jpg'
+125.2883 	EXP 	image_view: autoDraw = True
+131.2890 	EXP 	New trial (rep=0, index=4): {'ImageFile': 'Stimuli/7025.jpg', 'Trigger': 1}
+131.3031 	EXP 	image_view: autoDraw = False
+131.3031 	EXP 	image_view: autoDraw = False
+131.3031 	EXP 	text_fixcross: autoDraw = True
+135.1414 	EXP 	text_fixcross: autoDraw = False
+135.1414 	EXP 	text_fixcross: autoDraw = False
+135.1414 	EXP 	image_view: image = 'Stimuli/7025.jpg'
+135.1414 	EXP 	image_view: autoDraw = True
+141.1391 	EXP 	New trial (rep=0, index=5): {'ImageFile': 'Stimuli/7000.jpg', 'Trigger': 1}
+141.1530 	EXP 	image_view: autoDraw = False
+141.1530 	EXP 	image_view: autoDraw = False
+141.1530 	EXP 	text_fixcross: autoDraw = True
+144.7997 	EXP 	text_fixcross: autoDraw = False
+144.7997 	EXP 	text_fixcross: autoDraw = False
+144.7997 	EXP 	image_view: image = 'Stimuli/7000.jpg'
+144.7997 	EXP 	image_view: autoDraw = True
+150.7890 	EXP 	New trial (rep=0, index=6): {'ImageFile': 'Stimuli/7021.jpg', 'Trigger': 1}
+150.8028 	EXP 	image_view: autoDraw = False
+150.8028 	EXP 	image_view: autoDraw = False
+150.8028 	EXP 	text_fixcross: autoDraw = True
+154.4469 	EXP 	text_fixcross: autoDraw = False
+154.4469 	EXP 	text_fixcross: autoDraw = False
+154.4469 	EXP 	image_view: image = 'Stimuli/7021.jpg'
+154.4469 	EXP 	image_view: autoDraw = True
+160.4382 	EXP 	New trial (rep=0, index=7): {'ImageFile': 'Stimuli/7009.jpg', 'Trigger': 1}
+160.4518 	EXP 	image_view: autoDraw = False
+160.4518 	EXP 	image_view: autoDraw = False
+160.4518 	EXP 	text_fixcross: autoDraw = True
+163.5814 	EXP 	text_fixcross: autoDraw = False
+163.5814 	EXP 	text_fixcross: autoDraw = False
+163.5814 	EXP 	image_view: image = 'Stimuli/7009.jpg'
+163.5814 	EXP 	image_view: autoDraw = True
+169.5725 	EXP 	New trial (rep=0, index=8): {'ImageFile': 'Stimuli/7006.jpg', 'Trigger': 1}
+169.5864 	EXP 	image_view: autoDraw = False
+169.5864 	EXP 	image_view: autoDraw = False
+169.5864 	EXP 	text_fixcross: autoDraw = True
+173.2261 	EXP 	text_fixcross: autoDraw = False
+173.2261 	EXP 	text_fixcross: autoDraw = False
+173.2261 	EXP 	image_view: image = 'Stimuli/7006.jpg'
+173.2261 	EXP 	image_view: autoDraw = True
+179.2225 	EXP 	New trial (rep=0, index=9): {'ImageFile': 'Stimuli/7211.jpg', 'Trigger': 1}
+179.2364 	EXP 	image_view: autoDraw = False
+179.2364 	EXP 	image_view: autoDraw = False
+179.2364 	EXP 	text_fixcross: autoDraw = True
+183.8816 	EXP 	text_fixcross: autoDraw = False
+183.8816 	EXP 	text_fixcross: autoDraw = False
+183.8816 	EXP 	image_view: image = 'Stimuli/7211.jpg'
+183.8816 	EXP 	image_view: autoDraw = True
+189.8724 	EXP 	New trial (rep=0, index=10): {'ImageFile': 'Stimuli/124.jpg', 'Trigger': 1}
+189.8863 	EXP 	image_view: autoDraw = False
+189.8863 	EXP 	image_view: autoDraw = False
+189.8863 	EXP 	text_fixcross: autoDraw = True
+194.3243 	EXP 	text_fixcross: autoDraw = False
+194.3243 	EXP 	text_fixcross: autoDraw = False
+194.3243 	EXP 	image_view: image = 'Stimuli/124.jpg'
+194.3243 	EXP 	image_view: autoDraw = True
+200.3219 	EXP 	New trial (rep=0, index=11): {'ImageFile': 'Stimuli/7224.jpg', 'Trigger': 1}
+200.3356 	EXP 	image_view: autoDraw = False
+200.3356 	EXP 	image_view: autoDraw = False
+200.3356 	EXP 	text_fixcross: autoDraw = True
+204.1600 	EXP 	text_fixcross: autoDraw = False
+204.1600 	EXP 	text_fixcross: autoDraw = False
+204.1600 	EXP 	image_view: image = 'Stimuli/7224.jpg'
+204.1600 	EXP 	image_view: autoDraw = True
+210.1555 	EXP 	New trial (rep=0, index=12): {'ImageFile': 'Stimuli/7235.jpg', 'Trigger': 1}
+210.1696 	EXP 	image_view: autoDraw = False
+210.1696 	EXP 	image_view: autoDraw = False
+210.1696 	EXP 	text_fixcross: autoDraw = True
+213.8078 	EXP 	text_fixcross: autoDraw = False
+213.8078 	EXP 	text_fixcross: autoDraw = False
+213.8078 	EXP 	image_view: image = 'Stimuli/7235.jpg'
+213.8078 	EXP 	image_view: autoDraw = True
+219.8058 	EXP 	New trial (rep=0, index=13): {'ImageFile': 'Stimuli/143.jpg', 'Trigger': 1}
+219.8197 	EXP 	image_view: autoDraw = False
+219.8197 	EXP 	image_view: autoDraw = False
+219.8197 	EXP 	text_fixcross: autoDraw = True
+223.0563 	EXP 	text_fixcross: autoDraw = False
+223.0563 	EXP 	text_fixcross: autoDraw = False
+223.0563 	EXP 	image_view: image = 'Stimuli/143.jpg'
+223.0563 	EXP 	image_view: autoDraw = True
+229.0558 	EXP 	New trial (rep=0, index=14): {'ImageFile': 'Stimuli/7041.jpg', 'Trigger': 1}
+229.0697 	EXP 	image_view: autoDraw = False
+229.0697 	EXP 	image_view: autoDraw = False
+229.0697 	EXP 	text_fixcross: autoDraw = True
+232.2181 	EXP 	text_fixcross: autoDraw = False
+232.2181 	EXP 	text_fixcross: autoDraw = False
+232.2181 	EXP 	image_view: image = 'Stimuli/7041.jpg'
+232.2181 	EXP 	image_view: autoDraw = True
+238.2057 	EXP 	New trial (rep=0, index=15): {'ImageFile': 'Stimuli/7002.jpg', 'Trigger': 1}
+238.2197 	EXP 	image_view: autoDraw = False
+238.2197 	EXP 	image_view: autoDraw = False
+238.2197 	EXP 	text_fixcross: autoDraw = True
+242.2622 	EXP 	text_fixcross: autoDraw = False
+242.2622 	EXP 	text_fixcross: autoDraw = False
+242.2622 	EXP 	image_view: image = 'Stimuli/7002.jpg'
+242.2622 	EXP 	image_view: autoDraw = True
+248.2556 	EXP 	New trial (rep=0, index=16): {'ImageFile': 'Stimuli/083.jpg', 'Trigger': 1}
+248.2695 	EXP 	image_view: autoDraw = False
+248.2695 	EXP 	image_view: autoDraw = False
+248.2695 	EXP 	text_fixcross: autoDraw = True
+252.1147 	EXP 	text_fixcross: autoDraw = False
+252.1147 	EXP 	text_fixcross: autoDraw = False
+252.1147 	EXP 	image_view: image = 'Stimuli/083.jpg'
+252.1147 	EXP 	image_view: autoDraw = True
+258.1058 	EXP 	New trial (rep=0, index=17): {'ImageFile': 'Stimuli/7100.jpg', 'Trigger': 1}
+258.1196 	EXP 	image_view: autoDraw = False
+258.1196 	EXP 	image_view: autoDraw = False
+258.1196 	EXP 	text_fixcross: autoDraw = True
+261.7620 	EXP 	text_fixcross: autoDraw = False
+261.7620 	EXP 	text_fixcross: autoDraw = False
+261.7620 	EXP 	image_view: image = 'Stimuli/7100.jpg'
+261.7620 	EXP 	image_view: autoDraw = True
+267.7557 	EXP 	New trial (rep=0, index=18): {'ImageFile': 'Stimuli/7004.jpg', 'Trigger': 1}
+267.7697 	EXP 	image_view: autoDraw = False
+267.7697 	EXP 	image_view: autoDraw = False
+267.7697 	EXP 	text_fixcross: autoDraw = True
+271.4100 	EXP 	text_fixcross: autoDraw = False
+271.4100 	EXP 	text_fixcross: autoDraw = False
+271.4100 	EXP 	image_view: image = 'Stimuli/7004.jpg'
+271.4100 	EXP 	image_view: autoDraw = True
+277.4054 	EXP 	New trial (rep=0, index=19): {'ImageFile': 'Stimuli/7233.jpg', 'Trigger': 1}
+277.4190 	EXP 	image_view: autoDraw = False
+277.4190 	EXP 	image_view: autoDraw = False
+277.4190 	EXP 	text_fixcross: autoDraw = True
+281.3452 	EXP 	text_fixcross: autoDraw = False
+281.3452 	EXP 	text_fixcross: autoDraw = False
+281.3452 	EXP 	image_view: image = 'Stimuli/7233.jpg'
+281.3452 	EXP 	image_view: autoDraw = True
+287.3724 	EXP 	image_view: autoDraw = False
+287.3724 	EXP 	image_view: autoDraw = False
+287.3724 	EXP 	slider_arousal: markerPos = None
+287.3724 	EXP 	slider_arousal: markerPos = None
+287.3724 	EXP 	slider_arousal: rating = None
+287.3724 	EXP 	text_slider_arousal: autoDraw = True
+287.3724 	EXP 	slider_arousal: autoDraw = True
+292.9378 	DATA 	Mouse: Left button down, pos=(427,309)
+292.9511 	EXP 	slider_arousal: markerPos = 2.592592592592591
+292.9679 	EXP 	slider_arousal: markerPos = 2.592592592592591
+292.9844 	EXP 	slider_arousal: markerPos = 2.592592592592591
+293.0011 	EXP 	slider_arousal: markerPos = 2.592592592592591
+293.0043 	DATA 	Mouse:  Left button up, pos=(427,309)
+293.0186 	EXP 	slider_arousal: markerPos = 2.592592592592591
+293.0186 	EXP 	slider_arousal: rating = 2.592592592592591
+293.0427 	EXP 	text_slider_arousal: autoDraw = False
+293.0427 	EXP 	slider_arousal: autoDraw = False
+293.0427 	EXP 	slider_effort: markerPos = None
+293.0427 	EXP 	slider_effort: markerPos = None
+293.0427 	EXP 	slider_effort: rating = None
+293.0427 	EXP 	text_slider_effort: autoDraw = True
+293.0427 	EXP 	slider_effort: autoDraw = True
+295.6710 	DATA 	Mouse: Left button down, pos=(422,302)
+295.6844 	EXP 	slider_effort: markerPos = 0.7407407407407307
+295.7010 	EXP 	slider_effort: markerPos = 0.7407407407407307
+295.7177 	EXP 	slider_effort: markerPos = 0.7407407407407307
+295.7345 	EXP 	slider_effort: markerPos = 0.7407407407407307
+295.7511 	EXP 	slider_effort: markerPos = 0.7407407407407307
+295.7677 	EXP 	slider_effort: markerPos = 0.7407407407407307
+295.7711 	DATA 	Mouse:  Left button up, pos=(422,302)
+295.7853 	EXP 	slider_effort: markerPos = 0.7407407407407307
+295.7853 	EXP 	slider_effort: rating = 0.7407407407407307
+295.7889 	EXP 	New trial (rep=0, index=1): {'Block': 2, 'conds_view_File': 'StimuliNegative.xlsx', 'n_reps': 1, 'instr_1': 'ANSCHAUEN', 'TriggerBlockView': 22}
+295.8014 	EXP 	text_slider_effort: autoDraw = False
+295.8014 	EXP 	slider_effort: autoDraw = False
+295.8014 	EXP 	text_ActiveViewing: autoDraw = True
+299.9875 	DATA 	Keypress: space
+300.0158 	EXP 	Imported StimuliNegative_1.xlsx as conditions, 20 conditions, 1 params
+300.0164 	EXP 	Created sequence: random, trialTypes=20, nReps=1, seed=None
+300.0167 	EXP 	New trial (rep=0, index=0): {'ImageFile': 'Stimuli/225.jpg'}
+300.0230 	EXP 	text_ActiveViewing: autoDraw = False
+300.0230 	EXP 	text_fixcross: autoDraw = True
+304.5598 	EXP 	text_fixcross: autoDraw = False
+304.5598 	EXP 	text_fixcross: autoDraw = False
+304.5598 	EXP 	image_view: image = 'Stimuli/225.jpg'
+304.5598 	EXP 	image_view: autoDraw = True
+310.5562 	EXP 	New trial (rep=0, index=1): {'ImageFile': 'Stimuli/255.jpg'}
+310.5695 	EXP 	image_view: autoDraw = False
+310.5695 	EXP 	image_view: autoDraw = False
+310.5695 	EXP 	text_fixcross: autoDraw = True
+314.9009 	EXP 	text_fixcross: autoDraw = False
+314.9009 	EXP 	text_fixcross: autoDraw = False
+314.9009 	EXP 	image_view: image = 'Stimuli/255.jpg'
+314.9009 	EXP 	image_view: autoDraw = True
+320.8889 	EXP 	New trial (rep=0, index=2): {'ImageFile': 'Stimuli/6190.jpg'}
+320.9026 	EXP 	image_view: autoDraw = False
+320.9026 	EXP 	image_view: autoDraw = False
+320.9026 	EXP 	text_fixcross: autoDraw = True
+325.1536 	EXP 	text_fixcross: autoDraw = False
+325.1536 	EXP 	text_fixcross: autoDraw = False
+325.1536 	EXP 	image_view: image = 'Stimuli/6190.jpg'
+325.1536 	EXP 	image_view: autoDraw = True
+331.1556 	EXP 	New trial (rep=0, index=3): {'ImageFile': 'Stimuli/9424.jpg'}
+331.1693 	EXP 	image_view: autoDraw = False
+331.1693 	EXP 	image_view: autoDraw = False
+331.1693 	EXP 	text_fixcross: autoDraw = True
+335.3011 	EXP 	text_fixcross: autoDraw = False
+335.3011 	EXP 	text_fixcross: autoDraw = False
+335.3011 	EXP 	image_view: image = 'Stimuli/9424.jpg'
+335.3011 	EXP 	image_view: autoDraw = True
+341.2869 	EXP 	New trial (rep=0, index=4): {'ImageFile': 'Stimuli/3022.jpg'}
+341.3011 	EXP 	image_view: autoDraw = False
+341.3011 	EXP 	image_view: autoDraw = False
+341.3011 	EXP 	text_fixcross: autoDraw = True
+345.6263 	EXP 	text_fixcross: autoDraw = False
+345.6263 	EXP 	text_fixcross: autoDraw = False
+345.6263 	EXP 	image_view: image = 'Stimuli/3022.jpg'
+345.6263 	EXP 	image_view: autoDraw = True
+351.6219 	EXP 	New trial (rep=0, index=5): {'ImageFile': 'Stimuli/9182.jpg'}
+351.6351 	EXP 	image_view: autoDraw = False
+351.6351 	EXP 	image_view: autoDraw = False
+351.6351 	EXP 	text_fixcross: autoDraw = True
+355.6640 	EXP 	text_fixcross: autoDraw = False
+355.6640 	EXP 	text_fixcross: autoDraw = False
+355.6640 	EXP 	image_view: image = 'Stimuli/9182.jpg'
+355.6640 	EXP 	image_view: autoDraw = True
+361.6557 	EXP 	New trial (rep=0, index=6): {'ImageFile': 'Stimuli/9300.jpg'}
+361.6697 	EXP 	image_view: autoDraw = False
+361.6697 	EXP 	image_view: autoDraw = False
+361.6697 	EXP 	text_fixcross: autoDraw = True
+366.1102 	EXP 	text_fixcross: autoDraw = False
+366.1102 	EXP 	text_fixcross: autoDraw = False
+366.1102 	EXP 	image_view: image = 'Stimuli/9300.jpg'
+366.1102 	EXP 	image_view: autoDraw = True
+372.1057 	EXP 	New trial (rep=0, index=7): {'ImageFile': 'Stimuli/327.jpg'}
+372.1197 	EXP 	image_view: autoDraw = False
+372.1197 	EXP 	image_view: autoDraw = False
+372.1197 	EXP 	text_fixcross: autoDraw = True
+376.3633 	EXP 	text_fixcross: autoDraw = False
+376.3633 	EXP 	text_fixcross: autoDraw = False
+376.3633 	EXP 	image_view: image = 'Stimuli/327.jpg'
+376.3633 	EXP 	image_view: autoDraw = True
+382.3556 	EXP 	New trial (rep=0, index=8): {'ImageFile': 'Stimuli/9253.jpg'}
+382.3694 	EXP 	image_view: autoDraw = False
+382.3694 	EXP 	image_view: autoDraw = False
+382.3694 	EXP 	text_fixcross: autoDraw = True
+387.0217 	EXP 	text_fixcross: autoDraw = False
+387.0217 	EXP 	text_fixcross: autoDraw = False
+387.0217 	EXP 	image_view: image = 'Stimuli/9253.jpg'
+387.0217 	EXP 	image_view: autoDraw = True
+393.0223 	EXP 	New trial (rep=0, index=9): {'ImageFile': 'Stimuli/3017.jpg'}
+393.0362 	EXP 	image_view: autoDraw = False
+393.0362 	EXP 	image_view: autoDraw = False
+393.0362 	EXP 	text_fixcross: autoDraw = True
+396.3775 	EXP 	text_fixcross: autoDraw = False
+396.3775 	EXP 	text_fixcross: autoDraw = False
+396.3775 	EXP 	image_view: image = 'Stimuli/3017.jpg'
+396.3775 	EXP 	image_view: autoDraw = True
+402.3723 	EXP 	New trial (rep=0, index=10): {'ImageFile': 'Stimuli/9425.jpg'}
+402.3860 	EXP 	image_view: autoDraw = False
+402.3860 	EXP 	image_view: autoDraw = False
+402.3860 	EXP 	text_fixcross: autoDraw = True
+405.9371 	EXP 	text_fixcross: autoDraw = False
+405.9371 	EXP 	text_fixcross: autoDraw = False
+405.9371 	EXP 	image_view: image = 'Stimuli/9425.jpg'
+405.9371 	EXP 	image_view: autoDraw = True
+411.9388 	EXP 	New trial (rep=0, index=11): {'ImageFile': 'Stimuli/1111.jpg'}
+411.9527 	EXP 	image_view: autoDraw = False
+411.9527 	EXP 	image_view: autoDraw = False
+411.9527 	EXP 	text_fixcross: autoDraw = True
+416.0013 	EXP 	text_fixcross: autoDraw = False
+416.0013 	EXP 	text_fixcross: autoDraw = False
+416.0013 	EXP 	image_view: image = 'Stimuli/1111.jpg'
+416.0013 	EXP 	image_view: autoDraw = True
+421.9889 	EXP 	New trial (rep=0, index=12): {'ImageFile': 'Stimuli/3280.jpg'}
+422.0029 	EXP 	image_view: autoDraw = False
+422.0029 	EXP 	image_view: autoDraw = False
+422.0029 	EXP 	text_fixcross: autoDraw = True
+425.2434 	EXP 	text_fixcross: autoDraw = False
+425.2434 	EXP 	text_fixcross: autoDraw = False
+425.2434 	EXP 	image_view: image = 'Stimuli/3280.jpg'
+425.2434 	EXP 	image_view: autoDraw = True
+431.2389 	EXP 	New trial (rep=0, index=13): {'ImageFile': 'Stimuli/6836.jpg'}
+431.2529 	EXP 	image_view: autoDraw = False
+431.2529 	EXP 	image_view: autoDraw = False
+431.2529 	EXP 	text_fixcross: autoDraw = True
+434.3917 	EXP 	text_fixcross: autoDraw = False
+434.3917 	EXP 	text_fixcross: autoDraw = False
+434.3917 	EXP 	image_view: image = 'Stimuli/6836.jpg'
+434.3917 	EXP 	image_view: autoDraw = True
+440.3889 	EXP 	New trial (rep=0, index=14): {'ImageFile': 'Stimuli/230.jpg'}
+440.4027 	EXP 	image_view: autoDraw = False
+440.4027 	EXP 	image_view: autoDraw = False
+440.4027 	EXP 	text_fixcross: autoDraw = True
+445.1415 	EXP 	text_fixcross: autoDraw = False
+445.1415 	EXP 	text_fixcross: autoDraw = False
+445.1415 	EXP 	image_view: image = 'Stimuli/230.jpg'
+445.1415 	EXP 	image_view: autoDraw = True
+451.1389 	EXP 	New trial (rep=0, index=15): {'ImageFile': 'Stimuli/9326.jpg'}
+451.1530 	EXP 	image_view: autoDraw = False
+451.1530 	EXP 	image_view: autoDraw = False
+451.1530 	EXP 	text_fixcross: autoDraw = True
+455.1038 	EXP 	text_fixcross: autoDraw = False
+455.1038 	EXP 	text_fixcross: autoDraw = False
+455.1038 	EXP 	image_view: image = 'Stimuli/9326.jpg'
+455.1038 	EXP 	image_view: autoDraw = True
+461.1056 	EXP 	New trial (rep=0, index=16): {'ImageFile': 'Stimuli/9180.jpg'}
+461.1196 	EXP 	image_view: autoDraw = False
+461.1196 	EXP 	image_view: autoDraw = False
+461.1196 	EXP 	text_fixcross: autoDraw = True
+465.1596 	EXP 	text_fixcross: autoDraw = False
+465.1596 	EXP 	text_fixcross: autoDraw = False
+465.1596 	EXP 	image_view: image = 'Stimuli/9180.jpg'
+465.1596 	EXP 	image_view: autoDraw = True
+471.1556 	EXP 	New trial (rep=0, index=17): {'ImageFile': 'Stimuli/6244.jpg'}
+471.1693 	EXP 	image_view: autoDraw = False
+471.1693 	EXP 	image_view: autoDraw = False
+471.1693 	EXP 	text_fixcross: autoDraw = True
+475.0092 	EXP 	text_fixcross: autoDraw = False
+475.0092 	EXP 	text_fixcross: autoDraw = False
+475.0092 	EXP 	image_view: image = 'Stimuli/6244.jpg'
+475.0092 	EXP 	image_view: autoDraw = True
+481.0055 	EXP 	New trial (rep=0, index=18): {'ImageFile': 'Stimuli/9920.jpg'}
+481.0196 	EXP 	image_view: autoDraw = False
+481.0196 	EXP 	image_view: autoDraw = False
+481.0196 	EXP 	text_fixcross: autoDraw = True
+484.9598 	EXP 	text_fixcross: autoDraw = False
+484.9598 	EXP 	text_fixcross: autoDraw = False
+484.9598 	EXP 	image_view: image = 'Stimuli/9920.jpg'
+484.9598 	EXP 	image_view: autoDraw = True
+490.9558 	EXP 	New trial (rep=0, index=19): {'ImageFile': 'Stimuli/3180.jpg'}
+490.9697 	EXP 	image_view: autoDraw = False
+490.9697 	EXP 	image_view: autoDraw = False
+490.9697 	EXP 	text_fixcross: autoDraw = True
+495.9148 	EXP 	text_fixcross: autoDraw = False
+495.9148 	EXP 	text_fixcross: autoDraw = False
+495.9148 	EXP 	image_view: image = 'Stimuli/3180.jpg'
+495.9148 	EXP 	image_view: autoDraw = True
+501.9336 	EXP 	image_view: autoDraw = False
+501.9336 	EXP 	image_view: autoDraw = False
+501.9336 	EXP 	slider_arousal: markerPos = None
+501.9336 	EXP 	slider_arousal: markerPos = None
+501.9336 	EXP 	slider_arousal: rating = None
+501.9336 	EXP 	text_slider_arousal: autoDraw = True
+501.9336 	EXP 	slider_arousal: autoDraw = True
+507.5710 	DATA 	Mouse: Left button down, pos=(903,315)
+507.5845 	EXP 	slider_arousal: markerPos = 178.88888888888889
+507.6011 	EXP 	slider_arousal: markerPos = 178.88888888888889
+507.6177 	EXP 	slider_arousal: markerPos = 178.88888888888889
+507.6345 	EXP 	slider_arousal: markerPos = 178.88888888888889
+507.6513 	EXP 	slider_arousal: markerPos = 178.88888888888889
+507.6546 	DATA 	Mouse:  Left button up, pos=(903,315)
+507.6688 	EXP 	slider_arousal: markerPos = 178.88888888888889
+507.6688 	EXP 	slider_arousal: rating = 178.88888888888889
+507.6904 	EXP 	text_slider_arousal: autoDraw = False
+507.6904 	EXP 	slider_arousal: autoDraw = False
+507.6904 	EXP 	slider_effort: markerPos = None
+507.6904 	EXP 	slider_effort: markerPos = None
+507.6904 	EXP 	slider_effort: rating = None
+507.6904 	EXP 	text_slider_effort: autoDraw = True
+507.6904 	EXP 	slider_effort: autoDraw = True
+510.4905 	DATA 	Mouse: Left button down, pos=(428,299)
+510.5173 	EXP 	slider_effort: markerPos = 2.9629629629629672
+510.5339 	EXP 	slider_effort: markerPos = 2.9629629629629672
+510.5507 	EXP 	slider_effort: markerPos = 2.9629629629629672
+510.5673 	EXP 	slider_effort: markerPos = 2.9629629629629672
+510.5840 	EXP 	slider_effort: markerPos = 2.9629629629629672
+510.6007 	EXP 	slider_effort: markerPos = 2.9629629629629672
+510.6035 	DATA 	Mouse:  Left button up, pos=(428,299)
+510.6177 	EXP 	slider_effort: markerPos = 2.9629629629629672
+510.6177 	EXP 	slider_effort: rating = 2.9629629629629672
+510.6272 	EXP 	Imported blocks_reg.xlsx as conditions, 3 conditions, 6 params
+510.6276 	EXP 	Created sequence: random, trialTypes=3, nReps=1, seed=None
+510.6279 	EXP 	New trial (rep=0, index=0): {'Block': 4, 'conds_reg_File': 'StimuliNegative.xlsx', 'n_reps': 1, 'TriggerBlockReg': 24, 'instr_1': 'DISTANZIEREN', 'instr_2': 'Nehmen Sie die Position eines uninvolvierten Beobachters ein. Denken Sie über das Bild in einer neutralen Weise nach.'}
+510.6606 	EXP 	text_slider_effort: autoDraw = False
+510.6606 	EXP 	slider_effort: autoDraw = False
+510.6606 	EXP 	text_Instruction: text = 'DISTANZIEREN\n\nIn diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.\nNehmen Sie die Position eines uninvolvierten Beobachters ein. Denken Sie über das Bild in einer neutralen Weise nach.\n\nBitte konzentrieren Sie Ihre Regulationsbemühungen nur auf das Bild, nicht aber auf die Zeiträume zwischen den Bildern.\n\nZum Starten des Blocks Leertaste drücken'
+510.6606 	EXP 	text_Instruction: autoDraw = True
+519.4127 	EXP 	Imported StimuliNegative_4.xlsx as conditions, 20 conditions, 1 params
+519.4132 	EXP 	Created sequence: random, trialTypes=20, nReps=1, seed=None
+519.4136 	EXP 	New trial (rep=0, index=0): {'ImageFile': 'Stimuli/9181.jpg'}
+519.4165 	DATA 	Keypress: space
+519.4203 	EXP 	text_Instruction: autoDraw = False
+519.4203 	EXP 	text_fixcross: autoDraw = True
+522.5699 	EXP 	text_fixcross: autoDraw = False
+522.5699 	EXP 	text_fixcross: autoDraw = False
+522.5699 	EXP 	image_reg: image = 'Stimuli/9181.jpg'
+522.5699 	EXP 	image_reg: autoDraw = True
+528.5729 	EXP 	New trial (rep=0, index=1): {'ImageFile': 'Stimuli/2800.jpg'}
+528.5863 	EXP 	image_reg: autoDraw = False
+528.5863 	EXP 	image_reg: autoDraw = False
+528.5863 	EXP 	text_fixcross: autoDraw = True
+532.1253 	EXP 	text_fixcross: autoDraw = False
+532.1253 	EXP 	text_fixcross: autoDraw = False
+532.1253 	EXP 	image_reg: image = 'Stimuli/2800.jpg'
+532.1253 	EXP 	image_reg: autoDraw = True
+538.1219 	EXP 	New trial (rep=0, index=2): {'ImageFile': 'Stimuli/1051.jpg'}
+538.1352 	EXP 	image_reg: autoDraw = False
+538.1352 	EXP 	image_reg: autoDraw = False
+538.1352 	EXP 	text_fixcross: autoDraw = True
+541.9598 	EXP 	text_fixcross: autoDraw = False
+541.9598 	EXP 	text_fixcross: autoDraw = False
+541.9598 	EXP 	image_reg: image = 'Stimuli/1051.jpg'
+541.9598 	EXP 	image_reg: autoDraw = True
+547.9554 	EXP 	New trial (rep=0, index=3): {'ImageFile': 'Stimuli/9420.jpg'}
+547.9694 	EXP 	image_reg: autoDraw = False
+547.9694 	EXP 	image_reg: autoDraw = False
+547.9694 	EXP 	text_fixcross: autoDraw = True
+553.0152 	EXP 	text_fixcross: autoDraw = False
+553.0152 	EXP 	text_fixcross: autoDraw = False
+553.0152 	EXP 	image_reg: image = 'Stimuli/9420.jpg'
+553.0152 	EXP 	image_reg: autoDraw = True
+559.0051 	EXP 	New trial (rep=0, index=4): {'ImageFile': 'Stimuli/3230.jpg'}
+559.0182 	EXP 	image_reg: autoDraw = False
+559.0182 	EXP 	image_reg: autoDraw = False
+559.0182 	EXP 	text_fixcross: autoDraw = True
+563.9474 	EXP 	text_fixcross: autoDraw = False
+563.9474 	EXP 	text_fixcross: autoDraw = False
+563.9474 	EXP 	image_reg: image = 'Stimuli/3230.jpg'
+563.9474 	EXP 	image_reg: autoDraw = True
+569.9388 	EXP 	New trial (rep=0, index=5): {'ImageFile': 'Stimuli/9332.jpg'}
+569.9527 	EXP 	image_reg: autoDraw = False
+569.9527 	EXP 	image_reg: autoDraw = False
+569.9527 	EXP 	text_fixcross: autoDraw = True
+573.7974 	EXP 	text_fixcross: autoDraw = False
+573.7974 	EXP 	text_fixcross: autoDraw = False
+573.7974 	EXP 	image_reg: image = 'Stimuli/9332.jpg'
+573.7974 	EXP 	image_reg: autoDraw = True
+579.7889 	EXP 	New trial (rep=0, index=6): {'ImageFile': 'Stimuli/9230.jpg'}
+579.8026 	EXP 	image_reg: autoDraw = False
+579.8026 	EXP 	image_reg: autoDraw = False
+579.8026 	EXP 	text_fixcross: autoDraw = True
+583.6438 	EXP 	text_fixcross: autoDraw = False
+583.6438 	EXP 	text_fixcross: autoDraw = False
+583.6438 	EXP 	image_reg: image = 'Stimuli/9230.jpg'
+583.6438 	EXP 	image_reg: autoDraw = True
+589.6386 	EXP 	New trial (rep=0, index=7): {'ImageFile': 'Stimuli/9421.jpg'}
+589.6517 	EXP 	image_reg: autoDraw = False
+589.6517 	EXP 	image_reg: autoDraw = False
+589.6517 	EXP 	text_fixcross: autoDraw = True
+592.9771 	EXP 	text_fixcross: autoDraw = False
+592.9771 	EXP 	text_fixcross: autoDraw = False
+592.9771 	EXP 	image_reg: image = 'Stimuli/9421.jpg'
+592.9771 	EXP 	image_reg: autoDraw = True
+598.9722 	EXP 	New trial (rep=0, index=8): {'ImageFile': 'Stimuli/9905.jpg'}
+598.9862 	EXP 	image_reg: autoDraw = False
+598.9862 	EXP 	image_reg: autoDraw = False
+598.9862 	EXP 	text_fixcross: autoDraw = True
+603.7351 	EXP 	text_fixcross: autoDraw = False
+603.7351 	EXP 	text_fixcross: autoDraw = False
+603.7351 	EXP 	image_reg: image = 'Stimuli/9905.jpg'
+603.7351 	EXP 	image_reg: autoDraw = True
+609.7225 	EXP 	New trial (rep=0, index=9): {'ImageFile': 'Stimuli/9295.jpg'}
+609.7363 	EXP 	image_reg: autoDraw = False
+609.7363 	EXP 	image_reg: autoDraw = False
+609.7363 	EXP 	text_fixcross: autoDraw = True
+614.1913 	EXP 	text_fixcross: autoDraw = False
+614.1913 	EXP 	text_fixcross: autoDraw = False
+614.1913 	EXP 	image_reg: image = 'Stimuli/9295.jpg'
+614.1913 	EXP 	image_reg: autoDraw = True
+620.1889 	EXP 	New trial (rep=0, index=10): {'ImageFile': 'Stimuli/6561.jpg'}
+620.2029 	EXP 	image_reg: autoDraw = False
+620.2029 	EXP 	image_reg: autoDraw = False
+620.2029 	EXP 	text_fixcross: autoDraw = True
+624.0416 	EXP 	text_fixcross: autoDraw = False
+624.0416 	EXP 	text_fixcross: autoDraw = False
+624.0416 	EXP 	image_reg: image = 'Stimuli/6561.jpg'
+624.0416 	EXP 	image_reg: autoDraw = True
+630.0385 	EXP 	New trial (rep=0, index=11): {'ImageFile': 'Stimuli/9599.jpg'}
+630.0517 	EXP 	image_reg: autoDraw = False
+630.0517 	EXP 	image_reg: autoDraw = False
+630.0517 	EXP 	text_fixcross: autoDraw = True
+634.4861 	EXP 	text_fixcross: autoDraw = False
+634.4861 	EXP 	text_fixcross: autoDraw = False
+634.4861 	EXP 	image_reg: image = 'Stimuli/9599.jpg'
+634.4861 	EXP 	image_reg: autoDraw = True
+640.4879 	EXP 	New trial (rep=0, index=12): {'ImageFile': 'Stimuli/3061.jpg'}
+640.5017 	EXP 	image_reg: autoDraw = False
+640.5017 	EXP 	image_reg: autoDraw = False
+640.5017 	EXP 	text_fixcross: autoDraw = True
+644.5287 	EXP 	text_fixcross: autoDraw = False
+644.5287 	EXP 	text_fixcross: autoDraw = False
+644.5287 	EXP 	image_reg: image = 'Stimuli/3061.jpg'
+644.5287 	EXP 	image_reg: autoDraw = True
+650.5220 	EXP 	New trial (rep=0, index=13): {'ImageFile': 'Stimuli/227.jpg'}
+650.5360 	EXP 	image_reg: autoDraw = False
+650.5360 	EXP 	image_reg: autoDraw = False
+650.5360 	EXP 	text_fixcross: autoDraw = True
+654.1880 	EXP 	text_fixcross: autoDraw = False
+654.1880 	EXP 	text_fixcross: autoDraw = False
+654.1880 	EXP 	image_reg: image = 'Stimuli/227.jpg'
+654.1880 	EXP 	image_reg: autoDraw = True
+660.1887 	EXP 	New trial (rep=0, index=14): {'ImageFile': 'Stimuli/9411.jpg'}
+660.2021 	EXP 	image_reg: autoDraw = False
+660.2021 	EXP 	image_reg: autoDraw = False
+660.2021 	EXP 	text_fixcross: autoDraw = True
+664.6352 	EXP 	text_fixcross: autoDraw = False
+664.6352 	EXP 	text_fixcross: autoDraw = False
+664.6352 	EXP 	image_reg: image = 'Stimuli/9411.jpg'
+664.6352 	EXP 	image_reg: autoDraw = True
+670.6223 	EXP 	New trial (rep=0, index=15): {'ImageFile': 'Stimuli/9120.jpg'}
+670.6360 	EXP 	image_reg: autoDraw = False
+670.6360 	EXP 	image_reg: autoDraw = False
+670.6360 	EXP 	text_fixcross: autoDraw = True
+674.5767 	EXP 	text_fixcross: autoDraw = False
+674.5767 	EXP 	text_fixcross: autoDraw = False
+674.5767 	EXP 	image_reg: image = 'Stimuli/9120.jpg'
+674.5767 	EXP 	image_reg: autoDraw = True
+680.5722 	EXP 	New trial (rep=0, index=16): {'ImageFile': 'Stimuli/6838.jpg'}
+680.5863 	EXP 	image_reg: autoDraw = False
+680.5863 	EXP 	image_reg: autoDraw = False
+680.5863 	EXP 	text_fixcross: autoDraw = True
+684.9342 	EXP 	text_fixcross: autoDraw = False
+684.9342 	EXP 	text_fixcross: autoDraw = False
+684.9342 	EXP 	image_reg: image = 'Stimuli/6838.jpg'
+684.9342 	EXP 	image_reg: autoDraw = True
+690.9222 	EXP 	New trial (rep=0, index=17): {'ImageFile': 'Stimuli/252.jpg'}
+690.9361 	EXP 	image_reg: autoDraw = False
+690.9361 	EXP 	image_reg: autoDraw = False
+690.9361 	EXP 	text_fixcross: autoDraw = True
+695.7748 	EXP 	text_fixcross: autoDraw = False
+695.7748 	EXP 	text_fixcross: autoDraw = False
+695.7748 	EXP 	image_reg: image = 'Stimuli/252.jpg'
+695.7748 	EXP 	image_reg: autoDraw = True
+701.7722 	EXP 	New trial (rep=0, index=18): {'ImageFile': 'Stimuli/9185.jpg'}
+701.7863 	EXP 	image_reg: autoDraw = False
+701.7863 	EXP 	image_reg: autoDraw = False
+701.7863 	EXP 	text_fixcross: autoDraw = True
+705.9394 	EXP 	text_fixcross: autoDraw = False
+705.9394 	EXP 	text_fixcross: autoDraw = False
+705.9394 	EXP 	image_reg: image = 'Stimuli/9185.jpg'
+705.9394 	EXP 	image_reg: autoDraw = True
+711.9389 	EXP 	New trial (rep=0, index=19): {'ImageFile': 'Stimuli/9254.jpg'}
+711.9525 	EXP 	image_reg: autoDraw = False
+711.9525 	EXP 	image_reg: autoDraw = False
+711.9525 	EXP 	text_fixcross: autoDraw = True
+715.7011 	EXP 	text_fixcross: autoDraw = False
+715.7011 	EXP 	text_fixcross: autoDraw = False
+715.7011 	EXP 	image_reg: image = 'Stimuli/9254.jpg'
+715.7011 	EXP 	image_reg: autoDraw = True
+721.7193 	EXP 	image_reg: autoDraw = False
+721.7193 	EXP 	image_reg: autoDraw = False
+721.7193 	EXP 	slider_arousal: markerPos = None
+721.7193 	EXP 	slider_arousal: markerPos = None
+721.7193 	EXP 	slider_arousal: rating = None
+721.7193 	EXP 	text_slider_arousal: autoDraw = True
+721.7193 	EXP 	slider_arousal: autoDraw = True
+728.7042 	DATA 	Mouse: Left button down, pos=(578,318)
+728.7176 	EXP 	slider_arousal: markerPos = 58.518518518518526
+728.7339 	EXP 	slider_arousal: markerPos = 58.518518518518526
+728.7507 	EXP 	slider_arousal: markerPos = 58.518518518518526
+728.7673 	EXP 	slider_arousal: markerPos = 58.518518518518526
+728.7840 	EXP 	slider_arousal: markerPos = 58.518518518518526
+728.8006 	EXP 	slider_arousal: markerPos = 58.518518518518526
+728.8090 	DATA 	Mouse:  Left button up, pos=(578,318)
+728.8176 	EXP 	slider_arousal: markerPos = 58.518518518518526
+728.8347 	EXP 	slider_arousal: markerPos = 58.518518518518526
+728.8347 	EXP 	slider_arousal: rating = 58.518518518518526
+728.8563 	EXP 	text_slider_arousal: autoDraw = False
+728.8563 	EXP 	slider_arousal: autoDraw = False
+728.8563 	EXP 	slider_effort: markerPos = None
+728.8563 	EXP 	slider_effort: markerPos = None
+728.8563 	EXP 	slider_effort: rating = None
+728.8563 	EXP 	text_slider_effort: autoDraw = True
+728.8563 	EXP 	slider_effort: autoDraw = True
+730.6711 	DATA 	Mouse: Left button down, pos=(873,341)
+730.6845 	EXP 	slider_effort: markerPos = 167.77777777777777
+730.7010 	EXP 	slider_effort: markerPos = 167.77777777777777
+730.7177 	EXP 	slider_effort: markerPos = 167.77777777777777
+730.7343 	EXP 	slider_effort: markerPos = 167.77777777777777
+730.7507 	EXP 	slider_effort: markerPos = 167.77777777777777
+730.7674 	EXP 	slider_effort: markerPos = 167.77777777777777
+730.7707 	DATA 	Mouse:  Left button up, pos=(873,341)
+730.7845 	EXP 	slider_effort: markerPos = 167.77777777777777
+730.7845 	EXP 	slider_effort: rating = 167.77777777777777
+730.7888 	EXP 	New trial (rep=0, index=1): {'Block': 5, 'conds_reg_File': 'StimuliNegative.xlsx', 'n_reps': 1, 'TriggerBlockReg': 25, 'instr_1': 'UNTERDRÜCKEN', 'instr_2': 'Unterdrücken Sie alle aufkommenden Emotionen. Wenn Sie also die Bilder ansehen, verhalten Sie sich so, dass eine außenstehende Person nicht sehen kann, welche Emotionen Sie gerade empfinden.'}
+730.8213 	EXP 	text_slider_effort: autoDraw = False
+730.8213 	EXP 	slider_effort: autoDraw = False
+730.8213 	EXP 	text_Instruction: text = 'UNTERDRÜCKEN\n\nIn diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.\nUnterdrücken Sie alle aufkommenden Emotionen. Wenn Sie also die Bilder ansehen, verhalten Sie sich so, dass eine außenstehende Person nicht sehen kann, welche Emotionen Sie gerade empfinden.\n\nBitte konzentrieren Sie Ihre Regulationsbemühungen nur auf das Bild, nicht aber auf die Zeiträume zwischen den Bildern.\n\nZum Starten des Blocks Leertaste drücken'
+730.8213 	EXP 	text_Instruction: autoDraw = True
+739.9082 	DATA 	Keypress: space
+739.9448 	EXP 	Imported StimuliNegative_2.xlsx as conditions, 20 conditions, 1 params
+739.9453 	EXP 	Created sequence: random, trialTypes=20, nReps=1, seed=None
+739.9456 	EXP 	New trial (rep=0, index=0): {'ImageFile': 'Stimuli/9043.jpg'}
+739.9522 	EXP 	text_Instruction: autoDraw = False
+739.9522 	EXP 	text_fixcross: autoDraw = True
+744.6930 	EXP 	text_fixcross: autoDraw = False
+744.6930 	EXP 	text_fixcross: autoDraw = False
+744.6930 	EXP 	image_reg: image = 'Stimuli/9043.jpg'
+744.6930 	EXP 	image_reg: autoDraw = True
+750.6893 	EXP 	New trial (rep=0, index=1): {'ImageFile': 'Stimuli/9184.jpg'}
+750.7025 	EXP 	image_reg: autoDraw = False
+750.7025 	EXP 	image_reg: autoDraw = False
+750.7025 	EXP 	text_fixcross: autoDraw = True
+754.1467 	EXP 	text_fixcross: autoDraw = False
+754.1467 	EXP 	text_fixcross: autoDraw = False
+754.1467 	EXP 	image_reg: image = 'Stimuli/9184.jpg'
+754.1467 	EXP 	image_reg: autoDraw = True
+760.1387 	EXP 	New trial (rep=0, index=2): {'ImageFile': 'Stimuli/228.jpg'}
+760.1527 	EXP 	image_reg: autoDraw = False
+760.1527 	EXP 	image_reg: autoDraw = False
+760.1527 	EXP 	text_fixcross: autoDraw = True
+763.6955 	EXP 	text_fixcross: autoDraw = False
+763.6955 	EXP 	text_fixcross: autoDraw = False
+763.6955 	EXP 	image_reg: image = 'Stimuli/228.jpg'
+763.6955 	EXP 	image_reg: autoDraw = True
+769.6889 	EXP 	New trial (rep=0, index=3): {'ImageFile': 'Stimuli/3301.jpg'}
+769.7028 	EXP 	image_reg: autoDraw = False
+769.7028 	EXP 	image_reg: autoDraw = False
+769.7028 	EXP 	text_fixcross: autoDraw = True
+773.2458 	EXP 	text_fixcross: autoDraw = False
+773.2458 	EXP 	text_fixcross: autoDraw = False
+773.2458 	EXP 	image_reg: image = 'Stimuli/3301.jpg'
+773.2458 	EXP 	image_reg: autoDraw = True
+779.2388 	EXP 	New trial (rep=0, index=4): {'ImageFile': 'Stimuli/9160.jpg'}
+779.2528 	EXP 	image_reg: autoDraw = False
+779.2528 	EXP 	image_reg: autoDraw = False
+779.2528 	EXP 	text_fixcross: autoDraw = True
+782.6917 	EXP 	text_fixcross: autoDraw = False
+782.6917 	EXP 	text_fixcross: autoDraw = False
+782.6917 	EXP 	image_reg: image = 'Stimuli/9160.jpg'
+782.6917 	EXP 	image_reg: autoDraw = True
+788.6888 	EXP 	New trial (rep=0, index=5): {'ImageFile': 'Stimuli/2703.jpg'}
+788.7027 	EXP 	image_reg: autoDraw = False
+788.7027 	EXP 	image_reg: autoDraw = False
+788.7027 	EXP 	text_fixcross: autoDraw = True
+793.0421 	EXP 	text_fixcross: autoDraw = False
+793.0421 	EXP 	text_fixcross: autoDraw = False
+793.0421 	EXP 	image_reg: image = 'Stimuli/2703.jpg'
+793.0421 	EXP 	image_reg: autoDraw = True
+799.0387 	EXP 	New trial (rep=0, index=6): {'ImageFile': 'Stimuli/9040.jpg'}
+799.0524 	EXP 	image_reg: autoDraw = False
+799.0524 	EXP 	image_reg: autoDraw = False
+799.0524 	EXP 	text_fixcross: autoDraw = True
+802.6949 	EXP 	text_fixcross: autoDraw = False
+802.6949 	EXP 	text_fixcross: autoDraw = False
+802.6949 	EXP 	image_reg: image = 'Stimuli/9040.jpg'
+802.6949 	EXP 	image_reg: autoDraw = True
+808.6888 	EXP 	New trial (rep=0, index=7): {'ImageFile': 'Stimuli/218.jpg'}
+808.7027 	EXP 	image_reg: autoDraw = False
+808.7027 	EXP 	image_reg: autoDraw = False
+808.7027 	EXP 	text_fixcross: autoDraw = True
+812.0423 	EXP 	text_fixcross: autoDraw = False
+812.0423 	EXP 	text_fixcross: autoDraw = False
+812.0423 	EXP 	image_reg: image = 'Stimuli/218.jpg'
+812.0423 	EXP 	image_reg: autoDraw = True
+818.0387 	EXP 	New trial (rep=0, index=8): {'ImageFile': 'Stimuli/251.jpg'}
+818.0527 	EXP 	image_reg: autoDraw = False
+818.0527 	EXP 	image_reg: autoDraw = False
+818.0527 	EXP 	text_fixcross: autoDraw = True
+821.8946 	EXP 	text_fixcross: autoDraw = False
+821.8946 	EXP 	text_fixcross: autoDraw = False
+821.8946 	EXP 	image_reg: image = 'Stimuli/251.jpg'
+821.8946 	EXP 	image_reg: autoDraw = True
+827.8887 	EXP 	New trial (rep=0, index=9): {'ImageFile': 'Stimuli/9145.jpg'}
+827.9026 	EXP 	image_reg: autoDraw = False
+827.9026 	EXP 	image_reg: autoDraw = False
+827.9026 	EXP 	text_fixcross: autoDraw = True
+832.0600 	EXP 	text_fixcross: autoDraw = False
+832.0600 	EXP 	text_fixcross: autoDraw = False
+832.0600 	EXP 	image_reg: image = 'Stimuli/9145.jpg'
+832.0600 	EXP 	image_reg: autoDraw = True
+838.0555 	EXP 	New trial (rep=0, index=10): {'ImageFile': 'Stimuli/9031.jpg'}
+838.0693 	EXP 	image_reg: autoDraw = False
+838.0693 	EXP 	image_reg: autoDraw = False
+838.0693 	EXP 	text_fixcross: autoDraw = True
+842.6208 	EXP 	text_fixcross: autoDraw = False
+842.6208 	EXP 	text_fixcross: autoDraw = False
+842.6208 	EXP 	image_reg: image = 'Stimuli/9031.jpg'
+842.6208 	EXP 	image_reg: autoDraw = True
+848.6216 	EXP 	New trial (rep=0, index=11): {'ImageFile': 'Stimuli/9042.jpg'}
+848.6349 	EXP 	image_reg: autoDraw = False
+848.6349 	EXP 	image_reg: autoDraw = False
+848.6349 	EXP 	text_fixcross: autoDraw = True
+853.4595 	EXP 	text_fixcross: autoDraw = False
+853.4595 	EXP 	text_fixcross: autoDraw = False
+853.4595 	EXP 	image_reg: image = 'Stimuli/9042.jpg'
+853.4595 	EXP 	image_reg: autoDraw = True
+859.4555 	EXP 	New trial (rep=0, index=12): {'ImageFile': 'Stimuli/3051.jpg'}
+859.4698 	EXP 	image_reg: autoDraw = False
+859.4698 	EXP 	image_reg: autoDraw = False
+859.4698 	EXP 	text_fixcross: autoDraw = True
+862.6179 	EXP 	text_fixcross: autoDraw = False
+862.6179 	EXP 	text_fixcross: autoDraw = False
+862.6179 	EXP 	image_reg: image = 'Stimuli/3051.jpg'
+862.6179 	EXP 	image_reg: autoDraw = True
+868.6055 	EXP 	New trial (rep=0, index=13): {'ImageFile': 'Stimuli/3160.jpg'}
+868.6194 	EXP 	image_reg: autoDraw = False
+868.6194 	EXP 	image_reg: autoDraw = False
+868.6194 	EXP 	text_fixcross: autoDraw = True
+871.8639 	EXP 	text_fixcross: autoDraw = False
+871.8639 	EXP 	text_fixcross: autoDraw = False
+871.8639 	EXP 	image_reg: image = 'Stimuli/3160.jpg'
+871.8639 	EXP 	image_reg: autoDraw = True
+877.8555 	EXP 	New trial (rep=0, index=14): {'ImageFile': 'Stimuli/246.jpg'}
+877.8693 	EXP 	image_reg: autoDraw = False
+877.8693 	EXP 	image_reg: autoDraw = False
+877.8693 	EXP 	text_fixcross: autoDraw = True
+882.5089 	EXP 	text_fixcross: autoDraw = False
+882.5089 	EXP 	text_fixcross: autoDraw = False
+882.5089 	EXP 	image_reg: image = 'Stimuli/246.jpg'
+882.5089 	EXP 	image_reg: autoDraw = True
+888.5046 	EXP 	New trial (rep=0, index=15): {'ImageFile': 'Stimuli/210.jpg'}
+888.5183 	EXP 	image_reg: autoDraw = False
+888.5183 	EXP 	image_reg: autoDraw = False
+888.5183 	EXP 	text_fixcross: autoDraw = True
+892.7412 	EXP 	text_fixcross: autoDraw = False
+892.7412 	EXP 	text_fixcross: autoDraw = False
+892.7412 	EXP 	image_reg: image = 'Stimuli/210.jpg'
+892.7412 	EXP 	image_reg: autoDraw = True
+898.7384 	EXP 	New trial (rep=0, index=16): {'ImageFile': 'Stimuli/6562.jpg'}
+898.7515 	EXP 	image_reg: autoDraw = False
+898.7515 	EXP 	image_reg: autoDraw = False
+898.7515 	EXP 	text_fixcross: autoDraw = True
+902.2849 	EXP 	text_fixcross: autoDraw = False
+902.2849 	EXP 	text_fixcross: autoDraw = False
+902.2849 	EXP 	image_reg: image = 'Stimuli/6562.jpg'
+902.2849 	EXP 	image_reg: autoDraw = True
+908.2721 	EXP 	New trial (rep=0, index=17): {'ImageFile': 'Stimuli/9904.jpg'}
+908.2861 	EXP 	image_reg: autoDraw = False
+908.2861 	EXP 	image_reg: autoDraw = False
+908.2861 	EXP 	text_fixcross: autoDraw = True
+911.6302 	EXP 	text_fixcross: autoDraw = False
+911.6302 	EXP 	text_fixcross: autoDraw = False
+911.6302 	EXP 	image_reg: image = 'Stimuli/9904.jpg'
+911.6302 	EXP 	image_reg: autoDraw = True
+917.6218 	EXP 	New trial (rep=0, index=18): {'ImageFile': 'Stimuli/3185.jpg'}
+917.6350 	EXP 	image_reg: autoDraw = False
+917.6350 	EXP 	image_reg: autoDraw = False
+917.6350 	EXP 	text_fixcross: autoDraw = True
+921.6645 	EXP 	text_fixcross: autoDraw = False
+921.6645 	EXP 	text_fixcross: autoDraw = False
+921.6645 	EXP 	image_reg: image = 'Stimuli/3185.jpg'
+921.6645 	EXP 	image_reg: autoDraw = True
+927.6552 	EXP 	New trial (rep=0, index=19): {'ImageFile': 'Stimuli/222.jpg'}
+927.6690 	EXP 	image_reg: autoDraw = False
+927.6690 	EXP 	image_reg: autoDraw = False
+927.6690 	EXP 	text_fixcross: autoDraw = True
+931.3082 	EXP 	text_fixcross: autoDraw = False
+931.3082 	EXP 	text_fixcross: autoDraw = False
+931.3082 	EXP 	image_reg: image = 'Stimuli/222.jpg'
+931.3082 	EXP 	image_reg: autoDraw = True
+937.3372 	EXP 	image_reg: autoDraw = False
+937.3372 	EXP 	image_reg: autoDraw = False
+937.3372 	EXP 	slider_arousal: markerPos = None
+937.3372 	EXP 	slider_arousal: markerPos = None
+937.3372 	EXP 	slider_arousal: rating = None
+937.3372 	EXP 	text_slider_arousal: autoDraw = True
+937.3372 	EXP 	slider_arousal: autoDraw = True
+947.3207 	DATA 	Mouse: Left button down, pos=(801,338)
+947.3342 	EXP 	slider_arousal: markerPos = 141.1111111111111
+947.3508 	EXP 	slider_arousal: markerPos = 141.1111111111111
+947.3676 	EXP 	slider_arousal: markerPos = 141.1111111111111
+947.3841 	EXP 	slider_arousal: markerPos = 141.1111111111111
+947.4006 	EXP 	slider_arousal: markerPos = 141.1111111111111
+947.4172 	EXP 	slider_arousal: markerPos = 141.1111111111111
+947.4339 	EXP 	slider_arousal: markerPos = 141.1111111111111
+947.4506 	EXP 	slider_arousal: markerPos = 141.1111111111111
+947.4583 	DATA 	Mouse:  Left button up, pos=(801,338)
+947.4674 	EXP 	slider_arousal: markerPos = 141.1111111111111
+947.4843 	EXP 	slider_arousal: markerPos = 141.1111111111111
+947.4843 	EXP 	slider_arousal: rating = 141.1111111111111
+947.5063 	EXP 	text_slider_arousal: autoDraw = False
+947.5063 	EXP 	slider_arousal: autoDraw = False
+947.5063 	EXP 	slider_effort: markerPos = None
+947.5063 	EXP 	slider_effort: markerPos = None
+947.5063 	EXP 	slider_effort: rating = None
+947.5063 	EXP 	text_slider_effort: autoDraw = True
+947.5063 	EXP 	slider_effort: autoDraw = True
+953.3542 	DATA 	Mouse: Left button down, pos=(701,322)
+953.3677 	EXP 	slider_effort: markerPos = 104.07407407407408
+953.3843 	EXP 	slider_effort: markerPos = 104.07407407407408
+953.4009 	EXP 	slider_effort: markerPos = 104.07407407407408
+953.4176 	EXP 	slider_effort: markerPos = 104.07407407407408
+953.4339 	EXP 	slider_effort: markerPos = 104.07407407407408
+953.4507 	EXP 	slider_effort: markerPos = 104.07407407407408
+953.4674 	EXP 	slider_effort: markerPos = 104.07407407407408
+953.4755 	DATA 	Mouse:  Left button up, pos=(701,322)
+953.4840 	EXP 	slider_effort: markerPos = 104.07407407407408
+953.5009 	EXP 	slider_effort: markerPos = 104.07407407407408
+953.5009 	EXP 	slider_effort: rating = 104.07407407407408
+953.5051 	EXP 	New trial (rep=0, index=2): {'Block': 3, 'conds_reg_File': 'StimuliNegative.xlsx', 'n_reps': 1, 'TriggerBlockReg': 23, 'instr_1': 'ABLENKEN', 'instr_2': 'Denken Sie während des Betrachtens der Bilder an etwas Neutrales, das mit dem Bild nichts zu tun hat. Das könnten geometrische Figuren, Alltagstätigkeiten oder bekannte Orte sein.'}
+953.5349 	EXP 	text_slider_effort: autoDraw = False
+953.5349 	EXP 	slider_effort: autoDraw = False
+953.5349 	EXP 	text_Instruction: text = 'ABLENKEN\n\nIn diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.\nDenken Sie während des Betrachtens der Bilder an etwas Neutrales, das mit dem Bild nichts zu tun hat. Das könnten geometrische Figuren, Alltagstätigkeiten oder bekannte Orte sein.\n\nBitte konzentrieren Sie Ihre Regulationsbemühungen nur auf das Bild, nicht aber auf die Zeiträume zwischen den Bildern.\n\nZum Starten des Blocks Leertaste drücken'
+953.5349 	EXP 	text_Instruction: autoDraw = True
+964.3919 	EXP 	Imported StimuliNegative_3.xlsx as conditions, 20 conditions, 1 params
+964.3925 	EXP 	Created sequence: random, trialTypes=20, nReps=1, seed=None
+964.3928 	EXP 	New trial (rep=0, index=0): {'ImageFile': 'Stimuli/9140.jpg'}
+964.3962 	DATA 	Keypress: space
+964.3999 	EXP 	text_Instruction: autoDraw = False
+964.3999 	EXP 	text_fixcross: autoDraw = True
+967.6361 	EXP 	text_fixcross: autoDraw = False
+967.6361 	EXP 	text_fixcross: autoDraw = False
+967.6361 	EXP 	image_reg: image = 'Stimuli/9140.jpg'
+967.6361 	EXP 	image_reg: autoDraw = True
+973.6394 	EXP 	New trial (rep=0, index=1): {'ImageFile': 'Stimuli/219.jpg'}
+973.6536 	EXP 	image_reg: autoDraw = False
+973.6536 	EXP 	image_reg: autoDraw = False
+973.6536 	EXP 	text_fixcross: autoDraw = True
+977.5864 	EXP 	text_fixcross: autoDraw = False
+977.5864 	EXP 	text_fixcross: autoDraw = False
+977.5864 	EXP 	image_reg: image = 'Stimuli/219.jpg'
+977.5864 	EXP 	image_reg: autoDraw = True
+983.5887 	EXP 	New trial (rep=0, index=2): {'ImageFile': 'Stimuli/9570.jpg'}
+983.6026 	EXP 	image_reg: autoDraw = False
+983.6026 	EXP 	image_reg: autoDraw = False
+983.6026 	EXP 	text_fixcross: autoDraw = True
+988.3551 	EXP 	text_fixcross: autoDraw = False
+988.3551 	EXP 	text_fixcross: autoDraw = False
+988.3551 	EXP 	image_reg: image = 'Stimuli/9570.jpg'
+988.3551 	EXP 	image_reg: autoDraw = True
+994.3549 	EXP 	New trial (rep=0, index=3): {'ImageFile': 'Stimuli/9800.jpg'}
+994.3686 	EXP 	image_reg: autoDraw = False
+994.3686 	EXP 	image_reg: autoDraw = False
+994.3686 	EXP 	text_fixcross: autoDraw = True
+998.6956 	EXP 	text_fixcross: autoDraw = False
+998.6956 	EXP 	text_fixcross: autoDraw = False
+998.6956 	EXP 	image_reg: image = 'Stimuli/9800.jpg'
+998.6956 	EXP 	image_reg: autoDraw = True
+1004.6882 	EXP 	New trial (rep=0, index=4): {'ImageFile': 'Stimuli/254.jpg'}
+1004.7020 	EXP 	image_reg: autoDraw = False
+1004.7020 	EXP 	image_reg: autoDraw = False
+1004.7020 	EXP 	text_fixcross: autoDraw = True
+1008.1412 	EXP 	text_fixcross: autoDraw = False
+1008.1412 	EXP 	text_fixcross: autoDraw = False
+1008.1412 	EXP 	image_reg: image = 'Stimuli/254.jpg'
+1008.1412 	EXP 	image_reg: autoDraw = True
+1014.1387 	EXP 	New trial (rep=0, index=5): {'ImageFile': 'Stimuli/3350.jpg'}
+1014.1527 	EXP 	image_reg: autoDraw = False
+1014.1527 	EXP 	image_reg: autoDraw = False
+1014.1527 	EXP 	text_fixcross: autoDraw = True
+1018.2023 	EXP 	text_fixcross: autoDraw = False
+1018.2023 	EXP 	text_fixcross: autoDraw = False
+1018.2023 	EXP 	image_reg: image = 'Stimuli/3350.jpg'
+1018.2023 	EXP 	image_reg: autoDraw = True
+1024.1887 	EXP 	New trial (rep=0, index=6): {'ImageFile': 'Stimuli/1301.jpg'}
+1024.2029 	EXP 	image_reg: autoDraw = False
+1024.2029 	EXP 	image_reg: autoDraw = False
+1024.2029 	EXP 	text_fixcross: autoDraw = True
+1028.5450 	EXP 	text_fixcross: autoDraw = False
+1028.5450 	EXP 	text_fixcross: autoDraw = False
+1028.5450 	EXP 	image_reg: image = 'Stimuli/1301.jpg'
+1028.5450 	EXP 	image_reg: autoDraw = True
+1034.5387 	EXP 	New trial (rep=0, index=7): {'ImageFile': 'Stimuli/208.jpg'}
+1034.5528 	EXP 	image_reg: autoDraw = False
+1034.5528 	EXP 	image_reg: autoDraw = False
+1034.5528 	EXP 	text_fixcross: autoDraw = True
+1039.1934 	EXP 	text_fixcross: autoDraw = False
+1039.1934 	EXP 	text_fixcross: autoDraw = False
+1039.1934 	EXP 	image_reg: image = 'Stimuli/208.jpg'
+1039.1934 	EXP 	image_reg: autoDraw = True
+1045.1888 	EXP 	New trial (rep=0, index=8): {'ImageFile': 'Stimuli/6940.jpg'}
+1045.2028 	EXP 	image_reg: autoDraw = False
+1045.2028 	EXP 	image_reg: autoDraw = False
+1045.2028 	EXP 	text_fixcross: autoDraw = True
+1050.1526 	EXP 	text_fixcross: autoDraw = False
+1050.1526 	EXP 	text_fixcross: autoDraw = False
+1050.1526 	EXP 	image_reg: image = 'Stimuli/6940.jpg'
+1050.1526 	EXP 	image_reg: autoDraw = True
+1056.1556 	EXP 	New trial (rep=0, index=9): {'ImageFile': 'Stimuli/226.jpg'}
+1056.1693 	EXP 	image_reg: autoDraw = False
+1056.1693 	EXP 	image_reg: autoDraw = False
+1056.1693 	EXP 	text_fixcross: autoDraw = True
+1061.0119 	EXP 	text_fixcross: autoDraw = False
+1061.0119 	EXP 	text_fixcross: autoDraw = False
+1061.0119 	EXP 	image_reg: image = 'Stimuli/226.jpg'
+1061.0119 	EXP 	image_reg: autoDraw = True
+1067.0054 	EXP 	New trial (rep=0, index=10): {'ImageFile': 'Stimuli/6555.jpg'}
+1067.0194 	EXP 	image_reg: autoDraw = False
+1067.0194 	EXP 	image_reg: autoDraw = False
+1067.0194 	EXP 	text_fixcross: autoDraw = True
+1071.0687 	EXP 	text_fixcross: autoDraw = False
+1071.0687 	EXP 	text_fixcross: autoDraw = False
+1071.0687 	EXP 	image_reg: image = 'Stimuli/6555.jpg'
+1071.0687 	EXP 	image_reg: autoDraw = True
+1077.0554 	EXP 	New trial (rep=0, index=11): {'ImageFile': 'Stimuli/9409.jpg'}
+1077.0693 	EXP 	image_reg: autoDraw = False
+1077.0693 	EXP 	image_reg: autoDraw = False
+1077.0693 	EXP 	text_fixcross: autoDraw = True
+1081.4110 	EXP 	text_fixcross: autoDraw = False
+1081.4110 	EXP 	text_fixcross: autoDraw = False
+1081.4110 	EXP 	image_reg: image = 'Stimuli/9409.jpg'
+1081.4110 	EXP 	image_reg: autoDraw = True
+1087.4044 	EXP 	New trial (rep=0, index=12): {'ImageFile': 'Stimuli/9340.jpg'}
+1087.4182 	EXP 	image_reg: autoDraw = False
+1087.4182 	EXP 	image_reg: autoDraw = False
+1087.4182 	EXP 	text_fixcross: autoDraw = True
+1091.5483 	EXP 	text_fixcross: autoDraw = False
+1091.5483 	EXP 	text_fixcross: autoDraw = False
+1091.5483 	EXP 	image_reg: image = 'Stimuli/9340.jpg'
+1091.5483 	EXP 	image_reg: autoDraw = True
+1097.5388 	EXP 	New trial (rep=0, index=13): {'ImageFile': 'Stimuli/9041.jpg'}
+1097.5528 	EXP 	image_reg: autoDraw = False
+1097.5528 	EXP 	image_reg: autoDraw = False
+1097.5528 	EXP 	text_fixcross: autoDraw = True
+1101.4965 	EXP 	text_fixcross: autoDraw = False
+1101.4965 	EXP 	text_fixcross: autoDraw = False
+1101.4965 	EXP 	image_reg: image = 'Stimuli/9041.jpg'
+1101.4965 	EXP 	image_reg: autoDraw = True
+1107.4888 	EXP 	New trial (rep=0, index=14): {'ImageFile': 'Stimuli/326.jpg'}
+1107.5028 	EXP 	image_reg: autoDraw = False
+1107.5028 	EXP 	image_reg: autoDraw = False
+1107.5028 	EXP 	text_fixcross: autoDraw = True
+1112.1482 	EXP 	text_fixcross: autoDraw = False
+1112.1482 	EXP 	text_fixcross: autoDraw = False
+1112.1482 	EXP 	image_reg: image = 'Stimuli/326.jpg'
+1112.1482 	EXP 	image_reg: autoDraw = True
+1118.1387 	EXP 	New trial (rep=0, index=15): {'ImageFile': 'Stimuli/8230.jpg'}
+1118.1528 	EXP 	image_reg: autoDraw = False
+1118.1528 	EXP 	image_reg: autoDraw = False
+1118.1528 	EXP 	text_fixcross: autoDraw = True
+1123.2010 	EXP 	text_fixcross: autoDraw = False
+1123.2010 	EXP 	text_fixcross: autoDraw = False
+1123.2010 	EXP 	image_reg: image = 'Stimuli/8230.jpg'
+1123.2010 	EXP 	image_reg: autoDraw = True
+1129.1888 	EXP 	New trial (rep=0, index=16): {'ImageFile': 'Stimuli/6825.jpg'}
+1129.2026 	EXP 	image_reg: autoDraw = False
+1129.2026 	EXP 	image_reg: autoDraw = False
+1129.2026 	EXP 	text_fixcross: autoDraw = True
+1134.0526 	EXP 	text_fixcross: autoDraw = False
+1134.0526 	EXP 	text_fixcross: autoDraw = False
+1134.0526 	EXP 	image_reg: image = 'Stimuli/6825.jpg'
+1134.0526 	EXP 	image_reg: autoDraw = True
+1140.0550 	EXP 	New trial (rep=0, index=17): {'ImageFile': 'Stimuli/6410.jpg'}
+1140.0681 	EXP 	image_reg: autoDraw = False
+1140.0681 	EXP 	image_reg: autoDraw = False
+1140.0681 	EXP 	text_fixcross: autoDraw = True
+1143.3947 	EXP 	text_fixcross: autoDraw = False
+1143.3947 	EXP 	text_fixcross: autoDraw = False
+1143.3947 	EXP 	image_reg: image = 'Stimuli/6410.jpg'
+1143.3947 	EXP 	image_reg: autoDraw = True
+1149.3888 	EXP 	New trial (rep=0, index=18): {'ImageFile': 'Stimuli/6242.jpg'}
+1149.4027 	EXP 	image_reg: autoDraw = False
+1149.4027 	EXP 	image_reg: autoDraw = False
+1149.4027 	EXP 	text_fixcross: autoDraw = True
+1152.6475 	EXP 	text_fixcross: autoDraw = False
+1152.6475 	EXP 	text_fixcross: autoDraw = False
+1152.6475 	EXP 	image_reg: image = 'Stimuli/6242.jpg'
+1152.6475 	EXP 	image_reg: autoDraw = True
+1158.6387 	EXP 	New trial (rep=0, index=19): {'ImageFile': 'Stimuli/253.jpg'}
+1158.6527 	EXP 	image_reg: autoDraw = False
+1158.6527 	EXP 	image_reg: autoDraw = False
+1158.6527 	EXP 	text_fixcross: autoDraw = True
+1161.7917 	EXP 	text_fixcross: autoDraw = False
+1161.7917 	EXP 	text_fixcross: autoDraw = False
+1161.7917 	EXP 	image_reg: image = 'Stimuli/253.jpg'
+1161.7917 	EXP 	image_reg: autoDraw = True
+1167.8190 	EXP 	image_reg: autoDraw = False
+1167.8190 	EXP 	image_reg: autoDraw = False
+1167.8190 	EXP 	slider_arousal: markerPos = None
+1167.8190 	EXP 	slider_arousal: markerPos = None
+1167.8190 	EXP 	slider_arousal: rating = None
+1167.8190 	EXP 	text_slider_arousal: autoDraw = True
+1167.8190 	EXP 	slider_arousal: autoDraw = True
+1171.2374 	DATA 	Mouse: Left button down, pos=(570,331)
+1171.2508 	EXP 	slider_arousal: markerPos = 55.55555555555556
+1171.2674 	EXP 	slider_arousal: markerPos = 55.55555555555556
+1171.2842 	EXP 	slider_arousal: markerPos = 55.55555555555556
+1171.3010 	EXP 	slider_arousal: markerPos = 55.55555555555556
+1171.3043 	DATA 	Mouse:  Left button up, pos=(570,331)
+1171.3183 	EXP 	slider_arousal: markerPos = 55.55555555555556
+1171.3183 	EXP 	slider_arousal: rating = 55.55555555555556
+1171.3400 	EXP 	text_slider_arousal: autoDraw = False
+1171.3400 	EXP 	slider_arousal: autoDraw = False
+1171.3400 	EXP 	slider_effort: markerPos = None
+1171.3400 	EXP 	slider_effort: markerPos = None
+1171.3400 	EXP 	slider_effort: rating = None
+1171.3400 	EXP 	text_slider_effort: autoDraw = True
+1171.3400 	EXP 	slider_effort: autoDraw = True
+1175.1208 	DATA 	Mouse: Left button down, pos=(818,352)
+1175.1341 	EXP 	slider_effort: markerPos = 147.40740740740742
+1175.1508 	EXP 	slider_effort: markerPos = 147.40740740740742
+1175.1674 	EXP 	slider_effort: markerPos = 147.40740740740742
+1175.1841 	EXP 	slider_effort: markerPos = 147.40740740740742
+1175.2007 	EXP 	slider_effort: markerPos = 147.40740740740742
+1175.2173 	EXP 	slider_effort: markerPos = 147.40740740740742
+1175.2256 	DATA 	Mouse:  Left button up, pos=(818,352)
+1175.2341 	EXP 	slider_effort: markerPos = 147.40740740740742
+1175.2510 	EXP 	slider_effort: markerPos = 147.40740740740742
+1175.2510 	EXP 	slider_effort: rating = 147.40740740740742
+1175.2675 	EXP 	text_slider_effort: autoDraw = False
+1175.2675 	EXP 	slider_effort: autoDraw = False
+1175.2675 	EXP 	text_EDinstruction: autoDraw = True
+1204.4683 	EXP 	Imported Moneyvalues.xlsx as conditions, 7 conditions, 1 params
+1204.4689 	EXP 	Created sequence: sequential, trialTypes=7, nReps=1, seed=None
+1204.4693 	EXP 	New trial (rep=0, index=0): {'Currentstep': 0}
+1204.4737 	DATA 	Keypress: space
+1204.4776 	EXP 	text_EDinstruction: autoDraw = False
+1204.4776 	EXP 	EDbufferscreen: autoDraw = True
+1204.8526 	EXP 	EDbufferscreen: autoDraw = False
+1204.8526 	EXP 	question: autoDraw = True
+1215.1738 	DATA 	Mouse: Left button down, pos=(675,355)
+1215.1874 	EXP 	New trial (rep=0, index=1): {'Currentstep': 1}
+1215.2091 	EXP 	question: autoDraw = False
+1215.2091 	EXP 	EDbufferscreen: autoDraw = False
+1215.2091 	EXP 	question: autoDraw = True
+1215.2574 	DATA 	Mouse:  Left button up, pos=(675,355)
+1219.4175 	DATA 	Mouse: Left button down, pos=(1217,370)
+1219.4203 	EXP 	New trial (rep=0, index=2): {'Currentstep': 2}
+1219.4385 	EXP 	question: autoDraw = False
+1219.4385 	EXP 	EDbufferscreen: autoDraw = False
+1219.4385 	EXP 	question: autoDraw = True
+1219.4847 	DATA 	Mouse:  Left button up, pos=(1217,370)
+1222.8176 	DATA 	Mouse: Left button down, pos=(1217,379)
+1222.8204 	EXP 	New trial (rep=0, index=3): {'Currentstep': 3}
+1222.8381 	EXP 	question: autoDraw = False
+1222.8381 	EXP 	EDbufferscreen: autoDraw = False
+1222.8381 	EXP 	question: autoDraw = True
+1222.9011 	DATA 	Mouse:  Left button up, pos=(1217,379)
+1226.7073 	DATA 	Mouse: Left button down, pos=(1181,368)
+1226.7204 	EXP 	New trial (rep=0, index=4): {'Currentstep': 4}
+1226.7380 	EXP 	question: autoDraw = False
+1226.7380 	EXP 	EDbufferscreen: autoDraw = False
+1226.7380 	EXP 	question: autoDraw = True
+1226.8342 	DATA 	Mouse:  Left button up, pos=(1181,368)
+1229.8175 	DATA 	Mouse: Left button down, pos=(1184,380)
+1229.8208 	EXP 	New trial (rep=0, index=5): {'Currentstep': 5}
+1229.8407 	EXP 	question: autoDraw = False
+1229.8407 	EXP 	EDbufferscreen: autoDraw = False
+1229.8407 	EXP 	question: autoDraw = True
+1229.8904 	DATA 	Mouse:  Left button up, pos=(1184,380)
+1231.5738 	DATA 	Mouse: Left button down, pos=(1184,380)
+1231.5870 	EXP 	New trial (rep=0, index=6): {'Currentstep': 6}
+1231.6027 	EXP 	question: autoDraw = False
+1231.6027 	EXP 	EDbufferscreen: autoDraw = False
+1231.6027 	EXP 	question: autoDraw = True
+1231.6905 	DATA 	Mouse:  Left button up, pos=(1184,380)
+1233.4176 	DATA 	Mouse: Left button down, pos=(1184,380)
+1233.4250 	EXP 	Imported Moneyvalues.xlsx as conditions, 7 conditions, 1 params
+1233.4253 	EXP 	Created sequence: sequential, trialTypes=7, nReps=1, seed=None
+1233.4255 	EXP 	New trial (rep=0, index=0): {'Currentstep': 0}
+1233.4355 	EXP 	question: autoDraw = False
+1233.4355 	EXP 	EDbufferscreen: autoDraw = False
+1233.4355 	EXP 	EDbufferscreen: autoDraw = True
+1233.5051 	DATA 	Mouse:  Left button up, pos=(1184,380)
+1233.7643 	EXP 	EDbufferscreen: autoDraw = False
+1233.7643 	EXP 	question: autoDraw = True
+1240.1071 	DATA 	Mouse: Left button down, pos=(702,343)
+1240.1206 	EXP 	New trial (rep=0, index=1): {'Currentstep': 1}
+1240.1363 	EXP 	question: autoDraw = False
+1240.1363 	EXP 	EDbufferscreen: autoDraw = False
+1240.1363 	EXP 	question: autoDraw = True
+1240.2010 	DATA 	Mouse:  Left button up, pos=(702,343)
+1242.7740 	DATA 	Mouse: Left button down, pos=(1220,393)
+1242.7870 	EXP 	New trial (rep=0, index=2): {'Currentstep': 2}
+1242.8029 	EXP 	question: autoDraw = False
+1242.8029 	EXP 	EDbufferscreen: autoDraw = False
+1242.8029 	EXP 	question: autoDraw = True
+1242.8676 	DATA 	Mouse:  Left button up, pos=(1220,393)
+1244.0844 	DATA 	Mouse: Left button down, pos=(1193,383)
+1244.0872 	EXP 	New trial (rep=0, index=3): {'Currentstep': 3}
+1244.1028 	EXP 	question: autoDraw = False
+1244.1028 	EXP 	EDbufferscreen: autoDraw = False
+1244.1028 	EXP 	question: autoDraw = True
+1244.1737 	DATA 	Mouse:  Left button up, pos=(1193,383)
+1245.2009 	DATA 	Mouse: Left button down, pos=(1193,383)
+1245.2036 	EXP 	New trial (rep=0, index=4): {'Currentstep': 4}
+1245.2195 	EXP 	question: autoDraw = False
+1245.2195 	EXP 	EDbufferscreen: autoDraw = False
+1245.2195 	EXP 	question: autoDraw = True
+1245.3009 	DATA 	Mouse:  Left button up, pos=(1193,383)
+1246.0843 	DATA 	Mouse: Left button down, pos=(1193,383)
+1246.0871 	EXP 	New trial (rep=0, index=5): {'Currentstep': 5}
+1246.1029 	EXP 	question: autoDraw = False
+1246.1029 	EXP 	EDbufferscreen: autoDraw = False
+1246.1029 	EXP 	question: autoDraw = True
+1246.1737 	DATA 	Mouse:  Left button up, pos=(1193,383)
+1246.7675 	DATA 	Mouse: Left button down, pos=(1193,383)
+1246.7703 	EXP 	New trial (rep=0, index=6): {'Currentstep': 6}
+1246.7862 	EXP 	question: autoDraw = False
+1246.7862 	EXP 	EDbufferscreen: autoDraw = False
+1246.7862 	EXP 	question: autoDraw = True
+1246.8509 	DATA 	Mouse:  Left button up, pos=(1193,383)
+1247.4572 	DATA 	Mouse: Left button down, pos=(1193,383)
+1247.4747 	EXP 	Imported Moneyvalues.xlsx as conditions, 7 conditions, 1 params
+1247.4750 	EXP 	Created sequence: sequential, trialTypes=7, nReps=1, seed=None
+1247.4752 	EXP 	New trial (rep=0, index=0): {'Currentstep': 0}
+1247.4859 	EXP 	question: autoDraw = False
+1247.4859 	EXP 	EDbufferscreen: autoDraw = False
+1247.4859 	EXP 	EDbufferscreen: autoDraw = True
+1247.5719 	DATA 	Mouse:  Left button up, pos=(1193,383)
+1247.8042 	EXP 	EDbufferscreen: autoDraw = False
+1247.8042 	EXP 	question: autoDraw = True
+1260.0738 	DATA 	Mouse: Left button down, pos=(685,345)
+1260.0872 	EXP 	New trial (rep=0, index=1): {'Currentstep': 1}
+1260.1028 	EXP 	question: autoDraw = False
+1260.1028 	EXP 	EDbufferscreen: autoDraw = False
+1260.1028 	EXP 	question: autoDraw = True
+1260.1842 	DATA 	Mouse:  Left button up, pos=(685,345)
+1261.8509 	DATA 	Mouse: Left button down, pos=(1192,372)
+1261.8538 	EXP 	New trial (rep=0, index=2): {'Currentstep': 2}
+1261.8694 	EXP 	question: autoDraw = False
+1261.8694 	EXP 	EDbufferscreen: autoDraw = False
+1261.8694 	EXP 	question: autoDraw = True
+1261.9573 	DATA 	Mouse:  Left button up, pos=(1192,372)
+1263.5842 	DATA 	Mouse: Left button down, pos=(1178,382)
+1263.5871 	EXP 	New trial (rep=0, index=3): {'Currentstep': 3}
+1263.6028 	EXP 	question: autoDraw = False
+1263.6028 	EXP 	EDbufferscreen: autoDraw = False
+1263.6028 	EXP 	question: autoDraw = True
+1263.6674 	DATA 	Mouse:  Left button up, pos=(1178,382)
+1264.0409 	DATA 	Mouse: Left button down, pos=(1178,382)
+1264.0537 	EXP 	New trial (rep=0, index=4): {'Currentstep': 4}
+1264.0694 	EXP 	question: autoDraw = False
+1264.0694 	EXP 	EDbufferscreen: autoDraw = False
+1264.0694 	EXP 	question: autoDraw = True
+1264.1241 	DATA 	Mouse:  Left button up, pos=(1178,382)
+1264.6742 	DATA 	Mouse: Left button down, pos=(1178,382)
+1264.6871 	EXP 	New trial (rep=0, index=5): {'Currentstep': 5}
+1264.7028 	EXP 	question: autoDraw = False
+1264.7028 	EXP 	EDbufferscreen: autoDraw = False
+1264.7028 	EXP 	question: autoDraw = True
+1264.7575 	DATA 	Mouse:  Left button up, pos=(1178,382)
+1265.3237 	DATA 	Mouse: Left button down, pos=(1178,382)
+1265.3370 	EXP 	New trial (rep=0, index=6): {'Currentstep': 6}
+1265.3528 	EXP 	question: autoDraw = False
+1265.3528 	EXP 	EDbufferscreen: autoDraw = False
+1265.3528 	EXP 	question: autoDraw = True
+1265.4178 	DATA 	Mouse:  Left button up, pos=(1178,382)
+1265.8341 	DATA 	Mouse: Left button down, pos=(1178,382)
+1265.8505 	EXP 	question: autoDraw = False
+1265.8505 	EXP 	EDbufferscreen: autoDraw = False
+1265.8505 	EXP 	text_choice: autoDraw = True
+1265.9205 	DATA 	Mouse:  Left button up, pos=(1178,382)
+1282.3417 	DATA 	Keypress: num_2
+1287.2871 	DATA 	Keypress: 2
+1287.3280 	EXP 	text_choice: autoDraw = False
+1287.3280 	EXP 	text_instr_choice: text = 'DISTANZIEREN\n\nIn diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.\nNehmen Sie die Position eines uninvolvierten Beobachters ein. Denken Sie über das Bild in einer neutralen Weise nach.\n\nBitte konzentrieren Sie Ihre Regulationsbemühungen nur auf das Bild, nicht aber auf die Zeiträume zwischen den Bildern.\n\nZum Starten des Blocks Leertaste drücken'
+1287.3280 	EXP 	text_instr_choice: autoDraw = True
+1294.7073 	DATA 	Keypress: space
+1294.7462 	EXP 	Imported StimuliNegative_5.xlsx as conditions, 20 conditions, 1 params
+1294.7466 	EXP 	Created sequence: random, trialTypes=20, nReps=1, seed=None
+1294.7469 	EXP 	New trial (rep=0, index=0): {'ImageFile': 'Stimuli/3220.jpg'}
+1294.7538 	EXP 	text_instr_choice: autoDraw = False
+1294.7538 	EXP 	text_fixcross: autoDraw = True
+1298.9061 	EXP 	text_fixcross: autoDraw = False
+1298.9061 	EXP 	text_fixcross: autoDraw = False
+1298.9061 	EXP 	image: image = 'Stimuli/3220.jpg'
+1298.9061 	EXP 	image: autoDraw = True
+1304.9060 	EXP 	New trial (rep=0, index=1): {'ImageFile': 'Stimuli/3225.jpg'}
+1304.9201 	EXP 	image: autoDraw = False
+1304.9201 	EXP 	image: autoDraw = False
+1304.9201 	EXP 	text_fixcross: autoDraw = True
+1309.5673 	EXP 	text_fixcross: autoDraw = False
+1309.5673 	EXP 	text_fixcross: autoDraw = False
+1309.5673 	EXP 	image: image = 'Stimuli/3225.jpg'
+1309.5673 	EXP 	image: autoDraw = True
+1315.5552 	EXP 	New trial (rep=0, index=2): {'ImageFile': 'Stimuli/3215.jpg'}
+1315.5692 	EXP 	image: autoDraw = False
+1315.5692 	EXP 	image: autoDraw = False
+1315.5692 	EXP 	text_fixcross: autoDraw = True
+1319.8101 	EXP 	text_fixcross: autoDraw = False
+1319.8101 	EXP 	text_fixcross: autoDraw = False
+1319.8101 	EXP 	image: image = 'Stimuli/3215.jpg'
+1319.8101 	EXP 	image: autoDraw = True
+1325.8053 	EXP 	New trial (rep=0, index=3): {'ImageFile': 'Stimuli/9402.jpg'}
+1325.8193 	EXP 	image: autoDraw = False
+1325.8193 	EXP 	image: autoDraw = False
+1325.8193 	EXP 	text_fixcross: autoDraw = True
+1329.0611 	EXP 	text_fixcross: autoDraw = False
+1329.0611 	EXP 	text_fixcross: autoDraw = False
+1329.0611 	EXP 	image: image = 'Stimuli/9402.jpg'
+1329.0611 	EXP 	image: autoDraw = True
+1335.0552 	EXP 	New trial (rep=0, index=4): {'ImageFile': 'Stimuli/245.jpg'}
+1335.0692 	EXP 	image: autoDraw = False
+1335.0692 	EXP 	image: autoDraw = False
+1335.0692 	EXP 	text_fixcross: autoDraw = True
+1339.1117 	EXP 	text_fixcross: autoDraw = False
+1339.1117 	EXP 	text_fixcross: autoDraw = False
+1339.1117 	EXP 	image: image = 'Stimuli/245.jpg'
+1339.1117 	EXP 	image: autoDraw = True
+1345.1053 	EXP 	New trial (rep=0, index=5): {'ImageFile': 'Stimuli/6571.jpg'}
+1345.1192 	EXP 	image: autoDraw = False
+1345.1192 	EXP 	image: autoDraw = False
+1345.1192 	EXP 	text_fixcross: autoDraw = True
+1349.0685 	EXP 	text_fixcross: autoDraw = False
+1349.0685 	EXP 	text_fixcross: autoDraw = False
+1349.0685 	EXP 	image: image = 'Stimuli/6571.jpg'
+1349.0685 	EXP 	image: autoDraw = True
+1355.0554 	EXP 	New trial (rep=0, index=6): {'ImageFile': 'Stimuli/6020.jpg'}
+1355.0694 	EXP 	image: autoDraw = False
+1355.0694 	EXP 	image: autoDraw = False
+1355.0694 	EXP 	text_fixcross: autoDraw = True
+1358.1088 	EXP 	text_fixcross: autoDraw = False
+1358.1088 	EXP 	text_fixcross: autoDraw = False
+1358.1088 	EXP 	image: image = 'Stimuli/6020.jpg'
+1358.1088 	EXP 	image: autoDraw = True
+1364.1052 	EXP 	New trial (rep=0, index=7): {'ImageFile': 'Stimuli/3101.jpg'}
+1364.1192 	EXP 	image: autoDraw = False
+1364.1192 	EXP 	image: autoDraw = False
+1364.1192 	EXP 	text_fixcross: autoDraw = True
+1367.9658 	EXP 	text_fixcross: autoDraw = False
+1367.9658 	EXP 	text_fixcross: autoDraw = False
+1367.9658 	EXP 	image: image = 'Stimuli/3101.jpg'
+1367.9658 	EXP 	image: autoDraw = True
+1373.9552 	EXP 	New trial (rep=0, index=8): {'ImageFile': 'Stimuli/3016.jpg'}
+1373.9690 	EXP 	image: autoDraw = False
+1373.9690 	EXP 	image: autoDraw = False
+1373.9690 	EXP 	text_fixcross: autoDraw = True
+1377.6161 	EXP 	text_fixcross: autoDraw = False
+1377.6161 	EXP 	text_fixcross: autoDraw = False
+1377.6161 	EXP 	image: image = 'Stimuli/3016.jpg'
+1377.6161 	EXP 	image: autoDraw = True
+1383.6052 	EXP 	New trial (rep=0, index=9): {'ImageFile': 'Stimuli/2981.jpg'}
+1383.6192 	EXP 	image: autoDraw = False
+1383.6192 	EXP 	image: autoDraw = False
+1383.6192 	EXP 	text_fixcross: autoDraw = True
+1387.5613 	EXP 	text_fixcross: autoDraw = False
+1387.5613 	EXP 	text_fixcross: autoDraw = False
+1387.5613 	EXP 	image: image = 'Stimuli/2981.jpg'
+1387.5613 	EXP 	image: autoDraw = True
+1393.5553 	EXP 	New trial (rep=0, index=10): {'ImageFile': 'Stimuli/6831.jpg'}
+1393.5692 	EXP 	image: autoDraw = False
+1393.5692 	EXP 	image: autoDraw = False
+1393.5692 	EXP 	text_fixcross: autoDraw = True
+1396.9082 	EXP 	text_fixcross: autoDraw = False
+1396.9082 	EXP 	text_fixcross: autoDraw = False
+1396.9082 	EXP 	image: image = 'Stimuli/6831.jpg'
+1396.9082 	EXP 	image: autoDraw = True
+1402.9051 	EXP 	New trial (rep=0, index=11): {'ImageFile': 'Stimuli/9400.jpg'}
+1402.9192 	EXP 	image: autoDraw = False
+1402.9192 	EXP 	image: autoDraw = False
+1402.9192 	EXP 	text_fixcross: autoDraw = True
+1406.2609 	EXP 	text_fixcross: autoDraw = False
+1406.2609 	EXP 	text_fixcross: autoDraw = False
+1406.2609 	EXP 	image: image = 'Stimuli/9400.jpg'
+1406.2609 	EXP 	image: autoDraw = True
+1412.2553 	EXP 	New trial (rep=0, index=12): {'ImageFile': 'Stimuli/223.jpg'}
+1412.2692 	EXP 	image: autoDraw = False
+1412.2692 	EXP 	image: autoDraw = False
+1412.2692 	EXP 	text_fixcross: autoDraw = True
+1415.9080 	EXP 	text_fixcross: autoDraw = False
+1415.9080 	EXP 	text_fixcross: autoDraw = False
+1415.9080 	EXP 	image: image = 'Stimuli/223.jpg'
+1415.9080 	EXP 	image: autoDraw = True
+1421.9050 	EXP 	New trial (rep=0, index=13): {'ImageFile': 'Stimuli/9423.jpg'}
+1421.9190 	EXP 	image: autoDraw = False
+1421.9190 	EXP 	image: autoDraw = False
+1421.9190 	EXP 	text_fixcross: autoDraw = True
+1426.6732 	EXP 	text_fixcross: autoDraw = False
+1426.6732 	EXP 	text_fixcross: autoDraw = False
+1426.6732 	EXP 	image: image = 'Stimuli/9423.jpg'
+1426.6732 	EXP 	image: autoDraw = True
+1432.6715 	EXP 	New trial (rep=0, index=14): {'ImageFile': 'Stimuli/9373.jpg'}
+1432.6848 	EXP 	image: autoDraw = False
+1432.6848 	EXP 	image: autoDraw = False
+1432.6848 	EXP 	text_fixcross: autoDraw = True
+1436.4083 	EXP 	text_fixcross: autoDraw = False
+1436.4083 	EXP 	text_fixcross: autoDraw = False
+1436.4083 	EXP 	image: image = 'Stimuli/9373.jpg'
+1436.4083 	EXP 	image: autoDraw = True
+1442.4053 	EXP 	New trial (rep=0, index=15): {'ImageFile': 'Stimuli/9403.jpg'}
+1442.4192 	EXP 	image: autoDraw = False
+1442.4192 	EXP 	image: autoDraw = False
+1442.4192 	EXP 	text_fixcross: autoDraw = True
+1446.5731 	EXP 	text_fixcross: autoDraw = False
+1446.5731 	EXP 	text_fixcross: autoDraw = False
+1446.5731 	EXP 	image: image = 'Stimuli/9403.jpg'
+1446.5731 	EXP 	image: autoDraw = True
+1452.5720 	EXP 	New trial (rep=0, index=16): {'ImageFile': 'Stimuli/3181.jpg'}
+1452.5861 	EXP 	image: autoDraw = False
+1452.5861 	EXP 	image: autoDraw = False
+1452.5861 	EXP 	text_fixcross: autoDraw = True
+1456.4310 	EXP 	text_fixcross: autoDraw = False
+1456.4310 	EXP 	text_fixcross: autoDraw = False
+1456.4310 	EXP 	image: image = 'Stimuli/3181.jpg'
+1456.4310 	EXP 	image: autoDraw = True
+1462.4219 	EXP 	New trial (rep=0, index=17): {'ImageFile': 'Stimuli/8231.jpg'}
+1462.4359 	EXP 	image: autoDraw = False
+1462.4359 	EXP 	image: autoDraw = False
+1462.4359 	EXP 	text_fixcross: autoDraw = True
+1465.6767 	EXP 	text_fixcross: autoDraw = False
+1465.6767 	EXP 	text_fixcross: autoDraw = False
+1465.6767 	EXP 	image: image = 'Stimuli/8231.jpg'
+1465.6767 	EXP 	image: autoDraw = True
+1471.6718 	EXP 	New trial (rep=0, index=18): {'ImageFile': 'Stimuli/238.jpg'}
+1471.6857 	EXP 	image: autoDraw = False
+1471.6857 	EXP 	image: autoDraw = False
+1471.6857 	EXP 	text_fixcross: autoDraw = True
+1475.2214 	EXP 	text_fixcross: autoDraw = False
+1475.2214 	EXP 	text_fixcross: autoDraw = False
+1475.2214 	EXP 	image: image = 'Stimuli/238.jpg'
+1475.2214 	EXP 	image: autoDraw = True
+1481.2225 	EXP 	New trial (rep=0, index=19): {'ImageFile': 'Stimuli/9405.jpg'}
+1481.2365 	EXP 	image: autoDraw = False
+1481.2365 	EXP 	image: autoDraw = False
+1481.2365 	EXP 	text_fixcross: autoDraw = True
+1484.6815 	EXP 	text_fixcross: autoDraw = False
+1484.6815 	EXP 	text_fixcross: autoDraw = False
+1484.6815 	EXP 	image: image = 'Stimuli/9405.jpg'
+1484.6815 	EXP 	image: autoDraw = True
+1490.7028 	EXP 	image: autoDraw = False
+1490.7028 	EXP 	image: autoDraw = False
+1490.7028 	EXP 	slider_arousal: markerPos = None
+1490.7028 	EXP 	slider_arousal: markerPos = None
+1490.7028 	EXP 	slider_arousal: rating = None
+1490.7028 	EXP 	text_slider_arousal: autoDraw = True
+1490.7028 	EXP 	slider_arousal: autoDraw = True
+1499.9071 	DATA 	Mouse: Left button down, pos=(604,334)
+1499.9341 	EXP 	slider_arousal: markerPos = 68.14814814814815
+1499.9507 	EXP 	slider_arousal: markerPos = 68.14814814814815
+1499.9673 	EXP 	slider_arousal: markerPos = 68.14814814814815
+1499.9841 	EXP 	slider_arousal: markerPos = 68.14814814814815
+1500.0007 	EXP 	slider_arousal: markerPos = 68.14814814814815
+1500.0040 	DATA 	Mouse:  Left button up, pos=(604,334)
+1500.0186 	EXP 	slider_arousal: markerPos = 68.14814814814815
+1500.0186 	EXP 	slider_arousal: rating = 68.14814814814815
+1500.0397 	EXP 	text_slider_arousal: autoDraw = False
+1500.0397 	EXP 	slider_arousal: autoDraw = False
+1500.0397 	EXP 	slider_effort: markerPos = None
+1500.0397 	EXP 	slider_effort: markerPos = None
+1500.0397 	EXP 	slider_effort: rating = None
+1500.0397 	EXP 	text_slider_effort: autoDraw = True
+1500.0397 	EXP 	slider_effort: autoDraw = True
+1503.3236 	DATA 	Mouse: Left button down, pos=(749,346)
+1503.3507 	EXP 	slider_effort: markerPos = 121.85185185185186
+1503.3674 	EXP 	slider_effort: markerPos = 121.85185185185186
+1503.3839 	EXP 	slider_effort: markerPos = 121.85185185185186
+1503.4007 	EXP 	slider_effort: markerPos = 121.85185185185186
+1503.4176 	EXP 	slider_effort: markerPos = 121.85185185185186
+1503.4345 	EXP 	slider_effort: markerPos = 121.85185185185186
+1503.4378 	DATA 	Mouse:  Left button up, pos=(749,346)
+1503.4518 	EXP 	slider_effort: markerPos = 121.85185185185186
+1503.4518 	EXP 	slider_effort: rating = 121.85185185185186
+1503.4674 	EXP 	text_slider_effort: autoDraw = False
+1503.4674 	EXP 	slider_effort: autoDraw = False
+1503.4674 	EXP 	text_end: autoDraw = True
+1507.0741 	DATA 	Keypress: space
+1507.1012 	EXP 	text_end: autoDraw = False
+1507.1701 	EXP 	window1: mouseVisible = True
