@@ -32,6 +32,12 @@ datalist_ER = lapply(list.files(here("04_RawData", "pilot", "ER-ED/logfiles"), p
   
 datalist_ED = lapply(list.files(here("04_RawData", "pilot", "ER-ED/logfiles"), pattern = '*_ED.*csv', full.names = TRUE),
                           read.csv, stringsAsFactors = FALSE, header = TRUE)
+
+# new empty frame to store files into
+data_ER = data.frame(ID = character(), )
+
+data_ED = data.frame(ID = character(), step = double(), choice = character(),
+                           LBvalue = double(), LBlevel = double(), RBvalue = double(), RBlevel = double())
 ```
 
 # 2. Method
