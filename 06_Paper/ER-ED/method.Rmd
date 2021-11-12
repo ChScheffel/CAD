@@ -16,6 +16,18 @@ library(papaja) # APA conform output
 here::i_am("flag_project_root_CERED.txt")
 ```
 
+```{r stimvalues, echo = FALSE}
+# import excel list with neutral and negative pictures
+# lists contain arousal and valence values of each picture
+stim_negative = readxl::read_xlsx(file.path(here("01_Paradigms","ER-ED","ER_ED","Stimuli","negative.xlsx")), range = cell_cols("A:D"))
+
+stim_neutral = readxl::read_xlsx(file.path(here("01_Paradigms","ER-ED","ER_ED","Stimuli","neutral.xlsx")), range = cell_rows(1:21))
+```
+
+```{r import, echo=FALSE, message=FALSE, warning=FALSE}
+
+```
+
 # 2. Method
 
 The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at github.com/ChScheffel/COG-ER-ED. 
@@ -90,13 +102,6 @@ As soon as they had decided, they saw the respective instruction.
 After, the block with another 20 negative pictures started.
 
 ## 2.4 Stimuli
-```{r stimvalues, echo = FALSE}
-# import excel list with neutral and negative pictures
-# lists contain arousal and valence values of each picture
-stim_negative = readxl::read_xlsx(file.path(here("01_Paradigms","ER-ED","ER_ED","Stimuli","negative.xlsx")), range = cell_cols("A:D"))
-
-stim_neutral = readxl::read_xlsx(file.path(here("01_Paradigms","ER-ED","ER_ED","Stimuli","neutral.xlsx")), range = cell_rows(1:21))
-```
 
 Pictures used in the paradigm were selected from the Emotional Picture Set (EmoPicS) [@Wessa2010] and the International Affective Picture System (IAPS) [@Lang2008]. 
 The 20 neutral pictures (Valence (V): _M_ $\pm$ _SD_ = `r round(mean(stim_neutral$valence), digits = 2)` $\pm$ `r round(sd(stim_neutral$valence), digits = 2)`; Arousal (A): _M_ $\pm$ _SD_ = `r round(mean(stim_neutral$arousal), digits = 2)` $\pm$ `r round(sd(stim_neutral$arousal), digits = 2)`) depicted content related to the categories persons, objects, and scenes.
@@ -125,3 +130,4 @@ Attentional control was assessed using the Attentional Control Scale (ACS) [@Der
 ## 2.7 Statistics 
 
 [...]
+
