@@ -25,7 +25,13 @@ stim_neutral = readxl::read_xlsx(file.path(here("01_Paradigms","ER-ED","ER_ED","
 ```
 
 ```{r import, echo=FALSE, message=FALSE, warning=FALSE}
+# import ER ratings and ER discounting data into lists
 
+datalist_ER = lapply(list.files(here("04_RawData", "Pilot", "ER_ED"), pattern = '.*ER.*csv', full.names = TRUE),
+                          read.csv, stringsAsFactors = FALSE, header = TRUE)
+  
+datalist_ED = lapply(list.files(here("04_RawData", "Pilot", "ER_ED"), pattern = '.*_ED.*csv', full.names = TRUE),
+                          read.csv, stringsAsFactors = FALSE, header = TRUE)
 ```
 
 # 2. Method
