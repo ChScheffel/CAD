@@ -16,15 +16,15 @@ This postulated temporal sequence of ER strategies affects their effectiveness.
 It is meta-analytically proven that all mentioned strategies reduce emotional arousal [@Webb2012]. 
 Distraction as a tactic of attentional deployment and (expressive) suppression as a tactic of response modulation showed small to medium effect sizes on outcomes in measures of emotion experience (distraction: _d~+~_ = 0.27; suppression: _d~+~_ = 0.27).
 With an effect size of _d~+~_ = 0.45 distancing as tactic of cognitive change showed the highest effectiveness [@Webb2012].
-
-<!-- Nun ER Strategies aufzählen -->
-<!-- Wirksamkeit von ER Strategien -> Meta Analyse Webb -->
-<!-- Evtl noch auf einzelne Strategien eingehen (Distancing, Distraction, Suppression) -->
-
-Implications of subjectively reported habitual use of emotion regulation strategies for affect and well-being have been discussed [@GrossJohn2003]. 
+So these tactics from three different strategies proved to be effective in the short term. 
+However, in order to be able to make a statement on the general benefit, longer-term consequences must also be considered. 
+Especially strategies that do not put the emotional content of the situation into a neutral perspective (i.e., distraction and suppression) are suspected of being disadvantageous in the longer term.
+Long-term consequences of subjectively reported habitual use of emotion regulation strategies for affect and well-being have been discussed [@GrossJohn2003]. 
 Especially suppression is generally associated with poorer outcomes (i.e., more negative affect, lower general well-being), which led to the assumption of *adaptive* and *maladaptive* strategies.
 For example, it could be shown that maladaptive ER strategies mediate the effect between Neurotizism and depressive symptoms [@Yoon2013].
 Also, meta-analytic evidence exists linking a number of ER strategies with psychological disorders [@Aldao2010].
+
+
 The postulation of *adaptive* and *maladaptive* strategies was put in a new perspective with the concept of ER flexibility.
 Similar to other psychological domains, e.g., attention and goal pursuit, *maladaptive* now refers to inflexible strategy use or use of strategies that are hindering in the achievement of goals [@Aldao2015].
 First, adaptive flexible ER requires having a large repertoire of ER strategies [@Aldao2015]. 
