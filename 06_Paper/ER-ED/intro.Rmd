@@ -7,45 +7,45 @@ output: html_document
 # 1. Introduction
 
 Every day we are confronted with stressful or emotionally demanding situations. 
-The ability to modify emotional experiences, expressions and physiology [@Gross1998antecedent] regulate emotions is an important cognitive skill. 
+The ability to modify emotional experiences, expressions, and physiological reactions [@Gross1998antecedent] to regulate emotions is an important cognitive skill. 
 It is therefore not surprising that emotion regulation (ER) has substantial implications for well-being and adaptive functioning [@Gross1998emerging].
 Different strategies can be used to regulate emotions, namely situation selection, situation modification, attentional deployment, cognitive change, and response modification [@Gross1998antecedent], and, following the taxonomy of Powers and LaBar [-@Powers2019], individuals can implement ER strategies by means of different tactics.
 So called antecedent-focused strategies, e.g., attentional deployment and cognitive change, take effect early in the emotion generation process [@Gross1998antecedent].
 In contrast, response modification takes place late in the process and is therefore conceptualized as response-focused strategy [@Gross1998antecedent].
 This postulated temporal sequence of ER strategies affects their effectiveness.
-It is meta-analytically proven that all mentioned strategies reduce emotional arousal [@Webb2012]. 
-Distraction as a tactic of attentional deployment and (expressive) suppression as a tactic of response modulation showed small to medium effect sizes on outcomes in measures of emotion experience (distraction: _d~+~_ = 0.27; suppression: _d~+~_ = 0.27).
+It is meta-analytically proven that all mentioned strategies reduce subjective emotional arousal [@Webb2012]. 
+Distraction as a tactic of attentional deployment and (expressive) suppression as a tactic of response modulation showed small to medium effect sizes on outcomes in measures of emotional experience (distraction: _d~+~_ = 0.27; suppression: _d~+~_ = 0.27).
 With an effect size of _d~+~_ = 0.45 distancing as tactic of cognitive change showed the highest effectiveness [@Webb2012].
 So these tactics from three different strategies proved to be effective in the short term. 
 However, in order to be able to make a statement on the general benefit, longer-term consequences must also be considered. 
-Especially strategies that do not put the emotional content of the situation into a neutral perspective (i.e., distraction and suppression) are suspected of being disadvantageous in the longer term.
+Especially strategies that do not put the emotional content of the situation into a neutral perspective (i.e., distraction and suppression) are presumed to be disadvantageous in the longer term.
 Long-term consequences of subjectively reported habitual use of emotion regulation strategies for affect and well-being have been discussed [@GrossJohn2003]. 
 Especially suppression is generally associated with poorer outcomes (i.e., more negative affect, lower general well-being), which led to the assumption of *adaptive* and *maladaptive* strategies.
-For example, it could be shown that maladaptive ER strategies mediate the effect between Neurotizism and depressive symptoms [@Yoon2013].
-Also, meta-analytic evidence exists linking a number of ER strategies with psychological disorders [@Aldao2010].
+For example, it could be shown that maladaptive ER strategies mediate the effect between neuroticism and depressive symptoms [@Yoon2013].
+Also, meta-analytic evidence exists linking a number of ER strategies to psychological disorders [@Aldao2010].
 
 
 The postulation of *adaptive* and *maladaptive* strategies was put in a new perspective with the concept of ER flexibility.
 Similar to other psychological domains, e.g., attention and goal pursuit, *maladaptive* now refers to inflexible strategy use or use of strategies that are hindering in the achievement of goals [@Aldao2015].
 First, adaptive flexible ER requires having a large repertoire of ER strategies [@Aldao2015]. 
-For example, greater ER variability is related to reduced negative affect and therefore adaptive in daily life [@Blanke2020].
+For example, greater ER variability is related to reduced negative affect and therefore beneficial in daily life [@Blanke2020].
 Second, strategies have to be chosen from the repertoire that are useful for goal achieving.
 This selection of strategies is influenced by numerous factors.
 For example, it was shown that the intensity of a stimulus or situation plays a role in the choice [@Sheppes2011]. 
-Higher intensity of the stimulus leads to a choice of rather disengaging strategies, like distraction[@Sheppes2011;@Sheppes2014].
-Further influencing factors are for example extrinsic motivation (e.g., monetary incentives), motivational determinants (i.e., hedonic regulatory goals), and effort [@Sheppes2014;@Scheffel2021].
+Higher intensity of the stimulus leads to a choice of rather disengaging strategies, like distraction [@Sheppes2011;@Sheppes2014].
+Further influencing factors are for example extrinsic motivation (e.g. monetary incentives), motivational determinants (i.e. hedonic regulatory goals), and effort [@Sheppes2014;@Scheffel2021].
 Especially for effort, Scheffel and colleagues [-@Scheffel2021] could show that the choice for an ER strategy is mainly influenced by effort.
+### Willst du hier nicht lieber "in our previous work" oder sowas schreiben? Wenn die Autoren von sich selbst in der dritten Person sprechen, hab ich immer das Gefühl, dass sie die Lesenden in die Irre führen wollen, indem sie etwas referenzieren, was eigentlich von ihnen selbst ist.
 In this study, participants used the strategies distancing and suppression while inspecting emotional pictures.
 Afterwards they could choose, which strategy they want to use again.
-Participants tended to re-apply the strategy that was less effortful, even though it was not the most effective one - in this case: suppression.
+Participants tended to re-apply the strategy that was less effortful, even though it was not the most effective one - in this case: Suppression.
 Interestingly, the choice was independent of self reported habitual use of suppression and reappraisal.
 
 
 However, what has been missing in research on ER choice so far is information regarding the strategy *not* chosen.
 People choose a strategy that they prefer, for different, relatively well-known reasons. 
 However, nothing is revealed about the strategy that is not chosen.
-On the one hand, it could be possible that the chosen strategy represents the clear preference of an individual.
-The strategy that was not chosen is not a realistic option for the individual. 
+It is possible that the chosen strategy represents the clear preference of an individual, while the strategy that was not chosen is not a realistic option for them. 
 On the other hand, it could also be that two strategies available for selection could represent almost equivalent options for the individual.
 To investigate this question, the individual subjective values of each strategy available for selection would have to be determined.
 Promising approaches can be found in studies on difficulty levels of effortful cognitive tasks.  
@@ -53,13 +53,13 @@ Individual subjective values (SV) of effortful cognitive tasks have been quantif
 
 ## 1.1 ER strategies discounting
 
-In the original study by Westbrook et al. [-@Westbrook2013], cognitive load was varied using the *N*-back task. 
-Participants had to decide whether repeating a higher *N*-back level for larger, fixed monetary reward, or a lower level for a smaller, varying reward. 
+In the original study by Westbrook et al. [-@Westbrook2013], cognitive load was varied using the *n*-back task, a working memory task that requires fast and accurate responses to sequentially presented stimuli. 
+Participants had to decide whether they wanted to repeat a higher *n*-back level for a larger, fixed monetary reward, or a lower level for a smaller, varying reward. 
 In the current study, we want to use this paradigm to determine SVs of ER strategies.
-In doing so, we need to make an important change: we have to adapt the assumption that the easiest *N*-back level has the highest SV.
+In doing so, we need to make an important change: We have to adapt the assumption that the easiest *n*-back level has the highest SV.
 As we have shown in previous studies, there are large inter-individual differences in the preference and perceived subjective effort of ER strategies [@Scheffel2021].
-Moreover, there is nothing like the objectively easiest ER strategy.
-Therefore, we have to add an additional step were the option with the higher subjective value is determined. 
+Moreover, there is nothing like an objectively easiest ER strategy.
+Therefore, we have to add an additional step, which preceeds the other steps and where the option with the higher subjective value is determined. 
 In this step, the same monetary value (i.e., 1 EUR) is assigned to both options.
 The assumption is that participants now choose the option that has the higher SV for them.
 In the next step we return to the original paradigm.
@@ -69,12 +69,14 @@ This procedure will be repeated until all strategies have been compared.
 The SV of each strategy is calculated as the mean of this strategy's SV from all comparisons.
 In case a participant has a clear preference for one strategy, the SV of this strategy will be 1.
 But our paradigm can also account for the case that a person does not have a clear preference.
-Then no SV will be 1, but at least the SVs of all strategies can be interpreted as absolute values and in relation to the other strategy's SVs.
+Then no SV will be 1, but still, the SVs of all strategies can be interpreted as absolute values and in relation to the other strategy's SVs.
+### Hier sollte auch noch erwähnt werden, dass wir auch n-back erheben
 
 ## 1.2 The present study
-The aim of the present study is to evaluate, if this paradigm is suitable for determining SVs of ER strategies. 
+
+The aim of the present study is to evaluate if this paradigm is suitable for determining SVs of ER strategies. 
 We also want to find out whether the SVs are associated with subjective and physiological ER success, subjective effort, ER choice, and relevant personality traits.
-We expect that (1) distancing and distraction lead to higher decrease in emotional arousal (subjective ratings, corrugator and levator activity) than suppression, (2a) people select the ER strategy that is less effortful if they have a choice, (2b) distancing is subjectively effortful than distraction and suppression.
-Regarding SVs of ER strategies we expect that (3a) people chose to re-apply the strategy with the highest SV, (3b) SVs of strategies are predicted by subjective arousal and levator and corrugator activity and subjective effort.
+We expect that (1) distancing and distraction lead to higher decrease in emotional arousal (subjective ratings, corrugator and levator activity) than suppression, (2a) people select the ER strategy that is less effortful if they have a choice, (2b) distancing is subjectively more effortful than distraction and suppression.
+Regarding SVs of ER strategies we expect that (3a) people choose to re-apply the strategy with the highest SV, (3b) SVs of strategies are predicted by subjective arousal and levator and corrugator activity and subjective effort.
 Regarding personality traits, we expect that (4a) self-regulation is associated with ER success and (4b) people with higher ER flexibility show no clearly preferred strategy in SVs. 
 <!-- to specific ? to unspecific? -->
