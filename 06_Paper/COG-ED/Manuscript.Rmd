@@ -159,6 +159,10 @@ However, we propose that (3c) when taking individual preferences for different n
   data_ED <- data_ED[data_ED$step == 6,]
   data_ED <- subset(data_ED, select = -c(step))
   
+  # remove trials with RT < 200 ms from the n-back data and exclude trials after incorrect trials
+  data_RT <- data_nback[-c(which(data_nback$rt < 0.2)), ]
+  data_RT <- data_RT[-c(which(data_RT$correct == 0) + 1), ]
+  
   # import questionnaire data from RedCap
   
   data_quest <- read.csv(here("04_RawData", "Sampledata", "COGED_DATA.csv"), stringsAsFactors = FALSE, header = TRUE)
@@ -424,9 +428,8 @@ Study data were collected and managed using REDCap electronic data capture tools
 ## Analysis
 We aimed to conduct all analysis as described in Westbrook et al. [-@Westbrook2013], but the level of detail was not always sufficient, so there might be deviations in terms of data cleaning and degrees of freedom in the statistical procedures.
 The performance measure *d'* was computed as the difference of the *z*-transformed hit rate and the *z*-transformed false alarm rate [@Macmillan1990].
-Reaction time (RT) data was trimmed by excluding all trials with responses faster than 200 ms, as the relevant cognitive processes could not have been completed before [@Ashby1980; @Whelan2008; @Berger2021].
+Reaction time (RT) data was trimmed by excluding all trials with responses faster than 200 ms, as the relevant cognitive processes could not have been completed before [@Whelan2008; @Berger2021].
 Error- and post-error trials were excluded, because RT on the latter trials is longer due to more cautious behavior [@Dutilh2012; @Houtman2012].
-#TODO: Tolle Artikel, die schaue ich mir auch noch mal genauer an! Hast du die beiden exclusions schon im script umgesetzt? Falls ja, in welcher Zeile, ich kann es nicht finden...
 Declining performance was investigated by calculating a repeated measures analysis of variance (rmANOVA) with three paired contrasts comparing *d'* between two levels of 2-, 3-, and 4-back at a time.
 Another rmANOVA with three paired contrasts was computed to compare the mean RT between two levels of 2-, 3-, and 4-back at a time.
 To investigate changes in NASA-TLX ratings, six rmANOVAs were computed, one for each NASA-TLX subscale, and each with six paired contrasts comparing the ratings between two levels of 1-, 2-, 3-, and 4-back at a time.
@@ -1090,37 +1093,5 @@ An increase in one AUC value corresponded, on average, to an increase of `r roun
 
 When including the AUC of all NASA-TLX subscales as a predictor, it could not explain any variance in NFC beyond the one explained by the SVs (`r apa_print(hypothesis3b)$statistic$modelfit$r2`, `r apa_print(hypothesis3b)$estimate$modelfit$r2`).
 
-```{r Hypothesis_3c, echo=FALSE, message=FALSE, warning=FALSE}
-
-  # H3c: When putting the SVs in descending order before computing the AUC, the prediction of NFC scores by SVs can be improved significantly.
-
-  # prepare empty data frame for the loop to feed into
-
-  h3c_data <- data.frame(subject = character(), auc_sv_sorted = double())
-
-  # calculate AUC of SVs per subject
-  
-  for (i in 1:(length(subjectindex)-1)) {
-    
-    newdata <- data.frame(subject = data_SV$subject[subjectindex[i]],
-                          auc_sv_sorted = auc(data_SV$level[subjectindex[i]:(subjectindex[i+1]-1)], data_SV$sv[subjectindex[i]:(subjectindex[i+1]-1)],
-                                   method = "trapezoid", sort = TRUE))
-    h3c_data <- rbind(h3c_data, newdata)
-    
-  }
-
-  # merge the NFC data frame into the AUC data frame by row
-  
-  h3_data <- merge(h3_data, h3c_data)
-  
-  # remove temporary variable
-  
-  remove(h3c_data)
-
-  # compute linear regression to predict NCS based on SV AUC
-  
-  hypothesis3c <- summary(lm(h3_data$nfc ~ h3_data$auc_sv_sorted))
-
-```
 
 
