@@ -317,14 +317,14 @@ However, we propose that (3c) when taking individual preferences for different n
             if (pipeline_name[[1]][4] == "2") {
               
               pipelines_data[[i]] <-
-                pipelines_data[[i]][((pipelines_data[[i]]$level == x) & (pipelines_data[[i]]$rt < (pipemean + 2 * pipesd))
-                                           & (pipelines_data[[i]]$rt > (pipemean - 2 * pipesd))) | (pipelines_data[[i]]$level != x), ]
+                pipelines_data[[i]][((pipelines_data[[i]]$level == x) & ((pipelines_data[[i]]$rt < (pipemean + 2 * pipesd))
+                                           | (pipelines_data[[i]]$rt > (pipemean - 2 * pipesd)))) | (pipelines_data[[i]]$level != x), ]
                   
             } else if (pipeline_name[[1]][4] == "3") {
               
               pipelines_data[[i]] <-
-                pipelines_data[[i]][((pipelines_data[[i]]$level == x) & (pipelines_data[[i]]$rt < (pipemean + 3 * pipesd))
-                                           & (pipelines_data[[i]]$rt > (pipemean - 3 * pipesd))) | (pipelines_data[[i]]$level != x), ]
+                pipelines_data[[i]][((pipelines_data[[i]]$level == x) & ((pipelines_data[[i]]$rt < (pipemean + 3 * pipesd))
+                                           | (pipelines_data[[i]]$rt > (pipemean - 3 * pipesd)))) | (pipelines_data[[i]]$level != x), ]
             }
         }
       
