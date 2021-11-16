@@ -34,10 +34,23 @@ datalist_ED = lapply(list.files(here("04_RawData", "pilot", "ER-ED/logfiles"), p
                           read.csv, stringsAsFactors = FALSE, header = TRUE)
 
 # new empty frame to store files into
-data_ER = data.frame(ID = character(), )
+data_ER = data.frame(ID = character(), block = character(), arousal = double(), effort = double())
 
 data_ED = data.frame(ID = character(), step = double(), choice = character(),
                            LBvalue = double(), LBlevel = double(), RBvalue = double(), RBlevel = double())
+
+# store arousal and effort ratings in data_ER frame
+
+for (i in 1:length(datalist_ER)) {
+  
+  tmp = data.frame(datalist_ER[[i]][["participant"]],datalist_ER[[i]][["instr_1"]],datalist_ER[[i]][["slider_arousal.response"]],datalist_ER[[i]][["slider_effort.response"]])
+  colnames(tmp) = names(data_ER)
+  tmp = tmp[(!is.na(tmp$arousal)),]
+  
+  data_ER = rbind(tmp, data_ER)
+  
+}
+
 ```
 
 # 2. Method
