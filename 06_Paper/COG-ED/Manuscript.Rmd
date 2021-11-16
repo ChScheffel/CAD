@@ -238,7 +238,7 @@ However, we propose that (3c) when taking individual preferences for different n
                                                "WAINN","WAINE","WAI2N","WAI2E","WAI3N","WAI3E",
                                                "WASNN","WASNE","WAS2N","WAS2E","WAS3N","WAS3E"))
   
-  for (i in 1:length(pipeline_data)) {
+  for (i in 1:length(pipelines_data)) {
     
     # extract the name of the current data frame
     
@@ -252,7 +252,7 @@ However, we propose that (3c) when taking individual preferences for different n
     
     if (pipeline_name[[1]][1] == "A" & pipeline_name[[1]][2] == "A") {
       
-          # the second decision is the type of transformation
+          # the second decision is the type of transformation, depending on the third letter in the data frame name
           
           if (pipeline_name[[1]][3] == "L") {
             
@@ -283,111 +283,186 @@ However, we propose that (3c) when taking individual preferences for different n
             
             pipelines_data[[i]] <- pipelines_data[[i]][c(which(pipelines_data[[i]]$rt < (pipemean + 3 * pipesd)
                                                                & pipelines_data[[i]]$rt > (pipemean - 3 * pipesd))), ]
-            
-          } else if (pipeline_name[[1]][4] == "T") {
-            
-            pipelines_data[[i]] <- pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.2)), ]
           }
       
     } else if (pipeline_name[[1]][1] == "A" & pipeline_name[[1]][2] == "W") {
       
+        # apply the transformations and exclusions across subjects but within levels
+      
+        for (x in 1:4) {
+            
+            # the second decision is the type of transformation, depending on the third letter in the data frame name
+            
+            if (pipeline_name[[1]][3] == "L") {
+            
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x] <- log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x])
+            
+            } else if (pipeline_name[[1]][3] == "I") {
+            
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x] <- 1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x])
+            
+            } else if (pipeline_name[[1]][3] == "S") {
+            
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x] <- sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x])
+
+            }
+            
+            # compute mean and standard deviation
+          
+            pipemean <- mean(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x], na.rm = TRUE)
+            pipesd <- sd(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x], na.rm = TRUE)
+            
+            # the third decision is the outlier exclusion
+          
+            if (pipeline_name[[1]][4] == "2") {
+              
+              pipelines_data[[i]] <-
+                pipelines_data[[i]][((pipelines_data[[i]]$level == x) & (pipelines_data[[i]]$rt < (pipemean + 2 * pipesd))
+                                           & (pipelines_data[[i]]$rt > (pipemean - 2 * pipesd))) | (pipelines_data[[i]]$level != x), ]
+                  
+            } else if (pipeline_name[[1]][4] == "3") {
+              
+              pipelines_data[[i]] <-
+                pipelines_data[[i]][((pipelines_data[[i]]$level == x) & (pipelines_data[[i]]$rt < (pipemean + 3 * pipesd))
+                                           & (pipelines_data[[i]]$rt > (pipemean - 3 * pipesd))) | (pipelines_data[[i]]$level != x), ]
+            }
+        }
+      
       
     } else if (pipeline_name[[1]][1] == "W" & pipeline_name[[1]][2] == "W") {
       
+        # apply the transformations and exclusions within subjects and within levels
+      
+        for (x in 1:4) {
+            
+          for (y in 1:length(table(pipelines_data[[i]]$subject))) {
+            
+            # save the name of the subject as a temporary variable
+            
+            pipesubject <- names(table(pipelines_data[[i]]$subject))[y]
+          
+            # the second decision is the type of transformation, depending on the third letter in the data frame name
+            
+            if (pipeline_name[[1]][3] == "L") {
+            
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
+                                     & pipelines_data[[i]]$subject == pipesubject] <- log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
+                                                                                                                   & pipelines_data[[i]]$subject == pipesubject])
+            
+            } else if (pipeline_name[[1]][3] == "I") {
+            
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
+                                     & pipelines_data[[i]]$subject == pipesubject] <- 1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
+                                                                                                                & pipelines_data[[i]]$subject == pipesubject])
+            
+            } else if (pipeline_name[[1]][3] == "S") {
+            
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
+                                     & pipelines_data[[i]]$subject == pipesubject] <- sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
+                                                                                                                  & pipelines_data[[i]]$subject == pipesubject])
+
+            }
+            
+            # compute mean and standard deviation
+          
+            pipemean <- mean(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
+            pipesd <- sd(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
+            
+            # the third decision is the outlier exclusion
+          
+            if (pipeline_name[[1]][4] == "2") {
+              
+              pipelines_data[[i]][which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject), ] <-
+                pipelines_data[[i]][which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject)
+                                    [which(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
+                                                                  & pipelines_data[[i]]$subject == pipesubject] < (pipemean + 2 * pipesd)
+                                           & pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
+                                                                    & pipelines_data[[i]]$subject == pipesubject] > (pipemean - 2 * pipesd))], ]
+                  
+            } else if (pipeline_name[[1]][4] == "3") {
+              
+              pipelines_data[[i]][which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject), ] <-
+                pipelines_data[[i]][which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject)
+                                    [which(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
+                                                                  & pipelines_data[[i]]$subject == pipesubject] < (pipemean + 3 * pipesd)
+                                           & pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
+                                                                    & pipelines_data[[i]]$subject == pipesubject] > (pipemean - 3 * pipesd))], ]
+            }
+          }
+        }
       
     } else if (pipeline_name[[1]][1] == "W" & pipeline_name[[1]][2] == "A") {
       
+      # apply the transformations and exclusions within subjects but across levels
       
+        for (y in 1:length(table(pipelines_data[[i]]$subject))) {
+            
+            # save the name of the subject as a temporary variable
+            
+            pipesubject <- names(table(pipelines_data[[i]]$subject))[y]
+            
+            # the second decision is the type of transformation, depending on the third letter in the data frame name
+            
+            if (pipeline_name[[1]][3] == "L") {
+            
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject] <- log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject])
+            
+            } else if (pipeline_name[[1]][3] == "I") {
+            
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject] <- 1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject])
+            
+            } else if (pipeline_name[[1]][3] == "S") {
+            
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject] <- sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject])
+
+            }
+            
+            # compute mean and standard deviation
+          
+            pipemean <- mean(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
+            pipesd <- sd(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
+            
+            # the third decision is the outlier exclusion
+          
+            if (pipeline_name[[1]][4] == "2") {
+              
+              pipelines_data[[i]][which(pipelines_data[[i]]$subject == pipesubject), ] <-
+                pipelines_data[[i]][which(pipelines_data[[i]]$subject == pipesubject)
+                                    [which(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject] < (pipemean + 2 * pipesd)
+                                           & pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject] > (pipemean - 2 * pipesd))], ]    
+            } else if (pipeline_name[[1]][4] == "3") {
+              
+              pipelines_data[[i]][which(pipelines_data[[i]]$subject == pipesubject), ] <-
+                pipelines_data[[i]][which(pipelines_data[[i]]$subject == pipesubject)
+                                    [which(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject] < (pipemean + 3 * pipesd)
+                                           & pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject] > (pipemean - 3 * pipesd))], ]
+            }
+        }
+      
+    }
+    
+    # the 200-ms-exclusion and the post-error-exclusion are done outside of the A/A-A/W-W/W-W/A-conditions because they are independent of dimension:
+    
+    # exclude RTs fast than 200 ms after stimulus onset if the fourth letter in the data frame name is a "T"
+    
+    if (pipeline_name[[1]][4] == "T") {
+      
+      pipelines_data[[i]] <- pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.2)), ]
+      
+    }
+    
+    # exclude post-error trials if the fifth letter in the data frame name is an "E"
+    # also making sure that there are even any error-/post-error-rows left to perform the exclusion, otherwise you get an error message
+    
+    if (pipeline_name[[1]][5] == "E") {
+      
+      ifelse(nrow(pipelines_data[[i]][-c(which(pipelines_data[[i]]$correct == 0) + 1), ]) > 0,
+             pipelines_data[[i]] <- pipelines_data[[i]][-c(which(pipelines_data[[i]]$correct == 0) + 1), ],
+             pipelines_data[[i]] <- pipelines_data[[i]])
+
     }
   }
   
-  #------old version below---
-  
-  # one data frame without transformations is a simple copy of the original data frame
-  # put that data frame in a list in which all data frames will be and replace the RTs of incorrect trials with NA
-
-  pipelines_data <- list("RNN" = data_nback)
-  pipelines_data[["RNN"]]$rt[pipelines_data[["RNN"]]$correct == 0] <- NA
-
-  # add raw version without post-error trials
-
-  pipelines_data[["RNE"]] <- pipelines_data[["RNN"]][-c(which(pipelines_data[["RNN"]]$correct == 0) + 1), ]
-  
-  # add raw versions with 0-200ms exclusion
-  
-  pipelines_data[["RTN"]] <- pipelines_data[["RNN"]][-c(which(pipelines_data[["RNN"]]$rt < 0.2)), ]
-  pipelines_data[["RTE"]] <- pipelines_data[["RTN"]][-c(which(pipelines_data[["RTN"]]$correct == 0) + 1), ]
-
-  # group 1: across subjects, across conditions
-  
-    # raw versions
-    
-    tempmean <- mean(pipelines_data[["RNN"]]$rt[pipelines_data[["RNN"]]$correct == 1])
-    tempsd <- sd(pipelines_data[["RNN"]]$rt[pipelines_data[["RNN"]]$correct == 1])
-    
-    pipelines_data[["AAR2N"]] <- pipelines_data[["RNN"]][c(which(pipelines_data[["RNN"]]$rt < (tempmean+2*tempsd) & pipelines_data[["RNN"]]$rt > (tempmean-2*tempsd))), ]
-    pipelines_data[["AAR2E"]] <- pipelines_data[["AAR2N"]][-c(which(pipelines_data[["AAR2N"]]$correct == 0) + 1), ]
-    pipelines_data[["AAR3N"]] <- pipelines_data[["RNN"]][c(which(pipelines_data[["RNN"]]$rt < (tempmean+3*tempsd) & pipelines_data[["RNN"]]$rt > (tempmean-3*tempsd))), ]
-    pipelines_data[["AAR3E"]] <- pipelines_data[["AAR3N"]][-c(which(pipelines_data[["AAR3N"]]$correct == 0) + 1), ]
-  
-    # log transformed versions
-    
-    pipelines_data[["AALNN"]] <- pipelines_data[["RNN"]]
-    pipelines_data[["AALNN"]]$rt[pipelines_data[["AALNN"]]$correct == 1] <- log10(pipelines_data[["AALNN"]]$rt[pipelines_data[["AALNN"]]$correct == 1])
-    
-    tempmean <- mean(pipelines_data[["AALNN"]]$rt[pipelines_data[["AALNN"]]$correct == 1])
-    tempsd <- sd(pipelines_data[["AALNN"]]$rt[pipelines_data[["AALNN"]]$correct == 1])
-    
-    pipelines_data[["AALNE"]] <- pipelines_data[["AALNN"]][-c(which(pipelines_data[["AALNN"]]$correct == 0) + 1), ]
-    pipelines_data[["AAL2N"]] <- pipelines_data[["AALNN"]][c(which(pipelines_data[["AALNN"]]$rt < (tempmean+2*tempsd) & pipelines_data[["AALNN"]]$rt > (tempmean-2*tempsd))), ]
-    pipelines_data[["AAL2E"]] <- pipelines_data[["AAL2N"]][-c(which(pipelines_data[["AAL2N"]]$correct == 0) + 1), ]
-    pipelines_data[["AAL3N"]] <- pipelines_data[["AALNN"]][c(which(pipelines_data[["AALNN"]]$rt < (tempmean+3*tempsd) & pipelines_data[["AALNN"]]$rt > (tempmean-3*tempsd))), ]
-    pipelines_data[["AAL3E"]] <- pipelines_data[["AAL3N"]][-c(which(pipelines_data[["AAL3N"]]$correct == 0) + 1), ]
-  
-    # inverse transformed versions
-    
-    pipelines_data[["AAINN"]] <- pipelines_data[["RNN"]]
-    pipelines_data[["AAINN"]]$rt[pipelines_data[["AAINN"]]$correct == 1] <- 1/(pipelines_data[["AAINN"]]$rt[pipelines_data[["AAINN"]]$correct == 1])
-    
-    tempmean <- mean(pipelines_data[["AAINN"]]$rt[pipelines_data[["AAINN"]]$correct == 1])
-    tempsd <- sd(pipelines_data[["AAINN"]]$rt[pipelines_data[["AAINN"]]$correct == 1])
-    
-    pipelines_data[["AAINE"]] <- pipelines_data[["AAINN"]][-c(which(pipelines_data[["AAINN"]]$correct == 0) + 1), ]
-    pipelines_data[["AAI2N"]] <- pipelines_data[["AAINN"]][c(which(pipelines_data[["AAINN"]]$rt < (tempmean+2*tempsd) & pipelines_data[["AAINN"]]$rt > (tempmean-2*tempsd))), ]
-    pipelines_data[["AAI2E"]] <- pipelines_data[["AAI2N"]][-c(which(pipelines_data[["AAI2N"]]$correct == 0) + 1), ]
-    pipelines_data[["AAI3N"]] <- pipelines_data[["AAINN"]][c(which(pipelines_data[["AAINN"]]$rt < (tempmean+3*tempsd) & pipelines_data[["AAINN"]]$rt > (tempmean-3*tempsd))), ]
-    pipelines_data[["AAI3E"]] <- pipelines_data[["AAI3N"]][-c(which(pipelines_data[["AAI3N"]]$correct == 0) + 1), ]
-  
-    # square root transformed versions
-    
-    pipelines_data[["AASNN"]] <- pipelines_data[["RNN"]]
-    pipelines_data[["AASNN"]]$rt[pipelines_data[["AASNN"]]$correct == 1] <- sqrt(pipelines_data[["AASNN"]]$rt[pipelines_data[["AASNN"]]$correct == 1])
-    
-    tempmean <- mean(pipelines_data[["AASNN"]]$rt[pipelines_data[["AASNN"]]$correct == 1])
-    tempsd <- sd(pipelines_data[["AASNN"]]$rt[pipelines_data[["AASNN"]]$correct == 1])
-    
-    pipelines_data[["AASNE"]] <- pipelines_data[["AASNN"]][-c(which(pipelines_data[["AASNN"]]$correct == 0) + 1), ]
-    pipelines_data[["AAS2N"]] <- pipelines_data[["AASNN"]][c(which(pipelines_data[["AASNN"]]$rt < (tempmean+2*tempsd) & pipelines_data[["AASNN"]]$rt > (tempmean-2*tempsd))), ]
-    pipelines_data[["AAS2E"]] <- pipelines_data[["AAS2N"]][-c(which(pipelines_data[["AAS2N"]]$correct == 0) + 1), ]
-    pipelines_data[["AAS3N"]] <- pipelines_data[["AASNN"]][c(which(pipelines_data[["AASNN"]]$rt < (tempmean+3*tempsd) & pipelines_data[["AASNN"]]$rt > (tempmean-3*tempsd))), ]
-    pipelines_data[["AAS3E"]] <- pipelines_data[["AAS3N"]][-c(which(pipelines_data[["AAS3N"]]$correct == 0) + 1), ]
-  
-  # group 2: across subjects, within conditions
-  
-  # group 3: within subjects, within conditions
-  
-  # group 4: within subjects, across conditions
-  
-  
-      # create index of rows in which the level changes
-      #levelindex <- c(1,which(data_nback$level != dplyr::lag(data_nback$level)),nrow(data_nback))
-      
-      #for (i in 1:(length(levelindex)-1)) {
-        
-        #RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"] <- log10(RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"])
-        #RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"] <- 1/(RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"])
-        #RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"] <- sqrt(RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"])
-      #}
 
   
 ```
