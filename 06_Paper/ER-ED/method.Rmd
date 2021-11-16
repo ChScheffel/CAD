@@ -34,7 +34,7 @@ datalist_ED = lapply(list.files(here("04_RawData", "pilot", "ER-ED/logfiles"), p
                           read.csv, stringsAsFactors = FALSE, header = TRUE)
 
 # new empty frame to store files into
-data_ER = data.frame(ID = character(), )
+data_ER = data.frame(ID = character(), block = character(), arousal = double(), effort = double())
 
 data_ED = data.frame(ID = character(), step = double(), choice = character(),
                            LBvalue = double(), LBlevel = double(), RBvalue = double(), RBlevel = double())
