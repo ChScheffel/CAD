@@ -316,15 +316,21 @@ However, we propose that (3c) when taking individual preferences for different n
           
             if (pipeline_name[[1]][4] == "2") {
               
-              pipelines_data[[i]] <-
-                pipelines_data[[i]][((pipelines_data[[i]]$level == x) & ((pipelines_data[[i]]$rt < (pipemean + 2 * pipesd))
-                                           | (pipelines_data[[i]]$rt > (pipemean - 2 * pipesd)))) | (pipelines_data[[i]]$level != x), ]
+              ifelse(length(which(pipelines_data[[i]]$level == x &
+                                    (pipelines_data[[i]]$rt > (pipemean + 2 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 2 * pipesd)))) > 0,
+                     pipelines_data[[i]] <-
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x &
+                                                      (pipelines_data[[i]]$rt > (pipemean + 2 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 2 * pipesd)))), ],
+                     pipelines_data[[i]] <- pipelines_data[[i]])
                   
             } else if (pipeline_name[[1]][4] == "3") {
               
-              pipelines_data[[i]] <-
-                pipelines_data[[i]][((pipelines_data[[i]]$level == x) & ((pipelines_data[[i]]$rt < (pipemean + 3 * pipesd))
-                                           | (pipelines_data[[i]]$rt > (pipemean - 3 * pipesd)))) | (pipelines_data[[i]]$level != x), ]
+              ifelse(length(which(pipelines_data[[i]]$level == x &
+                                    (pipelines_data[[i]]$rt > (pipemean + 3 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 3 * pipesd)))) > 0,
+                     pipelines_data[[i]] <-
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x &
+                                                    (pipelines_data[[i]]$rt > (pipemean + 3 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 3 * pipesd)))), ],
+                     pipelines_data[[i]] <- pipelines_data[[i]])
             }
         }
       
@@ -372,21 +378,21 @@ However, we propose that (3c) when taking individual preferences for different n
           
             if (pipeline_name[[1]][4] == "2") {
               
-              pipelines_data[[i]][which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject), ] <-
-                pipelines_data[[i]][which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject)
-                                    [which(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
-                                                                  & pipelines_data[[i]]$subject == pipesubject] < (pipemean + 2 * pipesd)
-                                           & pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
-                                                                    & pipelines_data[[i]]$subject == pipesubject] > (pipemean - 2 * pipesd))], ]
-                  
+              ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
+                                    (pipelines_data[[i]]$rt > (pipemean + 2 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 2 * pipesd)))) > 0,
+                     pipelines_data[[i]] <-
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
+                                                      (pipelines_data[[i]]$rt > (pipemean + 2 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 2 * pipesd)))), ],
+                     pipelines_data[[i]] <- pipelines_data[[i]])
+              
             } else if (pipeline_name[[1]][4] == "3") {
               
-              pipelines_data[[i]][which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject), ] <-
-                pipelines_data[[i]][which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject)
-                                    [which(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
-                                                                  & pipelines_data[[i]]$subject == pipesubject] < (pipemean + 3 * pipesd)
-                                           & pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
-                                                                    & pipelines_data[[i]]$subject == pipesubject] > (pipemean - 3 * pipesd))], ]
+              ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
+                                    (pipelines_data[[i]]$rt > (pipemean + 3 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 3 * pipesd)))) > 0,
+                     pipelines_data[[i]] <-
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
+                                                      (pipelines_data[[i]]$rt > (pipemean + 3 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 3 * pipesd)))), ],
+                     pipelines_data[[i]] <- pipelines_data[[i]])
             }
           }
         }
@@ -426,16 +432,21 @@ However, we propose that (3c) when taking individual preferences for different n
           
             if (pipeline_name[[1]][4] == "2") {
               
-              pipelines_data[[i]][which(pipelines_data[[i]]$subject == pipesubject), ] <-
-                pipelines_data[[i]][which(pipelines_data[[i]]$subject == pipesubject)
-                                    [which(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject] < (pipemean + 2 * pipesd)
-                                           & pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject] > (pipemean - 2 * pipesd))], ]    
+              ifelse(length(which(pipelines_data[[i]]$subject == pipesubject &
+                                    (pipelines_data[[i]]$rt > (pipemean + 2 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 2 * pipesd)))) > 0,
+                     pipelines_data[[i]] <-
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$subject == pipesubject &
+                                                      (pipelines_data[[i]]$rt > (pipemean + 2 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 2 * pipesd)))), ],
+                     pipelines_data[[i]] <- pipelines_data[[i]])
+              
             } else if (pipeline_name[[1]][4] == "3") {
               
-              pipelines_data[[i]][which(pipelines_data[[i]]$subject == pipesubject), ] <-
-                pipelines_data[[i]][which(pipelines_data[[i]]$subject == pipesubject)
-                                    [which(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject] < (pipemean + 3 * pipesd)
-                                           & pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject] > (pipemean - 3 * pipesd))], ]
+              ifelse(length(which(pipelines_data[[i]]$subject == pipesubject &
+                                    (pipelines_data[[i]]$rt > (pipemean + 3 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 3 * pipesd)))) > 0,
+                     pipelines_data[[i]] <-
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$subject == pipesubject &
+                                                      (pipelines_data[[i]]$rt > (pipemean + 3 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 3 * pipesd)))), ],
+                     pipelines_data[[i]] <- pipelines_data[[i]])
             }
         }
       
