@@ -99,9 +99,9 @@ However, we propose that (3c) when taking individual preferences for different n
   
   # import n-back and effort discounting data into a list each
 
-  datalist_nback = lapply(list.files(here("04_RawData", "Sampledata"), pattern = '.*nback.*csv', full.names = TRUE),
+  datalist_nback = lapply(list.files(here("04_RawData", "pilot", "COG-ED"), pattern = '.*nback.*csv', full.names = TRUE),
                           read.csv, stringsAsFactors = FALSE, header = TRUE)
-  datalist_ED = lapply(list.files(here("04_RawData", "Sampledata"), pattern = '.*_ED.*csv', full.names = TRUE),
+  datalist_ED = lapply(list.files(here("04_RawData", "pilot", "COG-ED"), pattern = '.*_ED.*csv', full.names = TRUE),
                           read.csv, stringsAsFactors = FALSE, header = TRUE)
   
   # create empty data frames for loops to feed into
@@ -165,7 +165,7 @@ However, we propose that (3c) when taking individual preferences for different n
   
   # import questionnaire data from RedCap
   
-  data_quest <- read.csv(here("04_RawData", "Sampledata", "COGED_DATA.csv"), stringsAsFactors = FALSE, header = TRUE)
+  data_quest <- read.csv(here("04_RawData", "pilot", "CERED_DATA.csv"), stringsAsFactors = FALSE, header = TRUE)
   colnames(data_quest)[1] <- "set" # rename the first column
   
   # remove unnecessary variables from questionnaire data frame
@@ -173,10 +173,9 @@ However, we propose that (3c) when taking individual preferences for different n
   data_quest <- subset(data_quest, select = -c(vl, date, preparatory_coged_complete, general_questions_timestamp, state,
                                                general_questions_complete, inclusion, inclusion_0___1, inclusion_0___2, inclusion_0_2,
                                                researcher_questions_complete, nasatlx_timestamp, nasatlx_complete, t1_psychopy_ed_csv,
-                                               t1_psychopy_ed_psydat, t1_psychopy_nback_csv, t1_psychopy_log, t1_psychopy_nback_psydat,
-                                               t1_psychopy_randch_log, t1_psychopy_randch_psydat, files_coged_complete, record_id_2, vl_er,
-                                               date_er, humid_bef_er, preparatory_ered_complete, emg_eeg, emg_vhdr, emg_vmrk,
-                                               er_ed_psychopy_txt, er_ed_psychopy_psydat, files_ered_complete, followup_ered_timestamp,
+                                               t1_psychopy_nback_csv, files_coged_complete, record_id_2, vl_er,
+                                               date_er, preparatory_ered_complete, emg_eeg, emg_vhdr, emg_vmrk,
+                                               files_ered_complete, followup_ered_timestamp,
                                                nachb_01, nachb_01_inhalt, nachb_02, nachb_02_inhalt, nachb_03, nachb_07, nachb_07_inhalt,
                                                nachb_08, nachb_08_inhalt, nachb_08_haeufig, nachb_08_zurueck, followup_ered_complete,
                                                nfc_timestamp, nfc_complete, bis_11_timestamp, bis_11_complete, bscs_timestamp,
@@ -238,7 +237,7 @@ However, we propose that (3c) when taking individual preferences for different n
                                                "WAINN","WAINE","WAI2N","WAI2E","WAI3N","WAI3E",
                                                "WASNN","WASNE","WAS2N","WAS2E","WAS3N","WAS3E"))
   
-  for (i in 1:length(pipeline_data)) {
+  for (i in 1:length(pipelines_data)) {
     
     # extract the name of the current data frame
     
@@ -252,7 +251,7 @@ However, we propose that (3c) when taking individual preferences for different n
     
     if (pipeline_name[[1]][1] == "A" & pipeline_name[[1]][2] == "A") {
       
-          # the second decision is the type of transformation
+          # the second decision is the type of transformation, depending on the third letter in the data frame name
           
           if (pipeline_name[[1]][3] == "L") {
             
@@ -283,111 +282,197 @@ However, we propose that (3c) when taking individual preferences for different n
             
             pipelines_data[[i]] <- pipelines_data[[i]][c(which(pipelines_data[[i]]$rt < (pipemean + 3 * pipesd)
                                                                & pipelines_data[[i]]$rt > (pipemean - 3 * pipesd))), ]
-            
-          } else if (pipeline_name[[1]][4] == "T") {
-            
-            pipelines_data[[i]] <- pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.2)), ]
           }
       
     } else if (pipeline_name[[1]][1] == "A" & pipeline_name[[1]][2] == "W") {
       
+        # apply the transformations and exclusions across subjects but within levels
+      
+        for (x in 1:4) {
+            
+            # the second decision is the type of transformation, depending on the third letter in the data frame name
+            
+            if (pipeline_name[[1]][3] == "L") {
+            
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x] <- log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x])
+            
+            } else if (pipeline_name[[1]][3] == "I") {
+            
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x] <- 1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x])
+            
+            } else if (pipeline_name[[1]][3] == "S") {
+            
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x] <- sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x])
+
+            }
+            
+            # compute mean and standard deviation
+          
+            pipemean <- mean(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x], na.rm = TRUE)
+            pipesd <- sd(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x], na.rm = TRUE)
+            
+            # the third decision is the outlier exclusion
+          
+            if (pipeline_name[[1]][4] == "2") {
+              
+              ifelse(length(which(pipelines_data[[i]]$level == x &
+                                    (pipelines_data[[i]]$rt > (pipemean + 2 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 2 * pipesd)))) > 0,
+                     pipelines_data[[i]] <-
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x &
+                                                      (pipelines_data[[i]]$rt > (pipemean + 2 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 2 * pipesd)))), ],
+                     pipelines_data[[i]] <- pipelines_data[[i]])
+                  
+            } else if (pipeline_name[[1]][4] == "3") {
+              
+              ifelse(length(which(pipelines_data[[i]]$level == x &
+                                    (pipelines_data[[i]]$rt > (pipemean + 3 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 3 * pipesd)))) > 0,
+                     pipelines_data[[i]] <-
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x &
+                                                    (pipelines_data[[i]]$rt > (pipemean + 3 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 3 * pipesd)))), ],
+                     pipelines_data[[i]] <- pipelines_data[[i]])
+            }
+        }
+      
       
     } else if (pipeline_name[[1]][1] == "W" & pipeline_name[[1]][2] == "W") {
       
+        # apply the transformations and exclusions within subjects and within levels
+      
+        for (x in 1:4) {
+            
+          for (y in 1:length(table(pipelines_data[[i]]$subject))) {
+            
+            # save the name of the subject as a temporary variable
+            
+            pipesubject <- names(table(pipelines_data[[i]]$subject))[y]
+          
+            # the second decision is the type of transformation, depending on the third letter in the data frame name
+            
+            if (pipeline_name[[1]][3] == "L") {
+            
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
+                                     & pipelines_data[[i]]$subject == pipesubject] <- log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
+                                                                                                                   & pipelines_data[[i]]$subject == pipesubject])
+            
+            } else if (pipeline_name[[1]][3] == "I") {
+            
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
+                                     & pipelines_data[[i]]$subject == pipesubject] <- 1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
+                                                                                                                & pipelines_data[[i]]$subject == pipesubject])
+            
+            } else if (pipeline_name[[1]][3] == "S") {
+            
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
+                                     & pipelines_data[[i]]$subject == pipesubject] <- sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
+                                                                                                                  & pipelines_data[[i]]$subject == pipesubject])
+
+            }
+            
+            # compute mean and standard deviation
+          
+            pipemean <- mean(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
+            pipesd <- sd(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
+            
+            # the third decision is the outlier exclusion
+          
+            if (pipeline_name[[1]][4] == "2") {
+              
+              ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
+                                    (pipelines_data[[i]]$rt > (pipemean + 2 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 2 * pipesd)))) > 0,
+                     pipelines_data[[i]] <-
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
+                                                      (pipelines_data[[i]]$rt > (pipemean + 2 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 2 * pipesd)))), ],
+                     pipelines_data[[i]] <- pipelines_data[[i]])
+              
+            } else if (pipeline_name[[1]][4] == "3") {
+              
+              ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
+                                    (pipelines_data[[i]]$rt > (pipemean + 3 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 3 * pipesd)))) > 0,
+                     pipelines_data[[i]] <-
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
+                                                      (pipelines_data[[i]]$rt > (pipemean + 3 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 3 * pipesd)))), ],
+                     pipelines_data[[i]] <- pipelines_data[[i]])
+            }
+          }
+        }
       
     } else if (pipeline_name[[1]][1] == "W" & pipeline_name[[1]][2] == "A") {
       
+      # apply the transformations and exclusions within subjects but across levels
       
+        for (y in 1:length(table(pipelines_data[[i]]$subject))) {
+            
+            # save the name of the subject as a temporary variable
+            
+            pipesubject <- names(table(pipelines_data[[i]]$subject))[y]
+            
+            # the second decision is the type of transformation, depending on the third letter in the data frame name
+            
+            if (pipeline_name[[1]][3] == "L") {
+            
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject] <- log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject])
+            
+            } else if (pipeline_name[[1]][3] == "I") {
+            
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject] <- 1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject])
+            
+            } else if (pipeline_name[[1]][3] == "S") {
+            
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject] <- sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject])
+
+            }
+            
+            # compute mean and standard deviation
+          
+            pipemean <- mean(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
+            pipesd <- sd(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
+            
+            # the third decision is the outlier exclusion
+          
+            if (pipeline_name[[1]][4] == "2") {
+              
+              ifelse(length(which(pipelines_data[[i]]$subject == pipesubject &
+                                    (pipelines_data[[i]]$rt > (pipemean + 2 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 2 * pipesd)))) > 0,
+                     pipelines_data[[i]] <-
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$subject == pipesubject &
+                                                      (pipelines_data[[i]]$rt > (pipemean + 2 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 2 * pipesd)))), ],
+                     pipelines_data[[i]] <- pipelines_data[[i]])
+              
+            } else if (pipeline_name[[1]][4] == "3") {
+              
+              ifelse(length(which(pipelines_data[[i]]$subject == pipesubject &
+                                    (pipelines_data[[i]]$rt > (pipemean + 3 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 3 * pipesd)))) > 0,
+                     pipelines_data[[i]] <-
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$subject == pipesubject &
+                                                      (pipelines_data[[i]]$rt > (pipemean + 3 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 3 * pipesd)))), ],
+                     pipelines_data[[i]] <- pipelines_data[[i]])
+            }
+        }
+      
+    }
+    
+    # the 200-ms-exclusion and the post-error-exclusion are done outside of the A/A-A/W-W/W-W/A-conditions because they are independent of dimension:
+    
+    # exclude RTs fast than 200 ms after stimulus onset if the fourth letter in the data frame name is a "T"
+    
+    if (pipeline_name[[1]][4] == "T") {
+      
+      pipelines_data[[i]] <- pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.2)), ]
+      
+    }
+    
+    # exclude post-error trials if the fifth letter in the data frame name is an "E"
+    # also making sure that there are even any error-/post-error-rows left to perform the exclusion, otherwise you get an error message
+    
+    if (pipeline_name[[1]][5] == "E") {
+      
+      ifelse(nrow(pipelines_data[[i]][-c(which(pipelines_data[[i]]$correct == 0) + 1), ]) > 0,
+             pipelines_data[[i]] <- pipelines_data[[i]][-c(which(pipelines_data[[i]]$correct == 0) + 1), ],
+             pipelines_data[[i]] <- pipelines_data[[i]])
+
     }
   }
   
-  #------old version below---
-  
-  # one data frame without transformations is a simple copy of the original data frame
-  # put that data frame in a list in which all data frames will be and replace the RTs of incorrect trials with NA
-
-  pipelines_data <- list("RNN" = data_nback)
-  pipelines_data[["RNN"]]$rt[pipelines_data[["RNN"]]$correct == 0] <- NA
-
-  # add raw version without post-error trials
-
-  pipelines_data[["RNE"]] <- pipelines_data[["RNN"]][-c(which(pipelines_data[["RNN"]]$correct == 0) + 1), ]
-  
-  # add raw versions with 0-200ms exclusion
-  
-  pipelines_data[["RTN"]] <- pipelines_data[["RNN"]][-c(which(pipelines_data[["RNN"]]$rt < 0.2)), ]
-  pipelines_data[["RTE"]] <- pipelines_data[["RTN"]][-c(which(pipelines_data[["RTN"]]$correct == 0) + 1), ]
-
-  # group 1: across subjects, across conditions
-  
-    # raw versions
-    
-    tempmean <- mean(pipelines_data[["RNN"]]$rt[pipelines_data[["RNN"]]$correct == 1])
-    tempsd <- sd(pipelines_data[["RNN"]]$rt[pipelines_data[["RNN"]]$correct == 1])
-    
-    pipelines_data[["AAR2N"]] <- pipelines_data[["RNN"]][c(which(pipelines_data[["RNN"]]$rt < (tempmean+2*tempsd) & pipelines_data[["RNN"]]$rt > (tempmean-2*tempsd))), ]
-    pipelines_data[["AAR2E"]] <- pipelines_data[["AAR2N"]][-c(which(pipelines_data[["AAR2N"]]$correct == 0) + 1), ]
-    pipelines_data[["AAR3N"]] <- pipelines_data[["RNN"]][c(which(pipelines_data[["RNN"]]$rt < (tempmean+3*tempsd) & pipelines_data[["RNN"]]$rt > (tempmean-3*tempsd))), ]
-    pipelines_data[["AAR3E"]] <- pipelines_data[["AAR3N"]][-c(which(pipelines_data[["AAR3N"]]$correct == 0) + 1), ]
-  
-    # log transformed versions
-    
-    pipelines_data[["AALNN"]] <- pipelines_data[["RNN"]]
-    pipelines_data[["AALNN"]]$rt[pipelines_data[["AALNN"]]$correct == 1] <- log10(pipelines_data[["AALNN"]]$rt[pipelines_data[["AALNN"]]$correct == 1])
-    
-    tempmean <- mean(pipelines_data[["AALNN"]]$rt[pipelines_data[["AALNN"]]$correct == 1])
-    tempsd <- sd(pipelines_data[["AALNN"]]$rt[pipelines_data[["AALNN"]]$correct == 1])
-    
-    pipelines_data[["AALNE"]] <- pipelines_data[["AALNN"]][-c(which(pipelines_data[["AALNN"]]$correct == 0) + 1), ]
-    pipelines_data[["AAL2N"]] <- pipelines_data[["AALNN"]][c(which(pipelines_data[["AALNN"]]$rt < (tempmean+2*tempsd) & pipelines_data[["AALNN"]]$rt > (tempmean-2*tempsd))), ]
-    pipelines_data[["AAL2E"]] <- pipelines_data[["AAL2N"]][-c(which(pipelines_data[["AAL2N"]]$correct == 0) + 1), ]
-    pipelines_data[["AAL3N"]] <- pipelines_data[["AALNN"]][c(which(pipelines_data[["AALNN"]]$rt < (tempmean+3*tempsd) & pipelines_data[["AALNN"]]$rt > (tempmean-3*tempsd))), ]
-    pipelines_data[["AAL3E"]] <- pipelines_data[["AAL3N"]][-c(which(pipelines_data[["AAL3N"]]$correct == 0) + 1), ]
-  
-    # inverse transformed versions
-    
-    pipelines_data[["AAINN"]] <- pipelines_data[["RNN"]]
-    pipelines_data[["AAINN"]]$rt[pipelines_data[["AAINN"]]$correct == 1] <- 1/(pipelines_data[["AAINN"]]$rt[pipelines_data[["AAINN"]]$correct == 1])
-    
-    tempmean <- mean(pipelines_data[["AAINN"]]$rt[pipelines_data[["AAINN"]]$correct == 1])
-    tempsd <- sd(pipelines_data[["AAINN"]]$rt[pipelines_data[["AAINN"]]$correct == 1])
-    
-    pipelines_data[["AAINE"]] <- pipelines_data[["AAINN"]][-c(which(pipelines_data[["AAINN"]]$correct == 0) + 1), ]
-    pipelines_data[["AAI2N"]] <- pipelines_data[["AAINN"]][c(which(pipelines_data[["AAINN"]]$rt < (tempmean+2*tempsd) & pipelines_data[["AAINN"]]$rt > (tempmean-2*tempsd))), ]
-    pipelines_data[["AAI2E"]] <- pipelines_data[["AAI2N"]][-c(which(pipelines_data[["AAI2N"]]$correct == 0) + 1), ]
-    pipelines_data[["AAI3N"]] <- pipelines_data[["AAINN"]][c(which(pipelines_data[["AAINN"]]$rt < (tempmean+3*tempsd) & pipelines_data[["AAINN"]]$rt > (tempmean-3*tempsd))), ]
-    pipelines_data[["AAI3E"]] <- pipelines_data[["AAI3N"]][-c(which(pipelines_data[["AAI3N"]]$correct == 0) + 1), ]
-  
-    # square root transformed versions
-    
-    pipelines_data[["AASNN"]] <- pipelines_data[["RNN"]]
-    pipelines_data[["AASNN"]]$rt[pipelines_data[["AASNN"]]$correct == 1] <- sqrt(pipelines_data[["AASNN"]]$rt[pipelines_data[["AASNN"]]$correct == 1])
-    
-    tempmean <- mean(pipelines_data[["AASNN"]]$rt[pipelines_data[["AASNN"]]$correct == 1])
-    tempsd <- sd(pipelines_data[["AASNN"]]$rt[pipelines_data[["AASNN"]]$correct == 1])
-    
-    pipelines_data[["AASNE"]] <- pipelines_data[["AASNN"]][-c(which(pipelines_data[["AASNN"]]$correct == 0) + 1), ]
-    pipelines_data[["AAS2N"]] <- pipelines_data[["AASNN"]][c(which(pipelines_data[["AASNN"]]$rt < (tempmean+2*tempsd) & pipelines_data[["AASNN"]]$rt > (tempmean-2*tempsd))), ]
-    pipelines_data[["AAS2E"]] <- pipelines_data[["AAS2N"]][-c(which(pipelines_data[["AAS2N"]]$correct == 0) + 1), ]
-    pipelines_data[["AAS3N"]] <- pipelines_data[["AASNN"]][c(which(pipelines_data[["AASNN"]]$rt < (tempmean+3*tempsd) & pipelines_data[["AASNN"]]$rt > (tempmean-3*tempsd))), ]
-    pipelines_data[["AAS3E"]] <- pipelines_data[["AAS3N"]][-c(which(pipelines_data[["AAS3N"]]$correct == 0) + 1), ]
-  
-  # group 2: across subjects, within conditions
-  
-  # group 3: within subjects, within conditions
-  
-  # group 4: within subjects, across conditions
-  
-  
-      # create index of rows in which the level changes
-      #levelindex <- c(1,which(data_nback$level != dplyr::lag(data_nback$level)),nrow(data_nback))
-      
-      #for (i in 1:(length(levelindex)-1)) {
-        
-        #RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"] <- log10(RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"])
-        #RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"] <- 1/(RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"])
-        #RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"] <- sqrt(RT_L[levelindex[i]:(levelindex[i+1]-1),"rt"])
-      #}
 
   
 ```
@@ -437,13 +522,21 @@ The SVs were calculated by adding or subtracting the final iteration value of 0.
 Then, the final monetary values were divided by 2€, and the SV of each level per participant was computed by averaging all final monetary values of each level, regardless of whether it was fixed or flexible.
 A rmANOVA with six paired contrasts was computed, comparing the SVs between two levels of 1-, 2-, 3-, and 4-back at a time.
 Tukey method was used for the paired contrasts of each rmANOVA, including *p*-value adjustment.
+
 To determine the influence of task performance in the association of SVs and n-back level, we set up a multi-level model.
 **MLM explanation goes here**
-The association of ED and NFC was examined using three separate regressions.
-One regression used the AUC of each participant's SVs to predict their NFC score.
-The second regression additionally included the mean of the NASA-TLX subscales' AUCs of each participant as a predictor.
-And the last regression **insert method**.
+To ensure the validity of the multi-level model, we conducted a specification curve analysis [@Simonsohn2020], which included 92 possible preprocessing pipelines of the RT data.
+These pipelines specified which transformation has been applied (none, log, inverse, or square-root), which outliers have been excluded (none, $2 SD$ from the mean, $3 SD$ from the mean, RTs below 200 ms), whether post-error trials have been excluded or not, and across which dimensions the transformations and exclusions have been applied (across/within subjects and across/within n-back levels).
+The multi-level model was run with each of the 92 pipelines, which also included our main pipeline (untransformed data, exclusion of RTs below 200 ms, removal of post-error trials, no decision regarding dimension necessary).
+The ratio of pipelines that lead to significant versus non-significant effects provides and indication of how robust the effect actually is.
 
+The association of ED and NFC was examined with a regression using the AUC of each participant's SVs to predict their NFC score.
+A second regression additionally included the mean of the NASA-TLX subscales' AUCs of each participant as a predictor.
+Since we did not have a fixed SV of 1 for 1-back, we could not apply the 'AUC' computation of Westbrook et al. [-@Westbrook2013], which was the mean of the AUCs of the SVs of each higher n-back level and 1-back, yielding values between 0 and 1.
+Consequently, we decided on a different way of quantifying the individual degree of ED.
+A classic AUC cannot differentiate between a subject who prefers 1-back and a subject who prefers 4-back, but can reflect the overall willingness to exert effort.
+This is the opposite for the sum of the ascent between SVs.
+Therefore, we multiplied both indicators to arrive at a value reflecting both degree and direction of preference, called $AxAUC$.
 
 ```{r SVcomputation, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -647,8 +740,7 @@ And the last regression **insert method**.
 
 ### Associations of subjective and objective task load measures
 We first looked at how performance measures and NASA-TLX ratings change as n-back levels increase.
-The rmANOVA revealed decreasing performance *d'* with increasing n-back level (`r apa_print(hypothesis1a_rmanova)$full_result`).
-Paired contrasts showed that *d'* was smaller for *...(and put in element 1/2/3 ->)* (`r apa_print(hypothesis1a_contrasts)$statistic[1]`).
+Contrary to our expectations, the rmANOVA revealed no decrease in performance *d'* with increasing n-back level (`r apa_print(hypothesis1a_rmanova)$full_result`).
 
 ```{r Hypothesis_1b, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -700,9 +792,9 @@ Paired contrasts showed that *d'* was smaller for *...(and put in element 1/2/3 
 
 ```
 
-Likewise, RT increased with increasing n-back level (`r apa_print(hypothesis1b_rmanova)$full_result`).
-Here, RTs were longer for *...(and put in element 1/2/3 ->)* (`r apa_print(hypothesis1b_contrasts)$statistic[1]`).
-Overall, the decreases in *d'* and increases in RT indicate the increase in objective task load with higher n-back levels.
+As expected, RT increased with increasing n-back level (`r apa_print(hypothesis1b_rmanova)$full_result`).
+RTs were longer for 3- than 2-back (`r apa_print(hypothesis1b_contrasts)$statistic[1]`), but not significantly different between 2- and 4-back or 3- and 4-back.
+Even though *d'* did not decrease across n-back levels in this very small sample, the increases in RT indicate an increase in objective task load.
 
 ```{r Hypothesis_1c, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -791,7 +883,10 @@ Overall, the decreases in *d'* and increases in RT indicate the increase in obje
 ```
 
 Increases in subjective task load were investigated for each NASA-TLX subscale, now including 1-back.
-All subscales showed increases from 1-back to 4-back (mental: `r apa_print(hypothesis1c_mental_contrasts)$statistic$X1_X4`, physical: `r apa_print(hypothesis1c_pysical_contrasts)$statistic$X1_X4`, time: `r apa_print(hypothesis1c_time_contrasts)$statistic$X1_X4`, performance: `r apa_print(hypothesis1c_performance_contrasts)$statistic$X1_X4`, effort: `r apa_print(hypothesis1c_effort_contrasts)$statistic$X1_X4`, frustration: `r apa_print(hypothesis1c_frustration_contrasts)$statistic$X1_X4`).
+Ratings on the mental load and effort subscales increased between all n-back levels ($p<.001$) except between 3- and 4-back.
+Ratings on the physical load and the performance subscales only increased between 1- and 3-back (`r apa_print(hypothesis1c_physical_contrasts)$statistic$X1_X3`, and `r `apa_print(hypothesis1c_performance_contrasts)$statistic$X1_X3`, respectively) and 1- and 4-back (`r apa_print(hypothesis1c_physical_contrasts)$statistic$X1_X4`, and `r `apa_print(hypothesis1c_performance_contrasts)$statistic$X1_X4`, respectively).
+Ratings on the frustration and time pressure subscales increased between all n-back levels ($p<.001$) except between 1- and 2-back and 3- and 4-back.
+Overall, these ratings showed that the increase in objective task load was also being subjectively perceived by the participants.
 
 ```{r Hypothesis_2a, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -824,8 +919,8 @@ All subscales showed increases from 1-back to 4-back (mental: `r apa_print(hypot
 
 ### Changes in subjective values depending on n-back level
 While the rmANOVA indicated significant differences between SVs depending on n-back level (`r apa_print(hypothesis2a_rmanova)$full_result`), paired contrasts indicated that this was not the case for every pair of n-back levels.
-SVs were higher for *n*-back than for *n*-back *insert row!!* (`r apa_print(hypothesis2a_contrasts)$statistic$X1_X4`) and for *n*-back (`r apa_print(hypothesis2a_contrasts)$statistic$X1_X4`).
-The SVs of all other n-back level pairs were not significantly different.
+SVs were higher for 1- than for 3-back (`r apa_print(hypothesis2a_contrasts)$statistic$X1_X3`), for 1- than for 4-back (`r apa_print(hypothesis2a_contrasts)$statistic$X1_X4`), and for 2- than for 4-back (`r apa_print(hypothesis2a_contrasts)$statistic$X2_X4`).
+Since the SVs of 1- and 2-back were not significantly different, we can conclude that when given the choice, not all participants preferred the easiest n-back level.
 
 ```{r Hypothesis_2b, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -925,59 +1020,6 @@ The SVs of all other n-back level pairs were not significantly different.
 
 ### Changes in subjective values depend reliably on n-back level
 
-```{r AUC_demo, echo=FALSE, message=FALSE, warning=FALSE}
-
-require(gtools)
-demo_data = data.frame(level = rep(1:4,24))
-sv = permutations(n = 4, r = 4, v = c(0.1,0.4,0.85,1))
-m = 1
-for (n in 1:(nrow(demo_data)/4)) {
-  demo_data$subject[m:(m+3)] = rep(n,4)
-  #demo_data$sv[m:(m+3)] = sv[n,]
-  demo_data$sv[m:(m+3)] = sample(x = c(0.11,0.38,0.45,0.53,0.70,0.85,0.90,1.00), size = 4, replace = FALSE, prob = c(0.025,0.025,0.05,0.05,0.05,0.05,0.05,0.7))
-  m = m + 4
-}
-subjectindex <- c(1,which(demo_data$subject != dplyr::lag(demo_data$subject)),nrow(demo_data))
-demo_sv <- data.frame(subject = character(), auc_sv = double(),
-                      ascent_mean = double(), ascent_sum = double(), auc_x_ascentmean = double(), auc_x_ascentsum = double(),
-                      auc_westbrook = double())
-for (i in 1:(length(subjectindex)-1)) {
-  sv_sorted <- sort(demo_data$sv[subjectindex[i]:(subjectindex[i]+3)])
-  newdata <- data.frame(subject = demo_data$subject[subjectindex[i]],
-                        auc_sv = auc(demo_data$level[subjectindex[i]:(subjectindex[i]+3)], demo_data$sv[subjectindex[i]:(subjectindex[i]+3)],
-                                   method = "trapezoid"),
-                        auc_sv_sorted = (0.5 * (sv_sorted[1] + sv_sorted[2]) +
-                                           0.5 * (sv_sorted[2] + sv_sorted[3]) +
-                                           0.5 * (sv_sorted[3] + sv_sorted[4])),
-                        ascent_mean = ((demo_data$sv[subjectindex[i]+3] - demo_data$sv[subjectindex[i]+2]) +
-                                        (demo_data$sv[subjectindex[i]+2] - demo_data$sv[subjectindex[i]+1]) +
-                                        (demo_data$sv[subjectindex[i]+1] - demo_data$sv[subjectindex[i]]))/3,
-                        ascent_sum = (demo_data$sv[subjectindex[i]+3] - demo_data$sv[subjectindex[i]+2]) +
-                                        (demo_data$sv[subjectindex[i]+2] - demo_data$sv[subjectindex[i]+1]) +
-                                        (demo_data$sv[subjectindex[i]+1] - demo_data$sv[subjectindex[i]]),
-                        auc_x_ascentmean = auc(demo_data$level[subjectindex[i]:(subjectindex[i]+3)], demo_data$sv[subjectindex[i]:(subjectindex[i]+3)],
-                                               method = "trapezoid") * (((demo_data$sv[subjectindex[i]+3] - demo_data$sv[subjectindex[i]+2]) +
-                                        (demo_data$sv[subjectindex[i]+2] - demo_data$sv[subjectindex[i]+1]) +
-                                        (demo_data$sv[subjectindex[i]+1] - demo_data$sv[subjectindex[i]]))/3),
-                        auc_x_ascentsum = auc(demo_data$level[subjectindex[i]:(subjectindex[i]+3)], demo_data$sv[subjectindex[i]:(subjectindex[i]+3)],
-                                               method = "trapezoid") * ((demo_data$sv[subjectindex[i]+3] - demo_data$sv[subjectindex[i]+2]) +
-                                        (demo_data$sv[subjectindex[i]+2] - demo_data$sv[subjectindex[i]+1]) +
-                                        (demo_data$sv[subjectindex[i]+1] - demo_data$sv[subjectindex[i]])),
-                        auc_westbrook = (0.5 * (sv_sorted[1] + sv_sorted[2]) +
-                                           0.5 * (sv_sorted[1] + sv_sorted[3]) +
-                                           0.5 * (sv_sorted[1] + sv_sorted[4]))/3)
-  demo_sv <- rbind(demo_sv, newdata)
-}
-demo_cor <- cor(demo_sv$auc_sv, demo_sv$auc_westbrook)
-
-ggplot(demo_data, aes(x=level, y=sv, group=subject)) +
-  geom_line(aes(color=subject), size = 1)
-
-#library(data.table) for the melt function
-ggplot(melt(setDT(demo_sv), id.vars = "subject", variable.name = "measure"), aes(fill=measure,y=value,x=subject)) + geom_bar(position = "dodge", stat = "identity")
-```
-
-
 ```{r Hypothesis_3a, echo=FALSE, message=FALSE, warning=FALSE}
 
   # H3a: Subjective values predict individual NCS scores.
@@ -988,18 +1030,17 @@ ggplot(melt(setDT(demo_sv), id.vars = "subject", variable.name = "measure"), aes
 
   # prepare empty data frame for the loop to feed into
 
-  h3_data <- data.frame(subject = character(), auc_sv = double(), auc_sv_unsorted = double())
+  h3_data <- data.frame(subject = character(), axauc = double())
 
   # calculate AUC of SVs per subject
   
   for (i in 1:(length(subjectindex)-1)) {
     
     newdata <- data.frame(subject = data_SV$subject[subjectindex[i]],
-                          auc_sv = auc(data_SV$level[subjectindex[i]:(subjectindex[i+1]-1)], data_SV$sv[subjectindex[i]:(subjectindex[i+1]-1)],
-                                   method = "trapezoid", sort = FALSE),
-                          auc_sv_unsorted = (0.5 * (data_SV$sv[subjectindex[i]] + data_SV$sv[subjectindex[i]+1]) +
-                                               0.5 * (data_SV$sv[subjectindex[i]+1] + data_SV$sv[subjectindex[i]+2]) +
-                                               0.5 * (data_SV$sv[subjectindex[i]+2] + data_SV$sv[subjectindex[i]+3])))
+                          axauc = auc(data_SV$level[subjectindex[i]:(subjectindex[i]+3)], data_SV$sv[subjectindex[i]:(subjectindex[i]+3)],
+                                               method = "trapezoid") * ((data_SV$sv[subjectindex[i]+3] - data_SV$sv[subjectindex[i]+2]) +
+                                        (data_SV$sv[subjectindex[i]+2] - data_SV$sv[subjectindex[i]+1]) +
+                                        (data_SV$sv[subjectindex[i]+1] - data_SV$sv[subjectindex[i]])))
     h3_data <- rbind(h3_data, newdata)
     
   }
@@ -1030,14 +1071,13 @@ ggplot(melt(setDT(demo_sv), id.vars = "subject", variable.name = "measure"), aes
   
   # calculate linear model to estimate prediction of NFC by SVs
   
-  hypothesis3a <- summary(lm(h3_data$nfc ~ h3_data$auc_sv))
+  hypothesis3a <- summary(lm(h3_data$nfc ~ h3_data$axauc))
   
   
 
 ```
 
-The AUC of SVs predicted a significant amount of variance in individual NFC scores (`r apa_print(hypothesis3a)$statistic$modelfit$r2`, `r apa_print(hypothesis3a)$estimate$modelfit$r2`).
-An increase in one AUC value corresponded, on average, to an increase of `r round(hypothesis3a$coefficients[2], digits = 1)` on the NFC scale (`r apa_print(hypothesis3a)$estimate$h3_data_auc_sv`).
+The $AxAUC$ value did not predict any amount of variance in individual NFC scores (`r apa_print(hypothesis3a)$statistic$modelfit$r2`, `r apa_print(hypothesis3a)$estimate$modelfit$r2`).
 
 ```{r Hypothesis_3b, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -1087,11 +1127,11 @@ An increase in one AUC value corresponded, on average, to an increase of `r roun
   
   # compute multiple linear regression to predict NCS based on SV AUC and NASA-TLX AUC
   
-  hypothesis3b <- summary(lm(h3_data$nfc ~ h3_data$auc_sv + h3_data$auc_ntlx))
+  hypothesis3b <- summary(lm(h3_data$nfc ~ h3_data$axauc + h3_data$auc_ntlx))
 
 ```
 
-When including the AUC of all NASA-TLX subscales as a predictor, it could not explain any variance in NFC beyond the one explained by the SVs (`r apa_print(hypothesis3b)$statistic$modelfit$r2`, `r apa_print(hypothesis3b)$estimate$modelfit$r2`).
-
+When including the AUC of all NASA-TLX subscales as a predictor, it could explain variance in NFC beyond the one (not) explained by the SVs (`r apa_print(hypothesis3b)$statistic$modelfit$r2`, `r apa_print(hypothesis3b)$estimate$modelfit$r2`).
+An increase in one NASA_NTLX AUC value corresponded, on average, to a decrease of `r round(hypothesis3b$coefficients[2], digits = 1)` on the NFC scale (`r apa_print(hypothesis3b)$estimate$h3_data_auc_ntlx`).
 
 
