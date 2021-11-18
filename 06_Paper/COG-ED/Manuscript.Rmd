@@ -99,9 +99,9 @@ However, we propose that (3c) when taking individual preferences for different n
   
   # import n-back and effort discounting data into a list each
 
-  datalist_nback = lapply(list.files(here("04_RawData", "Sampledata"), pattern = '.*nback.*csv', full.names = TRUE),
+  datalist_nback = lapply(list.files(here("04_RawData", "pilot", "COG-ED"), pattern = '.*nback.*csv', full.names = TRUE),
                           read.csv, stringsAsFactors = FALSE, header = TRUE)
-  datalist_ED = lapply(list.files(here("04_RawData", "Sampledata"), pattern = '.*_ED.*csv', full.names = TRUE),
+  datalist_ED = lapply(list.files(here("04_RawData", "pilot", "COG-ED"), pattern = '.*_ED.*csv', full.names = TRUE),
                           read.csv, stringsAsFactors = FALSE, header = TRUE)
   
   # create empty data frames for loops to feed into
