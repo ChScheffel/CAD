@@ -523,13 +523,21 @@ The SVs were calculated by adding or subtracting the final iteration value of 0.
 Then, the final monetary values were divided by 2€, and the SV of each level per participant was computed by averaging all final monetary values of each level, regardless of whether it was fixed or flexible.
 A rmANOVA with six paired contrasts was computed, comparing the SVs between two levels of 1-, 2-, 3-, and 4-back at a time.
 Tukey method was used for the paired contrasts of each rmANOVA, including *p*-value adjustment.
+
 To determine the influence of task performance in the association of SVs and n-back level, we set up a multi-level model.
 **MLM explanation goes here**
-The association of ED and NFC was examined using three separate regressions.
-One regression used the AUC of each participant's SVs to predict their NFC score.
-The second regression additionally included the mean of the NASA-TLX subscales' AUCs of each participant as a predictor.
-And the last regression **insert method**.
+To ensure the validity of the multi-level model, we conducted a specification curve analysis [@Simonsohn2020], which included 92 possible preprocessing pipelines of the RT data.
+These pipelines specified which transformation has been applied (none, log, inverse, or square-root), which outliers have been excluded (none, $2 SD$ from the mean, $3 SD$ from the mean, RTs below 200 ms), whether post-error trials have been excluded or not, and across which dimensions the transformations and exclusions have been applied (across/within subjects and across/within n-back levels).
+The multi-level model was run with each of the 92 pipelines, which also included our main pipeline (untransformed data, exclusion of RTs below 200 ms, removal of post-error trials, no decision regarding dimension necessary).
+The ratio of pipelines that lead to significant versus non-significant effects provides and indication of how robust the effect actually is.
 
+The association of ED and NFC was examined with a regression using the AUC of each participant's SVs to predict their NFC score.
+A second regression additionally included the mean of the NASA-TLX subscales' AUCs of each participant as a predictor.
+Since we did not have a fixed SV of 1 for 1-back, we could not apply the 'AUC' computation of Westbrook et al. [-@Westbrook2013], which was the mean of the AUCs of the SVs of each higher n-back level and 1-back, yielding values between 0 and 1.
+Consequently, we decided on a different way of quantifying the individual degree of ED.
+A classic AUC cannot differentiate between a subject who prefers 1-back and a subject who prefers 4-back, but can reflect the overall willingness to exert effort.
+This is the opposite for the sum of the ascent between SVs.
+Therefore, we multiplied both indicators to arrive at a value reflecting both degree and direction of preference, called $AxAUC$.
 
 ```{r SVcomputation, echo=FALSE, message=FALSE, warning=FALSE}
 
