@@ -740,8 +740,7 @@ Therefore, we multiplied both indicators to arrive at a value reflecting both de
 
 ### Associations of subjective and objective task load measures
 We first looked at how performance measures and NASA-TLX ratings change as n-back levels increase.
-The rmANOVA revealed decreasing performance *d'* with increasing n-back level (`r apa_print(hypothesis1a_rmanova)$full_result`).
-Paired contrasts showed that *d'* was smaller for *...(and put in element 1/2/3 ->)* (`r apa_print(hypothesis1a_contrasts)$statistic[1]`).
+Contrary to our expectations, the rmANOVA revealed no decrease in performance *d'* with increasing n-back level (`r apa_print(hypothesis1a_rmanova)$full_result`).
 
 ```{r Hypothesis_1b, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -793,9 +792,9 @@ Paired contrasts showed that *d'* was smaller for *...(and put in element 1/2/3 
 
 ```
 
-Likewise, RT increased with increasing n-back level (`r apa_print(hypothesis1b_rmanova)$full_result`).
-Here, RTs were longer for *...(and put in element 1/2/3 ->)* (`r apa_print(hypothesis1b_contrasts)$statistic[1]`).
-Overall, the decreases in *d'* and increases in RT indicate the increase in objective task load with higher n-back levels.
+As expected, RT increased with increasing n-back level (`r apa_print(hypothesis1b_rmanova)$full_result`).
+RTs were longer for 3- than 2-back (`r apa_print(hypothesis1b_contrasts)$statistic[1]`), but not significantly different between 2- and 4-back or 3- and 4-back.
+Even though *d'* did not decrease across n-back levels in this very small sample, the increases in RT indicate an increase in objective task load.
 
 ```{r Hypothesis_1c, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -884,7 +883,10 @@ Overall, the decreases in *d'* and increases in RT indicate the increase in obje
 ```
 
 Increases in subjective task load were investigated for each NASA-TLX subscale, now including 1-back.
-All subscales showed increases from 1-back to 4-back (mental: `r apa_print(hypothesis1c_mental_contrasts)$statistic$X1_X4`, physical: `r apa_print(hypothesis1c_pysical_contrasts)$statistic$X1_X4`, time: `r apa_print(hypothesis1c_time_contrasts)$statistic$X1_X4`, performance: `r apa_print(hypothesis1c_performance_contrasts)$statistic$X1_X4`, effort: `r apa_print(hypothesis1c_effort_contrasts)$statistic$X1_X4`, frustration: `r apa_print(hypothesis1c_frustration_contrasts)$statistic$X1_X4`).
+Ratings on the mental load and effort subscales increased between all n-back levels ($p<.001$) except between 3- and 4-back.
+Ratings on the physical load and the performance subscales only increased between 1- and 3-back (`r apa_print(hypothesis1c_physical_contrasts)$statistic$X1_X3`, and `r `apa_print(hypothesis1c_performance_contrasts)$statistic$X1_X3`, respectively) and 1- and 4-back (`r apa_print(hypothesis1c_physical_contrasts)$statistic$X1_X4`, and `r `apa_print(hypothesis1c_performance_contrasts)$statistic$X1_X4`, respectively).
+Ratings on the frustration and time pressure subscales increased between all n-back levels ($p<.001$) except between 1- and 2-back and 3- and 4-back.
+Overall, these ratings showed that the increase in objective task load was also being subjectively perceived by the participants.
 
 ```{r Hypothesis_2a, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -917,8 +919,8 @@ All subscales showed increases from 1-back to 4-back (mental: `r apa_print(hypot
 
 ### Changes in subjective values depending on n-back level
 While the rmANOVA indicated significant differences between SVs depending on n-back level (`r apa_print(hypothesis2a_rmanova)$full_result`), paired contrasts indicated that this was not the case for every pair of n-back levels.
-SVs were higher for *n*-back than for *n*-back *insert row!!* (`r apa_print(hypothesis2a_contrasts)$statistic$X1_X4`) and for *n*-back (`r apa_print(hypothesis2a_contrasts)$statistic$X1_X4`).
-The SVs of all other n-back level pairs were not significantly different.
+SVs were higher for 1- than for 3-back (`r apa_print(hypothesis2a_contrasts)$statistic$X1_X3`), for 1- than for 4-back (`r apa_print(hypothesis2a_contrasts)$statistic$X1_X4`), and for 2- than for 4-back (`r apa_print(hypothesis2a_contrasts)$statistic$X2_X4`).
+Since the SVs of 1- and 2-back were not significantly different, we can conclude that when given the choice, not all participants preferred the easiest n-back level.
 
 ```{r Hypothesis_2b, echo=FALSE, message=FALSE, warning=FALSE}
 
