@@ -166,6 +166,8 @@ Attentional control was assessed using the Attentional Control Scale (ACS) [@Der
 ## 2.7 Statistics 
 
 All statistical analyses were perfomed using *RStudio* (version 1.4.1717) [@RStudioTeam2020]and *R* (version 4.1.0) [@RCore2020] for Windows.
+The level of significance was set to $alpha$ = .05.
+To examine impact of valence of emotional pictures on subjective arousal, an ANOVA with the factor valence (neutral and negative) for strategy active viewing was conducted.
 
 
 
