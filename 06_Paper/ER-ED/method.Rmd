@@ -175,6 +175,9 @@ To examine the impact of valence on the emotional facial reaction, an ANOVA with
 A further ANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) was conducted for EMG activity to examine the effects of ER strategies on the emotional facial reaction. <!-- @Anne please check! =) -->
 To examine the effect of ER strategies on cognitive effort, an ANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings was conducted.
 Greenhouse-Geisser-corrected *p*-values and degrees of freedom were reported when assumption of sphericity was violated.
-Proportion of explained variance *\eta²~p~* was reported as a measure of effect size 
+Proportion of explained variance *$\eta$²~p~* was reported as a measure of effect size.
+
+*Subjective values of emotion regulation strategies* <br>
+
 
 
