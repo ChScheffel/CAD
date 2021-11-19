@@ -479,6 +479,7 @@ However, we propose that (3c) when taking individual preferences for different n
 
 # Methods
 
+The paradigm was written and presented using the Python based software Psychopy [@Peirce2019].
 We used *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages *tidyverse* [@Wickham2019] and *basetestR* [@Makowski2019] for all our analyses.
 The R Markdown file used to analyze the data and write this document is freely available at github.com/ChScheffel/CERED.
 The data can be downloaded from osf.io/vnj8x/.
