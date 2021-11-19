@@ -51,16 +51,16 @@ for (i in 1:length(datalist_ER)) {
 }
 
 # store ED data in data_ED frame
-for (i in 1:length(datalist_ED)) {
+#for (i in 1:length(datalist_ED)) {
   
-  tmp = data.frame(datalist_ED[[i]][["participant"]][2:length(datalist_ED[[i]][["participant"]])],
-                          datalist_ED[[i]][["EDround.thisN"]][2:length(datalist_ED[[i]][["EDround.thisN"]])],
-                          datalist_ED[[i]][["EDclick.clicked_name"]][2:length(datalist_ED[[i]][["EDclick.clicked_name"]])],
-                          datalist_ED[[i]][["EDleftbutton.value"]][2:length(datalist_ED[[i]][["EDleftbutton.value"]])],
-                          datalist_ED[[i]][["EDleftbutton.nback"]][2:length(datalist_ED[[i]][["EDleftbutton.nback"]])],
-                          datalist_ED[[i]][["EDrightbutton.value"]][2:length(datalist_ED[[i]][["EDrightbutton.value"]])],
-                          datalist_ED[[i]][["EDrightbutton.nback"]][2:length(datalist_ED[[i]][["EDrightbutton.nback"]])])
-}
+#  tmp = data.frame(datalist_ED[[i]][["participant"]][2:length(datalist_ED[[i]][["participant"]])],
+#                          datalist_ED[[i]][["EDround.thisN"]][2:length(datalist_ED[[i]][["EDround.thisN"]])],
+#                          datalist_ED[[i]][["EDclick.clicked_name"]][2:length(datalist_ED[[i]][["EDclick.clicked_name"]])],
+#                          datalist_ED[[i]][["EDleftbutton.value"]][2:length(datalist_ED[[i]][["EDleftbutton.value"]])],
+#                          datalist_ED[[i]][["EDleftbutton.nback"]][2:length(datalist_ED[[i]][["EDleftbutton.nback"]])],
+#                          datalist_ED[[i]][["EDrightbutton.value"]][2:length(datalist_ED[[i]][["EDrightbutton.value"]])],
+#                          datalist_ED[[i]][["EDrightbutton.nback"]][2:length(datalist_ED[[i]][["EDrightbutton.nback"]])])
+#}
 
 ```
 
@@ -149,7 +149,7 @@ A complete list of all pictures and their classification into sets can be found 
 
 Bipolar electromyography (EMG) was recorded in the region of the *corrugator supercilii* and the *levator labii* at 1000 Hz sampling rate using Brain Vision Recorder (Brain Products Inc., Gilching, Germany).
 Passive surface Ag/AgCl electrodes (0.7 mm diameter, 10 mm distance between electrodes) filled with electrolyte gel were used. <!-- Stimmt das in etwa, liebe Anne? -->
-[...] <!-- Anne please check! =) -->
+[...] <!-- @Anne please check! =) -->
 
 ## 2.6 Psychometric measures
 
@@ -166,12 +166,15 @@ Attentional control was assessed using the Attentional Control Scale (ACS) [@Der
 ## 2.7 Statistics 
 
 All statistical analyses were perfomed using *RStudio* (version 1.4.1717) [@RStudioTeam2020]and *R* (version 4.1.0) [@RCore2020] for Windows.
-The level of significance was set to $alpha$ = .05.
+The level of significance was set to $\alpha$ = .05.
 
-*Effects of emotion regulation* <br>
+*Effects of emotion regulation on arousal and effort* <br>
 To examine impact of valence of emotional pictures on subjective arousal, an ANOVA with the factor valence (neutral and negative) for strategy active viewing was conducted for behavioral data (subjective arousal ratings).
-To examine the effect of the tree ER strategies on subjective arousal, another ANOVA was conducted with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective arousal ratings of negative pictures. 
-
-
+To investigate the effect of the tree ER strategies on subjective arousal, another ANOVA was conducted with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective arousal ratings of negative pictures. 
+To examine the impact of valence on the emotional facial reaction, an ANOVA with the factor valence (neutral and negative) for strategy active viewing was conducted for EMG activity of *corrugator* and *levator*. <!-- @Anne please check! =) --> 
+A further ANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) was conducted for EMG activity to examine the effects of ER strategies on the emotional facial reaction. <!-- @Anne please check! =) -->
+To examine the effect of ER strategies on cognitive effort, an ANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings was conducted.
+Greenhouse-Geisser-corrected *p*-values and degrees of freedom were reported when assumption of sphericity was violated.
+Proportion of explained variance *\eta²~p~* was reported as a measure of effect size 
 
 
