@@ -40,7 +40,6 @@ data_ED = data.frame(ID = character(), step = double(), choice = character(),
                            LBvalue = double(), LBlevel = double(), RBvalue = double(), RBlevel = double())
 
 # store arousal and effort ratings in data_ER frame
-
 for (i in 1:length(datalist_ER)) {
   
   tmp = data.frame(datalist_ER[[i]][["participant"]],datalist_ER[[i]][["instr_1"]],datalist_ER[[i]][["slider_arousal.response"]],datalist_ER[[i]][["slider_effort.response"]])
@@ -49,6 +48,18 @@ for (i in 1:length(datalist_ER)) {
   
   data_ER = rbind(tmp, data_ER)
   
+}
+
+# store ED data in data_ED frame
+for (i in 1:length(datalist_ED)) {
+  
+  tmp = data.frame(datalist_ED[[i]][["participant"]][2:length(datalist_ED[[i]][["participant"]])],
+                          datalist_ED[[i]][["EDround.thisN"]][2:length(datalist_ED[[i]][["EDround.thisN"]])],
+                          datalist_ED[[i]][["EDclick.clicked_name"]][2:length(datalist_ED[[i]][["EDclick.clicked_name"]])],
+                          datalist_ED[[i]][["EDleftbutton.value"]][2:length(datalist_ED[[i]][["EDleftbutton.value"]])],
+                          datalist_ED[[i]][["EDleftbutton.nback"]][2:length(datalist_ED[[i]][["EDleftbutton.nback"]])],
+                          datalist_ED[[i]][["EDrightbutton.value"]][2:length(datalist_ED[[i]][["EDrightbutton.value"]])],
+                          datalist_ED[[i]][["EDrightbutton.nback"]][2:length(datalist_ED[[i]][["EDrightbutton.nback"]])])
 }
 
 ```
@@ -154,5 +165,7 @@ Attentional control was assessed using the Attentional Control Scale (ACS) [@Der
 
 ## 2.7 Statistics 
 
-[...]
+All statistical analyses were perfomed using *RStudio* (version 1.4.1717) [@RStudioTeam2020]and *R* (version 4.1.0) [@RCore2020] for Windows.
+
+
 
