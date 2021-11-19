@@ -149,7 +149,7 @@ A complete list of all pictures and their classification into sets can be found 
 
 Bipolar electromyography (EMG) was recorded in the region of the *corrugator supercilii* and the *levator labii* at 1000 Hz sampling rate using Brain Vision Recorder (Brain Products Inc., Gilching, Germany).
 Passive surface Ag/AgCl electrodes (0.7 mm diameter, 10 mm distance between electrodes) filled with electrolyte gel were used. <!-- Stimmt das in etwa, liebe Anne? -->
-[...] <!-- Anne tried to implement a sentence here. -->
+[...] <!-- Anne please check! =) -->
 
 ## 2.6 Psychometric measures
 
@@ -170,6 +170,7 @@ The level of significance was set to $alpha$ = .05.
 
 *Effects of emotion regulation* <br>
 To examine impact of valence of emotional pictures on subjective arousal, an ANOVA with the factor valence (neutral and negative) for strategy active viewing was conducted for behavioral data (subjective arousal ratings).
+To examine the effect of the tree ER strategies on subjective arousal, another ANOVA was conducted with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective arousal ratings of negative pictures. 
 
 
 
