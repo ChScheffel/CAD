@@ -1,9 +1,97 @@
 ---
-title             : "COG-ED Manuscript"
-author            : "Josephine"
-date              : "13 8 2021"
-output            : html_document
+title             : "When easy is not preferred: A paradigm for estimating subjective values of cognitive tasks"
+
+author: 
+  - name          : "Josephine Zerna"
+    affiliation   : "1,*"
+    corresponding : yes
+    address       : "Zellescher Weg 17, 01069 Dresden, Germany"
+    email         : "josephine.zerna@tu-dresden.de"
+    role:         # Contributorship roles (e.g., CRediT, https://casrai.org/credit/)
+      - Conceptualization
+      - Methodology
+      - Formal analysis
+      - Investigation
+      - Project administration
+      - Software
+      - Visualization
+      - Writing - original draft preparation
+      - Writing - review & editing
+  - name          : "Christoph Scheffel"
+    affiliation   : "1,*"
+    role:
+      - Conceptualization
+      - Methodology
+      - Funding acquisition
+      - Investigation
+      - Project administration
+      - Software
+      - Writing - review & editing
+  - name          : "Corinna Kührt"
+    affiliation   : "1"
+    role:
+      - Formal analysis
+      - Writing - original draft preparation
+      - Writing - review & editing
+
+affiliation:
+  - id            : "1"
+    institution   : "Faculty of Psychology, Technische Universität Dresden"
+  - id            : "*"
+    note          : "Shared first authorship"
+
+
+abstract: |
+  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
+  
+  Two to three sentences of **more detailed background**, comprehensible  to scientists in related disciplines.
+  
+  One sentence clearly stating the **general problem** being addressed by  this particular study.
+  
+  One sentence summarizing the main result (with the words "**here we show**" or their equivalent).
+  
+  Two or three sentences explaining what the **main result** reveals in direct comparison to what was thought to be the case previously, or how the  main result adds to previous knowledge.
+  
+  One or two sentences to put the results into a more **general context**.
+  
+  Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline.
+  
+  <!-- https://tinyurl.com/ybremelq -->
+  
+keywords          : "effort discounting, registered report, specification curve analysis, need for cognition, n-back"
+wordcount         : "X"
+
 bibliography      : ref_COG-ED.bib
+
+floatsintext      : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+
+csl               : apa.csl # this is a workaround for a current bug in the papaja/Rmd software, which fails to shorten multiple authors to "et al."
+
+header-includes   :
+    - \usepackage{booktabs}
+    - \usepackage{longtable}
+    - \usepackage{array}
+    - \usepackage{multirow}
+    - \usepackage{wrapfig}
+    - \usepackage{float}
+    - \usepackage{colortbl}
+    - \usepackage{pdflscape}
+    - \usepackage{tabu}
+    - \usepackage{threeparttable}
+    - \usepackage{threeparttablex}
+    - \usepackage[normalem]{ulem}
+    - \usepackage{makecell}
+    - \usepackage{xcolor}
 ---
 
 ```{r setup, include=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
@@ -23,6 +111,8 @@ bibliography      : ref_COG-ED.bib
                         # and rmANOVA globally in order to get meaningful Type-III tests
 
   # we will add the package versions before submission
+  # we also have the word count add-in by Ben Marwick, which can be installed via
+  # devtools::install_github("benmarwick/wordcountaddin", type = "source", dependencies = TRUE)
 
 ```
 
@@ -34,31 +124,28 @@ A reward is subjectively more valuable if it is obtained with less effort, so th
 However, the cost of the effort itself is also subjective, and research has not yet established which function best describes the relationship between effort and cost [@Kool2018].
 Investigating effort and cost is challenging because “effort is not a property of the target task alone, but also a function of the individual’s cognitive capacities, as well as the degree of effort voluntarily mobilized for the task, which in turn is a function of the individual’s reward sensitivity” [@Kool2018, p. 209].
 
-One task that is often used to investigate effort is the n-back task.
-In this working memory task, a continuous stream of stimuli, e.g. letters, is presented on screen.
-Participants indicate via button press whether the current stimulus is the same as *n* stimuli before, with *n* being the level of difficulty between one and six [@Mackworth1959]; and are asked to respond as quickly and as accurately as they can.
-The n-back task requires simultaneous storage of past stimuli and processing of new stimuli [@Jonides1997].
-It is well suited to investigate effort because it is an almost continuous manipulation of task load, as has been shown by monotonic increases in error rates and reaction times [@Jaeggi2010] as well as monotonic increases in brain activity in areas associated with working memory [@Jonides1997; @Owen2005].
+One task that is often used to investigate effort is the n-back task, a working memory task in which a continuous stream of stimuli, e.g. letters, is presented on screen.
+Participants indicate via button press whether the current stimulus is the same as *n* stimuli before, with *n* being the level of difficulty between one and six [@Mackworth1959]; and are asked to respond as quickly and as accurately as possible.
+The n-back task is well suited to investigate effort because it is an almost continuous manipulation of task load, as has been shown by monotonic increases in error rates, reaction times [@Jaeggi2010], and brain activity in areas associated with working memory [@Jonides1997; @Owen2005].
 However, reliability measures of the n-back task are mixed, presumably due to ceiling effects in performance in the easiest level [@Jaeggi2010].
 Additionally, associations of n-back performance and measures such as executive functioning and fluid intelligence are often inconsistent [@Jaeggi2010].
 
 A way to quantify the subjective cost of each n-back level has been developed by Westbrook, Kester, and Braver [-@Westbrook2013], called the Cognitive Effort Discounting Paradigm (COG-ED).
 First, the participants complete the n-back levels to familiarize themselves with the task.
-Then, level one is compared with each more difficult level by asking the participants to decide between receiving 2\$ for the more difficult level or 1\$ for level one.
-If they choose the more difficult level, the reward for level one increases by 0.50\$, if the choose level one, it decreases by 0.50\$.
-This is repeated five more times, with each adjustment of the level one reward being half as big as in the previous step, while the reward for the more difficult level remains fixed at 2\$.
+Then, 1-back is compared with each more difficult level by asking the participants to decide between receiving 2\$ for the more difficult level or 1\$ for 1-back.
+If they choose the more difficult level, the reward for 1-back increases by 0.50\$, if the choose 1-back, it decreases by 0.50\$.
+This is repeated five more times, with each adjustment of the 1-back reward being half as big as in the previous step, while the reward for the more difficult level remains fixed at 2\$.
 The idea is to estimate the point of subjective equivalence, i.e. the monetary ratio in which both offers are equally preferred [@Westbrook2013]. 
-The subjective value (SV) of each difficult level is then calculated by dividing the final reward value of level one by the fixed 2\$ reward of the more difficult level.
-Westbrook et al. [-@Westbrook2013] used these SVs to investigate inter-individual differences in effort discounting (ED) by computing an area under the curve (AUC).
-Younger participants showed lower ED, i.e. they needed a lower monetary incentive for choosing the more difficult levels over level one.
+The subjective value (SV) of each difficult level is then calculated by dividing the final reward value of 1-back by the fixed 2\$ reward.
+Westbrook et al. [-@Westbrook2013] used these SVs to investigate inter-individual differences in effort discounting (ED).
+Younger participants showed lower ED, i.e. they needed a lower monetary incentive for choosing the more difficult levels over 1-back.
 
 ## Effort discounting and Need for Cognition 
 The individual degree of ED in the study by Westbrook et al. [-@Westbrook2013] was also associated with the participants' Need for Cognition (NFC) score, a personality trait describing individuals who actively seek and enjoy effortful cognitive activities [@Cacioppo1982].
 Westbrook et al. [-@Westbrook2013] conceptualized NFC as a trait measure of effortful task engagement, providing a subjective self-report of ED for each participant which could then be related to the SVs as an objective measure of ED.
 On the surface, this association stands to reason, as individuals with higher NFC are more motivated to mobilize cognitive effort because they perceive it as intrinsically rewarding.
 However, the relation of NFC and SVs might be confounded with task performance itself, since subjective task values have been shown to depend on both the exerted effort [@Wang2017] and the expected performance [@Yee2021].
-Findings on NFC and n-back performance are heterogenous.
-On one hand individuals with higher NFC neither had better n-back performance [@Gaertner2021] nor better working memory [@Fleischhauer 2010; @Hill2013], on the other hand they showed greater attention allocation [@Enge2008] and brain flexibility [@He2019].
+Findings on NFC and n-back performance are heterogeneous, ranging from no association of NFC and working memory [@Fleischhauer 2010; @Gaertner2021; @Hill2013] to positive associations of NFC with attention allocation [@Enge2008] and brain flexibility [@He2019].
 Nevertheless, a possible association of NFC and task performance might be secondary, since task load has been shown to be a better predictor of SVs than task performance [@Culbreth2016; @Westbrook2013; @Westbrook2019].
 But since other studies utilizing the COG-ED paradigm found the association of NFC and SVs to disappear after correcting for performance [@Kramer2021] or found no association of NFC and SVs at all [@Crawford2021], more research is needed to shed light on this issue.
 
@@ -77,18 +164,17 @@ The n-back level that was not chosen will be set to a fixed value of 2€.
 This procedure allows to compute SVs based on actual individual preference instead of objective task load.
 Each level's SV is calculated as the mean of this level's SVs from all comparisons in which it appeared.
 If the participant has a clear preference for one level, this level's SV will be 1.
-If not, then no level's SV will be 1, but each level's SV can still be interpreted as an absolute value and in relation to the other levels' SVs, so the computation of an AUC and therefore the quantification of the participant's ED behaviour is still possible.
+If not, then no level's SV will be 1, but each level's SV can still be interpreted as an absolute and relative value, so each participant's ED behaviour can still be quantified.
 Since we aim to establish this paradigm for the assessment of tasks with no objective task load, e.g. emotion regulation tasks, we call it the Cognitive and Emotion Regulation Effort Discounting Paradigm (CERED).
 In the present study, we will validate the CERED paradigm by conceptually replicating the ED and NFC findings of Westbrook et al. [-@Westbrook2013].
-Additionally, we will compare the ED behaviour of participants regarding the n-back task and an emotion regulation task.
-The COG-ED paradigm has been applied to tasks with different domains before, showing that SVs across task domains correlate [@Crawford2021], but these tasks had an objective order of task load in the form of increasing n-back levels or decreasing intensity of auditory signals.
+Additionally, we will compare the ED behaviour of participants regarding the n-back task and an emotion regulation task, the full results of which will be published in a second Registered Report.
+The COG-ED paradigm has been applied to tasks with different domains before, showing that SVs across task domains correlate [@Crawford2021], but these tasks had an objective order of task load, which is not the case for emotion regulation.
 
 ## Hypotheses
 Our hypotheses were derived from the results of Westbrook et al. [-@Westbrook2013].
-Regarding the associations of subjective and objective task load measures we hypothesized that (1a) performance measured by signal detection *d'* declines with increasing n-back level, (1b) performance measured by reaction time declines with increasing n-back level, and (1c) perceived task load increases with increasing n-back level.
+Regarding the associations of subjective and objective task load we hypothesized that (1a) performance measured by signal detection *d'* declines with increasing n-back level, (1b) performance measured by reaction time declines with increasing n-back level, and (1c) perceived task load increases with n-back level.
 Regarding the associations of task load and ED we hypothesized that (2a) SVs decline with increasing n-back level, and (2b) SVs decline with increasing n-back level even after controlling for declining task performance.
 And regarding individual differences in ED we hypothesized that (3a) SVs predict individual NFC scores, and (3b) perceived task load does not predict individual NFC scores.
-However, we propose that (3c) when taking individual preferences for different n-back levels into account, the prediction of NFC scores by SVs can be improved significantly.
 
 
 ```{r import, echo=FALSE, message=FALSE, warning=FALSE}
@@ -479,7 +565,7 @@ However, we propose that (3c) when taking individual preferences for different n
 
 # Methods
 
-The paradigm was written and presented using the Python based software Psychopy [@Peirce2019].
+The paradigm was written and presented using Psychopy [@Peirce2019].
 We used *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages *tidyverse* [@Wickham2019] and *basetestR* [@Makowski2019] for all our analyses.
 The R Markdown file used to analyze the data and write this document is freely available at github.com/ChScheffel/CERED.
 The data can be downloaded from osf.io/vnj8x/.
@@ -490,8 +576,14 @@ In the NASA-TLX, participants evaluate their subjective perception of mental loa
 Need for Cognition will be assessed using the 16-item short form of the Need for Cognition Scale [@Bless1994; @Cacioppo1984].
 Responses to each item (e.g., "Thinking is not my idea of fun", recoded) will be recorded on a 7-point Likert scale ranging from -3 (completely disagree) to +3 (completely agree).
 The scale shows comparably high internal consistency [Cronbach’s $\alpha$ > .80; @Bless1994; @Fleischhauer2010].
-Several other personality questionnaires will be used in this study but are the topic of the registered report for the second lab session regarding ED in emotion regulation tasks and will not be analyzed here.
+Several other personality questionnaires will be used in this study but are the topic of the Registered Report for the second lab session regarding ED in emotion regulation tasks and will not be analyzed here.
 A full list of questionnaires and measures can be found in Appendix 1.
+
+```{r import_image, out.width="50%", warning=FALSE}
+
+  knitr::include_graphics(here("99_Thinktank", "Other", "Paradigm_Scheme.png"))
+
+```
 
 ## Procedure
 Participants for the pilot study were recruited using the software *ORSEE* [@Greiner2015].
@@ -538,6 +630,9 @@ Consequently, we decided on a different way of quantifying the individual degree
 A classic AUC cannot differentiate between a subject who prefers 1-back and a subject who prefers 4-back, but can reflect the overall willingness to exert effort.
 This is the opposite for the sum of the ascent between SVs.
 Therefore, we multiplied both indicators to arrive at a value reflecting both degree and direction of preference, called $AxAUC$.
+
+##Power analysis
+A sample size analysis with GPower [@Faul2007; @Faul2009], using the RT data from the n-back task, indicated that we should collect data from at least 40 participants, assuming $f=0.27$, $\alpha=.05$, $\beta=.80$, and no correlation between levels.
 
 ```{r SVcomputation, echo=FALSE, message=FALSE, warning=FALSE}
 
