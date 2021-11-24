@@ -185,6 +185,6 @@ Proportion of explained variance *$\eta$²~p~* was reported as a measure of effe
 *Subjective values of emotion regulation strategies* <br>
 For each ER strategy, SVs were calculated as follows: first, the value 0.015625 was added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
 Second, the resulting (monetary) value was divided by 2.00 €.
-The resulting values were entered in a rmANOVA
+The resulting values were entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression).
 
 
