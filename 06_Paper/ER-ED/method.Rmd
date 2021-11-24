@@ -147,8 +147,13 @@ A complete list of all pictures and their classification into sets can be found 
 
 ## 2.5 Electromyography
 
-Bipolar electromyography (EMG) was recorded in the region of the *corrugator supercilii* and the *levator labii* at 1000 Hz sampling rate using Brain Vision Recorder (Brain Products Inc., Gilching, Germany).
-Passive surface Ag/AgCl electrodes (0.7 mm diameter, 10 mm distance between electrodes) filled with electrolyte gel were used. <!-- Stimmt das in etwa, liebe Anne? -->
+Two bipolar electromyograph (EMG) measures were recorded in the region of the *corrugator supercilii* and the *levator labii* using Brain Vision Recorder (Brain Products Inc., Gilching, Germany).
+Passive surface Ag/AgCl electrodes (0.7 mm diameter, 10 mm distance between electrodes) filled with electrolyte gel were used. 
+Data were sampled at 1000 Hz.
+To measure *corrugator EMG*, electrodes were applied to the abraded and cleaned skin on the left corrugator, and to measure *levator EMG*, electrodes were applied in the region of the *levator labii*.
+The ground electrod were placed at the left *Mastoid*.
+A 10 Hz high pass and a 500 Hz low pass filter were applied to both signals. <!-- liebe Anne, habe das hier von Ray et al 2010 übernommen. Stimmt das für unsere Auswertung? -->
+Afterwards, the signals were rectified.
 [...] <!-- @Anne please check! =) -->
 
 ## 2.6 Psychometric measures
