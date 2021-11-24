@@ -127,8 +127,7 @@ Investigating effort and cost is challenging because “effort is not a property
 One task that is often used to investigate effort is the n-back task, a working memory task in which a continuous stream of stimuli, e.g. letters, is presented on screen.
 Participants indicate via button press whether the current stimulus is the same as *n* stimuli before, with *n* being the level of difficulty between one and six [@Mackworth1959].
 The n-back task is well suited to investigate effort because it is an almost continuous manipulation of task load, as has been shown by monotonic increases in error rates, reaction times [@Jaeggi2010], and brain activity in areas associated with working memory [@Jonides1997; @Owen2005].
-However, its reliability measures are mixed, presumably due to ceiling effects in performance in the easiest level [@Jaeggi2010].
-Additionally, associations of n-back performance and measures such as executive functioning and fluid intelligence are often inconsistent [@Jaeggi2010].
+However, its reliability measures are mixed, and associations of n-back performance and measures such as executive functioning and fluid intelligence are often inconsistent [@Jaeggi2010].
 
 A way to quantify the subjective cost of each n-back level has been developed by Westbrook, Kester, and Braver [-@Westbrook2013], called the Cognitive Effort Discounting Paradigm (COG-ED).
 First, the participants complete the n-back levels to familiarize themselves with the task.
@@ -142,22 +141,20 @@ Younger participants showed lower ED, i.e. they needed a lower monetary incentiv
 
 ## Effort discounting and Need for Cognition 
 The individual degree of ED in the study by Westbrook et al. [-@Westbrook2013] was also associated with the participants' Need for Cognition (NFC) score, a personality trait describing individuals who actively seek and enjoy effortful cognitive activities [@Cacioppo1982].
-Westbrook et al. [-@Westbrook2013] conceptualized NFC as a trait measure of effortful task engagement, providing a subjective self-report of ED for each participant which could then be related to the SVs as an objective measure of ED.
+Westbrook et al. [-@Westbrook2013] conceptualized NFC as a subjective self-report of ED for each participant which could then be related to the SVs as an objective measure.
 On the surface, this association stands to reason, as individuals with higher NFC are more motivated to mobilize cognitive effort because they perceive it as intrinsically rewarding.
-However, the relation of NFC and SVs might be confounded with task performance itself, since subjective task values have been shown to depend on both the exerted effort [@Wang2017] and the expected performance [@Yee2021].
-Findings on NFC and n-back performance are heterogeneous, ranging from no association of NFC and working memory [@Fleischhauer 2010; @Gaertner2021; @Hill2013] to positive associations of NFC with attention allocation [@Enge2008] and brain flexibility [@He2019].
-Nevertheless, a possible association of NFC and task performance might be secondary, since task load has been shown to be a better predictor of SVs than task performance [@Culbreth2016; @Westbrook2013; @Westbrook2019].
-But since other studies utilizing the COG-ED paradigm found the association of NFC and SVs to disappear after correcting for performance [@Kramer2021] or found no association of NFC and SVs at all [@Crawford2021], more research is needed to shed light on this issue.
+However, the relation of NFC and SVs might be confounded, since other studies utilizing the COG-ED paradigm found the association of NFC and SVs to disappear after correcting for performance [@Kramer2021] or found no association of NFC and SVs at all [@Crawford2021].
+On the other hand, task load has been shown to be a better predictor of SVs than task performance [@Culbreth2016; @Westbrook2013; @Westbrook2019], so more research is needed to shed light on this issue.
 
 ## Revising the COG-ED paradigm
-The present study contributes to the investigation of effort and SVs by changing one fundamental assumption of the original COG-ED paradigm: The assumption that the easiest n-back level has the highest SV.
+The present study changes one fundamental assumption of the original COG-ED paradigm: That the easiest n-back level has the highest SV.
 We adapted the COG-ED paradigm in such a way that it allows the computation of SVs for different n-back levels without presuming that all individuals inherently prefer the easiest level.
-Figure 1 illustrates how different modifications of the COG-ED paradigm by Westbrook et al. [-@Westbrook2013] return SVs that do or do not reflect the true preference of a hypothetical participant, who likes 2-back most, 3-back less, and 1-back least.
+Figure 1 illustrates how different modifications of the COG-ED paradigm return SVs that do or do not reflect the true preference of a hypothetical participant, who likes 2-back most, 3-back less, and 1-back least.
 The COG-ED paradigm sets the SV of 1-back to 1, regardless of the response pattern.
 Adding an ED round comparing 2-back and 3-back allows the SVs of those two levels to be more differentiated, but leaves the SV of 1-back unchanged.
 Adding three ED rounds comparing the same levels but using the easier level as reference does approach the true preference, but has two disadvantages.
-First, the SVs are still distorted by the non-true SVs returned by the original paradigm, and second, including more task levels would lead to an exponential growth of necessary comparisons.
-Therefore, the solution lies in reducing the number of necessary comparisons by presenting an ED round for each possible pair of levels, and by starting each round with a choice between equal prices.
+First, the SVs are still distorted by the SVs returned by the original paradigm, and second, having more task levels would lead to an exponential increase in comparisons.
+Therefore, the solution lies in reducing the number of comparisons by presenting an ED round for each possible pair of levels, and by starting each round with a choice between equal prices.
 For example, the participant is presented with the choice of receiving 1€ for 2-back or 1€ for 4-back.
 The level chosen by the participant will then be used as the level with a flexible value, which starts at 1€ and is changed in every iteration.
 The level that was not chosen will be set to a fixed value of 2€.
@@ -166,7 +163,7 @@ Each level's SV is calculated as the mean of this level's SVs from all compariso
 If the participant has a clear preference for one level, this level's SV will be 1.
 If not, then no level's SV will be 1, but each level's SV can still be interpreted as an absolute and relative value, so each participant's ED behaviour can still be quantified.
 Since we aim to establish this paradigm for the assessment of tasks with no objective task load, e.g. emotion regulation tasks, we call it the Cognitive and Emotion Regulation Effort Discounting Paradigm (CERED).
-In the present study, we will validate the CERED paradigm by conceptually replicating the ED and NFC findings of Westbrook et al. [-@Westbrook2013].
+In the present study, we will validate the CERED paradigm by conceptually replicating the findings of Westbrook et al. [-@Westbrook2013].
 Additionally, we will compare the ED behaviour of participants regarding the n-back task and an emotion regulation task, the full results of the latter will be published in a second Registered Report.
 The COG-ED paradigm has been applied to tasks with different domains before, showing that SVs across task domains correlate [@Crawford2021], but these tasks had an objective order of task load, which is not the case for emotion regulation.
 
@@ -571,13 +568,12 @@ The R Markdown file used to analyze the data and write this document is freely a
 The data can be downloaded from osf.io/vnj8x/.
 
 ## Questionnaires
-To assess perceived task load, we will use the 6-item NASA Task Load Index (NASA-TLX) [@Hart1988].
-In the NASA-TLX, participants evaluate their subjective perception of mental load, physical load, effort, frustration, performance, and time pressure during the task on a 20-point scale.
-Need for Cognition will be assessed using the 16-item short form of the Need for Cognition Scale [@Bless1994; @Cacioppo1984].
-Responses to each item (e.g., "Thinking is not my idea of fun", recoded) will be recorded on a 7-point Likert scale ranging from -3 (completely disagree) to +3 (completely agree).
-The scale shows comparably high internal consistency [Cronbach’s $\alpha$ > .80; @Bless1994; @Fleischhauer2010].
+To assess perceived task load, we will use the 6-item NASA Task Load Index (NASA-TLX) [@Hart1988], where participants evaluate their subjective perception of mental load, physical load, effort, frustration, performance, and time pressure during the task on a 20-point scale.
+NFC will be assessed using the 16-item short form of the Need for Cognition Scale [@Bless1994; @Cacioppo1984].
+Responses to each item (e.g., "Thinking is not my idea of fun", recoded) will be recorded on a 7-point Likert scale.
+The NFC scale shows comparably high internal consistency [Cronbach’s $\alpha$ > .80; @Bless1994; @Fleischhauer2010].
 Several other personality questionnaires will be used in this study but are the topic of the Registered Report for the second lab session.
-A full list of questionnaires and measures can be found in Appendix 1.
+A full list of measures can be found at osf.io/vnj8x/.
 
 ```{r import_image, out.width="50%", warning=FALSE}
 
@@ -587,47 +583,47 @@ A full list of questionnaires and measures can be found in Appendix 1.
 
 ## Procedure
 Healthy participants aged 18 to 30 years will be recruited using the software *ORSEE* [@Greiner2015].
-Each participant fills out the personality questionnaires online and then visit the lab for two sessions one week apart.
+Participants fill out the personality questionnaires online and then visit the lab for two sessions one week apart.
 In the first session, participants provide informed consent and demographic data before completing the computer-based paradigm.
 The paradigm starts with the n-back levels one to four, presented sequentially with two runs per level, consisting of 64 consonants (16 targets, 48 non-targets) per run.
 The levels are referred to by color (1-back black, 2-back red, 3-back blue, 4-back green) to avoid anchor effects in the ED procedure.
-After each level, participants fill out the NASA-TLX on a tablet to provide a state measure of cognitive effort.
+After each level, participants fill out the NASA-TLX on a tablet.
 Then, they complete the ED procedure on screen, where each possible pairing of the four n-back levels is presented in a randomized order.
 Participants are instructed to decide as realistically as possible, because one of their choices from the last iteration steps will be randomly chosen for one final run of n-back.
 This is done to incentivise truthful behavior in the ED procedure, the n-back data of this part is not analyzed.
 The second session consists of an emotion regulation task with negative pictures and the instruction to suppress facial reactions, detach cognitively from the picture content, and distract oneself, respectively.
-The paradigm follows the same structure of task and ED procedure, but the emotion regulation strategy at the end is not randomly chosen, instead participants can decide which strategy they want to use again.
+The paradigm follows the same structure of task and ED procedure, but participants can decide which strategy they want to reapply in the last block.
 Participants receive 30€ in total or course credit for participation.
 Study data will be collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden [@Harris2009; @Harris2019].
 The sample of the pilot study consisted of $N=$ `r length(datalist_ED)` participants (`r round((table(data_quest$gender)[2]/length(datalist_ED))*100, digits = 1)`% female, $M=$`r round(mean(data_quest$age, na.rm = TRUE), digits = 1)`($SD=$`r round(sd(data_quest$age, na.rm = TRUE), digits = 1)`) years old).
 
 ## Analysis
-We aim to conduct all analysis as described in Westbrook et al. [-@Westbrook2013], but the level of detail was not always sufficient, so there might be deviations in terms of data cleaning and degrees of freedom.
+We aim to conduct all analysis as described in Westbrook et al. [-@Westbrook2013], but the level of detail was not always sufficient, so there might be deviations regarding data cleaning and degrees of freedom.
 The performance measure *d'* is computed as the difference of the *z*-transformed hit rate and the *z*-transformed false alarm rate [@Macmillan1990].
 Reaction time (RT) data is trimmed by excluding all trials with responses faster than 200 ms, as the relevant cognitive processes cannot be completed before [@Whelan2008; @Berger2021].
 Error- and post-error trials are excluded, because RT on the latter is longer due to more cautious behavior [@Dutilh2012; @Houtman2012].
 Declining performance is investigated by calculating a repeated measures analysis of variance (rmANOVA) with three paired contrasts comparing *d'* between two levels of 2-, 3-, and 4-back at a time.
 Another rmANOVA with three paired contrasts was computed to compare the mean RT between two levels of 2-, 3-, and 4-back at a time.
 To investigate changes in NASA-TLX ratings, six rmANOVAs are computed, one for each NASA-TLX subscale, and each with six paired contrasts comparing the ratings between two levels of 1-, 2-, 3-, and 4-back at a time.
-The SVs are calculated by adding or subtracting the final iteration value of 0.015625 from the monetary value of the flexible level for each ED round, depending on the participant's choice in the last iteration.
-Then, the final monetary values are divided by 2€, and the SV of each level per participant is computed by averaging all final monetary values of each level, regardless of whether it was fixed or flexible.
+For each ED round, SVs are calculated by adding or subtracting 0.015625 from the last monetary value of the flexible level, depending on the participant's last choice.
+Then, the final monetary values are divided by 2€, and the SV of each level per participant is computed by averaging all final values of each level, regardless of whether it was fixed or flexible.
 A rmANOVA with six paired contrasts is computed, comparing the SVs between two levels of 1-, 2-, 3-, and 4-back at a time.
 Tukey method is used for the paired contrasts of each rmANOVA, including *p*-value adjustment.
 
 To determine the influence of task performance in the association of SVs and n-back level, we will set up a multi-level model.
 **MLM explanation goes here**
 To ensure the validity of the multi-level model, we conduct a specification curve analysis [@Simonsohn2020], which includes 92 possible preprocessing pipelines of the RT data.
-These pipelines specify which transformation has been applied (none, log, inverse, or square-root), which outliers have been excluded (none, $2 SD$ from the mean, $3 SD$ from the mean, RTs below 200 ms), whether post-error trials have been excluded or not, and across which dimensions the transformations and exclusions have been applied (across/within subjects and across/within n-back levels).
+These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, $2 SD$ from the mean, $3 SD$ from the mean, RTs below 200 ms), whether post-error trials were excluded or not, and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within n-back levels).
 The multi-level model will be run with each of the 92 pipelines, which also includes our main pipeline (untransformed data, exclusion of RTs below 200 ms, removal of post-error trials).
 The ratio of pipelines that lead to significant versus non-significant effects provides an indication of how robust the effect actually is.
 
 The association of ED and NFC is examined with a regression using the AUC of each participant's SVs to predict their NFC score.
 A second regression additionally includes the mean of the NASA-TLX subscales' AUCs of each participant as a predictor.
 Since we do not have a fixed SV of 1 for 1-back, we cannot apply the 'AUC' computation of Westbrook et al. [-@Westbrook2013], which was the mean of the AUCs of the SVs of each higher n-back level and 1-back, yielding values between 0 and 1.
-Consequently, we decided on a different way of quantifying the individual degree of ED.
+Consequently, we chose a different way of quantifying the individual degree of ED.
 A classic AUC cannot differentiate between a subject who prefers 1-back and a subject who prefers 4-back, but can reflect the overall willingness to exert effort.
 This is the opposite for the sum of the ascent between SVs.
-Therefore, we multiply both indicators to arrive at a value reflecting both degree and direction of preference, called $AxAUC$.
+Therefore, we multiply both indicators, arriving at a value reflecting both degree and direction of preference, called $AxAUC$.
 
 ##Power analysis
 A sample size analysis with GPower [@Faul2007; @Faul2009], using the pilot RT data, indicated that we should collect data from at least 40 participants, assuming $f=0.27$, $\alpha=.05$, $\beta=.80$, and no correlation between levels.
@@ -833,7 +829,6 @@ A sample size analysis with GPower [@Faul2007; @Faul2009], using the pilot RT da
 ## Results of the pilot study
 
 ### Associations of subjective and objective task load measures
-We first looked at how performance measures and NASA-TLX ratings change as n-back levels increase.
 Contrary to our expectations, the rmANOVA revealed no decrease in performance *d'* with increasing n-back level (`r apa_print(hypothesis1a_rmanova)$full_result`).
 
 ```{r Hypothesis_1b, echo=FALSE, message=FALSE, warning=FALSE}
@@ -886,9 +881,9 @@ Contrary to our expectations, the rmANOVA revealed no decrease in performance *d
 
 ```
 
-As expected, RT increased with increasing n-back level (`r apa_print(hypothesis1b_rmanova)$full_result`).
-RTs were longer for 3- than 2-back (`r apa_print(hypothesis1b_contrasts)$statistic[1]`), but not significantly different between 2- and 4-back or 3- and 4-back.
-Even though *d'* did not decrease across n-back levels in this very small sample, the increases in RT indicate an increase in objective task load.
+However, RT increased with increasing n-back level (`r apa_print(hypothesis1b_rmanova)$full_result`).
+RTs were longer for 3- than 2-back (`r apa_print(hypothesis1b_contrasts)$statistic[1]`), but not different between 2- and 4-back or 3- and 4-back.
+Even though *d'* did not decrease, the increases in RT indicate an increase in objective task load.
 
 ```{r Hypothesis_1c, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -980,7 +975,7 @@ Increases in subjective task load were investigated for each NASA-TLX subscale, 
 Ratings on the mental load and effort subscales increased between all n-back levels ($p<.001$) except between 3- and 4-back.
 Ratings on the physical load and the performance subscales only increased between 1- and 3-back (`r apa_print(hypothesis1c_physical_contrasts)$statistic$X1_X3`, and `r `apa_print(hypothesis1c_performance_contrasts)$statistic$X1_X3`, respectively) and 1- and 4-back (`r apa_print(hypothesis1c_physical_contrasts)$statistic$X1_X4`, and `r `apa_print(hypothesis1c_performance_contrasts)$statistic$X1_X4`, respectively).
 Ratings on the frustration and time pressure subscales increased between all n-back levels ($p<.001$) except between 1- and 2-back and 3- and 4-back.
-Overall, these ratings showed that the increase in objective task load was also being subjectively perceived by the participants.
+Overall, these ratings showed that the increase in task load was being perceived as such.
 
 ```{r Hypothesis_2a, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -1012,9 +1007,9 @@ Overall, these ratings showed that the increase in objective task load was also 
 ```
 
 ### Changes in subjective values depending on n-back level
-While the rmANOVA indicated significant differences between SVs depending on n-back level (`r apa_print(hypothesis2a_rmanova)$full_result`), paired contrasts indicated that this was not the case for every pair of n-back levels.
-SVs were higher for 1- than for 3-back (`r apa_print(hypothesis2a_contrasts)$statistic$X1_X3`), for 1- than for 4-back (`r apa_print(hypothesis2a_contrasts)$statistic$X1_X4`), and for 2- than for 4-back (`r apa_print(hypothesis2a_contrasts)$statistic$X2_X4`).
-Since the SVs of 1- and 2-back were not significantly different, we can conclude that when given the choice, not all participants preferred the easiest n-back level.
+The rmANOVA indicated significant differences between SVs depending on n-back level (`r apa_print(hypothesis2a_rmanova)$full_result`).
+SVs were higher for 1- than 3-back (`r apa_print(hypothesis2a_contrasts)$statistic$X1_X3`), for 1- than 4-back (`r apa_print(hypothesis2a_contrasts)$statistic$X1_X4`), and for 2- than 4-back (`r apa_print(hypothesis2a_contrasts)$statistic$X2_X4`).
+The lack of difference between the SVs of 1- and 2-back indicates that when given the choice, not all participants preferred the easiest level.
 
 ```{r Hypothesis_2b, echo=FALSE, message=FALSE, warning=FALSE}
 
