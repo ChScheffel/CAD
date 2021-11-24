@@ -147,9 +147,14 @@ A complete list of all pictures and their classification into sets can be found 
 
 ## 2.5 Electromyography
 
-Bipolar electromyography (EMG) was recorded in the region of the *corrugator supercilii* and the *levator labii* at 1000 Hz sampling rate using Brain Vision Recorder (Brain Products Inc., Gilching, Germany).
-Passive surface Ag/AgCl electrodes (0.7 mm diameter, 10 mm distance between electrodes) filled with electrolyte gel were used. <!-- Stimmt das in etwa, liebe Anne? -->
-[...] <!-- @Anne please check! =) -->
+Two bipolar electromyograph (EMG) measures were recorded in the region of the *corrugator supercilii* and the *levator labii* using Brain Vision Recorder (Brain Products Inc., Gilching, Germany).
+Passive surface Ag/AgCl electrodes (0.7 mm diameter, 10 mm distance between electrodes) filled with electrolyte gel were used. 
+Data were sampled at 1000 Hz.
+To measure *corrugator EMG*, electrodes were applied to the abraded and cleaned skin on the left corrugator, and to measure *levator EMG*, electrodes were applied in the region of the *levator labii*.
+The ground electrod were placed at the left *Mastoid*.
+A 10 Hz high pass and a 500 Hz low pass filter were applied to both signals. <!-- liebe Anne, habe das hier von Ray et al 2010 übernommen. Stimmt das für unsere Auswertung? -->
+Afterwards, the signals were rectified.
+[...] <!-- @Anne hier fehlt noch einiges, bitte dann nach deiner Auswertung ergänzen =) -->
 
 ## 2.6 Psychometric measures
 
@@ -169,15 +174,17 @@ All statistical analyses were perfomed using *RStudio* (version 1.4.1717) [@RStu
 The level of significance was set to $\alpha$ = .05.
 
 *Effects of emotion regulation on arousal and effort* <br>
-To examine impact of valence of emotional pictures on subjective arousal, an ANOVA with the factor valence (neutral and negative) for strategy active viewing was conducted for behavioral data (subjective arousal ratings).
-To investigate the effect of the tree ER strategies on subjective arousal, another ANOVA was conducted with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective arousal ratings of negative pictures. 
-To examine the impact of valence on the emotional facial reaction, an ANOVA with the factor valence (neutral and negative) for strategy active viewing was conducted for EMG activity of *corrugator* and *levator*. <!-- @Anne please check! =) --> 
-A further ANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) was conducted for EMG activity to examine the effects of ER strategies on the emotional facial reaction. <!-- @Anne please check! =) -->
-To examine the effect of ER strategies on cognitive effort, an ANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings was conducted.
+To examine impact of valence of emotional pictures on subjective arousal, an repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for strategy active viewing was conducted for behavioral data (subjective arousal ratings).
+To investigate the effect of the tree ER strategies on subjective arousal, another rmANOVA was conducted with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective arousal ratings of negative pictures. 
+To examine the impact of valence on the emotional facial reaction, an rmANOVA with the factor valence (neutral and negative) for strategy active viewing was conducted for EMG activity of *corrugator* and *levator*. <!-- @Anne please check! =) --> 
+A further rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) was conducted for EMG activity to examine the effects of ER strategies on the emotional facial reaction. <!-- @Anne please check! =) -->
+To examine the effect of ER strategies on cognitive effort, an rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings was conducted.
 Greenhouse-Geisser-corrected *p*-values and degrees of freedom were reported when assumption of sphericity was violated.
 Proportion of explained variance *$\eta$²~p~* was reported as a measure of effect size.
 
 *Subjective values of emotion regulation strategies* <br>
-
+For each ER strategy, SVs were calculated as follows: first, the value 0.015625 was added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
+Second, the resulting (monetary) value was divided by 2.00 €.
+The resulting values were entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression).
 
 
