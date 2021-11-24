@@ -154,7 +154,7 @@ To measure *corrugator EMG*, electrodes were applied to the abraded and cleaned 
 The ground electrod were placed at the left *Mastoid*.
 A 10 Hz high pass and a 500 Hz low pass filter were applied to both signals. <!-- liebe Anne, habe das hier von Ray et al 2010 übernommen. Stimmt das für unsere Auswertung? -->
 Afterwards, the signals were rectified.
-[...] <!-- @Anne please check! =) -->
+[...] <!-- @Anne hier fehlt noch einiges, bitte dann nach deiner Auswertung ergänzen =) -->
 
 ## 2.6 Psychometric measures
 
