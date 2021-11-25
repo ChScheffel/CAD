@@ -133,6 +133,7 @@ Younger participants showed lower ED, i.e. they needed a lower monetary incentiv
 The individual degree of ED in the study by Westbrook et al. [-@Westbrook2013] was also associated with the participants' Need for Cognition (NFC) score, a personality trait describing individuals who actively seek and enjoy effortful cognitive activities [@Cacioppo1982].
 Westbrook et al. [-@Westbrook2013] conceptualized NFC as a subjective self-report of ED for each participant which could then be related to the SVs as an objective measure.
 On the surface, this association stands to reason, as individuals with higher NFC are more motivated to mobilize cognitive effort because they perceive it as intrinsically rewarding.
+Additionally, it has been shown that individuals avoid cognitive effort only to a certain degree, possibly to retain a sense of self-control [@Wu2021], a trait more prominent in individuals with high NFC [@Bertrams2012; @Nishiguchi2016; Xu2021].
 However, the relation of NFC and SVs might be confounded, since other studies utilizing the COG-ED paradigm found the association of NFC and SVs to disappear after correcting for performance [@Kramer2021] or found no association of NFC and SVs at all [@Crawford2021].
 On the other hand, task load has been shown to be a better predictor of SVs than task performance [@Culbreth2016; @Westbrook2013; @Westbrook2019], so more research is needed to shed light on this issue.
 
