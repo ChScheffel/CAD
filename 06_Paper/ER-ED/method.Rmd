@@ -38,6 +38,7 @@ data_ER = data.frame(ID = character(), block = character(), arousal = double(), 
 
 data_ED = data.frame(ID = character(), step = double(), choice = character(),
                            LBvalue = double(), LBlevel = double(), RBvalue = double(), RBlevel = double())
+data_choice = data.frame(ID = character(), choice = double())
 
 # store arousal and effort ratings in data_ER frame
 for (i in 1:length(datalist_ER)) {
@@ -48,6 +49,16 @@ for (i in 1:length(datalist_ER)) {
   
   data_ER = rbind(tmp, data_ER)
   
+}
+
+# store ER choice in data_choice frame
+
+for (i in 1:length(datalist_ER)) {
+  tmp = data.frame(datalist_ER[[i]][["participant"]],datalist_ER[[i]][["resp_choice.keys"]])
+  colnames(tmp) = names(data_choice)
+  tmp = tmp[(!is.na(tmp$choice)),]
+  
+  data_choice = rbind(tmp, data_choice)
 }
 
 # store ED data in data_ED frame
