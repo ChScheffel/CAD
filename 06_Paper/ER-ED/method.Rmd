@@ -12,6 +12,7 @@ library(readxl)     # import excel files
 library(here)       # to set directories without defined paths
 library(papaja)     # APA conform output
 library(afex)       # for ANOVA
+library(emmeans)
 library(ggplot2)    # for nice plots
 
 # set top level directory to source file
@@ -200,4 +201,18 @@ For each ER strategy, SVs were calculated as follows: first, the value 0.015625 
 Second, the resulting (monetary) value was divided by 2.00 €.
 The resulting values were entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression).
 
+```{r statistics, echo=FALSE, message=FALSE, warning=FALSE}
 
+# ANOVA subjective arousal ratings
+
+aov.arousal = afex::aov_ez(id = "ID",    #ATTENTION: needs pagacke "afex"
+                      dv = "arousal",
+                      data = data_ER,
+                      within = "block",
+                      fun_aggregate = mean) 
+afex::nice(aov.arousal, es = "pes")
+
+# compute posthoc tests for both within measures
+posthoc_test_strategy = emmeans::emmeans(aov.arousal$aov, specs = "block")
+pairs(posthoc_test_strategy, adjust = "bonferroni")
+```
