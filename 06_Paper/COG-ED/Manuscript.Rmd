@@ -98,8 +98,6 @@ editor_options:
                         # and rmANOVA globally in order to get meaningful Type-III tests
 
   # we will add the package versions before submission
-  # we also have the word count add-in by Ben Marwick, which can be installed via
-  # devtools::install_github("benmarwick/wordcountaddin", type = "source", dependencies = TRUE)
 
 ```
 
@@ -171,8 +169,8 @@ editor_options:
   data_ED <- data_ED[data_ED$step == 6,]
   data_ED <- subset(data_ED, select = -c(step))
   
-  # remove trials with RT < 200 ms from the n-back data and exclude trials after incorrect trials
-  data_RT <- data_nback[-c(which(data_nback$rt < 0.2)), ]
+  # remove trials with RT < 100 ms from the n-back data and exclude trials after incorrect trials
+  data_RT <- data_nback[-c(which(data_nback$rt < 0.1)), ]
   data_RT <- data_RT[-c(which(data_RT$correct == 0) + 1), ]
   
   # import questionnaire data from RedCap
@@ -277,7 +275,7 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
   #   (N) none
   #   (2) 2 SDs from the mean
   #   (3) 3 SDs from the mean
-  #   (T) 0-200 ms after stimulus onset
+  #   (T) 0-100 ms after stimulus onset
   # Post-error trials:
   #   (E) excluded
   #   (N) not excluded
@@ -339,22 +337,22 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
             pipelines_data[[i]]$rt <- sqrt(pipelines_data[[i]]$rt)
           }
       
-          # compute mean and standard deviation
+          # compute median and median absolute deviation
       
-          pipemean <- mean(pipelines_data[[i]]$rt, na.rm = TRUE)
-          pipesd <- sd(pipelines_data[[i]]$rt, na.rm = TRUE)
+          pipemedian <- median(pipelines_data[[i]]$rt, na.rm = TRUE)
+          pipemad <- mad(pipelines_data[[i]]$rt, na.rm = TRUE)
           
           # the third decision is the outlier exclusion
       
           if (pipeline_name[[1]][4] == "2") {
             
-            pipelines_data[[i]] <- pipelines_data[[i]][c(which(pipelines_data[[i]]$rt < (pipemean + 2 * pipesd)
-                                                               & pipelines_data[[i]]$rt > (pipemean - 2 * pipesd))), ]
+            pipelines_data[[i]] <- pipelines_data[[i]][c(which(pipelines_data[[i]]$rt < (pipemedian + 2 * pipemad)
+                                                               & pipelines_data[[i]]$rt > (pipemedian - 2 * pipemad))), ]
                 
           } else if (pipeline_name[[1]][4] == "3") {
             
-            pipelines_data[[i]] <- pipelines_data[[i]][c(which(pipelines_data[[i]]$rt < (pipemean + 3 * pipesd)
-                                                               & pipelines_data[[i]]$rt > (pipemean - 3 * pipesd))), ]
+            pipelines_data[[i]] <- pipelines_data[[i]][c(which(pipelines_data[[i]]$rt < (pipemedian + 3 * pipemad)
+                                                               & pipelines_data[[i]]$rt > (pipemedian - 3 * pipemad))), ]
           }
       
     } else if (pipeline_name[[1]][1] == "A" & pipeline_name[[1]][2] == "W") {
@@ -379,29 +377,29 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
 
             }
             
-            # compute mean and standard deviation
+            # compute median and median absolute deviation
           
-            pipemean <- mean(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x], na.rm = TRUE)
-            pipesd <- sd(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x], na.rm = TRUE)
+            pipemedian <- median(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x], na.rm = TRUE)
+            pipemad <- mad(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x], na.rm = TRUE)
             
             # the third decision is the outlier exclusion
           
             if (pipeline_name[[1]][4] == "2") {
               
               ifelse(length(which(pipelines_data[[i]]$level == x &
-                                    (pipelines_data[[i]]$rt > (pipemean + 2 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 2 * pipesd)))) > 0,
+                                    (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))) > 0,
                      pipelines_data[[i]] <-
                        pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x &
-                                                      (pipelines_data[[i]]$rt > (pipemean + 2 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 2 * pipesd)))), ],
+                                                      (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))), ],
                      pipelines_data[[i]] <- pipelines_data[[i]])
                   
             } else if (pipeline_name[[1]][4] == "3") {
               
               ifelse(length(which(pipelines_data[[i]]$level == x &
-                                    (pipelines_data[[i]]$rt > (pipemean + 3 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 3 * pipesd)))) > 0,
+                                    (pipelines_data[[i]]$rt > (pipemedian + 3 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 3 * pipemad)))) > 0,
                      pipelines_data[[i]] <-
                        pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x &
-                                                    (pipelines_data[[i]]$rt > (pipemean + 3 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 3 * pipesd)))), ],
+                                                    (pipelines_data[[i]]$rt > (pipemedian + 3 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 3 * pipemad)))), ],
                      pipelines_data[[i]] <- pipelines_data[[i]])
             }
         }
@@ -441,29 +439,29 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
 
             }
             
-            # compute mean and standard deviation
+            # compute median and median absolute deviation
           
-            pipemean <- mean(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
-            pipesd <- sd(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
+            pipemedian <- median(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
+            pipemad <- mad(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
             
             # the third decision is the outlier exclusion
           
             if (pipeline_name[[1]][4] == "2") {
               
               ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
-                                    (pipelines_data[[i]]$rt > (pipemean + 2 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 2 * pipesd)))) > 0,
+                                    (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))) > 0,
                      pipelines_data[[i]] <-
                        pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
-                                                      (pipelines_data[[i]]$rt > (pipemean + 2 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 2 * pipesd)))), ],
+                                                      (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))), ],
                      pipelines_data[[i]] <- pipelines_data[[i]])
               
             } else if (pipeline_name[[1]][4] == "3") {
               
               ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
-                                    (pipelines_data[[i]]$rt > (pipemean + 3 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 3 * pipesd)))) > 0,
+                                    (pipelines_data[[i]]$rt > (pipemedian + 3 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 3 * pipemad)))) > 0,
                      pipelines_data[[i]] <-
                        pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
-                                                      (pipelines_data[[i]]$rt > (pipemean + 3 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 3 * pipesd)))), ],
+                                                      (pipelines_data[[i]]$rt > (pipemedian + 3 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 3 * pipemad)))), ],
                      pipelines_data[[i]] <- pipelines_data[[i]])
             }
           }
@@ -495,42 +493,42 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
 
             }
             
-            # compute mean and standard deviation
+            # compute median and median absolute deviation
           
-            pipemean <- mean(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
-            pipesd <- sd(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
+            pipemedian <- median(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
+            pipemad <- mad(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
             
             # the third decision is the outlier exclusion
           
             if (pipeline_name[[1]][4] == "2") {
               
               ifelse(length(which(pipelines_data[[i]]$subject == pipesubject &
-                                    (pipelines_data[[i]]$rt > (pipemean + 2 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 2 * pipesd)))) > 0,
+                                    (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))) > 0,
                      pipelines_data[[i]] <-
                        pipelines_data[[i]][-c(which(pipelines_data[[i]]$subject == pipesubject &
-                                                      (pipelines_data[[i]]$rt > (pipemean + 2 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 2 * pipesd)))), ],
+                                                      (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))), ],
                      pipelines_data[[i]] <- pipelines_data[[i]])
               
             } else if (pipeline_name[[1]][4] == "3") {
               
               ifelse(length(which(pipelines_data[[i]]$subject == pipesubject &
-                                    (pipelines_data[[i]]$rt > (pipemean + 3 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 3 * pipesd)))) > 0,
+                                    (pipelines_data[[i]]$rt > (pipemedian + 3 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 3 * pipemad)))) > 0,
                      pipelines_data[[i]] <-
                        pipelines_data[[i]][-c(which(pipelines_data[[i]]$subject == pipesubject &
-                                                      (pipelines_data[[i]]$rt > (pipemean + 3 * pipesd) | pipelines_data[[i]]$rt < (pipemean - 3 * pipesd)))), ],
+                                                      (pipelines_data[[i]]$rt > (pipemedian + 3 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 3 * pipemad)))), ],
                      pipelines_data[[i]] <- pipelines_data[[i]])
             }
         }
       
     }
     
-    # the 200-ms-exclusion and the post-error-exclusion are done outside of the A/A-A/W-W/W-W/A-conditions because they are independent of dimension:
+    # the 100-ms-exclusion and the post-error-exclusion are done outside of the A/A-A/W-W/W-W/A-conditions because they are independent of dimension:
     
-    # exclude RTs fast than 200 ms after stimulus onset if the fourth letter in the data frame name is a "T"
+    # exclude RTs fast than 100 ms after stimulus onset if the fourth letter in the data frame name is a "T"
     
     if (pipeline_name[[1]][4] == "T") {
       
-      pipelines_data[[i]] <- pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.2)), ]
+      pipelines_data[[i]] <- pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.1)), ]
       
     }
     
@@ -573,7 +571,7 @@ In the pilot study, the online questionnaires were completed after the two lab s
 
 ## Analysis
 
-We aim to conduct all analysis as described in Westbrook et al. [-@Westbrook2013], but the level of detail was not always sufficient, so there might be deviations regarding data cleaning and degrees of freedom. The performance measure *d'* will be computed as the difference of the *z*-transformed hit rate and the *z*-transformed false alarm rate [@Macmillan1990]. Reaction time (RT) data will be trimmed by excluding all trials with responses faster than 200 ms, as the relevant cognitive processes cannot have been completed before [@Whelan2008; @Berger2021]. Error- and post-error trials will be excluded, because RT on the latter is longer due to more cautious behavior [@Dutilh2012; @Houtman2012].
+We aim to conduct all analysis as described in Westbrook et al. [-@Westbrook2013], but the level of detail was not always sufficient, so there might be deviations regarding data cleaning and degrees of freedom. The performance measure *d'* will be computed as the difference of the *z*-transformed hit rate and the *z*-transformed false alarm rate [@Macmillan1990]. Reaction time (RT) data will be trimmed by excluding all trials with responses faster than 100 ms, as the relevant cognitive processes cannot have been completed before [@Whelan2008; @Berger2021]. Error- and post-error trials will be excluded, because RT on the latter is longer due to more cautious behavior [@Dutilh2012; @Houtman2012].
 Declining performance will be investigated by calculating a repeated measures analysis of variance (rmANOVA) with three paired contrasts comparing *d'* between two levels of 2-, 3-, and 4-back at a time.
 Another rmANOVA with three paired contrasts will be computed to compare the mean RT between two levels of 2-, 3-, and 4-back at a time.
 To investigate changes in NASA-TLX ratings, six rmANOVAs will be computed, one for each NASA-TLX subscale, and each with six paired contrasts comparing the ratings between two levels of 1-, 2-, 3-, and 4-back at a time.
@@ -584,8 +582,8 @@ Tukey method will be used for the paired contrasts of each rmANOVA, including *p
 
 To determine the influence of task performance in the association of SVs and n-back level, we will set up a multi-level model.
 **MLM explanation goes here** To ensure the validity of the multi-level model, we will conduct a specification curve analysis [@Simonsohn2020], which will include 92 possible preprocessing pipelines of the RT data.
-These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, $2 SD$ from the mean, $3 SD$ from the mean, RTs below 200 ms), whether post-error trials were excluded or not, and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within n-back levels).
-The multi-level model will be run with each of the 92 pipelines, which will also include our main pipeline (untransformed data, exclusion of RTs below 200 ms, removal of post-error trials).
+These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, $2 SD$ from the mean, $3 SD$ from the mean, RTs below 100 ms), whether post-error trials were excluded or not, and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within n-back levels).
+The multi-level model will be run with each of the 92 pipelines, which will also include our main pipeline (untransformed data, exclusion of RTs below 100 ms, removal of post-error trials).
 The ratio of pipelines that lead to significant versus non-significant effects will provide an indication of how robust the effect actually is.
 
 The association of ED and NFC will be examined with a regression using the AUC of each participant's SVs to predict their NFC score.
