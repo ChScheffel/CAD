@@ -307,7 +307,7 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
                                                "WALNN","WALNE","WAL2N","WAL2E","WAL3N","WAL3E",
                                                "WAINN","WAINE","WAI2N","WAI2E","WAI3N","WAI3E",
                                                "WASNN","WASNE","WAS2N","WAS2E","WAS3N","WAS3E"))
-  
+
   for (i in 1:length(pipelines_data)) {
     
     # extract the name of the current data frame
@@ -525,11 +525,13 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
     # the 100-ms-exclusion and the post-error-exclusion are done outside of the A/A-A/W-W/W-W/A-conditions because they are independent of dimension:
     
     # exclude RTs fast than 100 ms after stimulus onset if the fourth letter in the data frame name is a "T"
+    # also making sure that there are even any trials below 100 ms, otherwise you get an error message
     
     if (pipeline_name[[1]][4] == "T") {
       
-      pipelines_data[[i]] <- pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.1)), ]
-      
+      ifelse(nrow(pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.1)), ]) > 0,
+             pipelines_data[[i]] <- pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.1)), ],
+             pipelines_data[[i]] <- pipelines_data[[i]])
     }
     
     # exclude post-error trials if the fifth letter in the data frame name is an "E"
