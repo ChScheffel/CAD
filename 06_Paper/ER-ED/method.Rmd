@@ -19,9 +19,9 @@ here::i_am("flag_project_root_CERED.txt")
 ```{r stimvalues, echo = FALSE}
 # import excel list with neutral and negative pictures
 # lists contain arousal and valence values of each picture
-stim_negative = readxl::read_xlsx(file.path(here("01_Paradigms","ER-ED","ER_ED","Stimuli","negative.xlsx")), range = cell_cols("A:D"))
+stim_negative = readxl::read_xlsx(file.path(here("01_Paradigms", "ER-ED", "ER_ED", "Stimuli", "negative.xlsx")), range = cell_cols("A:D"))
 
-stim_neutral = readxl::read_xlsx(file.path(here("01_Paradigms","ER-ED","ER_ED","Stimuli","neutral.xlsx")), range = cell_rows(1:21))
+stim_neutral = readxl::read_xlsx(file.path(here("01_Paradigms", "ER-ED", "ER_ED", "Stimuli", "neutral.xlsx")), range = cell_rows(1:21))
 ```
 
 ```{r import, echo=FALSE, message=FALSE, warning=FALSE}
@@ -38,16 +38,27 @@ data_ER = data.frame(ID = character(), block = character(), arousal = double(), 
 
 data_ED = data.frame(ID = character(), step = double(), choice = character(),
                            LBvalue = double(), LBlevel = double(), RBvalue = double(), RBlevel = double())
+data_choice = data.frame(ID = character(), choice = double())
 
 # store arousal and effort ratings in data_ER frame
 for (i in 1:length(datalist_ER)) {
   
-  tmp = data.frame(datalist_ER[[i]][["participant"]],datalist_ER[[i]][["instr_1"]],datalist_ER[[i]][["slider_arousal.response"]],datalist_ER[[i]][["slider_effort.response"]])
+  tmp = data.frame(datalist_ER[[i]][["participant"]], datalist_ER[[i]][["instr_1"]], datalist_ER[[i]][["slider_arousal.response"]], datalist_ER[[i]][["slider_effort.response"]])
   colnames(tmp) = names(data_ER)
-  tmp = tmp[(!is.na(tmp$arousal)),]
+  tmp = tmp[(!is.na(tmp$arousal)), ]
   
   data_ER = rbind(tmp, data_ER)
   
+}
+
+# store ER choice in data_choice frame
+
+for (i in 1:length(datalist_ER)) {
+  tmp = data.frame(datalist_ER[[i]][["participant"]], datalist_ER[[i]][["resp_choice.keys"]])
+  colnames(tmp) = names(data_choice)
+  tmp = tmp[(!is.na(tmp$choice)), ]
+  
+  data_choice = rbind(tmp, data_choice)
 }
 
 # store ED data in data_ED frame
