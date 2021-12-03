@@ -205,14 +205,26 @@ The resulting values were entered in a rmANOVA to compare the SVs of the three s
 
 # ANOVA subjective arousal ratings
 
-aov.arousal = afex::aov_ez(id = "ID",    #ATTENTION: needs pagacke "afex"
-                      dv = "arousal",
-                      data = data_ER,
-                      within = "block",
-                      fun_aggregate = mean) 
+aov.arousal = afex::aov_ez(id = "ID",
+                           dv = "arousal",
+                           data = data_ER,
+                           within = "block",
+                           fun_aggregate = mean) 
 afex::nice(aov.arousal, es = "pes")
 
-# compute posthoc tests for both within measures
-posthoc_test_strategy = emmeans::emmeans(aov.arousal$aov, specs = "block")
-pairs(posthoc_test_strategy, adjust = "bonferroni")
+# compute posthoc tests for within measures
+posthoc_arousal = emmeans::emmeans(aov.arousal$aov, specs = "block")
+pairs(posthoc_arousal, adjust = "bonferroni")
+
+# ANOVA subjective effort ratings
+
+aov.effort = afex::aov_ez(id = "ID",
+                          dv = "effort",
+                          data = data_ER,
+                          within = "block",
+                          fun_aggregate = mean)
+
+# compute posthoc tests for within measure
+posthoc_effort = emmeans::emmeans(aov.effort$aov, specs = "block")
+pairs(posthoc_effort, adjust = "bonferroni")
 ```
