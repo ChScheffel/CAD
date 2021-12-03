@@ -46,7 +46,12 @@ data_choice = data.frame(ID = character(), choice = double())
 # store arousal and effort ratings in data_ER frame
 for (i in 1:length(datalist_ER)) {
   
-  tmp = data.frame(datalist_ER[[i]][["participant"]], datalist_ER[[i]][["instr_1"]], datalist_ER[[i]][["slider_arousal.response"]], datalist_ER[[i]][["slider_effort.response"]])
+  tmp = data.frame(datalist_ER[[i]][["participant"]], 
+                   datalist_ER[[i]][["instr_1"]], 
+                   datalist_ER[[i]][["slider_arousal.response"]], 
+                   datalist_ER[[i]][["slider_effort.response"]],
+                   datalist_ER[[i]][["TriggerBlockView"]],
+                   datalist_ER[[i]][["TriggerBlockReg"]])
   colnames(tmp) = names(data_ER)
   tmp = tmp[(!is.na(tmp$arousal)), ]
   
@@ -202,6 +207,7 @@ Second, the resulting (monetary) value was divided by 2.00 €.
 The resulting values were entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression).
 
 ```{r statistics, echo=FALSE, message=FALSE, warning=FALSE}
+## Subjective arousal
 
 # ANOVA subjective arousal ratings
 
@@ -215,6 +221,12 @@ afex::nice(aov.arousal, es = "pes")
 # compute posthoc tests for within measures
 posthoc_arousal = emmeans::emmeans(aov.arousal$aov, specs = "block")
 pairs(posthoc_arousal, adjust = "bonferroni")
+
+# Figure to visualize arousal ratings
+
+#ggplot2::ggplot
+
+## Subjective effort
 
 # ANOVA subjective effort ratings
 
