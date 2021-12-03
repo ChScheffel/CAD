@@ -223,6 +223,7 @@ aov.effort = afex::aov_ez(id = "ID",
                           data = data_ER,
                           within = "block",
                           fun_aggregate = mean)
+afex::nice(aov.effort, es = "pes")
 
 # compute posthoc tests for within measure
 posthoc_effort = emmeans::emmeans(aov.effort$aov, specs = "block")
