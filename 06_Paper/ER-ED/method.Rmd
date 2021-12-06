@@ -14,6 +14,7 @@ library(papaja)     # APA conform output
 library(afex)       # for ANOVA
 library(emmeans)
 library(ggplot2)    # for nice plots
+library(dplyr)
 
 # set top level directory to source file
 here::i_am("flag_project_root_CERED.txt")
@@ -101,7 +102,7 @@ for (i in 1:nrow(data_ER)) {
     
     data_ER$block[i] = "suppression"
   
-  } else if (data_ER$trigger[i] == 25) {
+  } else if (data_ER$trigger[i] == 26) {
     
     data_ER$block[i] = "choice"
   }
@@ -258,17 +259,21 @@ The resulting values were entered in a rmANOVA to compare the SVs of the three s
 ## Subjective arousal
 
 # ANOVA subjective arousal ratings
+# View Condition
 
-aov.arousal = afex::aov_ez(id = "ID",
+arousal_view = data_ER %>%
+  subset(data_ER$block == "view_neu" | data_ER$block == "view_neg")
+
+aov_arousalView = afex::aov_ez(id = "ID",
                            dv = "arousal",
-                           data = data_ER,
+                           data = arousal_view,
                            within = "block",
                            fun_aggregate = mean) 
-afex::nice(aov.arousal, es = "pes")
+afex::nice(aov_arousalView, es = "pes")
 
 # compute posthoc tests for within measures
-posthoc_arousal = emmeans::emmeans(aov.arousal$aov, specs = "block")
-pairs(posthoc_arousal, adjust = "bonferroni")
+posthoc_arousalView = emmeans::emmeans(aov_arousalView$aov, specs = "block")
+pairs(posthoc_arousalView, adjust = "bonferroni")
 
 # Figure to visualize arousal ratings
 
