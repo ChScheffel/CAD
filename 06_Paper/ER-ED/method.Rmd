@@ -37,7 +37,7 @@ datalist_ED = lapply(list.files(here("04_RawData", "pilot", "ER-ED/logfiles"), p
                           read.csv, stringsAsFactors = FALSE, header = TRUE)
 
 # new empty frame to store files into
-data_ER = data.frame(ID = character(), block = character(), arousal = double(), effort = double())
+data_ER = data.frame(ID = character(), block = character(), arousal = double(), effort = double(), trigger_view = double(), trigger_reg = double())
 
 data_ED = data.frame(ID = character(), step = double(), choice = character(),
                            LBvalue = double(), LBlevel = double(), RBvalue = double(), RBlevel = double())
@@ -67,6 +67,36 @@ for (i in 1:length(datalist_ER)) {
   tmp = tmp[(!is.na(tmp$choice)), ]
   
   data_choice = rbind(tmp, data_choice)
+}
+
+# loop to correct block indicator
+
+for (i in 1:nrow(data_ER)) {
+  
+  if (data_ER$trigger_view[i] == 21 & is.na(data_ER$trigger_reg[i])) {
+    
+    data_ER$block[i] = "view_neu"
+    
+  } else if (data_ER$trigger_view[i] == 22 & is.na(data_ER$trigger_reg[i])) {
+    
+    data_ER$block[i] = "view_neg"
+    
+  } else if (is.na(data_ER$trigger_view[i]) & data_ER$trigger_reg[i] == 23) {
+    
+    data_ER$block[i] = "distraction"
+    
+  } else if (is.na(data_ER$trigger_view[i]) & data_ER$trigger_reg[i] == 24) {
+    
+    data_ER$block[i] = "distancing" 
+    
+  } else if (is.na(data_ER$trigger_view[i]) & data_ER$trigger_reg[i] == 25) {
+    
+    data_ER$block[i] = "suppression"
+  
+  } else if (is.na(data_ER$trigger_view[i]) & is.na(data_ER$trigger_reg[i])) {
+    
+    data_ER$block[i] = "choice"
+  }
 }
 
 # store ED data in data_ED frame
