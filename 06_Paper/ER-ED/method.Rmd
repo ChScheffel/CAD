@@ -271,6 +271,16 @@ aov_arousalView = afex::aov_ez(id = "ID",
                            fun_aggregate = mean) 
 afex::nice(aov_arousalView, es = "pes")
 
+# figure
+ggplot2::ggplot(arousal_view, aes(x = block, y = arousal))+
+  geom_boxplot(width = 0.7, position = position_dodge(0.8))+
+  scale_x_discrete(name = "Strategy", 
+                   limits = c("view_neu", "view_neg"),
+                   labels = c("Neutral", "Negative"))+
+  geom_jitter(size = 0.4)+
+  labs(y = "Arousal Rating")
+
+
 # compute posthoc tests for within measures
 posthoc_arousalView = emmeans::emmeans(aov_arousalView$aov, specs = "block")
 pairs(posthoc_arousalView, adjust = "bonferroni")
