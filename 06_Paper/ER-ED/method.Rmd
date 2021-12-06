@@ -318,12 +318,12 @@ ggplot2::ggplot(arousal_reg, aes(x = block, y = arousal))+
 
 # ANOVA subjective effort ratings
 
-effort_Reg = data_ER %>%
+effort_reg = data_ER %>%
   subset(data_ER$block != "view_neu" & data_ER$block != "choice")
 
 aov.effort = afex::aov_ez(id = "ID",
                           dv = "effort",
-                          data = effort_Reg,
+                          data = effort_reg,
                           within = "block",
                           fun_aggregate = mean)
 afex::nice(aov.effort, es = "pes")
@@ -331,4 +331,14 @@ afex::nice(aov.effort, es = "pes")
 # compute posthoc tests for within measure
 posthoc_effort = emmeans::emmeans(aov.effort$aov, specs = "block")
 pairs(posthoc_effort, adjust = "bonferroni")
+
+# Figure to visualize effort ratings
+# figure
+ggplot2::ggplot(effort_reg, aes(x = block, y = effort))+
+  geom_boxplot(width = 0.7, position = position_dodge(0.8))+
+  scale_x_discrete(name = "Strategy", 
+                   limits = c("view_neg", "distraction", "distancing", "suppression"),
+                   labels = c("View", "Distraction", "Distancing", "Suppression"))+
+  geom_jitter(size = 0.4)+
+  labs(y = "Effort Rating")
 ```
