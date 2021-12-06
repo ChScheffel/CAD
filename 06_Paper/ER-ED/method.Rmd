@@ -271,6 +271,12 @@ aov_arousalView = afex::aov_ez(id = "ID",
                            fun_aggregate = mean) 
 afex::nice(aov_arousalView, es = "pes")
 
+# compute posthoc tests for within measures
+posthoc_arousalView = emmeans::emmeans(aov_arousalView$aov, specs = "block")
+pairs(posthoc_arousalView, adjust = "bonferroni")
+
+# Figure to visualize arousal ratings
+
 # figure
 ggplot2::ggplot(arousal_view, aes(x = block, y = arousal))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
@@ -280,24 +286,15 @@ ggplot2::ggplot(arousal_view, aes(x = block, y = arousal))+
   geom_jitter(size = 0.4)+
   labs(y = "Arousal Rating")
 
-
-# compute posthoc tests for within measures
-posthoc_arousalView = emmeans::emmeans(aov_arousalView$aov, specs = "block")
-pairs(posthoc_arousalView, adjust = "bonferroni")
-
-# Figure to visualize arousal ratings
-
-#ggplot2::ggplot
-
 # View neg and regulate conditions 
 
-arousal_Reg = data_ER %>%
+arousal_reg = data_ER %>%
   subset(data_ER$block != "view_neu" & data_ER$block != "choice")
 
 
 aov_arousalReg = afex::aov_ez(id = "ID",
                               dv = "arousal",
-                              data = arousal_Reg,
+                              data = arousal_reg,
                               within = "block",
                               fun_aggregate = mean)
 afex::nice(aov_arousalReg, es = "pes")
@@ -306,6 +303,16 @@ afex::nice(aov_arousalReg, es = "pes")
 posthoc_arousalReg = emmeans::emmeans(aov_arousalReg$aov, specs = "block")
 pairs(posthoc_arousalReg, adjust = "bonferroni")
 
+# Figure to visualize arousal ratings
+
+# figure
+ggplot2::ggplot(arousal_reg, aes(x = block, y = arousal))+
+  geom_boxplot(width = 0.7, position = position_dodge(0.8))+
+  scale_x_discrete(name = "Strategy", 
+                   limits = c("view_neg", "distraction", "distancing", "suppression"),
+                   labels = c("View", "Distraction", "Distancing", "Suppression"))+
+  geom_jitter(size = 0.4)+
+  labs(y = "Arousal Rating")
 
 ## Subjective effort
 
