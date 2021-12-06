@@ -37,7 +37,7 @@ datalist_ED = lapply(list.files(here("04_RawData", "pilot", "ER-ED/logfiles"), p
                           read.csv, stringsAsFactors = FALSE, header = TRUE)
 
 # new empty frame to store files into
-data_ER = data.frame(ID = character(), block = character(), arousal = double(), effort = double(), trigger_view = double(), trigger_reg = double())
+data_ER = data.frame(ID = character(), block = character(), arousal = double(), effort = double(), trigger = double(), trigger_reg = double())
 
 data_ED = data.frame(ID = character(), step = double(), choice = character(),
                            LBvalue = double(), LBlevel = double(), RBvalue = double(), RBlevel = double())
@@ -59,6 +59,54 @@ for (i in 1:length(datalist_ER)) {
   
 }
 
+rownames(data_ER) = 1:nrow(data_ER)
+
+# loop to store trigger in one column
+
+for (i in 1:nrow(data_ER)) {
+  if (is.na(data_ER$trigger[i])) {
+    data_ER$trigger[i] = data_ER$trigger_reg[i]
+  }
+  
+  if (is.na(data_ER$trigger[i])) {
+    data_ER$trigger[i] = 26
+  }
+}
+
+# delete old column
+
+data_ER$trigger_reg = NULL
+
+# loop to correct block indicator
+
+for (i in 1:nrow(data_ER)) {
+  
+  if (data_ER$trigger[i] == 21) {
+    
+    data_ER$block[i] = "view_neu"
+    
+  } else if (data_ER$trigger[i] == 22) {
+    
+    data_ER$block[i] = "view_neg"
+    
+  } else if (data_ER$trigger[i] == 23 ) {
+    
+    data_ER$block[i] = "distraction"
+    
+  } else if (data_ER$trigger[i] == 24 ) {
+    
+    data_ER$block[i] = "distancing" 
+    
+  } else if (data_ER$trigge[i] == 25 ) {
+    
+    data_ER$block[i] = "suppression"
+  
+  } else if (data_ER$trigger[i] == 25) {
+    
+    data_ER$block[i] = "choice"
+  }
+}
+
 # store ER choice in data_choice frame
 
 for (i in 1:length(datalist_ER)) {
@@ -67,36 +115,6 @@ for (i in 1:length(datalist_ER)) {
   tmp = tmp[(!is.na(tmp$choice)), ]
   
   data_choice = rbind(tmp, data_choice)
-}
-
-# loop to correct block indicator
-
-for (i in 1:nrow(data_ER)) {
-  
-  if (data_ER$trigger_view[i] == 21 & is.na(data_ER$trigger_reg[i])) {
-    
-    data_ER$block[i] = "view_neu"
-    
-  } else if (data_ER$trigger_view[i] == 22 & is.na(data_ER$trigger_reg[i])) {
-    
-    data_ER$block[i] = "view_neg"
-    
-  } else if (is.na(data_ER$trigger_view[i]) & data_ER$trigger_reg[i] == 23) {
-    
-    data_ER$block[i] = "distraction"
-    
-  } else if (is.na(data_ER$trigger_view[i]) & data_ER$trigger_reg[i] == 24) {
-    
-    data_ER$block[i] = "distancing" 
-    
-  } else if (is.na(data_ER$trigger_view[i]) & data_ER$trigger_reg[i] == 25) {
-    
-    data_ER$block[i] = "suppression"
-  
-  } else if (is.na(data_ER$trigger_view[i]) & is.na(data_ER$trigger_reg[i])) {
-    
-    data_ER$block[i] = "choice"
-  }
 }
 
 # store ED data in data_ED frame
