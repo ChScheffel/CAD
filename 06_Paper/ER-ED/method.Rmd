@@ -259,7 +259,7 @@ The resulting values were entered in a rmANOVA to compare the SVs of the three s
 ## Subjective arousal
 
 # ANOVA subjective arousal ratings
-# View Condition
+# View condition
 
 arousal_view = data_ER %>%
   subset(data_ER$block == "view_neu" | data_ER$block == "view_neg")
@@ -279,13 +279,34 @@ pairs(posthoc_arousalView, adjust = "bonferroni")
 
 #ggplot2::ggplot
 
+# View neg and regulate conditions 
+
+arousal_Reg = data_ER %>%
+  subset(data_ER$block != "view_neu" & data_ER$block != "choice")
+
+
+aov_arousalReg = afex::aov_ez(id = "ID",
+                              dv = "arousal",
+                              data = arousal_Reg,
+                              within = "block",
+                              fun_aggregate = mean)
+afex::nice(aov_arousalReg, es = "pes")
+
+# compute posthoc tests for within measures
+posthoc_arousalReg = emmeans::emmeans(aov_arousalReg$aov, specs = "block")
+pairs(posthoc_arousalReg, adjust = "bonferroni")
+
+
 ## Subjective effort
 
 # ANOVA subjective effort ratings
 
+effort_Reg = data_ER %>%
+  subset(data_ER$block != "view_neu" & data_ER$block != "choice")
+
 aov.effort = afex::aov_ez(id = "ID",
                           dv = "effort",
-                          data = data_ER,
+                          data = effort_Reg,
                           within = "block",
                           fun_aggregate = mean)
 afex::nice(aov.effort, es = "pes")
