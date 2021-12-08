@@ -999,7 +999,24 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   agg_vars <- cbind(data_SV, dprime["d"])
   h2b_data <- merge(agg_vars, data_nback, by = c("subject", "level"))
   
+  
+  # prepare temporary nfc-data frame for loop to feed into
+  
+  data_nfc <- data.frame(subject = character(), nfc = double())
+  
+  # calculate NFC scores for every subject
+  
+  for (i in 1:(length(setindex)-1)) {
+    
+    nfc <- data_quest[setindex[i] + 2, grep("nfc", colnames(data_quest))]
+    # define and invert items to be recoded
+    nfc[ ,c(4,6,7,8,9,10,11,12,15,16)] <-  nfc[ ,c(4,6,7,8,9,10,11,12,15,16)] * -1
+    
+    data_nfc <- rbind(data_nfc, data.frame(subject = data_quest$subject[setindex[i]],
+                                           nfc = sum(nfc)))
+  }
   data_nfc$subject[which(data_nfc$subject == "E12K08")] <- "E12K08_neu"
+  
   
   h2b_data <- merge(h2b_data, data_nfc, by = "subject")
   
@@ -1091,6 +1108,7 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   
   
   # simple slopes analysis -----------------------------------------------------
+  
   library(interactions)
   
   m1_h2b.ss <- sim_slopes(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none", 
@@ -1103,25 +1121,57 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   plot(m1_h2b.ss)
   
   interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
-                x.label = "n back load level", y.label = "subjective value", legend.main = "NFC", interval = T) + theme_apa() 
+                x.label = "n back load level", y.label = "subjective value", legend.main = "NFC", interval = T) + theme_apa()
+  
+  # FIXME: Do not print all charts
+  
+  # prepare results for reporting ----------------------------------------------
   
   names(summary(m1_h2b))
   m1_h2b.fixef <- summary(m1_h2b)$coefficients
   m1_h2b.ranef <- as.data.frame(summary(m1_h2b)$varcor)
-  write.csv2(te.norm.fixef, file = "S4_te.norm.fixef.csv")
-  write.csv2(te.norm.ranef, file = "S4_te.norm.ranef.csv")
   
+  h2b_result.table <- as.data.frame(cbind(row.names(m1_h2b.fixef), 
+                                          m1_h2b.fixef[,c(1, 2, 5)]))
+  h2b_result.table$ranef.sd <- NA
+  h2b_result.table$ranef.sd[c(1,2)] <- m1_h2b.ranef$sdcor[c(1,2)]
+  colnames(h2b_result.table)[1] <- "Parameter"
+  colnames(h2b_result.table)[2] <- "Beta"
+  colnames(h2b_result.table)[3] <- "SE"
+  colnames(h2b_result.table)[4] <- "p-Value"
+  colnames(h2b_result.table)[5] <- "Random Effects (SD)"
 
+  row.names(h2b_result.table) <- NULL
+  h2b_result.table$Parameter[1:8] <- c("Intercept", "N-Back Level", "NFC", "D-Prime", "RT", "Correct", "Post-Correct", "Level x NFC")
+  # FIXME: display control variables? Spelling lower/upper case
+  
+  h2b_result.table[2:5] <- lapply(h2b_result.table[2:5], as.numeric)
+  
+  h2b_result.table[c(2,3,5)] <- round(h2b_result.table[c(2,3,5)], digits = 2)
+  h2b_result.table[4] <- round(h2b_result.table[4], digits = 3)
+  
+  h2b_result.table$`p-Value`[which(h2b_result.table$`p-Value`<.001)] <- 
+    paste0(h2b_result.table$`p-Value`[which(h2b_result.table$`p-Value`<.001)],"*")
+  h2b_result.table$`p-Value`[which(h2b_result.table$`p-Value`<.01)] <- 
+    paste0(h2b_result.table$`p-Value`[which(h2b_result.table$`p-Value`<.01)],"*")
+  h2b_result.table$`p-Value`[which(h2b_result.table$`p-Value`<.05)] <- 
+    paste0(h2b_result.table$`p-Value`[which(h2b_result.table$`p-Value`<.05)],"*")
+  
+  # FIXME: display of p = 0.000,  no display of NA
+  
+  apa_table(h2b_result.table,
+            caption = "Subjective values decline with increasing n-back level, even after controlling for declining task 
+            performance (d’ and reaction time), correct and postcorrect trials.",
+            note = "")
+  
+  
   # TODO: Corinna go on here :) 
-    # -> get results for reporting
-    # -> get means for plotting, plot results (if requested)
+    # -> prepare tables: MLM results + huxtable
     # -> write methods
     # -> write results
     
-  # TODO: it would be easy to integrate NFC as level 2 predictor into the analysis
-    # to identify the personality influence on sv
-    # it goes in the same direction as hypothesis 3a, but would hold some more information
-    # a corresponding hypothesis could be
+  # TODO: 
+    # -> check whether we want to include an additional hypothesis
     # "SVs decline stronger with increasing load level for individuals with low compared to high NFC scores" 
     # What do you think?
   
@@ -1130,8 +1180,10 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
 
 ### Changes in subjective values depend reliably on n-back level
 
+(`r apa_table(h2b_result.table)`)
+
 intraclass correlation "icc_h2b"
-table withterm/parameter - Beta - SE - p-value - random effects (SD)
+
 huxtable?
 
 ```{r Hypothesis_3a, echo=FALSE, message=FALSE, warning=FALSE}
