@@ -2029,6 +2029,9 @@ for edx in EDrounds:
         # what value was depicted on each button
         EDround.addData('EDleftbutton.value', LB[0:4])
         EDround.addData('EDrightbutton.value', RB[0:4])
+        # what strategy each button had
+        EDround.addData('EDleftbutton.strat', EDstratList[EDcomps[edx]])
+        EDround.addData('EDrightbutton.strat', EDstratList[EDcomps[edx]+1])
                 # store the necessary variables to be able to use it in the iteration process and for the random pick of the last n-back
         EDstorebutton.append(EDclick.clicked_name[0])
         if Currentstep == 0:
