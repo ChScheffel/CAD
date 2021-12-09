@@ -829,18 +829,18 @@ Contrary to our expectations, the rmANOVA revealed no decrease in performance *d
   
   # set up empty data frame for the loop to feed into
   
-  rt <- data.frame(subject = character(), level = double(), meanrt = double())
+  rt <- data.frame(subject = character(), level = double(), medianrt = double())
   
   # calculate mean reaction time per participant per level
   
   for (i in 1:(length(levelindex)-1)) {
     
-    meanrt <- mean(data_RT$rt[which(data_RT$correct[c(levelindex[i]:(levelindex[i+1])-1)] == 1)
+    medianrt <- median(data_RT$rt[which(data_RT$correct[c(levelindex[i]:(levelindex[i+1])-1)] == 1)
                                  +(levelindex[i]-1)], na.rm = TRUE)
     
     newdata <- data.frame(subject = data_RT$subject[levelindex[i]],
                           level = data_RT$level[levelindex[i]],
-                          meanrt = meanrt)
+                          medianrt = medianrt)
     rt <- rbind(rt, newdata)
     
   }
@@ -855,7 +855,7 @@ Contrary to our expectations, the rmANOVA revealed no decrease in performance *d
       # calculate ANOVA
       
       hypothesis1b_rmanova <- afex::aov_ez(data = h1b_data,
-                                           dv = "meanrt",
+                                           dv = "medianrt",
                                            id = "subject",
                                            within = "level",
                                            type = 3,
