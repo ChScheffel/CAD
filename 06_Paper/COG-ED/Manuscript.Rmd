@@ -255,6 +255,7 @@ Our hypotheses were derived from the results of Westbrook et al. [-@Westbrook201
 Regarding the associations of subjective and objective task load we hypothesize that (1a) performance measured by signal detection *d'* declines with increasing n-back level, (1b) performance measured by reaction time declines with increasing n-back level, and (1c) perceived task load increases with n-back level.
 Regarding the associations of task load and ED we hypothesize that (2a) SVs decline with increasing n-back level, and (2b) SVs decline with increasing n-back level even after controlling for declining task performance.
 And regarding individual differences in ED we hypothesize that (3a) SVs predict individual NFC scores, and (3b) perceived task load does not predict individual NFC scores.
+(2c) or (3a) or (3b) "SVs decline stronger with increasing load level for individuals with low compared to high NFC scores"
 
 ```{r preprocessing, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -583,7 +584,25 @@ A rmANOVA with six paired contrasts will be computed, comparing the SVs between 
 Tukey method will be used for the paired contrasts of each rmANOVA, including *p*-value adjustment.
 
 To determine the influence of task performance in the association of SVs and n-back level, we will set up a multi-level model.
-**MLM explanation goes here** To ensure the validity of the multi-level model, we will conduct a specification curve analysis [@Simonsohn2020], which will include 92 possible preprocessing pipelines of the RT data.
++ NFC
+**MLM explanation goes here** 
+
+fit using $lmerTest$ package
+# center level 1 predictors
+ two ways: centering at the grand mean (CGM) vs. centering within cluster (CWC) = group mean centering
+ level 1 predictor (SV) is of substantive interest
+ CWC
+# level 2 predictor
+ CGM
+null model > ICC
+random slopes model
+  controlled for performance (d', RT), correct and post-correct trials
+parameter estimation REML
+include model?
+simple slopes analysis
+  
+
+To ensure the validity of the multi-level model, we will conduct a specification curve analysis [@Simonsohn2020], which will include 92 possible preprocessing pipelines of the RT data.
 These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, $2 SD$ from the mean, $3 SD$ from the mean, RTs below 100 ms), whether post-error trials were excluded or not, and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within n-back levels).
 The multi-level model will be run with each of the 92 pipelines, which will also include our main pipeline (untransformed data, exclusion of RTs below 100 ms, removal of post-error trials).
 The ratio of pipelines that lead to significant versus non-significant effects will provide an indication of how robust the effect actually is.
@@ -986,7 +1005,7 @@ SVs were higher for 1- than 3-back (`r apa_print(hypothesis2a_contrasts)$statist
 Importantly, the lack of difference between the SVs of 1- and 2-back indicates that when given the choice, not all participants preferred the easiest level.
 This can be considered preliminary proof-of-concept, as this behavioural pattern can only emerge in the CERED paradigm, but not in the original COG-ED paradigm.
 
-```{r Hypothesis_2b, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Hypothesis_2b, echo=FALSE, message=FALSE, warning=FALSE, fig.show='hide'}
 
   # H2b: Subjective values decline with increasing n-back level, even after controlling for declining task
   # performance measured by signal detection d’ and reaction time.
@@ -1021,16 +1040,16 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   h2b_data <- merge(h2b_data, data_nfc, by = "subject")
   
   # include new variable for post-correct trials
-  h2b_data$postcorrect = rep(NA, length(h2b_data$correct))    # add empty column
-      for (z in 1:(length(h2b_data$correct)-1)) {             # for all trials except the very last one
-        if (h2b_data$correct[z] == 1) {                       # if correct, paste correct
-          h2b_data$postcorrect[z+1] <- 1
-        } else if (h2b_data$correct[z] == 0) {                # if not correct, paste incorrect
-          h2b_data$postcorrect[z+1] <- 0
-        } else {
-          h2b_data$postcorrect[z+1] <- NA                     # if empty, leave empty
-        } 
-      }
+  h2b_data$postcorrect = rep(NA, length(h2b_data$correct))  # add empty column
+  for (z in 1:(length(h2b_data$correct)-1)) {               # for all trials except the very last one
+    if (h2b_data$correct[z] == 1) {                         # if correct, paste correct
+      h2b_data$postcorrect[z+1] <- 1
+    } else if (h2b_data$correct[z] == 0) {                  # if not correct, paste incorrect
+      h2b_data$postcorrect[z+1] <- 0
+    } else {
+      h2b_data$postcorrect[z+1] <- NA                       # if empty, leave empty
+    } 
+  }
     
   # 512 trials, 8 blocks á 64 trials
   i <- 1
@@ -1096,7 +1115,6 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   # random slopes model --------------------------------------------------------
   
   ## maximal model ---- 
-  
   m1_h2b <- lmer(sv ~ level.cwc * nfc.cgm + d.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject), 
                  data = h2b_sub,
                  REML = T) # parameters estimated by maximizing restricted log-likelihood
@@ -1110,31 +1128,23 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   # simple slopes analysis -----------------------------------------------------
   
   library(interactions)
-  
   m1_h2b.ss <- sim_slopes(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none", 
                     cond.int = T,                                       # print conditional intercepts
                     johnson_neyman = T, jnplot = T, control.fdr = T)    # calculate Johnson Neyman intervals, 
                                                                         # create plot, adjust false discovery rate
-  library(huxtable)
-  as_huxtable(m1_h2b.ss)
   
-  plot(m1_h2b.ss)
+  # prepare MLM results for reporting ------------------------------------------
   
-  interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
-                x.label = "n back load level", y.label = "subjective value", legend.main = "NFC", interval = T) + theme_apa()
-  
-  # FIXME: Do not print all charts
-  
-  # prepare results for reporting ----------------------------------------------
-  
-  names(summary(m1_h2b))
-  m1_h2b.fixef <- summary(m1_h2b)$coefficients
+  # get random and fixed effects
   m1_h2b.ranef <- as.data.frame(summary(m1_h2b)$varcor)
+  m1_h2b.fixef <- summary(m1_h2b)$coefficients
   
+  # prepare table
   h2b_result.table <- as.data.frame(cbind(row.names(m1_h2b.fixef), 
                                           m1_h2b.fixef[,c(1, 2, 5)]))
   h2b_result.table$ranef.sd <- NA
   h2b_result.table$ranef.sd[c(1,2)] <- m1_h2b.ranef$sdcor[c(1,2)]
+ 
   colnames(h2b_result.table)[1] <- "Parameter"
   colnames(h2b_result.table)[2] <- "Beta"
   colnames(h2b_result.table)[3] <- "SE"
@@ -1150,41 +1160,71 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   h2b_result.table[c(2,3,5)] <- round(h2b_result.table[c(2,3,5)], digits = 2)
   h2b_result.table[4] <- round(h2b_result.table[4], digits = 3)
   
-  h2b_result.table$`p-Value`[which(h2b_result.table$`p-Value`<.001)] <- 
-    paste0(h2b_result.table$`p-Value`[which(h2b_result.table$`p-Value`<.001)],"*")
   h2b_result.table$`p-Value`[which(h2b_result.table$`p-Value`<.01)] <- 
     paste0(h2b_result.table$`p-Value`[which(h2b_result.table$`p-Value`<.01)],"*")
   h2b_result.table$`p-Value`[which(h2b_result.table$`p-Value`<.05)] <- 
     paste0(h2b_result.table$`p-Value`[which(h2b_result.table$`p-Value`<.05)],"*")
+  h2b_result.table$`p-Value`[which(h2b_result.table$`p-Value`<.001)] <- 
+    paste0("<.001***")
   
-  # FIXME: display of p = 0.000,  no display of NA
+  h2b_result.table$`Random Effects (SD)`[3:8] <- paste0("")
+   
+  library(kableExtra)
+  #replication_table <-
+    kbl(h2b_result.table,
+    caption = "Effects of n-back load level on subjective value controlled 
+    for task performance (d’ and reaction time), correct and postcorrect trials.",
+    booktabs = T,                          # no vertical lines
+    escape = F,                            # correctly print special characters)
+    align = c("l",rep("r",7))) %>%         # right aligns the text in every numerical column
+    kable_styling(latex_options = c("striped")) %>%
+    footnote(general = "NFC = Need for Cognition, SE = standard error. ***$p$ < .001, **$p$ < .01, *$p$ < 0.5.",
+            escape = F,                    # correctly print special characters
+            threeparttable = T)            # line breaks in the footnote
+  #FIXME delete leading zero for p-values
+    
+  # prepare SSA results for reporting ------------------------------------------
   
-  apa_table(h2b_result.table,
-            caption = "Subjective values decline with increasing n-back level, even after controlling for declining task 
-            performance (d’ and reaction time), correct and postcorrect trials.",
-            note = "")
+  m1_h2b.ss$slopes
   
+  library(huxtable)
+  h2b_ssa.table <- as_huxtable(m1_h2b.ss)
+  h2b_ssa.table[1,] <- c("Value of NFC", "Slope of N-Back Level", "Conditional Intercept")
+  h2b_ssa.table <- h2b_ssa.table[-2,]
   
+  h2b_ssa.table[2:4,1] <- c("- 1 SD", "Mean", "+ 1 SD")  
+ 
+  
+  # create interaction plot
+  h2b_ssa.plot <- interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
+                                x.label = "n back load level", y.label = "subjective value",
+                                legend.main = "NFC", interval = T) + theme_apa()
+
   # TODO: Corinna go on here :) 
     # -> prepare tables: MLM results + huxtable
     # -> write methods
     # -> write results
     
-  # TODO: 
-    # -> check whether we want to include an additional hypothesis
     # "SVs decline stronger with increasing load level for individuals with low compared to high NFC scores" 
-    # What do you think?
-  
+
 
 ```
 
 ### Changes in subjective values depend reliably on n-back level
 
-(`r apa_table(h2b_result.table)`)
+The multilevel model `r replication_table`
 
-intraclass correlation "icc_h2b"
+statistically significant effect of n-back load level `r apa_print(m1_h2b)$full_result$level_cwc`
+controlled for performance and correct and post-correct answers
 
-huxtable?
+
+`r apa_print(m1_h2b)$full_result$nfc_cgm`
+`r round((icc_h2b*100), digits = 0)` % of the total variance in subjective values can be explained by differences between subjects ($ICC =$ `r round(icc_h2b, digits = 2)`).
+
+
+simple slopes analysis `r h2b_ssa.table`, `r h2b_ssa.plot`
+statistically significant influence of n-back load level on subjective value, but no moderating effect of NFC
+
 
 ```{r Hypothesis_3a, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -1301,6 +1341,11 @@ When including the AUC of all NASA-TLX subscales as a predictor, it could explai
 An increase in one NASA-TLX AUC value corresponded, on average, to a decrease of `r round(hypothesis3b$coefficients[2], digits = 1)` on the NFC scale (`r apa_print(hypothesis3b)$estimate$h3_data_auc_ntlx`).
 
 \newpage
+
+# Discussion
+
+# (summary and interpretation of h2b_results)
+
 
 # Acknowledgements
 
