@@ -719,9 +719,70 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
     
   }
   
-
   
 ```
+
+```{r pipelines_dprime, echo=FALSE, message=FALSE, warning=FALSE}
+  
+  # calculate d' for every pipeline because it depends on the total number of target and non-target trials
+
+  for (j in 1:length(pipelines_data)) {
+
+    # compute index of rows in which the levels change
+    
+    levelindex <- c(1,which(pipelines_data[[j]]$level != dplyr::lag(pipelines_data[[j]]$level)),nrow(pipelines_data[[j]]))
+    
+    # set up empty data frame for the loop to feed into
+    
+    dprime <- data.frame(subject = character(), level = double(), hitrate = double(), falsealarmrate = double())
+    
+    # calculate hits and false alarms per participant
+    
+    for (i in 1:(length(levelindex)-1)) {
+      
+      # set the number of targets and non-targets
+      num_targets <- length(which(pipelines_data[[j]]$target[c(levelindex[i]:(levelindex[i+1])-1)] == 1))
+      num_nontargets <- length(which(pipelines_data[[j]]$target[c(levelindex[i]:(levelindex[i+1])-1)] == 0))
+      
+      hits <- length(which(pipelines_data[[j]]$target[c(levelindex[i]:(levelindex[i+1])-1)] == 1 &
+                             pipelines_data[[j]]$correct[c(levelindex[i]:(levelindex[i+1])-1)] == 1) + (levelindex[i]-1))
+      falsealarms <- length(which(pipelines_data[[j]]$response[c(levelindex[i]:(levelindex[i+1])-1)] == 1 &
+                             pipelines_data[[j]]$correct[c(levelindex[i]:(levelindex[i+1])-1)] == 0) + (levelindex[i]-1))
+      newdata <- data.frame(subject = pipelines_data[[j]]$subject[levelindex[i]],
+                            level = pipelines_data[[j]]$level[levelindex[i]],
+                            hitrate = hits/num_targets,
+                            falsealarmrate = falsealarms/num_nontargets)
+      dprime <- rbind(dprime, newdata)
+      
+    }
+    
+    # z-transform the hit rate and the false alarm rate
+    
+    dprime$hitrate.z = NA
+    dprime$falsealarmrate.z = NA
+    
+    for (i in 1:4) {
+      
+      dprime$hitrate.z[which(dprime$level == i)]        <- scale(dprime$hitrate[which(dprime$level == i)])
+      dprime$falsealarmrate.z[which(dprime$level == i)] <- scale(dprime$falsealarmrate[which(dprime$level == i)])
+      
+    }
+    
+    # calculate d'
+    
+    dprime$d <- dprime$hitrate.z - dprime$falsealarmrate.z
+    
+    # feed d# trialwise into the pipeline data frame
+    
+    for (i in 1:nrow(pipelines_data[[j]])) {
+    
+      pipelines_data[[j]]$dprime[i] <- dprime$d[dprime$subject == pipelines_data[[j]]$subject[i] & dprime$level == pipelines_data[[j]]$level[i]]
+    
+    }
+  }
+  
+```
+
 
 # Methods
 
@@ -796,60 +857,16 @@ A sample size analysis with GPower [@Faul2007; @Faul2009], using the pilot RT da
 
   # H1a: Performance measured by signal detection d’ declines with increasing n-back level.
   
-  # compute index of rows in which the levels change
-  
-  levelindex <- c(1,which(data_RT$level != dplyr::lag(data_RT$level)),nrow(data_RT))
-  
-  # set up empty data frame for the loop to feed into
-  
-  dprime <- data.frame(subject = character(), level = double(), hitrate = double(), falsealarmrate = double())
-  
-  # calculate hits and false alarms per participant
-  
-  for (i in 1:(length(levelindex)-1)) {
-    
-    # set the number of targets and non-targets
-    num_targets <- length(which(data_RT$target[c(levelindex[i]:(levelindex[i+1])-1)] == 1))
-    num_nontargets <- length(which(data_RT$target[c(levelindex[i]:(levelindex[i+1])-1)] == 0))
-    
-    hits <- length(which(data_RT$target[c(levelindex[i]:(levelindex[i+1])-1)] == 1 &
-                           data_RT$correct[c(levelindex[i]:(levelindex[i+1])-1)] == 1) + (levelindex[i]-1))
-    falsealarms <- length(which(data_RT$target[c(levelindex[i]:(levelindex[i+1])-1)] == 0 &
-                           data_RT$correct[c(levelindex[i]:(levelindex[i+1])-1)] == 0) + (levelindex[i]-1))
-    newdata <- data.frame(subject = data_RT$subject[levelindex[i]],
-                          level = data_RT$level[levelindex[i]],
-                          hitrate = hits/num_targets,
-                          falsealarmrate = falsealarms/num_nontargets)
-    dprime <- rbind(dprime, newdata)
-    
-  }
-  
-  # z-transform the hit rate and the false alarm rate
-  
-  dprime$hitrate.z = NA
-  dprime$falsealarmrate.z = NA
-  
-  for (i in 1:4) {
-    
-    dprime$hitrate.z[which(dprime$level == i)]        <- scale(dprime$hitrate[which(dprime$level == i)])
-    dprime$falsealarmrate.z[which(dprime$level == i)] <- scale(dprime$falsealarmrate[which(dprime$level == i)])
-    
-  }
-  
-  # calculate d'
-  
-  dprime$d <- dprime$hitrate.z - dprime$falsealarmrate.z
-  
   # repeated measures ANOVA with three linear contrasts, contrasting the d’ of two n-back levels (2,3,4) at a time
   
-      # make a temporary copy of the dprime data frame without 1-back
+      # make a temporary copy of the data frame without 1-back
       
-      h1a_data <- dprime[dprime$level != 1, ]
+      h1a_data <- pipelines_data[["AARN"]][pipelines_data[["AARN"]]$level != 1, ]
       h1a_data$level <- as.factor(h1a_data$level)
       
       # calculate ANOVA
       hypothesis1a_rmanova <- afex::aov_ez(data = h1a_data,
-                                           dv = "d",
+                                           dv = "dprime",
                                            id = "subject",
                                            within = "level",
                                            type = 3,
