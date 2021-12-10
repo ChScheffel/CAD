@@ -90,7 +90,6 @@ editor_options:
   library(bayestestR)   # computing area under the curve, "bayestestR" package
   library(papaja)       # APA conform output, "papaja" package
   library(lmerTest)     # for multilevel modeling
-  library(snow)         # for faster processing
   library(afex)         # compute repeated measures ANOVA, "afex" package
   library(emmeans)      # for custom contrasts in ANOVAs, "emmeans" package
 
@@ -764,9 +763,10 @@ Within the model, we control for *d'*, RT, correct and post-correct trials.
 $$
 SV \sim level\ * NFC + d' + RT + correct + postcorrect + (level|subject)
 $$
-Level-1-predictors are centered within cluster, whereas the level-2-predictor is centered at the grand mean as recommended by Enders & Tofighi [-@Enders2007].
+Level-1-predictors are centered within cluster, whereas the level-2-predictor is centered at the grand mean as recommended by Enders & Tofighi [-@Enders2007]. 
+We visually inspect the residuals of the final model. The approximately normal distribution indicates no evidence to perform model criticism.  
 Third, we perform a simple slopes analysis with n-back level as predictor and NFC as moderator. 
-# TODO: Johnson-Neyman plot
+To evaluate the moderating effect, we calculate the Johnson-Neyman interval.
 
 To ensure the validity of the multi-level model, we will conduct a specification curve analysis [@Simonsohn2020], which will include 92 possible preprocessing pipelines of the RT data.
 These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, $2 SD$ from the mean, $3 SD$ from the mean, RTs below 100 ms), whether post-error trials were excluded or not, and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within n-back levels).
@@ -1054,13 +1054,12 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   # H2b: Subjective values decline with increasing n-back level, even after controlling for declining task
   # performance measured by signal detection d’ and reaction time.
 
-  # detach afex in order to user lmerTest
+  # detach afex in order to use lmerTest
   detach("package:afex", unload = TRUE)
   
   # get all relevant variables -------------------------------------------------
     
-  agg_vars <- cbind(data_SV, dprime["d"])
-  h2b_data <- merge(agg_vars, data_nback, by = c("subject", "level"))
+  h2b_data <- merge(dprime[c("subject", "level", "d")], data_nback, by = c("subject", "level"))
   
   
   # prepare temporary nfc-data frame for loop to feed into
@@ -1083,29 +1082,6 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   
   h2b_data <- merge(h2b_data, data_nfc, by = "subject")
   
-  # include new variable for post-correct trials
-  h2b_data$postcorrect = rep(NA, length(h2b_data$correct))  # add empty column
-  for (z in 1:(length(h2b_data$correct)-1)) {               # for all trials except the very last one
-    if (h2b_data$correct[z] == 1) {                         # if correct, paste correct
-      h2b_data$postcorrect[z+1] <- 1
-    } else if (h2b_data$correct[z] == 0) {                  # if not correct, paste incorrect
-      h2b_data$postcorrect[z+1] <- 0
-    } else {
-      h2b_data$postcorrect[z+1] <- NA                       # if empty, leave empty
-    } 
-  }
-    
-  # 512 trials, 8 blocks á 64 trials
-  i <- 1
-  while (i <= nrow(h2b_data)){
-    for (j in 1:64) {
-      h2b_data$trial <- seq(1, 64, 1)
-    }
-    i <- i + 64
-  }
-  
-  h2b_data$postcorrect[h2b_data$trial == "1"] <- 1         # avoid transfer from previous block and subject (first trial of a block is always correct)
-  
   # get subset for MLM
   
   h2b_sub <- droplevels(subset(h2b_data[c("subject", "level", "sv", "d", "correct", "postcorrect", "rt", "nfc")],
@@ -1120,24 +1096,19 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   # > CWC
   
   # d'
-  h2b_sub$d.mwc <- ave(h2b_sub$d, h2b_sub$subject, FUN = function(x) mean(x, na.rm = T))
-  h2b_sub$d.cwc <- h2b_sub$d - h2b_sub$d.mwc
+  h2b_sub$d.cwc <- h2b_sub$d - (ave(h2b_sub$d, h2b_sub$subject, FUN = function(x) mean(x, na.rm = T)))
   
   # RT
-  h2b_sub$rt.mwc <- ave(h2b_sub$rt, h2b_sub$subject, FUN = function(x) mean(x, na.rm = T))
-  h2b_sub$rt.cwc <- h2b_sub$rt - h2b_sub$rt.mwc
+  h2b_sub$rt.cwc <- h2b_sub$rt - (ave(h2b_sub$rt, h2b_sub$subject, FUN = function(x) mean(x, na.rm = T)))
   
   # level
-  h2b_sub$level.mwc <- ave(h2b_sub$level, h2b_sub$subject, FUN = function(x) mean(x, na.rm = T))
-  h2b_sub$level.cwc <- h2b_sub$level - h2b_sub$level.mwc
+  h2b_sub$level.cwc <- h2b_sub$level - (ave(h2b_sub$level, h2b_sub$subject, FUN = function(x) mean(x, na.rm = T)))
   
   # correct 
-  h2b_sub$correct.mwc <- ave(h2b_sub$correct, h2b_sub$subject, FUN = function(x) mean(x, na.rm = T))
-  h2b_sub$correct.cwc <- h2b_sub$correct - h2b_sub$correct.mwc
+  h2b_sub$correct.cwc <- h2b_sub$correct - (ave(h2b_sub$correct, h2b_sub$subject, FUN = function(x) mean(x, na.rm = T)))
 
   # postcorrect
-  h2b_sub$postcorrect.mwc <- ave(h2b_sub$postcorrect, h2b_sub$subject, FUN = function(x) mean(x, na.rm = T))
-  h2b_sub$postcorrect.cwc <- h2b_sub$postcorrect - h2b_sub$postcorrect.mwc
+  h2b_sub$postcorrect.cwc <- h2b_sub$postcorrect - (ave(h2b_sub$postcorrect, h2b_sub$subject, FUN = function(x) mean(x, na.rm = T)))
   
   ## level 2 predictor
   # > CGM
@@ -1148,7 +1119,8 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   
   # null model -----------------------------------------------------------------
   m0_h2b <- lmer(sv ~ 1 + (1|subject), 
-                 data = h2b_sub)
+                 data = h2b_sub,
+                 REML = T)
   
   # intraclass correlation (ICC)
   # % of variance can be explained by differences between persons
@@ -1161,21 +1133,13 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   ## maximal model ---- 
   m1_h2b <- lmer(sv ~ level.cwc * nfc.cgm + d.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject), 
                  data = h2b_sub,
-                 REML = T) # parameters estimated by maximizing restricted log-likelihood
+                 REML = T) # parameters estimated by restricted log-likelihood maximization
   
   
   ## plot model fit of the final model ----
   library(sjPlot)
   plot_model(m1_h2b, type = "diag")
   
-  
-  # simple slopes analysis -----------------------------------------------------
-  
-  library(interactions)
-  m1_h2b.ss <- sim_slopes(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none", 
-                    cond.int = T,                                       # print conditional intercepts
-                    johnson_neyman = T, jnplot = T, control.fdr = T)    # calculate Johnson Neyman intervals, 
-                                                              
   
   # prepare MLM results for reporting ------------------------------------------
   
@@ -1191,12 +1155,12 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
  
   colnames(h2b_result.table)[1] <- "Parameter"
   colnames(h2b_result.table)[2] <- "Beta"
-  colnames(h2b_result.table)[3] <- "SE"
-  colnames(h2b_result.table)[4] <- "p-Value"
+  colnames(h2b_result.table)[3] <- "$SE$"
+  colnames(h2b_result.table)[4] <- "$p$-value"
   colnames(h2b_result.table)[5] <- "Random Effects (SD)"
 
   row.names(h2b_result.table) <- NULL
-  h2b_result.table$Parameter[1:8] <- c("Intercept", "N-Back Level", "NFC", "D-Prime", "RT", "Correct", "Post-Correct", "Level x NFC")
+  h2b_result.table$Parameter[1:8] <- c("Intercept", "N-Back Level", "NFC", "d'", "RT", "Correct", "Post-Correct", "Level x NFC")
   # FIXME: display control variables? Spelling lower/upper case
   
   h2b_result.table[2:5] <- lapply(h2b_result.table[2:5], as.numeric)
@@ -1204,11 +1168,11 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   h2b_result.table[c(2,3,5)] <- round(h2b_result.table[c(2,3,5)], digits = 2)
   h2b_result.table[4] <- round(h2b_result.table[4], digits = 3)
   
-  h2b_result.table$`p-Value`[which(h2b_result.table$`p-Value`<.01)] <- 
-    paste0(h2b_result.table$`p-Value`[which(h2b_result.table$`p-Value`<.01)],"*")
-  h2b_result.table$`p-Value`[which(h2b_result.table$`p-Value`<.05)] <- 
-    paste0(h2b_result.table$`p-Value`[which(h2b_result.table$`p-Value`<.05)],"*")
-  h2b_result.table$`p-Value`[which(h2b_result.table$`p-Value`<.001)] <- 
+  h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.01)] <- 
+    paste0(h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.01)],"*")
+  h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.05)] <- 
+    paste0(h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.05)],"*")
+  h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.001)] <- 
     paste0("<.001***")
   
   h2b_result.table$`Random Effects (SD)`[3:8] <- paste0("")
@@ -1226,23 +1190,33 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
             escape = F,                    # correctly print special characters
             threeparttable = T)            # line breaks in the footnote
   #FIXME delete leading zero for p-values
+   
     
+  # simple slopes analysis -----------------------------------------------------
+  
+  library(interactions)
+  m1_h2b.ss <- sim_slopes(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none", 
+                    cond.int = T,                                       # print conditional intercepts
+                    johnson_neyman = T, jnplot = T, control.fdr = T)    # calculate Johnson Neyman intervals,
+                                                                        # create plot, adjust false discovery rate
+  
+  # save Johnson-Neyman plot
+  h2b_jnplot <- m1_h2b.ss$jnplot
+  
+  # create interaction plot
+  h2b_ssa.plot <- interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
+                                x.label = "n back level", y.label = "subjective value",
+                                legend.main = "NFC", interval = T) + theme_apa()   
+  
+  
   # prepare SSA results for reporting ------------------------------------------
-  
-  m1_h2b.ss$slopes
-  
+
   library(huxtable)
   h2b_ssa.table <- as_huxtable(m1_h2b.ss)
   h2b_ssa.table[1,] <- c("Value of NFC", "Slope of N-Back Level", "Conditional Intercept")
   h2b_ssa.table <- h2b_ssa.table[-2,]
   
   h2b_ssa.table[2:4,1] <- c("- 1 SD", "Mean", "+ 1 SD")  
- 
-  
-  # create interaction plot
-  h2b_ssa.plot <- interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
-                                x.label = "n back load level", y.label = "subjective value",
-                                legend.main = "NFC", interval = T) + theme_apa()
 
  
 ```
@@ -1259,7 +1233,7 @@ controlled for performance and correct and post-correct answers
 `r round((icc_h2b*100), digits = 0)` % of the total variance in subjective values can be explained by differences between subjects ($ICC =$ `r round(icc_h2b, digits = 2)`).
 
 
-simple slopes analysis `r h2b_ssa.table`, `r h2b_ssa.plot`
+simple slopes analysis `r h2b_ssa.table`, `r h2b_jnplot`,`r h2b_ssa.plot`
 statistically significant influence of n-back load level on subjective value, but no moderating effect of NFC
 
 
