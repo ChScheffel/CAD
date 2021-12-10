@@ -859,6 +859,7 @@ A sample size analysis with GPower [@Faul2007; @Faul2009], using the pilot RT da
       h1a_data$level <- as.factor(h1a_data$level)
       
       # calculate ANOVA
+      
       hypothesis1a_rmanova <- afex::aov_ez(data = h1a_data,
                                            dv = "dprime",
                                            id = "subject",
@@ -867,9 +868,12 @@ A sample size analysis with GPower [@Faul2007; @Faul2009], using the pilot RT da
                                            include_aov = TRUE)
       
       # obtain estimated marginal means for ANOVA model
+      
       hypothesis1a_emm <- emmeans(object = hypothesis1a_rmanova$aov,
                                   specs = "level")
+      
       # calculate pairwise comparisons on estimated marginal means
+      
       hypothesis1a_contrasts <- pairs(hypothesis1a_emm)
     
       # remove the temporary variable
@@ -923,9 +927,11 @@ Contrary to our expectations, the rmANOVA revealed no decrease in performance *d
                                            include_aov = TRUE)
       
       # obtain estimated marginal means for ANOVA model
+      
       hypothesis1b_emm <- emmeans(object = hypothesis1b_rmanova$aov,
                                   specs = "level")
       # calculate pairwise comparisons on estimated marginal means
+      
       hypothesis1b_contrasts <- pairs(hypothesis1b_emm)
     
       # remove the temporary variable
@@ -1048,9 +1054,12 @@ Overall, these ratings showed that the increase in task load was being perceived
                                        type = 3, include_aov = TRUE)
   
   # obtain estimated marginal means for ANOVA model
+  
   hypothesis2a_emm <- emmeans(object = hypothesis2a_rmanova$aov,
                               specs = "level")
+  
   # calculate pairwise comparisons on estimated marginal means
+  
   hypothesis2a_contrasts <- pairs(hypothesis2a_emm)
 
   # remove the temporary variable
