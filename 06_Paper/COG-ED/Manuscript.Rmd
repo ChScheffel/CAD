@@ -160,16 +160,30 @@ editor_options:
   data_nback[data_nback == "None"] <- 0
   data_nback$response <- as.numeric(data_nback$response)
   
+  # for the multi level model to be able to assess the influence of post-error trials, we will include that as a regressor
+  # so the nback data frame will contain a column of ones and zeros
+
+  # add the "correct" column, but shifted down by one row
+
+  data_nback$postcorrect = c(1,data_nback$correct[1:(length(data_nback$correct)-1)])
+
+  # make sure to avoid transfer from the previous block by marking the first trial of each block as correct
+
+  data_nback$postcorrect[c(1,seq(64,length(data_nback$postcorrect),64))] <- 1
+  
   # the choice column will contain 1 for the left button and 2 for the right button
+  
   data_ED[data_ED == "EDleftbutton"] <- 1
   data_ED[data_ED == "EDrightbutton"] <- 2
   data_ED$choice <- as.numeric(data_ED$choice)
   
   # since only the last choice of each comparison is relevant, we will keep only those rows
+  
   data_ED <- data_ED[data_ED$step == 6,]
   data_ED <- subset(data_ED, select = -c(step))
   
   # remove trials with RT < 100 ms from the n-back data and exclude trials after incorrect trials
+  
   data_RT <- data_nback[-c(which(data_nback$rt < 0.1)), ]
   data_RT <- data_RT[-c(which(data_RT$correct == 0) + 1), ]
   
@@ -405,40 +419,39 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
   #   (S) square-root
   # RT outlier exclusion:
   #   (N) none
-  #   (2) 2 SDs from the mean
-  #   (3) 3 SDs from the mean
-  #   (T) 0-100 ms after stimulus onset
-  # Post-error trials:
-  #   (E) excluded
-  #   (N) not excluded
+  #   (2) 2 MADs from the median
+  #   (5) 2.5 MADs from the median
+  #   (3) 3 MADs from the median
+  #   (O) 0-100 ms after stimulus onset
+  #   (T) 0-200 ms after stimulus onset
   #
-  # Example: the data frame "AWL3E" has log-transformed RT data with no data points beyond 3 SD
-  # from the mean and with no trials that followed misses/false alarms
+  # Example: the data frame "AWL3" has log-transformed RT data with no data points beyond 3 MADs
+  # from the median
   #
-  # Some combinations are nonsensical, so we will not include them: Raw data sets (__R___) with either no outlier
+  # Some combinations are nonsensical, so we will not include them: Raw data sets (__R__) with either no outlier
   # exclusion (___N_) or time-based outlier exclusion (___T_) do not need the different dimensions (A/W), and
   # time-based exclusion is nonsensical for transformed data sets.
 
   
   # create a list that contains the basic data frame of the n-back data for each of the pipelines
 
-  pipelines_data <- replicate(92, data_nback, simplify = FALSE)
-  pipelines_data <- setNames(pipelines_data, c("AARNN","AARNE","AAR2N","AAR2E","AAR3N","AAR3E","AARTN","AARTE",
-                                               "AALNN","AALNE","AAL2N","AAL2E","AAL3N","AAL3E",
-                                               "AAINN","AAINE","AAI2N","AAI2E","AAI3N","AAI3E",
-                                               "AASNN","AASNE","AAS2N","AAS2E","AAS3N","AAS3E",
-                                               "AWR2N","AWR2E","AWR3N","AWR3E",
-                                               "AWLNN","AWLNE","AWL2N","AWL2E","AWL3N","AWL3E",
-                                               "AWINN","AWINE","AWI2N","AWI2E","AWI3N","AWI3E",
-                                               "AWSNN","AWSNE","AWS2N","AWS2E","AWS3N","AWS3E",
-                                               "WWR2N","WWR2E","WWR3N","WWR3E",
-                                               "WWLNN","WWLNE","WWL2N","WWL2E","WWL3N","WWL3E",
-                                               "WWINN","WWINE","WWI2N","WWI2E","WWI3N","WWI3E",
-                                               "WWSNN","WWSNE","WWS2N","WWS2E","WWS3N","WWS3E",
-                                               "WAR2N","WAR2E","WAR3N","WAR3E",
-                                               "WALNN","WALNE","WAL2N","WAL2E","WAL3N","WAL3E",
-                                               "WAINN","WAINE","WAI2N","WAI2E","WAI3N","WAI3E",
-                                               "WASNN","WASNE","WAS2N","WAS2E","WAS3N","WAS3E"))
+  pipelines_data <- replicate(63, data_nback, simplify = FALSE)
+  pipelines_data <- setNames(pipelines_data, c("AARN","AAR2","AAR5","AAR3","AARO","AART",
+                                               "AALN","AAL2","AAL5","AAL3",
+                                               "AAIN","AAI2","AAI5","AAI3",
+                                               "AASN","AAS2","AAS5","AAS3",
+                                               "AWR2","AWR5","AWR3",
+                                               "AWLN","AWL2","AWL5","AWL3",
+                                               "AWIN","AWI2","AWI5","AWI3",
+                                               "AWSN","AWS2","AWS5","AWS3",
+                                               "WWR2","WWR5","WWR3",
+                                               "WWLN","WWL2","WWL5","WWL3",
+                                               "WWIN","WWI2","WWI5","WWI3",
+                                               "WWSN","WWS2","WWS5","WWS3",
+                                               "WAR2","WAR5","WAR3",
+                                               "WALN","WAL2","WAL5","WAL3",
+                                               "WAIN","WAI2","WAI5","WAI3",
+                                               "WASN","WAS2","WAS5","WAS3"))
 
   for (i in 1:length(pipelines_data)) {
     
@@ -481,6 +494,10 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
             pipelines_data[[i]] <- pipelines_data[[i]][c(which(pipelines_data[[i]]$rt < (pipemedian + 2 * pipemad)
                                                                & pipelines_data[[i]]$rt > (pipemedian - 2 * pipemad))), ]
                 
+          } else if (pipeline_name[[1]][4] == "5") {
+            
+            pipelines_data[[i]] <- pipelines_data[[i]][c(which(pipelines_data[[i]]$rt < (pipemedian + 2.5 * pipemad)
+                                                               & pipelines_data[[i]]$rt > (pipemedian - 2.5 * pipemad))), ]
           } else if (pipeline_name[[1]][4] == "3") {
             
             pipelines_data[[i]] <- pipelines_data[[i]][c(which(pipelines_data[[i]]$rt < (pipemedian + 3 * pipemad)
@@ -525,6 +542,15 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
                                                       (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))), ],
                      pipelines_data[[i]] <- pipelines_data[[i]])
                   
+            } else if (pipeline_name[[1]][4] == "5") {
+              
+              ifelse(length(which(pipelines_data[[i]]$level == x &
+                                    (pipelines_data[[i]]$rt > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2.5 * pipemad)))) > 0,
+                     pipelines_data[[i]] <-
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x &
+                                                    (pipelines_data[[i]]$rt > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2.5 * pipemad)))), ],
+                     pipelines_data[[i]] <- pipelines_data[[i]])
+              
             } else if (pipeline_name[[1]][4] == "3") {
               
               ifelse(length(which(pipelines_data[[i]]$level == x &
@@ -587,6 +613,15 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
                                                       (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))), ],
                      pipelines_data[[i]] <- pipelines_data[[i]])
               
+            } else if (pipeline_name[[1]][4] == "5") {
+              
+              ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
+                                    (pipelines_data[[i]]$rt > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2.5 * pipemad)))) > 0,
+                     pipelines_data[[i]] <-
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
+                                                      (pipelines_data[[i]]$rt > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2.5 * pipemad)))), ],
+                     pipelines_data[[i]] <- pipelines_data[[i]])
+              
             } else if (pipeline_name[[1]][4] == "3") {
               
               ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
@@ -641,6 +676,15 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
                                                       (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))), ],
                      pipelines_data[[i]] <- pipelines_data[[i]])
               
+            } else if (pipeline_name[[1]][4] == "5") {
+              
+              ifelse(length(which(pipelines_data[[i]]$subject == pipesubject &
+                                    (pipelines_data[[i]]$rt > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2.5 * pipemad)))) > 0,
+                     pipelines_data[[i]] <-
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$subject == pipesubject &
+                                                      (pipelines_data[[i]]$rt > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2.5 * pipemad)))), ],
+                     pipelines_data[[i]] <- pipelines_data[[i]])
+              
             } else if (pipeline_name[[1]][4] == "3") {
               
               ifelse(length(which(pipelines_data[[i]]$subject == pipesubject &
@@ -654,28 +698,25 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
       
     }
     
-    # the 100-ms-exclusion and the post-error-exclusion are done outside of the A/A-A/W-W/W-W/A-conditions because they are independent of dimension:
+    # the time-based exclusions are done outside of the A/A-A/W-W/W-W/A-conditions because they are independent of dimension:
     
-    # exclude RTs fast than 100 ms after stimulus onset if the fourth letter in the data frame name is a "T"
-    # also making sure that there are even any trials below 100 ms, otherwise you get an error message
+    # exclude RTs fast than 100 or 200 ms after stimulus onset if the fourth letter in the data frame name is an "O" or a "T"
+    # also making sure that there are even any trials below 100/200 ms, otherwise you get an error message
     
-    if (pipeline_name[[1]][4] == "T") {
+    if (pipeline_name[[1]][4] == "O") {
       
       ifelse(nrow(pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.1)), ]) > 0,
              pipelines_data[[i]] <- pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.1)), ],
              pipelines_data[[i]] <- pipelines_data[[i]])
-    }
     
-    # exclude post-error trials if the fifth letter in the data frame name is an "E"
-    # also making sure that there are even any error-/post-error-rows left to perform the exclusion, otherwise you get an error message
-    
-    if (pipeline_name[[1]][5] == "E") {
+    } else if (pipeline_name[[1]][4] == "T") {
       
-      ifelse(nrow(pipelines_data[[i]][-c(which(pipelines_data[[i]]$correct == 0) + 1), ]) > 0,
-             pipelines_data[[i]] <- pipelines_data[[i]][-c(which(pipelines_data[[i]]$correct == 0) + 1), ],
+      ifelse(nrow(pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.2)), ]) > 0,
+             pipelines_data[[i]] <- pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.2)), ],
              pipelines_data[[i]] <- pipelines_data[[i]])
-
+      
     }
+    
   }
   
 
