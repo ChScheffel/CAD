@@ -160,16 +160,30 @@ editor_options:
   data_nback[data_nback == "None"] <- 0
   data_nback$response <- as.numeric(data_nback$response)
   
+  # for the multi level model to be able to assess the influence of post-error trials, we will include that as a regressor
+  # so the nback data frame will contain a column of ones and zeros
+
+  # add the "correct" column, but shifted down by one row
+
+  data_nback$postcorrect = c(1,data_nback$correct[1:(length(data_nback$correct)-1)])
+
+  # make sure to avoid transfer from the previous block by marking the first trial of each block as correct
+
+  data_nback$postcorrect[c(1,seq(64,length(data_nback$postcorrect),64))] <- 1
+  
   # the choice column will contain 1 for the left button and 2 for the right button
+  
   data_ED[data_ED == "EDleftbutton"] <- 1
   data_ED[data_ED == "EDrightbutton"] <- 2
   data_ED$choice <- as.numeric(data_ED$choice)
   
   # since only the last choice of each comparison is relevant, we will keep only those rows
+  
   data_ED <- data_ED[data_ED$step == 6,]
   data_ED <- subset(data_ED, select = -c(step))
   
   # remove trials with RT < 100 ms from the n-back data and exclude trials after incorrect trials
+  
   data_RT <- data_nback[-c(which(data_nback$rt < 0.1)), ]
   data_RT <- data_RT[-c(which(data_RT$correct == 0) + 1), ]
   
