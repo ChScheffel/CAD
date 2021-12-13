@@ -11,8 +11,8 @@
 * c) *New:* SVs decline stronger with increasing task load for individuals with low compared to high NFC scores.
 
 3. Individual differences in effort discounting:
-* a) Subjective values predict individual NCS scores.
-* b) NTLX scores do not predict individual NCS scores.
+* a) Subjective values predict individual NFC scores.
+* b) NTLX scores do not predict individual NFC scores.
 
 
 # Research Questions for t2 (ER-ED)
