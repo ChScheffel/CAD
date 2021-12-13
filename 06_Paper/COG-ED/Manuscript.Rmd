@@ -33,19 +33,19 @@ author:
       - Formal analysis
       - Writing - original draft preparation
       - Writing - review & editing
+      - Visualization
 affiliation:
   - id            : "1"
     institution   : "Faculty of Psychology, Technische Universität Dresden, 01069 Dresden, Germany"
 authornote: |
   * Shared first authorship
 abstract: |
-  Every day, individuals have to weigh the value of the reward when reaching a goal against the required effort.
-  However, effort is not inherently aversive to all individuals, which has often been neglected by previous approaches to quantify the subjective value of effort.
-  One of them is the Cognitive Effort Discounting paradigm by Westbrook et al. (2013), which can quantify the subjective values of the difficult levels of the n-back task against the easiest level.
-  We aim to replicate the analysis of Westbrook et al. (2013) with our adaptation, the Cognitive and Emotion Regulation Effort Discounting paradigm (CERED).
-  The CERED paradigm will likely enable a more insightful investigation of interindividual differences in effort discounting, as well as the investigation of effort discounting for task types for which this is currently not possible due to their high degree of subjectivity.
+  When individuals set goals, they consider the subjective value (SV) of both the anticipated reward and the required effort, a trade-off that is of great interest to psychological research.
+  However, the SV of effort is highly individual, and previous quantification approaches have had two crucial limitations: They presumed a unidirectional relationship between objective task load and the SV of effort, and as a consequence, they could only quantify the SVs of tasks with an objective order of task load.
+  One of these approaches is the Cognitive Effort Discounting paradigm by Westbrook et al. (2013).
+  We aim to replicate their analysis with our adaptation, the Cognitive and Emotion Regulation Effort Discounting (CERED) paradigm.
+  We argue that the CERED paradigm allows two crucial things: Quantifying SVs without assuming that the easiest level is preferred, and quantifying SVs for tasks with no objective order of task load.
   
-  We argue that adapting the paradigm and the method of computing the willingness to exert effort allows two crucial things: Quantifying subjective values without assuming that the easiest level is preferred, and quantifying subjective values for tasks with no objective order of task load.
 keywords          : "effort discounting, registered report, specification curve analysis, need for cognition, n-back"
 wordcount         : "X"
 bibliography      : ref_COG-ED.bib
