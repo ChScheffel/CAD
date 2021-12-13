@@ -8,11 +8,11 @@
 2. Associations of task load and effort discounting:
 * a) Subjective values decline with increasing n-back level.
 * b) Subjective values decline with increasing n-back level, even after controlling for declining task performance measured by signal detection d’ and reaction time.
+* c) *New:* SVs decline stronger with increasing task load for individuals with low compared to high NFC scores.
 
 3. Individual differences in effort discounting:
 * a) Subjective values predict individual NCS scores.
 * b) NTLX scores do not predict individual NCS scores.
-* c) *New:* The NTLX subscales effort and mental load predict individual NCS scores.
 
 
 # Research Questions for t2 (ER-ED)
