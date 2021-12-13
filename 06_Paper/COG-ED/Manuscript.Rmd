@@ -800,44 +800,61 @@ A full list of measures can be found at osf.io/vnj8x/.
 
 ## Procedure
 
-Healthy participants aged 18 to 30 years will be recruited using the software *ORSEE* [@Greiner2015]. Participants will fill out the personality questionnaires online and then visit the lab for two sessions one week apart. In the first session, participants provide informed consent and demographic data before completing the computer-based paradigm. The paradigm starts with the n-back levels one to four, presented sequentially with two runs per level, consisting of 64 consonants (16 targets, 48 non-targets) per run. The levels are referred to by color (1-back black, 2-back red, 3-back blue, 4-back green) to avoid anchor effects in the ED procedure. After each level, participants fill out the NASA-TLX on a tablet. Then, they complete the ED procedure on screen, where each possible pairing of the four n-back levels is presented in a randomized order. Participants are instructed to decide as realistically as possible, because one of their choices from the last iteration steps will be randomly chosen for one final run of n-back. This is only done to incentivise truthful behavior in the ED procedure, so the n-back data of this part will not be analyzed. The second session consists of an emotion regulation task with negative pictures and the instruction to suppress facial reactions, detach cognitively from the picture content, and distract oneself, respectively. The paradigm follows the same structure of task and ED procedure, but participants can decide which strategy they want to reapply in the last block. Participants will receive 30€ in total or course credit for participation. Study data will be collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden [@Harris2009; @Harris2019].
+Healthy participants aged 18 to 30 years will be recruited using the software *ORSEE* [@Greiner2015].
+Participants will fill out the personality questionnaires online and then visit the lab for two sessions one week apart.
+In the first session, participants provide informed consent and demographic data before completing the computer-based paradigm.
+The paradigm starts with the n-back levels one to four, presented sequentially with two runs per level, consisting of 64 consonants (16 targets, 48 non-targets) per run.
+The levels are referred to by color (1-back black, 2-back red, 3-back blue, 4-back green) to avoid anchor effects in the ED procedure.
+After each level, participants fill out the NASA-TLX on a tablet.
+Then, they complete the ED procedure on screen, where each possible pairing of the four n-back levels is presented in a randomized order.
+Participants are instructed to decide as realistically as possible, because one of their choices from the last iteration steps will be randomly chosen for one final run of n-back.
+This is only done to incentivise truthful behavior in the ED procedure, so the n-back data of this part will not be analyzed.
+The second session consists of an emotion regulation task with negative pictures and the instruction to suppress facial reactions, detach cognitively from the picture content, and distract oneself, respectively.
+The paradigm follows the same structure of task and ED procedure, but participants can decide which strategy they want to reapply in the last block.
+Participants will receive 30€ in total or course credit for participation.
+Study data will be collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden [@Harris2009; @Harris2019].
 The sample of the pilot study consisted of $N=$ `r length(datalist_ED)` participants (`r round((table(data_quest$gender)[2]/length(datalist_ED))*100, digits = 1)`% female, $M=$`r round(mean(data_quest$age, na.rm = TRUE), digits = 1)`($SD=$`r round(sd(data_quest$age, na.rm = TRUE), digits = 1)`) years old).
 In the pilot study, the online questionnaires were completed after the two lab sessions, but we will change this as described above, so that the participants do not have to come in again to collect their money or course credit.
 
 ## Analysis
 
-We aim to conduct all analysis as described in Westbrook et al. [-@Westbrook2013], but the level of detail was not always sufficient, so there might be deviations regarding data cleaning and degrees of freedom. The performance measure *d'* will be computed as the difference of the *z*-transformed hit rate and the *z*-transformed false alarm rate [@Macmillan1990]. Reaction time (RT) data will be trimmed by excluding all trials with responses faster than 100 ms, as the relevant cognitive processes cannot have been completed before [@Whelan2008; @Berger2021]. Error- and post-error trials will be excluded in repeated measures analyses of variance (rmANOVA) and controlled for in multi-level-model (MLM), because RT on the latter is longer due to more cautious behavior [@Dutilh2012; @Houtman2012].
-To test our hypotheses, we perform a series of rmANOVAs and MLM with orthogonal sum-to-zero contrasts in order to meaningfully interpret results [@Singmann2017]. 
-Declining performance will be investigated by calculating a rmANOVA with three paired contrasts comparing *d'* between two levels of 2-, 3-, and 4-back at a time.
+We aim to conduct all analysis as described in Westbrook et al. [-@Westbrook2013], but the level of detail was not always sufficient, so there might be deviations regarding data cleaning and degrees of freedom.
+The performance measure *d'* will be computed as the difference of the *z*-transformed hit rate and the *z*-transformed false alarm rate [@Macmillan1990].
+Reaction time (RT) data will be trimmed by excluding all trials with responses faster than 100 ms, as the relevant cognitive processes cannot have been completed before [@Whelan2008; @Berger2021].
+Aggregated RT values will be described using the median and the median of absolute deviation (MAD) as robust estimates of center and variability, respectively [@Lachaud2011].
+Error- and post-error trials will be excluded in repeated measures analyses of variance (rmANOVA) and controlled for in multi-level-model (MLM), because RT on the latter is longer due to more cautious behavior [@Dutilh2012; @Houtman2012].
+To test our hypotheses, we will perform a series of rmANOVAs and an MLM with orthogonal sum-to-zero contrasts in order to meaningfully interpret results [@Singmann2017]. 
+Declining performance will be investigated by calculating an rmANOVA with three paired contrasts comparing *d'* between two levels of 2-, 3-, and 4-back at a time.
 Another rmANOVA with three paired contrasts will be computed to compare the mean RT between two levels of 2-, 3-, and 4-back at a time.
 To investigate changes in NASA-TLX ratings, six rmANOVAs will be computed, one for each NASA-TLX subscale, and each with six paired contrasts comparing the ratings between two levels of 1-, 2-, 3-, and 4-back at a time.
 For each ED round, SVs will be calculated by adding or subtracting 0.015625 from the last monetary value of the flexible level, depending on the participant's last choice.
 Then, these final monetary values will be divided by 2€, and the SV of each level per participant will be computed by averaging all final values of each level, regardless of whether it was fixed or flexible.
-A rmANOVA with six paired contrasts will be computed, comparing the SVs between two levels of 1-, 2-, 3-, and 4-back at a time.
+An rmANOVA with six paired contrasts will be computed, comparing the SVs between two levels of 1-, 2-, 3-, and 4-back at a time.
 Tukey method will be used for the paired contrasts of each rmANOVA, including *p*-value adjustment.
 
 To determine the influence of task performance in the association of SVs and n-back level, we will set up a MLM using the $lmerTest$ package. 
 We apply restricted maximum likelihood (REML) to fit the model.
 First, we calculate the intraclass correlation (ICC) on the basis of the null model.
-Second, we estimate a random slopes model of SV including n-back load level as level-1-predictor and, additionally, NFC as level-2-predictor. 
+Second, we estimate a random slopes model of SVs including n-back load level as level-1-predictor and, additionally, NFC as level-2-predictor. 
 Within the model, we control for *d'*, RT, correct and post-correct trials.
 $$
 SV \sim level\ * NFC + d' + RT + correct + postcorrect + (level|subject)
 $$
 Level-1-predictors are centered within cluster, whereas the level-2-predictor is centered at the grand mean as recommended by Enders & Tofighi [-@Enders2007]. 
-We visually inspect the residuals of the final model. The approximately normal distribution indicates no evidence to perform model criticism.  
+We visually inspect the residuals of the final model.
+The approximately normal distribution indicates no evidence to perform model criticism.  
 Third, we perform a simple slopes analysis with n-back level as predictor and NFC as moderator. 
 To evaluate the moderating effect, we calculate the Johnson-Neyman interval.
 
-To ensure the validity of the multi-level model, we will conduct a specification curve analysis [@Simonsohn2020], which will include 92 possible preprocessing pipelines of the RT data.
-These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, $2 SD$ from the mean, $3 SD$ from the mean, RTs below 100 ms), whether post-error trials were excluded or not, and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within n-back levels).
-The multi-level model will be run with each of the 92 pipelines, which will also include our main pipeline (untransformed data, exclusion of RTs below 100 ms, removal of post-error trials).
+To ensure the validity of the multi-level model, we will conduct a specification curve analysis [@Simonsohn2020], which will include 63 possible preprocessing pipelines of the RT data.
+These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, 2, 2.5, or 3 $MAD$ from the median, RTs below 100 or 200 ms), and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within n-back levels).
+The multi-level model will be run with each of the 63 pipelines, which will also include our main pipeline (untransformed data, exclusion of RTs below 100 ms).
 The ratio of pipelines that lead to significant versus non-significant effects will provide an indication of how robust the effect actually is.
 
 The association of ED and NFC will be examined with a regression using the AUC of each participant's SVs to predict their NFC score.
 A second regression will additionally include the mean of the NASA-TLX subscales' AUCs of each participant as a predictor.
 Since we do not have a fixed SV of 1 for 1-back, we cannot apply the "AUC" computation of Westbrook et al. [-@Westbrook2013], which was the mean of the AUCs of the SVs of each higher n-back level and 1-back, yielding values between 0 and 1.
-Consequently, we chose a different way of quantifying the individual degree of ED.
+Consequently, we will choose a different way of quantifying the individual degree of ED.
 A classic AUC cannot differentiate between a subject who prefers 1-back and a subject who prefers 4-back if the magnitude of the ascent is the same, but it can reflect the overall willingness to exert effort.
 This is the opposite for the sum of the ascent between SVs.
 Therefore, we multiply both indicators, arriving at a value reflecting both degree and direction of preference, called $AxAUC$.
