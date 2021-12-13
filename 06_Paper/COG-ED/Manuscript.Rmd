@@ -1,5 +1,5 @@
 ---
-title             : "When easy is not preferred: The Cognitive and Emotion Regulation Effort Discounting paradigm (CERED) for estimating subjective values of cognitive tasks"
+title             : "When easy is not preferred: An effort discounting paradigm for estimating subjective values of tasks"
 shorttitle        : "The CERED paradigm for estimating subjective values"
 author: 
   - name          : "Josephine Zerna"
