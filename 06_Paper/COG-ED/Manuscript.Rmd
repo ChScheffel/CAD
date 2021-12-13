@@ -398,7 +398,7 @@ In the present study, we will validate the CERED paradigm by conceptually replic
 Our hypotheses were derived from the results of Westbrook et al. [-@Westbrook2013].
 Regarding the associations of subjective and objective task load we hypothesize that (1a) the signal detection parameter *d'* declines with increasing n-back level, (1b) reaction time increases with increasing n-back level, and (1c) perceived task load increases with n-back level.
 Regarding the associations of task load and ED we hypothesize that (2a) SVs decline with increasing n-back level, and (2b) SVs decline with increasing n-back level even after controlling for declining task performance.
-A newly added hypothesis is that (2c) SVs decline stronger with increasing task load for individuals with low compared to high NFC scores.
+Here we added they hypothesis that (2c) SVs decline stronger with increasing task load for individuals with low compared to high NFC scores.
 And regarding individual differences in ED we hypothesize that (3a) SVs predict individual NFC scores, and (3b) perceived task load does not predict individual NFC scores.
 
 ```{r preprocessing, echo=FALSE, message=FALSE, warning=FALSE}
