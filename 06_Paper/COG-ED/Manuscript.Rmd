@@ -464,9 +464,9 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
     
     pipeline_name <- strsplit(names(pipelines_data)[i], "")
     
-    # replace the RTs of incorrect trials with NA for better handling
-    
-    pipelines_data[[i]]$rt[pipelines_data[[i]]$correct == 0] <- NA
+    # # replace the RTs of incorrect trials with NA for better handling
+    # 
+    # pipelines_data[[i]]$rt[pipelines_data[[i]]$correct == 0] <- NA
     
     # the first decision is whether transformations and exclusions will be applied across/within subjects/levels
     
