@@ -92,6 +92,7 @@ editor_options:
   library(lmerTest)     # for multilevel modeling
   library(afex)         # compute repeated measures ANOVA, "afex" package
   library(emmeans)      # for custom contrasts in ANOVAs, "emmeans" package
+  library(sjPlot)       # plot MLM model fit
 
   set_sum_contrasts()   # sets orthogonal contrasts for mixed-effects model 
                         # and rmANOVA globally in order to get meaningful Type-III tests
@@ -170,6 +171,11 @@ editor_options:
 
   data_nback$postcorrect[c(1,seq(64,length(data_nback$postcorrect),64))] <- 1
   
+  # correct subject code
+  data_nback$subject[which(data_nback$subject == "E12K08_neu")] <- "E12K08"
+  data_ED$subject[which(data_ED$subject == "E12K08_neu")] <- "E12K08"
+
+  
   # the choice column will contain 1 for the left button and 2 for the right button
   
   data_ED[data_ED == "EDleftbutton"] <- 1
@@ -181,10 +187,6 @@ editor_options:
   data_ED <- data_ED[data_ED$step == 6,]
   data_ED <- subset(data_ED, select = -c(step))
   
-  # remove trials with RT < 100 ms from the n-back data and exclude trials after incorrect trials
-  
-  data_RT <- data_nback[-c(which(data_nback$rt < 0.1)), ]
-  data_RT <- data_RT[-c(which(data_RT$correct == 0) + 1), ]
   
   # import questionnaire data from RedCap
   
@@ -205,6 +207,10 @@ editor_options:
                                                bscs_complete, srs_timestamp, srs_complete, erq_erqse_timestamp, erq_erqse_complete,
                                                who5_timestamp, who5_complete, acs_timestamp, acs_complete, cdrisc_timestamp,
                                                cdrisc_complete, flexer_timestamp, flexer_complete))
+  
+  # compute index of rows in which the data sets change
+  
+  setindex <- c(1,which(data_quest$set != dplyr::lag(data_quest$set)),nrow(data_quest))
 
 ```
 
@@ -406,7 +412,7 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
   # create new data frames for the specification curve analysis
   # the data frame names are a combination of the letters from each of these categories, indicating how they will be preprocessed:
   #
-  # across which dimensions the tranformation and outlier exclusion will be done:
+  # across which dimensions the transformation and outlier exclusion will be done:
   #   (AA) across subjects, across n-back levels
   #   (AW) across subjects, within n-back levels
   #   (WW) within subjects, within n-back levels
@@ -699,7 +705,7 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
     
     # the time-based exclusions are done outside of the A/A-A/W-W/W-W/A-conditions because they are independent of dimension:
     
-    # exclude RTs fast than 100 or 200 ms after stimulus onset if the fourth letter in the data frame name is an "O" or a "T"
+    # exclude RTs faster than 100 or 200 ms after stimulus onset if the fourth letter in the data frame name is an "O" or a "T"
     # also making sure that there are even any trials below 100/200 ms, otherwise you get an error message
     
     if (pipeline_name[[1]][4] == "O") {
@@ -965,10 +971,6 @@ Even though *d'* did not decrease, the increases in RT indicate an increase in o
 
   # H1c: Ratings on all NASA-TLX dimensions increase with increasing n-back level.
 
-  # compute index of rows in which the data sets change
-  
-  setindex <- c(1,which(data_quest$set != dplyr::lag(data_quest$set)),nrow(data_quest))
-
   # set up empty data frame for the loop to feed into
 
   data_ntlx <- data.frame(subject = character(), level = double(),
@@ -1092,19 +1094,20 @@ SVs were higher for 1- than 3-back (`r apa_print(hypothesis2a_contrasts)$statist
 Importantly, the lack of difference between the SVs of 1- and 2-back indicates that when given the choice, not all participants preferred the easiest level.
 This can be considered preliminary proof-of-concept, as this behavioural pattern can only emerge in the CERED paradigm, but not in the original COG-ED paradigm.
 
-```{r Hypothesis_2b, echo=FALSE, message=FALSE, warning=FALSE, fig.show='hide'}
+```{r Hypothesis_2b_2c, echo=FALSE, message=FALSE, warning=FALSE, fig.show='hide'}
 
   # H2b: Subjective values decline with increasing n-back level, even after controlling for declining task
   # performance measured by signal detection d’ and reaction time.
+
+  # H2c: SVs decline stronger with increasing task load for individuals with low compared to high NFC scores.
 
   # detach afex in order to use lmerTest
   detach("package:afex", unload = TRUE)
   
   # get all relevant variables -------------------------------------------------
     
-  h2b_data <- merge(dprime[c("subject", "level", "d")], data_nback, by = c("subject", "level"))
-  
-  
+  h2b_data <- pipelines_data[["AARO"]]
+
   # prepare temporary nfc-data frame for loop to feed into
   
   data_nfc <- data.frame(subject = character(), nfc = double())
@@ -1120,16 +1123,14 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
     data_nfc <- rbind(data_nfc, data.frame(subject = data_quest$subject[setindex[i]],
                                            nfc = sum(nfc)))
   }
-  data_nfc$subject[which(data_nfc$subject == "E12K08")] <- "E12K08_neu"
-  
   
   h2b_data <- merge(h2b_data, data_nfc, by = "subject")
   
-  # get subset for MLM
+  # get subset for MLM without RT = NA
   
-  h2b_sub <- droplevels(subset(h2b_data[c("subject", "level", "sv", "d", "correct", "postcorrect", "rt", "nfc")],
-                               subset = !is.na(rt)
-                               & rt > 0.1))
+  h2b_data <- droplevels(subset(h2b_data[c("subject", "level", "sv", "dprime", "correct", "postcorrect", "rt", "nfc")],
+                               subset = !is.na(rt)))
+  
   
   # center predictors ----------------------------------------------------------
   
@@ -1138,31 +1139,31 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   # level 1 predictor (SV) is of substantive interest
   # > CWC
   
-  # d'
-  h2b_sub$d.cwc <- h2b_sub$d - (ave(h2b_sub$d, h2b_sub$subject, FUN = function(x) mean(x, na.rm = T)))
+  # dprime
+  h2b_data$dprime.cwc <- h2b_data$dprime - (ave(h2b_data$dprime, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
   
   # RT
-  h2b_sub$rt.cwc <- h2b_sub$rt - (ave(h2b_sub$rt, h2b_sub$subject, FUN = function(x) mean(x, na.rm = T)))
+  h2b_data$rt.cwc <- h2b_data$rt - (ave(h2b_data$rt, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
   
   # level
-  h2b_sub$level.cwc <- h2b_sub$level - (ave(h2b_sub$level, h2b_sub$subject, FUN = function(x) mean(x, na.rm = T)))
+  h2b_data$level.cwc <- h2b_data$level - (ave(h2b_data$level, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
   
   # correct 
-  h2b_sub$correct.cwc <- h2b_sub$correct - (ave(h2b_sub$correct, h2b_sub$subject, FUN = function(x) mean(x, na.rm = T)))
+  h2b_data$correct.cwc <- h2b_data$correct - (ave(h2b_data$correct, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
 
   # postcorrect
-  h2b_sub$postcorrect.cwc <- h2b_sub$postcorrect - (ave(h2b_sub$postcorrect, h2b_sub$subject, FUN = function(x) mean(x, na.rm = T)))
+  h2b_data$postcorrect.cwc <- h2b_data$postcorrect - (ave(h2b_data$postcorrect, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
   
   ## level 2 predictor
   # > CGM
 
   # NFC
-  h2b_sub$nfc.cgm <- scale(h2b_sub$nfc, scale = F)
+  h2b_data$nfc.cgm <- scale(h2b_data$nfc, scale = F)
   
   
   # null model -----------------------------------------------------------------
   m0_h2b <- lmer(sv ~ 1 + (1|subject), 
-                 data = h2b_sub,
+                 data = h2b_data,
                  REML = T)
   
   # intraclass correlation (ICC)
@@ -1174,14 +1175,13 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   # random slopes model --------------------------------------------------------
   
   ## maximal model ---- 
-  m1_h2b <- lmer(sv ~ level.cwc * nfc.cgm + d.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject), 
-                 data = h2b_sub,
+  m1_h2b <- lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject), 
+                 data = h2b_data,
                  REML = T) # parameters estimated by restricted log-likelihood maximization
   
   
   ## plot model fit of the final model ----
-  library(sjPlot)
-  plot_model(m1_h2b, type = "diag")
+  m1_h2b_fit <- plot_model(m1_h2b, type = "diag")
   
   
   # prepare MLM results for reporting ------------------------------------------
