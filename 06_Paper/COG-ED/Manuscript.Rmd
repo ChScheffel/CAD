@@ -1273,6 +1273,7 @@ The simple slopes analysis revealed a significant slope of n-back level for thre
 The Johnson-Neyman plot (Figure x) visualizes the significance of the slope of n-back level at different values of NFC. The Johnson-Neyman interval is [`r h2b_jn.int`]. Consequently, the slope of n-back level is not significant for individuals with very low NFC values.    
 `r h2b_jn.plot`
 
+## alternative: `r h2b_jn` 
 
 ```{r Hypothesis_3a, echo=FALSE, message=FALSE, warning=FALSE}
 
