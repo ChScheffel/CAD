@@ -93,6 +93,9 @@ editor_options:
   library(afex)         # compute repeated measures ANOVA, "afex" package
   library(emmeans)      # for custom contrasts in ANOVAs, "emmeans" package
   library(sjPlot)       # plot MLM model fit
+  library(kableExtra)   # 
+  library(interactions) # for simple slopes analysis
+  library(huxtable)     # create huxtable
 
   set_sum_contrasts()   # sets orthogonal contrasts for mixed-effects model 
                         # and rmANOVA globally in order to get meaningful Type-III tests
@@ -1191,8 +1194,8 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   m1_h2b.fixef <- summary(m1_h2b)$coefficients
   
   # prepare table
-  h2b_result.table <- as.data.frame(cbind(row.names(m1_h2b.fixef), 
-                                          m1_h2b.fixef[,c(1, 2, 5)]))
+  h2b_result.table <- as.data.frame(cbind(row.names(m1_h2b.fixef[-c(6,7),]), 
+                                          m1_h2b.fixef[-c(6,7),c(1, 2, 5)]))
   h2b_result.table$ranef.sd <- NA
   h2b_result.table$ranef.sd[c(1,2)] <- m1_h2b.ranef$sdcor[c(1,2)]
  
@@ -1203,11 +1206,9 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   colnames(h2b_result.table)[5] <- "Random Effects (SD)"
 
   row.names(h2b_result.table) <- NULL
-  h2b_result.table$Parameter[1:8] <- c("Intercept", "N-Back Level", "NFC", "d'", "RT", "Correct", "Post-Correct", "Level x NFC")
-  # FIXME: display control variables? Spelling lower/upper case
-  
+  h2b_result.table$Parameter[1:6] <- c("Intercept", "N-Back Level", "NFC", "d'", "RT", "Level x NFC")
+
   h2b_result.table[2:5] <- lapply(h2b_result.table[2:5], as.numeric)
-  
   h2b_result.table[c(2,3,5)] <- round(h2b_result.table[c(2,3,5)], digits = 2)
   h2b_result.table[4] <- round(h2b_result.table[4], digits = 3)
   
@@ -1218,10 +1219,9 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.001)] <- 
     paste0("<.001***")
   
-  h2b_result.table$`Random Effects (SD)`[3:8] <- paste0("")
+  h2b_result.table$`Random Effects (SD)`[3:6] <- paste0("")
    
-  library(kableExtra)
-  #replication_table <-
+  replication_table <-
     kbl(h2b_result.table,
     caption = "Effects of n-back load level on subjective value controlled 
     for task performance (d’ and reaction time), correct and postcorrect trials.",
@@ -1232,52 +1232,46 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
     footnote(general = "NFC = Need for Cognition, SE = standard error. ***$p$ < .001, **$p$ < .01, *$p$ < 0.5.",
             escape = F,                    # correctly print special characters
             threeparttable = T)            # line breaks in the footnote
-  #FIXME delete leading zero for p-values
    
     
   # simple slopes analysis -----------------------------------------------------
   
-  library(interactions)
   m1_h2b.ss <- sim_slopes(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none", 
-                    cond.int = T,                                       # print conditional intercepts
-                    johnson_neyman = T, jnplot = T, control.fdr = T)    # calculate Johnson Neyman intervals,
-                                                                        # create plot, adjust false discovery rate
+                    cond.int = T,                       # print conditional intercepts
+                    control.fdr = T)                    # adjust false discovery rate
   
-  # save Johnson-Neyman plot
-  h2b_jnplot <- m1_h2b.ss$jnplot
+  #create table
+  h2b_ss.table <- as_huxtable(m1_h2b.ss)
+  h2b_ss.table[1,] <- c("Value of NFC", "Slope of N-Back Level", "Conditional Intercept")
+  h2b_ss.table <- h2b_ss.table[-2,]
+  h2b_ss.table[2:4,1] <- c("- 1 SD", "Mean", "+ 1 SD")  
+  
+  # calculate Johnson-Neyman intervals
+  h2b_jn <- johnson_neyman(model = m1_h2b, pred = level.cwc, modx = nfc.cgm, control.fdr = T)
+  h2b_jn.int <- h2b_jn$bounds
+  
+  # save plot
+  h2b_jn.plot <- h2b_jn$plot
   
   # create interaction plot
-  h2b_ssa.plot <- interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
-                                x.label = "n back level", y.label = "subjective value",
-                                legend.main = "NFC", interval = T) + theme_apa()   
-  
-  
-  # prepare SSA results for reporting ------------------------------------------
-
-  library(huxtable)
-  h2b_ssa.table <- as_huxtable(m1_h2b.ss)
-  h2b_ssa.table[1,] <- c("Value of NFC", "Slope of N-Back Level", "Conditional Intercept")
-  h2b_ssa.table <- h2b_ssa.table[-2,]
-  
-  h2b_ssa.table[2:4,1] <- c("- 1 SD", "Mean", "+ 1 SD")  
-
- 
+  h2b_ss.plot <- interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
+                               plot.points = T, point.shape = T,
+                               x.label = "n back level", y.label = "subjective value",
+                               legend.main = "NFC", interval = T) + theme_apa()    
 ```
 
 ### Changes in subjective values depend reliably on n-back level
 
-The multilevel model `r replication_table`
-
-statistically significant effect of n-back load level `r apa_print(m1_h2b)$full_result$level_cwc`
-controlled for performance and correct and post-correct answers
-
-
-`r apa_print(m1_h2b)$full_result$nfc_cgm`
+N-back level is a reliable predictor of subjective value (`r apa_print(m1_h2b)$full_result$level_cwc`), even after controlling for declining task performance (signal detection d’ and reaction time) as well as correct and post-correct answers. 
+The results of the multilevel model are detailed in Table X. 
+`r replication_table`
 `r round((icc_h2b*100), digits = 0)` % of the total variance in subjective values can be explained by differences between subjects ($ICC =$ `r round(icc_h2b, digits = 2)`).
-
-
-simple slopes analysis `r h2b_ssa.table`, `r h2b_jnplot`,`r h2b_ssa.plot`
-statistically significant influence of n-back load level on subjective value, but no moderating effect of NFC
+However, NFC has no statistically significant effect on subjective value (`r apa_print(m1_h2b)$full_result$nfc_cgm`).
+The simple slopes analysis revealed a significant slope of n-back level for three different expressions of NFC (Table X, Figure X).
+`r h2b_ss.table`
+`r h2b_ss.plot`
+The Johnson-Neyman plot (Figure x) visualizes the significance of the slope of n-back level at different values of NFC. The Johnson-Neyman interval is [`r h2b_jn.int`]. Consequently, the slope of n-back level is not significant for individuals with very low NFC values.    
+`r h2b_jn.plot`
 
 
 ```{r Hypothesis_3a, echo=FALSE, message=FALSE, warning=FALSE}
