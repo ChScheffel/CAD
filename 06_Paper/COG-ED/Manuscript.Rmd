@@ -93,9 +93,10 @@ editor_options:
   library(afex)         # compute repeated measures ANOVA, "afex" package
   library(emmeans)      # for custom contrasts in ANOVAs, "emmeans" package
   library(sjPlot)       # plot MLM model fit
-  library(kableExtra)   # 
+  library(kableExtra)   # for great tables in R Markdown
   library(interactions) # for simple slopes analysis
   library(huxtable)     # create huxtable
+  library(glmmTMB)      # from the glmmTMB package for multi level models
 
   set_sum_contrasts()   # sets orthogonal contrasts for mixed-effects model 
                         # and rmANOVA globally in order to get meaningful Type-III tests
@@ -380,7 +381,7 @@ editor_options:
   
   for (i in 1:nrow(data_nback)) {
     
-    data_nback$nfc[i] <- data_SV$nfc[data_SV$subject == data_nback$subject[i]]
+    data_nback$nfc[i] <- data_nfc$nfc[data_nfc$subject == data_nback$subject[i]]
     
   }
   
@@ -1186,7 +1187,7 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   
   # get subset for MLM without RT = NA
   
-  h2b_data <- droplevels(subset(h2b_data[c("subject", "level", "sv", "dprime", "correct", "postcorrect", "rt", "nfc")],
+  h2b_data <- droplevels(subset(h2b_data[ ,c("subject", "level", "sv", "dprime", "correct", "postcorrect", "rt", "nfc")],
                                subset = !is.na(rt)))
   
   
@@ -1337,7 +1338,6 @@ The Johnson-Neyman plot (Figure x) visualizes the significance of the slope of n
   # make a temporary copy of the data frame
   
   data_SV <- unique(pipelines_data[["AARO"]][ ,c("subject","level","sv")])
-  data_SV$level <- as.factor(data_SV$level)
 
   # create an index for the rows in which the participant ID changes
 
@@ -1352,10 +1352,10 @@ The Johnson-Neyman plot (Figure x) visualizes the significance of the slope of n
   for (i in 1:(length(subjectindex)-1)) {
     
     newdata <- data.frame(subject = data_SV$subject[subjectindex[i]],
-                          axauc = auc(data_SV$level[subjectindex[i]:(subjectindex[i]+3)], data_SV$sv[subjectindex[i]:(subjectindex[i]+3)],
-                                               method = "trapezoid") * ((data_SV$sv[subjectindex[i]+3] - data_SV$sv[subjectindex[i]+2]) +
-                                        (data_SV$sv[subjectindex[i]+2] - data_SV$sv[subjectindex[i]+1]) +
-                                        (data_SV$sv[subjectindex[i]+1] - data_SV$sv[subjectindex[i]])))
+                          axauc = auc(data_SV$level[subjectindex[i]:(subjectindex[i]+3)], data_SV$sv[subjectindex[i]:(subjectindex[i]+3)], method = "trapezoid") *
+                            ((data_SV$sv[subjectindex[i]+3] - data_SV$sv[subjectindex[i]+2]) +
+                               (data_SV$sv[subjectindex[i]+2] - data_SV$sv[subjectindex[i]+1]) +
+                               (data_SV$sv[subjectindex[i]+1] - data_SV$sv[subjectindex[i]])))
     h3_data <- rbind(h3_data, newdata)
     
   }
