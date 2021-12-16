@@ -93,9 +93,10 @@ editor_options:
   library(afex)         # compute repeated measures ANOVA, "afex" package
   library(emmeans)      # for custom contrasts in ANOVAs, "emmeans" package
   library(sjPlot)       # plot MLM model fit
-  library(kableExtra)   # 
+  library(kableExtra)   # for great tables in R Markdown
   library(interactions) # for simple slopes analysis
   library(huxtable)     # create huxtable
+  library(glmmTMB)      # from the glmmTMB package for multi level models
 
   set_sum_contrasts()   # sets orthogonal contrasts for mixed-effects model 
                         # and rmANOVA globally in order to get meaningful Type-III tests
@@ -149,6 +150,11 @@ editor_options:
     data_ED <- rbind(data_ED, newdata)
   }
   
+  # change the name of a subject (it has the suffix "_neu" because the paradigm didn't start properly the first time)
+  
+  data_nback$subject[data_nback$subject == "E12K08_neu"] <- "E12K08"
+  data_ED$subject[data_ED$subject == "E12K08_neu"] <- "E12K08"
+
   # replace some columns with 'easy to work with' values
   
   # the target column will contain 1 for targets and 0 for all non-targets
@@ -189,7 +195,6 @@ editor_options:
   
   data_ED <- data_ED[data_ED$step == 6,]
   data_ED <- subset(data_ED, select = -c(step))
-  
   
   # import questionnaire data from RedCap
   
@@ -348,6 +353,44 @@ editor_options:
   
 ```
 
+```{r NFCcomputation, echo=FALSE, message=FALSE, warning=FALSE}
+  
+  # prepare temporary data frame for loop to feed into
+  
+  data_nfc <- data.frame(subject = character(), nfc = double())
+  
+  # compute index of rows in which the data sets change
+  
+  setindex <- c(1,which(data_quest$set != dplyr::lag(data_quest$set)),nrow(data_quest))
+
+  # calculate NFC scores for every subject
+  
+  for (i in 1:(length(setindex)-1)) {
+    
+    nfc <- data_quest[setindex[i] + 2, grep("nfc", colnames(data_quest))]
+    
+    # define and invert items to be recoded
+    
+    nfc[ ,c(4,6,7,8,9,10,11,12,15,16)] <-  nfc[ ,c(4,6,7,8,9,10,11,12,15,16)] * -1
+    
+    data_nfc <- rbind(data_nfc, data.frame(subject = data_quest$subject[setindex[i]],
+                                           nfc = sum(nfc)))
+  }
+  
+  # add the NFC scores trial-wise to the nback-data-frame for the multi-level-model
+  
+  for (i in 1:nrow(data_nback)) {
+    
+    data_nback$nfc[i] <- data_nfc$nfc[data_nfc$subject == data_nback$subject[i]]
+    
+  }
+  
+  # remove the temporary variables
+  
+  remove(nfc, data_nfc)
+
+```
+
 # Introduction
 
 In everyday life, effort and reward are closely intertwined [@Botvinick2009].
@@ -467,10 +510,6 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
     
     pipeline_name <- strsplit(names(pipelines_data)[i], "")
     
-    # # replace the RTs of incorrect trials with NA for better handling
-    # 
-    # pipelines_data[[i]]$rt[pipelines_data[[i]]$correct == 0] <- NA
-    
     # the first decision is whether transformations and exclusions will be applied across/within subjects/levels
     
     if (pipeline_name[[1]][1] == "A" & pipeline_name[[1]][2] == "A") {
@@ -479,37 +518,46 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
           
           if (pipeline_name[[1]][3] == "L") {
             
-            pipelines_data[[i]]$rt <- log10(pipelines_data[[i]]$rt)
+            pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] <-
+              log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1])
+            pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0] <-
+              log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0])
             
           } else if (pipeline_name[[1]][3] == "I") {
             
-            pipelines_data[[i]]$rt <- 1/(pipelines_data[[i]]$rt)
+            pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] <-
+              1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1])
+            pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0] <-
+              1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0])
             
           } else if (pipeline_name[[1]][3] == "S") {
             
-            pipelines_data[[i]]$rt <- sqrt(pipelines_data[[i]]$rt)
+            pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] <-
+              sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1])
+            pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0] <-
+              sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0])
           }
       
           # compute median and median absolute deviation
       
-          pipemedian <- median(pipelines_data[[i]]$rt, na.rm = TRUE)
-          pipemad <- mad(pipelines_data[[i]]$rt, na.rm = TRUE)
+          pipemedian <- median(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1], na.rm = TRUE)
+          pipemad <- mad(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1], na.rm = TRUE)
           
           # the third decision is the outlier exclusion
       
           if (pipeline_name[[1]][4] == "2") {
             
-            pipelines_data[[i]] <- pipelines_data[[i]][c(which(pipelines_data[[i]]$rt < (pipemedian + 2 * pipemad)
-                                                               & pipelines_data[[i]]$rt > (pipemedian - 2 * pipemad))), ]
+            pipelines_data[[i]] <- pipelines_data[[i]][c(which(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] < (pipemedian + 2 * pipemad)
+                                                               & pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] > (pipemedian - 2 * pipemad))), ]
                 
           } else if (pipeline_name[[1]][4] == "5") {
             
-            pipelines_data[[i]] <- pipelines_data[[i]][c(which(pipelines_data[[i]]$rt < (pipemedian + 2.5 * pipemad)
-                                                               & pipelines_data[[i]]$rt > (pipemedian - 2.5 * pipemad))), ]
+            pipelines_data[[i]] <- pipelines_data[[i]][c(which(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] < (pipemedian + 2.5 * pipemad)
+                                                               & pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] > (pipemedian - 2.5 * pipemad))), ]
           } else if (pipeline_name[[1]][4] == "3") {
             
-            pipelines_data[[i]] <- pipelines_data[[i]][c(which(pipelines_data[[i]]$rt < (pipemedian + 3 * pipemad)
-                                                               & pipelines_data[[i]]$rt > (pipemedian - 3 * pipemad))), ]
+            pipelines_data[[i]] <- pipelines_data[[i]][c(which(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] < (pipemedian + 3 * pipemad)
+                                                               & pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] > (pipemedian - 3 * pipemad))), ]
           }
       
     } else if (pipeline_name[[1]][1] == "A" & pipeline_name[[1]][2] == "W") {
@@ -522,49 +570,58 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
             
             if (pipeline_name[[1]][3] == "L") {
             
-              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x] <- log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x])
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] <-
+                log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1])
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0] <-
+                log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0])
             
             } else if (pipeline_name[[1]][3] == "I") {
             
-              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x] <- 1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x])
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] <-
+                1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1])
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0] <-
+                1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0])
             
             } else if (pipeline_name[[1]][3] == "S") {
             
-              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x] <- sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x])
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] <-
+                sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1])
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0] <-
+                sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0])
 
             }
             
             # compute median and median absolute deviation
           
-            pipemedian <- median(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x], na.rm = TRUE)
-            pipemad <- mad(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x], na.rm = TRUE)
+            pipemedian <- median(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1], na.rm = TRUE)
+            pipemad <- mad(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1], na.rm = TRUE)
             
             # the third decision is the outlier exclusion
           
             if (pipeline_name[[1]][4] == "2") {
               
-              ifelse(length(which(pipelines_data[[i]]$level == x &
+              ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
                                     (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))) > 0,
                      pipelines_data[[i]] <-
-                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x &
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
                                                       (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))), ],
                      pipelines_data[[i]] <- pipelines_data[[i]])
                   
             } else if (pipeline_name[[1]][4] == "5") {
               
-              ifelse(length(which(pipelines_data[[i]]$level == x &
+              ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
                                     (pipelines_data[[i]]$rt > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2.5 * pipemad)))) > 0,
                      pipelines_data[[i]] <-
-                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x &
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
                                                     (pipelines_data[[i]]$rt > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2.5 * pipemad)))), ],
                      pipelines_data[[i]] <- pipelines_data[[i]])
               
             } else if (pipeline_name[[1]][4] == "3") {
               
-              ifelse(length(which(pipelines_data[[i]]$level == x &
+              ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
                                     (pipelines_data[[i]]$rt > (pipemedian + 3 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 3 * pipemad)))) > 0,
                      pipelines_data[[i]] <-
-                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x &
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
                                                     (pipelines_data[[i]]$rt > (pipemedian + 3 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 3 * pipemad)))), ],
                      pipelines_data[[i]] <- pipelines_data[[i]])
             }
@@ -587,55 +644,63 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
             
             if (pipeline_name[[1]][3] == "L") {
             
-              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
-                                     & pipelines_data[[i]]$subject == pipesubject] <- log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
-                                                                                                                   & pipelines_data[[i]]$subject == pipesubject])
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
+                                       pipelines_data[[i]]$subject == pipesubject] <-
+                log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 & pipelines_data[[i]]$subject == pipesubject])
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0 &
+                                       pipelines_data[[i]]$subject == pipesubject] <-
+                log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0 & pipelines_data[[i]]$subject == pipesubject])
             
             } else if (pipeline_name[[1]][3] == "I") {
             
-              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
-                                     & pipelines_data[[i]]$subject == pipesubject] <- 1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
-                                                                                                                & pipelines_data[[i]]$subject == pipesubject])
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
+                                       pipelines_data[[i]]$subject == pipesubject] <-
+                1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 & pipelines_data[[i]]$subject == pipesubject])
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0 &
+                                       pipelines_data[[i]]$subject == pipesubject] <-
+                1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0 & pipelines_data[[i]]$subject == pipesubject])
             
             } else if (pipeline_name[[1]][3] == "S") {
             
-              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
-                                     & pipelines_data[[i]]$subject == pipesubject] <- sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x
-                                                                                                                  & pipelines_data[[i]]$subject == pipesubject])
-
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
+                                       pipelines_data[[i]]$subject == pipesubject] <-
+                sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 & pipelines_data[[i]]$subject == pipesubject])
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0 &
+                                       pipelines_data[[i]]$subject == pipesubject] <-
+                sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0 & pipelines_data[[i]]$subject == pipesubject])
             }
             
             # compute median and median absolute deviation
           
-            pipemedian <- median(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
-            pipemad <- mad(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
+            pipemedian <- median(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 & pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
+            pipemad <- mad(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 & pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
             
             # the third decision is the outlier exclusion
           
             if (pipeline_name[[1]][4] == "2") {
               
-              ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
+              ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
                                     (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))) > 0,
                      pipelines_data[[i]] <-
-                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
                                                       (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))), ],
                      pipelines_data[[i]] <- pipelines_data[[i]])
               
             } else if (pipeline_name[[1]][4] == "5") {
               
-              ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
+              ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
                                     (pipelines_data[[i]]$rt > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2.5 * pipemad)))) > 0,
                      pipelines_data[[i]] <-
-                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
                                                       (pipelines_data[[i]]$rt > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2.5 * pipemad)))), ],
                      pipelines_data[[i]] <- pipelines_data[[i]])
               
             } else if (pipeline_name[[1]][4] == "3") {
               
-              ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
+              ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
                                     (pipelines_data[[i]]$rt > (pipemedian + 3 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 3 * pipemad)))) > 0,
                      pipelines_data[[i]] <-
-                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject &
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
                                                       (pipelines_data[[i]]$rt > (pipemedian + 3 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 3 * pipemad)))), ],
                      pipelines_data[[i]] <- pipelines_data[[i]])
             }
@@ -656,49 +721,58 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
             
             if (pipeline_name[[1]][3] == "L") {
             
-              pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject] <- log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject])
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] <-
+                log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1])
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0] <-
+                log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0])
             
             } else if (pipeline_name[[1]][3] == "I") {
             
-              pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject] <- 1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject])
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] <-
+                1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1])
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0] <-
+                1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0])
             
             } else if (pipeline_name[[1]][3] == "S") {
             
-              pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject] <- sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject])
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] <-
+                sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1])
+              pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0] <-
+                sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0])
 
             }
             
             # compute median and median absolute deviation
           
-            pipemedian <- median(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
-            pipemad <- mad(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
+            pipemedian <- median(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1], na.rm = TRUE)
+            pipemad <- mad(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1], na.rm = TRUE)
             
             # the third decision is the outlier exclusion
           
             if (pipeline_name[[1]][4] == "2") {
               
-              ifelse(length(which(pipelines_data[[i]]$subject == pipesubject &
+              ifelse(length(which(pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
                                     (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))) > 0,
                      pipelines_data[[i]] <-
-                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$subject == pipesubject &
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
                                                       (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))), ],
                      pipelines_data[[i]] <- pipelines_data[[i]])
               
             } else if (pipeline_name[[1]][4] == "5") {
               
-              ifelse(length(which(pipelines_data[[i]]$subject == pipesubject &
+              ifelse(length(which(pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
                                     (pipelines_data[[i]]$rt > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2.5 * pipemad)))) > 0,
                      pipelines_data[[i]] <-
-                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$subject == pipesubject &
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
                                                       (pipelines_data[[i]]$rt > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2.5 * pipemad)))), ],
                      pipelines_data[[i]] <- pipelines_data[[i]])
               
             } else if (pipeline_name[[1]][4] == "3") {
               
-              ifelse(length(which(pipelines_data[[i]]$subject == pipesubject &
+              ifelse(length(which(pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
                                     (pipelines_data[[i]]$rt > (pipemedian + 3 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 3 * pipemad)))) > 0,
                      pipelines_data[[i]] <-
-                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$subject == pipesubject &
+                       pipelines_data[[i]][-c(which(pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
                                                       (pipelines_data[[i]]$rt > (pipemedian + 3 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 3 * pipemad)))), ],
                      pipelines_data[[i]] <- pipelines_data[[i]])
             }
@@ -713,14 +787,14 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
     
     if (pipeline_name[[1]][4] == "O") {
       
-      ifelse(nrow(pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.1)), ]) > 0,
-             pipelines_data[[i]] <- pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.1)), ],
+      ifelse(nrow(pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.1 & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1)), ]) > 0,
+             pipelines_data[[i]] <- pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.1 & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1)), ],
              pipelines_data[[i]] <- pipelines_data[[i]])
     
     } else if (pipeline_name[[1]][4] == "T") {
       
-      ifelse(nrow(pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.2)), ]) > 0,
-             pipelines_data[[i]] <- pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.2)), ],
+      ifelse(nrow(pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.2 & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1)), ]) > 0,
+             pipelines_data[[i]] <- pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.2 & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1)), ],
              pipelines_data[[i]] <- pipelines_data[[i]])
       
     }
@@ -926,11 +1000,11 @@ Contrary to our expectations, the rmANOVA revealed no decrease in performance *d
   
   for (i in 1:(length(levelindex)-1)) {
     
-    medianrt <- median(data_RT$rt[which(data_RT$correct[c(levelindex[i]:(levelindex[i+1])-1)] == 1)
+    medianrt <- median(pipelines_data[["AARO"]]$rt[which(pipelines_data[["AARO"]]$correct[c(levelindex[i]:(levelindex[i+1])-1)] == 1)
                                  +(levelindex[i]-1)], na.rm = TRUE)
     
-    newdata <- data.frame(subject = data_RT$subject[levelindex[i]],
-                          level = data_RT$level[levelindex[i]],
+    newdata <- data.frame(subject = pipelines_data[["AARO"]]$subject[levelindex[i]],
+                          level = pipelines_data[["AARO"]]$level[levelindex[i]],
                           medianrt = medianrt)
     rt <- rbind(rt, newdata)
     
@@ -938,7 +1012,7 @@ Contrary to our expectations, the rmANOVA revealed no decrease in performance *d
 
   # ANOVA with three linear contrasts, contrasting the mean rt of two n-back levels (2,3,4) at a time
   
-      # make a temporary copy of the rt data frame without 1-back
+      # make a temporary copy of the data frame without 1-back
       
       h1b_data <- rt[rt$level != 1,]
       h1b_data$level <- as.factor(h1b_data$level)
@@ -962,7 +1036,7 @@ Contrary to our expectations, the rmANOVA revealed no decrease in performance *d
     
       # remove the temporary variable
       
-      remove(h1b_data)
+      remove(h1b_data, rt)
 
 ```
 
@@ -1064,9 +1138,9 @@ Overall, these ratings showed that the increase in task load was being perceived
 
   # ANOVA with six linear contrasts, contrasting the SVs of two n-back levels (1,2,3,4) at a time
   
-  # make a temporary copy of the SV data frame
+  # make a temporary copy of the data frame
   
-  h2a_data <- data_SV
+  h2a_data <- unique(pipelines_data[["AARO"]][ ,c("subject","level","sv")])
   h2a_data$level <- as.factor(h2a_data$level)
   
   # calculate ANOVA
@@ -1110,28 +1184,10 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   # get all relevant variables -------------------------------------------------
     
   h2b_data <- pipelines_data[["AARO"]]
-
-  # prepare temporary nfc-data frame for loop to feed into
-  
-  data_nfc <- data.frame(subject = character(), nfc = double())
-  
-  # calculate NFC scores for every subject
-  
-  for (i in 1:(length(setindex)-1)) {
-    
-    nfc <- data_quest[setindex[i] + 2, grep("nfc", colnames(data_quest))]
-    # define and invert items to be recoded
-    nfc[ ,c(4,6,7,8,9,10,11,12,15,16)] <-  nfc[ ,c(4,6,7,8,9,10,11,12,15,16)] * -1
-    
-    data_nfc <- rbind(data_nfc, data.frame(subject = data_quest$subject[setindex[i]],
-                                           nfc = sum(nfc)))
-  }
-  
-  h2b_data <- merge(h2b_data, data_nfc, by = "subject")
   
   # get subset for MLM without RT = NA
   
-  h2b_data <- droplevels(subset(h2b_data[c("subject", "level", "sv", "dprime", "correct", "postcorrect", "rt", "nfc")],
+  h2b_data <- droplevels(subset(h2b_data[ ,c("subject", "level", "sv", "dprime", "correct", "postcorrect", "rt", "nfc")],
                                subset = !is.na(rt)))
   
   
@@ -1279,6 +1335,10 @@ The Johnson-Neyman plot (Figure x) visualizes the significance of the slope of n
 
   # H3a: Subjective values predict individual NCS scores.
 
+  # make a temporary copy of the data frame
+  
+  data_SV <- unique(pipelines_data[["AARO"]][ ,c("subject","level","sv")])
+
   # create an index for the rows in which the participant ID changes
 
   subjectindex <- c(1,which(data_SV$subject != dplyr::lag(data_SV$subject)),nrow(data_SV))
@@ -1292,44 +1352,27 @@ The Johnson-Neyman plot (Figure x) visualizes the significance of the slope of n
   for (i in 1:(length(subjectindex)-1)) {
     
     newdata <- data.frame(subject = data_SV$subject[subjectindex[i]],
-                          axauc = auc(data_SV$level[subjectindex[i]:(subjectindex[i]+3)], data_SV$sv[subjectindex[i]:(subjectindex[i]+3)],
-                                               method = "trapezoid") * ((data_SV$sv[subjectindex[i]+3] - data_SV$sv[subjectindex[i]+2]) +
-                                        (data_SV$sv[subjectindex[i]+2] - data_SV$sv[subjectindex[i]+1]) +
-                                        (data_SV$sv[subjectindex[i]+1] - data_SV$sv[subjectindex[i]])))
+                          axauc = auc(data_SV$level[subjectindex[i]:(subjectindex[i]+3)], data_SV$sv[subjectindex[i]:(subjectindex[i]+3)], method = "trapezoid") *
+                            ((data_SV$sv[subjectindex[i]+3] - data_SV$sv[subjectindex[i]+2]) +
+                               (data_SV$sv[subjectindex[i]+2] - data_SV$sv[subjectindex[i]+1]) +
+                               (data_SV$sv[subjectindex[i]+1] - data_SV$sv[subjectindex[i]])))
     h3_data <- rbind(h3_data, newdata)
     
   }
 
-  # prepare temporary data frame for loop to feed into
+  # add NFC values to data frame
   
-  data_nfc <- data.frame(subject = character(), nfc = double())
-  
-  # calculate NFC scores for every subject
-  
-  for (i in 1:(length(setindex)-1)) {
+  for (i in 1:(nrow(h3_data))) {
     
-    nfc <- data_quest[setindex[i] + 2, grep("nfc", colnames(data_quest))]
-    # define and invert items to be recoded
-    nfc[ ,c(4,6,7,8,9,10,11,12,15,16)] <-  nfc[ ,c(4,6,7,8,9,10,11,12,15,16)] * -1
+    h3_data$nfc[i] <- pipelines_data[["AARO"]]$nfc[pipelines_data[["AARO"]]$subject == h3_data$subject[i]]
     
-    data_nfc <- rbind(data_nfc, data.frame(subject = data_quest$subject[setindex[i]],
-                                           nfc = sum(nfc)))
   }
-  
-  # merge the NFC data frame into the AUC data frame by row
-  
-  h3_data <- merge(h3_data, data_nfc)
-  
-  # delete temporary variables
-  
-  remove(nfc, data_nfc)
   
   # calculate linear model to estimate prediction of NFC by SVs
   
   hypothesis3a <- summary(lm(h3_data$nfc ~ h3_data$axauc))
   
   
-
 ```
 
 The $AxAUC$ value did not predict any amount of variance in individual NFC scores (`r apa_print(hypothesis3a)$statistic$modelfit$r2`, `r apa_print(hypothesis3a)$estimate$modelfit$r2`).
