@@ -996,7 +996,7 @@ Contrary to our expectations, the rmANOVA revealed no decrease in performance *d
   
   rt <- data.frame(subject = character(), level = double(), medianrt = double())
   
-  # calculate mean reaction time per participant per level
+  # calculate median reaction time per participant per level
   
   for (i in 1:(length(levelindex)-1)) {
     
@@ -1010,7 +1010,7 @@ Contrary to our expectations, the rmANOVA revealed no decrease in performance *d
     
   }
 
-  # ANOVA with three linear contrasts, contrasting the mean rt of two n-back levels (2,3,4) at a time
+  # ANOVA with three linear contrasts, contrasting the median rt of two n-back levels (2,3,4) at a time
   
       # make a temporary copy of the data frame without 1-back
       
@@ -1112,7 +1112,7 @@ Even though *d'* did not decrease, the increases in RT indicate an increase in o
       hypothesis1c_time_contrasts <- pairs(hypothesis1c_emm)
       
       hypothesis1c_emm <- emmeans(object = hypothesis1c_performance_rmanova$aov, specs = "level")
-      hypothesis1c_peformance_contrasts <- pairs(hypothesis1c_emm)
+      hypothesis1c_performance_contrasts <- pairs(hypothesis1c_emm)
       
       hypothesis1c_emm <- emmeans(object = hypothesis1c_effort_rmanova$aov, specs = "level")
       hypothesis1c_effort_contrasts <- pairs(hypothesis1c_emm)
