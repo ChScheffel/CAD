@@ -1128,7 +1128,7 @@ Even though *d'* did not decrease, the increases in RT indicate an increase in o
 
 Increases in subjective task load were investigated for each NASA-TLX subscale, now including 1-back.
 Ratings on the mental load and effort subscales increased between all n-back levels ($p<.001$) except between 3- and 4-back.
-Ratings on the physical load and the performance subscales only increased between 1- and 3-back (`r apa_print(hypothesis1c_physical_contrasts)$statistic$X1_X3`, and `r`apa_print(hypothesis1c_performance_contrasts)$statistic$X1_X3`, respectively) and 1- and 4-back (`r apa_print(hypothesis1c_physical_contrasts)$statistic$X1_X4`, and`r `apa_print(hypothesis1c_performance_contrasts)$statistic$X1_X4`, respectively).
+Ratings on the physical load and the performance subscales only differed between 1- and 3-back (`r apa_print(hypothesis1c_physical_contrasts)$statistic$X1_X3`, and `r apa_print(hypothesis1c_performance_contrasts)$statistic$X1_X3`, respectively) and 1- and 4-back (`r apa_print(hypothesis1c_physical_contrasts)$statistic$X1_X4`, and `r `apa_print(hypothesis1c_performance_contrasts)$statistic$X1_X4`, respectively).
 Ratings on the frustration and time pressure subscales increased between all n-back levels ($p<.001$) except between 1- and 2-back and 3- and 4-back.
 Overall, these ratings showed that the increase in task load was being perceived as such.
 
@@ -1326,7 +1326,8 @@ However, NFC has no statistically significant effect on subjective value (`r apa
 The simple slopes analysis revealed a significant slope of n-back level for three different expressions of NFC (Table X, Figure X).
 `r h2b_ss.table`
 `r h2b_ss.plot`
-The Johnson-Neyman plot (Figure x) visualizes the significance of the slope of n-back level at different values of NFC. The Johnson-Neyman interval is [`r h2b_jn.int`]. Consequently, the slope of n-back level is not significant for individuals with very low NFC values.    
+The Johnson-Neyman plot (Figure x) visualizes the significance of the slope of n-back level at different values of NFC. The Johnson-Neyman interval is [`r h2b_jn.int`].
+Consequently, the slope of n-back level is not significant for individuals with very low NFC values.    
 `r h2b_jn.plot`
 
 ## alternative: `r h2b_jn` 
