@@ -97,6 +97,7 @@ editor_options:
   library(interactions) # for simple slopes analysis
   library(huxtable)     # create huxtable
   library(glmmTMB)      # from the glmmTMB package for multi level models
+  library(BayesFactor)  # computing Bayes factors, "BayesFactor" package
 
   set_sum_contrasts()   # sets orthogonal contrasts for mixed-effects model 
                         # and rmANOVA globally in order to get meaningful Type-III tests
@@ -976,9 +977,13 @@ A sample size analysis with GPower [@Faul2007; @Faul2009], using the pilot RT da
       
       hypothesis1a_contrasts <- pairs(hypothesis1a_emm)
     
-      # remove the temporary variable
+  # get Bayes factor
       
-      remove(h1a_data)
+  hypothesis1a_BF <- anovaBF(formula = dprime ~ level, data = h1a_data, progress = FALSE)
+      
+  # remove the temporary variable
+  
+  remove(h1a_data)
 
 ```
 
@@ -1034,9 +1039,13 @@ Contrary to our expectations, the rmANOVA revealed no decrease in performance *d
       
       hypothesis1b_contrasts <- pairs(hypothesis1b_emm)
     
-      # remove the temporary variable
-      
-      remove(h1b_data, rt)
+  # get Bayes factor
+  
+  hypothesis1b_BF <- anovaBF(formula = medianrt ~ level, data = h1b_data, progress = FALSE)
+  
+  # remove the temporary variable
+  
+  remove(h1b_data, rt)
 
 ```
 
@@ -1056,7 +1065,7 @@ Even though *d'* did not decrease, the increases in RT indicate an increase in o
   
   # feed NASA-TLX data per participant per level into data frame
   
-  for (i in 1:(length(setindex)-1)) {
+  for (i in c(1:5,7:(length(setindex)-1))) { # we exclude the sixth subject (ID F30T02) here, because their NTLX data for n = 1 is missing
     
     for (j in 1:4) {
       
@@ -1120,9 +1129,18 @@ Even though *d'* did not decrease, the increases in RT indicate an increase in o
       hypothesis1c_emm <- emmeans(object = hypothesis1c_frustration_rmanova$aov, specs = "level")
       hypothesis1c_frustration_contrasts <- pairs(hypothesis1c_emm)
     
-      # remove the temporary variable
-      
-      remove(h1c_data, hypothesis1c_emm)
+  # get Bayes factors
+
+  hypothesis1c_mental_BF <- anovaBF(formula = mental ~ level, data = h1c_data, progress = FALSE)
+  hypothesis1c_physical_BF <- anovaBF(formula = physical ~ level, data = h1c_data, progress = FALSE)
+  hypothesis1c_time_BF <- anovaBF(formula = time ~ level, data = h1c_data, progress = FALSE)
+  hypothesis1c_performance_BF <- anovaBF(formula = performance ~ level, data = h1c_data, progress = FALSE)
+  hypothesis1c_effort_BF <- anovaBF(formula = effort ~ level, data = h1c_data, progress = FALSE)
+  hypothesis1c_frustration_BF <- anovaBF(formula = frustration ~ level, data = h1c_data, progress = FALSE)
+  
+  # remove the temporary variable
+  
+  remove(h1c_data, hypothesis1c_emm)
       
 ```
 
@@ -1158,6 +1176,10 @@ Overall, these ratings showed that the increase in task load was being perceived
   
   hypothesis2a_contrasts <- pairs(hypothesis2a_emm)
 
+  # get Bayes factor
+  
+  hypothesis2a_BF <- anovaBF(formula = sv ~ level, data = h2a_data, progress = FALSE)
+  
   # remove the temporary variable
   
   remove(h2a_data)
@@ -1334,7 +1356,7 @@ Consequently, the slope of n-back level is not significant for individuals with 
 
 ```{r Hypothesis_3a, echo=FALSE, message=FALSE, warning=FALSE}
 
-  # H3a: Subjective values predict individual NCS scores.
+  # H3a: Subjective values positively predict individual NCS scores.
 
   # make a temporary copy of the data frame
   
@@ -1380,7 +1402,7 @@ The $AxAUC$ value did not predict any amount of variance in individual NFC score
 
 ```{r Hypothesis_3b, echo=FALSE, message=FALSE, warning=FALSE}
 
-  # H3b: NASA-TLX scores do not predict individual NCS scores.
+  # H3b: NASA-TLX scores negatively predict individual NCS scores.
   
   # create an index for the rows in which the participant ID changes
 
