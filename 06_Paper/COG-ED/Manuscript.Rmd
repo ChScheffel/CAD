@@ -945,7 +945,7 @@ Therefore, we multiply both indicators, arriving at a value reflecting both degr
 
 ## Power analysis
 
-A sample size analysis with GPower [@Faul2007; @Faul2009], using the pilot RT data, indicated that we should collect data from at least 40 participants, assuming $f=0.27$, $\alpha=.05$, $\beta=.80$, and no correlation between levels.
+A sample size analysis with GPower [@Faul2007; @Faul2009], using the pilot RT data, indicated that we should collect data from at least 53 participants, assuming $f=0.20$, $\alpha=.05$, and $\beta=.95$.
 
 
 ```{r Hypothesis_1a, echo=FALSE, message=FALSE, warning=FALSE}
@@ -957,6 +957,7 @@ A sample size analysis with GPower [@Faul2007; @Faul2009], using the pilot RT da
       # make a temporary copy of the data frame without 1-back
       
       h1a_data <- pipelines_data[["AARN"]][pipelines_data[["AARN"]]$level != 1, ]
+      h1a_data <- unique(h1a_data[ ,c("subject","level","dprime")])
       h1a_data$level <- as.factor(h1a_data$level)
       
       # calculate ANOVA
@@ -975,11 +976,14 @@ A sample size analysis with GPower [@Faul2007; @Faul2009], using the pilot RT da
       
       # calculate pairwise comparisons on estimated marginal means
       
-      hypothesis1a_contrasts <- pairs(hypothesis1a_emm)
+      hypothesis1a_contrasts <- as.data.frame(pairs(hypothesis1a_emm))
     
-  # get Bayes factor
+  # get Bayes factors
       
   hypothesis1a_BF <- anovaBF(formula = dprime ~ level, data = h1a_data, progress = FALSE)
+  hypothesis1a_contrasts$BF10 <- c(extractBF(ttestBF(x = h1a_data$dprime[h1a_data$level == 2], y = h1a_data$dprime[h1a_data$level == 3], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1a_data$dprime[h1a_data$level == 2], y = h1a_data$dprime[h1a_data$level == 4], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1a_data$dprime[h1a_data$level == 3], y = h1a_data$dprime[h1a_data$level == 4], progress = FALSE))$bf)
       
   # remove the temporary variable
   
@@ -989,8 +993,8 @@ A sample size analysis with GPower [@Faul2007; @Faul2009], using the pilot RT da
 
 ## Results of the pilot study
 
-### Associations of subjective and objective task load measures
-
+We collected data from $N = 16$ participants,
+One participant's NASA-TLX data is incomplete due to a technical error, so hypotheses 1c and 3b are analyzed using the 15 complete data sets.
 Contrary to our expectations, the rmANOVA revealed no decrease in performance *d'* with increasing n-back level (`r apa_print(hypothesis1a_rmanova)$full_result`).
 
 ```{r Hypothesis_1b, echo=FALSE, message=FALSE, warning=FALSE}
@@ -1037,11 +1041,14 @@ Contrary to our expectations, the rmANOVA revealed no decrease in performance *d
                                   specs = "level")
       # calculate pairwise comparisons on estimated marginal means
       
-      hypothesis1b_contrasts <- pairs(hypothesis1b_emm)
+      hypothesis1b_contrasts <- as.data.frame(pairs(hypothesis1b_emm))
     
-  # get Bayes factor
+  # get Bayes factors
   
   hypothesis1b_BF <- anovaBF(formula = medianrt ~ level, data = h1b_data, progress = FALSE)
+  hypothesis1b_contrasts$BF10 <- c(extractBF(ttestBF(x = h1b_data$medianrt[h1b_data$level == 2], y = h1b_data$medianrt[h1b_data$level == 3], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1b_data$medianrt[h1b_data$level == 2], y = h1b_data$medianrt[h1b_data$level == 4], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1b_data$medianrt[h1b_data$level == 3], y = h1b_data$medianrt[h1b_data$level == 4], progress = FALSE))$bf)
   
   # remove the temporary variable
   
@@ -1050,7 +1057,7 @@ Contrary to our expectations, the rmANOVA revealed no decrease in performance *d
 ```
 
 However, RTs increased with increasing n-back level (`r apa_print(hypothesis1b_rmanova)$full_result`).
-RTs were longer for 3- than 2-back (`r apa_print(hypothesis1b_contrasts)$statistic[1]`), but not different between 2- and 4-back or 3- and 4-back.
+RTs were longer for 3- than 2-back (`r apa_print(pairs(emmeans(object = hypothesis1b_rmanova$aov,specs = "level"))[1]`), but not different between 2- and 4-back or 3- and 4-back.
 Even though *d'* did not decrease, the increases in RT indicate an increase in objective task load.
 
 ```{r Hypothesis_1c, echo=FALSE, message=FALSE, warning=FALSE}
@@ -1112,31 +1119,67 @@ Even though *d'* did not decrease, the increases in RT indicate an increase in o
       # calculate pairwise comparisons on estimated marginal means
       
       hypothesis1c_emm <- emmeans(object = hypothesis1c_mental_rmanova$aov, specs = "level")
-      hypothesis1c_mental_contrasts <- pairs(hypothesis1c_emm)
+      hypothesis1c_mental_contrasts <- as.data.frame(pairs(hypothesis1c_emm))
       
       hypothesis1c_emm <- emmeans(object = hypothesis1c_physical_rmanova$aov, specs = "level")
-      hypothesis1c_physical_contrasts <- pairs(hypothesis1c_emm)
+      hypothesis1c_physical_contrasts <- as.data.frame(pairs(hypothesis1c_emm))
       
       hypothesis1c_emm <- emmeans(object = hypothesis1c_time_rmanova$aov, specs = "level")
-      hypothesis1c_time_contrasts <- pairs(hypothesis1c_emm)
+      hypothesis1c_time_contrasts <- as.data.frame(pairs(hypothesis1c_emm))
       
       hypothesis1c_emm <- emmeans(object = hypothesis1c_performance_rmanova$aov, specs = "level")
-      hypothesis1c_performance_contrasts <- pairs(hypothesis1c_emm)
+      hypothesis1c_performance_contrasts <- as.data.frame(pairs(hypothesis1c_emm))
       
       hypothesis1c_emm <- emmeans(object = hypothesis1c_effort_rmanova$aov, specs = "level")
-      hypothesis1c_effort_contrasts <- pairs(hypothesis1c_emm)
+      hypothesis1c_effort_contrasts <- as.data.frame(pairs(hypothesis1c_emm))
       
       hypothesis1c_emm <- emmeans(object = hypothesis1c_frustration_rmanova$aov, specs = "level")
-      hypothesis1c_frustration_contrasts <- pairs(hypothesis1c_emm)
+      hypothesis1c_frustration_contrasts <- as.data.frame(pairs(hypothesis1c_emm))
     
   # get Bayes factors
 
   hypothesis1c_mental_BF <- anovaBF(formula = mental ~ level, data = h1c_data, progress = FALSE)
+  hypothesis1c_mental_contrasts$BF10 <- c(extractBF(ttestBF(x = h1c_data$mental[h1c_data$level == 1], y = h1c_data$mental[h1c_data$level == 2], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$mental[h1c_data$level == 1], y = h1c_data$mental[h1c_data$level == 3], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$mental[h1c_data$level == 1], y = h1c_data$mental[h1c_data$level == 4], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$mental[h1c_data$level == 2], y = h1c_data$mental[h1c_data$level == 3], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$mental[h1c_data$level == 2], y = h1c_data$mental[h1c_data$level == 4], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$mental[h1c_data$level == 3], y = h1c_data$mental[h1c_data$level == 4], progress = FALSE))$bf)
   hypothesis1c_physical_BF <- anovaBF(formula = physical ~ level, data = h1c_data, progress = FALSE)
+  hypothesis1c_physical_contrasts$BF10 <- c(extractBF(ttestBF(x = h1c_data$physical[h1c_data$level == 1], y = h1c_data$physical[h1c_data$level == 2], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$physical[h1c_data$level == 1], y = h1c_data$physical[h1c_data$level == 3], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$physical[h1c_data$level == 1], y = h1c_data$physical[h1c_data$level == 4], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$physical[h1c_data$level == 2], y = h1c_data$physical[h1c_data$level == 3], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$physical[h1c_data$level == 2], y = h1c_data$physical[h1c_data$level == 4], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$physical[h1c_data$level == 3], y = h1c_data$physical[h1c_data$level == 4], progress = FALSE))$bf)
   hypothesis1c_time_BF <- anovaBF(formula = time ~ level, data = h1c_data, progress = FALSE)
+  hypothesis1c_time_contrasts$BF10 <- c(extractBF(ttestBF(x = h1c_data$time[h1c_data$level == 1], y = h1c_data$time[h1c_data$level == 2], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$time[h1c_data$level == 1], y = h1c_data$time[h1c_data$level == 3], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$time[h1c_data$level == 1], y = h1c_data$time[h1c_data$level == 4], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$time[h1c_data$level == 2], y = h1c_data$time[h1c_data$level == 3], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$time[h1c_data$level == 2], y = h1c_data$time[h1c_data$level == 4], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$time[h1c_data$level == 3], y = h1c_data$time[h1c_data$level == 4], progress = FALSE))$bf)
   hypothesis1c_performance_BF <- anovaBF(formula = performance ~ level, data = h1c_data, progress = FALSE)
+  hypothesis1c_performance_contrasts$BF10 <- c(extractBF(ttestBF(x = h1c_data$performance[h1c_data$level == 1], y = h1c_data$performance[h1c_data$level == 2], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$performance[h1c_data$level == 1], y = h1c_data$performance[h1c_data$level == 3], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$performance[h1c_data$level == 1], y = h1c_data$performance[h1c_data$level == 4], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$performance[h1c_data$level == 2], y = h1c_data$performance[h1c_data$level == 3], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$performance[h1c_data$level == 2], y = h1c_data$performance[h1c_data$level == 4], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$performance[h1c_data$level == 3], y = h1c_data$performance[h1c_data$level == 4], progress = FALSE))$bf)
   hypothesis1c_effort_BF <- anovaBF(formula = effort ~ level, data = h1c_data, progress = FALSE)
+  hypothesis1c_effort_contrasts$BF10 <- c(extractBF(ttestBF(x = h1c_data$effort[h1c_data$level == 1], y = h1c_data$effort[h1c_data$level == 2], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$effort[h1c_data$level == 1], y = h1c_data$effort[h1c_data$level == 3], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$effort[h1c_data$level == 1], y = h1c_data$effort[h1c_data$level == 4], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$effort[h1c_data$level == 2], y = h1c_data$effort[h1c_data$level == 3], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$effort[h1c_data$level == 2], y = h1c_data$effort[h1c_data$level == 4], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$effort[h1c_data$level == 3], y = h1c_data$effort[h1c_data$level == 4], progress = FALSE))$bf)
   hypothesis1c_frustration_BF <- anovaBF(formula = frustration ~ level, data = h1c_data, progress = FALSE)
+  hypothesis1c_frustration_contrasts$BF10 <- c(extractBF(ttestBF(x = h1c_data$frustration[h1c_data$level == 1], y = h1c_data$frustration[h1c_data$level == 2], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$frustration[h1c_data$level == 1], y = h1c_data$frustration[h1c_data$level == 3], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$frustration[h1c_data$level == 1], y = h1c_data$frustration[h1c_data$level == 4], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$frustration[h1c_data$level == 2], y = h1c_data$frustration[h1c_data$level == 3], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$frustration[h1c_data$level == 2], y = h1c_data$frustration[h1c_data$level == 4], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$frustration[h1c_data$level == 3], y = h1c_data$frustration[h1c_data$level == 4], progress = FALSE))$bf)
   
   # remove the temporary variable
   
@@ -1146,7 +1189,7 @@ Even though *d'* did not decrease, the increases in RT indicate an increase in o
 
 Increases in subjective task load were investigated for each NASA-TLX subscale, now including 1-back.
 Ratings on the mental load and effort subscales increased between all n-back levels ($p<.001$) except between 3- and 4-back.
-Ratings on the physical load and the performance subscales only differed between 1- and 3-back (`r apa_print(hypothesis1c_physical_contrasts)$statistic$X1_X3`, and `r apa_print(hypothesis1c_performance_contrasts)$statistic$X1_X3`, respectively) and 1- and 4-back (`r apa_print(hypothesis1c_physical_contrasts)$statistic$X1_X4`, and `r `apa_print(hypothesis1c_performance_contrasts)$statistic$X1_X4`, respectively).
+Ratings on the physical load and the performance subscales only differed between 1- and 3-back (`r apa_print(pairs(emmeans(object = hypothesis1c_physical_rmanova$aov,specs = "level")))$statistic$X1_X3`, and `r apa_print(pairs(emmeans(object = hypothesis1c_performance_rmanova$aov,specs = "level")))$statistic$X1_X3`, respectively) and 1- and 4-back (`r apa_print(pairs(emmeans(object = hypothesis1c_physical_rmanova$aov,specs = "level")))$statistic$X1_X4`, and `r `apa_print(pairs(emmeans(object = hypothesis1c_performance_rmanova$aov,specs = "level")))$statistic$X1_X4`, respectively).
 Ratings on the frustration and time pressure subscales increased between all n-back levels ($p<.001$) except between 1- and 2-back and 3- and 4-back.
 Overall, these ratings showed that the increase in task load was being perceived as such.
 
@@ -1174,11 +1217,17 @@ Overall, these ratings showed that the increase in task load was being perceived
   
   # calculate pairwise comparisons on estimated marginal means
   
-  hypothesis2a_contrasts <- pairs(hypothesis2a_emm)
+  hypothesis2a_contrasts <- as.data.frame(pairs(hypothesis2a_emm))
 
-  # get Bayes factor
+  # get Bayes factors
   
   hypothesis2a_BF <- anovaBF(formula = sv ~ level, data = h2a_data, progress = FALSE)
+  hypothesis2a_contrasts$BF10 <- c(extractBF(ttestBF(x = h2a_data$sv[h2a_data$level == 1], y = h2a_data$sv[h2a_data$level == 2], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h2a_data$sv[h2a_data$level == 1], y = h2a_data$sv[h2a_data$level == 3], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h2a_data$sv[h2a_data$level == 1], y = h2a_data$sv[h2a_data$level == 4], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h2a_data$sv[h2a_data$level == 2], y = h2a_data$sv[h2a_data$level == 3], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h2a_data$sv[h2a_data$level == 2], y = h2a_data$sv[h2a_data$level == 4], progress = FALSE))$bf,
+                                 extractBF(ttestBF(x = h2a_data$sv[h2a_data$level == 3], y = h2a_data$sv[h2a_data$level == 4], progress = FALSE))$bf)
   
   # remove the temporary variable
   
@@ -1186,10 +1235,8 @@ Overall, these ratings showed that the increase in task load was being perceived
 
 ```
 
-### Changes in subjective values depending on n-back level
-
 The rmANOVA indicated significant differences between SVs depending on n-back level (`r apa_print(hypothesis2a_rmanova)$full_result`).
-SVs were higher for 1- than 3-back (`r apa_print(hypothesis2a_contrasts)$statistic$X1_X3`), for 1- than 4-back (`r apa_print(hypothesis2a_contrasts)$statistic$X1_X4`), and for 2- than 4-back (`r apa_print(hypothesis2a_contrasts)$statistic$X2_X4`).
+SVs were higher for 1- than 3-back (`r apa_print(pairs(emmeans(object = hypothesis2a_rmanova$aov,specs = "level")))$statistic$X1_X3`), for 1- than 4-back (`r apa_print(pairs(emmeans(object = hypothesis2a_rmanova$aov,specs = "level")))$statistic$X1_X4`), and for 2- than 4-back (`r apa_print(pairs(emmeans(object = hypothesis2a_rmanova$aov,specs = "level")))$statistic$X2_X4`).
 Importantly, the lack of difference between the SVs of 1- and 2-back indicates that when given the choice, not all participants preferred the easiest level.
 This can be considered preliminary proof-of-concept, as this behavioural pattern can only emerge in the CERED paradigm, but not in the original COG-ED paradigm.
 
@@ -1299,7 +1346,7 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   
   h2b_result.table$`Random Effects (SD)`[3:6] <- paste0("")
    
-  replication_table <-
+  table_1 <-
     kbl(h2b_result.table,
     caption = "Effects of n-back load level on subjective value controlled 
     for task performance (d’ and reaction time), correct and postcorrect trials.",
@@ -1338,18 +1385,17 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
                                legend.main = "NFC", interval = T) + theme_apa()    
 ```
 
-### Changes in subjective values depend reliably on n-back level
-
-N-back level is a reliable predictor of subjective value (`r apa_print(m1_h2b)$full_result$level_cwc`), even after controlling for declining task performance (signal detection d’ and reaction time) as well as correct and post-correct answers. 
-The results of the multilevel model are detailed in Table X. 
-`r replication_table`
-`r round((icc_h2b*100), digits = 0)` % of the total variance in subjective values can be explained by differences between subjects ($ICC =$ `r round(icc_h2b, digits = 2)`).
-However, NFC has no statistically significant effect on subjective value (`r apa_print(m1_h2b)$full_result$nfc_cgm`).
-The simple slopes analysis revealed a significant slope of n-back level for three different expressions of NFC (Table X, Figure X).
+The MLM revealed that n-back level was a reliable predictor of SV (`r apa_print(m1_h2b)$full_result$level_cwc`), even after controlling for declining task performance (d’ and RT) as well as correct and post-correct answers. 
+The results of the MLM are detailed in Table 1. 
+`r table_1`
+Differences between subjects could explain `r round((icc_h2b*100), digits = 0)` % of the total variance in SVs ($ICC =$ `r round(icc_h2b, digits = 2)`).
+However, NFC had no statistically significant effect on SVs (`r apa_print(m1_h2b)$full_result$nfc_cgm`).
+The simple slopes analysis revealed a significant difference in slope of n-back level for three different expressions of NFC (Table 2, Figure 2).
 `r h2b_ss.table`
 `r h2b_ss.plot`
-The Johnson-Neyman plot (Figure x) visualizes the significance of the slope of n-back level at different values of NFC. The Johnson-Neyman interval is [`r h2b_jn.int`].
-Consequently, the slope of n-back level is not significant for individuals with very low NFC values.    
+The Johnson-Neyman plot (Figure 2) visualizes the significance of the slope of n-back level at different values of NFC.
+The Johnson-Neyman interval is [`r h2b_jn.int`].
+Consequently, the slope of n-back level was not significant for individuals with very low NFC values.    
 `r h2b_jn.plot`
 
 ## alternative: `r h2b_jn` 
@@ -1394,6 +1440,10 @@ Consequently, the slope of n-back level is not significant for individuals with 
   # calculate linear model to estimate prediction of NFC by SVs
   
   hypothesis3a <- summary(lm(h3_data$nfc ~ h3_data$axauc))
+  
+  # get Bayes factor
+  
+  hypothesis3a_BF <- regressionBF(formula = nfc ~ axauc, data = h3_data, progress = FALSE)
   
   
 ```
@@ -1449,6 +1499,10 @@ The $AxAUC$ value did not predict any amount of variance in individual NFC score
   # compute multiple linear regression to predict NCS based on SV AUC and NASA-TLX AUC
   
   hypothesis3b <- summary(lm(h3_data$nfc ~ h3_data$axauc + h3_data$auc_ntlx))
+  
+  # get Bayes factor
+  
+  hypothesis3b_BF <- regressionBF(formula = nfc ~ axauc + auc_ntlx, data = h3_data, progress = FALSE)
 
 ```
 
