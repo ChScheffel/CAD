@@ -48,7 +48,7 @@ abstract: |
   
 keywords          : "effort discounting, registered report, specification curve analysis, need for cognition, n-back"
 wordcount         : "X"
-bibliography      : ref_COG-ED.bib
+bibliography      : CERED.bib
 floatsintext      : no
 figurelist        : no
 tablelist         : no
@@ -59,7 +59,7 @@ draft             : no
 documentclass     : "apa6"
 classoption       : "man"
 output            : papaja::apa6_pdf
-csl               : apa.csl # this is a workaround for a current bug in the papaja/Rmd software, which fails to shorten multiple authors to "et al."
+csl               : nature.csl
 header-includes   :
     - \usepackage{booktabs}
     - \usepackage{longtable}
@@ -863,7 +863,7 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
 
 # Methods
 
-The paradigm was written and presented using *Psychopy* [@Peirce2019]. We used *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages *tidyverse* [@Wickham2019] and *basetestR* [@Makowski2019] for all our analyses.
+The paradigm was written and presented using *Psychopy* [@Peirce2019]. We used *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages *afex* [@Singmann2021] and *bayestestR* [@Makowski2019] for all our analyses.
 The R Markdown file used to analyze the data and write this document is freely available at github.com/ChScheffel/CERED.
 The data can be downloaded from osf.io/vnj8x/.
 
