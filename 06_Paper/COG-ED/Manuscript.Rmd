@@ -442,7 +442,7 @@ In the present study, we will validate the CERED paradigm by conceptually replic
 
 *Fig.1* Subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back \> 3-back \> 1-back.
 
-Our hypotheses were derived from the results of Westbrook et al. [-@Westbrook2013].
+Our hypotheses were derived from the results of Westbrook et al. [-@Westbrook2013], and detailed in the attached design table..
 Regarding the associations of subjective and objective task load we hypothesize that (1a) the signal detection parameter *d'* declines with increasing n-back level, (1b) reaction time increases with increasing n-back level, and (1c) perceived task load increases with n-back level.
 Regarding the associations of task load and ED we hypothesize that (2a) SVs decline with increasing n-back level, and (2b) SVs decline with increasing n-back level even after controlling for declining task performance.
 Here we added they hypothesis that (2c) SVs decline stronger with increasing task load for individuals with low compared to high NFC scores.
@@ -937,6 +937,8 @@ A classic AUC cannot differentiate between a subject who prefers 1-back and a su
 This is the opposite for the sum of the ascent between SVs.
 Therefore, we multiply both indicators, arriving at a value reflecting both degree and direction of preference, called $AxAUC$.
 
+The results of each analysis will be assessed on the basis of both *p*-value and the Bayes factor $BF10$.
+
 ## Power analysis
 
 A sample size analysis with GPower [@Faul2007; @Faul2009], using the pilot RT data, indicated that we should collect data from at least 53 participants, assuming $f=0.20$, $\alpha=.05$, and $\beta=.95$.
@@ -975,9 +977,12 @@ A sample size analysis with GPower [@Faul2007; @Faul2009], using the pilot RT da
   # get Bayes factors
       
   hypothesis1a_BF <- anovaBF(formula = dprime ~ level, data = h1a_data, progress = FALSE)
-  hypothesis1a_contrasts$BF10 <- c(extractBF(ttestBF(x = h1a_data$dprime[h1a_data$level == 2], y = h1a_data$dprime[h1a_data$level == 3], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1a_data$dprime[h1a_data$level == 2], y = h1a_data$dprime[h1a_data$level == 4], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1a_data$dprime[h1a_data$level == 3], y = h1a_data$dprime[h1a_data$level == 4], progress = FALSE))$bf)
+  hypothesis1a_contrasts$BF10 <- c(extractBF(ttestBF(x = h1a_data$dprime[h1a_data$level == 2], y = h1a_data$dprime[h1a_data$level == 3],
+                                                     progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1a_data$dprime[h1a_data$level == 2], y = h1a_data$dprime[h1a_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1a_data$dprime[h1a_data$level == 3], y = h1a_data$dprime[h1a_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf)
       
   # remove the temporary variable
   
@@ -1040,9 +1045,12 @@ Contrary to our expectations, the rmANOVA revealed no decrease in performance *d
   # get Bayes factors
   
   hypothesis1b_BF <- anovaBF(formula = medianrt ~ level, data = h1b_data, progress = FALSE)
-  hypothesis1b_contrasts$BF10 <- c(extractBF(ttestBF(x = h1b_data$medianrt[h1b_data$level == 2], y = h1b_data$medianrt[h1b_data$level == 3], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1b_data$medianrt[h1b_data$level == 2], y = h1b_data$medianrt[h1b_data$level == 4], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1b_data$medianrt[h1b_data$level == 3], y = h1b_data$medianrt[h1b_data$level == 4], progress = FALSE))$bf)
+  hypothesis1b_contrasts$BF10 <- c(extractBF(ttestBF(x = h1b_data$medianrt[h1b_data$level == 2], y = h1b_data$medianrt[h1b_data$level == 3],
+                                                     progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1b_data$medianrt[h1b_data$level == 2], y = h1b_data$medianrt[h1b_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1b_data$medianrt[h1b_data$level == 3], y = h1b_data$medianrt[h1b_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf)
   
   # remove the temporary variable
   
@@ -1133,47 +1141,83 @@ Even though *d'* did not decrease, the increases in RT indicate an increase in o
   # get Bayes factors
 
   hypothesis1c_mental_BF <- anovaBF(formula = mental ~ level, data = h1c_data, progress = FALSE)
-  hypothesis1c_mental_contrasts$BF10 <- c(extractBF(ttestBF(x = h1c_data$mental[h1c_data$level == 1], y = h1c_data$mental[h1c_data$level == 2], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$mental[h1c_data$level == 1], y = h1c_data$mental[h1c_data$level == 3], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$mental[h1c_data$level == 1], y = h1c_data$mental[h1c_data$level == 4], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$mental[h1c_data$level == 2], y = h1c_data$mental[h1c_data$level == 3], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$mental[h1c_data$level == 2], y = h1c_data$mental[h1c_data$level == 4], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$mental[h1c_data$level == 3], y = h1c_data$mental[h1c_data$level == 4], progress = FALSE))$bf)
+  hypothesis1c_mental_contrasts$BF10 <- c(extractBF(ttestBF(x = h1c_data$mental[h1c_data$level == 1], y = h1c_data$mental[h1c_data$level == 2],
+                                                            progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$mental[h1c_data$level == 1], y = h1c_data$mental[h1c_data$level == 3],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$mental[h1c_data$level == 1], y = h1c_data$mental[h1c_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$mental[h1c_data$level == 2], y = h1c_data$mental[h1c_data$level == 3],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$mental[h1c_data$level == 2], y = h1c_data$mental[h1c_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$mental[h1c_data$level == 3], y = h1c_data$mental[h1c_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf)
   hypothesis1c_physical_BF <- anovaBF(formula = physical ~ level, data = h1c_data, progress = FALSE)
-  hypothesis1c_physical_contrasts$BF10 <- c(extractBF(ttestBF(x = h1c_data$physical[h1c_data$level == 1], y = h1c_data$physical[h1c_data$level == 2], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$physical[h1c_data$level == 1], y = h1c_data$physical[h1c_data$level == 3], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$physical[h1c_data$level == 1], y = h1c_data$physical[h1c_data$level == 4], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$physical[h1c_data$level == 2], y = h1c_data$physical[h1c_data$level == 3], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$physical[h1c_data$level == 2], y = h1c_data$physical[h1c_data$level == 4], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$physical[h1c_data$level == 3], y = h1c_data$physical[h1c_data$level == 4], progress = FALSE))$bf)
+  hypothesis1c_physical_contrasts$BF10 <- c(extractBF(ttestBF(x = h1c_data$physical[h1c_data$level == 1], y = h1c_data$physical[h1c_data$level == 2],
+                                                              progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$physical[h1c_data$level == 1], y = h1c_data$physical[h1c_data$level == 3],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$physical[h1c_data$level == 1], y = h1c_data$physical[h1c_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$physical[h1c_data$level == 2], y = h1c_data$physical[h1c_data$level == 3],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$physical[h1c_data$level == 2], y = h1c_data$physical[h1c_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$physical[h1c_data$level == 3], y = h1c_data$physical[h1c_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf)
   hypothesis1c_time_BF <- anovaBF(formula = time ~ level, data = h1c_data, progress = FALSE)
-  hypothesis1c_time_contrasts$BF10 <- c(extractBF(ttestBF(x = h1c_data$time[h1c_data$level == 1], y = h1c_data$time[h1c_data$level == 2], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$time[h1c_data$level == 1], y = h1c_data$time[h1c_data$level == 3], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$time[h1c_data$level == 1], y = h1c_data$time[h1c_data$level == 4], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$time[h1c_data$level == 2], y = h1c_data$time[h1c_data$level == 3], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$time[h1c_data$level == 2], y = h1c_data$time[h1c_data$level == 4], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$time[h1c_data$level == 3], y = h1c_data$time[h1c_data$level == 4], progress = FALSE))$bf)
+  hypothesis1c_time_contrasts$BF10 <- c(extractBF(ttestBF(x = h1c_data$time[h1c_data$level == 1], y = h1c_data$time[h1c_data$level == 2],
+                                                          progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$time[h1c_data$level == 1], y = h1c_data$time[h1c_data$level == 3],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$time[h1c_data$level == 1], y = h1c_data$time[h1c_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$time[h1c_data$level == 2], y = h1c_data$time[h1c_data$level == 3],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$time[h1c_data$level == 2], y = h1c_data$time[h1c_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$time[h1c_data$level == 3], y = h1c_data$time[h1c_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf)
   hypothesis1c_performance_BF <- anovaBF(formula = performance ~ level, data = h1c_data, progress = FALSE)
-  hypothesis1c_performance_contrasts$BF10 <- c(extractBF(ttestBF(x = h1c_data$performance[h1c_data$level == 1], y = h1c_data$performance[h1c_data$level == 2], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$performance[h1c_data$level == 1], y = h1c_data$performance[h1c_data$level == 3], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$performance[h1c_data$level == 1], y = h1c_data$performance[h1c_data$level == 4], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$performance[h1c_data$level == 2], y = h1c_data$performance[h1c_data$level == 3], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$performance[h1c_data$level == 2], y = h1c_data$performance[h1c_data$level == 4], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$performance[h1c_data$level == 3], y = h1c_data$performance[h1c_data$level == 4], progress = FALSE))$bf)
+  hypothesis1c_performance_contrasts$BF10 <- c(extractBF(ttestBF(x = h1c_data$performance[h1c_data$level == 1], y = h1c_data$performance[h1c_data$level == 2],
+                                                                 progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$performance[h1c_data$level == 1], y = h1c_data$performance[h1c_data$level == 3],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$performance[h1c_data$level == 1], y = h1c_data$performance[h1c_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$performance[h1c_data$level == 2], y = h1c_data$performance[h1c_data$level == 3],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$performance[h1c_data$level == 2], y = h1c_data$performance[h1c_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$performance[h1c_data$level == 3], y = h1c_data$performance[h1c_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf)
   hypothesis1c_effort_BF <- anovaBF(formula = effort ~ level, data = h1c_data, progress = FALSE)
-  hypothesis1c_effort_contrasts$BF10 <- c(extractBF(ttestBF(x = h1c_data$effort[h1c_data$level == 1], y = h1c_data$effort[h1c_data$level == 2], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$effort[h1c_data$level == 1], y = h1c_data$effort[h1c_data$level == 3], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$effort[h1c_data$level == 1], y = h1c_data$effort[h1c_data$level == 4], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$effort[h1c_data$level == 2], y = h1c_data$effort[h1c_data$level == 3], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$effort[h1c_data$level == 2], y = h1c_data$effort[h1c_data$level == 4], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$effort[h1c_data$level == 3], y = h1c_data$effort[h1c_data$level == 4], progress = FALSE))$bf)
+  hypothesis1c_effort_contrasts$BF10 <- c(extractBF(ttestBF(x = h1c_data$effort[h1c_data$level == 1], y = h1c_data$effort[h1c_data$level == 2],
+                                                            progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$effort[h1c_data$level == 1], y = h1c_data$effort[h1c_data$level == 3],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$effort[h1c_data$level == 1], y = h1c_data$effort[h1c_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$effort[h1c_data$level == 2], y = h1c_data$effort[h1c_data$level == 3],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$effort[h1c_data$level == 2], y = h1c_data$effort[h1c_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$effort[h1c_data$level == 3], y = h1c_data$effort[h1c_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf)
   hypothesis1c_frustration_BF <- anovaBF(formula = frustration ~ level, data = h1c_data, progress = FALSE)
-  hypothesis1c_frustration_contrasts$BF10 <- c(extractBF(ttestBF(x = h1c_data$frustration[h1c_data$level == 1], y = h1c_data$frustration[h1c_data$level == 2], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$frustration[h1c_data$level == 1], y = h1c_data$frustration[h1c_data$level == 3], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$frustration[h1c_data$level == 1], y = h1c_data$frustration[h1c_data$level == 4], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$frustration[h1c_data$level == 2], y = h1c_data$frustration[h1c_data$level == 3], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$frustration[h1c_data$level == 2], y = h1c_data$frustration[h1c_data$level == 4], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h1c_data$frustration[h1c_data$level == 3], y = h1c_data$frustration[h1c_data$level == 4], progress = FALSE))$bf)
+  hypothesis1c_frustration_contrasts$BF10 <- c(extractBF(ttestBF(x = h1c_data$frustration[h1c_data$level == 1], y = h1c_data$frustration[h1c_data$level == 2],
+                                                                 progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$frustration[h1c_data$level == 1], y = h1c_data$frustration[h1c_data$level == 3],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$frustration[h1c_data$level == 1], y = h1c_data$frustration[h1c_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$frustration[h1c_data$level == 2], y = h1c_data$frustration[h1c_data$level == 3],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$frustration[h1c_data$level == 2], y = h1c_data$frustration[h1c_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h1c_data$frustration[h1c_data$level == 3], y = h1c_data$frustration[h1c_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf)
   
   # remove the temporary variable
   
@@ -1216,12 +1260,18 @@ Overall, these ratings showed that the increase in task load was being perceived
   # get Bayes factors
   
   hypothesis2a_BF <- anovaBF(formula = sv ~ level, data = h2a_data, progress = FALSE)
-  hypothesis2a_contrasts$BF10 <- c(extractBF(ttestBF(x = h2a_data$sv[h2a_data$level == 1], y = h2a_data$sv[h2a_data$level == 2], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h2a_data$sv[h2a_data$level == 1], y = h2a_data$sv[h2a_data$level == 3], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h2a_data$sv[h2a_data$level == 1], y = h2a_data$sv[h2a_data$level == 4], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h2a_data$sv[h2a_data$level == 2], y = h2a_data$sv[h2a_data$level == 3], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h2a_data$sv[h2a_data$level == 2], y = h2a_data$sv[h2a_data$level == 4], progress = FALSE))$bf,
-                                 extractBF(ttestBF(x = h2a_data$sv[h2a_data$level == 3], y = h2a_data$sv[h2a_data$level == 4], progress = FALSE))$bf)
+  hypothesis2a_contrasts$BF10 <- c(extractBF(ttestBF(x = h2a_data$sv[h2a_data$level == 1], y = h2a_data$sv[h2a_data$level == 2],
+                                                     progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h2a_data$sv[h2a_data$level == 1], y = h2a_data$sv[h2a_data$level == 3],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h2a_data$sv[h2a_data$level == 1], y = h2a_data$sv[h2a_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h2a_data$sv[h2a_data$level == 2], y = h2a_data$sv[h2a_data$level == 3],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h2a_data$sv[h2a_data$level == 2], y = h2a_data$sv[h2a_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf,
+                                 extractBF(ttestBF(x = h2a_data$sv[h2a_data$level == 3], y = h2a_data$sv[h2a_data$level == 4],
+                                                   progress = FALSE, paired = TRUE))$bf)
   
   # remove the temporary variable
   
