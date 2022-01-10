@@ -1728,6 +1728,7 @@ Multi level model:
 Simple slopes analysis:
 
 `r h2b_ss.table`
+`r h2b_ss.plot`
 
 Johnson-Neyman intervals:
 
