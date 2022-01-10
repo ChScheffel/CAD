@@ -969,7 +969,7 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
 
 ```{r Hypothesis_1a, echo=FALSE, message=FALSE, warning=FALSE}
 
-  # H1a: Performance measured by signal detection d’ declines with increasing n-back level.
+  # H1a: The signal detection measure d’ declines with increasing n-back level.
   
   # repeated measures ANOVA with three linear contrasts, contrasting the d’ of two n-back levels (2,3,4) at a time
   
@@ -1021,7 +1021,7 @@ Contrary to our expectations, the rmANOVA revealed no decrease in performance *d
 
 ```{r Hypothesis_1b, echo=FALSE, message=FALSE, warning=FALSE}
 
-  # H1b: Performance measured by reaction time declines with increasing n-back level.
+  # H1b: Reaction time increases with increasing n-back level.
   
   # set up empty data frame for the loop to feed into
   
@@ -1402,7 +1402,7 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   colnames(h2b_result.table)[5] <- "Random Effects (SD)"
 
   row.names(h2b_result.table) <- NULL
-  h2b_result.table$Parameter[1:6] <- c("Intercept", "N-Back Level", "NFC", "d'", "RT", "Level x NFC")
+  h2b_result.table$Parameter[1:6] <- c("Intercept", "n-back level", "NFC", "d'", "RT", "level x NFC")
 
   h2b_result.table[2:5] <- lapply(h2b_result.table[2:5], as.numeric)
   h2b_result.table[c(2,3,5)] <- round(h2b_result.table[c(2,3,5)], digits = 2)
@@ -1420,7 +1420,7 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   table_1 <-
     kbl(h2b_result.table,
     caption = "Effects of n-back load level on subjective value controlled 
-    for task performance (d’ and reaction time), correct and postcorrect trials.",
+    for task performance (d' and reaction time), correct and postcorrect trials.",
     booktabs = T,                          # no vertical lines
     escape = F,                            # correctly print special characters)
     align = c("l",rep("r",7))) %>%         # right aligns the text in every numerical column
@@ -1623,5 +1623,145 @@ The authors declare no competing interests.
 \newpage
 
 # Supplement
+
+## Results of the pilot study
+
+
+### Hypothesis 1a: The signal detection measure d' declines with increasing n-back level.
+
+ANOVA:
+
+`r apa_print(hypothesis1a_rmanova)$full_result`
+
+Paired contrasts:
+
+`r hypothesis1a_contrasts`
+
+
+### Hypothesis 1b: Reaction time increases with increasing n-back level.
+
+ANOVA:
+
+`r apa_print(hypothesis1b_rmanova)$full_result`
+
+Paired contrasts:
+
+`r hypothesis1b_contrasts`
+
+
+### Hypothesis 1c: Ratings on all NASA-TLX dimensions increase with increasing n-back level.
+
+Mental subscale ANOVA:
+
+`r apa_print(hypothesis1c_mental_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis1c_mental_BF)$bf`
+
+Mental subscale paired contrasts:
+
+`r hypothesis1c_mental_contrasts`
+
+
+Physical subscale ANOVA:
+
+`r apa_print(hypothesis1c_physical_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis1c_physical_BF)$bf`
+
+Physical subscale paired contrasts:
+
+`r hypothesis1c_physical_contrasts`
+
+
+Time subscale ANOVA:
+
+`r apa_print(hypothesis1c_time_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis1c_time_BF)$bf`
+
+Time subscale paired contrasts:
+
+`r hypothesis1c_time_contrasts`
+
+
+Performance subscale ANOVA:
+
+`r apa_print(hypothesis1c_performance_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis1c_performance_BF)$bf`
+
+Performance subscale paired contrasts:
+
+`r hypothesis1c_performance_contrasts`
+
+
+Effort subscale ANOVA:
+
+`r apa_print(hypothesis1c_effort_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis1c_effort_BF)$bf`
+
+Effort subscale paired contrasts:
+
+`r hypothesis1c_effort_contrasts`
+
+
+Frustration subscale ANOVA:
+
+`r apa_print(hypothesis1c_frustration_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis1c_frustration_BF)$bf`
+
+Frustration subscale paired contrasts:
+
+`r hypothesis1c_frustration_contrasts`
+
+
+### Hypothesis 2a: Subjective values decline with increasing n-back level.
+
+ANOVA:
+
+`r apa_print(hypothesis2a_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis2a_BF)$bf`
+
+Paired contrasts:
+
+`r hypothesis2a_contrasts`
+
+
+### Hypothesis 2b: Subjective values decline with increasing n-back level, even after controlling for declining task performance measured by signal detection d’ and reaction time.
+
+Multi level model:
+
+`r table_1`
+
+
+### Hypothesis 2c: Subjective values decline stronger with increasing task load for individuals with low compared to high NFC scores.
+
+Simple slopes analysis:
+
+`r h2b_ss.table`
+
+Johnson-Neyman intervals:
+
+`r h2b_jn.int`
+
+
+### Hypothesis 3a: Subjective values positively predict individual NCS scores.
+
+Intercept:
+`r apa_print(hypothesis3a)$estimate$Intercept`
+
+Predictor $AxAUC$:
+`r apa_print(hypothesis3a)$estimate$h3_data_axauc`
+
+Fit:
+`r apa_print(hypothesis3a)$estimate$modelfit$r2`
+
+$BF10=$ `r extractBF(hypothesis3a_BF)$bf`
+
+
+### Hypothesis 3b: NASA-TLX scores negatively predict individual NFC scores.
+
+Intercept:
+`r apa_print(hypothesis3b)$estimate$Intercept`
+
+Predictor $AxAUC$:
+`r apa_print(hypothesis3b)$estimate$h3_data_axauc`
+
+Predictor AUC NASA-TLX:
+`r apa_print(hypothesis3b)$estimate$h3_data_auc_ntlx`
+
+Fit:
+`r apa_print(hypothesis3a)$estimate$modelfit$r2`
+
+$BF10=$ `r extractBF(hypothesis3b_BF)$bf`
 
 \endgroup
