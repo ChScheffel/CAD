@@ -3,6 +3,7 @@ title             : "When easy is not preferred: An effort discounting paradigm 
 shorttitle        : "The CERED paradigm for estimating subjective values"
 author: 
   - name          : "Josephine Zerna"
+    orcid         : "0000-0003-2892-884X"
     affiliation   : "1,*"
     corresponding : yes
     address       : "Zellescher Weg 17, 01069 Dresden, Germany"
@@ -18,6 +19,7 @@ author:
       - Writing - original draft preparation
       - Writing - review & editing
   - name          : "Christoph Scheffel"
+    orcid         : "0000-0001-5963-9229"
     affiliation   : "1,*"
     role:
       - Conceptualization
@@ -864,25 +866,26 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
 # Methods
 
 The paradigm was written and presented using *Psychopy* [@Peirce2019]. We used *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages *afex* [@Singmann2021] and *bayestestR* [@Makowski2019] for all our analyses.
-The R Markdown file used to analyze the data and write this document is freely available at github.com/ChScheffel/CERED.
-The data can be downloaded from osf.io/vnj8x/.
 
-## Questionnaires
+## Ethics information
 
-To assess perceived task load, we will use the 6-item NASA Task Load Index (NASA-TLX) [@Hart1988], where participants evaluate their subjective perception of mental load, physical load, effort, frustration, performance, and time pressure during the task on a 20-point scale.
+## Pilot data
+
+The sample of the pilot study consisted of $N=$ `r length(datalist_ED)` participants (`r round((table(data_quest$gender)[2]/length(datalist_ED))*100, digits = 1)`% female, $M=$`r round(mean(data_quest$age, na.rm = TRUE), digits = 1)`($SD=$`r round(sd(data_quest$age, na.rm = TRUE), digits = 1)`) years old).
+
+## Design
+
+Healthy participants aged 18 to 30 years will be recruited using the software *ORSEE* [@Greiner2015].
+Participants will fill out the personality questionnaires online and then visit the lab for two sessions one week apart.
 NFC will be assessed using the 16-item short form of the Need for Cognition Scale [@Bless1994; @Cacioppo1984].
 Responses to each item (e.g., "Thinking is not my idea of fun", recoded) will be recorded on a 7-point Likert scale.
 The NFC scale shows comparably high internal consistency [Cronbach's $\alpha$ \> .80; @Bless1994; @Fleischhauer2010].
 Several other personality questionnaires will be used in this study but are the topic of the Registered Report for the second lab session.
-A full list of measures can be found at osf.io/vnj8x/.
-
-## Procedure
-
-Healthy participants aged 18 to 30 years will be recruited using the software *ORSEE* [@Greiner2015].
-Participants will fill out the personality questionnaires online and then visit the lab for two sessions one week apart.
+A full list of measures can be found in our [Github repository](https://github.com/ChScheffel/CERED).
 In the first session, participants provide informed consent and demographic data before completing the computer-based paradigm.
 The paradigm starts with the n-back levels one to four, presented sequentially with two runs per level, consisting of 64 consonants (16 targets, 48 non-targets) per run.
 The levels are referred to by color (1-back black, 2-back red, 3-back blue, 4-back green) to avoid anchor effects in the ED procedure.
+To assess perceived task load, we will use the 6-item NASA Task Load Index (NASA-TLX) [@Hart1988], where participants evaluate their subjective perception of mental load, physical load, effort, frustration, performance, and time pressure during the task on a 20-point scale.
 After each level, participants fill out the NASA-TLX on a tablet.
 Then, they complete the ED procedure on screen, where each possible pairing of the four n-back levels is presented in a randomized order.
 Participants are instructed to decide as realistically as possible, because one of their choices from the last iteration steps will be randomly chosen for one final run of n-back.
@@ -891,11 +894,16 @@ The second session consists of an emotion regulation task with negative pictures
 The paradigm follows the same structure of task and ED procedure, but participants can decide which strategy they want to reapply in the last block.
 Participants will receive 30€ in total or course credit for participation.
 Study data will be collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden [@Harris2009; @Harris2019].
-The sample of the pilot study consisted of $N=$ `r length(datalist_ED)` participants (`r round((table(data_quest$gender)[2]/length(datalist_ED))*100, digits = 1)`% female, $M=$`r round(mean(data_quest$age, na.rm = TRUE), digits = 1)`($SD=$`r round(sd(data_quest$age, na.rm = TRUE), digits = 1)`) years old).
-In the pilot study, the online questionnaires were completed after the two lab sessions, but we will change this as described above, so that the participants do not have to come in again to collect their money or course credit.
 
-## Analysis
+## Sampling plan
 
+A sample size analysis with G*Power [@Faul2007; @Faul2009], based on the results of the ANOVA of Westbrook et al. [-@Westbrook2013] which showed an increase in reaction time with higher n-back levels, indicated that we should collect data from at least 53 participants, assuming $\eta2=0.04$, $\alpha=.05$, and $\beta=.95$.
+The power analyses of all other hypotheses yielded smaller necessary sample sizes.
+To account for technical errors and exclusions of physiological data of the second lab session due to excessive noise, we aim to collect data of 60 to 70 participants.
+
+## Analysis plan
+
+Data collection and analysis will not be performed blind to the conditions of the experiments.
 We aim to conduct all analysis as described in Westbrook et al. [-@Westbrook2013], but the level of detail was not always sufficient, so there might be deviations regarding data cleaning and degrees of freedom.
 The performance measure *d'* will be computed as the difference of the *z*-transformed hit rate and the *z*-transformed false alarm rate [@Macmillan1990].
 Reaction time (RT) data will be trimmed by excluding all trials with responses faster than 100 ms, as the relevant cognitive processes cannot have been completed before [@Whelan2008; @Berger2021].
@@ -911,22 +919,22 @@ An rmANOVA with six paired contrasts will be computed, comparing the SVs between
 Tukey method will be used for the paired contrasts of each rmANOVA, including *p*-value adjustment.
 
 To determine the influence of task performance in the association of SVs and n-back level, we will set up a MLM using the $lmerTest$ package. 
-We apply restricted maximum likelihood (REML) to fit the model.
-First, we calculate the intraclass correlation (ICC) on the basis of the null model.
-Second, we estimate a random slopes model of SVs including n-back load level as level-1-predictor and, additionally, NFC as level-2-predictor. 
-Within the model, we control for *d'*, RT, correct and post-correct trials.
+We will apply restricted maximum likelihood (REML) to fit the model.
+First, we will calculate the intraclass correlation (ICC) on the basis of the null model.
+Second, we will estimate a random slopes model of SVs including n-back load level as level-1-predictor and, additionally, NFC as level-2-predictor. 
+Within the model, we will control for *d'*, RT, correct, and post-correct trials.
 $$
 SV \sim level\ * NFC + d' + RT + correct + postcorrect + (level|subject)
 $$
-Level-1-predictors are centered within cluster, whereas the level-2-predictor is centered at the grand mean as recommended by Enders & Tofighi [-@Enders2007]. 
-We visually inspect the residuals of the final model.
+Level-1-predictors will be centered within cluster, whereas the level-2-predictor will be centered at the grand mean as recommended by Enders & Tofighi [-@Enders2007]. 
+We will visually inspect the residuals of the final model.
 The approximately normal distribution indicates no evidence to perform model criticism.  
-Third, we perform a simple slopes analysis with n-back level as predictor and NFC as moderator. 
-To evaluate the moderating effect, we calculate the Johnson-Neyman interval.
+Third, we will perform a simple slopes analysis with n-back level as predictor and NFC as moderator. 
+To evaluate the moderating effect, we will calculate the Johnson-Neyman interval.
 
-To ensure the validity of the multi-level model, we will conduct a specification curve analysis [@Simonsohn2020], which will include 63 possible preprocessing pipelines of the RT data.
+To ensure the validity of the MLM, we will conduct a specification curve analysis [@Simonsohn2020], which will include 63 possible preprocessing pipelines of the RT data.
 These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, 2, 2.5, or 3 $MAD$ from the median, RTs below 100 or 200 ms), and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within n-back levels).
-The multi-level model will be run with each of the 63 pipelines, which will also include our main pipeline (untransformed data, exclusion of RTs below 100 ms).
+The MLM will be run with each of the 63 pipelines, which will also include our main pipeline (untransformed data, exclusion of RTs below 100 ms).
 The ratio of pipelines that lead to significant versus non-significant effects will provide an indication of how robust the effect actually is.
 
 The association of ED and NFC will be examined with a regression using the AUC of each participant's SVs to predict their NFC score.
@@ -937,11 +945,15 @@ A classic AUC cannot differentiate between a subject who prefers 1-back and a su
 This is the opposite for the sum of the ascent between SVs.
 Therefore, we multiply both indicators, arriving at a value reflecting both degree and direction of preference, called $AxAUC$.
 
-The results of each analysis will be assessed on the basis of both *p*-value and the Bayes factor $BF10$.
+The results of each analysis will be assessed on the basis of both *p*-value and the Bayes factor $BF10$, calculated using the *BayesFactor* package [@Morey2021].
 
-## Power analysis
+## Data availability
 
-A sample size analysis with GPower [@Faul2007; @Faul2009], using the pilot RT data, indicated that we should collect data from at least 53 participants, assuming $f=0.20$, $\alpha=.05$, and $\beta=.95$.
+The data of this study can be downloaded from osf.io/vnj8x/.
+
+## Code availability
+
+The paradigm code, as well as the R Markdown file used to analyze the data and write this document is available at our [Github repository](https://github.com/ChScheffel/CERED).
 
 
 ```{r Hypothesis_1a, echo=FALSE, message=FALSE, warning=FALSE}
@@ -1560,7 +1572,6 @@ An increase in one NASA-TLX AUC value corresponded, on average, to a decrease of
 # (summary and interpretation of h2b_results)
 
 
-# Acknowledgements
 
 # References
 
@@ -1571,5 +1582,31 @@ An increase in one NASA-TLX AUC value corresponded, on average, to a decrease of
 ```
 ::: {#refs custom-style="Bibliography"}
 :::
+
+\newpage
+
+# Acknowledgements
+
+This research was partly funded by the German Research Foundation (DFG) as part of the Collaborative Research Center (CRC) 940.
+The funders have/had no role in study design, data collection and analysis, decision to publish or preparation of the manuscript.
+
+# Author Contributions
+
+
+# Competing Interests
+
+The authors declare no competing interests.
+
+\newpage
+
+# Figure Captions
+
+\newpage
+
+# Design Table
+
+\newpage
+
+# Supplement
 
 \endgroup
