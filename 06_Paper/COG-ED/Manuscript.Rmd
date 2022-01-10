@@ -96,7 +96,7 @@ editor_options:
   library(kableExtra)   # for great tables in R Markdown
   library(interactions) # for simple slopes analysis
   library(huxtable)     # create huxtable
-  library(glmmTMB)      # from the glmmTMB package for multi level models
+# library(glmmTMB)      # from the glmmTMB package for multi level models
   library(BayesFactor)  # computing Bayes factors, "BayesFactor" package
 
   set_sum_contrasts()   # sets orthogonal contrasts for mixed-effects model 
@@ -1356,6 +1356,27 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   m1_h2b_fit <- plot_model(m1_h2b, type = "diag")
   
   
+  # get Bayes factors ----------------------------------------------------------
+  
+  # the random factor needs to be a factor
+  h2b_data$subject <- factor(h2b_data$subject)
+  
+  # H2b
+  h2b_full_BF <- lmBF(sv ~ level.cwc + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + subject,
+                      data = h2b_data, whichRandom = 'subject')
+  h2b_null_BF <- lmBF(sv ~ 1 + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + subject,
+                      data = h2b_data, whichRandom = 'subject')
+  h2b_BF <- h2b_full_BF / h2b_null_BF
+  
+  
+  # H2c
+  h2c_full_BF <- lmBF(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + subject,
+                      data = h2b_data, whichRandom = 'subject')
+  h2c_null_BF <- lmBF(sv ~ level.cwc + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + subject,
+                      data = h2b_data, whichRandom = 'subject')
+  h2c_BF <- h2c_full_BF / h2c_null_BF
+  
+  
   # prepare MLM results for reporting ------------------------------------------
   
   # get random and fixed effects
@@ -1408,7 +1429,7 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   m1_h2b.ss <- sim_slopes(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none", 
                     cond.int = T,                       # print conditional intercepts
                     control.fdr = T)                    # adjust false discovery rate
-  
+ 
   #create table
   h2b_ss.table <- as_huxtable(m1_h2b.ss)
   h2b_ss.table[1,] <- c("Value of NFC", "Slope of N-Back Level", "Conditional Intercept")
