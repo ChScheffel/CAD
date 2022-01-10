@@ -157,6 +157,11 @@ editor_options:
   
   data_nback$subject[data_nback$subject == "E12K08_neu"] <- "E12K08"
   data_ED$subject[data_ED$subject == "E12K08_neu"] <- "E12K08"
+  
+  # remove one subject who did not understand the instructions of the n-back task and reacted only to every n-th stimulus
+  
+  data_nback <- data_nback[data_nback$subject != "M28B11", ]
+  data_ED <- data_ED[data_ED$subject != "M28B11", ]
 
   # replace some columns with 'easy to work with' values
   
@@ -203,6 +208,10 @@ editor_options:
   
   data_quest <- read.csv(here("04_RawData", "pilot", "CERED_DATA.csv"), stringsAsFactors = FALSE, header = TRUE)
   colnames(data_quest)[1] <- "set" # rename the first column
+  
+  # remove the subject who misunderstood the instruction
+  
+  data_quest <- data_quest[data_quest$set != "M28B11", ]
   
   # remove unnecessary variables from questionnaire data frame
   
@@ -871,7 +880,9 @@ The paradigm was written and presented using *Psychopy* [@Peirce2019]. We used *
 
 ## Pilot data
 
-The sample of the pilot study consisted of $N=$ `r length(datalist_ED)` participants (`r round((table(data_quest$gender)[2]/length(datalist_ED))*100, digits = 1)`% female, $M=$`r round(mean(data_quest$age, na.rm = TRUE), digits = 1)`($SD=$`r round(sd(data_quest$age, na.rm = TRUE), digits = 1)`) years old).
+The sample of the pilot study consisted of $N=$ `r length(setindex)` participants (`r round((table(data_quest$gender)[2]/length(setindex))*100, digits = 1)`% female, $M=$`r round(mean(data_quest$age, na.rm = TRUE), digits = 1)`($SD=$`r round(sd(data_quest$age, na.rm = TRUE), digits = 1)`) years old).
+One participant's data was removed because they misunderstood the instruction.
+Due to a technical error the subjective task load data of one participant was incomplete, so the hypotheses involving the NASA Task Load Index were analyzed with $n=$ `r length(setindex)-1` data sets.
 
 ## Design
 
@@ -1015,6 +1026,10 @@ Contrary to our expectations, the rmANOVA revealed no decrease in performance *d
   # set up empty data frame for the loop to feed into
   
   rt <- data.frame(subject = character(), level = double(), medianrt = double())
+
+  # compute index of rows in which the levels change
+    
+  levelindex <- c(1,which(pipelines_data[["AARO"]]$level != dplyr::lag(pipelines_data[["AARO"]]$level)),nrow(pipelines_data[["AARO"]]))
   
   # calculate median reaction time per participant per level
   
