@@ -3,6 +3,7 @@ title             : "When easy is not preferred: An effort discounting paradigm 
 shorttitle        : "The CERED paradigm for estimating subjective values"
 author: 
   - name          : "Josephine Zerna"
+    orcid         : "0000-0003-2892-884X"
     affiliation   : "1,*"
     corresponding : yes
     address       : "Zellescher Weg 17, 01069 Dresden, Germany"
@@ -18,6 +19,7 @@ author:
       - Writing - original draft preparation
       - Writing - review & editing
   - name          : "Christoph Scheffel"
+    orcid         : "0000-0001-5963-9229"
     affiliation   : "1,*"
     role:
       - Conceptualization
@@ -155,6 +157,11 @@ editor_options:
   
   data_nback$subject[data_nback$subject == "E12K08_neu"] <- "E12K08"
   data_ED$subject[data_ED$subject == "E12K08_neu"] <- "E12K08"
+  
+  # remove one subject who did not understand the instructions of the n-back task and reacted only to every n-th stimulus
+  
+  data_nback <- data_nback[data_nback$subject != "M28B11", ]
+  data_ED <- data_ED[data_ED$subject != "M28B11", ]
 
   # replace some columns with 'easy to work with' values
   
@@ -201,6 +208,10 @@ editor_options:
   
   data_quest <- read.csv(here("04_RawData", "pilot", "CERED_DATA.csv"), stringsAsFactors = FALSE, header = TRUE)
   colnames(data_quest)[1] <- "set" # rename the first column
+  
+  # remove the subject who misunderstood the instruction
+  
+  data_quest <- data_quest[data_quest$set != "M28B11", ]
   
   # remove unnecessary variables from questionnaire data frame
   
@@ -864,25 +875,28 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
 # Methods
 
 The paradigm was written and presented using *Psychopy* [@Peirce2019]. We used *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages *afex* [@Singmann2021] and *bayestestR* [@Makowski2019] for all our analyses.
-The R Markdown file used to analyze the data and write this document is freely available at github.com/ChScheffel/CERED.
-The data can be downloaded from osf.io/vnj8x/.
 
-## Questionnaires
+## Ethics information
 
-To assess perceived task load, we will use the 6-item NASA Task Load Index (NASA-TLX) [@Hart1988], where participants evaluate their subjective perception of mental load, physical load, effort, frustration, performance, and time pressure during the task on a 20-point scale.
+## Pilot data
+
+The sample of the pilot study consisted of $N=$ `r length(setindex)` participants (`r round((table(data_quest$gender)[2]/length(setindex))*100, digits = 1)`% female, $M=$`r round(mean(data_quest$age, na.rm = TRUE), digits = 1)`($SD=$`r round(sd(data_quest$age, na.rm = TRUE), digits = 1)`) years old).
+One participant's data was removed because they misunderstood the instruction.
+Due to a technical error the subjective task load data of one participant was incomplete, so the hypotheses involving the NASA Task Load Index were analyzed with $n=$ `r length(setindex)-1` data sets.
+
+## Design
+
+Healthy participants aged 18 to 30 years will be recruited using the software *ORSEE* [@Greiner2015].
+Participants will fill out the personality questionnaires online and then visit the lab for two sessions one week apart.
 NFC will be assessed using the 16-item short form of the Need for Cognition Scale [@Bless1994; @Cacioppo1984].
 Responses to each item (e.g., "Thinking is not my idea of fun", recoded) will be recorded on a 7-point Likert scale.
 The NFC scale shows comparably high internal consistency [Cronbach's $\alpha$ \> .80; @Bless1994; @Fleischhauer2010].
 Several other personality questionnaires will be used in this study but are the topic of the Registered Report for the second lab session.
-A full list of measures can be found at osf.io/vnj8x/.
-
-## Procedure
-
-Healthy participants aged 18 to 30 years will be recruited using the software *ORSEE* [@Greiner2015].
-Participants will fill out the personality questionnaires online and then visit the lab for two sessions one week apart.
+A full list of measures can be found in our [Github repository](https://github.com/ChScheffel/CERED).
 In the first session, participants provide informed consent and demographic data before completing the computer-based paradigm.
 The paradigm starts with the n-back levels one to four, presented sequentially with two runs per level, consisting of 64 consonants (16 targets, 48 non-targets) per run.
 The levels are referred to by color (1-back black, 2-back red, 3-back blue, 4-back green) to avoid anchor effects in the ED procedure.
+To assess perceived task load, we will use the 6-item NASA Task Load Index (NASA-TLX) [@Hart1988], where participants evaluate their subjective perception of mental load, physical load, effort, frustration, performance, and time pressure during the task on a 20-point scale.
 After each level, participants fill out the NASA-TLX on a tablet.
 Then, they complete the ED procedure on screen, where each possible pairing of the four n-back levels is presented in a randomized order.
 Participants are instructed to decide as realistically as possible, because one of their choices from the last iteration steps will be randomly chosen for one final run of n-back.
@@ -891,11 +905,16 @@ The second session consists of an emotion regulation task with negative pictures
 The paradigm follows the same structure of task and ED procedure, but participants can decide which strategy they want to reapply in the last block.
 Participants will receive 30€ in total or course credit for participation.
 Study data will be collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden [@Harris2009; @Harris2019].
-The sample of the pilot study consisted of $N=$ `r length(datalist_ED)` participants (`r round((table(data_quest$gender)[2]/length(datalist_ED))*100, digits = 1)`% female, $M=$`r round(mean(data_quest$age, na.rm = TRUE), digits = 1)`($SD=$`r round(sd(data_quest$age, na.rm = TRUE), digits = 1)`) years old).
-In the pilot study, the online questionnaires were completed after the two lab sessions, but we will change this as described above, so that the participants do not have to come in again to collect their money or course credit.
 
-## Analysis
+## Sampling plan
 
+A sample size analysis with G*Power [@Faul2007; @Faul2009], based on the results of the ANOVA of Westbrook et al. [-@Westbrook2013] which showed an increase in reaction time with higher n-back levels, indicated that we should collect data from at least 53 participants, assuming $\eta2=0.04$, $\alpha=.05$, and $\beta=.95$.
+The power analyses of all other hypotheses yielded smaller necessary sample sizes.
+To account for technical errors and exclusions of physiological data of the second lab session due to excessive noise, we aim to collect data of 60 to 70 participants.
+
+## Analysis plan
+
+Data collection and analysis will not be performed blind to the conditions of the experiments.
 We aim to conduct all analysis as described in Westbrook et al. [-@Westbrook2013], but the level of detail was not always sufficient, so there might be deviations regarding data cleaning and degrees of freedom.
 The performance measure *d'* will be computed as the difference of the *z*-transformed hit rate and the *z*-transformed false alarm rate [@Macmillan1990].
 Reaction time (RT) data will be trimmed by excluding all trials with responses faster than 100 ms, as the relevant cognitive processes cannot have been completed before [@Whelan2008; @Berger2021].
@@ -911,22 +930,22 @@ An rmANOVA with six paired contrasts will be computed, comparing the SVs between
 Tukey method will be used for the paired contrasts of each rmANOVA, including *p*-value adjustment.
 
 To determine the influence of task performance in the association of SVs and n-back level, we will set up a MLM using the $lmerTest$ package. 
-We apply restricted maximum likelihood (REML) to fit the model.
-First, we calculate the intraclass correlation (ICC) on the basis of the null model.
-Second, we estimate a random slopes model of SVs including n-back load level as level-1-predictor and, additionally, NFC as level-2-predictor. 
-Within the model, we control for *d'*, RT, correct and post-correct trials.
+We will apply restricted maximum likelihood (REML) to fit the model.
+First, we will calculate the intraclass correlation (ICC) on the basis of the null model.
+Second, we will estimate a random slopes model of SVs including n-back load level as level-1-predictor and, additionally, NFC as level-2-predictor. 
+Within the model, we will control for *d'*, RT, correct, and post-correct trials.
 $$
 SV \sim level\ * NFC + d' + RT + correct + postcorrect + (level|subject)
 $$
-Level-1-predictors are centered within cluster, whereas the level-2-predictor is centered at the grand mean as recommended by Enders & Tofighi [-@Enders2007]. 
-We visually inspect the residuals of the final model.
+Level-1-predictors will be centered within cluster, whereas the level-2-predictor will be centered at the grand mean as recommended by Enders & Tofighi [-@Enders2007]. 
+We will visually inspect the residuals of the final model.
 The approximately normal distribution indicates no evidence to perform model criticism.  
-Third, we perform a simple slopes analysis with n-back level as predictor and NFC as moderator. 
-To evaluate the moderating effect, we calculate the Johnson-Neyman interval.
+Third, we will perform a simple slopes analysis with n-back level as predictor and NFC as moderator. 
+To evaluate the moderating effect, we will calculate the Johnson-Neyman interval.
 
-To ensure the validity of the multi-level model, we will conduct a specification curve analysis [@Simonsohn2020], which will include 63 possible preprocessing pipelines of the RT data.
+To ensure the validity of the MLM, we will conduct a specification curve analysis [@Simonsohn2020], which will include 63 possible preprocessing pipelines of the RT data.
 These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, 2, 2.5, or 3 $MAD$ from the median, RTs below 100 or 200 ms), and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within n-back levels).
-The multi-level model will be run with each of the 63 pipelines, which will also include our main pipeline (untransformed data, exclusion of RTs below 100 ms).
+The MLM will be run with each of the 63 pipelines, which will also include our main pipeline (untransformed data, exclusion of RTs below 100 ms).
 The ratio of pipelines that lead to significant versus non-significant effects will provide an indication of how robust the effect actually is.
 
 The association of ED and NFC will be examined with a regression using the AUC of each participant's SVs to predict their NFC score.
@@ -937,16 +956,20 @@ A classic AUC cannot differentiate between a subject who prefers 1-back and a su
 This is the opposite for the sum of the ascent between SVs.
 Therefore, we multiply both indicators, arriving at a value reflecting both degree and direction of preference, called $AxAUC$.
 
-The results of each analysis will be assessed on the basis of both *p*-value and the Bayes factor $BF10$.
+The results of each analysis will be assessed on the basis of both *p*-value and the Bayes factor $BF10$, calculated using the *BayesFactor* package [@Morey2021].
 
-## Power analysis
+## Data availability
 
-A sample size analysis with GPower [@Faul2007; @Faul2009], using the pilot RT data, indicated that we should collect data from at least 53 participants, assuming $f=0.20$, $\alpha=.05$, and $\beta=.95$.
+The data of this study can be downloaded from osf.io/vnj8x/.
+
+## Code availability
+
+The paradigm code, as well as the R Markdown file used to analyze the data and write this document is available at our [Github repository](https://github.com/ChScheffel/CERED).
 
 
 ```{r Hypothesis_1a, echo=FALSE, message=FALSE, warning=FALSE}
 
-  # H1a: Performance measured by signal detection d’ declines with increasing n-back level.
+  # H1a: The signal detection measure d’ declines with increasing n-back level.
   
   # repeated measures ANOVA with three linear contrasts, contrasting the d’ of two n-back levels (2,3,4) at a time
   
@@ -998,11 +1021,15 @@ Contrary to our expectations, the rmANOVA revealed no decrease in performance *d
 
 ```{r Hypothesis_1b, echo=FALSE, message=FALSE, warning=FALSE}
 
-  # H1b: Performance measured by reaction time declines with increasing n-back level.
+  # H1b: Reaction time increases with increasing n-back level.
   
   # set up empty data frame for the loop to feed into
   
   rt <- data.frame(subject = character(), level = double(), medianrt = double())
+
+  # compute index of rows in which the levels change
+    
+  levelindex <- c(1,which(pipelines_data[["AARO"]]$level != dplyr::lag(pipelines_data[["AARO"]]$level)),nrow(pipelines_data[["AARO"]]))
   
   # calculate median reaction time per participant per level
   
@@ -1059,7 +1086,7 @@ Contrary to our expectations, the rmANOVA revealed no decrease in performance *d
 ```
 
 However, RTs increased with increasing n-back level (`r apa_print(hypothesis1b_rmanova)$full_result`).
-RTs were longer for 3- than 2-back (`r apa_print(pairs(emmeans(object = hypothesis1b_rmanova$aov,specs = "level"))[1]`), but not different between 2- and 4-back or 3- and 4-back.
+RTs were longer for 3- than 2-back (`r apa_print(pairs(emmeans(object = hypothesis1b_rmanova$aov,specs = "level")))[1]`), but not different between 2- and 4-back or 3- and 4-back.
 Even though *d'* did not decrease, the increases in RT indicate an increase in objective task load.
 
 ```{r Hypothesis_1c, echo=FALSE, message=FALSE, warning=FALSE}
@@ -1396,7 +1423,7 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   colnames(h2b_result.table)[5] <- "Random Effects (SD)"
 
   row.names(h2b_result.table) <- NULL
-  h2b_result.table$Parameter[1:6] <- c("Intercept", "N-Back Level", "NFC", "d'", "RT", "Level x NFC")
+  h2b_result.table$Parameter[1:6] <- c("Intercept", "n-back level", "NFC", "d'", "RT", "level x NFC")
 
   h2b_result.table[2:5] <- lapply(h2b_result.table[2:5], as.numeric)
   h2b_result.table[c(2,3,5)] <- round(h2b_result.table[c(2,3,5)], digits = 2)
@@ -1414,7 +1441,132 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   table_1 <-
     kbl(h2b_result.table,
     caption = "Effects of n-back load level on subjective value controlled 
-    for task performance (d’ and reaction time), correct and postcorrect trials.",
+    for task performance (d' and reaction time), correct and postcorrect trials.",
+    booktabs = T,                          # no vertical lines
+    escape = F,                            # correctly print special characters)
+    align = c("l",rep("r",7))) %>%         # right aligns the text in every numerical column
+    kable_styling(latex_options = c("striped")) %>%
+    footnote(general = "NFC = Need for Cognition, SE = standard error. ***$p$ < .001, **$p$ < .01, *$p$ < 0.5.",
+            escape = F,                    # correctly print special characters
+            threeparttable = T)            # line breaks in the footnote
+   
+    
+  # simple slopes analysis -----------------------------------------------------
+  
+  m1_h2b.ss <- sim_slopes(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none", 
+                    cond.int = T,                       # print conditional intercepts
+                    control.fdr = T)                    # adjust false discovery rate
+  
+  #create table
+  h2b_ss.table <- as_huxtable(m1_h2b.ss)
+  h2b_ss.table[1,] <- c("Value of NFC", "Slope of N-Back Level", "Conditional Intercept")
+  h2b_ss.table <- h2b_ss.table[-2,]
+  h2b_ss.table[2:4,1] <- c("- 1 SD", "Mean", "+ 1 SD")  
+  
+  # calculate Johnson-Neyman intervals
+  h2b_jn <- johnson_neyman(model = m1_h2b, pred = level.cwc, modx = nfc.cgm, control.fdr = T)
+  h2b_jn.int <- h2b_jn$bounds
+  
+  # save plot
+  h2b_jn.plot <- h2b_jn$plot
+  
+  # create interaction plot
+  h2b_ss.plot <- interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
+                               plot.points = T, point.shape = T,
+                               x.label = "n back level", y.label = "subjective value",
+                               legend.main = "NFC", interval = T) + theme_apa()    
+```
+
+```{r SpecificationCurveAnalysis, echo=FALSE, message=FALSE, warning=FALSE, fig.show='hide'}
+
+  # Here we repeat the multi level model with all analysis pipelines.
+
+  for (i in 1:length(pipelines_data)) {
+    
+    # make a temporary copy of the data frame
+    
+    sca_data <- pipelines_data[[i]]
+    
+    # get a subset without RT = NA
+    
+    sca_data <- droplevels(subset(sca_data[ ,c("subject", "level", "sv", "dprime", "correct", "postcorrect", "rt", "nfc")], subset = !is.na(rt)))
+    
+    # center the predictors
+    
+        # centering the level 1 predictors (d', RT, level, correct, postcorrect) within cluster
+        
+        sca_data$dprime.cwc       <- sca_data$dprime - (ave(sca_data$dprime, sca_data$subject, FUN = function(x) mean(x, na.rm = T)))
+        sca_data$rt.cwc           <- sca_data$rt - (ave(sca_data$rt, sca_data$subject, FUN = function(x) mean(x, na.rm = T)))
+        sca_data$level.cwc        <- sca_data$level - (ave(sca_data$level, sca_data$subject, FUN = function(x) mean(x, na.rm = T)))
+        sca_data$correct.cwc      <- sca_data$correct - (ave(sca_data$correct, sca_data$subject, FUN = function(x) mean(x, na.rm = T)))
+        sca_data$postcorrect.cwc  <- sca_data$postcorrect - (ave(sca_data$postcorrect, sca_data$subject, FUN = function(x) mean(x, na.rm = T)))
+        
+        # centering the level 2 predictor NFC at the grand mean
+
+        sca_data$nfc.cgm <- scale(sca_data$nfc, scale = F)
+        
+    # define the null model
+    
+    m0_sca <- lmer(sv ~ 1 + (1|subject), data = sca_data, REML = T)
+    
+    # intra-class-correlation
+    
+    var_m0_sca <- as.data.frame(VarCorr(m0_sca))
+    icc_sca <- var_m0_sca$vcov[1] / (var_m0_sca$vcov[1] + var_m0_sca$vcov[2])
+  
+  }
+  
+  
+  # random slopes model --------------------------------------------------------
+  
+  ## maximal model ---- 
+  m1_h2b <- lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject), 
+                 data = h2b_data,
+                 REML = T) # parameters estimated by restricted log-likelihood maximization
+  
+  
+  ## plot model fit of the final model ----
+  m1_h2b_fit <- plot_model(m1_h2b, type = "diag")
+  
+  
+  # prepare MLM results for reporting ------------------------------------------
+  
+  # get random and fixed effects
+  m1_h2b.ranef <- as.data.frame(summary(m1_h2b)$varcor)
+  m1_h2b.fixef <- summary(m1_h2b)$coefficients
+  
+  # prepare table
+  h2b_result.table <- as.data.frame(cbind(row.names(m1_h2b.fixef[-c(6,7),]), 
+                                          m1_h2b.fixef[-c(6,7),c(1, 2, 5)]))
+  h2b_result.table$ranef.sd <- NA
+  h2b_result.table$ranef.sd[c(1,2)] <- m1_h2b.ranef$sdcor[c(1,2)]
+ 
+  colnames(h2b_result.table)[1] <- "Parameter"
+  colnames(h2b_result.table)[2] <- "Beta"
+  colnames(h2b_result.table)[3] <- "$SE$"
+  colnames(h2b_result.table)[4] <- "$p$-value"
+  colnames(h2b_result.table)[5] <- "Random Effects (SD)"
+
+  row.names(h2b_result.table) <- NULL
+  h2b_result.table$Parameter[1:6] <- c("Intercept", "n-back level", "NFC", "d'", "RT", "level x NFC")
+
+  h2b_result.table[2:5] <- lapply(h2b_result.table[2:5], as.numeric)
+  h2b_result.table[c(2,3,5)] <- round(h2b_result.table[c(2,3,5)], digits = 2)
+  h2b_result.table[4] <- round(h2b_result.table[4], digits = 3)
+  
+  h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.01)] <- 
+    paste0(h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.01)],"*")
+  h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.05)] <- 
+    paste0(h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.05)],"*")
+  h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.001)] <- 
+    paste0("<.001***")
+  
+  h2b_result.table$`Random Effects (SD)`[3:6] <- paste0("")
+   
+  table_1 <-
+    kbl(h2b_result.table,
+    caption = "Effects of n-back load level on subjective value controlled 
+    for task performance (d' and reaction time), correct and postcorrect trials.",
     booktabs = T,                          # no vertical lines
     escape = F,                            # correctly print special characters)
     align = c("l",rep("r",7))) %>%         # right aligns the text in every numerical column
@@ -1581,7 +1733,6 @@ An increase in one NASA-TLX AUC value corresponded, on average, to a decrease of
 # (summary and interpretation of h2b_results)
 
 
-# Acknowledgements
 
 # References
 
@@ -1592,5 +1743,172 @@ An increase in one NASA-TLX AUC value corresponded, on average, to a decrease of
 ```
 ::: {#refs custom-style="Bibliography"}
 :::
+
+\newpage
+
+# Acknowledgements
+
+This research was partly funded by the German Research Foundation (DFG) as part of the Collaborative Research Center (CRC) 940.
+The funders have/had no role in study design, data collection and analysis, decision to publish or preparation of the manuscript.
+
+# Author Contributions
+
+
+# Competing Interests
+
+The authors declare no competing interests.
+
+\newpage
+
+# Figure Captions
+
+\newpage
+
+# Design Table
+
+\newpage
+
+# Supplement
+
+## Results of the pilot study
+
+
+### Hypothesis 1a: The signal detection measure d' declines with increasing n-back level.
+
+ANOVA:
+
+`r apa_print(hypothesis1a_rmanova)$full_result`
+
+Paired contrasts:
+
+`r hypothesis1a_contrasts`
+
+
+### Hypothesis 1b: Reaction time increases with increasing n-back level.
+
+ANOVA:
+
+`r apa_print(hypothesis1b_rmanova)$full_result`
+
+Paired contrasts:
+
+`r hypothesis1b_contrasts`
+
+
+### Hypothesis 1c: Ratings on all NASA-TLX dimensions increase with increasing n-back level.
+
+Mental subscale ANOVA:
+
+`r apa_print(hypothesis1c_mental_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis1c_mental_BF)$bf`
+
+Mental subscale paired contrasts:
+
+`r hypothesis1c_mental_contrasts`
+
+
+Physical subscale ANOVA:
+
+`r apa_print(hypothesis1c_physical_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis1c_physical_BF)$bf`
+
+Physical subscale paired contrasts:
+
+`r hypothesis1c_physical_contrasts`
+
+
+Time subscale ANOVA:
+
+`r apa_print(hypothesis1c_time_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis1c_time_BF)$bf`
+
+Time subscale paired contrasts:
+
+`r hypothesis1c_time_contrasts`
+
+
+Performance subscale ANOVA:
+
+`r apa_print(hypothesis1c_performance_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis1c_performance_BF)$bf`
+
+Performance subscale paired contrasts:
+
+`r hypothesis1c_performance_contrasts`
+
+
+Effort subscale ANOVA:
+
+`r apa_print(hypothesis1c_effort_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis1c_effort_BF)$bf`
+
+Effort subscale paired contrasts:
+
+`r hypothesis1c_effort_contrasts`
+
+
+Frustration subscale ANOVA:
+
+`r apa_print(hypothesis1c_frustration_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis1c_frustration_BF)$bf`
+
+Frustration subscale paired contrasts:
+
+`r hypothesis1c_frustration_contrasts`
+
+
+### Hypothesis 2a: Subjective values decline with increasing n-back level.
+
+ANOVA:
+
+`r apa_print(hypothesis2a_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis2a_BF)$bf`
+
+Paired contrasts:
+
+`r hypothesis2a_contrasts`
+
+
+### Hypothesis 2b: Subjective values decline with increasing n-back level, even after controlling for declining task performance measured by signal detection d’ and reaction time.
+
+Multi level model:
+
+`r table_1`
+
+
+### Hypothesis 2c: Subjective values decline stronger with increasing task load for individuals with low compared to high NFC scores.
+
+Simple slopes analysis:
+
+`r h2b_ss.table`
+`r h2b_ss.plot`
+
+Johnson-Neyman intervals:
+
+`r h2b_jn.int`
+
+
+### Hypothesis 3a: Subjective values positively predict individual NCS scores.
+
+Intercept:
+`r apa_print(hypothesis3a)$estimate$Intercept`
+
+Predictor $AxAUC$:
+`r apa_print(hypothesis3a)$estimate$h3_data_axauc`
+
+Fit:
+`r apa_print(hypothesis3a)$estimate$modelfit$r2`
+
+$BF10=$ `r extractBF(hypothesis3a_BF)$bf`
+
+
+### Hypothesis 3b: NASA-TLX scores negatively predict individual NFC scores.
+
+Intercept:
+`r apa_print(hypothesis3b)$estimate$Intercept`
+
+Predictor $AxAUC$:
+`r apa_print(hypothesis3b)$estimate$h3_data_axauc`
+
+Predictor AUC NASA-TLX:
+`r apa_print(hypothesis3b)$estimate$h3_data_auc_ntlx`
+
+Fit:
+`r apa_print(hypothesis3a)$estimate$modelfit$r2`
+
+$BF10=$ `r extractBF(hypothesis3b_BF)$bf`
 
 \endgroup
