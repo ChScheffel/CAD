@@ -30,6 +30,7 @@ author:
       - Software
       - Writing - review & editing
   - name          : "Corinna Kührt"
+    orcid         : "0000-0002-6418-6479"
     affiliation   : "1"
     role:
       - Formal analysis
@@ -1453,15 +1454,39 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
     
   # simple slopes analysis -----------------------------------------------------
   
-  m1_h2b.ss <- sim_slopes(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none", 
+  m1_h2c.ss <- sim_slopes(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none", 
                     cond.int = T,                       # print conditional intercepts
-                    control.fdr = T)                    # adjust false discovery rate
+                    control.fdr = T,                    # adjust false discovery rate
+                    confint = T)                        # add confidence intervals
   
   #create table
-  h2b_ss.table <- as_huxtable(m1_h2b.ss)
-  h2b_ss.table[1,] <- c("Value of NFC", "Slope of N-Back Level", "Conditional Intercept")
-  h2b_ss.table <- h2b_ss.table[-2,]
-  h2b_ss.table[2:4,1] <- c("- 1 SD", "Mean", "+ 1 SD")  
+  h2c_ss.table <- data.frame("Value of NFC" = c("- 1 SD", "Mean", "+ 1 SD"),
+                             round(m1_h2c.ss$slopes[c(2:5)], digits = 2),
+                             round(m1_h2c.ss$slopes[7], digits = 3),
+                             round(m1_h2c.ss$ints[c(2,3)], digits = 2))
+  colnames(h2c_ss.table) <- c("Value of NFC", "Beta", "$SE$", "95% CI - lower", "95% CI - higher", "$p$-value", "Beta", "$SE$" )
+  # columns 2:5 belong to "Slopes of NFC"
+  # columns 6:7 belong to "Conditional Intercept"
+  
+  h2c_ss.table$`$p$-value`  [which(h2c_ss.table$`$p$-value`<.01)] <- 
+    paste0(h2c_ss.table$`$p$-value`[which(h2c_ss.table$`$p$-value`<.01)],"*")
+  h2c_ss.table$`$p$-value`[which(h2c_ss.table$`$p$-value`<.05)] <- 
+    paste0(h2c_ss.table$`$p$-value`[which(h2c_ss.table$`$p$-value`<.05)],"*")
+  h2c_ss.table$`$p$-value`[which(h2c_ss.table$`$p$-value`<.001)] <- 
+    paste0("<.001***")
+  
+  table_2 <-
+    kbl(h2c_ss.table,
+    caption = "Interaction between NFC and n-back load level.",
+    # "Slopes of n-back level for different NFC values."
+    booktabs = T,                          # no vertical lines
+    escape = F,                            # correctly print special characters)
+    align = c("l",rep("r",7))) %>%         # right aligns the text in every numerical column
+    kable_styling(latex_options = c("striped")) %>%
+    footnote(general = "NFC = Need for Cognition, SE = standard error. ***$p$ < .001, **$p$ < .01, *$p$ < 0.5.",
+            escape = F,                    # correctly print special characters
+            threeparttable = T)            # line breaks in the footnote
+  
   
   # calculate Johnson-Neyman intervals
   h2b_jn <- johnson_neyman(model = m1_h2b, pred = level.cwc, modx = nfc.cgm, control.fdr = T)
