@@ -1,4 +1,4 @@
-# Research Questions for t1 (COG-ED)
+﻿# Research Questions for t1 (COG-ED)
 
 1. Associations of subjective and objective task load measures:
 * a) The signal detection measure d’ declines with increasing n-back level.
@@ -18,8 +18,9 @@
 # Research Questions for t2 (ER-ED)
 
 4. What are individual subjective values of emotion regulation strategies?
-* a) The individual subjective values of ER strategies are negatively correlated with the respective subjective effort ratings.
-* b) The individual subjective values of ER strategies are positively correlated with ER success (i.e., arousal ratings and EMG).
+* a) Subjective effort ratings negatively predict SVs of ER strategies.
+* b) Subjective arousal ratings negatively predict SVs of ER strategies.
+* c) Facial muscle activity negatively predict SVs of ER strategies.
 
 5. Which variables can predict individual subjective values of ER strategies?
 
