@@ -1525,37 +1525,6 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
     sca_results <- rbind(sca_results, newdata)
   
   }
-  
-  
-  # random slopes model --------------------------------------------------------
-  
-  ## maximal model ---- 
-  m1_h2b <- lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject), 
-                 data = h2b_data,
-                 REML = T) # parameters estimated by restricted log-likelihood maximization
-  
-  
-  ## plot model fit of the final model ----
-  m1_h2b_fit <- plot_model(m1_h2b, type = "diag")
-  
-  
-  # prepare MLM results for reporting ------------------------------------------
-  
-  # get random and fixed effects
-  m1_h2b.ranef <- as.data.frame(summary(m1_h2b)$varcor)
-  m1_h2b.fixef <- summary(m1_h2b)$coefficients
-  
-  # prepare table
-  h2b_result.table <- as.data.frame(cbind(row.names(m1_h2b.fixef[-c(6,7),]), 
-                                          m1_h2b.fixef[-c(6,7),c(1, 2, 5)]))
-  h2b_result.table$ranef.sd <- NA
-  h2b_result.table$ranef.sd[c(1,2)] <- m1_h2b.ranef$sdcor[c(1,2)]
- 
-  colnames(h2b_result.table)[1] <- "Parameter"
-  colnames(h2b_result.table)[2] <- "Beta"
-  colnames(h2b_result.table)[3] <- "$SE$"
-  colnames(h2b_result.table)[4] <- "$p$-value"
-  colnames(h2b_result.table)[5] <- "Random Effects (SD)"
 
 ```
 
