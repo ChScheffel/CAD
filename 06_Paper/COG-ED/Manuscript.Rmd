@@ -100,6 +100,7 @@ editor_options:
   library(huxtable)     # create huxtable
   library(glmmTMB)      # from the glmmTMB package for multi level models
   library(BayesFactor)  # computing Bayes factors, "BayesFactor" package
+  library(ggplot2)      # for plotting, "ggplot2" package
 
   set_sum_contrasts()   # sets orthogonal contrasts for mixed-effects model 
                         # and rmANOVA globally in order to get meaningful Type-III tests
@@ -1462,8 +1463,9 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
 
   # prepare empty data frame for the loop to feed into
 
-  sca_results <- data.frame(pipeline = character(), beta_level = double(), p_level = double(),
-                            beta_nfc = double(), p_nfc = double())
+  sca_results <- data.frame(pipeline = character(), beta = double(), pvalue = double(), predictor = character())
+
+  # loop through the pipelines
 
   for (i in 1:length(pipelines_data)) {
     
@@ -1500,11 +1502,10 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
     
     # combine current results and the bigger data frame
     
-    newdata <- data.frame(pipeline = names(pipelines_data[i]),
-                          beta_level = summary(m1_sca)$coefficients[2,1],
-                          p_level = summary(m1_sca)$coefficients[2,5],
-                          beta_nfc = summary(m1_sca)$coefficients[3,1],
-                          p_nfc = summary(m1_sca)$coefficients[3,5])
+    newdata <- data.frame(pipeline = c(names(pipelines_data[i]),names(pipelines_data[i])),
+                          beta = c(summary(m1_sca)$coefficients[2,1],summary(m1_sca)$coefficients[3,1]),
+                          pvalue = c(summary(m1_sca)$coefficients[2,5],summary(m1_sca)$coefficients[3,5]),
+                          predictor = c("Level", "NFC"))
     sca_results <- rbind(sca_results, newdata)
   
   }
@@ -1514,9 +1515,26 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
 
 ```{r SCA_plot, echo=FALSE, message=FALSE, warning=FALSE, fig.show='hide'}
 
-  # sort the data frame by the fixed effects estimate of the predictor 'level'
+  # add a row number and sort the data frame by the fixed effects estimate of the predictor 'level'
 
-  sca_results <- sca_results[order(beta_level), ] 
+  sca_results <- cbind(sca_results, num = rep(c(1:(nrow(sca_results)/2)), each = 2))
+  sca_results <- sca_results[order(sca_results$predictor, sca_results$beta, decreasing = TRUE), ]
+  sca_results[sca_results$predictor == "NFC", ] <- sca_results[match(sca_results$num[sca_results$predictor == "Level"],
+                                                                     sca_results$num[sca_results$predictor == "NFC"]),]
+  
+  # lock it in place by turning it into a factor
+  
+  sca_results$num <- factor(sca_results$num, levels = sca_results$num[sca_results$predictor == "NFC"])
+  
+  # create the upper panel first, which will show the estimates of 'level' and 'nfc'
+  
+  sca_upperplot <- ggplot(data = sca_results, aes(x = num, y = beta, color = predictor, group = predictor)) +
+    geom_point() +
+    geom_line() +
+    theme_classic() +
+    labs(x = NULL, y = "Fixed effects estimate") +
+    scale_y_continuous(position = "right") +
+    theme(axis.text.x = element_blank())
 
 ```
 
