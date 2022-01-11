@@ -1499,8 +1499,9 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   # create interaction plot
   h2b_ss.plot <- interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
                                plot.points = T, point.shape = T,
-                               x.label = "n back level", y.label = "subjective value",
-                               legend.main = "NFC", interval = T) + theme_apa()    
+                               x.label = "n-back level", y.label = "subjective value",
+                               legend.main = "NFC", interval = T) + theme_apa() 
+    
 ```
 
 ```{r SpecificationCurveAnalysis, echo=FALSE, message=FALSE, warning=FALSE, fig.show='hide'}
@@ -1584,7 +1585,7 @@ The results of the MLM are detailed in Table 1.
 Differences between subjects could explain `r round((icc_h2b*100), digits = 0)` % of the total variance in SVs ($ICC =$ `r round(icc_h2b, digits = 2)`).
 However, NFC had no statistically significant effect on SVs (`r apa_print(m1_h2b)$full_result$nfc_cgm`).
 The simple slopes analysis revealed a significant difference in slope of n-back level for three different expressions of NFC (Table 2, Figure 2).
-`r h2b_ss.table`
+`r table_2`
 `r h2b_ss.plot`
 The Johnson-Neyman plot (Figure 2) visualizes the significance of the slope of n-back level at different values of NFC.
 The Johnson-Neyman interval is [`r h2b_jn.int`].
