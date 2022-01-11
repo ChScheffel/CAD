@@ -1458,7 +1458,12 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
 
 ```{r SpecificationCurveAnalysis, echo=FALSE, message=FALSE, warning=FALSE, fig.show='hide'}
 
-  # Here we repeat the multi level model with all analysis pipelines.
+  # here we repeat the multi level model with all analysis pipelines
+
+  # prepare empty data frame for the loop to feed into
+
+  sca_results <- data.frame(pipeline = character(), beta_level = double(), p_level = double(),
+                            beta_nfc = double(), p_nfc = double())
 
   for (i in 1:length(pipelines_data)) {
     
@@ -1488,97 +1493,31 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
     
     m0_sca <- lmer(sv ~ 1 + (1|subject), data = sca_data, REML = T)
     
-    # intra-class-correlation
+    # random slopes model
     
-    var_m0_sca <- as.data.frame(VarCorr(m0_sca))
-    icc_sca <- var_m0_sca$vcov[1] / (var_m0_sca$vcov[1] + var_m0_sca$vcov[2])
+    m1_sca <- lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
+                   data = sca_data, REML = T)
+    
+    # combine current results and the bigger data frame
+    
+    newdata <- data.frame(pipeline = names(pipelines_data[i]),
+                          beta_level = summary(m1_sca)$coefficients[2,1],
+                          p_level = summary(m1_sca)$coefficients[2,5],
+                          beta_nfc = summary(m1_sca)$coefficients[3,1],
+                          p_nfc = summary(m1_sca)$coefficients[3,5])
+    sca_results <- rbind(sca_results, newdata)
   
   }
   
-  
-  # random slopes model --------------------------------------------------------
-  
-  ## maximal model ---- 
-  m1_h2b <- lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject), 
-                 data = h2b_data,
-                 REML = T) # parameters estimated by restricted log-likelihood maximization
-  
-  
-  ## plot model fit of the final model ----
-  m1_h2b_fit <- plot_model(m1_h2b, type = "diag")
-  
-  
-  # prepare MLM results for reporting ------------------------------------------
-  
-  # get random and fixed effects
-  m1_h2b.ranef <- as.data.frame(summary(m1_h2b)$varcor)
-  m1_h2b.fixef <- summary(m1_h2b)$coefficients
-  
-  # prepare table
-  h2b_result.table <- as.data.frame(cbind(row.names(m1_h2b.fixef[-c(6,7),]), 
-                                          m1_h2b.fixef[-c(6,7),c(1, 2, 5)]))
-  h2b_result.table$ranef.sd <- NA
-  h2b_result.table$ranef.sd[c(1,2)] <- m1_h2b.ranef$sdcor[c(1,2)]
- 
-  colnames(h2b_result.table)[1] <- "Parameter"
-  colnames(h2b_result.table)[2] <- "Beta"
-  colnames(h2b_result.table)[3] <- "$SE$"
-  colnames(h2b_result.table)[4] <- "$p$-value"
-  colnames(h2b_result.table)[5] <- "Random Effects (SD)"
 
-  row.names(h2b_result.table) <- NULL
-  h2b_result.table$Parameter[1:6] <- c("Intercept", "n-back level", "NFC", "d'", "RT", "level x NFC")
+```
 
-  h2b_result.table[2:5] <- lapply(h2b_result.table[2:5], as.numeric)
-  h2b_result.table[c(2,3,5)] <- round(h2b_result.table[c(2,3,5)], digits = 2)
-  h2b_result.table[4] <- round(h2b_result.table[4], digits = 3)
-  
-  h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.01)] <- 
-    paste0(h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.01)],"*")
-  h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.05)] <- 
-    paste0(h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.05)],"*")
-  h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.001)] <- 
-    paste0("<.001***")
-  
-  h2b_result.table$`Random Effects (SD)`[3:6] <- paste0("")
-   
-  table_1 <-
-    kbl(h2b_result.table,
-    caption = "Effects of n-back load level on subjective value controlled 
-    for task performance (d' and reaction time), correct and postcorrect trials.",
-    booktabs = T,                          # no vertical lines
-    escape = F,                            # correctly print special characters)
-    align = c("l",rep("r",7))) %>%         # right aligns the text in every numerical column
-    kable_styling(latex_options = c("striped")) %>%
-    footnote(general = "NFC = Need for Cognition, SE = standard error. ***$p$ < .001, **$p$ < .01, *$p$ < 0.5.",
-            escape = F,                    # correctly print special characters
-            threeparttable = T)            # line breaks in the footnote
-   
-    
-  # simple slopes analysis -----------------------------------------------------
-  
-  m1_h2b.ss <- sim_slopes(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none", 
-                    cond.int = T,                       # print conditional intercepts
-                    control.fdr = T)                    # adjust false discovery rate
-  
-  #create table
-  h2b_ss.table <- as_huxtable(m1_h2b.ss)
-  h2b_ss.table[1,] <- c("Value of NFC", "Slope of N-Back Level", "Conditional Intercept")
-  h2b_ss.table <- h2b_ss.table[-2,]
-  h2b_ss.table[2:4,1] <- c("- 1 SD", "Mean", "+ 1 SD")  
-  
-  # calculate Johnson-Neyman intervals
-  h2b_jn <- johnson_neyman(model = m1_h2b, pred = level.cwc, modx = nfc.cgm, control.fdr = T)
-  h2b_jn.int <- h2b_jn$bounds
-  
-  # save plot
-  h2b_jn.plot <- h2b_jn$plot
-  
-  # create interaction plot
-  h2b_ss.plot <- interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
-                               plot.points = T, point.shape = T,
-                               x.label = "n back level", y.label = "subjective value",
-                               legend.main = "NFC", interval = T) + theme_apa()    
+```{r SCA_plot, echo=FALSE, message=FALSE, warning=FALSE, fig.show='hide'}
+
+  # sort the data frame by the fixed effects estimate of the predictor 'level'
+
+  sca_results <- sca_results[order(beta_level), ] 
+
 ```
 
 The MLM revealed that n-back level was a reliable predictor of SV (`r apa_print(m1_h2b)$full_result$level_cwc`), even after controlling for declining task performance (d’ and RT) as well as correct and post-correct answers. 
