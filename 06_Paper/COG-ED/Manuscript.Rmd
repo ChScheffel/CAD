@@ -98,7 +98,7 @@ editor_options:
   library(kableExtra)   # for great tables in R Markdown
   library(interactions) # for simple slopes analysis
   library(huxtable)     # create huxtable
-  library(glmmTMB)      # from the glmmTMB package for multi level models
+# library(glmmTMB)      # from the glmmTMB package for multi level models
   library(BayesFactor)  # computing Bayes factors, "BayesFactor" package
   library(ggplot2)      # for plotting, "ggplot2" package
 
@@ -1384,6 +1384,27 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   m1_h2b_fit <- plot_model(m1_h2b, type = "diag")
   
   
+  # get Bayes factors ----------------------------------------------------------
+  
+  # the random factor needs to be a factor
+  h2b_data$subject <- factor(h2b_data$subject)
+  
+  # H2b
+  h2b_full_BF <- lmBF(sv ~ level.cwc + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + subject,
+                      data = h2b_data, whichRandom = 'subject')
+  h2b_null_BF <- lmBF(sv ~ 1 + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + subject,
+                      data = h2b_data, whichRandom = 'subject')
+  h2b_BF <- h2b_full_BF / h2b_null_BF
+  
+  
+  # H2c
+  h2c_full_BF <- lmBF(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + subject,
+                      data = h2b_data, whichRandom = 'subject')
+  h2c_null_BF <- lmBF(sv ~ level.cwc + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + subject,
+                      data = h2b_data, whichRandom = 'subject')
+  h2c_BF <- h2c_full_BF / h2c_null_BF
+  
+  
   # prepare MLM results for reporting ------------------------------------------
   
   # get random and fixed effects
@@ -1495,11 +1516,6 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
     
     m0_sca <- lmer(sv ~ 1 + (1|subject), data = sca_data, REML = T)
     
-    # random slopes model
-    
-    m1_sca <- lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
-                   data = sca_data, REML = T)
-    
     # combine current results and the bigger data frame
     
     newdata <- data.frame(pipeline = c(names(pipelines_data[i]),names(pipelines_data[i])),
@@ -1510,6 +1526,36 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   
   }
   
+  
+  # random slopes model --------------------------------------------------------
+  
+  ## maximal model ---- 
+  m1_h2b <- lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject), 
+                 data = h2b_data,
+                 REML = T) # parameters estimated by restricted log-likelihood maximization
+  
+  
+  ## plot model fit of the final model ----
+  m1_h2b_fit <- plot_model(m1_h2b, type = "diag")
+  
+  
+  # prepare MLM results for reporting ------------------------------------------
+  
+  # get random and fixed effects
+  m1_h2b.ranef <- as.data.frame(summary(m1_h2b)$varcor)
+  m1_h2b.fixef <- summary(m1_h2b)$coefficients
+  
+  # prepare table
+  h2b_result.table <- as.data.frame(cbind(row.names(m1_h2b.fixef[-c(6,7),]), 
+                                          m1_h2b.fixef[-c(6,7),c(1, 2, 5)]))
+  h2b_result.table$ranef.sd <- NA
+  h2b_result.table$ranef.sd[c(1,2)] <- m1_h2b.ranef$sdcor[c(1,2)]
+ 
+  colnames(h2b_result.table)[1] <- "Parameter"
+  colnames(h2b_result.table)[2] <- "Beta"
+  colnames(h2b_result.table)[3] <- "$SE$"
+  colnames(h2b_result.table)[4] <- "$p$-value"
+  colnames(h2b_result.table)[5] <- "Random Effects (SD)"
 
 ```
 
