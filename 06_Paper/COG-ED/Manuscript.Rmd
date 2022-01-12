@@ -1601,9 +1601,10 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
     geom_point() +
     geom_line() +
     theme_classic() +
-    labs(x = NULL, y = "Fixed effects estimate") +
+    labs(x = NULL, y = NULL) +
     scale_y_continuous(position = "right") +
-    theme(axis.text.x = element_blank())
+    ggtitle("Fixed effects estimate") +
+    theme(axis.text.x = element_blank(), plot.title = element_text(hjust = 1))
 
 ```
 
