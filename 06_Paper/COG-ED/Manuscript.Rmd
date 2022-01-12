@@ -1543,6 +1543,11 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
     
     m0_sca <- lmer(sv ~ 1 + (1|subject), data = sca_data, REML = T)
     
+    # random slopes model
+    
+    m1_sca <- lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
+                   data = sca_data, REML = T)
+    
     # combine current results and the bigger data frame
     
     newdata <- data.frame(pipeline = c(names(pipelines_data[i]),names(pipelines_data[i])),
