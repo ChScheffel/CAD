@@ -1463,12 +1463,15 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   
   #create table
   h2c_ss.table <- data.frame("Value of NFC" = c("- 1 SD", "Mean", "+ 1 SD"),
-                             round(m1_h2c.ss$slopes[c(2:5)], digits = 2),
+                             round(m1_h2c.ss$slopes[c(2:3)], digits = 2),
+                             c(paste0("[", round(m1_h2c.ss$slopes[1,4], digits = 2), ",", round(m1_h2c.ss$slopes[1,5], digits = 2), "]"),
+                               paste0("[", round(m1_h2c.ss$slopes[2,4], digits = 2), ",", round(m1_h2c.ss$slopes[2,5], digits = 2), "]"),
+                               paste0("[", round(m1_h2c.ss$slopes[3,4], digits = 2), ",", round(m1_h2c.ss$slopes[3,5], digits = 2), "]")),
                              round(m1_h2c.ss$slopes[7], digits = 3),
                              round(m1_h2c.ss$ints[c(2,3)], digits = 2))
-  colnames(h2c_ss.table) <- c("Value of NFC", "Beta", "$SE$", "95% CI - lower", "95% CI - higher", "$p$-value", "Beta", "$SE$" )
-  # columns 2:5 belong to "Slopes of NFC"
-  # columns 6:7 belong to "Conditional Intercept"
+  colnames(h2c_ss.table) <- c("Value of NFC", "Beta", "$SE$", "95% CI", "$p$-value", "Beta", "$SE$" )
+  # columns 2:4 belong to "Slopes of NFC"
+  # columns 5:6 belong to "Conditional Intercept"
   
   h2c_ss.table$`$p$-value`  [which(h2c_ss.table$`$p$-value`<.01)] <- 
     paste0(h2c_ss.table$`$p$-value`[which(h2c_ss.table$`$p$-value`<.01)],"*")
@@ -1483,7 +1486,7 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
     # "Slopes of n-back level for different NFC values."
     booktabs = T,                          # no vertical lines
     escape = F,                            # correctly print special characters)
-    align = c("l",rep("r",7))) %>%         # right aligns the text in every numerical column
+    align = c("l",rep("r",6))) %>%         # right aligns the text in every numerical column
     kable_styling(latex_options = c("striped")) %>%
     footnote(general = "NFC = Need for Cognition, SE = standard error. ***$p$ < .001, **$p$ < .01, *$p$ < 0.5.",
             escape = F,                    # correctly print special characters
@@ -1542,6 +1545,11 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
     # define the null model
     
     m0_sca <- lmer(sv ~ 1 + (1|subject), data = sca_data, REML = T)
+    
+    # random slopes model
+    
+    m1_sca <- lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
+                   data = sca_data, REML = T)
     
     # combine current results and the bigger data frame
     
