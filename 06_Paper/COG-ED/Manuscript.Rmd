@@ -1480,6 +1480,10 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   h2c_ss.table$`$p$-value`[which(h2c_ss.table$`$p$-value`<.001)] <- 
     paste0("<.001***")
   
+  # remove leading zeros in the p-value column
+  
+  h2c_ss.table$`$p$-value` <- str_replace(h2c_ss.table$`$p$-value`, "0.", ".")
+  
   table_2 <-
     kbl(h2c_ss.table,
     caption = "Interaction between NFC and n-back load level.",
