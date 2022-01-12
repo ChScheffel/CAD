@@ -1470,8 +1470,8 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
                              round(m1_h2c.ss$slopes[7], digits = 3),
                              round(m1_h2c.ss$ints[c(2,3)], digits = 2))
   colnames(h2c_ss.table) <- c("Value of NFC", "Beta", "$SE$", "95% CI", "$p$-value", "Beta", "$SE$" )
-  # columns 2:4 belong to "Slopes of NFC"
-  # columns 5:6 belong to "Conditional Intercept"
+  # columns 2:5 belong to "Slopes of NFC"
+  # columns 6:7 belong to "Conditional Intercept"
   
   h2c_ss.table$`$p$-value`  [which(h2c_ss.table$`$p$-value`<.01)] <- 
     paste0(h2c_ss.table$`$p$-value`[which(h2c_ss.table$`$p$-value`<.01)],"*")
@@ -1492,6 +1492,7 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
     escape = F,                            # correctly print special characters)
     align = c("l",rep("r",6))) %>%         # right aligns the text in every numerical column
     kable_styling(latex_options = c("striped")) %>%
+    add_header_above(c(" " = 1, "Slopes of NFC" = 4, "Conditional Intercept" = 2)) %>%
     footnote(general = "NFC = Need for Cognition, SE = standard error. ***$p$ < .001, **$p$ < .01, *$p$ < 0.5.",
             escape = F,                    # correctly print special characters
             threeparttable = T)            # line breaks in the footnote
