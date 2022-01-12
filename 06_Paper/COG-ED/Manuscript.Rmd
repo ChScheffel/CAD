@@ -1393,17 +1393,17 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   
   # H2b
   h2b_full_BF <- lmBF(sv ~ level.cwc + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + subject,
-                      data = h2b_data, whichRandom = 'subject')
+                      data = h2b_data, whichRandom = 'subject', progress = FALSE)
   h2b_null_BF <- lmBF(sv ~ 1 + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + subject,
-                      data = h2b_data, whichRandom = 'subject')
+                      data = h2b_data, whichRandom = 'subject', progress = FALSE)
   h2b_BF <- h2b_full_BF / h2b_null_BF
   
   
   # H2c
   h2c_full_BF <- lmBF(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + subject,
-                      data = h2b_data, whichRandom = 'subject')
+                      data = h2b_data, whichRandom = 'subject', progress = FALSE)
   h2c_null_BF <- lmBF(sv ~ level.cwc + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + subject,
-                      data = h2b_data, whichRandom = 'subject')
+                      data = h2b_data, whichRandom = 'subject', progress = FALSE)
   h2c_BF <- h2c_full_BF / h2c_null_BF
   
   
@@ -1509,57 +1509,8 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   h2c_ss.plot <- interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
                                plot.points = T, point.shape = T,
                                x.label = "n-back level", y.label = "subjective value",
-                               legend.main = "NFC", interval = T) + theme_apa()
-  
-  # add column to data frame, which indexes the Mean+/-SD groups
-  h2b_data$nfc_group <- ifelse(h2b_data$nfc.cgm > (mean(h2b_data$nfc.cgm) + sd(h2b_data$nfc.cgm)), "+1 SD",
-                               ifelse(h2b_data$nfc.cgm < (mean(h2b_data$nfc.cgm) - sd(h2b_data$nfc.cgm)), "-1 SD", "Mean"))
-  # add columns to data frame, which index the max/min value of SV per group
-  h2b_data$sv_groupmax <- ifelse(h2b_data$nfc_group == "+1 SD" & h2b_data$level == 2,
-                                 max(h2b_data$sv[h2b_data$nfc_group == "+1 SD" & h2b_data$level == 2]),
-                                 ifelse(h2b_data$nfc_group == "+1 SD" & h2b_data$level == 3,
-                                        max(h2b_data$sv[h2b_data$nfc_group == "+1 SD" & h2b_data$level == 3]),
-                                        ifelse(h2b_data$nfc_group == "+1 SD" & h2b_data$level == 4,
-                                               max(h2b_data$sv[h2b_data$nfc_group == "+1 SD" & h2b_data$level == 4]),
-                                               ifelse(h2b_data$nfc_group == "-1 SD" & h2b_data$level == 2,
-                                                      max(h2b_data$sv[h2b_data$nfc_group == "-1 SD" & h2b_data$level == 2]),
-                                                      ifelse(h2b_data$nfc_group == "-1 SD" & h2b_data$level == 3,
-                                                             max(h2b_data$sv[h2b_data$nfc_group == "-1 SD" & h2b_data$level == 3]),
-                                                             ifelse(h2b_data$nfc_group == "-1 SD" & h2b_data$level == 4,
-                                                                    max(h2b_data$sv[h2b_data$nfc_group == "-1 SD" & h2b_data$level == 4]),
-                                                                    ifelse(h2b_data$nfc_group == "Mean" & h2b_data$level == 2,
-                                                                           max(h2b_data$sv[h2b_data$nfc_group == "Mean" & h2b_data$level == 2]),
-                                                                           ifelse(h2b_data$nfc_group == "Mean" & h2b_data$level == 3,
-                                                                                  max(h2b_data$sv[h2b_data$nfc_group == "Mean" & h2b_data$level == 3]),
-                                                                                  max(h2b_data$sv[h2b_data$nfc_group == "Mean" & h2b_data$level == 4])))))))))
-  h2b_data$sv_groupmax <- ifelse(h2b_data$nfc_group == "+1 SD" & h2b_data$level == 2,
-                                 min(h2b_data$sv[h2b_data$nfc_group == "+1 SD" & h2b_data$level == 2]),
-                                 ifelse(h2b_data$nfc_group == "+1 SD" & h2b_data$level == 3,
-                                        min(h2b_data$sv[h2b_data$nfc_group == "+1 SD" & h2b_data$level == 3]),
-                                        ifelse(h2b_data$nfc_group == "+1 SD" & h2b_data$level == 4,
-                                               min(h2b_data$sv[h2b_data$nfc_group == "+1 SD" & h2b_data$level == 4]),
-                                               ifelse(h2b_data$nfc_group == "-1 SD" & h2b_data$level == 2,
-                                                      min(h2b_data$sv[h2b_data$nfc_group == "-1 SD" & h2b_data$level == 2]),
-                                                      ifelse(h2b_data$nfc_group == "-1 SD" & h2b_data$level == 3,
-                                                             min(h2b_data$sv[h2b_data$nfc_group == "-1 SD" & h2b_data$level == 3]),
-                                                             ifelse(h2b_data$nfc_group == "-1 SD" & h2b_data$level == 4,
-                                                                    min(h2b_data$sv[h2b_data$nfc_group == "-1 SD" & h2b_data$level == 4]),
-                                                                    ifelse(h2b_data$nfc_group == "Mean" & h2b_data$level == 2,
-                                                                           min(h2b_data$sv[h2b_data$nfc_group == "Mean" & h2b_data$level == 2]),
-                                                                           ifelse(h2b_data$nfc_group == "Mean" & h2b_data$level == 3,
-                                                                                  min(h2b_data$sv[h2b_data$nfc_group == "Mean" & h2b_data$level == 3]),
-                                                                                  min(h2b_data$sv[h2b_data$nfc_group == "Mean" & h2b_data$level == 4])))))))))
-    
-  
-  h2c_ss.plot <- ggplot(h2b_data, aes(x = level.cwc, y = sv, color = nfc_group, group = nfc_group)) +
-    geom_point() +
-    geom_smooth(method = interactions::sim_slopes(m1_h2b, pred = level.cwc, modx = nfc.cgm,
-                                                  centered = "none", cond.int = T, control.fdr = T, confint = T),
-                data = NULL, mapping = aes(fill = nfc_group, alpha = .15), se = TRUE) # the alpha stands for the opacity of the CIs
-    
-  h2c_ss.plot <- ggplot(h2b_data, aes(x = level.cwc, y = sv, color = nfc_group, group = nfc_group)) +
-    geom_point() +
-    geom_ribbon(aes(ymax = sv_groupmax, ymin = sv_groupmin, fill = "band", color = nfc_group), alpha = .15)
+                               legend.main = "NFC", interval = T) + theme_apa() +
+    scale_x_continuous(breaks = c(-1,0,1), labels = c("2","3","4"))
   
 ```
 
@@ -1569,7 +1520,7 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
 
   # prepare empty data frame for the loop to feed into
 
-  sca_results <- data.frame(pipeline = character(), beta = double(), pvalue = double(), predictor = character())
+  sca_results <- data.frame(pipeline = character(), beta = double(), pvalue = double(), predictor = character(), BF10 = double())
 
   # loop through the pipelines
 
@@ -1606,12 +1557,25 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
     m1_sca <- lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
                    data = sca_data, REML = T)
     
+    # convert random factor to type factor
+    
+    sca_data$subject <- factor(sca_data$subject)
+  
+    # compute Bayes factor
+    
+    sca_full_BF <- lmBF(sv ~ level.cwc + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + subject,
+                        data = sca_data, whichRandom = 'subject', progress = FALSE)
+    sca_null_BF <- lmBF(sv ~ 1 + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + subject,
+                        data = sca_data, whichRandom = 'subject', progress = FALSE)
+    sca_BF <- sca_full_BF / sca_null_BF
+      
     # combine current results and the bigger data frame
     
     newdata <- data.frame(pipeline = c(names(pipelines_data[i]),names(pipelines_data[i])),
                           beta = c(summary(m1_sca)$coefficients[2,1],summary(m1_sca)$coefficients[3,1]),
                           pvalue = c(summary(m1_sca)$coefficients[2,5],summary(m1_sca)$coefficients[3,5]),
-                          predictor = c("Level", "NFC"))
+                          predictor = c("Level", "NFC"),
+                          BF10 = c(extractBF(sca_BF)$bf, extractBF(sca_BF)$bf))
     sca_results <- rbind(sca_results, newdata)
   
   }
