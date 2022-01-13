@@ -1595,10 +1595,14 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   
   sca_results$num <- factor(sca_results$num, levels = sca_results$num[sca_results$predictor == "NFC"])
   
+  # add a column to plot only points that are significant
+  
+  sca_results$sign <- ifelse(sca_results$pvalue < .01, sca_results$beta, NA)
+  
   # create the upper panel first, which will show the estimates of 'level' and 'nfc'
   
   sca_upperplot <- ggplot(data = sca_results, aes(x = num, y = beta, color = predictor, group = predictor)) +
-    geom_point() +
+    geom_point(data = sca_results, aes(x = num, y = sign, color = predictor, group = predictor)) +
     geom_line() +
     theme_classic() +
     labs(x = NULL, y = NULL) +
