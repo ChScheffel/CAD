@@ -1604,11 +1604,41 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   sca_upperplot <- ggplot(data = sca_results, aes(x = num, y = beta, color = predictor, group = predictor)) +
     geom_point(data = sca_results, aes(x = num, y = sign, color = predictor, group = predictor)) +
     geom_line() +
+    geom_text(aes(x = length(pipelines_data)-2, y = -0.01, label = "NFC")) + 
+    geom_text(aes(x = length(pipelines_data)-2, y = -0.12, label = "Level")) +
     theme_classic() +
     labs(x = NULL, y = NULL) +
     scale_y_continuous(position = "right") +
     ggtitle("Fixed effects estimate") +
-    theme(axis.text.x = element_blank(), plot.title = element_text(hjust = 1))
+    theme(axis.text.x = element_blank(), plot.title = element_text(hjust = 1), legend.position = "none")
+  
+  # add columns to the data frame that describe the pipeline
+  
+  sca_results$Dim <- ifelse(substr(sca_results$pipeline,1,2) == "AA", 2,
+                            ifelse(substr(sca_results$pipeline,1,2) == "AW", 3,
+                                   ifelse(substr(sca_results$pipeline,1,2) == "AW", 3,
+                                          ifelse(substr(sca_results$pipeline,1,2) == "WW", 4,
+                                                 ifelse(substr(sca_results$pipeline,1,2) == "WA", 5, NA)))))
+  sca_results$Trans <- ifelse(substr(sca_results$pipeline,3,3) == "R", 7,
+                              ifelse(substr(sca_results$pipeline,3,3) == "L", 8,
+                                     ifelse(substr(sca_results$pipeline,3,3) == "L", 8,
+                                            ifelse(substr(sca_results$pipeline,3,3) == "I", 9,
+                                                   ifelse(substr(sca_results$pipeline,3,3) == "S", 10, NA)))))
+  sca_results$Excl <- ifelse(substr(sca_results$pipeline,4,4) == "N", 12,
+                             ifelse(substr(sca_results$pipeline,4,4) == "2", 13,
+                                    ifelse(substr(sca_results$pipeline,4,4) == "5", 14,
+                                           ifelse(substr(sca_results$pipeline,4,4) == "3", 15,
+                                                  ifelse(substr(sca_results$pipeline,4,4) == "O", 16, 
+                                                         ifelse(substr(sca_results$pipeline,4,4) == "T", 17, NA))))))
+  
+  sca_lowerplot <- ggplot(data = sca_results) +
+    geom_point(aes(x = num, y = Dim, color = "red")) +
+    geom_point(aes(x = num, y = Trans, color = "blue")) +
+    geom_point(aes(x = num, y = Excl, color = "purple")) +
+    theme_classic() +
+    labs(x = NULL, y = NULL) +
+    scale_y_reverse() +
+    theme(axis.text.x = element_blank(), axis.text.y = element_blank(), legend.position = "none")
 
 ```
 
