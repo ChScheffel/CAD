@@ -1616,9 +1616,8 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   
   sca_results$Dim <- ifelse(substr(sca_results$pipeline,1,2) == "AA", 2,
                             ifelse(substr(sca_results$pipeline,1,2) == "AW", 3,
-                                   ifelse(substr(sca_results$pipeline,1,2) == "AW", 3,
-                                          ifelse(substr(sca_results$pipeline,1,2) == "WW", 4,
-                                                 ifelse(substr(sca_results$pipeline,1,2) == "WA", 5, NA)))))
+                                   ifelse(substr(sca_results$pipeline,1,2) == "WW", 4,
+                                          ifelse(substr(sca_results$pipeline,1,2) == "WA", 5, NA))))
   sca_results$Trans <- ifelse(substr(sca_results$pipeline,3,3) == "R", 7,
                               ifelse(substr(sca_results$pipeline,3,3) == "L", 8,
                                      ifelse(substr(sca_results$pipeline,3,3) == "L", 8,
@@ -1630,15 +1629,28 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
                                            ifelse(substr(sca_results$pipeline,4,4) == "3", 15,
                                                   ifelse(substr(sca_results$pipeline,4,4) == "O", 16, 
                                                          ifelse(substr(sca_results$pipeline,4,4) == "T", 17, NA))))))
+
+  # create the lower part of the plot that indicates the pipeline specifications
   
   sca_lowerplot <- ggplot(data = sca_results) +
-    geom_point(aes(x = num, y = Dim, color = "red")) +
-    geom_point(aes(x = num, y = Trans, color = "blue")) +
-    geom_point(aes(x = num, y = Excl, color = "purple")) +
+    geom_hline(yintercept = c(1,6,11), color = "grey", size = 0.5) +
+    geom_hline(yintercept = c(2:5,7:10,12:17), color = "grey", linetype = "dashed", size = 0.2) +
+    geom_point(aes(x = num, y = Dim)) +
+    geom_point(aes(x = num, y = Trans)) +
+    geom_point(aes(x = num, y = Excl)) +
     theme_classic() +
     labs(x = NULL, y = NULL) +
-    scale_y_reverse() +
-    theme(axis.text.x = element_blank(), axis.text.y = element_blank(), legend.position = "none")
+    scale_y_reverse(breaks = c(1:17), lim = c(17,0), labels = c(expression(bold("Dimension")),
+                                                                "Across S, across C", "Across S, within C",
+                                                                "Within S, within C", "Within S, across C",
+                                                                expression(bold("Transformation")),
+                                                                "Raw/None", "Log", "Inverse", "Square-root",
+                                                                expression(bold("Exclusion")),
+                                                                "None", "2 MAD from median", "2.5 MAD from median",
+                                                                "3 MAD from median", "100ms after onset", "200ms after onset")) +
+    theme(axis.text.x = element_blank(), legend.position = "none")
+  
+  
 
 ```
 
