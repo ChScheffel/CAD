@@ -1601,16 +1601,15 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   
   # create the upper panel first, which will show the estimates of 'level' and 'nfc'
   
-  sca_upperplot <- ggplot(data = sca_results, aes(x = num, y = beta, color = predictor, group = predictor)) +
-    geom_point(data = sca_results, aes(x = num, y = sign, color = predictor, group = predictor)) +
-    geom_line() +
-    geom_text(aes(x = length(pipelines_data)-2, y = -0.01, label = "NFC")) + 
-    geom_text(aes(x = length(pipelines_data)-2, y = -0.12, label = "Level")) +
+  sca_upperplot <- ggplot(data = sca_results, aes(x = num, y = beta)) +
+    geom_line(aes(group = predictor)) +
+    geom_point(data = sca_results, aes(x = num, y = sign)) +
+    geom_text(x = 3, y = -0.01, label = "NFC") +
+    geom_text(x = 3, y = -0.12, label = "Level") +
     theme_classic() +
     labs(x = NULL, y = NULL) +
-    scale_y_continuous(position = "right") +
-    ggtitle("Fixed effects estimate") +
-    theme(axis.text.x = element_blank(), plot.title = element_text(hjust = 1), legend.position = "none")
+    scale_y_continuous(lim = c(NA,0.01), breaks = c(-0.10,-0.05,0), labels = c("-0.10", "-0.05", "Fixed effects \u03b2  0.00")) +
+    theme(axis.text.x = element_blank(), legend.position = "none")
   
   # add columns to the data frame that describe the pipeline
   
