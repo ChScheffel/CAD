@@ -11,6 +11,7 @@ author:
     role:         # Contributorship roles (e.g., CRediT, https://casrai.org/credit/)
       - Conceptualization
       - Methodology
+      - Funding acquisition
       - Formal analysis
       - Investigation
       - Project administration
@@ -463,8 +464,8 @@ include_graphics(here("99_Thinktank", "Other", "Paradigm_Scheme.png"))
 ```
 *Fig.1* Subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back \> 3-back \> 1-back.
 
-Our hypotheses were derived from the results of Westbrook et al. [-@Westbrook2013], and detailed in the attached design table..
-Regarding the associations of subjective and objective task load we hypothesize that (1a) the signal detection parameter *d'* declines with increasing n-back level, (1b) reaction time increases with increasing n-back level, and (1c) perceived task load increases with n-back level.
+Our hypotheses were derived from the results of Westbrook et al. [-@Westbrook2013].
+Regarding the associations of subjective and objective task load we hypothesize that (1a) the signal detection parameter *d'* declines with increasing n-back level, (1b) reaction time increases with increasing n-back level, and (1c) perceived task load increases with increasing n-back level.
 Regarding the associations of task load and ED we hypothesize that (2a) SVs decline with increasing n-back level, and (2b) SVs decline with increasing n-back level even after controlling for declining task performance.
 Here we added they hypothesis that (2c) SVs decline stronger with increasing task load for individuals with low compared to high NFC scores.
 And regarding individual differences in ED we hypothesize that (3a) SVs predict individual NFC scores, and (3b) perceived task load does not predict individual NFC scores.
@@ -884,7 +885,8 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
 
 # Methods
 
-The paradigm was written and presented using *Psychopy* [@Peirce2019]. We used *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages *afex* [@Singmann2021] and *bayestestR* [@Makowski2019] for all our analyses.
+The paradigm was written and presented using *Psychopy* [@Peirce2019].
+We used *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages *afex* [@Singmann2021] and *bayestestR* [@Makowski2019] for all our analyses.
 
 ## Ethics information
 
@@ -966,7 +968,7 @@ A classic AUC cannot differentiate between a subject who prefers 1-back and a su
 This is the opposite for the sum of the ascent between SVs.
 Therefore, we multiply both indicators, arriving at a value reflecting both degree and direction of preference, called $AxAUC$.
 
-The results of each analysis will be assessed on the basis of both *p*-value and the Bayes factor $BF10$, calculated using the *BayesFactor* package [@Morey2021].
+The results of each analysis will be assessed on the basis of both $p$-value and the Bayes factor $BF10$, calculated using the *BayesFactor* package [@Morey2021].
 
 ## Data availability
 
@@ -1022,12 +1024,6 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
   remove(h1a_data)
 
 ```
-
-## Results of the pilot study
-
-We collected data from $N = 16$ participants,
-One participant's NASA-TLX data is incomplete due to a technical error, so hypotheses 1c and 3b are analyzed using the 15 complete data sets.
-Contrary to our expectations, the rmANOVA revealed no decrease in performance *d'* with increasing n-back level (`r apa_print(hypothesis1a_rmanova)$full_result`).
 
 ```{r Hypothesis_1b, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -1094,10 +1090,6 @@ Contrary to our expectations, the rmANOVA revealed no decrease in performance *d
   remove(h1b_data, rt)
 
 ```
-
-However, RTs increased with increasing n-back level (`r apa_print(hypothesis1b_rmanova)$full_result`).
-RTs were longer for 3- than 2-back (`r apa_print(pairs(emmeans(object = hypothesis1b_rmanova$aov,specs = "level")))[1]`), but not different between 2- and 4-back or 3- and 4-back.
-Even though *d'* did not decrease, the increases in RT indicate an increase in objective task load.
 
 ```{r Hypothesis_1c, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -1262,12 +1254,6 @@ Even though *d'* did not decrease, the increases in RT indicate an increase in o
       
 ```
 
-Increases in subjective task load were investigated for each NASA-TLX subscale, now including 1-back.
-Ratings on the mental load and effort subscales increased between all n-back levels ($p<.001$) except between 3- and 4-back.
-Ratings on the physical load and the performance subscales only differed between 1- and 3-back (`r apa_print(pairs(emmeans(object = hypothesis1c_physical_rmanova$aov,specs = "level")))$statistic$X1_X3`, and `r apa_print(pairs(emmeans(object = hypothesis1c_performance_rmanova$aov,specs = "level")))$statistic$X1_X3`, respectively) and 1- and 4-back (`r apa_print(pairs(emmeans(object = hypothesis1c_physical_rmanova$aov,specs = "level")))$statistic$X1_X4`, and `r `apa_print(pairs(emmeans(object = hypothesis1c_performance_rmanova$aov,specs = "level")))$statistic$X1_X4`, respectively).
-Ratings on the frustration and time pressure subscales increased between all n-back levels ($p<.001$) except between 1- and 2-back and 3- and 4-back.
-Overall, these ratings showed that the increase in task load was being perceived as such.
-
 ```{r Hypothesis_2a, echo=FALSE, message=FALSE, warning=FALSE}
 
   # H2a: Subjective values decline with increasing n-back level.
@@ -1315,11 +1301,6 @@ Overall, these ratings showed that the increase in task load was being perceived
   remove(h2a_data)
 
 ```
-
-The rmANOVA indicated significant differences between SVs depending on n-back level (`r apa_print(hypothesis2a_rmanova)$full_result`).
-SVs were higher for 1- than 3-back (`r apa_print(pairs(emmeans(object = hypothesis2a_rmanova$aov,specs = "level")))$statistic$X1_X3`), for 1- than 4-back (`r apa_print(pairs(emmeans(object = hypothesis2a_rmanova$aov,specs = "level")))$statistic$X1_X4`), and for 2- than 4-back (`r apa_print(pairs(emmeans(object = hypothesis2a_rmanova$aov,specs = "level")))$statistic$X2_X4`).
-Importantly, the lack of difference between the SVs of 1- and 2-back indicates that when given the choice, not all participants preferred the easiest level.
-This can be considered preliminary proof-of-concept, as this behavioural pattern can only emerge in the CERED paradigm, but not in the original COG-ED paradigm.
 
 ```{r Hypothesis_2b_2c, echo=FALSE, message=FALSE, warning=FALSE, fig.show='hide'}
 
@@ -1511,10 +1492,10 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
   h2c_jn.int <- h2c_jn$bounds
   
   # save plot
-  h2c_jn.plot <- h2c_jn$plot
+  Figure3 <- h2c_jn$plot
   
   # create interaction plot
-  h2c_ss.plot <- interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
+  Figure2 <- interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
                                plot.points = T, point.shape = T,
                                x.label = "n-back level", y.label = "subjective value",
                                legend.main = "NFC", interval = T) + theme_apa() +
@@ -1668,21 +1649,6 @@ This can be considered preliminary proof-of-concept, as this behavioural pattern
 
 ```
 
-The MLM revealed that n-back level was a reliable predictor of SV (`r apa_print(m1_h2b)$full_result$level_cwc`), even after controlling for declining task performance (d’ and RT) as well as correct and post-correct answers. 
-The results of the MLM are detailed in Table 1. 
-`r table_1`
-Differences between subjects could explain `r round((icc_h2b*100), digits = 0)` % of the total variance in SVs ($ICC =$ `r round(icc_h2b, digits = 2)`).
-However, NFC had no statistically significant effect on SVs (`r apa_print(m1_h2b)$full_result$nfc_cgm`).
-The simple slopes analysis revealed a significant difference in slope of n-back level for three different expressions of NFC (Table 2, Figure 2).
-`r table_2`
-`r h2c_ss.plot`
-The Johnson-Neyman plot (Figure 2) visualizes the significance of the slope of n-back level at different values of NFC.
-The Johnson-Neyman interval is [`r h2c_jn.int`].
-Consequently, the slope of n-back level was not significant for individuals with very low NFC values.    
-`r h2c_jn.plot`
-
-## alternative: `r h2b_jn` 
-
 ```{r Hypothesis_3a, echo=FALSE, message=FALSE, warning=FALSE}
 
   # H3a: Subjective values positively predict individual NCS scores.
@@ -1730,8 +1696,6 @@ Consequently, the slope of n-back level was not significant for individuals with
   
   
 ```
-
-The $AxAUC$ value did not predict any amount of variance in individual NFC scores (`r apa_print(hypothesis3a)$statistic$modelfit$r2`, `r apa_print(hypothesis3a)$estimate$modelfit$r2`).
 
 ```{r Hypothesis_3b, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -1789,16 +1753,17 @@ The $AxAUC$ value did not predict any amount of variance in individual NFC score
 
 ```
 
-When including the AUC of all NASA-TLX subscales as a predictor, it could explain variance in NFC beyond the one (not) explained by the SVs (`r apa_print(hypothesis3b)$statistic$modelfit$r2`, `r apa_print(hypothesis3b)$estimate$modelfit$r2`).
-An increase in one NASA-TLX AUC value corresponded, on average, to a decrease of `r round(hypothesis3b$coefficients[2], digits = 1)` on the NFC scale (`r apa_print(hypothesis3b)$estimate$h3_data_auc_ntlx`).
+## Results of the pilot study
+
+We collected data from $N = 15$ participants.
+One participant's NASA-TLX data is incomplete due to a technical error, so hypotheses 1c and 3b are analyzed using the 14 complete data sets.
+The results showed increases in subjective and objective task load measures with higher n-back level.
+Importantly, SVs were lower for higher n-back levels, but not different between 1- and 2-back, which can be considered preliminary proof-of-concept, as this phenomon can only emerge in this version of the paradigm.
+The MLM revealed that n-back level was a reliable predictor of SV, even after controlling for declining task performance (d’ and RT) as well as correct and post-correct answers.
+And finally, while the $AxAUC$ value did not predict any amount of variance in individual NFC scores, the AUC of NASA-TLX scores did.
+All results are detailed in the *Supplementary Material*.
 
 \newpage
-
-# Discussion
-
-# (summary and interpretation of h2b_results)
-
-
 
 # References
 
@@ -1817,7 +1782,12 @@ An increase in one NASA-TLX AUC value corresponded, on average, to a decrease of
 This research was partly funded by the German Research Foundation (DFG) as part of the Collaborative Research Center (CRC) 940.
 The funders have/had no role in study design, data collection and analysis, decision to publish or preparation of the manuscript.
 
+
 # Author Contributions
+
+JZ and CS conceptualized the study and its methodology, acquired funding, investigated, administered the project, and wrote the software.
+JZ and CK did the formal analysis, visualized the results, and prepared the original draft.
+All authors reviewed, edited, and approved the final version of the manuscript.
 
 
 # Competing Interests
@@ -1827,6 +1797,11 @@ The authors declare no competing interests.
 \newpage
 
 # Figure Captions
+
+*Fig.1* Subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back \> 3-back \> 1-back.
+
+
+*Fig.2* Simple slopes analysis for how n-back level predicts the subjective value, depending on the participant's NFC. NFC = Need for Cognition, SD = standard deviation.
 
 \newpage
 
@@ -1940,7 +1915,9 @@ Multi level model:
 Simple slopes analysis:
 
 `r h2b_ss.table`
-`r h2b_ss.plot`
+
+`r Figure2`
+*Fig.2* Simple slopes analysis for how n-back level predicts the subjective value, depending on the participant's NFC. NFC = Need for Cognition, SD = standard deviation.
 
 Johnson-Neyman intervals:
 
