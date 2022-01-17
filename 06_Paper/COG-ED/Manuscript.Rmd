@@ -1800,7 +1800,7 @@ The authors declare no competing interests.
 
 # Figures and figure Captions
 
-```{r figure1, echo=FALSE, message=FALSE, warning=FALSE}
+```{r figure1_appendix, echo=FALSE, message=FALSE, warning=FALSE}
 
   include_graphics(here("99_Thinktank", "Other", "Paradigm_Scheme.png"))
 
@@ -1928,14 +1928,14 @@ Multi level model:
 
 Simple slopes analysis:
 
-`r h2b_ss.table`
+`r h2c_ss.table`
 
 `r Figure2`
 *Supplementary Figure 1* Simple slopes analysis for how n-back level predicts the subjective value, depending on the participant's NFC. NFC = Need for Cognition, SD = standard deviation.
 
 Johnson-Neyman intervals:
 
-`r h2b_jn.int`
+`r h2c_jn.int`
 
 
 Specification curve analysis:
