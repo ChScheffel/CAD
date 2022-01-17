@@ -80,6 +80,7 @@ header-includes   :
     - \usepackage{makecell}
     - \usepackage{xcolor}
     - \usepackage{setspace}\doublespacing
+    - \usepackage{pdfpages}
 editor_options: 
   markdown: 
     wrap: sentence
@@ -1492,7 +1493,7 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
   h2c_jn.int <- h2c_jn$bounds
   
   # save plot
-  Figure3 <- h2c_jn$plot
+  h2c_jn.plot <- h2c_jn$plot
   
   # create interaction plot
   Figure2 <- interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
@@ -1645,7 +1646,7 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
   
   # put both plots into one
   
-  sca_plot <- ggarrange(sca_upperplot, sca_lowerplot, nrow = 2, heights = c(1,2.5))
+  Figure3 <- ggarrange(sca_upperplot, sca_lowerplot, nrow = 2, heights = c(1,2.5))
 
 ```
 
@@ -1759,7 +1760,8 @@ We collected data from $N = 15$ participants.
 One participant's NASA-TLX data is incomplete due to a technical error, so hypotheses 1c and 3b are analyzed using the 14 complete data sets.
 The results showed increases in subjective and objective task load measures with higher n-back level.
 Importantly, SVs were lower for higher n-back levels, but not different between 1- and 2-back, which can be considered preliminary proof-of-concept, as this phenomon can only emerge in this version of the paradigm.
-The MLM revealed that n-back level was a reliable predictor of SV, even after controlling for declining task performance (d’ and RT) as well as correct and post-correct answers.
+The MLM revealed that n-back level was a reliable predictor of SV, even after controlling for declining task performance (d’ and RT) as well as correct and post-correct answers, while NFC was not.
+The specification curve analysis showed that this pattern was true for all 63 pipelines.
 And finally, while the $AxAUC$ value did not predict any amount of variance in individual NFC scores, the AUC of NASA-TLX scores did.
 All results are detailed in the *Supplementary Material*.
 
@@ -1796,16 +1798,28 @@ The authors declare no competing interests.
 
 \newpage
 
-# Figure Captions
+# Figures and figure Captions
 
+```{r figure1, echo=FALSE, message=FALSE, warning=FALSE}
+
+  include_graphics(here("99_Thinktank", "Other", "Paradigm_Scheme.png"))
+
+```
 *Fig.1* Subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back \> 3-back \> 1-back.
 
 
-*Fig.2* Simple slopes analysis for how n-back level predicts the subjective value, depending on the participant's NFC. NFC = Need for Cognition, SD = standard deviation.
+`r Figure2`
+*Supplementary Figure 1* Simple slopes analysis for how n-back level predicts the subjective value, depending on the participant's NFC. NFC = Need for Cognition, SD = standard deviation.
+
+
+`r Figure3`
+*Supplementary Figure 2* Results of the specification curve analysis for the multi level model. The upper panel shows the fixed effect estimates for Need for Cognition and n-back level as predictors of subjective values. Estimates with $p<.01$ are indicated by a dot on the line. The lower panel shows the preprocessing steps of each corresponding pipeline. The $BF10$ of each pipeline's multi level model approached infinity.
 
 \newpage
 
 # Design Table
+
+\includepdf[pages={-}]{here("02_Hypotheses", "Design_Table_T1.pdf")}
 
 \newpage
 
@@ -1917,11 +1931,17 @@ Simple slopes analysis:
 `r h2b_ss.table`
 
 `r Figure2`
-*Fig.2* Simple slopes analysis for how n-back level predicts the subjective value, depending on the participant's NFC. NFC = Need for Cognition, SD = standard deviation.
+*Supplementary Figure 1* Simple slopes analysis for how n-back level predicts the subjective value, depending on the participant's NFC. NFC = Need for Cognition, SD = standard deviation.
 
 Johnson-Neyman intervals:
 
 `r h2b_jn.int`
+
+
+Specification curve analysis:
+
+`r Figure3`
+*Supplementary Figure 2* Results of the specification curve analysis for the multi level model. The upper panel shows the fixed effect estimates for Need for Cognition and n-back level as predictors of subjective values. Estimates with $p<.01$ are indicated by a dot on the line. The lower panel shows the preprocessing steps of each corresponding pipeline. The $BF10$ of each pipeline's multi level model approached infinity.
 
 
 ### Hypothesis 3a: Subjective values positively predict individual NCS scores.
