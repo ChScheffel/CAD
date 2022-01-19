@@ -81,15 +81,14 @@ header-includes   :
     - \usepackage{xcolor}
     - \usepackage{setspace}\doublespacing
     - \usepackage{pdfpages}
-editor_options: 
-  markdown: 
-    wrap: sentence
+
 ---
 
 ```{r setup, include=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 
   knitr::opts_chunk$set(echo = TRUE)
   library(bibtex)
+  library(rmarkdown)
   library(here)         # to set a directory without defined paths, "here" package
   library(tidyverse)    # plotting and managing data, "tidyverse" package
   library(bayestestR)   # computing area under the curve, "bayestestR" package
