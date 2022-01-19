@@ -100,7 +100,7 @@ header-includes   :
   library(kableExtra)   # for great tables in R Markdown
   library(interactions) # for simple slopes analysis
   library(huxtable)     # create huxtable
-# library(glmmTMB)      # from the glmmTMB package for multi level models
+  library(glmmTMB)      # from the glmmTMB package for multi level models
   library(BayesFactor)  # computing Bayes factors, "BayesFactor" package
   library(ggplot2)      # for plotting, "ggplot2" package
   library(egg)          # for paneling plots, "egg" package
