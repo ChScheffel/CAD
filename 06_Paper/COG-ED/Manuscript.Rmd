@@ -4,10 +4,11 @@ shorttitle        : "The CERED paradigm for estimating subjective values"
 author: 
   - name          : "Josephine Zerna"
     orcid         : "0000-0003-2892-884X"
-    affiliation   : "1,*"
+    affiliation   : "1"
     corresponding : yes
     address       : "Zellescher Weg 17, 01069 Dresden, Germany"
     email         : "josephine.zerna@tu-dresden.de"
+    equal_contrib : yes
     role:         # Contributorship roles (e.g., CRediT, https://casrai.org/credit/)
       - Conceptualization
       - Methodology
@@ -21,7 +22,8 @@ author:
       - Writing - review & editing
   - name          : "Christoph Scheffel"
     orcid         : "0000-0001-5963-9229"
-    affiliation   : "1,*"
+    affiliation   : "1"
+    equal_contrib : yes
     role:
       - Conceptualization
       - Methodology
@@ -41,8 +43,6 @@ author:
 affiliation:
   - id            : "1"
     institution   : "Faculty of Psychology, Technische Universität Dresden, 01069 Dresden, Germany"
-authornote: |
-  * Shared first authorship
 abstract: |
   When individuals set goals, they consider the subjective value (SV) of both the anticipated reward and the required effort, a trade-off that is of great interest to psychological research.
   However, the SV of effort is highly individual, and previous quantification approaches have had two crucial limitations: They presumed a unidirectional relationship between objective task load and the SV of effort, and as a consequence, they could only quantify the SVs of tasks with an objective order of task load.
@@ -80,7 +80,7 @@ header-includes   :
     - \usepackage{makecell}
     - \usepackage{xcolor}
     - \usepackage{setspace}\doublespacing
-    - \usepackage{pdfpages}
+    - \usepackage[final]{pdfpages}
 
 ---
 
@@ -88,7 +88,6 @@ header-includes   :
 
   knitr::opts_chunk$set(echo = TRUE)
   library(bibtex)
-  library(rmarkdown)
   library(here)         # to set a directory without defined paths, "here" package
   library(tidyverse)    # plotting and managing data, "tidyverse" package
   library(bayestestR)   # computing area under the curve, "bayestestR" package
@@ -821,7 +820,7 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
   
 ```
 
-```{r pipelines_dprime, echo=FALSE, message=FALSE, warning=FALSE}
+```{r pipelinesdprime, echo=FALSE, message=FALSE, warning=FALSE}
   
   # calculate d' for every pipeline because it depends on the total number of target and non-target trials
 
@@ -979,7 +978,7 @@ The data of this study can be downloaded from osf.io/vnj8x/.
 The paradigm code, as well as the R Markdown file used to analyze the data and write this document is available at our [Github repository](https://github.com/ChScheffel/CERED).
 
 
-```{r Hypothesis_1a, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Hypothesis1a, echo=FALSE, message=FALSE, warning=FALSE}
 
   # H1a: The signal detection measure d’ declines with increasing n-back level.
   
@@ -1025,7 +1024,7 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
 
 ```
 
-```{r Hypothesis_1b, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Hypothesis1b, echo=FALSE, message=FALSE, warning=FALSE}
 
   # H1b: Reaction time increases with increasing n-back level.
   
@@ -1091,7 +1090,7 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
 
 ```
 
-```{r Hypothesis_1c, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Hypothesis1c, echo=FALSE, message=FALSE, warning=FALSE}
 
   # H1c: Ratings on all NASA-TLX dimensions increase with increasing n-back level.
 
@@ -1254,7 +1253,7 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
       
 ```
 
-```{r Hypothesis_2a, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Hypothesis2a, echo=FALSE, message=FALSE, warning=FALSE}
 
   # H2a: Subjective values decline with increasing n-back level.
 
@@ -1302,7 +1301,7 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
 
 ```
 
-```{r Hypothesis_2b_2c, echo=FALSE, message=FALSE, warning=FALSE, fig.show='hide'}
+```{r Hypothesis2bc, echo=FALSE, message=FALSE, warning=FALSE, fig.show='hide'}
 
   # H2b: Subjective values decline with increasing n-back level, even after controlling for declining task
   # performance measured by signal detection d’ and reaction time.
@@ -1571,7 +1570,7 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
 
 ```
 
-```{r SCA_plot, echo=FALSE, message=FALSE, warning=FALSE, fig.show='hide'}
+```{r SCAplot, echo=FALSE, message=FALSE, warning=FALSE, fig.show='hide'}
 
   # add a row number and sort the data frame by the fixed effects estimate of the predictor 'level'
 
@@ -1649,7 +1648,7 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
 
 ```
 
-```{r Hypothesis_3a, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Hypothesis3a, echo=FALSE, message=FALSE, warning=FALSE}
 
   # H3a: Subjective values positively predict individual NCS scores.
 
@@ -1697,7 +1696,7 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
   
 ```
 
-```{r Hypothesis_3b, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Hypothesis3b, echo=FALSE, message=FALSE, warning=FALSE}
 
   # H3b: NASA-TLX scores negatively predict individual NCS scores.
   
@@ -1768,13 +1767,12 @@ All results are detailed in the *Supplementary Material*.
 
 # References
 
-```{=tex}
 \begingroup
 \setlength{\parindent}{-0.5in}
 \setlength{\leftskip}{0.5in}
-```
-::: {#refs custom-style="Bibliography"}
-:::
+
+<div id="refs" custom-style="Bibliography"></div>
+\endgroup
 
 \newpage
 
@@ -1799,7 +1797,7 @@ The authors declare no competing interests.
 
 # Figures and figure Captions
 
-```{r figure1_appendix, echo=FALSE, message=FALSE, warning=FALSE}
+```{r figure1appendix, echo=FALSE, message=FALSE, warning=FALSE}
 
   include_graphics(here("99_Thinktank", "Other", "Paradigm_Scheme.png"))
 
@@ -1818,7 +1816,7 @@ The authors declare no competing interests.
 
 # Design Table
 
-\includepdf[pages={-}]{here("02_Hypotheses", "Design_Table_T1.pdf")}
+\includepdf[pages={-}]{Design_Table_T1.pdf}
 
 \newpage
 
