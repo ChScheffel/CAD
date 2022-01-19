@@ -1967,8 +1967,8 @@ Predictor AUC NASA-TLX:
 `r apa_print(hypothesis3b)$estimate$h3_data_auc_ntlx`
 
 Fit:
-`r apa_print(hypothesis3a)$estimate$modelfit$r2`
+`r apa_print(hypothesis3b)$estimate$modelfit$r2`
 
 $BF10=$ `r extractBF(hypothesis3b_BF)$bf`
 
-\endgroup
+
