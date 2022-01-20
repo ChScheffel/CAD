@@ -1959,12 +1959,12 @@ ANOVA:
 Paired contrasts:
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
-apa_table(
-  hypothesis2a_contrasts
-  , caption = "Paired contrasts for rmANOVA hypothesis 2a XXX"
-  , note = "XXX."
-  , escape = TRUE
-)
+#apa_table(
+#  hypothesis2a_contrasts
+#  , caption = "Paired contrasts for rmANOVA hypothesis 2a XXX"
+#  , note = "XXX."
+#  , escape = TRUE
+#)
 ```
 
 ### Hypothesis 2b: Subjective values decline with increasing n-back level, even after controlling for declining task performance measured by signal detection d’ and reaction time.
@@ -1979,12 +1979,12 @@ Multi level model:
 Simple slopes analysis:
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-apa_table(
-  h2c_ss.table
-  , caption = "Simple slope analysis of SVs...XXX"
-  , note = "XXX."
-  , escape = FALSE
-)
+#apa_table(
+#  h2c_ss.table
+#  , caption = "Simple slope analysis of SVs...XXX"
+#  , note = "XXX."
+#  , escape = FALSE
+#)
 ```
 
 ```{r FigHyp2c, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Simple slopes analysis for how n-back level predicts the subjective value, depending on the participant's NFC. NFC = Need for Cognition, SD = standard deviation."}
