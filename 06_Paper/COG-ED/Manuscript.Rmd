@@ -54,6 +54,7 @@ keywords          : "effort discounting, registered report, specification curve 
 wordcount         : "X"
 bibliography      : CERED.bib
 floatsintext      : no
+figsintext        : yes
 figurelist        : no
 tablelist         : no
 footnotelist      : no
@@ -1824,8 +1825,13 @@ ANOVA:
 
 Paired contrasts:
 
-````{r}
-apa_table(hypothesis1a_contrasts)
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+apa_table(
+  hypothesis1a_contrasts
+  , caption = "Paired contrasts for rmANOVA hypothesis 1a XXX"
+  , note = "XXX."
+  , escape = TRUE
+)
 ```
 
 
@@ -1837,7 +1843,14 @@ ANOVA:
 
 Paired contrasts:
 
-`r hypothesis1b_contrasts`
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+apa_table(
+  hypothesis1b_contrasts
+  , caption = "Paired contrasts for rmANOVA hypothesis 1b XXX"
+  , note = "XXX."
+  , escape = TRUE
+)
+```
 
 
 ### Hypothesis 1c: Ratings on all NASA-TLX dimensions increase with increasing n-back level.
@@ -1848,7 +1861,14 @@ Mental subscale ANOVA:
 
 Mental subscale paired contrasts:
 
-`r hypothesis1c_mental_contrasts`
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis1c_mental_contrasts
+  , caption = "Paired contrasts for rmANOVA hypothesis 1c mental XXX"
+  , note = "XXX."
+  , escape = TRUE
+)
+```
 
 
 Physical subscale ANOVA:
@@ -1857,7 +1877,14 @@ Physical subscale ANOVA:
 
 Physical subscale paired contrasts:
 
-`r hypothesis1c_physical_contrasts`
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+ apa_table(
+   hypothesis1c_physical_contrasts
+   , caption = "Paired contrasts for rmANOVA hypothesis 1c physical XXX"
+   , note = "XXX."
+   , escape = TRUE
+ )
+```
 
 
 Time subscale ANOVA:
@@ -1866,8 +1893,14 @@ Time subscale ANOVA:
 
 Time subscale paired contrasts:
 
-`r hypothesis1c_time_contrasts`
-
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+ apa_table(
+   hypothesis1c_time_contrasts
+   , caption = "Paired contrasts for rmANOVA hypothesis 1c time XXX"
+   , note = "XXX."
+   , escape = TRUE
+ )
+```
 
 Performance subscale ANOVA:
 
@@ -1875,7 +1908,14 @@ Performance subscale ANOVA:
 
 Performance subscale paired contrasts:
 
-`r hypothesis1c_performance_contrasts`
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+ apa_table(
+   hypothesis1c_performance_contrasts
+   , caption = "Paired contrasts for rmANOVA hypothesis 1c performance XXX"
+   , note = "XXX."
+   , escape = TRUE
+ )
+```
 
 
 Effort subscale ANOVA:
@@ -1884,8 +1924,14 @@ Effort subscale ANOVA:
 
 Effort subscale paired contrasts:
 
-`r hypothesis1c_effort_contrasts`
-
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+ apa_table(
+   hypothesis1c_effort_contrasts
+   , caption = "Paired contrasts for rmANOVA hypothesis 1c effort XXX"
+   , note = "XXX."
+   , escape = TRUE
+ )
+```
 
 Frustration subscale ANOVA:
 
@@ -1893,7 +1939,15 @@ Frustration subscale ANOVA:
 
 Frustration subscale paired contrasts:
 
-`r hypothesis1c_frustration_contrasts`
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+ apa_table(
+   hypothesis1c_frustration_contrasts
+   , caption = "Paired contrasts for rmANOVA hypothesis 1c frustration XXX"
+   , note = "XXX."
+   , escape = TRUE
+ )
+```
 
 
 ### Hypothesis 2a: Subjective values decline with increasing n-back level.
@@ -1904,8 +1958,14 @@ ANOVA:
 
 Paired contrasts:
 
-`r hypothesis2a_contrasts`
-
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+ apa_table(
+   hypothesis2a_contrasts
+   , caption = "Paired contrasts for rmANOVA hypothesis 2a XXX"
+   , note = "XXX."
+   , escape = TRUE
+ )
+```
 
 ### Hypothesis 2b: Subjective values decline with increasing n-back level, even after controlling for declining task performance measured by signal detection d’ and reaction time.
 
@@ -1918,8 +1978,14 @@ Multi level model:
 
 Simple slopes analysis:
 
-`r h2c_ss.table`
-
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+apa_table(
+  h2c_ss.table
+  , caption = "Simple slope analysis of SVs...XXX"
+  , note = "XXX."
+  , escape = FALSE
+)
+```
 
 ```{r FigHyp2c, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Simple slopes analysis for how n-back level predicts the subjective value, depending on the participant's NFC. NFC = Need for Cognition, SD = standard deviation."}
 
@@ -1936,7 +2002,7 @@ Johnson-Neyman intervals:
 
 Specification curve analysis:
 
-<!-- (ref:Fig2cSA-caption) Results of the specification curve analysis for the multi level model. The upper panel shows the fixed effect estimates for Need for Cognition and n-back level as predictors of subjective values. Estimates with $p<.01$ are indicated by a dot on the line. The lower panel shows the preprocessing steps of each corresponding pipeline. The $BF10$ of each pipeline's multi level model approached infinity.-->
+
 ```{r Fig2cSA, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of the specification curve analysis for the multi level model. The upper panel shows the fixed effect estimates for Need for Cognition and n-back level as predictors of subjective values. Estimates with $p<.01$ are indicated by a dot on the line. The lower panel shows the preprocessing steps of each corresponding pipeline. The $BF10$ of each pipeline's multi level model approached infinity."}
 
 # create the upper panel first, which will show the estimates of 'level' and 'nfc'
