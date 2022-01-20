@@ -1797,12 +1797,11 @@ The authors declare no competing interests.
 
 # Figures and figure Captions
 
-```{r figure1appendix, echo=FALSE, message=FALSE, warning=FALSE}
+```{r figure1appendix, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back \> 3-back \> 1-back."}
 
   include_graphics(here("99_Thinktank", "Other", "Paradigm_Scheme.png"))
 
 ```
-*Fig.1* Subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back \> 3-back \> 1-back.
 
 
 `r Figure2`
