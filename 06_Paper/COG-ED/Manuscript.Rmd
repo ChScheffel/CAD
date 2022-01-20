@@ -1909,12 +1909,12 @@ Performance subscale ANOVA:
 Performance subscale paired contrasts:
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
-#apa_table(
-#  hypothesis1c_performance_contrasts
-#  , caption = "Paired contrasts for rmANOVA hypothesis 1c performance XXX"
-#  , note = "XXX."
-#  , escape = TRUE
-#)
+apa_table(
+  hypothesis1c_performance_contrasts
+  , caption = "Paired contrasts for rmANOVA hypothesis 1c performance XXX"
+  , note = "XXX."
+  , escape = TRUE
+)
 ```
 
 
@@ -1925,12 +1925,12 @@ Effort subscale ANOVA:
 Effort subscale paired contrasts:
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
-#apa_table(
-#  hypothesis1c_effort_contrasts
-#  , caption = "Paired contrasts for rmANOVA hypothesis 1c effort XXX"
-#  , note = "XXX."
-#  , escape = TRUE
-#)
+apa_table(
+  hypothesis1c_effort_contrasts
+  , caption = "Paired contrasts for rmANOVA hypothesis 1c effort XXX"
+  , note = "XXX."
+  , escape = TRUE
+)
 ```
 
 Frustration subscale ANOVA:
