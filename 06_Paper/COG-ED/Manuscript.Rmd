@@ -1824,7 +1824,9 @@ ANOVA:
 
 Paired contrasts:
 
-`r apa_table(hypothesis1a_contrasts)`
+````{r}
+apa_table(hypothesis1a_contrasts)
+```
 
 
 ### Hypothesis 1b: Reaction time increases with increasing n-back level.
