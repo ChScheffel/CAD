@@ -54,6 +54,7 @@ keywords          : "effort discounting, registered report, specification curve 
 wordcount         : "X"
 bibliography      : CERED.bib
 floatsintext      : no
+figsintext        : yes
 figurelist        : no
 tablelist         : no
 footnotelist      : no
@@ -98,7 +99,7 @@ header-includes   :
   library(sjPlot)       # plot MLM model fit
   library(kableExtra)   # for great tables in R Markdown
   library(interactions) # for simple slopes analysis
-  library(huxtable)     # create huxtable
+  #library(huxtable)     # create huxtable
   library(glmmTMB)      # from the glmmTMB package for multi level models
   library(BayesFactor)  # computing Bayes factors, "BayesFactor" package
   library(ggplot2)      # for plotting, "ggplot2" package
@@ -1797,20 +1798,11 @@ The authors declare no competing interests.
 
 # Figures and figure Captions
 
-```{r figure1appendix, echo=FALSE, message=FALSE, warning=FALSE}
+```{r figure1appendix, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back > 3-back > 1-back."}
 
   include_graphics(here("99_Thinktank", "Other", "Paradigm_Scheme.png"))
 
 ```
-*Fig.1* Subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back \> 3-back \> 1-back.
-
-
-`r Figure2`
-*Supplementary Figure 1* Simple slopes analysis for how n-back level predicts the subjective value, depending on the participant's NFC. NFC = Need for Cognition, SD = standard deviation.
-
-
-`r Figure3`
-*Supplementary Figure 2* Results of the specification curve analysis for the multi level model. The upper panel shows the fixed effect estimates for Need for Cognition and n-back level as predictors of subjective values. Estimates with $p<.01$ are indicated by a dot on the line. The lower panel shows the preprocessing steps of each corresponding pipeline. The $BF10$ of each pipeline's multi level model approached infinity.
 
 \newpage
 
@@ -1833,7 +1825,14 @@ ANOVA:
 
 Paired contrasts:
 
-`r hypothesis1a_contrasts`
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+apa_table(
+  hypothesis1a_contrasts
+  , caption = "Paired contrasts for rmANOVA hypothesis 1a XXX"
+  , note = "XXX."
+  , escape = TRUE
+)
+```
 
 
 ### Hypothesis 1b: Reaction time increases with increasing n-back level.
@@ -1844,7 +1843,14 @@ ANOVA:
 
 Paired contrasts:
 
-`r hypothesis1b_contrasts`
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+apa_table(
+  hypothesis1b_contrasts
+  , caption = "Paired contrasts for rmANOVA hypothesis 1b XXX"
+  , note = "XXX."
+  , escape = TRUE
+)
+```
 
 
 ### Hypothesis 1c: Ratings on all NASA-TLX dimensions increase with increasing n-back level.
@@ -1855,7 +1861,14 @@ Mental subscale ANOVA:
 
 Mental subscale paired contrasts:
 
-`r hypothesis1c_mental_contrasts`
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis1c_mental_contrasts
+  , caption = "Paired contrasts for rmANOVA hypothesis 1c mental XXX"
+  , note = "XXX."
+  , escape = TRUE
+)
+```
 
 
 Physical subscale ANOVA:
@@ -1864,7 +1877,14 @@ Physical subscale ANOVA:
 
 Physical subscale paired contrasts:
 
-`r hypothesis1c_physical_contrasts`
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis1c_physical_contrasts
+  , caption = "Paired contrasts for rmANOVA hypothesis 1c physical XXX"
+  , note = "XXX."
+  , escape = TRUE
+)
+```
 
 
 Time subscale ANOVA:
@@ -1873,8 +1893,14 @@ Time subscale ANOVA:
 
 Time subscale paired contrasts:
 
-`r hypothesis1c_time_contrasts`
-
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis1c_time_contrasts
+  , caption = "Paired contrasts for rmANOVA hypothesis 1c time XXX"
+  , note = "XXX."
+  , escape = TRUE
+)
+```
 
 Performance subscale ANOVA:
 
@@ -1882,7 +1908,14 @@ Performance subscale ANOVA:
 
 Performance subscale paired contrasts:
 
-`r hypothesis1c_performance_contrasts`
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis1c_performance_contrasts
+  , caption = "Paired contrasts for rmANOVA hypothesis 1c performance XXX"
+  , note = "XXX."
+  , escape = TRUE
+)
+```
 
 
 Effort subscale ANOVA:
@@ -1891,8 +1924,14 @@ Effort subscale ANOVA:
 
 Effort subscale paired contrasts:
 
-`r hypothesis1c_effort_contrasts`
-
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis1c_effort_contrasts
+  , caption = "Paired contrasts for rmANOVA hypothesis 1c effort XXX"
+  , note = "XXX."
+  , escape = TRUE
+)
+```
 
 Frustration subscale ANOVA:
 
@@ -1900,7 +1939,15 @@ Frustration subscale ANOVA:
 
 Frustration subscale paired contrasts:
 
-`r hypothesis1c_frustration_contrasts`
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis1c_frustration_contrasts
+  , caption = "Paired contrasts for rmANOVA hypothesis 1c frustration XXX"
+  , note = "XXX."
+  , escape = TRUE
+)
+```
 
 
 ### Hypothesis 2a: Subjective values decline with increasing n-back level.
@@ -1911,8 +1958,14 @@ ANOVA:
 
 Paired contrasts:
 
-`r hypothesis2a_contrasts`
-
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis2a_contrasts
+  , caption = "Paired contrasts for rmANOVA hypothesis 2a XXX"
+  , note = "XXX."
+  , escape = TRUE
+)
+```
 
 ### Hypothesis 2b: Subjective values decline with increasing n-back level, even after controlling for declining task performance measured by signal detection d’ and reaction time.
 
@@ -1925,11 +1978,23 @@ Multi level model:
 
 Simple slopes analysis:
 
-`r h2c_ss.table`
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+apa_table(
+  h2c_ss.table
+  , caption = "Simple slope analysis of SVs...XXX"
+  , note = "XXX."
+  , escape = TRUE
+)
+```
 
-`r Figure2`
-*Supplementary Figure 1* Simple slopes analysis for how n-back level predicts the subjective value, depending on the participant's NFC. NFC = Need for Cognition, SD = standard deviation.
+```{r FigHyp2c, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Simple slopes analysis for how n-back level predicts the subjective value, depending on the participant's NFC. NFC = Need for Cognition, SD = standard deviation."}
 
+interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
+                               plot.points = TRUE, point.shape = TRUE,
+                               x.label = "n-back level", y.label = "subjective value",
+                               legend.main = "NFC", interval = TRUE) + theme_apa() +
+scale_x_continuous(breaks = c(-1,0,1), labels = c("2","3","4"))
+```
 Johnson-Neyman intervals:
 
 `r h2c_jn.int`
@@ -1937,9 +2002,49 @@ Johnson-Neyman intervals:
 
 Specification curve analysis:
 
-`r Figure3`
-*Supplementary Figure 2* Results of the specification curve analysis for the multi level model. The upper panel shows the fixed effect estimates for Need for Cognition and n-back level as predictors of subjective values. Estimates with $p<.01$ are indicated by a dot on the line. The lower panel shows the preprocessing steps of each corresponding pipeline. The $BF10$ of each pipeline's multi level model approached infinity.
 
+```{r Fig2cSA, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of the specification curve analysis for the multi level model. The upper panel shows the fixed effect estimates for Need for Cognition and n-back level as predictors of subjective values. Estimates with $p<.01$ are indicated by a dot on the line. The lower panel shows the preprocessing steps of each corresponding pipeline. The $BF10$ of each pipeline's multi level model approached infinity."}
+
+# create the upper panel first, which will show the estimates of 'level' and 'nfc'
+  
+  sca_upperplot <- ggplot(data = sca_results, aes(x = num, y = beta)) +
+    geom_line(aes(group = predictor)) +
+    geom_point(data = sca_results, aes(x = num, y = sign)) +
+    geom_text(x = 3, y = -0.01, label = "NFC") +
+    geom_text(x = 3, y = -0.12, label = "Level") +
+    theme_classic() +
+    labs(x = NULL, y = "Fixed effects estimate \u03b2") +
+    scale_y_continuous(lim = c(NA,0.01)) +
+    theme(axis.text.x = element_blank(),
+          axis.line.y = element_line(size = 1, color = "black"), axis.title.y = element_text(margin = margin(r = 10)),
+          legend.position = "none")
+
+  # create the lower part of the plot that indicates the pipeline specifications
+  
+  sca_lowerplot <- ggplot(data = sca_results) +
+    geom_hline(yintercept = c(1,6,11), color = "grey", size = 0.5) +
+    geom_hline(yintercept = c(2:5,7:10,12:17), color = "grey", linetype = "dashed", size = 0.2) +
+    geom_point(aes(x = num, y = Dim)) +
+    geom_point(aes(x = num, y = Trans)) +
+    geom_point(aes(x = num, y = Excl)) +
+    theme_classic() +
+    labs(x = "Analysis pipeline", y = NULL) +
+    scale_y_reverse(breaks = c(1:17), lim = c(17,0.5), labels = c(expression(bold("Dimension")),
+                                                                "Across S, across C", "Across S, within C",
+                                                                "Within S, within C", "Within S, across C",
+                                                                expression(bold("Transformation")),
+                                                                "Raw/None", "Log", "Inverse", "Square-root",
+                                                                expression(bold("Exclusion")),
+                                                                "None", "2 MAD from median", " 2.5 MAD from median",
+                                                                "3 MAD from median", "100ms after onset", "200ms after onset")) +
+    theme(axis.text.x = element_blank(), axis.title.x = element_text(margin = margin(t = 10)),
+          axis.line.y = element_line(size = 1, color = "black"),
+          legend.position = "none")
+  
+  # put both plots into one
+  
+  ggarrange(sca_upperplot, sca_lowerplot, nrow = 2, heights = c(1,2.5))
+```
 
 ### Hypothesis 3a: Subjective values positively predict individual NCS scores.
 
