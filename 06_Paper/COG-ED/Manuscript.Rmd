@@ -1824,7 +1824,11 @@ ANOVA:
 
 Paired contrasts:
 
-`r hypothesis1a_contrasts`
+```{r} 
+apa_table(
+  hypothesis1a_contrasts
+)
+```
 
 
 ### Hypothesis 1b: Reaction time increases with increasing n-back level.
@@ -1922,9 +1926,9 @@ Simple slopes analysis:
 ```{r FigHyp2c, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Simple slopes analysis for how n-back level predicts the subjective value, depending on the participant's NFC. NFC = Need for Cognition, SD = standard deviation."}
 
 interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
-                               plot.points = T, point.shape = T,
+                               plot.points = TRUE, point.shape = TRUE,
                                x.label = "n-back level", y.label = "subjective value",
-                               legend.main = "NFC", interval = T) + theme_apa() +
+                               legend.main = "NFC", interval = TRUE) + theme_apa() +
 scale_x_continuous(breaks = c(-1,0,1), labels = c("2","3","4"))
 ```
 Johnson-Neyman intervals:
