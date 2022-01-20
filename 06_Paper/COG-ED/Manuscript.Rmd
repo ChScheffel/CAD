@@ -1934,7 +1934,8 @@ Johnson-Neyman intervals:
 
 Specification curve analysis:
 
-```{r Fig2cSA and n-back level as predictors of subjective values. Estimates with $p<.01$ are indicated by a dot on the line. The lower panel shows the preprocessing steps of each corresponding pipeline. The $BF10$ of each pipeline's multi level model approached infinity."}
+<!-- (ref:Fig2cSA-caption) Results of the specification curve analysis for the multi level model. The upper panel shows the fixed effect estimates for Need for Cognition and n-back level as predictors of subjective values. Estimates with $p<.01$ are indicated by a dot on the line. The lower panel shows the preprocessing steps of each corresponding pipeline. The $BF10$ of each pipeline's multi level model approached infinity.-->
+```{r Fig2cSA, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of the specification curve analysis for the multi level model. The upper panel shows the fixed effect estimates for Need for Cognition and n-back level as predictors of subjective values. Estimates with $p<.01$ are indicated by a dot on the line. The lower panel shows the preprocessing steps of each corresponding pipeline. The $BF10$ of each pipeline's multi level model approached infinity."}
 
 # create the upper panel first, which will show the estimates of 'level' and 'nfc'
   
