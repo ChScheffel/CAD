@@ -1894,12 +1894,12 @@ Time subscale ANOVA:
 Time subscale paired contrasts:
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
-#apa_table(
-#  hypothesis1c_time_contrasts
-#  , caption = "Paired contrasts for rmANOVA hypothesis 1c time XXX"
-#  , note = "XXX."
-#  , escape = TRUE
-#)
+apa_table(
+  hypothesis1c_time_contrasts
+  , caption = "Paired contrasts for rmANOVA hypothesis 1c time XXX"
+  , note = "XXX."
+  , escape = TRUE
+)
 ```
 
 Performance subscale ANOVA:
