@@ -53,7 +53,7 @@ abstract: |
 keywords          : "effort discounting, registered report, specification curve analysis, need for cognition, n-back"
 wordcount         : "X"
 bibliography      : CERED.bib
-floatsintext      : no
+floatsintext      : yes
 figsintext        : yes
 figurelist        : no
 tablelist         : no
@@ -85,9 +85,9 @@ header-includes   :
 
 ---
 
-```{r setup, include=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
 
-  knitr::opts_chunk$set(echo = TRUE)
+  knitr::opts_chunk$set(out.width = "\\textwidth")
   library(bibtex)
   library(here)         # to set a directory without defined paths, "here" package
   library(tidyverse)    # plotting and managing data, "tidyverse" package
@@ -1018,7 +1018,12 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
                                                    progress = FALSE, paired = TRUE))$bf,
                                  extractBF(ttestBF(x = h1a_data$dprime[h1a_data$level == 3], y = h1a_data$dprime[h1a_data$level == 4],
                                                    progress = FALSE, paired = TRUE))$bf)
-      
+  
+  # rename columns and contrasts for apa_print
+  
+  colnames(hypothesis1a_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$")
+  hypothesis1a_contrasts$Contrast <- gsub("X", "", hypothesis1a_contrasts$Contrast)
+  
   # remove the temporary variable
   
   remove(h1a_data)
@@ -1084,6 +1089,11 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
                                                    progress = FALSE, paired = TRUE))$bf,
                                  extractBF(ttestBF(x = h1b_data$medianrt[h1b_data$level == 3], y = h1b_data$medianrt[h1b_data$level == 4],
                                                    progress = FALSE, paired = TRUE))$bf)
+  
+  # rename columns and contrasts for apa_print
+  
+  colnames(hypothesis1b_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$")
+  hypothesis1b_contrasts$Contrast <- gsub("X", "", hypothesis1b_contrasts$Contrast)
   
   # remove the temporary variable
   
@@ -1248,6 +1258,21 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
                                  extractBF(ttestBF(x = h1c_data$frustration[h1c_data$level == 3], y = h1c_data$frustration[h1c_data$level == 4],
                                                    progress = FALSE, paired = TRUE))$bf)
   
+  # rename columns and contrasts for apa_print
+  
+  colnames(hypothesis1c_mental_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$")
+  hypothesis1c_mental_contrasts$Contrast <- gsub("X", "", hypothesis1c_mental_contrasts$Contrast)
+  colnames(hypothesis1c_physical_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$")
+  hypothesis1c_physical_contrasts$Contrast <- gsub("X", "", hypothesis1c_physical_contrasts$Contrast)
+  colnames(hypothesis1c_performance_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$")
+  hypothesis1c_performance_contrasts$Contrast <- gsub("X", "", hypothesis1c_performance_contrasts$Contrast)
+  colnames(hypothesis1c_effort_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$")
+  hypothesis1c_effort_contrasts$Contrast <- gsub("X", "", hypothesis1c_effort_contrasts$Contrast)
+  colnames(hypothesis1c_frustration_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$")
+  hypothesis1c_frustration_contrasts$Contrast <- gsub("X", "", hypothesis1c_frustration_contrasts$Contrast)
+  colnames(hypothesis1c_time_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$")
+  hypothesis1c_time_contrasts$Contrast <- gsub("X", "", hypothesis1c_time_contrasts$Contrast)
+  
   # remove the temporary variable
   
   remove(h1c_data, hypothesis1c_emm)
@@ -1295,6 +1320,11 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
                                                    progress = FALSE, paired = TRUE))$bf,
                                  extractBF(ttestBF(x = h2a_data$sv[h2a_data$level == 3], y = h2a_data$sv[h2a_data$level == 4],
                                                    progress = FALSE, paired = TRUE))$bf)
+  
+  # rename columns and contrasts for apa_print
+  
+  colnames(hypothesis2a_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$")
+  hypothesis2a_contrasts$Contrast <- gsub("X", "", hypothesis2a_contrasts$Contrast)
   
   # remove the temporary variable
   
@@ -1458,7 +1488,7 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
                                paste0("[", round(m1_h2c.ss$slopes[3,4], digits = 2), ",", round(m1_h2c.ss$slopes[3,5], digits = 2), "]")),
                              round(m1_h2c.ss$slopes[7], digits = 3),
                              round(m1_h2c.ss$ints[c(2,3)], digits = 2))
-  colnames(h2c_ss.table) <- c("Value of NFC", "Beta", "$SE$", "95% CI", "$p$-value", "Beta", "$SE$" )
+  colnames(h2c_ss.table) <- c("Value of NFC", "Beta", "$SE$", "95\\% CI", "$p$-value", "Beta", "$SE$" )
   # columns 2:5 belong to "Slopes of NFC"
   # columns 6:7 belong to "Conditional Intercept"
   
@@ -1615,7 +1645,7 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
     geom_text(x = 3, y = -0.01, label = "NFC") +
     geom_text(x = 3, y = -0.12, label = "Level") +
     theme_classic() +
-    labs(x = NULL, y = "Fixed effects estimate \u03b2") +
+    labs(x = NULL, y = "Fixed effects\nestimate \u03b2") +
     scale_y_continuous(lim = c(NA,0.01)) +
     theme(axis.text.x = element_blank(),
           axis.line.y = element_line(size = 1, color = "black"), axis.title.y = element_text(margin = margin(r = 10)),
@@ -1817,7 +1847,7 @@ The authors declare no competing interests.
 ## Results of the pilot study
 
 
-### Hypothesis 1a: The signal detection measure d' declines with increasing n-back level.
+## Hypothesis 1a: The signal detection measure d' declines with increasing n-back level.
 
 ANOVA:
 
@@ -1827,15 +1857,16 @@ Paired contrasts:
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
-  hypothesis1a_contrasts
-  , caption = "Paired contrasts for rmANOVA hypothesis 1a XXX"
-  , note = "XXX."
-  , escape = TRUE
+  hypothesis1a_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing $d'$ between n-back levels",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value.",
+  escape = FALSE,
+  placement = "H"
 )
 ```
 
 
-### Hypothesis 1b: Reaction time increases with increasing n-back level.
+## Hypothesis 1b: Reaction time increases with increasing n-back level.
 
 ANOVA:
 
@@ -1845,15 +1876,16 @@ Paired contrasts:
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
-  hypothesis1b_contrasts
-  , caption = "Paired contrasts for rmANOVA hypothesis 1b XXX"
-  , note = "XXX."
-  , escape = TRUE
+  hypothesis1b_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing reaction time between n-back levels",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value.",
+  escape = FALSE,
+  placement = "H"
 )
 ```
 
 
-### Hypothesis 1c: Ratings on all NASA-TLX dimensions increase with increasing n-back level.
+## Hypothesis 1c: Ratings on all NASA-TLX dimensions increase with increasing n-back level.
 
 Mental subscale ANOVA:
 
@@ -1863,10 +1895,11 @@ Mental subscale paired contrasts:
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
-  hypothesis1c_mental_contrasts
-  , caption = "Paired contrasts for rmANOVA hypothesis 1c mental XXX"
-  , note = "XXX."
-  , escape = TRUE
+  hypothesis1c_mental_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Mental subscale between n-back levels",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value.",
+  escape = FALSE,
+  placement = "H"
 )
 ```
 
@@ -1879,10 +1912,11 @@ Physical subscale paired contrasts:
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
-  hypothesis1c_physical_contrasts
-  , caption = "Paired contrasts for rmANOVA hypothesis 1c physical XXX"
-  , note = "XXX."
-  , escape = TRUE
+  hypothesis1c_physical_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Physical subscale between n-back levels",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value.",
+  escape = FALSE,
+  placement = "H"
 )
 ```
 
@@ -1895,10 +1929,11 @@ Time subscale paired contrasts:
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
-  hypothesis1c_time_contrasts
-  , caption = "Paired contrasts for rmANOVA hypothesis 1c time XXX"
-  , note = "XXX."
-  , escape = TRUE
+  hypothesis1c_time_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Time subscale between n-back levels",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value.",
+  escape = FALSE,
+  placement = "H"
 )
 ```
 
@@ -1910,10 +1945,11 @@ Performance subscale paired contrasts:
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
-  hypothesis1c_performance_contrasts
-  , caption = "Paired contrasts for rmANOVA hypothesis 1c performance XXX"
-  , note = "XXX."
-  , escape = TRUE
+  hypothesis1c_performance_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Performance subscale between n-back levels",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value.",
+  escape = FALSE,
+  placement = "H"
 )
 ```
 
@@ -1926,10 +1962,11 @@ Effort subscale paired contrasts:
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
-  hypothesis1c_effort_contrasts
-  , caption = "Paired contrasts for rmANOVA hypothesis 1c effort XXX"
-  , note = "XXX."
-  , escape = TRUE
+  hypothesis1c_effort_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Effort subscale between n-back levels",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value.",
+  escape = FALSE,
+  placement = "H"
 )
 ```
 
@@ -1942,15 +1979,16 @@ Frustration subscale paired contrasts:
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
-  hypothesis1c_frustration_contrasts
-  , caption = "Paired contrasts for rmANOVA hypothesis 1c frustration XXX"
-  , note = "XXX."
-  , escape = TRUE
+  hypothesis1c_frustration_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Frustration subscale between n-back levels",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value.",
+  escape = FALSE,
+  placement = "H"
 )
 ```
 
 
-### Hypothesis 2a: Subjective values decline with increasing n-back level.
+## Hypothesis 2a: Subjective values decline with increasing n-back level.
 
 ANOVA:
 
@@ -1960,32 +1998,27 @@ Paired contrasts:
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
-  hypothesis2a_contrasts
-  , caption = "Paired contrasts for rmANOVA hypothesis 2a XXX"
-  , note = "XXX."
-  , escape = TRUE
+  hypothesis2a_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing subjective values between n-back levels",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value.",
+  escape = FALSE,
+  placement = "H"
 )
 ```
 
-### Hypothesis 2b: Subjective values decline with increasing n-back level, even after controlling for declining task performance measured by signal detection d’ and reaction time.
+## Hypothesis 2b: Subjective values decline with increasing n-back level, even after controlling for declining task performance measured by signal detection d’ and reaction time.
 
 Multi level model:
 
 `r table_1`
 
 
-### Hypothesis 2c: Subjective values decline stronger with increasing task load for individuals with low compared to high NFC scores.
+## Hypothesis 2c: Subjective values decline stronger with increasing task load for individuals with low compared to high NFC scores.
 
 Simple slopes analysis:
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-apa_table(
-  h2c_ss.table
-  , caption = "Simple slope analysis of SVs...XXX"
-  , note = "XXX."
-  , escape = TRUE
-)
-```
+`r table_2`
+
 
 ```{r FigHyp2c, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Simple slopes analysis for how n-back level predicts the subjective value, depending on the participant's NFC. NFC = Need for Cognition, SD = standard deviation."}
 
@@ -1995,6 +2028,8 @@ interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
                                legend.main = "NFC", interval = TRUE) + theme_apa() +
 scale_x_continuous(breaks = c(-1,0,1), labels = c("2","3","4"))
 ```
+
+
 Johnson-Neyman intervals:
 
 `r h2c_jn.int`
@@ -2003,7 +2038,7 @@ Johnson-Neyman intervals:
 Specification curve analysis:
 
 
-```{r Fig2cSA, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of the specification curve analysis for the multi level model. The upper panel shows the fixed effect estimates for Need for Cognition and n-back level as predictors of subjective values. Estimates with $p<.01$ are indicated by a dot on the line. The lower panel shows the preprocessing steps of each corresponding pipeline. The $BF10$ of each pipeline's multi level model approached infinity."}
+```{r FigSCA, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of the specification curve analysis for the multi level model. The upper panel shows the fixed effect estimates for Need for Cognition and n-back level as predictors of subjective values. Estimates with $p<.01$ are indicated by a dot on the line. The lower panel shows the preprocessing steps of each corresponding pipeline. The $BF10$ of each pipeline's multi level model approached infinity."}
 
 # create the upper panel first, which will show the estimates of 'level' and 'nfc'
   
@@ -2013,7 +2048,7 @@ Specification curve analysis:
     geom_text(x = 3, y = -0.01, label = "NFC") +
     geom_text(x = 3, y = -0.12, label = "Level") +
     theme_classic() +
-    labs(x = NULL, y = "Fixed effects estimate \u03b2") +
+    labs(x = NULL, y = "Fixed effects\nestimate \u03b2") +
     scale_y_continuous(lim = c(NA,0.01)) +
     theme(axis.text.x = element_blank(),
           axis.line.y = element_line(size = 1, color = "black"), axis.title.y = element_text(margin = margin(r = 10)),
@@ -2044,9 +2079,11 @@ Specification curve analysis:
   # put both plots into one
   
   ggarrange(sca_upperplot, sca_lowerplot, nrow = 2, heights = c(1,2.5))
+  
 ```
 
-### Hypothesis 3a: Subjective values positively predict individual NCS scores.
+## Hypothesis 3a: Subjective values positively predict individual NCS scores.
+
 
 Intercept:
 `r apa_print(hypothesis3a)$estimate$Intercept`
@@ -2060,7 +2097,8 @@ Fit:
 $BF10=$ `r extractBF(hypothesis3a_BF)$bf`
 
 
-### Hypothesis 3b: NASA-TLX scores negatively predict individual NFC scores.
+## Hypothesis 3b: NASA-TLX scores negatively predict individual NFC scores.
+
 
 Intercept:
 `r apa_print(hypothesis3b)$estimate$Intercept`
