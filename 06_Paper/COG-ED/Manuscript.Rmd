@@ -1941,12 +1941,12 @@ Frustration subscale paired contrasts:
 
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
-#apa_table(
-#  hypothesis1c_frustration_contrasts
-#  , caption = "Paired contrasts for rmANOVA hypothesis 1c frustration XXX"
-#  , note = "XXX."
-#  , escape = TRUE
-#)
+apa_table(
+  hypothesis1c_frustration_contrasts
+  , caption = "Paired contrasts for rmANOVA hypothesis 1c frustration XXX"
+  , note = "XXX."
+  , escape = TRUE
+)
 ```
 
 
