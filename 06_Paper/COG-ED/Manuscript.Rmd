@@ -1706,7 +1706,7 @@ Importantly, SVs were lower for higher n-back levels, but not different between 
 The MLM revealed that n-back level was a reliable predictor of SV, even after controlling for declining task performance (d’ and RT) as well as correct and post-correct answers, while NFC was not.
 The specification curve analysis showed that this pattern was true for all 63 pipelines.
 And finally, while the $AxAUC$ value did not predict any amount of variance in individual NFC scores, the $AUC$ of NASA-TLX scores did.
-All results are detailed in the *Supplementary Material*.
+All results are detailed in the Supplementary Material.
 
 ## Design
 
@@ -1790,8 +1790,6 @@ The data of this study can be downloaded from [osf.io/vnj8x/](https://osf.io/vnj
 
 The paradigm code, as well as the R Markdown file used to analyze the data and write this document is available at our [Github repository](https://github.com/ChScheffel/CERED).
 
-
-
 \newpage
 
 # References
@@ -1809,6 +1807,8 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
 
 This research was partly funded by the German Research Foundation (DFG) as part of the Collaborative Research Center (CRC) 940.
 The funders have/had no role in study design, data collection and analysis, decision to publish or preparation of the manuscript.
+**OR**
+The authors received no specific funding for this work.
 
 
 # Author Contributions
@@ -1836,7 +1836,9 @@ The authors declare no competing interests.
 
 # Design Table
 
-\includepdf[pages={-}]{Design_Table_T1.pdf}
+(Starts on next page)
+
+\includepdf[pages={-},landscape=true]{Design_Table_T1.pdf}
 
 \newpage
 
