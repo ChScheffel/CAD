@@ -468,7 +468,7 @@ include_graphics(here("99_Thinktank", "Other", "Paradigm_Scheme.png"))
 Our hypotheses were derived from the results of Westbrook et al. [-@Westbrook2013].
 Regarding the associations of subjective and objective task load we hypothesize that (1a) the signal detection parameter *d'* declines with increasing n-back level, (1b) reaction time increases with increasing n-back level, and (1c) perceived task load increases with increasing n-back level.
 Regarding the associations of task load and ED we hypothesize that (2a) SVs decline with increasing n-back level, and (2b) they do so even after controlling for declining task performance.
-Here we added they hypothesis that (2c) SVs decline stronger with increasing task load for individuals with low compared to high NFC scores.
+Here we added the hypothesis that (2c) SVs decline stronger with increasing task load for individuals with low compared to high NFC scores.
 And regarding individual differences in ED we hypothesize that (3a) SVs predict individual NFC scores, and (3b) perceived task load does not predict individual NFC scores.
 
 ```{r preprocessing, echo=FALSE, message=FALSE, warning=FALSE}
@@ -893,9 +893,9 @@ We used *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages *afex* [@
 
 ## Pilot data
 
-The sample of the pilot study consisted of $N=$ `r length(setindex)` participants (`r round((table(data_quest$gender)[2]/length(setindex))*100, digits = 1)`% female, $M=$`r round(mean(data_quest$age, na.rm = TRUE), digits = 1)`($SD=$`r round(sd(data_quest$age, na.rm = TRUE), digits = 1)`) years old).
+The sample of the pilot study consisted of $N=$ `r length(setindex)-1` participants (`r round((table(data_quest$gender)[2]/(length(setindex)-1))*100, digits = 1)`% female, $M=$`r round(mean(data_quest$age, na.rm = TRUE), digits = 1)` ($SD=$`r round(sd(data_quest$age, na.rm = TRUE), digits = 1)`) years old).
 One participant's data was removed because they misunderstood the instruction.
-Due to a technical error the subjective task load data of one participant was incomplete, so the hypotheses involving the NASA Task Load Index were analyzed with $n=$ `r length(setindex)-1` data sets.
+Due to a technical error the subjective task load data of one participant was incomplete, so the hypotheses involving the NASA Task Load Index were analyzed with $n=$ `r length(setindex)-2` data sets.
 
 ## Design
 
