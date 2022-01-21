@@ -463,7 +463,7 @@ The COG-ED paradigm has been applied to tasks with different domains before, sho
 ```{r figure1, echo=FALSE, message=FALSE, warning=FALSE}
 include_graphics(here("99_Thinktank", "Other", "Paradigm_Scheme.png"))
 ```
-*Fig.1* Subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back \> 3-back \> 1-back.
+*Fig.1* An example for subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back \> 3-back \> 1-back.
 
 Our hypotheses were derived from the results of Westbrook et al. [-@Westbrook2013].
 Regarding the associations of subjective and objective task load we hypothesize that (1a) the signal detection parameter *d'* declines with increasing n-back level, (1b) reaction time increases with increasing n-back level, and (1c) perceived task load increases with increasing n-back level.
@@ -1829,7 +1829,7 @@ The authors declare no competing interests.
 
 # Figures and figure Captions
 
-```{r figure1appendix, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back > 3-back > 1-back."}
+```{r figure1appendix, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="An example for subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back > 3-back > 1-back."}
 
   include_graphics(here("99_Thinktank", "Other", "Paradigm_Scheme.png"))
 
