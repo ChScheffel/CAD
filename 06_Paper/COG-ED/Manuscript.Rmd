@@ -43,6 +43,7 @@ author:
 affiliation:
   - id            : "1"
     institution   : "Faculty of Psychology, Technische Universität Dresden, 01069 Dresden, Germany"
+authornote: |
 abstract: |
   When individuals set goals, they consider the subjective value (SV) of both the anticipated reward and the required effort, a trade-off that is of great interest to psychological research.
   However, the SV of effort is highly individual, and previous quantification approaches have had two crucial limitations: They presumed a unidirectional relationship between objective task load and the SV of effort, and as a consequence, they could only quantify the SVs of tasks with an objective order of task load.
