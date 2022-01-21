@@ -43,6 +43,7 @@ author:
 affiliation:
   - id            : "1"
     institution   : "Faculty of Psychology, Technische Universität Dresden, 01069 Dresden, Germany"
+authornote: |
 abstract: |
   When individuals set goals, they consider the subjective value (SV) of both the anticipated reward and the required effort, a trade-off that is of great interest to psychological research.
   However, the SV of effort is highly individual, and previous quantification approaches have had two crucial limitations: They presumed a unidirectional relationship between objective task load and the SV of effort, and as a consequence, they could only quantify the SVs of tasks with an objective order of task load.
@@ -434,7 +435,7 @@ Younger participants showed lower ED, i.e. they needed a lower monetary incentiv
 The individual degree of ED in the study by Westbrook et al. [-@Westbrook2013] was also associated with the participants' Need for Cognition (NFC) score, a personality trait describing individuals who actively seek and enjoy effortful cognitive activities [@Cacioppo1982].
 Westbrook et al. [-@Westbrook2013] conceptualized NFC as a trait measure of effortful task engagement, providing a subjective self-report of ED for each participant which could then be related to the SVs as an objective measure of ED.
 On the surface, this association stands to reason, as individuals with higher NFC are more motivated to mobilize cognitive effort because they perceive it as intrinsically rewarding.
-Additionally, it has been shown that individuals avoid cognitive effort only to a certain degree, possibly to retain a sense of self-control [@Wu2021], a trait more prominent in individuals with high NFC [@Bertrams2012; @Nishiguchi2016; Xu2021].
+Additionally, it has been shown that individuals avoid cognitive effort only to a certain degree, possibly to retain a sense of self-control [@Wu2021], a trait more prominent in individuals with high NFC [@Bertrams2012; @Nishiguchi2016; @Xu2021].
 However, the relation of NFC and SVs might be confounded, since other studies utilizing the COG-ED paradigm found the association of NFC and SVs to disappear after correcting for performance [@Kramer2021] or found no association of NFC and SVs at all [@Crawford2021].
 On the other hand, task load has been shown to be a better predictor of SVs than task performance [@Culbreth2016; @Westbrook2013; @Westbrook2019], so more research is needed to shed light on this issue.
 
@@ -462,12 +463,12 @@ The COG-ED paradigm has been applied to tasks with different domains before, sho
 ```{r figure1, echo=FALSE, message=FALSE, warning=FALSE}
 include_graphics(here("99_Thinktank", "Other", "Paradigm_Scheme.png"))
 ```
-*Fig.1* Subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back \> 3-back \> 1-back.
+*Fig.1* An example for subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back \> 3-back \> 1-back.
 
 Our hypotheses were derived from the results of Westbrook et al. [-@Westbrook2013].
 Regarding the associations of subjective and objective task load we hypothesize that (1a) the signal detection parameter *d'* declines with increasing n-back level, (1b) reaction time increases with increasing n-back level, and (1c) perceived task load increases with increasing n-back level.
-Regarding the associations of task load and ED we hypothesize that (2a) SVs decline with increasing n-back level, and (2b) SVs decline with increasing n-back level even after controlling for declining task performance.
-Here we added they hypothesis that (2c) SVs decline stronger with increasing task load for individuals with low compared to high NFC scores.
+Regarding the associations of task load and ED we hypothesize that (2a) SVs decline with increasing n-back level, and (2b) they do so even after controlling for declining task performance.
+Here we added the hypothesis that (2c) SVs decline stronger with increasing task load for individuals with low compared to high NFC scores.
 And regarding individual differences in ED we hypothesize that (3a) SVs predict individual NFC scores, and (3b) perceived task load does not predict individual NFC scores.
 
 ```{r preprocessing, echo=FALSE, message=FALSE, warning=FALSE}
@@ -892,9 +893,9 @@ We used *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages *afex* [@
 
 ## Pilot data
 
-The sample of the pilot study consisted of $N=$ `r length(setindex)` participants (`r round((table(data_quest$gender)[2]/length(setindex))*100, digits = 1)`% female, $M=$`r round(mean(data_quest$age, na.rm = TRUE), digits = 1)`($SD=$`r round(sd(data_quest$age, na.rm = TRUE), digits = 1)`) years old).
+The sample of the pilot study consisted of $N=$ `r length(setindex)-1` participants (`r round((table(data_quest$gender)[2]/(length(setindex)-1))*100, digits = 1)`% female, $M=$`r round(mean(data_quest$age, na.rm = TRUE), digits = 1)` ($SD=$`r round(sd(data_quest$age, na.rm = TRUE), digits = 1)`) years old).
 One participant's data was removed because they misunderstood the instruction.
-Due to a technical error the subjective task load data of one participant was incomplete, so the hypotheses involving the NASA Task Load Index were analyzed with $n=$ `r length(setindex)-1` data sets.
+Due to a technical error the subjective task load data of one participant was incomplete, so the hypotheses involving the NASA Task Load Index were analyzed with $n=$ `r length(setindex)-2` data sets.
 
 ## Design
 
@@ -1828,7 +1829,7 @@ The authors declare no competing interests.
 
 # Figures and figure Captions
 
-```{r figure1appendix, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back > 3-back > 1-back."}
+```{r figure1appendix, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="An example for subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back > 3-back > 1-back."}
 
   include_graphics(here("99_Thinktank", "Other", "Paradigm_Scheme.png"))
 
