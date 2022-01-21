@@ -1852,7 +1852,7 @@ The authors declare no competing interests.
 
 ANOVA:
 
-`r apa_print(hypothesis1a_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1a_rmanova$anova_table[1,"F"], df = hypothesis1a_rmanova$anova_table[1,"num Df"], df_error = hypothesis1a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1a_rmanova$anova_table[1,"F"], df = hypothesis1a_rmanova$anova_table[1,"num Df"], df_error = hypothesis1a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`
+`r apa_print(hypothesis1a_rmanova)$statistic`, $\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis1a_rmanova$anova_table[1,"F"], df = hypothesis1a_rmanova$anova_table[1,"num Df"], df_error = hypothesis1a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1a_rmanova$anova_table[1,"F"], df = hypothesis1a_rmanova$anova_table[1,"num Df"], df_error = hypothesis1a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$`r round(extractBF(hypothesis1a_BF)$bf, digits = 2)`
 
 
 Paired contrasts:
@@ -1872,7 +1872,7 @@ apa_table(
 
 ANOVA:
 
-`r apa_print(hypothesis1b_rmanova)$full_result`
+`r apa_print(hypothesis1b_rmanova)$statistic`, $\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis1b_rmanova$anova_table[1,"F"], df = hypothesis1b_rmanova$anova_table[1,"num Df"], df_error = hypothesis1b_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1b_rmanova$anova_table[1,"F"], df = hypothesis1b_rmanova$anova_table[1,"num Df"], df_error = hypothesis1b_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$`r round(extractBF(hypothesis1b_BF)$bf, digits = 2)`
 
 Paired contrasts:
 
@@ -1891,7 +1891,7 @@ apa_table(
 
 Mental subscale ANOVA:
 
-`r apa_print(hypothesis1c_mental_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis1c_mental_BF)$bf`
+`r apa_print(hypothesis1c_mental_rmanova)$full_result`, $\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis1c_mental_rmanova$anova_table[1,"F"], df = hypothesis1c_mental_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_mental_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_mental_rmanova$anova_table[1,"F"], df = hypothesis1c_mental_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_mental_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$`r round(extractBF(hypothesis1c_mental_BF)$bf, digits = 2)`
 
 Mental subscale paired contrasts:
 
@@ -1908,7 +1908,7 @@ apa_table(
 
 Physical subscale ANOVA:
 
-`r apa_print(hypothesis1c_physical_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis1c_physical_BF)$bf`
+`r apa_print(hypothesis1c_physical_rmanova)$full_result`, $\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis1c_physical_rmanova$anova_table[1,"F"], df = hypothesis1c_physical_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_physical_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_physical_rmanova$anova_table[1,"F"], df = hypothesis1c_physical_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_physical_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$`r round(extractBF(hypothesis1c_physical_BF)$bf, digits = 2)`
 
 Physical subscale paired contrasts:
 
@@ -1925,7 +1925,7 @@ apa_table(
 
 Time subscale ANOVA:
 
-`r apa_print(hypothesis1c_time_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis1c_time_BF)$bf`
+`r apa_print(hypothesis1c_time_rmanova)$full_result`, $\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis1c_time_rmanova$anova_table[1,"F"], df = hypothesis1c_time_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_time_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_time_rmanova$anova_table[1,"F"], df = hypothesis1c_time_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_time_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$`r round(extractBF(hypothesis1c_time_BF)$bf, digits = 2)`
 
 Time subscale paired contrasts:
 
@@ -1941,7 +1941,7 @@ apa_table(
 
 Performance subscale ANOVA:
 
-`r apa_print(hypothesis1c_performance_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis1c_performance_BF)$bf`
+`r apa_print(hypothesis1c_performance_rmanova)$full_result`, $\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis1c_performance_rmanova$anova_table[1,"F"], df = hypothesis1c_performance_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_performance_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_performance_rmanova$anova_table[1,"F"], df = hypothesis1c_performance_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_performance_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$`r round(extractBF(hypothesis1c_performance_BF)$bf, digits = 2)`
 
 Performance subscale paired contrasts:
 
@@ -1958,7 +1958,7 @@ apa_table(
 
 Effort subscale ANOVA:
 
-`r apa_print(hypothesis1c_effort_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis1c_effort_BF)$bf`
+`r apa_print(hypothesis1c_effort_rmanova)$full_result`, $\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis1c_effort_rmanova$anova_table[1,"F"], df = hypothesis1c_effort_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_effort_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_effort_rmanova$anova_table[1,"F"], df = hypothesis1c_effort_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_effort_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$`r round(extractBF(hypothesis1c_effort_BF)$bf, digits = 2)`
 
 Effort subscale paired contrasts:
 
@@ -1974,7 +1974,7 @@ apa_table(
 
 Frustration subscale ANOVA:
 
-`r apa_print(hypothesis1c_frustration_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis1c_frustration_BF)$bf`
+`r apa_print(hypothesis1c_frustration_rmanova)$full_result`, $\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis1c_frustration_rmanova$anova_table[1,"F"], df = hypothesis1c_frustration_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_frustration_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_frustration_rmanova$anova_table[1,"F"], df = hypothesis1c_frustration_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_frustration_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$`r round(extractBF(hypothesis1c_frustration_BF)$bf, digits = 2)`
 
 Frustration subscale paired contrasts:
 
@@ -1994,7 +1994,7 @@ apa_table(
 
 ANOVA:
 
-`r apa_print(hypothesis2a_rmanova)$full_result`, $BF10=$ `r extractBF(hypothesis2a_BF)$bf`
+`r apa_print(hypothesis2a_rmanova)$full_result`, $\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis2a_rmanova$anova_table[1,"F"], df = hypothesis2a_rmanova$anova_table[1,"num Df"], df_error = hypothesis2a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis2a_rmanova$anova_table[1,"F"], df = hypothesis2a_rmanova$anova_table[1,"num Df"], df_error = hypothesis2a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$`r round(extractBF(hypothesis2a_BF)$bf, digits = 2)`
 
 Paired contrasts:
 
