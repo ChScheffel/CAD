@@ -106,6 +106,7 @@ header-includes   :
   library(ggplot2)      # for plotting, "ggplot2" package
   library(egg)          # for paneling plots, "egg" package
   library(knitr)        # for including plots and such, "knitr" package
+  library(effectsize)   # for effect sizes and CIs, "effectsize" package
 
   set_sum_contrasts()   # sets orthogonal contrasts for mixed-effects model 
                         # and rmANOVA globally in order to get meaningful Type-III tests
@@ -1851,7 +1852,8 @@ The authors declare no competing interests.
 
 ANOVA:
 
-`r apa_print(hypothesis1a_rmanova)$full_result`
+`r apa_print(hypothesis1a_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1a_rmanova$anova_table[1,"F"], df = hypothesis1a_rmanova$anova_table[1,"num Df"], df_error = hypothesis1a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI [`r format(F_to_eta2(f = hypothesis1a_rmanova$anova_table[1,"F"], df = hypothesis1a_rmanova$anova_table[1,"num Df"], df_error = hypothesis1a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`]
+
 
 Paired contrasts:
 
