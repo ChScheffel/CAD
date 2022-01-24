@@ -925,9 +925,19 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
                                  extractBF(ttestBF(x = h1a_data$dprime[h1a_data$level == 3], y = h1a_data$dprime[h1a_data$level == 4],
                                                    progress = FALSE, paired = TRUE))$bf)
   
-  # rename columns and contrasts for apa_print
+  # get effect size and confidence interval
   
-  colnames(hypothesis1a_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$")
+  hypothesis1a_contrasts$etasq <- c(format(t_to_eta2(t = hypothesis1a_contrasts$t.ratio[1], df_error = hypothesis1a_contrasts$df[1], ci = 0.95), digits = 2)[1,1],
+                                     format(t_to_eta2(t = hypothesis1a_contrasts$t.ratio[2], df_error = hypothesis1a_contrasts$df[2], ci = 0.95), digits = 2)[1,1],
+                                     format(t_to_eta2(t = hypothesis1a_contrasts$t.ratio[3], df_error = hypothesis1a_contrasts$df[3], ci = 0.95), digits = 2)[1,1])
+  
+  hypothesis1a_contrasts$CI <- c(format(t_to_eta2(t = hypothesis1a_contrasts$t.ratio[1], df_error = hypothesis1a_contrasts$df[1], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1a_contrasts$t.ratio[2], df_error = hypothesis1a_contrasts$df[2], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1a_contrasts$t.ratio[3], df_error = hypothesis1a_contrasts$df[3], ci = 0.95), digits = 2)[1,2])
+  
+  # rename contrasts and column names
+  
+  colnames(hypothesis1a_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95% CI$")
   hypothesis1a_contrasts$Contrast <- gsub("X", "", hypothesis1a_contrasts$Contrast)
   
   # remove the temporary variable
@@ -996,9 +1006,19 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
                                  extractBF(ttestBF(x = h1b_data$medianrt[h1b_data$level == 3], y = h1b_data$medianrt[h1b_data$level == 4],
                                                    progress = FALSE, paired = TRUE))$bf)
   
-  # rename columns and contrasts for apa_print
+  # get effect size and confidence interval
   
-  colnames(hypothesis1b_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$")
+  hypothesis1b_contrasts$etasq <- c(format(t_to_eta2(t = hypothesis1b_contrasts$t.ratio[1], df_error = hypothesis1b_contrasts$df[1], ci = 0.95), digits = 2)[1,1],
+                                     format(t_to_eta2(t = hypothesis1b_contrasts$t.ratio[2], df_error = hypothesis1b_contrasts$df[2], ci = 0.95), digits = 2)[1,1],
+                                     format(t_to_eta2(t = hypothesis1b_contrasts$t.ratio[3], df_error = hypothesis1b_contrasts$df[3], ci = 0.95), digits = 2)[1,1])
+  
+  hypothesis1b_contrasts$CI <- c(format(t_to_eta2(t = hypothesis1b_contrasts$t.ratio[1], df_error = hypothesis1b_contrasts$df[1], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1b_contrasts$t.ratio[2], df_error = hypothesis1b_contrasts$df[2], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1b_contrasts$t.ratio[3], df_error = hypothesis1b_contrasts$df[3], ci = 0.95), digits = 2)[1,2])
+  
+  # rename contrasts and column names
+  
+  colnames(hypothesis1b_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95% CI$")
   hypothesis1b_contrasts$Contrast <- gsub("X", "", hypothesis1b_contrasts$Contrast)
   
   # remove the temporary variable
@@ -1023,7 +1043,8 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
     
     for (j in 1:4) {
       
-      newdata <- data.frame(subject = data_quest$subject[setindex[i]], level = j,
+      newdata <- data.frame(subject = data_quest$subject[setindex[i]],
+                            level = j,
                             mental = data_quest$nasa_tlx_01[setindex[i]+j+2],
                             physical = data_quest$nasa_tlx_02[setindex[i]+j+2],
                             time = data_quest$nasa_tlx_03[setindex[i]+j+2],
@@ -1164,19 +1185,99 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
                                  extractBF(ttestBF(x = h1c_data$frustration[h1c_data$level == 3], y = h1c_data$frustration[h1c_data$level == 4],
                                                    progress = FALSE, paired = TRUE))$bf)
   
-  # rename columns and contrasts for apa_print
+  # get effect sizes and confidence intervals
   
-  colnames(hypothesis1c_mental_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$")
+  hypothesis1c_mental_contrasts$etasq <- c(format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[1], df_error = hypothesis1c_mental_contrasts$df[1], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[2], df_error = hypothesis1c_mental_contrasts$df[2], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[3], df_error = hypothesis1c_mental_contrasts$df[3], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[4], df_error = hypothesis1c_mental_contrasts$df[4], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[5], df_error = hypothesis1c_mental_contrasts$df[5], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[6], df_error = hypothesis1c_mental_contrasts$df[6], ci = 0.95), digits = 2)[1,1])
+  hypothesis1c_mental_contrasts$CI <- c(format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[1], df_error = hypothesis1c_mental_contrasts$df[1], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[2], df_error = hypothesis1c_mental_contrasts$df[2], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[3], df_error = hypothesis1c_mental_contrasts$df[3], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[4], df_error = hypothesis1c_mental_contrasts$df[4], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[5], df_error = hypothesis1c_mental_contrasts$df[5], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[6], df_error = hypothesis1c_mental_contrasts$df[6], ci = 0.95), digits = 2)[1,2])
+  
+  hypothesis1c_physical_contrasts$etasq <- c(format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[1], df_error = hypothesis1c_physical_contrasts$df[1], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[2], df_error = hypothesis1c_physical_contrasts$df[2], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[3], df_error = hypothesis1c_physical_contrasts$df[3], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[4], df_error = hypothesis1c_physical_contrasts$df[4], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[5], df_error = hypothesis1c_physical_contrasts$df[5], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[6], df_error = hypothesis1c_physical_contrasts$df[6], ci = 0.95), digits = 2)[1,1])
+  hypothesis1c_physical_contrasts$CI <- c(format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[1], df_error = hypothesis1c_physical_contrasts$df[1], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[2], df_error = hypothesis1c_physical_contrasts$df[2], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[3], df_error = hypothesis1c_physical_contrasts$df[3], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[4], df_error = hypothesis1c_physical_contrasts$df[4], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[5], df_error = hypothesis1c_physical_contrasts$df[5], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[6], df_error = hypothesis1c_physical_contrasts$df[6], ci = 0.95), digits = 2)[1,2])
+  
+  hypothesis1c_time_contrasts$etasq <- c(format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[1], df_error = hypothesis1c_time_contrasts$df[1], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[2], df_error = hypothesis1c_time_contrasts$df[2], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[3], df_error = hypothesis1c_time_contrasts$df[3], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[4], df_error = hypothesis1c_time_contrasts$df[4], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[5], df_error = hypothesis1c_time_contrasts$df[5], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[6], df_error = hypothesis1c_time_contrasts$df[6], ci = 0.95), digits = 2)[1,1])
+  hypothesis1c_time_contrasts$CI <- c(format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[1], df_error = hypothesis1c_time_contrasts$df[1], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[2], df_error = hypothesis1c_time_contrasts$df[2], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[3], df_error = hypothesis1c_time_contrasts$df[3], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[4], df_error = hypothesis1c_time_contrasts$df[4], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[5], df_error = hypothesis1c_time_contrasts$df[5], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[6], df_error = hypothesis1c_time_contrasts$df[6], ci = 0.95), digits = 2)[1,2])
+  
+  hypothesis1c_effort_contrasts$etasq <- c(format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[1], df_error = hypothesis1c_effort_contrasts$df[1], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[2], df_error = hypothesis1c_effort_contrasts$df[2], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[3], df_error = hypothesis1c_effort_contrasts$df[3], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[4], df_error = hypothesis1c_effort_contrasts$df[4], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[5], df_error = hypothesis1c_effort_contrasts$df[5], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[6], df_error = hypothesis1c_effort_contrasts$df[6], ci = 0.95), digits = 2)[1,1])
+  hypothesis1c_effort_contrasts$CI <- c(format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[1], df_error = hypothesis1c_effort_contrasts$df[1], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[2], df_error = hypothesis1c_effort_contrasts$df[2], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[3], df_error = hypothesis1c_effort_contrasts$df[3], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[4], df_error = hypothesis1c_effort_contrasts$df[4], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[5], df_error = hypothesis1c_effort_contrasts$df[5], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[6], df_error = hypothesis1c_effort_contrasts$df[6], ci = 0.95), digits = 2)[1,2])
+  
+  hypothesis1c_frustration_contrasts$etasq <- c(format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[1], df_error = hypothesis1c_frustration_contrasts$df[1], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[2], df_error = hypothesis1c_frustration_contrasts$df[2], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[3], df_error = hypothesis1c_frustration_contrasts$df[3], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[4], df_error = hypothesis1c_frustration_contrasts$df[4], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[5], df_error = hypothesis1c_frustration_contrasts$df[5], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[6], df_error = hypothesis1c_frustration_contrasts$df[6], ci = 0.95), digits = 2)[1,1])
+  hypothesis1c_frustration_contrasts$CI <- c(format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[1], df_error = hypothesis1c_frustration_contrasts$df[1], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[2], df_error = hypothesis1c_frustration_contrasts$df[2], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[3], df_error = hypothesis1c_frustration_contrasts$df[3], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[4], df_error = hypothesis1c_frustration_contrasts$df[4], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[5], df_error = hypothesis1c_frustration_contrasts$df[5], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[6], df_error = hypothesis1c_frustration_contrasts$df[6], ci = 0.95), digits = 2)[1,2])
+  
+  hypothesis1c_performance_contrasts$etasq <- c(format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[1], df_error = hypothesis1c_performance_contrasts$df[1], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[2], df_error = hypothesis1c_performance_contrasts$df[2], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[3], df_error = hypothesis1c_performance_contrasts$df[3], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[4], df_error = hypothesis1c_performance_contrasts$df[4], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[5], df_error = hypothesis1c_performance_contrasts$df[5], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[6], df_error = hypothesis1c_performance_contrasts$df[6], ci = 0.95), digits = 2)[1,1])
+  hypothesis1c_performance_contrasts$CI <- c(format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[1], df_error = hypothesis1c_performance_contrasts$df[1], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[2], df_error = hypothesis1c_performance_contrasts$df[2], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[3], df_error = hypothesis1c_performance_contrasts$df[3], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[4], df_error = hypothesis1c_performance_contrasts$df[4], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[5], df_error = hypothesis1c_performance_contrasts$df[5], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[6], df_error = hypothesis1c_performance_contrasts$df[6], ci = 0.95), digits = 2)[1,2])
+  
+  # rename columns and contrasts
+  
+  colnames(hypothesis1c_mental_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95% CI$")
   hypothesis1c_mental_contrasts$Contrast <- gsub("X", "", hypothesis1c_mental_contrasts$Contrast)
-  colnames(hypothesis1c_physical_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$")
+  colnames(hypothesis1c_physical_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95% CI$")
   hypothesis1c_physical_contrasts$Contrast <- gsub("X", "", hypothesis1c_physical_contrasts$Contrast)
-  colnames(hypothesis1c_performance_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$")
+  colnames(hypothesis1c_performance_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95% CI$")
   hypothesis1c_performance_contrasts$Contrast <- gsub("X", "", hypothesis1c_performance_contrasts$Contrast)
-  colnames(hypothesis1c_effort_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$")
+  colnames(hypothesis1c_effort_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95% CI$")
   hypothesis1c_effort_contrasts$Contrast <- gsub("X", "", hypothesis1c_effort_contrasts$Contrast)
-  colnames(hypothesis1c_frustration_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$")
+  colnames(hypothesis1c_frustration_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95% CI$")
   hypothesis1c_frustration_contrasts$Contrast <- gsub("X", "", hypothesis1c_frustration_contrasts$Contrast)
-  colnames(hypothesis1c_time_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$")
+  colnames(hypothesis1c_time_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95% CI$")
   hypothesis1c_time_contrasts$Contrast <- gsub("X", "", hypothesis1c_time_contrasts$Contrast)
   
   # remove the temporary variable
@@ -2096,6 +2197,12 @@ Predictor $AxAUC$:
 Fit:
 `r apa_print(hypothesis3a)$estimate$modelfit$r2`
 
+Effect size and confidence interval:
+
+$\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis3a$fstatistic[1], df = hypothesis3a$fstatistic[2], df_error = hypothesis3a$fstatistic[3], ci = 0.95), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis3a$fstatistic[1], df = hypothesis3a$fstatistic[2], df_error = hypothesis3a$fstatistic[3], ci = 0.95), digits = 2)[1,2]`
+
+Bayes factor:
+
 $BF10=$ `r extractBF(hypothesis3a_BF)$bf`
 
 
@@ -2113,6 +2220,12 @@ Predictor $AUC$ NASA-TLX:
 
 Fit:
 `r apa_print(hypothesis3b)$estimate$modelfit$r2`
+
+Effect size and confidence interval:
+
+$\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis3b$fstatistic[1], df = hypothesis3b$fstatistic[2], df_error = hypothesis3b$fstatistic[3], ci = 0.95), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis3b$fstatistic[1], df = hypothesis3b$fstatistic[2], df_error = hypothesis3b$fstatistic[3], ci = 0.95), digits = 2)[1,2]`
+
+Bayes factor:
 
 $BF10=$ `r extractBF(hypothesis3b_BF)$bf`
 
