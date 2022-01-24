@@ -1962,7 +1962,7 @@ Paired contrasts:
 apa_table(
   hypothesis1a_contrasts,
   caption = "Paired contrasts for the rmANOVA comparing $d'$ between n-back levels",
-  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value.",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
 )
@@ -1981,7 +1981,7 @@ Paired contrasts:
 apa_table(
   hypothesis1b_contrasts,
   caption = "Paired contrasts for the rmANOVA comparing reaction time between n-back levels",
-  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value.",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
 )
@@ -2000,7 +2000,7 @@ Mental subscale paired contrasts:
 apa_table(
   hypothesis1c_mental_contrasts,
   caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Mental subscale between n-back levels",
-  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value.",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
 )
@@ -2017,7 +2017,7 @@ Physical subscale paired contrasts:
 apa_table(
   hypothesis1c_physical_contrasts,
   caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Physical subscale between n-back levels",
-  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value.",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
 )
@@ -2034,7 +2034,7 @@ Time subscale paired contrasts:
 apa_table(
   hypothesis1c_time_contrasts,
   caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Time subscale between n-back levels",
-  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value.",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
 )
@@ -2050,7 +2050,7 @@ Performance subscale paired contrasts:
 apa_table(
   hypothesis1c_performance_contrasts,
   caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Performance subscale between n-back levels",
-  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value.",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
 )
@@ -2067,7 +2067,7 @@ Effort subscale paired contrasts:
 apa_table(
   hypothesis1c_effort_contrasts,
   caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Effort subscale between n-back levels",
-  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value.",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
 )
@@ -2084,7 +2084,7 @@ Frustration subscale paired contrasts:
 apa_table(
   hypothesis1c_frustration_contrasts,
   caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Frustration subscale between n-back levels",
-  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value.",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
 )
@@ -2103,7 +2103,7 @@ Paired contrasts:
 apa_table(
   hypothesis2a_contrasts,
   caption = "Paired contrasts for the rmANOVA comparing subjective values between n-back levels",
-  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value.",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
 )
