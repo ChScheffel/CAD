@@ -83,8 +83,12 @@ header-includes   :
     - \usepackage{xcolor}
     - \usepackage{setspace}\doublespacing
     - \usepackage[final]{pdfpages}
+    - \usepackage{chngcntr}
 
 ---
+\renewcommand\thesection{\Alph{section}}
+\counterwithout{figure}{section}
+\setcounter{figure}{0}
 
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -937,7 +941,7 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
   
   # rename contrasts and column names
   
-  colnames(hypothesis1a_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95% CI$")
+  colnames(hypothesis1a_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
   hypothesis1a_contrasts$Contrast <- gsub("X", "", hypothesis1a_contrasts$Contrast)
   
   # remove the temporary variable
@@ -1018,7 +1022,7 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
   
   # rename contrasts and column names
   
-  colnames(hypothesis1b_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95% CI$")
+  colnames(hypothesis1b_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
   hypothesis1b_contrasts$Contrast <- gsub("X", "", hypothesis1b_contrasts$Contrast)
   
   # remove the temporary variable
@@ -1267,17 +1271,17 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
   
   # rename columns and contrasts
   
-  colnames(hypothesis1c_mental_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95% CI$")
+  colnames(hypothesis1c_mental_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
   hypothesis1c_mental_contrasts$Contrast <- gsub("X", "", hypothesis1c_mental_contrasts$Contrast)
-  colnames(hypothesis1c_physical_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95% CI$")
+  colnames(hypothesis1c_physical_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
   hypothesis1c_physical_contrasts$Contrast <- gsub("X", "", hypothesis1c_physical_contrasts$Contrast)
-  colnames(hypothesis1c_performance_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95% CI$")
+  colnames(hypothesis1c_performance_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
   hypothesis1c_performance_contrasts$Contrast <- gsub("X", "", hypothesis1c_performance_contrasts$Contrast)
-  colnames(hypothesis1c_effort_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95% CI$")
+  colnames(hypothesis1c_effort_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
   hypothesis1c_effort_contrasts$Contrast <- gsub("X", "", hypothesis1c_effort_contrasts$Contrast)
-  colnames(hypothesis1c_frustration_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95% CI$")
+  colnames(hypothesis1c_frustration_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
   hypothesis1c_frustration_contrasts$Contrast <- gsub("X", "", hypothesis1c_frustration_contrasts$Contrast)
-  colnames(hypothesis1c_time_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95% CI$")
+  colnames(hypothesis1c_time_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
   hypothesis1c_time_contrasts$Contrast <- gsub("X", "", hypothesis1c_time_contrasts$Contrast)
   
   # remove the temporary variable
@@ -1328,9 +1332,24 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
                                  extractBF(ttestBF(x = h2a_data$sv[h2a_data$level == 3], y = h2a_data$sv[h2a_data$level == 4],
                                                    progress = FALSE, paired = TRUE))$bf)
   
-  # rename columns and contrasts for apa_print
+  # get effect size and confidence intervals
   
-  colnames(hypothesis2a_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$")
+  hypothesis2a_contrasts$etasq <- c(format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[1], df_error = hypothesis2a_contrasts$df[1], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[2], df_error = hypothesis2a_contrasts$df[2], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[3], df_error = hypothesis2a_contrasts$df[3], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[4], df_error = hypothesis2a_contrasts$df[4], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[5], df_error = hypothesis2a_contrasts$df[5], ci = 0.95), digits = 2)[1,1],
+                                    format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[6], df_error = hypothesis2a_contrasts$df[6], ci = 0.95), digits = 2)[1,1])
+  hypothesis2a_contrasts$CI <- c(format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[1], df_error = hypothesis2a_contrasts$df[1], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[2], df_error = hypothesis2a_contrasts$df[2], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[3], df_error = hypothesis2a_contrasts$df[3], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[4], df_error = hypothesis2a_contrasts$df[4], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[5], df_error = hypothesis2a_contrasts$df[5], ci = 0.95), digits = 2)[1,2],
+                                 format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[6], df_error = hypothesis2a_contrasts$df[6], ci = 0.95), digits = 2)[1,2])
+  
+  # rename columns and contrasts
+  
+  colnames(hypothesis2a_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
   hypothesis2a_contrasts$Contrast <- gsub("X", "", hypothesis2a_contrasts$Contrast)
   
   # remove the temporary variable
@@ -1458,14 +1477,14 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
   h2b_result.table[c(2,3,5)] <- round(h2b_result.table[c(2,3,5)], digits = 2)
   h2b_result.table[4] <- round(h2b_result.table[4], digits = 3)
   
-  h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.01)] <- 
-    paste0(h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.01)],"*")
-  h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.05)] <- 
-    paste0(h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.05)],"*")
-  h2b_result.table$`$p$-value`[which(h2b_result.table$`$p$-value`<.001)] <- 
+  h2b_result.table$ `$p$-value`[which(h2b_result.table$ `$p$-value`<.01)] <- 
+    paste0(h2b_result.table$ `$p$-value`[which(h2b_result.table$ `$p$-value`<.01)],"*")
+  h2b_result.table$ `$p$-value`[which(h2b_result.table$ `$p$-value`<.05)] <- 
+    paste0(h2b_result.table$ `$p$-value`[which(h2b_result.table$ `$p$-value`<.05)],"*")
+  h2b_result.table$ `$p$-value`[which(h2b_result.table$ `$p$-value`<.001)] <- 
     paste0("<.001***")
   
-  h2b_result.table$`Random Effects (SD)`[3:6] <- paste0("")
+  h2b_result.table$ `Random Effects (SD)`[3:6] <- paste0("")
    
   table_1 <-
     kbl(h2b_result.table,
@@ -1499,16 +1518,16 @@ And regarding individual differences in ED we hypothesize that (3a) SVs predict 
   # columns 2:5 belong to "Slopes of NFC"
   # columns 6:7 belong to "Conditional Intercept"
   
-  h2c_ss.table$`$p$-value`  [which(h2c_ss.table$`$p$-value`<.01)] <- 
-    paste0(h2c_ss.table$`$p$-value`[which(h2c_ss.table$`$p$-value`<.01)],"*")
-  h2c_ss.table$`$p$-value`[which(h2c_ss.table$`$p$-value`<.05)] <- 
-    paste0(h2c_ss.table$`$p$-value`[which(h2c_ss.table$`$p$-value`<.05)],"*")
-  h2c_ss.table$`$p$-value`[which(h2c_ss.table$`$p$-value`<.001)] <- 
+  h2c_ss.table$ `$p$-value`  [which(h2c_ss.table$ `$p$-value`<.01)] <- 
+    paste0(h2c_ss.table$ `$p$-value`[which(h2c_ss.table$ `$p$-value`<.01)],"*")
+  h2c_ss.table$ `$p$-value`[which(h2c_ss.table$ `$p$-value`<.05)] <- 
+    paste0(h2c_ss.table$ `$p$-value`[which(h2c_ss.table$ `$p$-value`<.05)],"*")
+  h2c_ss.table$ `$p$-value`[which(h2c_ss.table$ `$p$-value`<.001)] <- 
     paste0("<.001***")
   
   # remove leading zeros in the p-value column
   
-  h2c_ss.table$`$p$-value` <- str_replace(h2c_ss.table$`$p$-value`, "0.", ".")
+  h2c_ss.table$ `$p$-value` <- str_replace(h2c_ss.table$ `$p$-value`, "0.", ".")
   
   table_2 <-
     kbl(h2c_ss.table,
@@ -1834,7 +1853,7 @@ Study data will be collected and managed using REDCap electronic data capture to
 
 ## Sampling plan
 
-A sample size analysis with *G$\times$Power* [@Faul2007; @Faul2009], based on the results of the ANOVA of Westbrook et al. [-@Westbrook2013] which showed an increase in reaction time with higher n-back levels, indicated that we should collect data from at least 53 participants, assuming $\eta2=0.04$, $\alpha=.05$, and $\beta=.95$.
+A sample size analysis with _G*Power_ [@Faul2007; @Faul2009], based on the results of the ANOVA of Westbrook et al. [-@Westbrook2013] which showed an increase in reaction time with higher n-back levels, indicated that we should collect data from at least 53 participants, assuming $\eta2=0.04$, $\alpha=.05$, and $\beta=.95$.
 The power analyses of all other hypotheses yielded smaller necessary sample sizes.
 To account for technical errors and exclusions of physiological data of the second lab session due to excessive noise, we aim to collect data of 60 to 70 participants.
 
@@ -1909,8 +1928,6 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
 
 This research was partly funded by the German Research Foundation (DFG) as part of the Collaborative Research Center (CRC) 940.
 The funders have/had no role in study design, data collection and analysis, decision to publish or preparation of the manuscript.
-**OR**
-The authors received no specific funding for this work.
 
 
 # Author Contributions
@@ -1925,14 +1942,17 @@ All authors reviewed, edited, and approved the final version of the manuscript.
 The authors declare no competing interests.
 
 \newpage
+\setcounter{figure}{0}
 
 # Figures and figure Captions
 
-```{r figure1appendix, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="An example for subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back > 3-back > 1-back."}
+```{r figure1appendix, echo=FALSE, message=FALSE, warning=FALSE}
 
   include_graphics(here("99_Thinktank", "Other", "Paradigm_Scheme.png"))
 
 ```
+
+*Figure 1* An example for subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back > 3-back > 1-back.
 
 \newpage
 
@@ -1946,6 +1966,10 @@ The authors declare no competing interests.
 
 # Supplement
 
+\counterwithin{figure}{section}
+\setcounter{section}{19}
+\setcounter{figure}{0}
+
 ## Results of the pilot study
 
 
@@ -1953,8 +1977,7 @@ The authors declare no competing interests.
 
 ANOVA:
 
-`r apa_print(hypothesis1a_rmanova)$statistic`, $\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis1a_rmanova$anova_table[1,"F"], df = hypothesis1a_rmanova$anova_table[1,"num Df"], df_error = hypothesis1a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1a_rmanova$anova_table[1,"F"], df = hypothesis1a_rmanova$anova_table[1,"num Df"], df_error = hypothesis1a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$`r round(extractBF(hypothesis1a_BF)$bf, digits = 2)`
-
+`r apa_print(hypothesis1a_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1a_rmanova$anova_table[1,"F"], df = hypothesis1a_rmanova$anova_table[1,"num Df"], df_error = hypothesis1a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1a_rmanova$anova_table[1,"F"], df = hypothesis1a_rmanova$anova_table[1,"num Df"], df_error = hypothesis1a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1a_BF)$bf, digits = 2)`
 
 Paired contrasts:
 
@@ -1968,12 +1991,11 @@ apa_table(
 )
 ```
 
-
 ## Hypothesis 1b: Reaction time increases with increasing n-back level.
 
 ANOVA:
 
-`r apa_print(hypothesis1b_rmanova)$statistic`, $\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis1b_rmanova$anova_table[1,"F"], df = hypothesis1b_rmanova$anova_table[1,"num Df"], df_error = hypothesis1b_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1b_rmanova$anova_table[1,"F"], df = hypothesis1b_rmanova$anova_table[1,"num Df"], df_error = hypothesis1b_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$`r round(extractBF(hypothesis1b_BF)$bf, digits = 2)`
+`r apa_print(hypothesis1b_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1b_rmanova$anova_table[1,"F"], df = hypothesis1b_rmanova$anova_table[1,"num Df"], df_error = hypothesis1b_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1b_rmanova$anova_table[1,"F"], df = hypothesis1b_rmanova$anova_table[1,"num Df"], df_error = hypothesis1b_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1b_BF)$bf, digits = 2)`
 
 Paired contrasts:
 
@@ -1987,12 +2009,11 @@ apa_table(
 )
 ```
 
-
 ## Hypothesis 1c: Ratings on all NASA-TLX dimensions increase with increasing n-back level.
 
 Mental subscale ANOVA:
 
-`r apa_print(hypothesis1c_mental_rmanova)$full_result`, $\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis1c_mental_rmanova$anova_table[1,"F"], df = hypothesis1c_mental_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_mental_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_mental_rmanova$anova_table[1,"F"], df = hypothesis1c_mental_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_mental_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$`r round(extractBF(hypothesis1c_mental_BF)$bf, digits = 2)`
+`r apa_print(hypothesis1c_mental_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_mental_rmanova$anova_table[1,"F"], df = hypothesis1c_mental_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_mental_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_mental_rmanova$anova_table[1,"F"], df = hypothesis1c_mental_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_mental_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_mental_BF)$bf, digits = 2)`
 
 Mental subscale paired contrasts:
 
@@ -2006,10 +2027,9 @@ apa_table(
 )
 ```
 
-
 Physical subscale ANOVA:
 
-`r apa_print(hypothesis1c_physical_rmanova)$full_result`, $\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis1c_physical_rmanova$anova_table[1,"F"], df = hypothesis1c_physical_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_physical_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_physical_rmanova$anova_table[1,"F"], df = hypothesis1c_physical_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_physical_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$`r round(extractBF(hypothesis1c_physical_BF)$bf, digits = 2)`
+`r apa_print(hypothesis1c_physical_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_physical_rmanova$anova_table[1,"F"], df = hypothesis1c_physical_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_physical_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_physical_rmanova$anova_table[1,"F"], df = hypothesis1c_physical_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_physical_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_physical_BF)$bf, digits = 2)`
 
 Physical subscale paired contrasts:
 
@@ -2023,10 +2043,9 @@ apa_table(
 )
 ```
 
-
 Time subscale ANOVA:
 
-`r apa_print(hypothesis1c_time_rmanova)$full_result`, $\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis1c_time_rmanova$anova_table[1,"F"], df = hypothesis1c_time_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_time_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_time_rmanova$anova_table[1,"F"], df = hypothesis1c_time_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_time_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$`r round(extractBF(hypothesis1c_time_BF)$bf, digits = 2)`
+`r apa_print(hypothesis1c_time_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_time_rmanova$anova_table[1,"F"], df = hypothesis1c_time_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_time_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_time_rmanova$anova_table[1,"F"], df = hypothesis1c_time_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_time_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_time_BF)$bf, digits = 2)`
 
 Time subscale paired contrasts:
 
@@ -2042,7 +2061,7 @@ apa_table(
 
 Performance subscale ANOVA:
 
-`r apa_print(hypothesis1c_performance_rmanova)$full_result`, $\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis1c_performance_rmanova$anova_table[1,"F"], df = hypothesis1c_performance_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_performance_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_performance_rmanova$anova_table[1,"F"], df = hypothesis1c_performance_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_performance_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$`r round(extractBF(hypothesis1c_performance_BF)$bf, digits = 2)`
+`r apa_print(hypothesis1c_performance_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_performance_rmanova$anova_table[1,"F"], df = hypothesis1c_performance_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_performance_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_performance_rmanova$anova_table[1,"F"], df = hypothesis1c_performance_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_performance_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_performance_BF)$bf, digits = 2)`
 
 Performance subscale paired contrasts:
 
@@ -2056,10 +2075,9 @@ apa_table(
 )
 ```
 
-
 Effort subscale ANOVA:
 
-`r apa_print(hypothesis1c_effort_rmanova)$full_result`, $\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis1c_effort_rmanova$anova_table[1,"F"], df = hypothesis1c_effort_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_effort_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_effort_rmanova$anova_table[1,"F"], df = hypothesis1c_effort_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_effort_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$`r round(extractBF(hypothesis1c_effort_BF)$bf, digits = 2)`
+`r apa_print(hypothesis1c_effort_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_effort_rmanova$anova_table[1,"F"], df = hypothesis1c_effort_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_effort_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_effort_rmanova$anova_table[1,"F"], df = hypothesis1c_effort_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_effort_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_effort_BF)$bf, digits = 2)`
 
 Effort subscale paired contrasts:
 
@@ -2075,10 +2093,9 @@ apa_table(
 
 Frustration subscale ANOVA:
 
-`r apa_print(hypothesis1c_frustration_rmanova)$full_result`, $\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis1c_frustration_rmanova$anova_table[1,"F"], df = hypothesis1c_frustration_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_frustration_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_frustration_rmanova$anova_table[1,"F"], df = hypothesis1c_frustration_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_frustration_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$`r round(extractBF(hypothesis1c_frustration_BF)$bf, digits = 2)`
+`r apa_print(hypothesis1c_frustration_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_frustration_rmanova$anova_table[1,"F"], df = hypothesis1c_frustration_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_frustration_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_frustration_rmanova$anova_table[1,"F"], df = hypothesis1c_frustration_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_frustration_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_frustration_BF)$bf, digits = 2)`
 
 Frustration subscale paired contrasts:
-
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
@@ -2090,12 +2107,11 @@ apa_table(
 )
 ```
 
-
 ## Hypothesis 2a: Subjective values decline with increasing n-back level.
 
 ANOVA:
 
-`r apa_print(hypothesis2a_rmanova)$full_result`, $\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis2a_rmanova$anova_table[1,"F"], df = hypothesis2a_rmanova$anova_table[1,"num Df"], df_error = hypothesis2a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis2a_rmanova$anova_table[1,"F"], df = hypothesis2a_rmanova$anova_table[1,"num Df"], df_error = hypothesis2a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$`r round(extractBF(hypothesis2a_BF)$bf, digits = 2)`
+`r apa_print(hypothesis2a_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis2a_rmanova$anova_table[1,"F"], df = hypothesis2a_rmanova$anova_table[1,"num Df"], df_error = hypothesis2a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis2a_rmanova$anova_table[1,"F"], df = hypothesis2a_rmanova$anova_table[1,"num Df"], df_error = hypothesis2a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis2a_BF)$bf, digits = 2)`
 
 Paired contrasts:
 
@@ -2115,15 +2131,13 @@ Multi level model:
 
 `r table_1`
 
-
 ## Hypothesis 2c: Subjective values decline stronger with increasing task load for individuals with low compared to high NFC scores.
 
 Simple slopes analysis:
 
 `r table_2`
 
-
-```{r FigHyp2c, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Simple slopes analysis for how n-back level predicts the subjective value, depending on the participant's NFC. NFC = Need for Cognition, SD = standard deviation."}
+```{r FigHyp2c, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Simple slopes analysis for how n-back level predicts the subjective value, depending on the participant's NFC. NFC = Need for Cognition, SD = standard deviation.", fig.pos="H"}
 
 interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
                                plot.points = TRUE, point.shape = TRUE,
@@ -2132,24 +2146,21 @@ interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
 scale_x_continuous(breaks = c(-1,0,1), labels = c("2","3","4"))
 ```
 
-
 Johnson-Neyman intervals:
 
 `r h2c_jn.int`
 
-
 Specification curve analysis:
 
-
-```{r FigSCA, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of the specification curve analysis for the multi level model. The upper panel shows the fixed effect estimates for Need for Cognition and n-back level as predictors of subjective values. Estimates with $p<.01$ are indicated by a dot on the line. The lower panel shows the preprocessing steps of each corresponding pipeline. The $BF10$ of each pipeline's multi level model approached infinity."}
+```{r FigSCA, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of the specification curve analysis for the multi level model. The upper panel shows the fixed effect estimates for Need for Cognition and n-back level as predictors of subjective values. Estimates with $p<.01$ are indicated by a dot on the line. The lower panel shows the preprocessing steps of each corresponding pipeline. The $BF10$ of each pipeline's multi level model approached infinity.", fig.pos="H"}
 
 # create the upper panel first, which will show the estimates of 'level' and 'nfc'
   
   sca_upperplot <- ggplot(data = sca_results, aes(x = num, y = beta)) +
     geom_line(aes(group = predictor)) +
     geom_point(data = sca_results, aes(x = num, y = sign)) +
-    geom_text(x = 3, y = -0.01, label = "NFC") +
-    geom_text(x = 3, y = -0.12, label = "Level") +
+    geom_text(x = 3, y = -0.02, label = "NFC", size = 3) +
+    geom_text(x = 3, y = -0.13, label = "Level", size = 3) +
     theme_classic() +
     labs(x = NULL, y = "Fixed effects\nestimate \u03b2") +
     scale_y_continuous(lim = c(NA,0.01)) +
@@ -2187,7 +2198,6 @@ Specification curve analysis:
 
 ## Hypothesis 3a: Subjective values positively predict individual NCS scores.
 
-
 Intercept:
 `r apa_print(hypothesis3a)$estimate$Intercept`
 
@@ -2199,15 +2209,13 @@ Fit:
 
 Effect size and confidence interval:
 
-$\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis3a$fstatistic[1], df = hypothesis3a$fstatistic[2], df_error = hypothesis3a$fstatistic[3], ci = 0.95), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis3a$fstatistic[1], df = hypothesis3a$fstatistic[2], df_error = hypothesis3a$fstatistic[3], ci = 0.95), digits = 2)[1,2]`
+$\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis3a$fstatistic[1], df = hypothesis3a$fstatistic[2], df_error = hypothesis3a$fstatistic[3], ci = 0.95), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis3a$fstatistic[1], df = hypothesis3a$fstatistic[2], df_error = hypothesis3a$fstatistic[3], ci = 0.95), digits = 2)[1,2]`
 
 Bayes factor:
 
 $BF10=$ `r extractBF(hypothesis3a_BF)$bf`
 
-
 ## Hypothesis 3b: NASA-TLX scores negatively predict individual NFC scores.
-
 
 Intercept:
 `r apa_print(hypothesis3b)$estimate$Intercept`
@@ -2223,10 +2231,11 @@ Fit:
 
 Effect size and confidence interval:
 
-$\eta_{p}^{2}=$`r format(F_to_eta2(f = hypothesis3b$fstatistic[1], df = hypothesis3b$fstatistic[2], df_error = hypothesis3b$fstatistic[3], ci = 0.95), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis3b$fstatistic[1], df = hypothesis3b$fstatistic[2], df_error = hypothesis3b$fstatistic[3], ci = 0.95), digits = 2)[1,2]`
+$\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis3b$fstatistic[1], df = hypothesis3b$fstatistic[2], df_error = hypothesis3b$fstatistic[3], ci = 0.95), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis3b$fstatistic[1], df = hypothesis3b$fstatistic[2], df_error = hypothesis3b$fstatistic[3], ci = 0.95), digits = 2)[1,2]`
 
-Bayes factor:
+Bayes factors:
 
-$BF10=$ `r extractBF(hypothesis3b_BF)$bf`
+$BF10=$ `r extractBF(hypothesis3b_BF)$bf[1]` for predictor $AxAUC$
 
+$BF10=$ `r extractBF(hypothesis3b_BF)$bf[2]` for predictor $AUC$ NASA-TLX
 
