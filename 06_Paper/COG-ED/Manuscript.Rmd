@@ -2135,7 +2135,7 @@ Simple slopes analysis:
 
 `r table_2`
 
-```{r FigHyp2c, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Simple slopes analysis for how n-back level predicts the subjective value, depending on the participant's NFC. NFC = Need for Cognition, SD = standard deviation.", fig.pos="H"}
+```{r FigHyp2c, echo=FALSE, message=FALSE, warning=FALSE, fig.cap=paste("Simple slopes analysis for how n-back level predicts the subjective value, depending on the participant's NFC. Slope of $1SD$ below the mean: $\\beta=$ ", round(m1_h2c.ss$slopes$Est.[1], digits = 2), ", $SE=$ ", round(m1_h2c.ss$slopes$S.E.[1], digits = 2), ", $p=$ ", round(m1_h2c.ss$slopes$p[1], digits = 3), ", slope of the mean: $\\beta=$ ", round(m1_h2c.ss$slopes$Est.[2], digits = 2), ", $SE=$ ", round(m1_h2c.ss$slopes$S.E.[2], digits = 2), ", $p=$ ", round(m1_h2c.ss$slopes$p[2], digits = 3), " slope of $1SD$ above the mean: $\\beta=$ ", round(m1_h2c.ss$slopes$Est.[3], digits = 2), ", $SE=$ ", round(m1_h2c.ss$slopes$S.E.[3], digits = 2), ", $p=$ ", round(m1_h2c.ss$slopes$p[3], digits = 3), ". NFC = Need for Cognition, SD = standard deviation.", sep=""), fig.pos="H"}
 
 interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
                                plot.points = TRUE, point.shape = TRUE,
