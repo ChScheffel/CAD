@@ -92,28 +92,26 @@ header-includes   :
 
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
 
-  knitr::opts_chunk$set(out.width = "\\textwidth")
-  library(bibtex)
-  library(here)         # to set a directory without defined paths, "here" package
-  library(tidyverse)    # plotting and managing data, "tidyverse" package
-  library(bayestestR)   # computing area under the curve, "bayestestR" package
-  library(papaja)       # APA conform output, "papaja" package
-  library(lmerTest)     # for multilevel modeling
-  library(afex)         # compute repeated measures ANOVA, "afex" package
-  library(emmeans)      # for custom contrasts in ANOVAs, "emmeans" package
-  library(sjPlot)       # plot MLM model fit
-  library(kableExtra)   # for great tables in R Markdown
-  library(interactions) # for simple slopes analysis
-  #library(huxtable)     # create huxtable
-  library(glmmTMB)      # from the glmmTMB package for multi level models
-  library(BayesFactor)  # computing Bayes factors, "BayesFactor" package
-  library(ggplot2)      # for plotting, "ggplot2" package
-  library(egg)          # for paneling plots, "egg" package
-  library(knitr)        # for including plots and such, "knitr" package
-  library(effectsize)   # for effect sizes and CIs, "effectsize" package
+  # set the output for figures and tables to the width of the text throughout the entire script
 
-  set_sum_contrasts()   # sets orthogonal contrasts for mixed-effects model 
-                        # and rmANOVA globally in order to get meaningful Type-III tests
+  knitr::opts_chunk$set(out.width = "\\textwidth")
+
+  # define required packages
+
+  packages = c("bibtex", "here", "tidyverse", "bayestestR", "papaja", "lmerTest", "afex", "emmeans", "sjPlot",
+               "kableExtra", "interactions", "glmmTMB", "BayesFactor", "ggplot2", "egg", "knitr", "effectsize")
+
+  # check whether each package is installed and install and/or load library
+  
+  installed_packages <- packages %in% rownames(installed.packages())
+  if (any(installed_packages == FALSE)) {
+    install.packages(packages[!installed_packages])
+  }
+  invisible(lapply(packages, library, character.only = TRUE))
+  
+  # sets orthogonal contrasts for mixed-effects model and rmANOVA globally in order to get meaningful Type-III tests
+  
+  set_sum_contrasts()
 
   # we will add the package versions before submission
 
