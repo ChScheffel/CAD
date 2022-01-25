@@ -135,6 +135,10 @@ for (i in 1:length(datalist_ER)) {
 #  data_ED = rbind(data_ED, tmp)
 #}
 
+# import EMG data
+
+datalist_EMG = lapply(list.files(here("04_RawData", "pilot", "ER-ED/EMG/analysis"), pattern = '*_Peaks.txt', full.names = TRUE),
+                          read.csv, stringsAsFactors = FALSE, header = TRUE)
 ```
 
 # 2. Method
