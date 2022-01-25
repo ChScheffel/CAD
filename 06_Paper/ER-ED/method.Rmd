@@ -143,8 +143,8 @@ datalist_EMG = lapply(list.files(here("04_RawData", "pilot", "ER-ED/EMG/analysis
 
 # 2. Method
 
-The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at github.com/ChScheffel/COG-ER-ED. 
-According to the 21-word-solution, "We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study" in compliance with the 21-word-solution of open science [@Simmons2012]. 
+The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at github.com/ChScheffel/COG-ER-ED.
+According to the 21-word-solution, "We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study" in compliance with the 21-word-solution of open science [@Simmons2012].
 A complete list of all measures assessed in the study will be found at the OSF (https://osf.io/vnj8x/) and GitHub (github.com/ChScheffel/COG-ER-ED). <!-- Attention! OSF is still private -->
 All procedures performed in this study were in accordance with the ethical standards of the institutional and/or national research committee and with the 1964 Helsinki declaration and its later amendments or comparable ethical standards.
 
