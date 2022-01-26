@@ -139,6 +139,10 @@ for (i in 1:length(datalist_ER)) {
 
 datalist_EMG = lapply(list.files(here("04_RawData", "pilot", "ER-ED/EMG/analysis"), pattern = '*_Peaks.txt', full.names = TRUE),
                           read.csv, stringsAsFactors = FALSE, header = TRUE)
+
+# new empty frame to store files into
+data_EMG = data.frame(ID = character(), segment = double(), Corr = double(), 
+                     Lev = double())
 ```
 
 # 2. Method
