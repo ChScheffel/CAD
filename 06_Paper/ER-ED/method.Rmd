@@ -138,7 +138,7 @@ for (i in 1:length(datalist_ER)) {
 # import EMG data
 
 datalist_EMG = lapply(list.files(here("04_RawData", "pilot", "ER-ED/EMG/analysis"), pattern = '*_Peaks.txt', full.names = TRUE),
-                          read.csv, stringsAsFactors = FALSE, header = TRUE)
+                          read.table, stringsAsFactors = FALSE, header = TRUE)
 
 # new empty frame to store files into
 data_EMG = data.frame(ID = character(), segment = double(), Corr = double(), 
@@ -147,10 +147,10 @@ data_EMG = data.frame(ID = character(), segment = double(), Corr = double(),
 # store EMG data in data_EMG frame
 for (i in 1:length(datalist_EMG)) {
   
-  tmp = data.frame(datalist_EMG[[i]][["participant"]], 
+  tmp = data.frame(datalist_EMG[[i]][["Filename"]], 
                    datalist_EMG[[i]][["Segment"]], 
-                   datalist_EMG[[i]][["T0T6000Corr-ASNM"]], 
-                   datalist_EMG[[i]][["T0T6000Lev-ASNM"]])
+                   datalist_EMG[[i]][["T0T6000Corr.ASNM"]], 
+                   datalist_EMG[[i]][["T0T6000Lev.ASNM"]])
   colnames(tmp) = names(data_EMG)
   
   data_EMG = rbind(tmp, data_EMG)
