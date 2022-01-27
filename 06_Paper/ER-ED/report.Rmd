@@ -1,8 +1,80 @@
 ---
-title: "report"
-author: "Christoph Scheffel"
-output: html_document
-bibliography: ER_ED.bib
+title             : "Estimating individual subjective values of emotion regulation strategies"
+shorttitle        : "Subjective values of emotion regulation strategies"
+author: 
+  - name          : "Josephine Zerna"
+    orcid         : "0000-0003-2892-884X"
+    affiliation   : "1"
+    corresponding : yes
+    address       : "Zellescher Weg 17, 01069 Dresden, Germany"
+    email         : "josephine.zerna@tu-dresden.de"
+    equal_contrib : yes
+    role:         # Contributorship roles (e.g., CRediT, https://casrai.org/credit/)
+      - Conceptualization
+      - Methodology
+      - Funding acquisition
+      - Formal analysis
+      - Investigation
+      - Project administration
+      - Software
+      - Visualization
+      - Writing - original draft preparation
+      - Writing - review & editing
+  - name          : "Christoph Scheffel"
+    orcid         : "0000-0001-5963-9229"
+    affiliation   : "1"
+    equal_contrib : yes
+    role:
+      - Conceptualization
+      - Methodology
+      - Funding acquisition
+      - Investigation
+      - Project administration
+      - Software
+      - Writing - review & editing
+      affiliation:
+  - id            : "1"
+    institution   : "Faculty of Psychology, Technische Universität Dresden, 01069 Dresden, Germany"
+authornote:
+abstract:
+keywords          : "emotion regulation, regulatory effort, effort discounting, registered report, specification curve analysis"
+wordcount         : "X"
+bibliography      : ER_ED.bib
+floatsintext      : yes
+figsintext        : yes
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+csl               : nature.csl
+header-includes   :
+    - \usepackage{booktabs}
+    - \usepackage{longtable}
+    - \usepackage{array}
+    - \usepackage{multirow}
+    - \usepackage{wrapfig}
+    - \usepackage{float}
+    - \usepackage{colortbl}
+    - \usepackage{pdflscape}
+    - \usepackage{tabu}
+    - \usepackage{threeparttable}
+    - \usepackage{threeparttablex}
+    - \usepackage[normalem]{ulem}
+    - \usepackage{makecell}
+    - \usepackage{xcolor}
+    - \usepackage{setspace}\doublespacing
+    - \usepackage[final]{pdfpages}
+    - \usepackage{chngcntr}
+
+---
+\renewcommand\thesection{\Alph{section}}
+\counterwithout{figure}{section}
+\setcounter{figure}{0}
 ---
 
 ``` {r child = "intro.Rmd"}
