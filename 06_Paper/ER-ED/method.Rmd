@@ -293,12 +293,12 @@ The resulting values were entered in a rmANOVA to compare the SVs of the three s
 arousal_view = data_ER %>%
   subset(data_ER$block == "view_neu" | data_ER$block == "view_neg")
 
-aov_arousalView = afex::aov_ez(id = "ID",
-                           dv = "arousal",
-                           data = arousal_view,
-                           within = "block",
-                           fun_aggregate = mean) 
-afex::nice(aov_arousalView, es = "pes")
+aov_arousalView = afex::aov_ez(data = arousal_view,
+                               id = "ID",
+                               dv = "arousal",
+                               within = "block",
+                               fun_aggregate = mean,
+                               include_aov = TRUE) 
 
 # compute posthoc tests for within measures
 posthoc_arousalView = emmeans::emmeans(aov_arousalView$aov, specs = "block")
@@ -321,11 +321,12 @@ arousal_reg = data_ER %>%
   subset(data_ER$block != "view_neu" & data_ER$block != "choice")
 
 
-aov_arousalReg = afex::aov_ez(id = "ID",
+aov_arousalReg = afex::aov_ez(data = arousal_reg,
+                              id = "ID",
                               dv = "arousal",
-                              data = arousal_reg,
                               within = "block",
-                              fun_aggregate = mean)
+                              fun_aggregate = mean,
+                              include_aov = TRUE)
 afex::nice(aov_arousalReg, es = "pes")
 
 # compute posthoc tests for within measures
@@ -350,11 +351,12 @@ ggplot2::ggplot(arousal_reg, aes(x = block, y = arousal))+
 effort_reg = data_ER %>%
   subset(data_ER$block != "view_neu" & data_ER$block != "choice")
 
-aov.effort = afex::aov_ez(id = "ID",
+aov.effort = afex::aov_ez(data = effort_reg,
+                          id = "ID",
                           dv = "effort",
-                          data = effort_reg,
                           within = "block",
-                          fun_aggregate = mean)
+                          fun_aggregate = mean,
+                          include_aov = TRUE)
 afex::nice(aov.effort, es = "pes")
 
 # compute posthoc tests for within measure
