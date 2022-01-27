@@ -157,7 +157,26 @@ for (i in 1:length(datalist_EMG)) {
   
 }
 
-#rownames(data_ER) = 1:nrow(data_ER)
+# import questionnaire data from RedCap
+  
+data_quest <- read.csv(here("04_RawData", "pilot", "CERED_DATA.csv"), stringsAsFactors = FALSE, header = TRUE)
+colnames(data_quest)[1] <- "set" # rename the first column
+
+# remove unnecessary variables from questionnaire data frame
+  
+data_quest <- subset(data_quest, select = -c(vl, date, preparatory_coged_complete, general_questions_timestamp, state,
+                                            general_questions_complete, inclusion, inclusion_0___1, inclusion_0___2, inclusion_0_2,
+                                            researcher_questions_complete, nasatlx_timestamp, nasatlx_complete, t1_psychopy_ed_csv,
+                                            t1_psychopy_nback_csv, files_coged_complete, record_id_2, vl_er,
+                                            date_er, preparatory_ered_complete, emg_eeg, emg_vhdr, emg_vmrk,
+                                            files_ered_complete, followup_ered_timestamp,
+                                            nachb_01, nachb_01_inhalt, nachb_02, nachb_02_inhalt, nachb_03, nachb_07, nachb_07_inhalt,
+                                            nachb_08, nachb_08_inhalt, nachb_08_haeufig, nachb_08_zurueck, followup_ered_complete,
+                                            nfc_timestamp, nfc_complete, bis_11_timestamp, bis_11_complete, bscs_timestamp,
+                                            bscs_complete, srs_timestamp, srs_complete, erq_erqse_timestamp, erq_erqse_complete,
+                                            who5_timestamp, who5_complete, acs_timestamp, acs_complete, cdrisc_timestamp,
+                                            cdrisc_complete, flexer_timestamp, flexer_complete))
+  
 
 ```
 
@@ -373,4 +392,8 @@ Proportion of explained variance *$\eta$²~p~* was reported as a measure of effe
 For each ER strategy, SVs were calculated as follows: first, the value 0.015625 was added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
 Second, the resulting (monetary) value was divided by 2.00 €.
 The resulting values were entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression).
+
+## 2.8 Pilot study
+
+
 
