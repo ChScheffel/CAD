@@ -307,7 +307,7 @@ pairs(posthoc_arousalView, adjust = "bonferroni")
 # Figure to visualize arousal ratings
 
 # figure
-ggplot2::ggplot(arousal_view, aes(x = block, y = arousal))+
+FigPilot1=ggplot2::ggplot(arousal_view, aes(x = block, y = arousal))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Strategy", 
                    limits = c("view_neu", "view_neg"),
@@ -336,7 +336,7 @@ pairs(posthoc_arousalReg, adjust = "bonferroni")
 # Figure to visualize arousal ratings
 
 # figure
-ggplot2::ggplot(arousal_reg, aes(x = block, y = arousal))+
+FigPilot2 = ggplot2::ggplot(arousal_reg, aes(x = block, y = arousal))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Strategy", 
                    limits = c("view_neg", "distraction", "distancing", "suppression"),
@@ -365,7 +365,7 @@ pairs(posthoc_effort, adjust = "bonferroni")
 
 # Figure to visualize effort ratings
 # figure
-ggplot2::ggplot(effort_reg, aes(x = block, y = effort))+
+FigPilot3 = ggplot2::ggplot(effort_reg, aes(x = block, y = effort))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Strategy", 
                    limits = c("view_neg", "distraction", "distancing", "suppression"),
