@@ -7,7 +7,7 @@ options(tidyverse.quiet = TRUE)
 
 # End this file with a list of target objects.
 list(
-  tar_target(whole.report, "report.Rmd"),
-  tar_target(intro, "intro.Rmd"),
-  tar_target(method, "method.Rmd")
+  tar_target(whole.paper, "Manuscript_ERED_Stage1.Rmd"),
+  tar_target(intro, "TheoreticalBackground.Rmd"),
+  tar_target(method, "Method.Rmd")
 )
