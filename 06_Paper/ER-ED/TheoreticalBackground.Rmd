@@ -7,6 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = FALSE)
 
 library(targets)    # to keep track of all relevant files
+library(knitr)
 library(here)       # to set directories without defined paths
 library(papaja)     # APA conform output
 
@@ -78,9 +79,11 @@ This procedure will be repeated until all strategies have been compared.
 The SV of each strategy is calculated as the mean of this strategy's SV from all comparisons.
 In case a participant has a clear preference for one strategy, the SV of this strategy will be 1.
 But our paradigm can also account for the case that a person does not have a clear preference.
-Then no SV will be 1, but still, the SVs of all strategies can be interpreted as absolute values and in relation to the other strategy's SVs.
+Then no SV will be 1, but still, the SVs of all strategies can be interpreted as absolute values and in relation to the other strategy's SVs (see figure 1).
 ### Hier sollte auch noch erwähnt werden, dass wir auch n-back erheben
-
+```{r fig1, echo=FALSE, message=FALSE, warning=FALSE}
+include_graphics(here("99_Thinktank","other","Paradigm_Scheme_T2.png" ))
+```
 ## 1.2 The present study
 
 The aim of the present study is to evaluate if this paradigm is suitable for determining SVs of ER strategies. 
