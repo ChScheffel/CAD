@@ -34,8 +34,8 @@ This selection of strategies is influenced by numerous factors.
 For example, it was shown that the intensity of a stimulus or situation plays a role in the choice [@Sheppes2011]. 
 Higher intensity of the stimulus leads to a choice of rather disengaging strategies, like distraction [@Sheppes2011;@Sheppes2014].
 Further influencing factors are for example extrinsic motivation (e.g. monetary incentives), motivational determinants (i.e. hedonic regulatory goals), and effort [@Sheppes2014;@Scheffel2021].
-Especially for effort, Scheffel and colleagues [-@Scheffel2021] could show that the choice for an ER strategy is mainly influenced by effort.
-### Willst du hier nicht lieber "in our previous work" oder sowas schreiben? Wenn die Autoren von sich selbst in der dritten Person sprechen, hab ich immer das Gefühl, dass sie die Lesenden in die Irre führen wollen, indem sie etwas referenzieren, was eigentlich von ihnen selbst ist.
+Especially for effort, in our previous work we could show that the choice for an ER strategy is mainly influenced by effort [@Scheffel2021].
+
 In this study, participants used the strategies distancing and suppression while inspecting emotional pictures.
 Afterwards they could choose, which strategy they want to use again.
 Participants tended to re-apply the strategy that was less effortful, even though it was not the most effective one - in this case: Suppression.
