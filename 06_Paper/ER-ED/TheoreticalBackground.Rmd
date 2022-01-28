@@ -3,7 +3,7 @@ title: "intro"
 author: "Christoph Scheffel"
 output: html_document
 ---
-```{r setup, include = FALSE}
+```{r SetupIntro, include = FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 
 library(targets)    # to keep track of all relevant files
@@ -81,7 +81,7 @@ In case a participant has a clear preference for one strategy, the SV of this st
 But our paradigm can also account for the case that a person does not have a clear preference.
 Then no SV will be 1, but still, the SVs of all strategies can be interpreted as absolute values and in relation to the other strategy's SVs (see figure 1).
 ### Hier sollte auch noch erwähnt werden, dass wir auch n-back erheben
-```{r fig1, echo=FALSE, message=FALSE, warning=FALSE}
+```{r fig1, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Exemplary visualisation of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can also be represented by our paradigm."}
 include_graphics(here("99_Thinktank","other","Paradigm_Scheme_T2.png" ))
 ```
 ## 1.2 The present study
