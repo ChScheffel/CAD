@@ -89,8 +89,8 @@ header-includes   :
 \setcounter{figure}{0}
 ---
 
-``` {r child = "intro.Rmd"}
+``` {r child = "TheoreticalBackground.Rmd"}
 ```
 
-```{r child = "method.Rmd"}
+```{r child = "Method.Rmd"}
 ```
