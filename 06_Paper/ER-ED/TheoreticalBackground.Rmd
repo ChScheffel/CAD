@@ -3,7 +3,17 @@ title: "intro"
 author: "Christoph Scheffel"
 output: html_document
 ---
+```{r SetupIntro, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
 
+library(targets)    # to keep track of all relevant files
+library(knitr)
+library(here)       # to set directories without defined paths
+library(papaja)     # APA conform output
+
+# set top level directory to source file
+here::i_am("flag_project_root_CERED.txt")
+```
 # 1. Introduction
 
 Every day we are confronted with stressful or emotionally demanding situations. 
@@ -34,8 +44,8 @@ This selection of strategies is influenced by numerous factors.
 For example, it was shown that the intensity of a stimulus or situation plays a role in the choice [@Sheppes2011]. 
 Higher intensity of the stimulus leads to a choice of rather disengaging strategies, like distraction [@Sheppes2011;@Sheppes2014].
 Further influencing factors are for example extrinsic motivation (e.g. monetary incentives), motivational determinants (i.e. hedonic regulatory goals), and effort [@Sheppes2014;@Scheffel2021].
-Especially for effort, Scheffel and colleagues [-@Scheffel2021] could show that the choice for an ER strategy is mainly influenced by effort.
-### Willst du hier nicht lieber "in our previous work" oder sowas schreiben? Wenn die Autoren von sich selbst in der dritten Person sprechen, hab ich immer das Gefühl, dass sie die Lesenden in die Irre führen wollen, indem sie etwas referenzieren, was eigentlich von ihnen selbst ist.
+Especially for effort, in our previous work we could show that the choice for an ER strategy is mainly influenced by effort [@Scheffel2021].
+
 In this study, participants used the strategies distancing and suppression while inspecting emotional pictures.
 Afterwards they could choose, which strategy they want to use again.
 Participants tended to re-apply the strategy that was less effortful, even though it was not the most effective one - in this case: Suppression.
@@ -51,7 +61,7 @@ To investigate this question, the individual subjective values of each strategy 
 Promising approaches can be found in studies on difficulty levels of effortful cognitive tasks.  
 Individual subjective values (SV) of effortful cognitive tasks have been quantified using the cognitive effort discounting paradigm (COG-ED) [@Westbrook2013]. 
 
-## 1.1 ER strategies discounting
+## 1.1 ER strategy discounting
 
 In the original study by Westbrook et al. [-@Westbrook2013], cognitive load was varied using the *n*-back task, a working memory task that requires fast and accurate responses to sequentially presented stimuli. 
 Participants had to decide whether they wanted to repeat a higher *n*-back level for a larger, fixed monetary reward, or a lower level for a smaller, varying reward. 
@@ -69,9 +79,11 @@ This procedure will be repeated until all strategies have been compared.
 The SV of each strategy is calculated as the mean of this strategy's SV from all comparisons.
 In case a participant has a clear preference for one strategy, the SV of this strategy will be 1.
 But our paradigm can also account for the case that a person does not have a clear preference.
-Then no SV will be 1, but still, the SVs of all strategies can be interpreted as absolute values and in relation to the other strategy's SVs.
+Then no SV will be 1, but still, the SVs of all strategies can be interpreted as absolute values and in relation to the other strategy's SVs (see figure 1).
 ### Hier sollte auch noch erwähnt werden, dass wir auch n-back erheben
-
+```{r fig1, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Exemplary visualisation of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can also be represented by our paradigm."}
+include_graphics(here("99_Thinktank","other","Paradigm_Scheme_T2.png" ))
+```
 ## 1.2 The present study
 
 The aim of the present study is to evaluate if this paradigm is suitable for determining SVs of ER strategies. 

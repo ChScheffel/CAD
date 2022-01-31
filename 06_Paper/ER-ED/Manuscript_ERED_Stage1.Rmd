@@ -39,7 +39,7 @@ author:
       - Formal analysis
       - Writing - review & editing
   - name          : "Alexander Strobel"
-    orcid         :
+    orcid         : "0000-0002-9426-5397"
     affiliation   : "1"
     role          :
       - Conceptualization
@@ -89,8 +89,8 @@ header-includes   :
 \setcounter{figure}{0}
 ---
 
-``` {r child = "intro.Rmd"}
+``` {r child = "TheoreticalBackground.Rmd"}
 ```
 
-```{r child = "method.Rmd"}
+```{r child = "Method.Rmd"}
 ```

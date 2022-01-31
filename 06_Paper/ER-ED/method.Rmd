@@ -4,7 +4,7 @@ bibliography: ER_ED.bib
 csl: apa7.csl
 ---
 
-```{r setup, include = FALSE}
+```{r SetupMethod, include = FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 
 library(targets)    # to keep track of all relevant files
@@ -157,8 +157,96 @@ for (i in 1:length(datalist_EMG)) {
   
 }
 
-#rownames(data_ER) = 1:nrow(data_ER)
+```
 
+```{r statistics, echo=FALSE, message=FALSE, warning=FALSE}
+## Subjective arousal
+
+# ANOVA subjective arousal ratings
+# View condition
+
+arousal_view = data_ER %>%
+  subset(data_ER$block == "view_neu" | data_ER$block == "view_neg")
+
+aov_arousalView = afex::aov_ez(data = arousal_view,
+                               id = "ID",
+                               dv = "arousal",
+                               within = "block",
+                               fun_aggregate = mean,
+                               include_aov = TRUE) 
+
+# compute posthoc tests for within measures
+posthoc_arousalView = emmeans::emmeans(aov_arousalView$aov, specs = "block")
+pairs(posthoc_arousalView, adjust = "bonferroni")
+
+# Figure to visualize arousal ratings
+
+# figure
+FigPilot1=ggplot2::ggplot(arousal_view, aes(x = block, y = arousal))+
+  geom_boxplot(width = 0.7, position = position_dodge(0.8))+
+  scale_x_discrete(name = "Strategy", 
+                   limits = c("view_neu", "view_neg"),
+                   labels = c("Neutral", "Negative"))+
+  geom_jitter(size = 0.4)+
+  labs(y = "Arousal Rating")
+
+# View neg and regulate conditions 
+
+arousal_reg = data_ER %>%
+  subset(data_ER$block != "view_neu" & data_ER$block != "choice")
+
+
+aov_arousalReg = afex::aov_ez(data = arousal_reg,
+                              id = "ID",
+                              dv = "arousal",
+                              within = "block",
+                              fun_aggregate = mean,
+                              include_aov = TRUE)
+afex::nice(aov_arousalReg, es = "pes")
+
+# compute posthoc tests for within measures
+posthoc_arousalReg = emmeans::emmeans(aov_arousalReg$aov, specs = "block")
+pairs(posthoc_arousalReg, adjust = "bonferroni")
+
+# Figure to visualize arousal ratings
+
+# figure
+FigPilot2 = ggplot2::ggplot(arousal_reg, aes(x = block, y = arousal))+
+  geom_boxplot(width = 0.7, position = position_dodge(0.8))+
+  scale_x_discrete(name = "Strategy", 
+                   limits = c("view_neg", "distraction", "distancing", "suppression"),
+                   labels = c("View", "Distraction", "Distancing", "Suppression"))+
+  geom_jitter(size = 0.4)+
+  labs(y = "Arousal Rating")
+
+## Subjective effort
+
+# ANOVA subjective effort ratings
+
+effort_reg = data_ER %>%
+  subset(data_ER$block != "view_neu" & data_ER$block != "choice")
+
+aov.effort = afex::aov_ez(data = effort_reg,
+                          id = "ID",
+                          dv = "effort",
+                          within = "block",
+                          fun_aggregate = mean,
+                          include_aov = TRUE)
+afex::nice(aov.effort, es = "pes")
+
+# compute posthoc tests for within measure
+posthoc_effort = emmeans::emmeans(aov.effort$aov, specs = "block")
+pairs(posthoc_effort, adjust = "bonferroni")
+
+# Figure to visualize effort ratings
+# figure
+FigPilot3 = ggplot2::ggplot(effort_reg, aes(x = block, y = effort))+
+  geom_boxplot(width = 0.7, position = position_dodge(0.8))+
+  scale_x_discrete(name = "Strategy", 
+                   limits = c("view_neg", "distraction", "distancing", "suppression"),
+                   labels = c("View", "Distraction", "Distancing", "Suppression"))+
+  geom_jitter(size = 0.4)+
+  labs(y = "Effort Rating")
 ```
 
 # 2. Method
@@ -267,7 +355,7 @@ Attentional control was assessed using the Attentional Control Scale (ACS) [@Der
 
 ## 2.7 Statistics 
 
-All statistical analyses were perfomed using *RStudio* (version 1.4.1717) [@RStudioTeam2020]and *R* (version 4.1.0) [@RCore2020] for Windows.
+All statistical analyses were perfomed using *RStudio* (version 1.4.1717) [@RStudioTeam2020]and *R* (version 4.1.0) [@RCore2021] for Windows.
 The level of significance was set to $\alpha$ = .05.
 
 *Effects of emotion regulation on arousal and effort* <br>
@@ -284,90 +372,7 @@ For each ER strategy, SVs were calculated as follows: first, the value 0.015625 
 Second, the resulting (monetary) value was divided by 2.00 €.
 The resulting values were entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression).
 
-```{r statistics, echo=FALSE, message=FALSE, warning=FALSE}
-## Subjective arousal
+## 2.8 Pilot study
 
-# ANOVA subjective arousal ratings
-# View condition
+The procedure described above was tested in a pilot study with 
 
-arousal_view = data_ER %>%
-  subset(data_ER$block == "view_neu" | data_ER$block == "view_neg")
-
-aov_arousalView = afex::aov_ez(id = "ID",
-                           dv = "arousal",
-                           data = arousal_view,
-                           within = "block",
-                           fun_aggregate = mean) 
-afex::nice(aov_arousalView, es = "pes")
-
-# compute posthoc tests for within measures
-posthoc_arousalView = emmeans::emmeans(aov_arousalView$aov, specs = "block")
-pairs(posthoc_arousalView, adjust = "bonferroni")
-
-# Figure to visualize arousal ratings
-
-# figure
-ggplot2::ggplot(arousal_view, aes(x = block, y = arousal))+
-  geom_boxplot(width = 0.7, position = position_dodge(0.8))+
-  scale_x_discrete(name = "Strategy", 
-                   limits = c("view_neu", "view_neg"),
-                   labels = c("Neutral", "Negative"))+
-  geom_jitter(size = 0.4)+
-  labs(y = "Arousal Rating")
-
-# View neg and regulate conditions 
-
-arousal_reg = data_ER %>%
-  subset(data_ER$block != "view_neu" & data_ER$block != "choice")
-
-
-aov_arousalReg = afex::aov_ez(id = "ID",
-                              dv = "arousal",
-                              data = arousal_reg,
-                              within = "block",
-                              fun_aggregate = mean)
-afex::nice(aov_arousalReg, es = "pes")
-
-# compute posthoc tests for within measures
-posthoc_arousalReg = emmeans::emmeans(aov_arousalReg$aov, specs = "block")
-pairs(posthoc_arousalReg, adjust = "bonferroni")
-
-# Figure to visualize arousal ratings
-
-# figure
-ggplot2::ggplot(arousal_reg, aes(x = block, y = arousal))+
-  geom_boxplot(width = 0.7, position = position_dodge(0.8))+
-  scale_x_discrete(name = "Strategy", 
-                   limits = c("view_neg", "distraction", "distancing", "suppression"),
-                   labels = c("View", "Distraction", "Distancing", "Suppression"))+
-  geom_jitter(size = 0.4)+
-  labs(y = "Arousal Rating")
-
-## Subjective effort
-
-# ANOVA subjective effort ratings
-
-effort_reg = data_ER %>%
-  subset(data_ER$block != "view_neu" & data_ER$block != "choice")
-
-aov.effort = afex::aov_ez(id = "ID",
-                          dv = "effort",
-                          data = effort_reg,
-                          within = "block",
-                          fun_aggregate = mean)
-afex::nice(aov.effort, es = "pes")
-
-# compute posthoc tests for within measure
-posthoc_effort = emmeans::emmeans(aov.effort$aov, specs = "block")
-pairs(posthoc_effort, adjust = "bonferroni")
-
-# Figure to visualize effort ratings
-# figure
-ggplot2::ggplot(effort_reg, aes(x = block, y = effort))+
-  geom_boxplot(width = 0.7, position = position_dodge(0.8))+
-  scale_x_discrete(name = "Strategy", 
-                   limits = c("view_neg", "distraction", "distancing", "suppression"),
-                   labels = c("View", "Distraction", "Distancing", "Suppression"))+
-  geom_jitter(size = 0.4)+
-  labs(y = "Effort Rating")
-```
