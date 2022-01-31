@@ -1924,7 +1924,10 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
 
 # Acknowledgements
 
-This research was partly funded by the German Research Foundation (DFG) as part of the Collaborative Research Center (CRC) 940.
+This research is partly funded by the German Research Foundation (DFG) as part of the Collaborative Research Center (CRC) 940.
+Additionally, we have applied for funding of the participants' compensation from centralized funds of the Faculty of Psychology at Technische Universität Dresden.
+Applications for the centralized funds will be reviewed in May.
+Regardless of whether or not this additional funding will be granted, the study can commence immediately.
 The funders have/had no role in study design, data collection and analysis, decision to publish or preparation of the manuscript.
 
 
