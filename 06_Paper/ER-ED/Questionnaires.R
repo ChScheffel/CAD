@@ -35,3 +35,4 @@ data_quest_raw <- data_redcap %>%
 
 data_quest <- data_redcap %>%
     subset(!is.na(subject), select = c(subject, age, gender, edu))
+
