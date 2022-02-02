@@ -342,20 +342,20 @@ A complete list of all pictures and their classification into sets can be found 
 
 ### 2.3.4 Electromyography
 
-Two bipolar electromyograph (EMG) measures were recorded in the region of the *corrugator supercilii* and the *levator labii* using Brain Vision Recorder (Brain Products Inc., Gilching, Germany).
-Passive surface Ag/AgCl electrodes (0.7 mm diameter, 10 mm distance between electrodes) filled with electrolyte gel were used. 
-Data were sampled at 1000 Hz.
-To measure *corrugator EMG*, electrodes were applied to the abraded and cleaned skin on the left corrugator, and to measure *levator EMG*, electrodes were applied in the region of the *levator labii*.
-The ground electrod were placed at the left *Mastoid*.
-A 10 Hz high pass and a 500 Hz low pass filter were applied to both signals. <!-- liebe Anne, habe das hier von Ray et al 2010 übernommen. Stimmt das für unsere Auswertung? -->
-Afterwards, the signals were rectified.
+Two bipolar electromyograph (EMG) measures will be recorded in the region of the *corrugator supercilii* and the *levator labii* using Brain Vision Recorder (Brain Products Inc., Gilching, Germany).
+Passive surface Ag/AgCl electrodes (0.7 mm diameter, 10 mm distance between electrodes) filled with electrolyte gel will be used. 
+Data will be sampled at 1000 Hz.
+To measure *corrugator EMG*, electrodes will be applied to the abraded and cleaned skin on the left *corrugator supercilii*, and to measure *levator EMG*, electrodes were applied in the region of the *levator labii*.
+The ground electrode will be placed at the left *Mastoid*.
+A 10 Hz high pass and a 500 Hz low pass filter will be applied to both signals. <!-- liebe Anne, habe das hier von Ray et al 2010 übernommen. Stimmt das für unsere Auswertung? -->
+Afterwards, the signals will be rectified.
 [...] <!-- @Anne hier fehlt noch einiges, bitte dann nach deiner Auswertung ergänzen =) -->
 
 ## 2.4 Sampling plan
 
 Participants will be healthy adults in the age of 18 to 30, recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden. 
 Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.
-Sample size calculation was done using _G*Power_ [@Faul2007; @Faul2009].
+Sample size calculation is done using _G*Power_ [@Faul2007; @Faul2009].
 In a meta-analysis of Zaehringer and colleagues [-@Zaehringer2020], effect sizes of ER on peripheral-physiological measures were reported.  
 To find an effect of $d=-0.32$ of ER on *corrugator* muscle activity with $\alpha=.05$ and $\beta=.95$, data of least $N=85$ have to be analyzed.
 Power analyses of all other hypotheses yielded smaller sample sizes.
@@ -364,11 +364,11 @@ Therefore, we aim to collect data of 90 participants.
 
 ## 2.5 Analysis plan 
 
-All statistical analyses were perfomed using *RStudio* (version 1.4.1717) [@RStudioTeam2020]and *R* (version 4.1.0) [@RCore2021] for Windows.
+All statistical analyses will be performed using *RStudio* (version 1.4.1717) [@RStudioTeam2020]and *R* (version 4.1.0) [@RCore2021] for Windows.
 The level of significance was set to $\alpha=.05$.
 
 *Effects of emotion regulation on arousal and effort* <br>
-To examine impact of valence of emotional pictures on subjective arousal, an repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for strategy active viewing was conducted for behavioral data (subjective arousal ratings).
+To examine impact of valence of emotional pictures on subjective arousal, an repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for strategy active viewing will be conducted for behavioral data (subjective arousal ratings).
 To investigate the effect of the tree ER strategies on subjective arousal, another rmANOVA was conducted with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective arousal ratings of negative pictures. 
 To examine the impact of valence on the emotional facial reaction, an rmANOVA with the factor valence (neutral and negative) for strategy active viewing was conducted for EMG activity of *corrugator* and *levator*. <!-- @Anne please check! =) --> 
 A further rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) was conducted for EMG activity to examine the effects of ER strategies on the emotional facial reaction. <!-- @Anne please check! =) -->
@@ -378,8 +378,9 @@ Proportion of explained variance $\eta²~p~$ was reported as a measure of effect
 
 *Subjective values of emotion regulation strategies* <br>
 For each ER strategy, SVs were calculated as follows: first, the value 0.015625 was added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
-Second, the resulting (monetary) value was divided by 2.00 €.
-The resulting values were entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression).
+Second, the resulting (monetary) value will be divided by 2.00 €.
+The final SV for each participant will be computed by averaging all final SVs of each strategy.
+The resulting values will be entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression).
 
 ## Data availability
 
