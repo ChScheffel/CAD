@@ -375,12 +375,14 @@ A further rmANOVA with the factor strategy (active viewing, distraction, distanc
 To examine the effect of ER strategies on cognitive effort, an rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings was conducted.
 Greenhouse-Geisser-corrected $p$-values and degrees of freedom were reported when assumption of sphericity was violated.
 Proportion of explained variance $\eta²~p~$ was reported as a measure of effect size.
+If indicated by the data, estimated marginal means will be computed as post-hoc contrasts.
 
 *Subjective values of emotion regulation strategies* <br>
 For each ER strategy, SVs were calculated as follows: first, the value 0.015625 was added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
 Second, the resulting (monetary) value will be divided by 2.00 €.
 The final SV for each participant will be computed by averaging all final SVs of each strategy.
-The resulting values will be entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression).
+The resulting values will be entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression) to explore for group effects.
+
 
 ## Data availability
 
