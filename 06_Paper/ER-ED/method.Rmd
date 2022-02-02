@@ -256,15 +256,16 @@ According to the 21-word-solution, "We report how we determined our sample size,
 A complete list of all measures assessed in the study will be found at the OSF (https://osf.io/vnj8x/) and GitHub (github.com/ChScheffel/COG-ER-ED). <!-- Attention! OSF is still private -->
 All procedures performed in this study were in accordance with the ethical standards of the institutional and/or national research committee and with the 1964 Helsinki declaration and its later amendments or comparable ethical standards.
 
-## 2.1 Sampling plan
+## 2.1 Ethics information
 
-Participants will be healthy adults in the age of 18 to 30, recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden. 
-Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.
-We will use all available data in subsequent analyses.
-However, if participants withdraw from study participation, technical failures occur, or experimenter considers the participant for not suitable for study participation (e.g., because the participant does not follow instructions or shows great fatigue), respective data will also be excluded from further analyses.
+## 2.2 Pilot data
 
-## 2.2 Experimental procedure
+The procedure described above was tested in a pilot study with ...
 
+## 2.3 Design
+
+Young, healthy participants (aged 18 to 30 years) will be recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden.
+Participants will be invited to fill out an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
 The study consisted of two sessions, one week apart. 
 Both sessions took place in a shielded cabin with constant lighting. 
 Before each session, participants received information about the respective experimental procedure and signed informed consent. 
@@ -277,18 +278,27 @@ Afterwards the ER paradigm was conducted.
 Participants first received written instructions on the ER paradigm and ER strategies that they should apply.
 A training session was performed to ensure that all participants were able to implement the ER strategies.
 Next, electrodes to measure EMG were attached and the ER paradigm was conducted. 
-Two days after the secon sessoin, participants received a link to an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
-
-Participants received 8.00€ per hour or course credit as compensation for participation.
+Participants received 30.00€ or course credit as compensation for participation.
 Study data were collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden [@Harris2009; @Harris2019].
 
-## 2.3 Emotion regulation paradigm 
+### 2.3.1 Psychometric measures
+
+The online survey contained a number of questionnaires: General psychological well-being was assessed using the WHO-5 scale [@Bech2004; German version: @Braehler2007].
+To capture the construct of resilience, the 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; German version: @Sarubin2015] was used. 
+Dispositional use of ER was assessed using the Emotion Regulation Questionnaire (ERQ) [@GrossJohn2003;German version: @Abler2009].
+For the assessment of ER ability we used the Flexible Emotion Regulation Scale (FlexER) [@Doerfel2019].
+Implicit theories of willpower in emotion control were assessed using the implicit theories questionnaire from Bernecker and Job [-@Bernecker2017] was used.
+To assess need for cognition, the short form of the Need for Cognition Scale [@Cacioppo1982; German version: @Bless1994] was used.
+To assess self-control, sum scores of the following questionnaires were used [@Paschke2016]: the Self-Regulation Scale (SRS) [@Schwarzer1999], the Brief Self-Control Scale (BSCS) @Tangney2004; German version: @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11) [@Patton1995; German version: @Hartmann2011].
+Attentional control was assessed using the Attentional Control Scale (ACS) [@Derryberry2002].
+
+### 2.3.2 Emotion regulation paradigm
 
 The ER paradigm roughly consisted of three parts that will be described in the following.
 
 *Part one: ER task.* <br>
 Part one could be described as standard ER task that followed a block design (see Figure X), similar to paradigms previously used by our group [@Scheffel2021]. 
-Participants were told to actively view neutral and negative pictures (see [2.4](##stimuli)) or to regulate all upcoming emotions by means of distraction, distancing and expressive suppression, respectively. 
+Participants were told to actively view neutral and negative pictures (see [2.3.3](##stimuli)) or to regulate all upcoming emotions by means of distraction, distancing and expressive suppression, respectively. 
 Every participant first had the condition "active viewing-neutral" that served as a baseline condition.
 During this block, 20 neutral pictures were presented.
 Participants were asked to "actively view all pictures and permit all emotions that may arise."
@@ -322,7 +332,7 @@ However, participants were asked to state the reasons for the decision afterward
 As soon as they had decided, they saw the respective instruction. 
 After, the block with another 20 negative pictures started.
 
-## 2.4 Stimuli
+### 2.3.3 Stimuli
 
 Pictures used in the paradigm were selected from the Emotional Picture Set (EmoPicS) [@Wessa2010] and the International Affective Picture System (IAPS) [@Lang2008]. 
 The 20 neutral pictures (Valence (V): _M_ $\pm$ _SD_ = `r round(mean(stim_neutral$valence), digits = 2)` $\pm$ `r round(sd(stim_neutral$valence), digits = 2)`; Arousal (A): _M_ $\pm$ _SD_ = `r round(mean(stim_neutral$arousal), digits = 2)` $\pm$ `r round(sd(stim_neutral$arousal), digits = 2)`) depicted content related to the categories persons, objects, and scenes.
@@ -330,7 +340,7 @@ Further, 100 negative pictures, featuring categories animals, body, disaster, di
 An evolutionary algorithm [@Yu2010] was used to cluster these pictures into five sets with comparable valence and arousal values (set one: V: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$valence[stim_negative$set == 1]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 1]), digits = 2)`, A: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$arousal[stim_negative$set == 1]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 1]), digits = 2)`; set two: V: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$valence[stim_negative$set == 2]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 2]), digits = 2)`, A: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$arousal[stim_negative$set == 2]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 2]), digits = 2)`; set three: V: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$valence[stim_negative$set == 3]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 3]), digits = 2)`, A: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$arousal[stim_negative$set == 3]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 3]), digits = 2)`; set four: V: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$valence[stim_negative$set == 4]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 4]), digits = 2)`, A: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$arousal[stim_negative$set == 4]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 4]), digits = 2)`; set five: V: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$valence[stim_negative$set == 5]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 5]), digits = 2)`, A: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$arousal[stim_negative$set == 5]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 5]), digits = 2)`).
 A complete list of all pictures and their classification into sets can be found in supplementary material X.
 
-## 2.5 Electromyography
+### 2.3.4 Electromyography
 
 Two bipolar electromyograph (EMG) measures were recorded in the region of the *corrugator supercilii* and the *levator labii* using Brain Vision Recorder (Brain Products Inc., Gilching, Germany).
 Passive surface Ag/AgCl electrodes (0.7 mm diameter, 10 mm distance between electrodes) filled with electrolyte gel were used. 
@@ -341,22 +351,21 @@ A 10 Hz high pass and a 500 Hz low pass filter were applied to both signals. <!-
 Afterwards, the signals were rectified.
 [...] <!-- @Anne hier fehlt noch einiges, bitte dann nach deiner Auswertung ergänzen =) -->
 
-## 2.6 Psychometric measures
+## 2.4 Sampling plan
 
-Two days after the T2 ER session, participants receive an email containing the link to the online survey. 
-This survey contained a number of questionnaires: General psychological well-being was assessed using the WHO-5 scale [@Bech2004; German version: @Braehler2007].
-To capture the construct of resilience, the 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; German version: @Sarubin2015] was used. 
-Dispositional use of ER was assessed using the Emotion Regulation Questionnaire (ERQ) [@GrossJohn2003;German version: @Abler2009].
-For the assessment of ER ability we used the Flexible Emotion Regulation Scale (FlexER) [@Doerfel2019].
-Implicit theories of willpower in emotion control were assessed using the implicit theories questionnaire from Bernecker and Job [-@Bernecker2017] was used.
-To assess need for cognition, the short form of the Need for Cognition Scale [@Cacioppo1982; German version: @Bless1994] was used.
-To assess self-control, sum scores of the following questionnaires were used [@Paschke2016]: the Self-Regulation Scale (SRS) [@Schwarzer1999], the Brief Self-Control Scale (BSCS) @Tangney2004; German version: @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11) [@Patton1995; German version: @Hartmann2011].
-Attentional control was assessed using the Attentional Control Scale (ACS) [@Derryberry2002].
+Participants will be healthy adults in the age of 18 to 30, recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden. 
+Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.
+Sample size calculation was done using _G*Power_ [@Faul2007; @Faul2009].
+In a meta-analysis of Zaehringer and colleagues [-@Zaehringer2020], effect sizes of ER on peripheral-physiological measures were reported.  
+To find an effect of $d=-0.32$ of ER on *corrugator* muscle activity with $\alpha=.05$ and $\beta=.95$, data of least $N=85$ have to be analyzed.
+Power analyses of all other hypotheses yielded smaller sample sizes.
+However, if participants withdraw from study participation, technical failures occur, or experimenter considers the participant for not suitable for study participation (e.g., because the participant does not follow instructions or shows great fatigue), respective data will also be excluded from further analyses.
+Therefore, we aim to collect data of 90 participants.
 
-## 2.7 Statistics 
+## 2.5 Analysis plan 
 
 All statistical analyses were perfomed using *RStudio* (version 1.4.1717) [@RStudioTeam2020]and *R* (version 4.1.0) [@RCore2021] for Windows.
-The level of significance was set to $\alpha$ = .05.
+The level of significance was set to $\alpha=.05$.
 
 *Effects of emotion regulation on arousal and effort* <br>
 To examine impact of valence of emotional pictures on subjective arousal, an repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for strategy active viewing was conducted for behavioral data (subjective arousal ratings).
@@ -372,7 +381,48 @@ For each ER strategy, SVs were calculated as follows: first, the value 0.015625 
 Second, the resulting (monetary) value was divided by 2.00 €.
 The resulting values were entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression).
 
-## 2.8 Pilot study
+## Data availability
 
-The procedure described above was tested in a pilot study with 
+The data of this study can be downloaded from [osf.io/vnj8x/](https://osf.io/vnj8x/).
+
+## Code availability
+
+The paradigm code, as well as the R Markdown file used to analyze the data and write this document is available at our [Github repository](https://github.com/ChScheffel/CERED).
+
+\newpage
+
+# References
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id="refs" custom-style="Bibliography"></div>
+\endgroup
+
+\newpage
+
+# Acknowledgements
+
+This research is partly funded by the German Research Foundation (DFG) as part of the Collaborative Research Center (CRC) 940.
+Additionally, we have applied for funding of the participants' compensation from centralized funds of the Faculty of Psychology at Technische Universität Dresden.
+Applications for the centralized funds will be reviewed in May.
+Regardless of whether or not this additional funding will be granted, the study can commence immediately.
+The funders have/had no role in study design, data collection and analysis, decision to publish or preparation of the manuscript.
+
+
+# Author Contributions
+
+CS, AS, and JZ conceptualized the study and its methodology.
+CS and JZ acquired funding, investigated, administered the project, and wrote the software.
+CS, JZ, and AG did the formal analysis.
+CS and JZ visualized the results, and prepared the original draft.
+All authors reviewed, edited, and approved the final version of the manuscript.
+
+
+# Competing Interests
+
+The authors declare no competing interests.
+
+
 
