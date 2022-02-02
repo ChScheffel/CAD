@@ -1871,7 +1871,7 @@ To investigate changes in NASA-TLX ratings, six rmANOVAs will be computed, one f
 For each ED round, SVs will be calculated by adding or subtracting 0.015625 from the last monetary value of the flexible level, depending on the participant's last choice.
 Then, these final monetary values will be divided by 2€, and the SV of each level per participant will be computed by averaging all final values of each level, regardless of whether it was fixed or flexible.
 An rmANOVA with six paired contrasts will be computed, comparing the SVs between two levels of 1-, 2-, 3-, and 4-back at a time.
-Tukey method will be used for the paired contrasts of each rmANOVA, including *p*-value adjustment.
+Estimated marginal means will be used for the paired contrasts of each rmANOVA, including Tukey method for *p*-value adjustment.
 
 To determine the influence of task performance in the association of SVs and n-back level, we will set up a MLM using the $lmerTest$ package. 
 We will apply restricted maximum likelihood (REML) to fit the model.
