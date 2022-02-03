@@ -1874,6 +1874,18 @@ An rmANOVA with six paired contrasts will be computed, comparing the SVs between
 Estimated marginal means will be used for the paired contrasts of each rmANOVA, including Tukey method for *p*-value adjustment.
 
 To determine the influence of task performance in the association of SVs and n-back level, we will set up a MLM using the $lmerTest$ package. 
+<!--CS: Zitation hinzufügen?
+ @Article{,
+    title = {{lmerTest} Package: Tests in Linear Mixed Effects Models},
+    author = {Alexandra Kuznetsova and Per B. Brockhoff and Rune H. B.
+      Christensen},
+    journal = {Journal of Statistical Software},
+    year = {2017},
+    volume = {82},
+    number = {13},
+    pages = {1--26},
+    doi = {10.18637/jss.v082.i13},
+  }--> 
 We will apply restricted maximum likelihood (REML) to fit the model.
 First, we will calculate the intraclass correlation (ICC) on the basis of the null model.
 Second, we will estimate a random slopes model of SVs including n-back load level as level-1-predictor and, additionally, NFC as level-2-predictor. 
