@@ -385,16 +385,23 @@ The resulting values will be entered in a rmANOVA to compare the SVs of the thre
 Again, estimated, marginal means will be computed as post-hoc contrasts.
 
 To explore the association between subjective arousal, physiological arousal, and subjective effort on SVs, a multilevel model (MLM) will be specified using the $lmerTest$ package [@Kuznetsova2017].
-First, ER strategies will be recoded and centered for each subject according to their individual SVs: The strategy with the highest SV will be coded as -1, the strategy with the second highest SV 0, and the strategy with the lowest SV will be coded as 1.
+First, ER strategies will be re-coded and centered for each subject according to their individual SVs: The strategy with the highest SV will be coded as -1, the strategy with the second highest SV 0, and the strategy with the lowest SV will be coded as 1.
 Restricted maximum likelihood (REML) will be applied to fit the model.
-Firstly, intraclass correlation (ICC) will be calculated on the basis of the null model.
-Secondly, a random slopes model of SVs including subjective effort (effort ratings), subjective arousal (arousal ratings), and physiological arousal (*corrugator* activity and *levator* activity) as level-1-predictor will be specified.
+A random slopes model of SVs including subjective effort (effort ratings), subjective arousal (arousal ratings), and physiological arousal (*corrugator* activity and *levator* activity) as level-1-predictor will be specified.
 $$
 SV \sim strategy\ + \text{effort rating} + \text{arousal rating} + corrugator \text{ activity} + levator \text{ activity} + (strategy|subject)
 $$
-Level-1-predictors will be centered within cluster [Enders2007].
+Level-1-predictors will be centered within cluster [@Enders2007].
 Residuals of the final model will be inspected visually.
+Intraclass correlation coefficient (ICC), $\rho$,  will be reported for each model (null model, as well as full model).
 
+The influence of personality traits on SVs will be investigated exploratorily. 
+Therefore, the MLM specified above will be extended by the level-2-predictors NFC and self-control. <!--CS: Weitere Persönlichkeitsfaktoren ins Modell? Würde sagen erstmal nicht, denn sonst wird es a) überladen mit Prädiktoren und b) haben wir sonst kein Maß, was meiner Meinung nach mit ALLEN SVs zusammenhängen sollte. -->
+
+The association between flexible ER and SVs of ER strategies will be investigated with a regression using the $intercept$ and $slope$ of each participants' SVs to predict threi FlexER score.
+Therefore, SVs will be ordered by magnitude.  
+
+For each result of the analyses both, $p$-values and Bayes factor $BF10$, calculated using the *BayesFactor* package [@Morey2021], will be reported.
 
 ## Data availability
 
