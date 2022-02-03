@@ -1887,7 +1887,7 @@ To determine the influence of task performance in the association of SVs and n-b
     doi = {10.18637/jss.v082.i13},
   }--> 
 We will apply restricted maximum likelihood (REML) to fit the model.
-First, we will calculate the intraclass correlation (ICC) on the basis of the null model.
+First, we will calculate the intraclass correlation (ICC) on the basis of the null model. <!--CS: Wieso wird der ICC nur für das Null Modell berechnet ? Man könnte den doch auch für das full-model ebenfalls angeben und sehen, wieviel Varianzaufklärung hinzugekommen ist? -->
 Second, we will estimate a random slopes model of SVs including n-back load level as level-1-predictor and, additionally, NFC as level-2-predictor. 
 Within the model, we will control for *d'*, RT, correct, and post-correct trials.
 $$
