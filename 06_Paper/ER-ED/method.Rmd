@@ -392,6 +392,8 @@ Secondly, a random slopes model of SVs including subjective effort (effort ratin
 $$
 SV \sim strategy\ + \text{effort rating} + \text{arousal rating} + corrugator \text{ activity} + levator \text{ activity} + (strategy|subject)
 $$
+Level-1-predictors will be centered within cluster [Enders2007].
+Residuals of the final model will be inspected visually.
 
 
 ## Data availability
