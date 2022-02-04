@@ -157,6 +157,10 @@ for (i in 1:length(datalist_EMG)) {
   
 }
 
+# import questionnaire df
+
+data_quest = read.csv(here("04_RawData", "pilot", "ER-ED", "dfs", "df_quest.csv"), sep = ",")
+
 ```
 
 ```{r statistics, echo=FALSE, message=FALSE, warning=FALSE}
@@ -260,7 +264,7 @@ All procedures performed in this study were in accordance with the ethical stand
 
 ## 2.2 Pilot data
 
-The procedure described above was tested in a pilot study with ...
+The procedure described above was tested in a pilot study with $N=`r nrow(data_quest)`$ participants
 
 ## 2.3 Design
 
