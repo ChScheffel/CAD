@@ -1898,6 +1898,7 @@ We will visually inspect the residuals of the final model.
 The approximately normal distribution indicates no evidence to perform model criticism.  
 Third, we will perform a simple slopes analysis with n-back level as predictor and NFC as moderator. 
 To evaluate the moderating effect, we will calculate the Johnson-Neyman interval.
+<!--CS: Man könnte noch die Effektgröße bestimmen nach: doi: 10.1002/sim.3429 -> semi partial R²  --> 
 
 To ensure the validity of the MLM, we will conduct a specification curve analysis [@Simonsohn2020], which will include 63 possible preprocessing pipelines of the RT data.
 These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, 2, 2.5, or 3\ $MAD$ from the median, RTs below 100\ or\ 200\ ms), and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within n-back levels).
