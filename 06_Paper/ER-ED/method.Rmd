@@ -398,7 +398,7 @@ Intraclass correlation coefficient (ICC), $\rho$,  will be reported for each mod
 The influence of personality traits on SVs will be investigated exploratorily. 
 Therefore, the MLM specified above will be extended by the level-2-predictors NFC and self-control. <!--CS: Weitere Persönlichkeitsfaktoren ins Modell? Würde sagen erstmal nicht, denn sonst wird es a) überladen mit Prädiktoren und b) haben wir sonst kein Maß, was meiner Meinung nach mit ALLEN SVs zusammenhängen sollte. -->
 
-The association between flexible ER and SVs of ER strategies will be investigated with a regression using the $intercept$ and $slope$ of each participants' SVs to predict threi FlexER score.
+The association between flexible ER and SVs of ER strategies will be investigated with a regression using the $intercept$ and $slope$ of each participants' SVs to predict threir FlexER score.
 Therefore, SVs will be ordered by magnitude firstly. 
 Secondly, for each participant a linear model will be built to estimate the individual $intercept$ and $slope$. <!--CS: Reicht das so als Beschreibung und wird klar, woher die Slopes und Intercepts kommen werden? --> 
 
