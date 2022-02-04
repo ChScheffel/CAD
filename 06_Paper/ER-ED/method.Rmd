@@ -264,7 +264,7 @@ All procedures performed in this study were in accordance with the ethical stand
 
 ## 2.2 Pilot data
 
-The procedure described above was tested in a pilot study with $N=`r nrow(data_quest)`$ participants
+The procedure described above was tested in a pilot study with $N=`r nrow(data_quest)`$ participants ()
 
 ## 2.3 Design
 
