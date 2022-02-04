@@ -463,11 +463,11 @@ Additionally, we will compare the ED behaviour of participants regarding the n-b
 The full results of the latter will be published in a second Registered Report.
 The COG-ED paradigm has been applied to tasks with different domains before, showing that SVs across task domains correlate [@Crawford2021], but these tasks had an objective order of task load, which is not the case for emotion regulation.
 
-```{r figure1, echo=FALSE, message=FALSE, warning=FALSE} 
-# comment Christoph: Evtl. lieber mit fig.cap = "..." im Chunk arbeiten? Dann wäre das auf jeden fall immer an die Figure attached
-include_graphics(here("99_Thinktank", "Other", "Paradigm_Scheme.png"))
+```{r figure1, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="An example for subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back > 3-back > 1-back.", fig.pos="H"} 
+  
+  include_graphics(here("99_Thinktank", "Other", "Paradigm_Scheme.png"))
+
 ```
-*Figure 1.* An example for subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back \> 3-back \> 1-back.
 
 Our hypotheses were derived from the results of Westbrook et al. [-@Westbrook2013].
 Regarding the associations of subjective and objective task load we hypothesize that (1a) the signal detection parameter *d'* declines with increasing n-back level, (1b) reaction time increases with increasing n-back level, and (1c) perceived task load increases with increasing n-back level.
