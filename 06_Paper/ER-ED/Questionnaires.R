@@ -36,3 +36,8 @@ data_quest_raw <- data_redcap %>%
 data_quest <- data_redcap %>%
     subset(!is.na(subject), select = c(subject, age, gender, edu))
 
+
+
+# save data frame
+
+write.csv(data_quest, here("04_RawData", "pilot", "ER-ED", "dfs","df_quest.csv"), row.names = FALSE)
