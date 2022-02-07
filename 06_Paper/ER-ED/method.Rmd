@@ -256,7 +256,7 @@ FigPilot3 = ggplot2::ggplot(effort_reg, aes(x = block, y = effort))+
 # 2. Method
 
 The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at github.com/ChScheffel/COG-ER-ED.
-According to the 21-word-solution, "We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study" in compliance with the 21-word-solution of open science [@Simmons2012].
+According to the 21-word-solution, "we report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study" in compliance with the 21-word-solution of open science [@Simmons2012].
 A complete list of all measures assessed in the study will be found at the OSF (https://osf.io/vnj8x/) and GitHub (github.com/ChScheffel/COG-ER-ED). <!-- Attention! OSF is still private -->
 All procedures performed in this study were in accordance with the ethical standards of the institutional and/or national research committee and with the 1964 Helsinki declaration and its later amendments or comparable ethical standards.
 
@@ -270,71 +270,66 @@ The procedure described above was tested in a pilot study with $N=`r nrow(data_q
 
 Young, healthy participants (aged 18 to 30 years) will be recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden.
 Participants will be invited to fill out an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
-The study consisted of two sessions, one week apart. 
-Both sessions took place in a shielded cabin with constant lighting. 
-Before each session, participants received information about the respective experimental procedure and signed informed consent. 
-At the beginning of the first session participants filled out a demographic questionnaire. 
-Afterwards the completed an n-Back task with the levels one to four.
-Then, they completed an ED procedure on screen, followed by a random repetition of one n-back level.
-The second session, containing the ER paradigm, took place exactly one week after session one.
-Participants gave signed informed consent for the second session.
-Afterwards the ER paradigm was conducted.
-Participants first received written instructions on the ER paradigm and ER strategies that they should apply.
-A training session was performed to ensure that all participants were able to implement the ER strategies.
-Next, electrodes to measure EMG were attached and the ER paradigm was conducted. 
-Participants received 30.00€ or course credit as compensation for participation.
-Study data were collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden [@Harris2009; @Harris2019].
+The study consists of two lab sessions, which take place in a shielded cabin with constant lighting. 
+Before each session, participants receive information about the respective experimental procedure and provide informed consent. 
+At the beginning of the first session participants fill out a demographic questionnaire and complete an n-Back task with the levels one to four.
+Then, they complete an ED procedure on screen, followed by a random repetition of one n-back level. <!--JZ: Hast du ED schon als Abkürzung eingeführt?-->
+The second session, containing the ER paradigm, takes place exactly one week after session one.
+Participants provide informed consent and receive written instructions on the ER paradigm and ER strategies that they should apply.
+A brief training ensures that all participants are able to implement the ER strategies.
+Next, electrodes to measure EMG are being attached and the ER paradigm is conducted. 
+Participants receive 30.00€ or course credit as compensation.
+Study data are being collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden [@Harris2009; @Harris2019].
 
 ### 2.3.1 Psychometric measures
 
-The online survey contained a number of questionnaires: General psychological well-being was assessed using the WHO-5 scale [@Bech2004; German version: @Braehler2007].
-To capture the construct of resilience, the 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; German version: @Sarubin2015] was used. 
-Dispositional use of ER was assessed using the Emotion Regulation Questionnaire (ERQ) [@GrossJohn2003;German version: @Abler2009].
-For the assessment of ER ability we used the Flexible Emotion Regulation Scale (FlexER) [@Doerfel2019].
-Implicit theories of willpower in emotion control were assessed using the implicit theories questionnaire from Bernecker and Job [-@Bernecker2017] was used.
-To assess need for cognition, the short form of the Need for Cognition Scale [@Cacioppo1982; German version: @Bless1994] was used.
-To assess self-control, sum scores of the following questionnaires were used [@Paschke2016]: the Self-Regulation Scale (SRS) [@Schwarzer1999], the Brief Self-Control Scale (BSCS) @Tangney2004; German version: @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11) [@Patton1995; German version: @Hartmann2011].
-Attentional control was assessed using the Attentional Control Scale (ACS) [@Derryberry2002].
+The online survey contains a number of questionnaires: General psychological well-being was assessed using the WHO-5 scale [@Bech2004; German version: @Braehler2007].
+To capture the construct of resilience, the 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; German version: @Sarubin2015] is used. 
+Dispositional use of ER is assessed using the Emotion Regulation Questionnaire (ERQ) [@GrossJohn2003;German version: @Abler2009].
+For the assessment of ER ability we use the Flexible Emotion Regulation Scale (FlexER) [@Doerfel2019].
+Implicit theories of willpower in emotion control are assessed using the implicit theories questionnaire from Bernecker and Job [-@Bernecker2017].
+To assess Need for Cognition, the short form of the Need for Cognition Scale [@Cacioppo1982; German version: @Bless1994] is used.
+To assess self-control, sum scores of the following questionnaires are used [@Paschke2016]: the Self-Regulation Scale (SRS) [@Schwarzer1999], the Brief Self-Control Scale (BSCS) @Tangney2004; German version: @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11) [@Patton1995; German version: @Hartmann2011].
+Attentional control is assessed using the Attentional Control Scale (ACS) [@Derryberry2002].
 
 ### 2.3.2 Emotion regulation paradigm
 
-The ER paradigm roughly consisted of three parts that will be described in the following.
+The ER paradigm roughly consists of three parts that will be described in the following.
 
 *Part one: ER task.* <br>
-Part one could be described as standard ER task that followed a block design (see Figure X), similar to paradigms previously used by our group [@Scheffel2021]. 
-Participants were told to actively view neutral and negative pictures (see [2.3.3](##stimuli)) or to regulate all upcoming emotions by means of distraction, distancing and expressive suppression, respectively. 
-Every participant first had the condition "active viewing-neutral" that served as a baseline condition.
-During this block, 20 neutral pictures were presented.
-Participants were asked to "actively view all pictures and permit all emotions that may arise."
-In the second block, participants actively viewed negative pictures.
-During the third, fourth, and fifth block, participants saw negative pictures and were asked to regulate their emotions using distraction, distancing, and suppression.
-In order to achieve distraction, participants were asked to think of a geometric object or an everyday activity, like brushing their teeth.
-During distancing, participants were asked to "take the position of a non-involved observer, thinking about the picture in a neutral way."
-Participants were told not to re-interpret the situation or attaching a different meaning to the situation.
-During suppression, participants were told to "suppress their emotional facial expression."
+Part one is a standard ER task in a block design (see Figure X), similar to paradigms previously used by our group [@Scheffel2021]. 
+Participants are told to actively view neutral and negative pictures (see [2.3.3](##stimuli)) or to regulate all upcoming emotions by means of distraction, distancing, and expressive suppression, respectively. 
+Every participant first has the condition "active viewing-neutral" that serves as a baseline condition.
+During this block, 20 neutral pictures are presented.
+Participants are asked to "actively view all pictures and permit all emotions that may arise."
+In the second block, participants actively viewe negative pictures.
+During the third, fourth, and fifth block, participants see negative pictures and are asked to regulate their emotions using distraction, distancing, and suppression.
+In order to achieve distraction, participants are asked to think of a geometric object or an everyday activity, like brushing their teeth.
+During distancing, participants are asked to "take the position of a non-involved observer, thinking about the picture in a neutral way."
+Participants are told not to re-interpret the situation or attaching a different meaning to the situation.
+During suppression, participants are told to "suppress their emotional facial expression."
 They should imagine being observed by a third person that should not be able to tell just by looking at the facial expression whether the person is looking at an emotional picture.
-Participants were instructed not to suppress their thoughts or change their facial expression to the opposite [@Scheffel2021].
-All participants received written instruction and completed a training session.
-After the training session, participants were asked about their applied ER strategies to avoid misapplication.
-The order of the three regulation blocks (distraction, distancing, and suppression) was randomized between participants.
+Participants are instructed not to suppress their thoughts or change their facial expression to the opposite [@Scheffel2021].
+All participants receive written instruction and complete a training session.
+After the training session, participants are asked about their applied ER strategies to avoid misapplication.
+The order of the three regulation blocks (distraction, distancing, and suppression) is randomized between participants.
 
 *Part two: ER effort discounting.* <br>
-In the second part, ER effort discounting took place.
-The procedure of the discounting followed the COG-ED paradigm by Westbrook et al. [-@Westbrook2013] with major change.
-We used the following adaption that allowed the computation of SVs for different strategies without presuming that all individuals would inherently evaluate the same strategy as the easiest one: For each possible pairing (distraction vs. distancing, distraction vs. suppression, and distancing vs. suppression), two strategies with monetary values were presented.
-The order of the comparisons was randomized.
-Because there is no strategy that is objectively more difficult, we added an initial comparison that began with the option "1 EUR for strategy A or 1 EUR for strategy B".
-The strategy that was not chosen was assigned the value 2 EUR.
-From this point on, comparisons between strategies followed the original COG-ED paradigm [@Westbrook2013].
-Participants were instructed to decide as realistically as possible, imaging the displayed money would really be up for election.
+In the second part, ER effort discounting takes place.
+The procedure of the discounting follows the COG-ED paradigm by Westbrook et al. [-@Westbrook2013] with major change.
+We use the following adaption that allows the computation of SVs for different strategies without presuming that all individuals would inherently evaluate the same strategy as the easiest one: For each possible pairing (distraction vs. distancing, distraction vs. suppression, and distancing vs. suppression), two strategies with monetary values are presented.
+The order of the comparisons is randomized.
+Because there is no strategy that is objectively more difficult, we added an initial comparison that begins with the option "1 EUR for strategy A or 1 EUR for strategy B".
+The strategy that is not chosen is assigned the value of 2 EUR.
+From this point on, comparisons between strategies follow the original COG-ED paradigm [@Westbrook2013].
+Participants are instructed to decide as realistically as possible, imagining the displayed money would really be up for election.
 
 *Part three: ER choice.* <br>
-After the discounting part, participants chose which of the three ER strategies (distraction, distancing or suppression) they wanted to reapply.
-Importantly, there were no further instruction, on what basis they should make their decision.
-Participants should make their decision freely, according to the criteria they considered important for themselves.
-However, participants were asked to state the reasons for the decision afterwards.
-As soon as they had decided, they saw the respective instruction. 
-After, the block with another 20 negative pictures started.
+After the discounting part, participants choose which of the three ER strategies (distraction, distancing or suppression) they want to re-apply.
+Importantly, there are no further instruction on what basis they should make their decision.
+Participants should make their decision freely, according to the criteria they consider important for themselves.
+However, participants are asked to state the reasons for the decision afterwards.
+As soon as they have decided, they see the respective instruction and the block with another 20 negative pictures starts.
 
 ### 2.3.3 Stimuli
 
@@ -357,7 +352,7 @@ Afterwards, the signals will be rectified.
 
 ## 2.4 Sampling plan
 
-Participants will be healthy adults in the age of 18 to 30, recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden. 
+Participants will be healthy adults in the age of 18 to 30, recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden. <!--JZ: Das stand oben schon mal-->
 Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.
 Sample size calculation is done using _G*Power_ [@Faul2007; @Faul2009].
 In a meta-analysis of Zaehringer and colleagues [-@Zaehringer2020], effect sizes of ER on peripheral-physiological measures were reported.  
