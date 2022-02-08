@@ -15,6 +15,7 @@ library(afex)       # for ANOVA
 library(emmeans)
 library(ggplot2)    # for nice plots
 library(dplyr)
+library(BayesFactor)
 
 # set top level directory to source file
 here::i_am("flag_project_root_CERED.txt")
@@ -169,10 +170,11 @@ data_quest = read.csv(here("04_RawData", "pilot", "ER-ED", "dfs", "df_quest.csv"
 # ANOVA subjective arousal ratings
 # View condition
 
-arousal_view = data_ER %>%
+Ratings_view <- data_ER %>%
   subset(data_ER$block == "view_neu" | data_ER$block == "view_neg")
+Ratings_view$block <- as.factor(Ratings_view$block)
 
-aov_arousalView = afex::aov_ez(data = arousal_view,
+SubjArousalView_aov <- afex::aov_ez(data = Ratings_view,
                                id = "ID",
                                dv = "arousal",
                                within = "block",
@@ -180,8 +182,17 @@ aov_arousalView = afex::aov_ez(data = arousal_view,
                                include_aov = TRUE) 
 
 # compute posthoc tests for within measures
-posthoc_arousalView = emmeans::emmeans(aov_arousalView$aov, specs = "block")
+SubjArousalView_emm <- emmeans::emmeans(SubjArousalView_aov$aov, specs = "block")
 #pairs(posthoc_arousalView, adjust = "bonferroni")
+
+SubjArousalView_con <- as.data.frame(pairs(SubjArousalView_emm, adjust = "bonferroni"))
+
+# Bayes Factors
+SubjArousalView_BF <- BayesFactor::anovaBF(formula = arousal ~ block,
+                                           data = Ratings_view,
+                                           progress = FALSE)
+SubjArousalView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_view$arousal[Ratings_view$block == "view_neu"],
+                                                                        y = Ratings_view$arousal[Ratings_view$block == "view_neg"]))
 
 # Figure to visualize arousal ratings
 
