@@ -54,7 +54,6 @@ What has been missing in research on ER choice so far is information regarding t
 People choose a strategy that they prefer, for different, relatively well-known reasons. 
 However, nothing is revealed about the strategy that is not chosen.
 
-<!-- JZ: Hier mal ein Vorschlag für eine andere Variante des oberen Absatzes, ohne inhaltlich was zu verändern: -->
 The postulation of *adaptive* and *maladaptive* strategies was put into a new perspective with the concept of ER flexibility.
 Similar to other psychological domains such as attention and goal pursuit, *maladaptive* now refers to inflexible strategy use or use of strategies that are hindering the achievement of goals [@Aldao2015].
 In contrast, *adaptive* ER requires having a large repertoire of ER strategies to choose from [@Aldao2015] and choosing the strategy that is useful for goal achieving in a particular situation.
