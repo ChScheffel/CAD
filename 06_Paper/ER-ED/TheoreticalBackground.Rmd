@@ -24,8 +24,7 @@ So called antecedent-focused strategies, e.g., attentional deployment and cognit
 In contrast, response modification takes place late in the process and is therefore conceptualized as a response-focused strategy [@Gross1998antecedent].
 This postulated temporal sequence of ER strategies influences their effectiveness.
 It is meta-analytically proven that all mentioned strategies reduce subjective emotional arousal [@Webb2012].
-<!--JZ: Das "on outcomes in measures" im folgenden Satz klingt doppelt gemoppelt, das sollte vielleicht noch umformuliert werden -->
-Distraction as a tactic of attentional deployment and (expressive) suppression as a tactic of response modulation showed small to medium effect sizes on outcomes in measures of emotional experience (distraction: _d~+~_ = 0.27; suppression: _d~+~_ = 0.27).
+Distraction as a tactic of attentional deployment and (expressive) suppression as a tactic of response modulation showed small to medium effect sizes on measures of emotional experience (distraction: _d~+~_ = 0.27; suppression: _d~+~_ = 0.27).
 Distancing as tactic of cognitive change showed the highest effectiveness with an effect size of _d~+~_ = 0.45 [@Webb2012].
 So these tactics from three different strategies proved to be effective in the short term. 
 However, in order to be able to make a statement on their general benefit, longer-term consequences must also be considered. 
