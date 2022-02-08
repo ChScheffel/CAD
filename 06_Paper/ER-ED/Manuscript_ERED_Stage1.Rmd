@@ -128,5 +128,22 @@ All authors reviewed, edited, and approved the final version of the manuscript.
 
 The authors declare no competing interests.
 
+\newpage
+\setcounter{figure}{0}
+
+# Figures and figure captions
+
+\newpage
+
+# Design Table
+
+\includepdf[pages={-}, landscape=true]{Supplement/Design_Table_T2.pdf}
+
+\newpage
+
+# Supplement
+
+\counterwidthin{figure}{section}
+
 
 
