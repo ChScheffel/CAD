@@ -38,9 +38,9 @@ Also, meta-analytic evidence exists linking a number of ER strategies to psychol
 <!--CS: Mit dem Teil bin ich noch nciht ganz zufrieden, freue mich über Anmerkungen, wie man das evtl. strukturieren kann! -->
 The postulation of *adaptive* and *maladaptive* strategies was put in a new perspective with the concept of ER flexibility.
 Similar to other psychological domains, e.g., attention and goal pursuit, *maladaptive* now refers to inflexible strategy use or use of strategies that are hindering the achievement of goals [@Aldao2015].
-First, adaptive flexible ER requires having a large repertoire of ER strategies [@Aldao2015]. <!--JZ: Hier mit "First" weiterzumachen, ist nicht so sinnvoll, weil der vorherige Satz keine Argumentation einleitet, die nun durch first, second, etc. ausgeführt werden soll-->
+Adaptive flexible ER requires having a large repertoire of ER strategies [@Aldao2015].
 For example, greater ER variability is related to reduced negative affect and therefore beneficial in daily life [@Blanke2020].
-Second, strategies have to be chosen from the repertoire that are useful for goal achieving.
+Strategies have to be chosen from the repertoire that are useful for goal achieving.
 Evidence from other contexts (e.g., intertemporal choice, [@Kable2007]) shows that subjective values (SVs) are attributed to the choice options on the basis of which the decision is made.
 Research on ER choice has identified numerous factors that influence the choice of ER strategies, which can be seen as indirect evidence for factors influencing SVs. 
 For example, it was shown that the intensity of a stimulus or situation plays a role in the choice [@Sheppes2011]. 
