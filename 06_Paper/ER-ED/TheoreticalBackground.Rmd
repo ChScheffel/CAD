@@ -26,6 +26,7 @@ This postulated temporal sequence of ER strategies influences their effectivenes
 It is meta-analytically proven that all mentioned strategies reduce subjective emotional arousal [@Webb2012].
 Distraction as a tactic of attentional deployment and (expressive) suppression as a tactic of response modulation showed small to medium effect sizes on measures of emotional experience (distraction: _d~+~_ = 0.27; suppression: _d~+~_ = 0.27).
 Distancing as tactic of cognitive change showed the highest effectiveness with an effect size of _d~+~_ = 0.45 [@Webb2012].
+Moreover it is known that ER strategies reduce physiological arousal, measured via EMG in the region of the *corrugator supercilii* [@Zaehringer2020]. 
 So these tactics from three different strategies proved to be effective in the short term. 
 However, in order to be able to make a statement on their general benefit, longer-term consequences must also be considered. 
 Especially strategies that do not put the emotional content of the situation into a neutral perspective (i.e., distraction and suppression) are presumed to be disadvantageous in the longer term.
@@ -110,9 +111,26 @@ include_graphics(here("99_Thinktank","other","Paradigm_Scheme_T2.png" ))
 ## 1.2 The present study
 
 The aim of the present study is to evaluate if this paradigm is suitable for determining SVs of ER strategies. 
-We also want to find out whether the SVs are associated with subjective and physiological ER success, subjective effort, ER choice, and relevant personality traits.
-We expect that (1) distancing and distraction lead to higher decrease in emotional arousal (subjective ratings, corrugator and levator activity) than suppression, (2a) people select the ER strategy that is less effortful if they have a choice, (2b) distancing is subjectively more effortful than distraction and suppression.
-Regarding SVs of ER strategies we expect that (3a) people choose to re-apply the strategy with the highest SV, (3b) SVs of strategies are predicted by subjective arousal and levator and corrugator activity and subjective effort.
-Regarding personality traits, we expect that (4a) self-regulation is associated with ER success and (4b) people with higher ER flexibility show no clearly preferred strategy in SVs. 
-<!-- to specific ? to unspecific? -->
-<!--JZ: Hier noch den Zsmh zwischen T1 und T2, oder?-->
+As a manipulation check, we want to explore whether ER strategies distraction, distancing, and suppression effectively reduce emotional arousal and require cognitive effort. The following hypotheses are proposed for this purpose:
+
+* H1a) Subjective arousal (arousal ratings) is lower after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
+* H1b) Physiological arousal (EMG *corrugator* activity) is lower after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
+* H1c) Physiological arousal (EMG *levator* activity) is lower after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
+* H2a) Subjective effort (effort ratings) is greater after using an Er strategy (distraction, distancing, suppression) compared to active viewing.
+* H2b) The majority of participants ruse the strategy that was least effortful for them.
+
+Further we want to explore which variables predict individual subjective values of ER strategies and whether effort is the best predictor for SVs of ER strategies with the following hypotheses:
+
+* H3a) Subjective effort ratings negatively predict SVs of ER strategies.
+* H3b) Subjective arousal ratings negatively predict SVs of ER strategies.
+* H3c) EMG *corrugator* activity negatively predict SVs of ER strategies.
+* H3d) EMG *levator* activity negatively predict SVs of ER strategies.
+* H4a) SVs decline with increasing effort, even after controlling for task performance measured by subjective arousal ratings, *corrugator* and *levator* activity.
+
+We also want to explore whether SVs are related to flexible emotion regulation:
+
+* H5a) The higher the SV, the more likely the respective strategy is chosen.
+* H5b) SVs are lower and decline stronger when ER flexibility is lower.
+
+Exploratorily, we want to investigate whether individual SVs are related to personality traits.
+
