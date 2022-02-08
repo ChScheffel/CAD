@@ -32,7 +32,7 @@ Especially strategies that do not put the emotional content of the situation int
 Long-term consequences of subjectively reported habitual use of emotion regulation strategies for affect and well-being have been discussed [@GrossJohn2003]. 
 Especially suppression is generally associated with poorer outcomes (i.e., more negative affect, lower general well-being), which led to the assumption of *adaptive* and *maladaptive* strategies.
 For example, it could be shown that maladaptive ER strategies mediate the effect between neuroticism and depressive symptoms [@Yoon2013].
-Also, meta-analytic evidence exists linking a number of ER strategies to psychological disorders [@Aldao2010]. <!--JZ: Oben formulierst du es als "meta-analytically proven", dass das Arousal reduziert wird, hier als "meta-analytic evidence exists" für den Zsmh mit Disorders; ich finde, man sollte beiden Metaanalysen die gleiche Evidenzstärke zusprechen; macht das Sinn?-->
+Also, a number of ER strategies is linked to psychological disorders (for meta-analytic review, see [@Aldao2010]). 
 
 <!--CS: Mit dem Teil bin ich noch nciht ganz zufrieden, freue mich über Anmerkungen, wie man das evtl. strukturieren kann! -->
 The postulation of *adaptive* and *maladaptive* strategies was put in a new perspective with the concept of ER flexibility.
