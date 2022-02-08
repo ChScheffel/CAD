@@ -181,7 +181,7 @@ aov_arousalView = afex::aov_ez(data = arousal_view,
 
 # compute posthoc tests for within measures
 posthoc_arousalView = emmeans::emmeans(aov_arousalView$aov, specs = "block")
-pairs(posthoc_arousalView, adjust = "bonferroni")
+#pairs(posthoc_arousalView, adjust = "bonferroni")
 
 # Figure to visualize arousal ratings
 
@@ -206,11 +206,11 @@ aov_arousalReg = afex::aov_ez(data = arousal_reg,
                               within = "block",
                               fun_aggregate = mean,
                               include_aov = TRUE)
-afex::nice(aov_arousalReg, es = "pes")
+#afex::nice(aov_arousalReg, es = "pes")
 
 # compute posthoc tests for within measures
 posthoc_arousalReg = emmeans::emmeans(aov_arousalReg$aov, specs = "block")
-pairs(posthoc_arousalReg, adjust = "bonferroni")
+#pairs(posthoc_arousalReg, adjust = "bonferroni")
 
 # Figure to visualize arousal ratings
 
@@ -236,11 +236,11 @@ aov.effort = afex::aov_ez(data = effort_reg,
                           within = "block",
                           fun_aggregate = mean,
                           include_aov = TRUE)
-afex::nice(aov.effort, es = "pes")
+#afex::nice(aov.effort, es = "pes")
 
 # compute posthoc tests for within measure
 posthoc_effort = emmeans::emmeans(aov.effort$aov, specs = "block")
-pairs(posthoc_effort, adjust = "bonferroni")
+#pairs(posthoc_effort, adjust = "bonferroni")
 
 # Figure to visualize effort ratings
 # figure
@@ -283,13 +283,13 @@ Study data are being collected and managed using REDCap electronic data capture 
 
 ### 2.3.1 Psychometric measures
 
-The online survey contains a number of questionnaires: General psychological well-being was assessed using the WHO-5 scale [@Bech2004; German version: @Braehler2007].
-To capture the construct of resilience, the 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; German version: @Sarubin2015] is used. 
-Dispositional use of ER is assessed using the Emotion Regulation Questionnaire (ERQ) [@GrossJohn2003;German version: @Abler2009].
+The online survey contains a number of questionnaires: General psychological well-being is assessed using the German version of the WHO-5 scale [@Bech2004; @Braehler2007].
+To capture the construct of resilience, the German version 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; @Sarubin2015] is used. 
+Dispositional use of ER is assessed using the German version of the Emotion Regulation Questionnaire (ERQ) [@GrossJohn2003; @Abler2009].
 For the assessment of ER ability we use the Flexible Emotion Regulation Scale (FlexER) [@Doerfel2019].
-Implicit theories of willpower in emotion control are assessed using the implicit theories questionnaire from Bernecker and Job [-@Bernecker2017].
-To assess Need for Cognition, the short form of the Need for Cognition Scale [@Cacioppo1982; German version: @Bless1994] is used.
-To assess self-control, sum scores of the following questionnaires are used [@Paschke2016]: the Self-Regulation Scale (SRS) [@Schwarzer1999], the Brief Self-Control Scale (BSCS) @Tangney2004; German version: @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11) [@Patton1995; German version: @Hartmann2011].
+Implicit theories of willpower in emotion control are assessed using the implicit theories questionnaire from @Bernecker2017.
+To assess Need for Cognition, the German version short form of the Need for Cognition Scale [@Cacioppo1982; @Bless1994] is used.
+To assess self-control, sum scores of the German versions of the following questionnaires are used [@Paschke2016]: the Self-Regulation Scale (SRS) [@Schwarzer1999], the Brief Self-Control Scale (BSCS) @Tangney2004; @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11) [@Patton1995; @Hartmann2011].
 Attentional control is assessed using the Attentional Control Scale (ACS) [@Derryberry2002].
 
 ### 2.3.2 Emotion regulation paradigm
@@ -354,7 +354,7 @@ Afterwards, the signals will be rectified.
 
 Participants will be healthy adults in the age of 18 to 30, recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden. <!--JZ: Das stand oben schon mal-->
 Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.
-Sample size calculation is done using _G*Power_ [@Faul2007; @Faul2009].
+Sample size calculation is done using *G\*Power* [@Faul2007; @Faul2009].
 In a meta-analysis of Zaehringer and colleagues [-@Zaehringer2020], effect sizes of ER on peripheral-physiological measures were reported.  
 To find an effect of $d=-0.32$ of ER on *corrugator* muscle activity with $\alpha=.05$ and $\beta=.95$, data of least $N=85$ have to be analyzed.
 Power analyses of all other hypotheses yielded smaller sample sizes.
