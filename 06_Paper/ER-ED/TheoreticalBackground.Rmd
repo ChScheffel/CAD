@@ -133,4 +133,3 @@ We also want to explore whether SVs are related to flexible emotion regulation:
 * H5b) SVs are lower and decline stronger when ER flexibility is lower.
 
 Exploratorily, we want to investigate whether individual SVs are related to personality traits.
-
