@@ -38,6 +38,12 @@ author:
     role          :
       - Formal analysis
       - Writing - review & editing
+  - name          : "Denise Dörfel"
+    orcid         :
+    affiliation   : "1"
+    role          :
+      - Conceptuatlization
+      - Writing - review & editing
   - name          : "Alexander Strobel"
     orcid         : "0000-0002-9426-5397"
     affiliation   : "1"
