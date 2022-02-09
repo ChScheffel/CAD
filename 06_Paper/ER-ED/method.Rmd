@@ -16,6 +16,7 @@ library(emmeans)
 library(ggplot2)    # for nice plots
 library(dplyr)
 library(BayesFactor)
+library(effectsize)
 
 # set top level directory to source file
 here::i_am("flag_project_root_CERED.txt")
@@ -194,10 +195,15 @@ SubjArousalView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = Rati
                                                                         y = Ratings_view$arousal[Ratings_view$block == "view_neg"],
                                                                         progress = FALSE, paired = TRUE))$bf
 
+SubjArousalView_con$etasq <- format(effectsize::t_to_eta2(t = SubjArousalView_con$t.ratio,
+                                                          df_error = SubjArousalView_con$df,
+                                                          ci = 0.95,
+                                                          digits = 2))
+
 # Figure to visualize arousal ratings
 
 # figure
-FigPilot1=ggplot2::ggplot(arousal_view, aes(x = block, y = arousal))+
+FigPilot1=ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Strategy", 
                    limits = c("view_neu", "view_neg"),
@@ -212,7 +218,7 @@ Ratings_reg <- data_ER %>%
 Ratings_reg$block <- as.factor(Ratings_reg$block)
 
 
-SubjArousalReg_aov <- afex::aov_ez(data = arousal_reg,
+SubjArousalReg_aov <- afex::aov_ez(data = Ratings_reg,
                               id = "ID",
                               dv = "arousal",
                               within = "block",
@@ -248,10 +254,12 @@ SubjArousalReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Rat
                                                                          y = Ratings_reg$arousal[Ratings_reg$block == "suppression"],
                                                                          progress = FALSE, paired = TRUE))$bf)
 
+SubjArousalReg_con$etasq <- format(effectsize::t_to_eta2(t = SubjArousalReg_con$t.ratio, df_error = SubjArousalReg_con$df, ci = 0.95), digits = 2)
+
 # Figure to visualize arousal ratings
 
 # figure
-FigPilot2 = ggplot2::ggplot(arousal_reg, aes(x = block, y = arousal))+
+FigPilot2 = ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Strategy", 
                    limits = c("view_neg", "distraction", "distancing", "suppression"),
