@@ -203,6 +203,7 @@ SubjArousalView_con$etasq <- format(effectsize::t_to_eta2(t = SubjArousalView_co
                                                           ci = 0.95,
                                                           digits = 2))
 
+colnames(SubjArousalView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$")#, "$95\\% CI$")
 # Figure to visualize arousal ratings
 
 # figure
@@ -262,6 +263,7 @@ SubjArousalReg_con$etasq <- format(effectsize::t_to_eta2(t = SubjArousalReg_con$
                                                          ci = 0.95),
                                    digits = 2)
 
+colnames(SubjArousalReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 # Figure to visualize arousal ratings
 
 # figure
@@ -315,7 +317,7 @@ SubjEffort_con$etasq <- format(effectsize::t_to_eta2(t = SubjEffort_con$t.ratio,
                                                          df_error = SubjEffort_con$df,
                                                          ci = 0.95),
                                    digits = 2)
-
+colnames(SubjEffort_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 # Figure to visualize effort ratings
 # figure
 FigPilot3 = ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort))+
