@@ -931,13 +931,8 @@ Each hypothesis is detailed in the Design Table in the Appendix.
   
   # get effect size and confidence interval
   
-  hypothesis1a_contrasts$etasq <- c(format(t_to_eta2(t = hypothesis1a_contrasts$t.ratio[1], df_error = hypothesis1a_contrasts$df[1], ci = 0.95), digits = 2)[1,1],
-                                     format(t_to_eta2(t = hypothesis1a_contrasts$t.ratio[2], df_error = hypothesis1a_contrasts$df[2], ci = 0.95), digits = 2)[1,1],
-                                     format(t_to_eta2(t = hypothesis1a_contrasts$t.ratio[3], df_error = hypothesis1a_contrasts$df[3], ci = 0.95), digits = 2)[1,1])
-  
-  hypothesis1a_contrasts$CI <- c(format(t_to_eta2(t = hypothesis1a_contrasts$t.ratio[1], df_error = hypothesis1a_contrasts$df[1], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1a_contrasts$t.ratio[2], df_error = hypothesis1a_contrasts$df[2], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1a_contrasts$t.ratio[3], df_error = hypothesis1a_contrasts$df[3], ci = 0.95), digits = 2)[1,2])
+  hypothesis1a_contrasts <- cbind(hypothesis1a_contrasts,
+                                  format(t_to_eta2(t = hypothesis1a_contrasts$t.ratio, df_error = hypothesis1a_contrasts$df, ci = 0.95), digits = 2))
   
   # rename contrasts and column names
   
@@ -1012,13 +1007,8 @@ Each hypothesis is detailed in the Design Table in the Appendix.
   
   # get effect size and confidence interval
   
-  hypothesis1b_contrasts$etasq <- c(format(t_to_eta2(t = hypothesis1b_contrasts$t.ratio[1], df_error = hypothesis1b_contrasts$df[1], ci = 0.95), digits = 2)[1,1],
-                                     format(t_to_eta2(t = hypothesis1b_contrasts$t.ratio[2], df_error = hypothesis1b_contrasts$df[2], ci = 0.95), digits = 2)[1,1],
-                                     format(t_to_eta2(t = hypothesis1b_contrasts$t.ratio[3], df_error = hypothesis1b_contrasts$df[3], ci = 0.95), digits = 2)[1,1])
-  
-  hypothesis1b_contrasts$CI <- c(format(t_to_eta2(t = hypothesis1b_contrasts$t.ratio[1], df_error = hypothesis1b_contrasts$df[1], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1b_contrasts$t.ratio[2], df_error = hypothesis1b_contrasts$df[2], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1b_contrasts$t.ratio[3], df_error = hypothesis1b_contrasts$df[3], ci = 0.95), digits = 2)[1,2])
+  hypothesis1b_contrasts <- cbind(hypothesis1b_contrasts,
+                                  format(t_to_eta2(t = hypothesis1b_contrasts$t.ratio, df_error = hypothesis1b_contrasts$df, ci = 0.95), digits = 2))
   
   # rename contrasts and column names
   
@@ -1191,83 +1181,29 @@ Each hypothesis is detailed in the Design Table in the Appendix.
   
   # get effect sizes and confidence intervals
   
-  hypothesis1c_mental_contrasts$etasq <- c(format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[1], df_error = hypothesis1c_mental_contrasts$df[1], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[2], df_error = hypothesis1c_mental_contrasts$df[2], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[3], df_error = hypothesis1c_mental_contrasts$df[3], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[4], df_error = hypothesis1c_mental_contrasts$df[4], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[5], df_error = hypothesis1c_mental_contrasts$df[5], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[6], df_error = hypothesis1c_mental_contrasts$df[6], ci = 0.95), digits = 2)[1,1])
-  hypothesis1c_mental_contrasts$CI <- c(format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[1], df_error = hypothesis1c_mental_contrasts$df[1], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[2], df_error = hypothesis1c_mental_contrasts$df[2], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[3], df_error = hypothesis1c_mental_contrasts$df[3], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[4], df_error = hypothesis1c_mental_contrasts$df[4], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[5], df_error = hypothesis1c_mental_contrasts$df[5], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio[6], df_error = hypothesis1c_mental_contrasts$df[6], ci = 0.95), digits = 2)[1,2])
+  hypothesis1c_mental_contrasts <- cbind(hypothesis1c_mental_contrasts,
+                                         format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio,
+                                                          df_error = hypothesis1c_mental_contrasts$df, ci = 0.95), digits = 2))
   
-  hypothesis1c_physical_contrasts$etasq <- c(format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[1], df_error = hypothesis1c_physical_contrasts$df[1], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[2], df_error = hypothesis1c_physical_contrasts$df[2], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[3], df_error = hypothesis1c_physical_contrasts$df[3], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[4], df_error = hypothesis1c_physical_contrasts$df[4], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[5], df_error = hypothesis1c_physical_contrasts$df[5], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[6], df_error = hypothesis1c_physical_contrasts$df[6], ci = 0.95), digits = 2)[1,1])
-  hypothesis1c_physical_contrasts$CI <- c(format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[1], df_error = hypothesis1c_physical_contrasts$df[1], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[2], df_error = hypothesis1c_physical_contrasts$df[2], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[3], df_error = hypothesis1c_physical_contrasts$df[3], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[4], df_error = hypothesis1c_physical_contrasts$df[4], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[5], df_error = hypothesis1c_physical_contrasts$df[5], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio[6], df_error = hypothesis1c_physical_contrasts$df[6], ci = 0.95), digits = 2)[1,2])
+  hypothesis1c_physical_contrasts <- cbind(hypothesis1c_physical_contrasts,
+                                         format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio,
+                                                          df_error = hypothesis1c_physical_contrasts$df, ci = 0.95), digits = 2))
   
-  hypothesis1c_time_contrasts$etasq <- c(format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[1], df_error = hypothesis1c_time_contrasts$df[1], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[2], df_error = hypothesis1c_time_contrasts$df[2], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[3], df_error = hypothesis1c_time_contrasts$df[3], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[4], df_error = hypothesis1c_time_contrasts$df[4], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[5], df_error = hypothesis1c_time_contrasts$df[5], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[6], df_error = hypothesis1c_time_contrasts$df[6], ci = 0.95), digits = 2)[1,1])
-  hypothesis1c_time_contrasts$CI <- c(format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[1], df_error = hypothesis1c_time_contrasts$df[1], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[2], df_error = hypothesis1c_time_contrasts$df[2], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[3], df_error = hypothesis1c_time_contrasts$df[3], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[4], df_error = hypothesis1c_time_contrasts$df[4], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[5], df_error = hypothesis1c_time_contrasts$df[5], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio[6], df_error = hypothesis1c_time_contrasts$df[6], ci = 0.95), digits = 2)[1,2])
+  hypothesis1c_time_contrasts <- cbind(hypothesis1c_time_contrasts,
+                                         format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio,
+                                                          df_error = hypothesis1c_time_contrasts$df, ci = 0.95), digits = 2))
   
-  hypothesis1c_effort_contrasts$etasq <- c(format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[1], df_error = hypothesis1c_effort_contrasts$df[1], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[2], df_error = hypothesis1c_effort_contrasts$df[2], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[3], df_error = hypothesis1c_effort_contrasts$df[3], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[4], df_error = hypothesis1c_effort_contrasts$df[4], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[5], df_error = hypothesis1c_effort_contrasts$df[5], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[6], df_error = hypothesis1c_effort_contrasts$df[6], ci = 0.95), digits = 2)[1,1])
-  hypothesis1c_effort_contrasts$CI <- c(format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[1], df_error = hypothesis1c_effort_contrasts$df[1], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[2], df_error = hypothesis1c_effort_contrasts$df[2], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[3], df_error = hypothesis1c_effort_contrasts$df[3], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[4], df_error = hypothesis1c_effort_contrasts$df[4], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[5], df_error = hypothesis1c_effort_contrasts$df[5], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio[6], df_error = hypothesis1c_effort_contrasts$df[6], ci = 0.95), digits = 2)[1,2])
+  hypothesis1c_effort_contrasts <- cbind(hypothesis1c_effort_contrasts,
+                                         format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio,
+                                                          df_error = hypothesis1c_effort_contrasts$df, ci = 0.95), digits = 2))
   
-  hypothesis1c_frustration_contrasts$etasq <- c(format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[1], df_error = hypothesis1c_frustration_contrasts$df[1], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[2], df_error = hypothesis1c_frustration_contrasts$df[2], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[3], df_error = hypothesis1c_frustration_contrasts$df[3], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[4], df_error = hypothesis1c_frustration_contrasts$df[4], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[5], df_error = hypothesis1c_frustration_contrasts$df[5], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[6], df_error = hypothesis1c_frustration_contrasts$df[6], ci = 0.95), digits = 2)[1,1])
-  hypothesis1c_frustration_contrasts$CI <- c(format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[1], df_error = hypothesis1c_frustration_contrasts$df[1], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[2], df_error = hypothesis1c_frustration_contrasts$df[2], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[3], df_error = hypothesis1c_frustration_contrasts$df[3], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[4], df_error = hypothesis1c_frustration_contrasts$df[4], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[5], df_error = hypothesis1c_frustration_contrasts$df[5], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio[6], df_error = hypothesis1c_frustration_contrasts$df[6], ci = 0.95), digits = 2)[1,2])
+  hypothesis1c_frustration_contrasts <- cbind(hypothesis1c_frustration_contrasts,
+                                         format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio,
+                                                          df_error = hypothesis1c_frustration_contrasts$df, ci = 0.95), digits = 2))
   
-  hypothesis1c_performance_contrasts$etasq <- c(format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[1], df_error = hypothesis1c_performance_contrasts$df[1], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[2], df_error = hypothesis1c_performance_contrasts$df[2], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[3], df_error = hypothesis1c_performance_contrasts$df[3], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[4], df_error = hypothesis1c_performance_contrasts$df[4], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[5], df_error = hypothesis1c_performance_contrasts$df[5], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[6], df_error = hypothesis1c_performance_contrasts$df[6], ci = 0.95), digits = 2)[1,1])
-  hypothesis1c_performance_contrasts$CI <- c(format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[1], df_error = hypothesis1c_performance_contrasts$df[1], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[2], df_error = hypothesis1c_performance_contrasts$df[2], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[3], df_error = hypothesis1c_performance_contrasts$df[3], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[4], df_error = hypothesis1c_performance_contrasts$df[4], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[5], df_error = hypothesis1c_performance_contrasts$df[5], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio[6], df_error = hypothesis1c_performance_contrasts$df[6], ci = 0.95), digits = 2)[1,2])
+  hypothesis1c_performance_contrasts <- cbind(hypothesis1c_performance_contrasts,
+                                         format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio,
+                                                          df_error = hypothesis1c_performance_contrasts$df, ci = 0.95), digits = 2))
   
   # rename columns and contrasts
   
@@ -1334,18 +1270,8 @@ Each hypothesis is detailed in the Design Table in the Appendix.
   
   # get effect size and confidence intervals
   
-  hypothesis2a_contrasts$etasq <- c(format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[1], df_error = hypothesis2a_contrasts$df[1], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[2], df_error = hypothesis2a_contrasts$df[2], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[3], df_error = hypothesis2a_contrasts$df[3], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[4], df_error = hypothesis2a_contrasts$df[4], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[5], df_error = hypothesis2a_contrasts$df[5], ci = 0.95), digits = 2)[1,1],
-                                    format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[6], df_error = hypothesis2a_contrasts$df[6], ci = 0.95), digits = 2)[1,1])
-  hypothesis2a_contrasts$CI <- c(format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[1], df_error = hypothesis2a_contrasts$df[1], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[2], df_error = hypothesis2a_contrasts$df[2], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[3], df_error = hypothesis2a_contrasts$df[3], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[4], df_error = hypothesis2a_contrasts$df[4], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[5], df_error = hypothesis2a_contrasts$df[5], ci = 0.95), digits = 2)[1,2],
-                                 format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio[6], df_error = hypothesis2a_contrasts$df[6], ci = 0.95), digits = 2)[1,2])
+  hypothesis2a_contrasts <- cbind(hypothesis2a_contrasts,
+                                  format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio, df_error = hypothesis2a_contrasts$df, ci = 0.95), digits = 2))
   
   # rename columns and contrasts
   
