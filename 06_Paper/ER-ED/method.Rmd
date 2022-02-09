@@ -339,6 +339,7 @@ A complete list of all measures assessed in the study will be found at the OSF (
 ## 2.2 Pilot data
 
 The procedure described above was tested in a pilot study with $N=`r nrow(data_quest)`$ participants (`r length(which(data_quest$gender == 2))` female; age: $M = `r round(mean(data_quest[,"age"], na.rm = TRUE), digits = 1)`\text{ }\pm\text{ }SD = `r round(sd(data_quest[,"age"], na.rm = TRUE), digits = 1)`$).
+Results showed significant higher subjective (... and physiological ?!) arousal for active viewing of negative pictures, compared to active viewing of neutral pictures.
 
 
 ## 2.3 Design
