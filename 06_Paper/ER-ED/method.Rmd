@@ -198,12 +198,14 @@ SubjArousalView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = Rati
                                                                         y = Ratings_view$arousal[Ratings_view$block == "view_neg"],
                                                                         progress = FALSE, paired = TRUE))$bf
 
-SubjArousalView_con$etasq <- format(effectsize::t_to_eta2(t = SubjArousalView_con$t.ratio,
+SubjArousalView_con <- cbind(SubjArousalView_con,
+                             format(effectsize::t_to_eta2(t = SubjArousalView_con$t.ratio,
                                                           df_error = SubjArousalView_con$df,
-                                                          ci = 0.95,
+                                                          ci = 0.95),
                                                           digits = 2))
 
-colnames(SubjArousalView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$")#, "$95\\% CI$")
+colnames(SubjArousalView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+
 # Figure to visualize arousal ratings
 
 # figure
@@ -258,12 +260,14 @@ SubjArousalReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Rat
                                                                          y = Ratings_reg$arousal[Ratings_reg$block == "suppression"],
                                                                          progress = FALSE, paired = TRUE))$bf)
 
-SubjArousalReg_con$etasq <- format(effectsize::t_to_eta2(t = SubjArousalReg_con$t.ratio,
+SubjArousalReg_con <- cbind(SubjArousalReg_con,
+                            format(effectsize::t_to_eta2(t = SubjArousalReg_con$t.ratio,
                                                          df_error = SubjArousalReg_con$df,
                                                          ci = 0.95),
-                                   digits = 2)
+                                   digits = 2))
 
 colnames(SubjArousalReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+
 # Figure to visualize arousal ratings
 
 # figure
@@ -313,11 +317,14 @@ SubjEffort_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings
                                                                          y = Ratings_reg$effort[Ratings_reg$block == "suppression"],
                                                                          progress = FALSE, paired = TRUE))$bf)
 
-SubjEffort_con$etasq <- format(effectsize::t_to_eta2(t = SubjEffort_con$t.ratio,
+SubjEffort_con <- cbind(SubjEffort_con,
+                        format(effectsize::t_to_eta2(t = SubjEffort_con$t.ratio,
                                                          df_error = SubjEffort_con$df,
                                                          ci = 0.95),
-                                   digits = 2)
+                                   digits = 2))
+
 colnames(SubjEffort_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+
 # Figure to visualize effort ratings
 # figure
 FigPilot3 = ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort))+
