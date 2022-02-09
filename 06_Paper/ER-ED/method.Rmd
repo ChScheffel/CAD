@@ -15,6 +15,8 @@ library(afex)       # for ANOVA
 library(emmeans)
 library(ggplot2)    # for nice plots
 library(dplyr)
+library(BayesFactor)
+library(effectsize)
 
 # set top level directory to source file
 here::i_am("flag_project_root_CERED.txt")
@@ -169,10 +171,11 @@ data_quest = read.csv(here("04_RawData", "pilot", "ER-ED", "dfs", "df_quest.csv"
 # ANOVA subjective arousal ratings
 # View condition
 
-arousal_view = data_ER %>%
+Ratings_view <- data_ER %>%
   subset(data_ER$block == "view_neu" | data_ER$block == "view_neg")
+Ratings_view$block <- as.factor(Ratings_view$block)
 
-aov_arousalView = afex::aov_ez(data = arousal_view,
+SubjArousalView_aov <- afex::aov_ez(data = Ratings_view,
                                id = "ID",
                                dv = "arousal",
                                within = "block",
@@ -180,13 +183,27 @@ aov_arousalView = afex::aov_ez(data = arousal_view,
                                include_aov = TRUE) 
 
 # compute posthoc tests for within measures
-posthoc_arousalView = emmeans::emmeans(aov_arousalView$aov, specs = "block")
-pairs(posthoc_arousalView, adjust = "bonferroni")
+SubjArousalView_emm <- emmeans::emmeans(SubjArousalView_aov$aov, specs = "block")
+
+SubjArousalView_con <- as.data.frame(pairs(SubjArousalView_emm, adjust = "bonferroni"))
+
+# Bayes Factors
+SubjArousalView_BF <- BayesFactor::anovaBF(formula = arousal ~ block,
+                                           data = Ratings_view,
+                                           progress = FALSE)
+SubjArousalView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_view$arousal[Ratings_view$block == "view_neu"],
+                                                                        y = Ratings_view$arousal[Ratings_view$block == "view_neg"],
+                                                                        progress = FALSE, paired = TRUE))$bf
+
+SubjArousalView_con$etasq <- format(effectsize::t_to_eta2(t = SubjArousalView_con$t.ratio,
+                                                          df_error = SubjArousalView_con$df,
+                                                          ci = 0.95,
+                                                          digits = 2))
 
 # Figure to visualize arousal ratings
 
 # figure
-FigPilot1=ggplot2::ggplot(arousal_view, aes(x = block, y = arousal))+
+FigPilot1=ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Strategy", 
                    limits = c("view_neu", "view_neg"),
@@ -196,26 +213,53 @@ FigPilot1=ggplot2::ggplot(arousal_view, aes(x = block, y = arousal))+
 
 # View neg and regulate conditions 
 
-arousal_reg = data_ER %>%
+Ratings_reg <- data_ER %>%
   subset(data_ER$block != "view_neu" & data_ER$block != "choice")
+Ratings_reg$block <- as.factor(Ratings_reg$block)
 
 
-aov_arousalReg = afex::aov_ez(data = arousal_reg,
+SubjArousalReg_aov <- afex::aov_ez(data = Ratings_reg,
                               id = "ID",
                               dv = "arousal",
                               within = "block",
                               fun_aggregate = mean,
                               include_aov = TRUE)
-afex::nice(aov_arousalReg, es = "pes")
 
 # compute posthoc tests for within measures
-posthoc_arousalReg = emmeans::emmeans(aov_arousalReg$aov, specs = "block")
-pairs(posthoc_arousalReg, adjust = "bonferroni")
+SubjArousalReg_emm <- emmeans::emmeans(SubjArousalReg_aov$aov, specs = "block")
+
+SubjArousalReg_con <- as.data.frame(pairs(SubjArousalReg_emm, adjust = "bonferroni"))
+
+# Bayes Factors
+SubjArousalView_BF <- BayesFactor::anovaBF(formula = arousal ~ block,
+                                           data = Ratings_reg,
+                                           progress = FALSE)
+
+SubjArousalReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "view_neg"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "distraction"],
+                                                                         progress = FALSE, paired = TRUE))$bf,
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "view_neg"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "distancing"],
+                                                                         progress = FALSE, paired = TRUE))$bf,
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "view_neg"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "suppression"],
+                                                                         progress = FALSE, paired = TRUE))$bf,
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "distraction"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "distancing"],
+                                                                         progress = FALSE, paired = TRUE))$bf,
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "distraction"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "suppression"],
+                                                                         progress = FALSE, paired = TRUE))$bf,
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "distancing"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "suppression"],
+                                                                         progress = FALSE, paired = TRUE))$bf)
+
+SubjArousalReg_con$etasq <- format(effectsize::t_to_eta2(t = SubjArousalReg_con$t.ratio, df_error = SubjArousalReg_con$df, ci = 0.95), digits = 2)
 
 # Figure to visualize arousal ratings
 
 # figure
-FigPilot2 = ggplot2::ggplot(arousal_reg, aes(x = block, y = arousal))+
+FigPilot2 = ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Strategy", 
                    limits = c("view_neg", "distraction", "distancing", "suppression"),
@@ -236,11 +280,11 @@ aov.effort = afex::aov_ez(data = effort_reg,
                           within = "block",
                           fun_aggregate = mean,
                           include_aov = TRUE)
-afex::nice(aov.effort, es = "pes")
+#afex::nice(aov.effort, es = "pes")
 
 # compute posthoc tests for within measure
 posthoc_effort = emmeans::emmeans(aov.effort$aov, specs = "block")
-pairs(posthoc_effort, adjust = "bonferroni")
+#pairs(posthoc_effort, adjust = "bonferroni")
 
 # Figure to visualize effort ratings
 # figure
@@ -283,13 +327,13 @@ Study data are being collected and managed using REDCap electronic data capture 
 
 ### 2.3.1 Psychometric measures
 
-The online survey contains a number of questionnaires: General psychological well-being was assessed using the WHO-5 scale [@Bech2004; German version: @Braehler2007].
-To capture the construct of resilience, the 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; German version: @Sarubin2015] is used. 
-Dispositional use of ER is assessed using the Emotion Regulation Questionnaire (ERQ) [@GrossJohn2003;German version: @Abler2009].
+The online survey contains a number of questionnaires: General psychological well-being is assessed using the German version of the WHO-5 scale [@Bech2004; @Braehler2007].
+To capture the construct of resilience, the German version 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; @Sarubin2015] is used. 
+Dispositional use of ER is assessed using the German version of the Emotion Regulation Questionnaire (ERQ) [@GrossJohn2003; @Abler2009].
 For the assessment of ER ability we use the Flexible Emotion Regulation Scale (FlexER) [@Doerfel2019].
-Implicit theories of willpower in emotion control are assessed using the implicit theories questionnaire from Bernecker and Job [-@Bernecker2017].
-To assess Need for Cognition, the short form of the Need for Cognition Scale [@Cacioppo1982; German version: @Bless1994] is used.
-To assess self-control, sum scores of the following questionnaires are used [@Paschke2016]: the Self-Regulation Scale (SRS) [@Schwarzer1999], the Brief Self-Control Scale (BSCS) @Tangney2004; German version: @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11) [@Patton1995; German version: @Hartmann2011].
+Implicit theories of willpower in emotion control are assessed using the implicit theories questionnaire from @Bernecker2017.
+To assess Need for Cognition, the German version short form of the Need for Cognition Scale [@Cacioppo1982; @Bless1994] is used.
+To assess self-control, sum scores of the German versions of the following questionnaires are used [@Paschke2016]: the Self-Regulation Scale (SRS) [@Schwarzer1999], the Brief Self-Control Scale (BSCS) @Tangney2004; @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11) [@Patton1995; @Hartmann2011].
 Attentional control is assessed using the Attentional Control Scale (ACS) [@Derryberry2002].
 
 ### 2.3.2 Emotion regulation paradigm
@@ -354,7 +398,7 @@ Afterwards, the signals will be rectified.
 
 Participants will be healthy adults in the age of 18 to 30, recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden. <!--JZ: Das stand oben schon mal-->
 Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.
-Sample size calculation is done using _G*Power_ [@Faul2007; @Faul2009].
+Sample size calculation is done using *G\*Power* [@Faul2007; @Faul2009].
 In a meta-analysis of Zaehringer and colleagues [-@Zaehringer2020], effect sizes of ER on peripheral-physiological measures were reported.  
 To find an effect of $d=-0.32$ of ER on *corrugator* muscle activity with $\alpha=.05$ and $\beta=.95$, data of least $N=85$ have to be analyzed.
 Power analyses of all other hypotheses yielded smaller sample sizes.
