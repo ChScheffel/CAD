@@ -2,6 +2,9 @@
 output: html_document
 bibliography: ER_ED.bib
 csl: apa7.csl
+editor_options: 
+  markdown: 
+    wrap: sentence
 ---
 
 ```{r SetupMethod, include = FALSE}
@@ -231,7 +234,7 @@ SubjArousalReg_emm <- emmeans::emmeans(SubjArousalReg_aov$aov, specs = "block")
 SubjArousalReg_con <- as.data.frame(pairs(SubjArousalReg_emm, adjust = "bonferroni"))
 
 # Bayes Factors
-SubjArousalView_BF <- BayesFactor::anovaBF(formula = arousal ~ block,
+SubjArousalReg_BF <- BayesFactor::anovaBF(formula = arousal ~ block,
                                            data = Ratings_reg,
                                            progress = FALSE)
 
@@ -254,12 +257,15 @@ SubjArousalReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Rat
                                                                          y = Ratings_reg$arousal[Ratings_reg$block == "suppression"],
                                                                          progress = FALSE, paired = TRUE))$bf)
 
-SubjArousalReg_con$etasq <- format(effectsize::t_to_eta2(t = SubjArousalReg_con$t.ratio, df_error = SubjArousalReg_con$df, ci = 0.95), digits = 2)
+SubjArousalReg_con$etasq <- format(effectsize::t_to_eta2(t = SubjArousalReg_con$t.ratio,
+                                                         df_error = SubjArousalReg_con$df,
+                                                         ci = 0.95),
+                                   digits = 2)
 
 # Figure to visualize arousal ratings
 
 # figure
-FigPilot2 = ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal))+
+FigPilot2 <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Strategy", 
                    limits = c("view_neg", "distraction", "distancing", "suppression"),
@@ -269,26 +275,50 @@ FigPilot2 = ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal))+
 
 ## Subjective effort
 
-# ANOVA subjective effort ratings
-
-effort_reg = data_ER %>%
-  subset(data_ER$block != "view_neu" & data_ER$block != "choice")
-
-aov.effort = afex::aov_ez(data = effort_reg,
+SubjEffort_aov <- afex::aov_ez(data = Ratings_reg,
                           id = "ID",
                           dv = "effort",
                           within = "block",
                           fun_aggregate = mean,
                           include_aov = TRUE)
-#afex::nice(aov.effort, es = "pes")
 
 # compute posthoc tests for within measure
-posthoc_effort = emmeans::emmeans(aov.effort$aov, specs = "block")
-#pairs(posthoc_effort, adjust = "bonferroni")
+SubjEffort_emm <- emmeans::emmeans(SubjEffort_aov$aov, specs = "block")
+
+SubjEffort_con <- as.data.frame(pairs(SubjEffort_emm, adjust = "bonferroni"))
+
+# Bayes Factors
+SubjEffort_BF <- BayesFactor::anovaBF(formula = effort ~ block,
+                                           data = Ratings_reg,
+                                           progress = FALSE)
+
+SubjEffort_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "view_neg"],
+                                                                         y = Ratings_reg$effort[Ratings_reg$block == "distraction"],
+                                                                         progress = FALSE, paired = TRUE))$bf,
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "view_neg"],
+                                                                         y = Ratings_reg$effort[Ratings_reg$block == "distancing"],
+                                                                         progress = FALSE, paired = TRUE))$bf,
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "view_neg"],
+                                                                         y = Ratings_reg$effort[Ratings_reg$block == "suppression"],
+                                                                         progress = FALSE, paired = TRUE))$bf,
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "distraction"],
+                                                                         y = Ratings_reg$effort[Ratings_reg$block == "distancing"],
+                                                                         progress = FALSE, paired = TRUE))$bf,
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "distraction"],
+                                                                         y = Ratings_reg$effort[Ratings_reg$block == "suppression"],
+                                                                         progress = FALSE, paired = TRUE))$bf,
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "distancing"],
+                                                                         y = Ratings_reg$effort[Ratings_reg$block == "suppression"],
+                                                                         progress = FALSE, paired = TRUE))$bf)
+
+SubjEffort_con$etasq <- format(effectsize::t_to_eta2(t = SubjEffort_con$t.ratio,
+                                                         df_error = SubjEffort_con$df,
+                                                         ci = 0.95),
+                                   digits = 2)
 
 # Figure to visualize effort ratings
 # figure
-FigPilot3 = ggplot2::ggplot(effort_reg, aes(x = block, y = effort))+
+FigPilot3 = ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Strategy", 
                    limits = c("view_neg", "distraction", "distancing", "suppression"),
@@ -301,34 +331,35 @@ FigPilot3 = ggplot2::ggplot(effort_reg, aes(x = block, y = effort))+
 
 The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at github.com/ChScheffel/COG-ER-ED.
 According to the 21-word-solution, "we report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study" in compliance with the 21-word-solution of open science [@Simmons2012].
-A complete list of all measures assessed in the study will be found at the OSF (https://osf.io/vnj8x/) and GitHub (github.com/ChScheffel/COG-ER-ED). <!-- Attention! OSF is still private -->
-All procedures performed in this study were in accordance with the ethical standards of the institutional and/or national research committee and with the 1964 Helsinki declaration and its later amendments or comparable ethical standards.
+A complete list of all measures assessed in the study will be found at the OSF (<https://osf.io/vnj8x/>) and GitHub (github.com/ChScheffel/COG-ER-ED).
+<!-- Attention! OSF is still private --> All procedures performed in this study were in accordance with the ethical standards of the institutional and/or national research committee and with the 1964 Helsinki declaration and its later amendments or comparable ethical standards.
 
 ## 2.1 Ethics information
 
 ## 2.2 Pilot data
 
-The procedure described above was tested in a pilot study with $N=`r nrow(data_quest)`$ participants ()
+The procedure described above was tested in a pilot study with $N=`r nrow(data_quest)`$ participants (`r length(which(data_quest$gender == 2))` female; age: $M = `r round(mean(data_quest[,"age"], na.rm = TRUE), digits = 1)`\text{ }\pm\text{ }SD = `r round(sd(data_quest[,"age"], na.rm = TRUE), digits = 1)`$).
+
 
 ## 2.3 Design
 
 Young, healthy participants (aged 18 to 30 years) will be recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden.
 Participants will be invited to fill out an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
-The study consists of two lab sessions, which take place in a shielded cabin with constant lighting. 
-Before each session, participants receive information about the respective experimental procedure and provide informed consent. 
+The study consists of two lab sessions, which take place in a shielded cabin with constant lighting.
+Before each session, participants receive information about the respective experimental procedure and provide informed consent.
 At the beginning of the first session participants fill out a demographic questionnaire and complete an n-Back task with the levels one to four.
-Then, they complete an ED procedure on screen, followed by a random repetition of one n-back level. <!--JZ: Hast du ED schon als Abkürzung eingeführt?-->
-The second session, containing the ER paradigm, takes place exactly one week after session one.
+Then, they complete an ED procedure on screen, followed by a random repetition of one n-back level.
+<!--JZ: Hast du ED schon als Abkürzung eingeführt?--> The second session, containing the ER paradigm, takes place exactly one week after session one.
 Participants provide informed consent and receive written instructions on the ER paradigm and ER strategies that they should apply.
 A brief training ensures that all participants are able to implement the ER strategies.
-Next, electrodes to measure EMG are being attached and the ER paradigm is conducted. 
+Next, electrodes to measure EMG are being attached and the ER paradigm is conducted.
 Participants receive 30.00€ or course credit as compensation.
 Study data are being collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden [@Harris2009; @Harris2019].
 
 ### 2.3.1 Psychometric measures
 
 The online survey contains a number of questionnaires: General psychological well-being is assessed using the German version of the WHO-5 scale [@Bech2004; @Braehler2007].
-To capture the construct of resilience, the German version 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; @Sarubin2015] is used. 
+To capture the construct of resilience, the German version 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; @Sarubin2015] is used.
 Dispositional use of ER is assessed using the German version of the Emotion Regulation Questionnaire (ERQ) [@GrossJohn2003; @Abler2009].
 For the assessment of ER ability we use the Flexible Emotion Regulation Scale (FlexER) [@Doerfel2019].
 Implicit theories of willpower in emotion control are assessed using the implicit theories questionnaire from @Bernecker2017.
@@ -340,26 +371,21 @@ Attentional control is assessed using the Attentional Control Scale (ACS) [@Derr
 
 The ER paradigm roughly consists of three parts that will be described in the following.
 
-*Part one: ER task.* <br>
-Part one is a standard ER task in a block design (see Figure X), similar to paradigms previously used by our group [@Scheffel2021]. 
-Participants are told to actively view neutral and negative pictures (see [2.3.3](##stimuli)) or to regulate all upcoming emotions by means of distraction, distancing, and expressive suppression, respectively. 
+*Part one: ER task.* <br> Part one is a standard ER task in a block design (see Figure X), similar to paradigms previously used by our group [@Scheffel2021].
+Participants are told to actively view neutral and negative pictures (see [2.3.3](##stimuli)) or to regulate all upcoming emotions by means of distraction, distancing, and expressive suppression, respectively.
 Every participant first has the condition "active viewing-neutral" that serves as a baseline condition.
 During this block, 20 neutral pictures are presented.
-Participants are asked to "actively view all pictures and permit all emotions that may arise."
-In the second block, participants actively viewe negative pictures.
+Participants are asked to "actively view all pictures and permit all emotions that may arise." In the second block, participants actively viewe negative pictures.
 During the third, fourth, and fifth block, participants see negative pictures and are asked to regulate their emotions using distraction, distancing, and suppression.
 In order to achieve distraction, participants are asked to think of a geometric object or an everyday activity, like brushing their teeth.
-During distancing, participants are asked to "take the position of a non-involved observer, thinking about the picture in a neutral way."
-Participants are told not to re-interpret the situation or attaching a different meaning to the situation.
-During suppression, participants are told to "suppress their emotional facial expression."
-They should imagine being observed by a third person that should not be able to tell just by looking at the facial expression whether the person is looking at an emotional picture.
+During distancing, participants are asked to "take the position of a non-involved observer, thinking about the picture in a neutral way." Participants are told not to re-interpret the situation or attaching a different meaning to the situation.
+During suppression, participants are told to "suppress their emotional facial expression." They should imagine being observed by a third person that should not be able to tell just by looking at the facial expression whether the person is looking at an emotional picture.
 Participants are instructed not to suppress their thoughts or change their facial expression to the opposite [@Scheffel2021].
 All participants receive written instruction and complete a training session.
 After the training session, participants are asked about their applied ER strategies to avoid misapplication.
 The order of the three regulation blocks (distraction, distancing, and suppression) is randomized between participants.
 
-*Part two: ER effort discounting.* <br>
-In the second part, ER effort discounting takes place.
+*Part two: ER effort discounting.* <br> In the second part, ER effort discounting takes place.
 The procedure of the discounting follows the COG-ED paradigm by Westbrook et al. [-@Westbrook2013] with major change.
 We use the following adaption that allows the computation of SVs for different strategies without presuming that all individuals would inherently evaluate the same strategy as the easiest one: For each possible pairing (distraction vs. distancing, distraction vs. suppression, and distancing vs. suppression), two strategies with monetary values are presented.
 The order of the comparisons is randomized.
@@ -368,8 +394,7 @@ The strategy that is not chosen is assigned the value of 2 EUR.
 From this point on, comparisons between strategies follow the original COG-ED paradigm [@Westbrook2013].
 Participants are instructed to decide as realistically as possible, imagining the displayed money would really be up for election.
 
-*Part three: ER choice.* <br>
-After the discounting part, participants choose which of the three ER strategies (distraction, distancing or suppression) they want to re-apply.
+*Part three: ER choice.* <br> After the discounting part, participants choose which of the three ER strategies (distraction, distancing or suppression) they want to re-apply.
 Importantly, there are no further instruction on what basis they should make their decision.
 Participants should make their decision freely, according to the criteria they consider important for themselves.
 However, participants are asked to state the reasons for the decision afterwards.
@@ -377,51 +402,49 @@ As soon as they have decided, they see the respective instruction and the block 
 
 ### 2.3.3 Stimuli
 
-Pictures used in the paradigm were selected from the Emotional Picture Set (EmoPicS) [@Wessa2010] and the International Affective Picture System (IAPS) [@Lang2008]. 
-The 20 neutral pictures (Valence (V): _M_ $\pm$ _SD_ = `r round(mean(stim_neutral$valence), digits = 2)` $\pm$ `r round(sd(stim_neutral$valence), digits = 2)`; Arousal (A): _M_ $\pm$ _SD_ = `r round(mean(stim_neutral$arousal), digits = 2)` $\pm$ `r round(sd(stim_neutral$arousal), digits = 2)`) depicted content related to the categories persons, objects, and scenes.
-Further, 100 negative pictures, featuring categories animals, body, disaster, disgust, injury, suffering, violence, and weapons, were used. 
-An evolutionary algorithm [@Yu2010] was used to cluster these pictures into five sets with comparable valence and arousal values (set one: V: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$valence[stim_negative$set == 1]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 1]), digits = 2)`, A: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$arousal[stim_negative$set == 1]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 1]), digits = 2)`; set two: V: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$valence[stim_negative$set == 2]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 2]), digits = 2)`, A: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$arousal[stim_negative$set == 2]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 2]), digits = 2)`; set three: V: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$valence[stim_negative$set == 3]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 3]), digits = 2)`, A: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$arousal[stim_negative$set == 3]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 3]), digits = 2)`; set four: V: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$valence[stim_negative$set == 4]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 4]), digits = 2)`, A: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$arousal[stim_negative$set == 4]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 4]), digits = 2)`; set five: V: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$valence[stim_negative$set == 5]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 5]), digits = 2)`, A: _M_ $\pm$ _SD_ = `r round(mean(stim_negative$arousal[stim_negative$set == 5]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 5]), digits = 2)`).
+Pictures used in the paradigm were selected from the Emotional Picture Set (EmoPicS) [@Wessa2010] and the International Affective Picture System (IAPS) [@Lang2008].
+The 20 neutral pictures (Valence (V): *M* $\pm$ *SD* = `r round(mean(stim_neutral$valence), digits = 2)` $\pm$ `r round(sd(stim_neutral$valence), digits = 2)`; Arousal (A): *M* $\pm$ *SD* = `r round(mean(stim_neutral$arousal), digits = 2)` $\pm$ `r round(sd(stim_neutral$arousal), digits = 2)`) depicted content related to the categories persons, objects, and scenes.
+Further, 100 negative pictures, featuring categories animals, body, disaster, disgust, injury, suffering, violence, and weapons, were used.
+An evolutionary algorithm [@Yu2010] was used to cluster these pictures into five sets with comparable valence and arousal values (set one: V: *M* $\pm$ *SD* = `r round(mean(stim_negative$valence[stim_negative$set == 1]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 1]), digits = 2)`, A: *M* $\pm$ *SD* = `r round(mean(stim_negative$arousal[stim_negative$set == 1]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 1]), digits = 2)`; set two: V: *M* $\pm$ *SD* = `r round(mean(stim_negative$valence[stim_negative$set == 2]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 2]), digits = 2)`, A: *M* $\pm$ *SD* = `r round(mean(stim_negative$arousal[stim_negative$set == 2]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 2]), digits = 2)`; set three: V: *M* $\pm$ *SD* = `r round(mean(stim_negative$valence[stim_negative$set == 3]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 3]), digits = 2)`, A: *M* $\pm$ *SD* = `r round(mean(stim_negative$arousal[stim_negative$set == 3]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 3]), digits = 2)`; set four: V: *M* $\pm$ *SD* = `r round(mean(stim_negative$valence[stim_negative$set == 4]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 4]), digits = 2)`, A: *M* $\pm$ *SD* = `r round(mean(stim_negative$arousal[stim_negative$set == 4]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 4]), digits = 2)`; set five: V: *M* $\pm$ *SD* = `r round(mean(stim_negative$valence[stim_negative$set == 5]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 5]), digits = 2)`, A: *M* $\pm$ *SD* = `r round(mean(stim_negative$arousal[stim_negative$set == 5]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 5]), digits = 2)`).
 A complete list of all pictures and their classification into sets can be found in supplementary material X.
 
 ### 2.3.4 Electromyography
 
 Two bipolar electromyograph (EMG) measures will be recorded in the region of the *corrugator supercilii* and the *levator labii* using Brain Vision Recorder (Brain Products Inc., Gilching, Germany).
-Passive surface Ag/AgCl electrodes (0.7 mm diameter, 10 mm distance between electrodes) filled with electrolyte gel will be used. 
+Passive surface Ag/AgCl electrodes (0.7 mm diameter, 10 mm distance between electrodes) filled with electrolyte gel will be used.
 Data will be sampled at 1000 Hz.
 To measure *corrugator EMG*, electrodes will be applied to the abraded and cleaned skin on the left *corrugator supercilii*, and to measure *levator EMG*, electrodes were applied in the region of the *levator labii*.
 The ground electrode will be placed at the left *Mastoid*.
-A 10 Hz high pass and a 500 Hz low pass filter will be applied to both signals. <!-- liebe Anne, habe das hier von Ray et al 2010 übernommen. Stimmt das für unsere Auswertung? -->
-Afterwards, the signals will be rectified.
+A 10 Hz high pass and a 500 Hz low pass filter will be applied to both signals.
+<!-- liebe Anne, habe das hier von Ray et al 2010 übernommen. Stimmt das für unsere Auswertung? --> Afterwards, the signals will be rectified.
 [...] <!-- @Anne hier fehlt noch einiges, bitte dann nach deiner Auswertung ergänzen =) -->
 
 ## 2.4 Sampling plan
 
-Participants will be healthy adults in the age of 18 to 30, recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden. <!--JZ: Das stand oben schon mal-->
-Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.
+Participants will be healthy adults in the age of 18 to 30, recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden.
+<!--JZ: Das stand oben schon mal--> Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.
 Sample size calculation is done using *G\*Power* [@Faul2007; @Faul2009].
-In a meta-analysis of Zaehringer and colleagues [-@Zaehringer2020], effect sizes of ER on peripheral-physiological measures were reported.  
+In a meta-analysis of Zaehringer and colleagues [-@Zaehringer2020], effect sizes of ER on peripheral-physiological measures were reported.\
 To find an effect of $d=-0.32$ of ER on *corrugator* muscle activity with $\alpha=.05$ and $\beta=.95$, data of least $N=85$ have to be analyzed.
 Power analyses of all other hypotheses yielded smaller sample sizes.
 However, if participants withdraw from study participation, technical failures occur, or experimenter considers the participant for not suitable for study participation (e.g., because the participant does not follow instructions or shows great fatigue), respective data will also be excluded from further analyses.
 Therefore, we aim to collect data of 90 participants.
 
-## 2.5 Analysis plan 
+## 2.5 Analysis plan
 
 All statistical analyses will be performed using *RStudio* (version 1.4.1717) [@RStudioTeam2020]and *R* (version 4.1.0) [@RCore2021] for Windows.
 The level of significance was set to $\alpha=.05$.
 
-*Effects of emotion regulation on arousal and effort* <br>
-To examine impact of valence of emotional pictures on subjective arousal, an repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for strategy active viewing will be conducted for behavioral data (subjective arousal ratings).
-To investigate the effect of the tree ER strategies on subjective arousal, another rmANOVA was conducted with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective arousal ratings of negative pictures. 
-To examine the impact of valence on the emotional facial reaction, an rmANOVA with the factor valence (neutral and negative) for strategy active viewing was conducted for EMG activity of *corrugator* and *levator*. <!-- @Anne please check! =) --> 
-A further rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) was conducted for EMG activity to examine the effects of ER strategies on the emotional facial reaction. <!-- @Anne please check! =) -->
-To examine the effect of ER strategies on cognitive effort, an rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings was conducted.
+*Effects of emotion regulation on arousal and effort* <br> To examine impact of valence of emotional pictures on subjective arousal, an repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for strategy active viewing will be conducted for behavioral data (subjective arousal ratings).
+To investigate the effect of the tree ER strategies on subjective arousal, another rmANOVA was conducted with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective arousal ratings of negative pictures.
+To examine the impact of valence on the emotional facial reaction, an rmANOVA with the factor valence (neutral and negative) for strategy active viewing was conducted for EMG activity of *corrugator* and *levator*.
+<!-- @Anne please check! =) --> A further rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) was conducted for EMG activity to examine the effects of ER strategies on the emotional facial reaction.
+<!-- @Anne please check! =) --> To examine the effect of ER strategies on cognitive effort, an rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings was conducted.
 Greenhouse-Geisser-corrected $p$-values and degrees of freedom were reported when assumption of sphericity was violated.
 Proportion of explained variance $\eta²~p~$ was reported as a measure of effect size.
 If indicated by the data, estimated marginal means will be computed as post-hoc contrasts.
 
-*Subjective values of emotion regulation strategies* <br>
-For each ER strategy, SVs were calculated as follows: first, the value 0.015625 was added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
+*Subjective values of emotion regulation strategies* <br> For each ER strategy, SVs were calculated as follows: first, the value 0.015625 was added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
 Second, the resulting (monetary) value will be divided by 2.00 €.
 The final SV for each participant will be computed by averaging all final SVs of each strategy.
 The resulting values will be entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression) to explore for group effects.
@@ -433,17 +456,18 @@ Restricted maximum likelihood (REML) will be applied to fit the model.
 A random slopes model of SVs including subjective effort (effort ratings), subjective arousal (arousal ratings), and physiological arousal (*corrugator* activity and *levator* activity) as level-1-predictor will be specified.
 $$
 SV \sim strategy\ + \text{effort rating} + \text{arousal rating} + corrugator \text{ activity} + levator \text{ activity} + (strategy|subject)
-$$
-Level-1-predictors will be centered within cluster [@Enders2007].
+$$ Level-1-predictors will be centered within cluster [@Enders2007].
 Residuals of the final model will be inspected visually.
-Intraclass correlation coefficient (ICC), $\rho$,  will be reported for each model (null model, as well as full model).
+Intraclass correlation coefficient (ICC), $\rho$, will be reported for each model (null model, as well as full model).
 
-The influence of personality traits on SVs will be investigated exploratorily. 
-Therefore, the MLM specified above will be extended by the level-2-predictors NFC and self-control. <!--CS: Weitere Persönlichkeitsfaktoren ins Modell? Würde sagen erstmal nicht, denn sonst wird es a) überladen mit Prädiktoren und b) haben wir sonst kein Maß, was meiner Meinung nach mit ALLEN SVs zusammenhängen sollte. -->
+The influence of personality traits on SVs will be investigated exploratorily.
+Therefore, the MLM specified above will be extended by the level-2-predictors NFC and self-control.
+<!--CS: Weitere Persönlichkeitsfaktoren ins Modell? Würde sagen erstmal nicht, denn sonst wird es a) überladen mit Prädiktoren und b) haben wir sonst kein Maß, was meiner Meinung nach mit ALLEN SVs zusammenhängen sollte. -->
 
 The association between flexible ER and SVs of ER strategies will be investigated with a regression using the $intercept$ and $slope$ of each participants' SVs to predict threir FlexER score.
-Therefore, SVs will be ordered by magnitude firstly. 
-Secondly, for each participant a linear model will be built to estimate the individual $intercept$ and $slope$. <!--CS: Reicht das so als Beschreibung und wird klar, woher die Slopes und Intercepts kommen werden? --> 
+Therefore, SVs will be ordered by magnitude firstly.
+Secondly, for each participant a linear model will be built to estimate the individual $intercept$ and $slope$.
+<!--CS: Reicht das so als Beschreibung und wird klar, woher die Slopes und Intercepts kommen werden? -->
 
 For each result of the analyses both, $p$-values and Bayes factor $BF10$, calculated using the *BayesFactor* package [@Morey2021], will be reported.
 
