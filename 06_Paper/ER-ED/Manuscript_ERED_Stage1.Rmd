@@ -150,7 +150,27 @@ The authors declare no competing interests.
 
 # Supplement
 
+\includepdf[pages={-}, landscape=true]{Supplement/StimList_Suppl.pdf}
 
+\newpage
+
+## Pilot study: Subjective arousal in the conditions "active viewing - neutral" and "active viewing - negative"
+
+ANOVA:
+<br>
+`r afex::nice(SubjArousalView_aov)%>% knitr::kable(x = .)`, $BF10=$ `r round(extractBF(SubjArousalView_BF)$bf, digits = 2)`
+
+Paired contrasts:
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+apa_table(
+  SubjArousalView_con,
+  caption = "Paired contrasts for the rmANOVA comparing subjective arousal of negative and neutral pictures in the condition active viewing.",
+  note = , 
+  escape = FALSE,
+  placement = "H"
+)
+```
+Figure:
 
 
 
