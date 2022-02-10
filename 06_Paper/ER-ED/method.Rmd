@@ -469,7 +469,7 @@ To examine the impact of valence on the emotional facial reaction, an rmANOVA wi
 <!-- @Anne please check! =) --> A further rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) was conducted for EMG activity to examine the effects of ER strategies on the emotional facial reaction.
 <!-- @Anne please check! =) --> To examine the effect of ER strategies on cognitive effort, an rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings was conducted.
 Greenhouse-Geisser-corrected $p$-values and degrees of freedom were reported when assumption of sphericity was violated.
-Proportion of explained variance $\eta²~p~$ was reported as a measure of effect size.
+Proportion of explained variance $\eta_{p}^{2}$ was reported as a measure of effect size.
 If indicated by the data, estimated marginal means will be computed as post-hoc contrasts.
 
 *Subjective values of emotion regulation strategies* <br> For each ER strategy, SVs were calculated as follows: first, the value 0.015625 was added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.

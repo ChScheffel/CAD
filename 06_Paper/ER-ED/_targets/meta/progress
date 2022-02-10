@@ -1,7 +1,11 @@
 name|type|parent|branches|progress
-whole.report|stem|whole.report|0|started
-whole.report|stem|whole.report|0|built
+whole.paper|stem|whole.paper|0|skipped
+raw_data|stem|raw_data|0|skipped
+Quest|stem|Quest|0|started
+Quest|stem|Quest|0|built
 method|stem|method|0|started
 method|stem|method|0|built
+raw_data_file|stem|raw_data_file|0|started
+raw_data_file|stem|raw_data_file|0|built
 intro|stem|intro|0|started
 intro|stem|intro|0|built
