@@ -206,14 +206,14 @@ SubjArousalView_con <- cbind(SubjArousalView_con,
 
 colnames(SubjArousalView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 # rename contrast for table
-SubjArousalView_con[1,1] <- "$View_{neg} - View_{neu}$"
+SubjArousalView_con[1,1] <- "$View_{negative} - View_{neutral}$"
 
 # Figure to visualize arousal ratings
 
 # figure
 FigSubjArousalViewPilot=ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
-  scale_x_discrete(name = "Strategy", 
+  scale_x_discrete(name = "Active viewing", 
                    limits = c("view_neu", "view_neg"),
                    labels = c("Neutral", "Negative"))+
   geom_jitter(size = 0.4)+
@@ -270,10 +270,17 @@ SubjArousalReg_con <- cbind(SubjArousalReg_con,
 
 colnames(SubjArousalReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 
+SubjArousalReg_con[1,1] <- "$Distancing - Distraction$"
+SubjArousalReg_con[2,1] <- "$Distancing - Suppression$"
+SubjArousalReg_con[3,1] <- "$Distancing - View_{negative}$"
+SubjArousalReg_con[4,1] <- "$Distraction - Suppression$"
+SubjArousalReg_con[5,1] <- "$Distraction - View_{negative}$"
+SubjArousalReg_con[6,1] <- "$Suppression - View_{negative}$"
+
 # Figure to visualize arousal ratings
 
 # figure
-FigPilot2 <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal))+
+FigSubjArousalRegPilot <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Strategy", 
                    limits = c("view_neg", "distraction", "distancing", "suppression"),
@@ -327,9 +334,16 @@ SubjEffort_con <- cbind(SubjEffort_con,
 
 colnames(SubjEffort_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 
+SubjEffort_con[1,1] <- "$Distancing - Distraction$"
+SubjEffort_con[2,1] <- "$Distancing - Suppression$"
+SubjEffort_con[3,1] <- "$Distancing - View_{negative}$"
+SubjEffort_con[4,1] <- "$Distraction - Suppression$"
+SubjEffort_con[5,1] <- "$Distraction - View_{negative}$"
+SubjEffort_con[6,1] <- "$Suppression - View_{negative}$"
+
 # Figure to visualize effort ratings
 # figure
-FigPilot3 = ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort))+
+FigSubjEffortPilot = ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Strategy", 
                    limits = c("view_neg", "distraction", "distancing", "suppression"),
@@ -351,6 +365,8 @@ A complete list of all measures assessed in the study will be found at the OSF (
 
 The procedure described above was tested in a pilot study with $N=`r nrow(data_quest)`$ participants (`r length(which(data_quest$gender == 2))` female; age: $M = `r round(mean(data_quest[,"age"], na.rm = TRUE), digits = 1)`\text{ }\pm\text{ }SD = `r round(sd(data_quest[,"age"], na.rm = TRUE), digits = 1)`$).
 Results showed significant higher subjective (... and physiological ?!) arousal for active viewing of negative pictures, compared to active viewing of neutral pictures.
+However, ER strategies could not reduce subjective arousal compared to active viewing of negative pictures.
+Yet we found accordance with our previous studies [@Scheffel2021] that the use of ER strategies compared to active viewing was associated with increased subjective effort.
 
 
 ## 2.3 Design

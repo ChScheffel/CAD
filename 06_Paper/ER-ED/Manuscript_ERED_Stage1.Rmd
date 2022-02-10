@@ -141,7 +141,10 @@ The authors declare no competing interests.
 # Figures and figure captions
 
 \newpage
-
+```{r fig1appendix, echo = FALSE, message = FALSE, warning = FALSE, out.width="90%"}
+include_graphics(here("99_Thinktank","other","Paradigm_Scheme_T2.png" ))
+```
+*Figure 1.* Exemplary visualisation of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can also be represented by our paradigm.
 # Design Table
 
 \includepdf[pages={-}, landscape=true]{Supplement/Design_Table_T2.pdf}
@@ -155,22 +158,63 @@ The authors declare no competing interests.
 \newpage
 
 ## Pilot study: Subjective arousal in the conditions "active viewing - neutral" and "active viewing - negative"
-
 ANOVA:
-<br>
-`r afex::nice(SubjArousalView_aov)%>% knitr::kable(x = .)`, $BF10=$ `r round(extractBF(SubjArousalView_BF)$bf, digits = 2)`
+
+`r afex::nice(SubjArousalView_aov)%>% knitr::kable(x = .)` 
+$BF10=$ `r round(extractBF(SubjArousalView_BF)$bf, digits = 2)`
 
 Paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
   SubjArousalView_con,
-  caption = "Paired contrasts for the rmANOVA comparing subjective arousal of negative and neutral pictures in the condition active viewing.",
+  caption = "Paired contrasts for the rmANOVA comparing subjective arousal of negative and neutral pictures in the condition \"active viewing\".",
   note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.", 
   escape = FALSE,
   placement = "H"
 )
 ```
 Figure:
-```{r FigSubjArousalViewPilot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective arousal ratings for the conditions "Active viewing - neutral" and "Active viewing - negative"}
+```{r FigSubjArousalViewPilot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective arousal ratings for the conditions \"Active viewing - neutral\" and \"Active viewing - negative\" visualized as boxplots. Each dot represents the effort rating of a single subject. Bold dots represent outliers.", fig.pos="H", out.width="75%"}
 
+print(FigSubjArousalViewPilot)
+```
+## Pilot study: Subjective arousal in the conditions "Active viewing - negative", "Distraction", "Distancing", and "Suppression"
+ANOVA:
+`r afex::nice(SubjArousalReg_aov)%>% knitr::kable(x = .)`
+$BF10=$ `r round(extractBF(SubjArousalReg_BF)$bf, digits = 2)`
 
+Paired contrasts:
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+apa_table(
+  SubjArousalReg_con,
+  caption = "Paired contrasts for the rmANOVA comparing subjective arousal of conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\".",
+  note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.", 
+  escape = FALSE,
+  placement = "H"
+)
+```
+Figure:
+```{r FigSubjArousalRegPilot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective arousal ratings for the conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\" visualized as boxplots. Each dot represents the effort rating of a single subject. Bold dots represent outliers.", fig.pos="H", out.width="75%"}
+
+print(FigSubjArousalRegPilot)
+```
+## Pilot study: Subjective effort in the conditions "Active viewing - negative", "Distraction", "Distancing", and "Suppression"
+ANOVA:
+`r afex::nice(SubjEffort_aov)%>% knitr::kable(x = .)`
+$BF10=$ `r round(extractBF(SubjEffort_BF)$bf, digits = 2)`
+
+Paired contrasts:
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+apa_table(
+  SubjEffort_con,
+  caption = "Paired contrasts for the rmANOVA comparing subjective effort of conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\".",
+  note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.", 
+  escape = FALSE,
+  placement = "H"
+)
+```
+Figure:
+```{r FigSubjEffortPilot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective effort ratings for the conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\" visualized as boxplots. Each dot represents the effort rating of a single subject. Bold dots represent outliers.", fig.pos="H", out.width="75%"}
+
+print(FigSubjEffortPilot)
+```
