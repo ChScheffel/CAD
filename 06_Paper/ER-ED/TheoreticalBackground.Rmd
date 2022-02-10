@@ -105,7 +105,7 @@ In case a participant has a clear preference for one strategy, the SV of this st
 But our paradigm can also account for the case that a person does not have a clear preference.
 Then no SV will be 1, but still, the SVs of all strategies can be interpreted as absolute values and in relation to the other strategy's SVs (see figure 1).
 Additionally, we will test our adapted paradigm in a *n*-back task and explore whether this paradigm can describe individuals that do not prefer the easiest *n*-back option (see Zerna et al., ...).
-```{r fig1, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Exemplary visualisation of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can also be represented by our paradigm.", out.width="90%"}
+```{r fig1, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Exemplary visualisation of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can also be represented by our paradigm.", out.width="98%"}
 include_graphics(here("99_Thinktank","other","Paradigm_Scheme_T2.png" ))
 ```
 ## 1.2 The present study
