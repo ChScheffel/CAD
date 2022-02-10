@@ -165,12 +165,12 @@ Paired contrasts:
 apa_table(
   SubjArousalView_con,
   caption = "Paired contrasts for the rmANOVA comparing subjective arousal of negative and neutral pictures in the condition active viewing.",
-  note = , 
+  note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.", 
   escape = FALSE,
   placement = "H"
 )
 ```
 Figure:
-
+```{r FigSubjArousalViewPilot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective arousal ratings for the conditions "Active viewing - neutral" and "Active viewing - negative"}
 
 
