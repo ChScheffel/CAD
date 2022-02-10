@@ -205,11 +205,13 @@ SubjArousalView_con <- cbind(SubjArousalView_con,
                                                           digits = 2))
 
 colnames(SubjArousalView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+# rename contrast for table
+SubjArousalView_con[1,1] <- "$View_{neg} - View_{neu}$"
 
 # Figure to visualize arousal ratings
 
 # figure
-FigPilot1=ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal))+
+FigSubjArousalViewPilot=ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Strategy", 
                    limits = c("view_neu", "view_neg"),
