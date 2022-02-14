@@ -126,7 +126,7 @@ header-includes   :
 
 ```
 
-<!-- wouldn't it be more intellegible if the following code chunks are placed where the respective analyses are introducecommented on? -->
+<!-- wouldn't it be more intellegible if the following code chunks are placed where the respective analyses are introduced/commented on? -->
 
 ```{r import, echo=FALSE, message=FALSE, warning=FALSE}
 
