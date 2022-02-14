@@ -486,7 +486,7 @@ Regarding the associations of subjective and objective task load we hypothesize 
 Regarding the associations of task load and ED we hypothesize that (2a) SVs decline with increasing *n*-back level, and (2b) they do so even after controlling for declining task performance.
 Here we added <!-- why this 'here we added'? --> the hypothesis that (2c) SVs decline stronger with increasing task load for individuals with low compared to high NFC scores,
 and regarding individual differences in ED we hypothesize that (3a) SVs predict individual NFC scores, and (3b) perceived task load does not predict individual NFC scores.
-Each hypothesis is detailed in the Design Table in the Appendix.
+Each hypothesis is detailed in the Design Table in the Appendix. <!-- regarding the Design Table, I have some questions, especially regarding the effect sizes used, they seem unusually large -->
 
 ```{r preprocessing, echo=FALSE, message=FALSE, warning=FALSE}
 
