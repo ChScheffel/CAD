@@ -419,11 +419,12 @@ With each decision a person makes, they have to evaluate whether the effort requ
 A reward is subjectively more valuable if it is obtained with less effort, so the required effort is used as a reference point for estimating the reward value [@Botvinick2009].
 However, the cost of the effort itself is also subjective, and research has not yet established which function best describes the relationship between effort and cost [@Kool2018].
 Investigating effort and cost is challenging because "effort is not a property of the target task alone, but also a function of the individual's cognitive capacities, as well as the degree of effort voluntarily mobilized for the task, which in turn is a function of the individual's reward sensitivity" [@Kool2018, p. 209].
+<!-- In the last sentence, the page number of the quote should appear with the quote, but given nature.csl does not, so perhaps just insert '(p. 209)' after 'reward sensitivity' -->  
 
-One task that is often used to investigate effort is the n-back task, a working memory task in which a continuous stream of stimuli, e.g. letters, is presented on screen.
+One task that is often used to investigate effort is the *n*-back task, a working memory task in which a continuous stream of stimuli, e.g. letters, is presented on screen.
 Participants indicate via button press whether the current stimulus is the same as *n* stimuli before, with *n* being the level of difficulty between one and six [@Mackworth1959].
-The n-back task is well suited to investigate effort because it is an almost continuous manipulation of task load, as has been shown by monotonic increases in error rates, reaction times [@Jaeggi2010], and brain activity in areas associated with working memory [@Jonides1997; @Owen2005].
-However, its reliability measures are mixed, and associations of n-back performance and measures such as executive functioning and fluid intelligence are often inconsistent [@Jaeggi2010].
+The *n*-back task is well suited to investigate effort because it is an almost continuous manipulation of task load as has been shown by monotonic increases in error rates, reaction times [@Jaeggi2010], and brain activity in areas associated with working memory [@Jonides1997; @Owen2005].
+However, its reliability measures are mixed, and associations of *n*-back performance and measures such as executive functioning and fluid intelligence are often inconsistent [@Jaeggi2010].
 
 A way to quantify the subjective cost of each n-back level has been developed by Westbrook, Kester, and Braver [-@Westbrook2013], called the Cognitive Effort Discounting Paradigm (COG-ED).
 First, the participants complete the n-back levels to familiarize themselves with the task.
