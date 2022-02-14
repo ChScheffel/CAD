@@ -443,16 +443,18 @@ Passive surface Ag/AgCl electrodes (0.7 mm diameter, 10 mm distance between elec
 Data will be sampled at 1000 Hz.
 To measure *corrugator EMG*, electrodes will be applied to the abraded and cleaned skin on the left *corrugator supercilii*, and to measure *levator EMG*, electrodes were applied in the region of the *levator labii*.
 The ground electrode will be placed at the left *Mastoid*.
-A 10 Hz high pass and a 500 Hz low pass filter will be applied to both signals.
-<!-- liebe Anne, habe das hier von Ray et al 2010 übernommen. Stimmt das für unsere Auswertung? --> Afterwards, the signals will be rectified.
-[...] <!-- @Anne hier fehlt noch einiges, bitte dann nach deiner Auswertung ergänzen =) -->
+A 20 Hz high pass (order 8), a 300 Hz low pass (order 8), and a 50 Hz notch filter will be applied to both signals.
+Afterwards, the signals will be rectified and segmented.
+EMG data will be baseline-corrected to -200 ms to 0 ms to stimulus onset.
+Last, the sampling rate is changed to 100 Hz and the AUC for the interval of 6000 ms stimulus presentation extracted for every stimulus.
+<!-- Liebe @Anne, habe das aus dem Analyzer zusammengefasst, stimmt das? -- -->
 
 ## 2.4 Sampling plan
 
 Participants will be healthy adults in the age of 18 to 30, recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden.
 <!--JZ: Das stand oben schon mal--> Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.
 Sample size calculation is done using *G\*Power* [@Faul2007; @Faul2009].
-In a meta-analysis of Zaehringer and colleagues [-@Zaehringer2020], effect sizes of ER on peripheral-physiological measures were reported.\
+In a meta-analysis of Zaehringer and colleagues [-@Zaehringer2020], effect sizes of ER on peripheral-physiological measures were reported.
 To find an effect of $d=-0.32$ of ER on *corrugator* muscle activity with $\alpha=.05$ and $\beta=.95$, data of least $N=85$ have to be analyzed.
 Power analyses of all other hypotheses yielded smaller sample sizes.
 However, if participants withdraw from study participation, technical failures occur, or experimenter considers the participant for not suitable for study participation (e.g., because the participant does not follow instructions or shows great fatigue), respective data will also be excluded from further analyses.
