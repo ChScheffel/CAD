@@ -426,17 +426,17 @@ Participants indicate via button press whether the current stimulus is the same 
 The *n*-back task is well suited to investigate effort because it is an almost continuous manipulation of task load as has been shown by monotonic increases in error rates, reaction times [@Jaeggi2010], and brain activity in areas associated with working memory [@Jonides1997; @Owen2005].
 However, its reliability measures are mixed, and associations of *n*-back performance and measures such as executive functioning and fluid intelligence are often inconsistent [@Jaeggi2010].
 
-A way to quantify the subjective cost of each n-back level has been developed by Westbrook, Kester, and Braver [-@Westbrook2013], called the Cognitive Effort Discounting Paradigm (COG-ED).
-First, the participants complete the n-back levels to familiarize themselves with the task.
+A way to quantify the subjective cost of each *n*-back level has been developed by Westbrook, Kester, and Braver [-@Westbrook2013], called the Cognitive Effort Discounting Paradigm (COG-ED).
+First, the participants complete the *n*-back levels to familiarize themselves with the task.
 Then, 1-back is compared with each more difficult level by asking the participants to decide between receiving 2\$ for the more difficult level or 1\$ for 1-back.
 If they choose the more difficult level, the reward for 1-back increases by 0.50\$, if they choose 1-back, it decreases by 0.50\$.
 This is repeated five more times, with each adjustment of the 1-back reward being half of the previous step, while the reward for the more difficult level remains fixed at 2\$.
-The idea is to estimate the point of subjective equivalence, i.e. the monetary ratio at which both offers are equally preferred [@Westbrook2013].
-The subjective value (SV) of each difficult level is then calculated by dividing the final reward value of 1-back by the fixed 2\$ reward.
-Westbrook et al. [-@Westbrook2013] used these SVs to investigate inter-individual differences in effort discounting (ED).
-Younger participants showed lower ED, i.e. they needed a lower monetary incentive for choosing the more difficult levels over 1-back.
+The idea is to estimate the point of subjective equivalence, i.e., the monetary ratio at which both offers are equally preferred [@Westbrook2013].
+The subjective value (SV) of each difficulty level is then calculated by dividing the final reward value of 1-back by the fixed 2\$ reward.
+Westbrook et al. [-@Westbrook2013] <!-- I guess, it is easier to simply write @Westbrook2013 instead of Westbrook et al. [-@Westbrook2013], but this may be sinply a matter of the nature.csl --> used these SVs to investigate inter-individual differences in effort discounting (ED) <!-- perhaps avoid the abbreviation and simoly always write effort discounting -->.
+Younger participants showed lower ED, i.e., they needed a lower monetary incentive for choosing the more difficult levels over 1-back.
 
-The individual degree of ED in the study by Westbrook et al. [-@Westbrook2013] was also associated with the participants' Need for Cognition (NFC) score, a personality trait describing individuals who actively seek and enjoy effortful cognitive activities [@Cacioppo1982].
+The individual degree of ED in the study by Westbrook et al. [-@Westbrook2013] was also associated with the participants' scores in Need for Cognition (NFC), a personality trait describing individuals who actively seek and enjoy effortful cognitive activities [@Cacioppo1982].
 Westbrook et al. [-@Westbrook2013] conceptualized NFC as a trait measure of effortful task engagement, providing a subjective self-report of ED for each participant which could then be related to the SVs as an objective measure of ED.
 On the surface, this association stands to reason, as individuals with higher NFC are more motivated to mobilize cognitive effort because they perceive it as intrinsically rewarding.
 Additionally, it has been shown that individuals avoid cognitive effort only to a certain degree, possibly to retain a sense of self-control [@Wu2021], a trait more prominent in individuals with high NFC [@Bertrams2012; @Nishiguchi2016; @Xu2021].
