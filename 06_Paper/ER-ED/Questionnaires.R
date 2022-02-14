@@ -36,6 +36,7 @@ data_quest_raw <- data_redcap %>%
 data_quest <- data_redcap %>%
     subset(!is.na(subject), select = c(subject, age, gender, edu))
 
+# compute questionnaire scores for all participants
 
 
 # save data frame
