@@ -40,6 +40,15 @@ author:
       - Writing - original draft preparation
       - Writing - review & editing
       - Visualization
+  - name          : "Alexander Strobel"
+    orcid         : "0000-0002-9426-5397"
+    affiliation   : "1"
+    <!-- to be discussed -->
+    role: 
+      - Formal analysis
+      - Writing - original draft preparation
+      - Writing - review & editing
+      - Visualization
 affiliation:
   - id            : "1"
     institution   : "Faculty of Psychology, Technische Universität Dresden, 01069 Dresden, Germany"
@@ -116,6 +125,8 @@ header-includes   :
   # we will add the package versions before submission
 
 ```
+
+<!-- wouldn't it be more intellegible if the following code chunks are placed where the respective analyses are introducecommented on? -->
 
 ```{r import, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -433,7 +444,7 @@ If they choose the more difficult level, the reward for 1-back increases by 0.50
 This is repeated five more times, with each adjustment of the 1-back reward being half of the previous step, while the reward for the more difficult level remains fixed at 2\$.
 The idea is to estimate the point of subjective equivalence, i.e., the monetary ratio at which both offers are equally preferred [@Westbrook2013].
 The subjective value (SV) of each difficulty level is then calculated by dividing the final reward value of 1-back by the fixed 2\$ reward.
-Westbrook et al. [-@Westbrook2013] <!-- I guess, it is easier to simply write @Westbrook2013 instead of Westbrook et al. [-@Westbrook2013], but this may be sinply a matter of the nature.csl --> used these SVs to investigate inter-individual differences in effort discounting (ED) <!-- perhaps avoid the abbreviation and simoly always write effort discounting -->.
+Westbrook et al. [-@Westbrook2013] <!-- I guess, it is easier to simply write @Westbrook2013 instead of Westbrook et al. [-@Westbrook2013], but this may be a matter arising because of the use of the nature.csl --> used these SVs to investigate inter-individual differences in effort discounting (ED) <!-- perhaps avoid the abbreviation and simply always write effort discounting, we had some issues recently when using abbreviations in a manuscript, but we were using a lot of them, so it may be ok to use one or two here -->.
 Younger participants showed lower ED, i.e., they needed a lower monetary incentive for choosing the more difficult levels over 1-back.
 
 The individual degree of ED in the study by Westbrook et al. [-@Westbrook2013] was also associated with the participants' scores in Need for Cognition (NFC), a personality trait describing individuals who actively seek and enjoy effortful cognitive activities [@Cacioppo1982].
@@ -458,7 +469,7 @@ This procedure allows to compute SVs based on actual individual preference inste
 Each level's SV is calculated as the mean of this level's SVs from all comparisons in which it appeared.
 If the participant has a clear preference for one level, this level's SV will be 1.
 If not, then no level's SV will be 1, but each level's SV can still be interpreted as an absolute and relative value, so each participant's ED behaviour can still be quantified.
-Since we also aim to establish this paradigm for the assessment of tasks with no objective task load, e.g., emotion regulation tasks <!-- perhaps add ref. to the other ms. on this issue? -->, we call it the Cognitive and Emotion Regulation Effort Discounting Paradigm (CERED).
+Since we also aim to establish this paradigm for the assessment of tasks with no objective task load, e.g., emotion regulation tasks <!-- perhaps add ref. to the other ms. on this issue? -->, we call it the Cognitive and Emotion Regulation Effort Discounting Paradigm (CERED). <!-- not sure whether you should call it like this; while it reflects the so-called "Entstehungszusammenhang", it does not necessarily reflect the so-called "Begründungszusammenhang", i.e., the proposed approach goes beyond emotion regulation, but applies to  
 In the present study, we will validate the CERED paradigm by conceptually replicating the findings of Westbrook et al. [-@Westbrook2013].
 Additionally, we will compare the ED behaviour of participants regarding the *n*-back task and an emotion regulation task.
 The full results of the latter will be published in a second Registered Report<!-- again: add (interim) ref. -->.
@@ -471,15 +482,15 @@ The COG-ED paradigm has been applied to tasks in different domains before, showi
 ```
 
 Our hypotheses were derived from the results of Westbrook et al. [-@Westbrook2013].
-Regarding the associations of subjective and objective task load we hypothesize that (1a) the signal detection parameter *d'* declines with increasing n-back level, (1b) reaction time increases with increasing n-back level, and (1c) perceived task load increases with increasing n-back level.
-Regarding the associations of task load and ED we hypothesize that (2a) SVs decline with increasing n-back level, and (2b) they do so even after controlling for declining task performance.
-Here we added the hypothesis that (2c) SVs decline stronger with increasing task load for individuals with low compared to high NFC scores.
-And regarding individual differences in ED we hypothesize that (3a) SVs predict individual NFC scores, and (3b) perceived task load does not predict individual NFC scores.
+Regarding the associations of subjective and objective task load we hypothesize that (1a) the signal detection parameter *d'* declines with increasing *n*-back level, (1b) reaction time increases with increasing *n*-back level, and (1c) perceived task load increases with increasing *n*-back level.
+Regarding the associations of task load and ED we hypothesize that (2a) SVs decline with increasing *n*-back level, and (2b) they do so even after controlling for declining task performance.
+Here we added <!-- why this 'here we added'? --> the hypothesis that (2c) SVs decline stronger with increasing task load for individuals with low compared to high NFC scores,
+and regarding individual differences in ED we hypothesize that (3a) SVs predict individual NFC scores, and (3b) perceived task load does not predict individual NFC scores.
 Each hypothesis is detailed in the Design Table in the Appendix.
 
 ```{r preprocessing, echo=FALSE, message=FALSE, warning=FALSE}
 
-  # create new data frames for the specification curve analysis
+  # create new data frames for the specification curve analysis <!-- specification curve analysis has not been mentioned in the ms. so far -->
   # the data frame names are a combination of the letters from each of these categories, indicating how they will be preprocessed:
   #
   # across which dimensions the transformation and outlier exclusion will be done:
