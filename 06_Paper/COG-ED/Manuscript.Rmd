@@ -1764,30 +1764,32 @@ Each hypothesis is detailed in the Design Table in the Appendix.
 # Methods
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study [cf. @Simmons2012].
 The paradigm was written and presented using *Psychopy* [@Peirce2019].
-We used *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages *afex* [@Singmann2021] and *bayestestR* [@Makowski2019] for all our analyses.
+We used *R* with *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages *afex* [@Singmann2021] and *BayesFactor* [@Morey2021] for all our analyses.
 
 ## Ethics information
 
+The study protocol complies with all relevant ethical regulations and was approved by the ethics committee of the Technische Universität Dresden (reference number EK...). Prior to testing, written informed consent will be obtained.
+
 ## Pilot data
 
-The sample of the pilot study consisted of $N=`r length(setindex)-1`$ participants (`r round((table(data_quest$gender)[2]/(length(setindex)-1))*100, digits = 1)`% female, $M=`r round(mean(data_quest[,"age"], na.rm = TRUE), digits = 1)`$ ($SD=`r round(sd(data_quest[,"age"], na.rm = TRUE), digits = 1)`$)\ years old).
+The sample of the pilot study consisted of $N=`r length(setindex)-1`$ participants (`r round((table(data_quest$gender)[2]/(length(setindex)-1))*100, digits = 1)`% female, $M=`r round(mean(data_quest[,"age"], na.rm = TRUE), digits = 1)`$ ($SD=`r round(sd(data_quest[,"age"], na.rm = TRUE), digits = 1)`$)\ years old). <!-- This results in 2 digits after the comma, all second digits are 0, perhaps use papaja::printnum instead of round, it will still be 2 digits, but with exact numbers --> 
 One participant's data was removed because they misunderstood the instruction.
 Due to a technical error the subjective task load data of one participant was incomplete, so the hypotheses involving the NASA Task Load Index were analyzed with $n=`r length(setindex)-2`$ data sets.
-The results showed increases in subjective and objective task load measures with higher n-back level.
-Importantly, SVs were lower for higher n-back levels, but not different between 1- and 2-back, which can be considered preliminary proof-of-concept, as this phenomon can only emerge in this version of the paradigm.
-The MLM revealed that n-back level was a reliable predictor of SV, even after controlling for declining task performance (d’ and RT) as well as correct and post-correct answers, while NFC was not.
+The results showed increases in subjective and objective task load measures with higher *n*-back level.
+Importantly, SVs were lower for higher *n*-back levels, but not different between 1- and 2-back, which can be considered preliminary proof-of-concept, as this phenomon can only emerge in this version of the paradigm.
+The MLM revealed that *n*-back level was a reliable predictor of SV, even after controlling for declining task performance (d’ and RT) as well as correct and post-correct answers, while NFC was not, most likely due to the small sample size for individual differences analyses.
 The specification curve analysis showed that this pattern was true for all 63 pipelines.
-And finally, while the $AxAUC$ value did not predict any amount of variance in individual NFC scores, the $AUC$ of NASA-TLX scores did.
+Finally, while the $AxAUC$ value did not predict any amount of variance in individual NFC scores, the $AUC$ of NASA-TLX scores did.
 All results are detailed in the Supplementary Material.
 
 ## Design
 
-Healthy participants aged 18 to 30\ years will be recruited using the software *ORSEE* [@Greiner2015].
-Participants will fill out the personality questionnaires online and then visit the lab for two sessions one week apart.
-NFC will be assessed using the 16-item short form of the Need for Cognition Scale [@Bless1994; @Cacioppo1984].
+Healthy participants aged 18 to 30\<!-- welchen Effekt hat eigentlich der Backslash --> years will be recruited using the software *ORSEE* [@Greiner2015].
+Participants will complete the personality questionnaires online and then visit the lab for two sessions one week apart.
+NFC will be assessed using the 16-item short form of the Need for Cognition Scale [@Cacioppo1984; @Bless1994].
 Responses to each item (e.g., "Thinking is not my idea of fun", recoded) will be recorded on a 7-point Likert scale.
-The NFC scale shows comparably high internal consistency (Cronbach's $\alpha$ \> .80) [@Bless1994; @Fleischhauer2010].
-Several other personality questionnaires will be used in this study but are the topic of the Registered Report for the second lab session.
+The NFC scale shows comparably high internal consistency (Cronbach's $\alpha>.80$) [@Bless1994; @Fleischhauer2010].
+Several other personality questionnaires will be used in this study but are the topic of the Registered Report for the second lab session. <!-- again: add ref. -->
 A full list of measures can be found in our [Github repository](https://github.com/ChScheffel/CERED).
 In the first session, participants provide informed consent and demographic data before completing the computer-based paradigm.
 The paradigm starts with the n-back levels one to four, presented sequentially with two runs per level, consisting of 64 consonants (16 targets, 48 non-targets) per run.
