@@ -480,6 +480,9 @@ The final SV for each participant will be computed by averaging all final SVs of
 The resulting values will be entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression) to explore for group effects.
 Again, estimated, marginal means will be computed as post-hoc contrasts.
 
+To investigate, whether individual SVs predict ER choice, a Chi-squared test with predicted choice (highest SV of each participant) and actual choice will be computed.
+Furthermore, an ordinal logistic regression with dependent variable choice and independent variables SVs of each strategy will be computed.
+
 To explore the association between subjective arousal, physiological arousal, and subjective effort on SVs, a multilevel model (MLM) will be specified using the $lmerTest$ package [@Kuznetsova2017].
 First, ER strategies will be re-coded and centered for each subject according to their individual SVs: The strategy with the highest SV will be coded as -1, the strategy with the second highest SV 0, and the strategy with the lowest SV will be coded as 1.
 Restricted maximum likelihood (REML) will be applied to fit the model.
