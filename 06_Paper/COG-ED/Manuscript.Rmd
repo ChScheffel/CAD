@@ -469,7 +469,7 @@ This procedure allows to compute SVs based on actual individual preference inste
 Each level's SV is calculated as the mean of this level's SVs from all comparisons in which it appeared.
 If the participant has a clear preference for one level, this level's SV will be 1.
 If not, then no level's SV will be 1, but each level's SV can still be interpreted as an absolute and relative value, so each participant's ED behaviour can still be quantified.
-Since we also aim to establish this paradigm for the assessment of tasks with no objective task load, e.g., emotion regulation tasks <!-- perhaps add ref. to the other ms. on this issue? -->, we call it the Cognitive and Emotion Regulation Effort Discounting Paradigm (CERED). <!-- not sure whether you should call it like this; while it reflects the so-called "Entstehungszusammenhang", it does not necessarily reflect the so-called "Begründungszusammenhang", i.e., the proposed approach goes beyond emotion regulation, but applies to  
+Since we also aim to establish this paradigm for the assessment of tasks with no objective task load, e.g., emotion regulation tasks <!-- perhaps add ref. to the other ms. on this issue? -->, we call it the Cognitive and Emotion Regulation Effort Discounting Paradigm (CERED). <!-- not sure whether you should call it like this; while it reflects the so-called "Entstehungszusammenhang", it does not necessarily reflect the so-called "Begründungszusammenhang", i.e., the proposed approach goes beyond emotion regulation -->
 In the present study, we will validate the CERED paradigm by conceptually replicating the findings of Westbrook et al. [-@Westbrook2013].
 Additionally, we will compare the ED behaviour of participants regarding the *n*-back task and an emotion regulation task.
 The full results of the latter will be published in a second Registered Report<!-- again: add (interim) ref. -->.
@@ -486,7 +486,7 @@ Regarding the associations of subjective and objective task load we hypothesize 
 Regarding the associations of task load and ED we hypothesize that (2a) SVs decline with increasing *n*-back level, and (2b) they do so even after controlling for declining task performance.
 Here we added <!-- why this 'here we added'? --> the hypothesis that (2c) SVs decline stronger with increasing task load for individuals with low compared to high NFC scores,
 and regarding individual differences in ED we hypothesize that (3a) SVs predict individual NFC scores, and (3b) perceived task load does not predict individual NFC scores.
-Each hypothesis is detailed in the Design Table in the Appendix. <!-- regarding the Design Table, I have some questions, especially regarding the effect sizes used, they seem unusually large -->
+Each hypothesis is detailed in the Design Table in the Appendix.
 
 ```{r preprocessing, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -1791,7 +1791,7 @@ Study data will be collected and managed using REDCap electronic data capture to
 
 ## Sampling plan
 
-A sample size analysis with *G\*Power* [@Faul2007; @Faul2009], based on the results of the ANOVA of Westbrook et al. [-@Westbrook2013] which showed an increase in reaction time with higher *n*-back levels, indicated that we should collect data from at least 53 participants, assuming $\eta2=0.04$, $\alpha=.05$, and $\beta=.95$. <!-- but can we really rely on Westbrook et al., 2013, when we know the findings of Kramer et al., 2021, who observed only half of the originally reported effect size, and quite rightfully so, because initiallly reported effect sizes are more likely thasn not inflated -->
+A sample size analysis with *G\*Power* [@Faul2007; @Faul2009], based on the results of the ANOVA of Westbrook et al. [-@Westbrook2013] which showed an increase in reaction time with higher *n*-back levels, indicated that we should collect data from at least 53 participants, assuming $\eta^2=0.04$, $\alpha=.05$, and $\beta=.95$. 
 The power analyses of all other hypotheses yielded smaller necessary sample sizes.
 To account for technical errors and exclusions of physiological data of the second lab session due to excessive noise, we aim to collect data of 60 to 70 participants.
 
