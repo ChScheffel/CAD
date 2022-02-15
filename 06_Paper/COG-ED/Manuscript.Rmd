@@ -43,7 +43,6 @@ author:
   - name          : "Alexander Strobel"
     orcid         : "0000-0002-9426-5397"
     affiliation   : "1"
-    <!-- to be discussed -->
     role: 
       - Formal analysis
       - Writing - original draft preparation
@@ -112,13 +111,18 @@ header-includes   :
 
   # check whether each package is installed and install and/or load library
   
+  # the following code does not work for me, gives an error message upon knitting:
+  # > trying to use CRAN without setting a mirror
+  # removing "papaja" from the list of packages (see below) does not solve the 
+  # issue; perhaps we should setup the project using the renv package?
+  
   installed_packages <- packages %in% rownames(installed.packages())
   if (any(installed_packages == FALSE)) {
-    install.packages(packages[!installed_packages])
+     install.packages(packages[!installed_packages])
   }
   invisible(lapply(packages, library, character.only = TRUE))
   
-  <!-- papaja must be installed from GitHub so code above will not work for this package-->
+  # papaja must be installed from GitHub so code above will not work for this package
   # Install devtools package if necessary
   # if(!"devtools" %in% rownames(installed.packages())) install.packages("devtools")
 
@@ -136,7 +140,6 @@ header-includes   :
 
 ```
 
-<!-- wouldn't it be more intellegible if the following code chunks are placed where the respective analyses are introduced/commented on? -->
 
 ```{r import, echo=FALSE, message=FALSE, warning=FALSE}
 
