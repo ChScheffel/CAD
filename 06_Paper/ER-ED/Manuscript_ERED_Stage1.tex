@@ -441,9 +441,10 @@ Passive surface Ag/AgCl electrodes (0.7 mm diameter, 10 mm distance between elec
 Data will be sampled at 1000 Hz.
 To measure \emph{corrugator EMG}, electrodes will be applied to the abraded and cleaned skin on the left \emph{corrugator supercilii}, and to measure \emph{levator EMG}, electrodes were applied in the region of the \emph{levator labii}.
 The ground electrode will be placed at the left \emph{Mastoid}.
-A 10 Hz high pass and a 500 Hz low pass filter will be applied to both signals.
-Afterwards, the signals will be rectified.
-{[}\ldots{]}
+A 20 Hz high pass (order 8), a 300 Hz low pass (order 8), and a 50 Hz notch filter will be applied to both signals.
+Afterwards, the signals will be rectified and segmented.
+EMG data will be baseline-corrected to -200 ms to 0 ms to stimulus onset.
+Last, the sampling rate is changed to 100 Hz and the AUC for the interval of 6000 ms stimulus presentation extracted for every stimulus.
 
 \hypertarget{sampling-plan}{%
 \subsection{2.4 Sampling plan}\label{sampling-plan}}
@@ -451,7 +452,7 @@ Afterwards, the signals will be rectified.
 Participants will be healthy adults in the age of 18 to 30, recruited using the software \emph{ORSEE}\textsuperscript{19} at the Technische Universität Dresden.
 Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.
 Sample size calculation is done using \emph{G*Power}.\textsuperscript{42,43}
-In a meta-analysis of Zaehringer and colleagues,\textsuperscript{5} effect sizes of ER on peripheral-physiological measures were reported.\\
+In a meta-analysis of Zaehringer and colleagues,\textsuperscript{5} effect sizes of ER on peripheral-physiological measures were reported.
 To find an effect of \(d=-0.32\) of ER on \emph{corrugator} muscle activity with \(\alpha=.05\) and \(\beta=.95\), data of least \(N=85\) have to be analyzed.
 Power analyses of all other hypotheses yielded smaller sample sizes.
 However, if participants withdraw from study participation, technical failures occur, or experimenter considers the participant for not suitable for study participation (e.g., because the participant does not follow instructions or shows great fatigue), respective data will also be excluded from further analyses.
@@ -469,7 +470,7 @@ To examine the impact of valence on the emotional facial reaction, an rmANOVA wi
 A further rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) was conducted for EMG activity to examine the effects of ER strategies on the emotional facial reaction.
 To examine the effect of ER strategies on cognitive effort, an rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings was conducted.
 Greenhouse-Geisser-corrected \(p\)-values and degrees of freedom were reported when assumption of sphericity was violated.
-Proportion of explained variance \(\eta²~p~\) was reported as a measure of effect size.
+Proportion of explained variance \(\eta_{p}^{2}\) was reported as a measure of effect size.
 If indicated by the data, estimated marginal means will be computed as post-hoc contrasts.
 
 \emph{Subjective values of emotion regulation strategies} For each ER strategy, SVs were calculated as follows: first, the value 0.015625 was added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
@@ -477,6 +478,9 @@ Second, the resulting (monetary) value will be divided by 2.00 €.
 The final SV for each participant will be computed by averaging all final SVs of each strategy.
 The resulting values will be entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression) to explore for group effects.
 Again, estimated, marginal means will be computed as post-hoc contrasts.
+
+To investigate, whether individual SVs predict ER choice, a Chi-squared test with predicted choice (highest SV of each participant) and actual choice will be computed.
+Furthermore, an ordinal logistic regression with dependent variable choice and independent variables SVs of each strategy will be computed.
 
 To explore the association between subjective arousal, physiological arousal, and subjective effort on SVs, a multilevel model (MLM) will be specified using the \(lmerTest\) package.\textsuperscript{46}
 First, ER strategies will be re-coded and centered for each subject according to their individual SVs: The strategy with the highest SV will be coded as -1, the strategy with the second highest SV 0, and the strategy with the lowest SV will be coded as 1.
