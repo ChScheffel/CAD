@@ -1826,10 +1826,10 @@ Then, these final monetary values will be divided by 2€, and the SV of each le
 An rmANOVA with six paired contrasts will be computed, comparing the SVs between two levels of 1-, 2-, 3-, and 4-back at a time.
 Estimated marginal means will be used for the paired contrasts of each rmANOVA, including Tukey method for *p*-value adjustment.
 
-To determine the influence of task performance in the association of SVs and n-back level, we will set up a MLM using the $lmerTest$ package [@Kuznetsova2017]. 
+To determine the influence of task performance on the association of SVs and *n*-back level, we will set up an MLM using the $lmerTest$ package [@Kuznetsova2017]. 
 We will apply restricted maximum likelihood (REML) to fit the model.
 First, we will calculate the intraclass correlation (ICC) on the basis of the null model. <!--CS: Wieso wird der ICC nur für das Null Modell berechnet ? Man könnte den doch auch für das full-model ebenfalls angeben und sehen, wieviel Varianzaufklärung hinzugekommen ist? -->
-Second, we will estimate a random slopes model of SVs including n-back load level as level-1-predictor and, additionally, NFC as level-2-predictor. 
+Second, we will estimate a random slopes model of SVs including *n*-back load level as level-1-predictor and, additionally, NFC as level-2-predictor. 
 Within the model, we will control for *d'*, RT, correct, and post-correct trials.
 $$
 SV \sim level\ * NFC + d' + RT + correct + postcorrect + (level|subject)
@@ -1842,7 +1842,7 @@ To evaluate the moderating effect, we will calculate the Johnson-Neyman interval
 <!--CS: Man könnte noch die Effektgröße bestimmen nach: doi: 10.1002/sim.3429 -> semi partial R²  --> 
 
 To ensure the validity of the MLM, we will conduct a specification curve analysis [@Simonsohn2020], which will include 63 possible preprocessing pipelines of the RT data.
-These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, 2, 2.5, or 3\ $MAD$ from the median, RTs below 100\ or\ 200\ ms), and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within n-back levels).
+These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, 2, 2.5, or 3\ $MAD$ from the median, RTs below 100\ or\ 200\ ms), and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within *n*-back levels).
 The MLM will be run with each of the 63\ pipelines, which will also include our main pipeline (untransformed data, exclusion of RTs below 100\ ms).
 The ratio of pipelines that lead to significant versus non-significant effects will provide an indication of how robust the effect actually is.
 
@@ -1854,7 +1854,7 @@ A classic $AUC$ cannot differentiate between a subject who prefers 1-back and a 
 This is the opposite for the sum of the ascent between SVs.
 Therefore, we multiply both indicators, arriving at a value reflecting both degree and direction of preference, called $AxAUC$.
 
-The results of each analysis will be assessed on the basis of both $p$-value and the Bayes factor $BF10$, calculated with the *BayesFactor* package [@Morey2021] using the default prior widths of the functions *anovaBF*, *lmBF* and *regressionBF* corresponding. <!-- hoffe, das reicht denen, denn wenn man genauer werden will, müsste man noch zwischen fixed und random effects priors unterscheiden, die zu allem Überdruß auch noch unterschiedliche Zahlenwerte haben, 1/2 für fixed und 1 für random bei anovaBF und lmBF, aber sqrt(2)/4 bei regressionBF -->
+The results of each analysis will be assessed on the basis of both $p$-value and the Bayes factor $BF10$, calculated with the *BayesFactor* package [@Morey2021] using the default prior widths of the functions *anovaBF*, *lmBF* and *regressionBF*. <!-- hoffe, das reicht denen, denn wenn man genauer werden will, müsste man noch zwischen fixed und random effects priors unterscheiden, die zu allem Überdruß auch noch unterschiedliche Zahlenwerte haben, 1/2 für fixed und 1 für random bei anovaBF und lmBF, aber sqrt(2)/4 bei regressionBF -->
 
 ## Data availability
 
