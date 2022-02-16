@@ -55,7 +55,15 @@ affiliation       :
     institution   : "Faculty of Psychology, Technische Universität Dresden, 01069 Dresden, Germany"
 authornote        :
 abstract          : |
- Individuals have a repertoire of emotion regulation (ER) strategies at their disposal, which they can use more or less flexibly. In ER flexibility research, strategies that facilitate goal achievement are considered adaptive and therefore are subjectively valuable. Individuals are motivated to reduce their emotional arousal effectively and to avoid cognitive effort. Perceived costs of ER strategies in form of effort however, are highly subjective. Subjective values (SVs) should therefore represent a trade-off between effectiveness and subjectively required cognitive effort. However, SVs of ER strategies have not been determined so far. We present a paradigm that is suitable for determining individual SVs of ER strategies. Using a multilevel modelling approach, it will be investigated whether individual SVs can be explained by effectiveness (subjective arousal, facial muscle activity) and subjective effort. Relations of SVs to personality traits will be explored
+ Individuals have a repertoire of emotion regulation (ER) strategies at their disposal, which they can use more or less flexibly. 
+ In ER flexibility research, strategies that facilitate goal achievement are considered adaptive and therefore are subjectively valuable. 
+ Individuals are motivated to reduce their emotional arousal effectively and to avoid cognitive effort. 
+ Perceived costs of ER strategies in the form of effort, however, are highly subjective. 
+ Subjective values (SVs) should therefore represent a trade-off between effectiveness and subjectively required cognitive effort. 
+ However, SVs of ER strategies have not been determined so far. 
+ We present a paradigm that is suitable for determining individual SVs of ER strategies. 
+ Using a multilevel modelling approach, it will be investigated whether individual SVs can be explained by effectiveness (subjective arousal, facial muscle activity) and subjective effort. 
+ Relations of SVs to personality traits will be explored
 keywords          : "emotion regulation, regulatory effort, effort discounting, registered report, specification curve analysis"
 wordcount         : "X"
 bibliography      : ER_ED.bib
