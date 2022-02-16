@@ -19,7 +19,7 @@ here::i_am("flag_project_root_CERED.txt")
 Every day we are confronted with stressful or emotionally demanding situations. 
 The ability to modify emotional experiences, expressions, and physiological reactions [@Gross1998antecedent] to regulate emotions is an important cognitive skill. 
 It is therefore not surprising that emotion regulation (ER) has substantial implications for well-being and adaptive functioning [@Gross1998emerging].
-Different strategies can be used to regulate emotions, namely situation selection, situation modification, attentional deployment, cognitive change, and response modification [@Gross1998antecedent], and, following the taxonomy of Powers and LaBar [-@Powers2019], individuals can implement ER strategies by means of different tactics.
+Different strategies <!-- Hier heißt es strategies, später dann tactices, dann wieder strategies. Das sollte vereinheitlicht werden, bzw. muss klar werden ob es einen Unterschied zwischen strategies und tactics gibt und wann das eine oder das andere der korrelte Begrifff ist --> can be used to regulate emotions, namely situation selection, situation modification, attentional deployment, cognitive change, and response modification [@Gross1998antecedent], and, following the taxonomy of Powers and LaBar [-@Powers2019], individuals can implement ER strategies by means of different tactics.
 So called antecedent-focused strategies, e.g., attentional deployment and cognitive change, take effect early in the emotion generation process [@Gross1998antecedent].
 In contrast, response modification takes place late in the process and is therefore conceptualized as a response-focused strategy [@Gross1998antecedent].
 This postulated temporal sequence of ER strategies influences their effectiveness.
