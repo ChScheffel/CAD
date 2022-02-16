@@ -497,8 +497,8 @@ The COG-ED paradigm has been applied to tasks in different domains before, showi
 Our hypotheses were derived from the results of Westbrook et al. [-@Westbrook2013].
 Regarding the associations of subjective and objective task load we hypothesize that (1a) the signal detection parameter *d'* declines with increasing *n*-back level, (1b) reaction time increases with increasing *n*-back level, and (1c) perceived task load increases with increasing *n*-back level.
 Regarding the associations of task load and effort discounting we hypothesize that (2a) SVs decline with increasing *n*-back level, and (2b) they do so even after controlling for declining task performance.
-Here we added <!-- why this 'here we added'? --> the hypothesis that (2c) SVs decline stronger with increasing task load for individuals with low compared to high NFC scores,
-and regarding individual differences in effort discounting we hypothesize that (3a) SVs predict individual NFC scores, and (3b) perceived task load does not predict individual NFC scores.
+A hypothesis that was not investigated in the original study is that (2c) SVs decline stronger with increasing task load for individuals with low compared to high NFC scores.
+And regarding individual differences in effort discounting we hypothesize that (3a) SVs predict individual NFC scores, and (3b) perceived task load does not predict individual NFC scores.
 Each hypothesis is detailed in the Design Table in the Appendix.
 
 ```{r preprocessing, echo=FALSE, message=FALSE, warning=FALSE}
@@ -1956,8 +1956,10 @@ The authors declare no competing interests.
 # Supplement
 
 \counterwithin{figure}{section}
+\counterwithin{table}{section}
 \setcounter{section}{19}
 \setcounter{figure}{0}
+\setcounter{table}{0}
 
 ## Results of the pilot study
 
@@ -1980,6 +1982,8 @@ apa_table(
 )
 ```
 
+\newpage
+
 ## Hypothesis 1b: Reaction time increases with increasing n-back level.
 
 ANOVA:
@@ -1997,6 +2001,8 @@ apa_table(
   placement = "H"
 )
 ```
+
+\newpage
 
 ## Hypothesis 1c: Ratings on all NASA-TLX dimensions increase with increasing n-back level.
 
@@ -2096,6 +2102,8 @@ apa_table(
 )
 ```
 
+\newpage
+
 ## Hypothesis 2a: Subjective values decline with increasing n-back level.
 
 ANOVA:
@@ -2114,11 +2122,15 @@ apa_table(
 )
 ```
 
+\newpage
+
 ## Hypothesis 2b: Subjective values decline with increasing n-back level, even after controlling for declining task performance measured by signal detection d’ and reaction time.
 
 Multi level model:
 
 `r table_1`
+
+\newpage
 
 ## Hypothesis 2c: Subjective values decline stronger with increasing task load for individuals with low compared to high NFC scores.
 
@@ -2185,6 +2197,8 @@ Specification curve analysis:
   
 ```
 
+\newpage
+
 ## Hypothesis 3a: Subjective values positively predict individual NCS scores.
 
 Intercept:
@@ -2203,6 +2217,8 @@ $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis3a$fstatistic[1], df = hypothe
 Bayes factor:
 
 $BF10=$ `r extractBF(hypothesis3a_BF)$bf`
+
+\newpage
 
 ## Hypothesis 3b: NASA-TLX scores negatively predict individual NFC scores.
 
