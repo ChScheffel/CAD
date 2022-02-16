@@ -458,7 +458,7 @@ If they choose the more difficult level, the reward for 1-back increases by 0.50
 This is repeated five more times, with each adjustment of the 1-back reward being half of the previous step, while the reward for the more difficult level remains fixed at 2\$.
 The idea is to estimate the point of subjective equivalence, i.e., the monetary ratio at which both offers are equally preferred [@Westbrook2013].
 The subjective value (SV) of each difficulty level is then calculated by dividing the final reward value of 1-back by the fixed 2\$ reward.
-Westbrook et al. [-@Westbrook2013] <!-- I guess, it is easier to simply write @Westbrook2013 instead of Westbrook et al. [-@Westbrook2013], but this may be a matter arising because of the use of the nature.csl --> used these SVs to investigate inter-individual differences in effort discounting (ED) <!-- perhaps avoid the abbreviation and simply always write effort discounting, we had some issues recently when using abbreviations in a manuscript, but we were using a lot of them, so it may be ok to use one or two here -->.
+Westbrook et al. [-@Westbrook2013] <!-- I guess, it is easier to simply write @Westbrook2013 instead of Westbrook et al. [-@Westbrook2013], but this may be a matter arising because of the use of the nature.csl --> used these SVs to investigate inter-individual differences in effort discounting (ED)<!-- perhaps avoid the abbreviation and simply always write effort discounting, we had some issues recently when using abbreviations in a manuscript, but we were using a lot of them, so it may be ok to use one or two here -->.
 Younger participants showed lower ED, i.e., they needed a lower monetary incentive for choosing the more difficult levels over 1-back.
 
 The individual degree of ED in the study by Westbrook et al. [-@Westbrook2013] was also associated with the participants' scores in Need for Cognition (NFC), a personality trait describing an individual's tendency to actively seek out and enjoy effortful cognitive activities [@Cacioppo1982].
@@ -475,7 +475,7 @@ The COG-ED paradigm sets the SV of 1-back to 1, regardless of the response patte
 Adding a comparison of 2-back and 3-back allows the SVs of those two levels to be more differentiated, but leaves the SV of 1-back unchanged.
 Adding three more comparisons of the same levels but using the easier level as reference does approach the true preference, but has two disadvantages.
 First, the SVs are still distorted by the SVs returned by the original paradigm, and second, having more task levels would lead to an exponential increase in comparisons.
-Therefore, the solution lies in reducing the number of necessary comparisons by presenting only one ED round for each possible pair of levels, and by starting each round with a choice between equal prices.
+Therefore, the solution lies in reducing the number of necessary comparisons by presenting only one ED round for each possible pair of levels, and by starting each round with a choice between equal prices. <!--CK: instead of prices I would prefer reward in this context -->
 For example, the participant is presented with the choice of receiving 1€ for 2-back or 1€ for 4-back.
 The level chosen by the participant will then be used as the level with a flexible value, which starts at 1€ and is changed in every iteration.
 The level that was not chosen will be set to a fixed value of 2€.
@@ -483,18 +483,23 @@ This procedure allows to compute SVs based on actual individual preference inste
 Each level's SV is calculated as the mean of this level's SVs from all comparisons in which it appeared.
 If the participant has a clear preference for one level, this level's SV will be 1.
 If not, then no level's SV will be 1, but each level's SV can still be interpreted as an absolute and relative value, so each participant's ED behaviour can still be quantified.
-Since we also aim to establish this paradigm for the assessment of tasks with no objective task load, e.g., emotion regulation tasks <!-- perhaps add ref. to the other ms. on this issue? -->, we call it the Cognitive and Emotion Regulation Effort Discounting Paradigm (CERED). <!-- not sure whether you should call it like this; while it reflects the so-called "Entstehungszusammenhang", it does not necessarily reflect the so-called "Begründungszusammenhang", i.e., the proposed approach goes beyond emotion regulation -->
-In the present study, we will validate the CERED paradigm by conceptually replicating the findings of Westbrook et al. [-@Westbrook2013].
+Since we also aim to establish this paradigm for the assessment of tasks with no objective task load, e.g., emotion regulation tasks<!-- perhaps add ref. to the other ms. on this issue? -->, we call it the Cognitive and Emotion Regulation Effort Discounting Paradigm (CERED). <!-- not sure whether you should call it like this; while it reflects the so-called "Entstehungszusammenhang", it does not necessarily reflect the so-called "Begründungszusammenhang", i.e., the proposed approach goes beyond emotion regulation -->
+In the present study, we will validate the CERED paradigm by conceptually replicating the findings of Westbrook et al. [-@Westbrook2013]. <!--CK: note, the knitted doc displays: Westbrook et al.. 7; the quotation should stick to the authors -->
 Additionally, we will compare the ED behavior of participants regarding the *n*-back task and an emotion regulation task.
 The full results of the latter will be published in a second Registered Report<!-- again: add (interim) ref. -->.
-The COG-ED paradigm has been applied to tasks in different domains before, showing that SVs across task domains correlate [@Crawford2021], but these tasks had an objective order of task load, which is not the case for the choice of emotion regulation strategies or other paradigms where there is no objective order of task load.
+The COG-ED paradigm has been applied to tasks in different domains before, showing that SVs across task domains correlate [@Crawford2021],<!--CK: the same is here: ",14" --> but these tasks had an objective order of task load, which is not the case for the choice of emotion regulation strategies or other paradigms where there is no objective order of task load.
 
 ```{r figure1, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="An example for subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a participant with the true preference 2-back > 3-back > 1-back.", fig.pos="H"} 
   
   include_graphics(here("99_Thinktank", "Other", "Paradigm_Scheme.png"))
 
 ```
-
+<!--CK: Within the figure I recommend spaces, e.g. 2-back(1-back) > 2-back (1-back);
+"rewarded" seems more appropriate to me than "priced";
+the text in the small plots in the last line is pretty small and hard to read, is it possible to use a larger the font?
+I understand the figure as you already explained it to me, but I suppose it would be beneficial to add some explanations, e.g.
+to add two headings, i.e 1. calculation of the SVs (in different settings); 2. the resulting preference pattern
+(and to add some explanations/ more details in the figure note) -->
 Our hypotheses were derived from the results of Westbrook et al. [-@Westbrook2013].
 Regarding the associations of subjective and objective task load we hypothesize that (1a) the signal detection parameter *d'* declines with increasing *n*-back level, (1b) reaction time increases with increasing *n*-back level, and (1c) perceived task load increases with increasing *n*-back level.
 Regarding the associations of task load and ED we hypothesize that (2a) SVs decline with increasing *n*-back level, and (2b) they do so even after controlling for declining task performance.
@@ -1796,7 +1801,7 @@ We used *R* with *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages 
 
 ## Ethics information
 
-The study protocol complies with all relevant ethical regulations and was approved by the ethics committee of the Technische Universität Dresden (reference number EK...). Prior to testing, written informed consent will be obtained. Participants will receive 30€ in total or course credit for participation.
+The study protocol complies with all relevant ethical regulations and was approved by the ethics committee of the Technische Universität Dresden (reference number EK...)<!--CK: don't forget to add -->. Prior to testing, written informed consent will be obtained. Participants will receive 30€ in total or course credit for participation.
 
 ## Pilot data
 
@@ -1812,7 +1817,7 @@ All results are detailed in the Supplementary Material.
 
 ## Design
 
-Healthy participants aged 18 to 30\<!-- welchen Effekt hat eigentlich der Backslash --> years will be recruited using the software *ORSEE* [@Greiner2015].
+Healthy participants aged 18 to 30\ <!-- welchen Effekt hat eigentlich der Backslash --> years will be recruited using the software *ORSEE* [@Greiner2015].
 Participants will complete the personality questionnaires online and then visit the lab for two sessions one week apart.
 NFC will be assessed using the 16-item short form of the Need for Cognition Scale [@Cacioppo1984; @Bless1994].
 Responses to each item (e.g., "Thinking is not my idea of fun", recoded) will be recorded on a 7-point Likert scale.
@@ -1820,7 +1825,7 @@ The NFC scale shows comparably high internal consistency (Cronbach's $\alpha>.80
 Several other personality questionnaires will be used in this study but are the topic of the Registered Report for the second lab session. <!-- again: add ref. -->
 A full list of measures can be found in our [Github repository](https://github.com/ChScheffel/CERED).
 In the first session, participants provide informed consent and demographic data before completing the computer-based paradigm.
-The paradigm starts with the n-back levels one to four, presented sequentially with two runs per level, consisting of 64 consonants (16 targets, 48 non-targets) per run.
+The paradigm starts with the *n*-back levels one to four, presented sequentially with two runs per level, consisting of 64 consonants (16 targets, 48 non-targets) per run.
 The levels are referred to by color (1-back black, 2-back red, 3-back blue, 4-back green) to avoid anchor effects in the ED procedure.
 To assess perceived task load, we will use the 6-item NASA Task Load Index (NASA-TLX) [@Hart1988], where participants evaluate their subjective perception of mental load, physical load, effort, frustration, performance, and time pressure during the task on a 20-point scale.
 After each level, participants fill out the NASA-TLX on a tablet.
@@ -1849,7 +1854,7 @@ To test our hypotheses, we will perform a series of rmANOVAs and an MLM with ort
 Declining performance will be investigated by calculating an rmANOVA with three paired contrasts comparing *d'* between two levels of 2-, 3-, and 4-back at a time.
 Another rmANOVA with three paired contrasts will be computed to compare the mean RT between two levels of 2-, 3-, and 4-back at a time.
 To investigate changes in NASA-TLX ratings, six rmANOVAs will be computed, one for each NASA-TLX subscale, and each with six paired contrasts comparing the ratings between two levels of 1-, 2-, 3-, and 4-back at a time.
-For each ED round, SVs will be calculated by adding or subtracting 0.015625 from the last monetary value of the flexible level, depending on the participant's last choice.
+For each ED round, SVs will be calculated by adding or subtracting 0.015625 <!--CK: for the reader it might be unclear how we determined this value -->from the last monetary value of the flexible level, depending on the participant's last choice.
 Then, these final monetary values will be divided by 2€, and the SV of each level per participant will be computed by averaging all final values of each level, regardless of whether it was fixed or flexible.
 An rmANOVA with six paired contrasts will be computed, comparing the SVs between two levels of 1-, 2-, 3-, and 4-back at a time.
 Estimated marginal means will be used for the paired contrasts of each rmANOVA, including Tukey method for *p*-value adjustment.
@@ -1882,7 +1887,7 @@ The ratio of pipelines that lead to significant versus non-significant effects w
 
 The association of ED and NFC will be examined with a regression using the $AUC$ of each participant's SVs to predict their NFC score.
 A second regression will additionally include the mean of the NASA-TLX subscales' $AUCs$ of each participant as a predictor.
-Since we do not have a fixed SV of 1 for 1-back, we cannot apply the "$AUC$" computation of Westbrook et al. [-@Westbrook2013], which was the mean of the $AUCs$ of the SVs of each higher n-back level and 1-back, yielding values between 0\ and\ 1.
+Since we do not have a fixed SV of 1 for 1-back, we cannot apply the "$AUC$" <!-- CK: it is the only case where "" are used -->computation of Westbrook et al. [-@Westbrook2013], which was the mean of the $AUCs$ of the SVs of each higher n-back level and 1-back, yielding values between 0\ and\ 1.
 Consequently, we will choose a different way of quantifying the individual degree of ED.
 A classic $AUC$ cannot differentiate between a subject who prefers 1-back and a subject who prefers 4-back if the magnitude of the ascent is the same, but it can reflect the overall willingness to exert effort.
 This is the opposite for the sum of the ascent between SVs.
@@ -1896,7 +1901,7 @@ The data of this study can be downloaded from [osf.io/vnj8x/](https://osf.io/vnj
 
 ## Code availability
 
-The paradigm code as well as the R Markdown file used to analyze the data and write this document is available at our [Github repository](https://github.com/ChScheffel/CERED).
+The paradigm code as well as the R Markdown file used to analyze the data and write this document is available at our [Github repository](https://github.com/ChScheffel/CERED). <!--CK: in the knitted document it is hard to see that "Github repository" contains a link, additionally it might be good to have the link visible within the document, also in case of a print version -->
 
 \newpage
 
@@ -1915,7 +1920,7 @@ The paradigm code as well as the R Markdown file used to analyze the data and wr
 
 This research is partly funded by the German Research Foundation (DFG) as part of the Collaborative Research Center (CRC) 940.
 Additionally, we have applied for funding of the participants' compensation from centralized funds of the Faculty of Psychology at Technische Universität Dresden.
-Applications for the centralized funds will be reviewed in May.
+Applications for the centralized funds will be reviewed in May. <!-- I would add the year -->
 Regardless of whether or not this additional funding will be granted, the study can commence immediately.
 The funders have/had no role in study design, data collection and analysis, decision to publish or preparation of the manuscript.
 
