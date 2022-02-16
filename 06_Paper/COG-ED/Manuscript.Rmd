@@ -107,7 +107,8 @@ header-includes   :
   # define required packages
 
   packages = c("bibtex", "here", "tidyverse", "bayestestR", "papaja", "lmerTest", "afex", "emmeans", "sjPlot",
-               "kableExtra", "interactions", "glmmTMB", "BayesFactor", "ggplot2", "egg", "knitr", "effectsize")
+               "kableExtra", "interactions", "glmmTMB", "BayesFactor", "ggplot2", "egg", "knitr", "effectsize",
+               "MuMIn")
 
   # check whether each package is installed and install and/or load library
   
@@ -1365,9 +1366,36 @@ Each hypothesis is detailed in the Design Table in the Appendix.
                  REML = T)
   
   # intraclass correlation (ICC)
-  # % of variance can be explained by differences between persons
   var_m0_h2b <- as.data.frame(VarCorr(m0_h2b))
   icc_h2b <- var_m0_h2b$vcov[1] / (var_m0_h2b$vcov[1] + var_m0_h2b$vcov[2]) 
+  
+  # get pseudo-r-squared -------------------------------------------------------
+  
+  ## for the whole model
+  h2b_total_r2 <- r.squaredGLMM(m1_h2b, pj2014 = T)
+  
+  ## H2b: n-back level
+  # according to https://doi.org/10.1186/s40536-018-0061-2 after Aiken and West 1991
+  # model without effect
+  m1_h2b_without <- lmer(sv ~ 1 + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
+                         data = h2b_data,
+                         REML = T)
+  # calculate R²
+  h2b_without_r2 <- r.squaredGLMM(m1_h2b_without, pj2014 = T)
+  
+  # calculate f² with conditional R²
+  h2b_r2 <- (h2b_total_r2[1,2] - h2b_without_r2[1,2]) / (1 - h2b_total_r2[1,2])
+ 
+  
+  ## H2c: NFC score
+  m1_h2c_without <- lmer(sv ~ level.cwc + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
+                         data = h2b_data,
+                         REML = T)
+  # calculate R²
+  h2c_without_r2 <- r.squaredGLMM(m1_h2c_without, pj2014 = T)
+  
+  # calculate f² with conditional R²
+  h2c_r2 <- (h2b_total_r2[1,2] - h2c_without_r2[1,2]) / (1 - h2b_total_r2[1,2])
   
   
   # random slopes model --------------------------------------------------------
@@ -1828,19 +1856,25 @@ Estimated marginal means will be used for the paired contrasts of each rmANOVA, 
 
 To determine the influence of task performance on the association of SVs and *n*-back level, we will set up an MLM using the $lmerTest$ package [@Kuznetsova2017]. 
 We will apply restricted maximum likelihood (REML) to fit the model.
-First, we will calculate the intraclass correlation (ICC) on the basis of the null model. <!--CS: Wieso wird der ICC nur für das Null Modell berechnet ? Man könnte den doch auch für das full-model ebenfalls angeben und sehen, wieviel Varianzaufklärung hinzugekommen ist? -->
-Second, we will estimate a random slopes model of SVs including *n*-back load level as level-1-predictor and, additionally, NFC as level-2-predictor. 
+First, we will calculate the intraclass correlation (ICC) as effect size measure for random effects. 
+ICC displays the proportion of variance that is explained by differences between persons. <!--CS: Wieso wird der ICC nur für das Null Modell berechnet ? Man könnte den doch auch für das full-model ebenfalls angeben und sehen, wieviel Varianzaufklärung hinzugekommen ist? --> 
+<!--CK: Die Intraklassenkorrelation wird immer auf Grundlage des Nullmodells berechnet. Sie gibt an, wieviel der Gesamtvarianz auf Unterschiede zwischen den Personen zurückgeführt werden kann. Das Nullmodell zeigt, wie stark sich die einzelnen Ebene-2-Einheiten in ihrer mittleren Ausprägung auf der aV unterscheiden. Daher enthält es keine Prädiktoren. Ich habe den letzten Teil des Satzes "on the basis of the null model" rausgenommen, da er redundant ist. -->
+<!--CK: werden wie Korrelationskoeffizienten interpretiert (https://doi.org/10.1186/s40536-018-0061-2), könnten wir im Ergebnisteil demnach in der Größe einschätzen --->
+Second, we will estimate a random slopes model of SVs including n-back level as level-1-predictor and, additionally, NFC as level-2-predictor. 
 Within the model, we will control for *d'*, RT, correct, and post-correct trials.
 $$
 SV \sim level\ * NFC + d' + RT + correct + postcorrect + (level|subject)
 $$
 Level-1-predictors will be centered within cluster, whereas the level-2-predictor will be centered at the grand mean as recommended by Enders & Tofighi [-@Enders2007]. 
+By this, the model yields interpretable parameter estimates. 
 We will visually inspect the residuals of the final model.
 The approximately normal distribution indicates no evidence to perform model criticism.  
+As effect size measures, we calculate pseudo *R²* for our model and *f²* to estimate the effects of n-back level and NFC according to <!--CK: please add https://doi.org/10.1186/s40536-018-0061-2 -->.
+<!--CK: these are the corresponding values: h2b_total_r2, h2b_r2, h2c_r2 -->
 Third, we will perform a simple slopes analysis with n-back level as predictor and NFC as moderator. 
 To evaluate the moderating effect, we will calculate the Johnson-Neyman interval.
 <!--CS: Man könnte noch die Effektgröße bestimmen nach: doi: 10.1002/sim.3429 -> semi partial R²  --> 
-
+<!--CK: habe ich jetzt ergänzt -->
 To ensure the validity of the MLM, we will conduct a specification curve analysis [@Simonsohn2020], which will include 63 possible preprocessing pipelines of the RT data.
 These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, 2, 2.5, or 3\ $MAD$ from the median, RTs below 100\ or\ 200\ ms), and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within *n*-back levels).
 The MLM will be run with each of the 63\ pipelines, which will also include our main pipeline (untransformed data, exclusion of RTs below 100\ ms).
