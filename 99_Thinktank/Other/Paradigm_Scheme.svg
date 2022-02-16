@@ -26,13 +26,13 @@
      inkscape:pagecheckerboard="1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="2"
-     inkscape:cx="423.25"
-     inkscape:cy="619.75"
-     inkscape:window-width="2400"
-     inkscape:window-height="1271"
-     inkscape:window-x="2391"
-     inkscape:window-y="-9"
+     inkscape:zoom="1.32"
+     inkscape:cx="365.90909"
+     inkscape:cy="474.62121"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
@@ -639,7 +639,17 @@
        height="43.00856"
        x="-20.457891"
        y="3.62972"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <rect
+       style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:0.252856;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect31-6-6"
+       width="222.25575"
+       height="10.304467"
+       x="-20.372442"
+       y="-8.3707018"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -649,7 +659,7 @@
        height="28.601233"
        x="-20.457891"
        y="46.638279"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -659,7 +669,7 @@
        height="58.961571"
        x="-20.457891"
        y="75.239517"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -668,7 +678,7 @@
        id="path34413-5"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -677,7 +687,7 @@
        id="path34413-9"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -686,7 +696,7 @@
        id="path34413-4"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -695,7 +705,7 @@
        id="path34413-95"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <text
@@ -704,7 +714,7 @@
        x="-17.318882"
        y="8.6624804"
        id="text7383"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -721,7 +731,7 @@
        x="-18.003899"
        y="51.424816"
        id="text7383-7"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -738,7 +748,7 @@
        x="-17.898163"
        y="80.610184"
        id="text7383-7-4"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -756,7 +766,7 @@
        height="14.410927"
        x="-17.848049"
        y="14.892905"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -766,7 +776,7 @@
        height="14.410927"
        x="-17.848049"
        y="29.833"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -776,7 +786,7 @@
        height="14.410927"
        x="-17.848049"
        y="58.002277"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -786,7 +796,7 @@
        height="14.410927"
        x="-17.848049"
        y="86.700714"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -796,7 +806,7 @@
        height="14.410927"
        x="-17.848049"
        y="101.6407"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -806,7 +816,7 @@
        height="14.410927"
        x="-17.848049"
        y="116.58058"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <text
@@ -815,7 +825,7 @@
        x="-6.3012242"
        y="19.372862"
        id="text22354"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -836,7 +846,7 @@
        x="18.589558"
        y="21.736979"
        id="text22354-3"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -853,7 +863,7 @@
        x="32.313004"
        y="20.956528"
        id="text22354-3-12"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -866,7 +876,7 @@
        x="32.69442"
        y="36.442802"
        id="text22354-3-12-1"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -879,7 +889,7 @@
        x="32.421539"
        y="24.91291"
        id="text22354-3-12-6"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -892,7 +902,7 @@
        x="32.802956"
        y="40.399185"
        id="text22354-3-12-1-43"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -905,7 +915,7 @@
        x="32.803802"
        y="64.518463"
        id="text22354-3-12-1-8"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -918,7 +928,7 @@
        x="32.819939"
        y="68.545776"
        id="text22354-3-12-1-8-9"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -931,7 +941,7 @@
        x="32.853085"
        y="93.404083"
        id="text22354-3-12-1-9"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -944,7 +954,7 @@
        x="33.249969"
        y="108.32108"
        id="text22354-3-12-1-3"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -957,7 +967,7 @@
        x="33.117672"
        y="123.03703"
        id="text22354-3-12-1-0"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -970,7 +980,7 @@
        x="32.823307"
        y="97.33812"
        id="text22354-3-12-1-9-1"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -983,7 +993,7 @@
        x="33.220192"
        y="112.25499"
        id="text22354-3-12-1-3-6"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -996,7 +1006,7 @@
        x="33.087894"
        y="126.97099"
        id="text22354-3-12-1-0-2"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1009,7 +1019,7 @@
        x="18.8155"
        y="36.772842"
        id="text22354-3-1"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1026,7 +1036,7 @@
        x="18.779503"
        y="64.848495"
        id="text22354-3-5"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1043,7 +1053,7 @@
        x="18.696497"
        y="93.601852"
        id="text22354-3-10"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1060,7 +1070,7 @@
        x="18.828789"
        y="108.65112"
        id="text22354-3-0"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1077,7 +1087,7 @@
        x="18.828787"
        y="123.76395"
        id="text22354-3-2"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1094,7 +1104,7 @@
        x="-6.1961012"
        y="34.3591"
        id="text22354-4"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1115,7 +1125,7 @@
        x="-6.5923109"
        y="62.84457"
        id="text22354-4-3"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1136,7 +1146,7 @@
        x="-6.5923195"
        y="91.271713"
        id="text22354-4-5"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1157,7 +1167,7 @@
        x="-6.5964499"
        y="106.22357"
        id="text22354-4-6"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1178,7 +1188,7 @@
        x="-6.3277321"
        y="121.1068"
        id="text22354-4-58"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1199,7 +1209,7 @@
        id="path34413"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -1208,7 +1218,7 @@
        id="path34413-39"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -1217,7 +1227,7 @@
        id="path34413-8"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -1226,7 +1236,7 @@
        id="path34413-52"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -1235,7 +1245,7 @@
        id="path34413-51"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -1244,7 +1254,7 @@
        id="path34413-6"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -1253,7 +1263,7 @@
        id="path34413-90"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -1262,7 +1272,7 @@
        id="path34413-3"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -1272,7 +1282,7 @@
        height="63.855961"
        x="69.380432"
        y="3.6551597"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -1282,7 +1292,7 @@
        height="14.410927"
        x="71.899834"
        y="15.951238"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -1292,7 +1302,7 @@
        height="14.410927"
        x="71.900002"
        y="32.108002"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -1302,7 +1312,7 @@
        height="14.410927"
        x="71.899834"
        y="48.477264"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -1312,7 +1322,7 @@
        height="14.410927"
        x="114.5518"
        y="15.951237"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -1322,7 +1332,7 @@
        height="14.410927"
        x="114.55202"
        y="32.108002"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -1332,7 +1342,7 @@
        height="14.410927"
        x="114.55178"
        y="48.477264"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <text
@@ -1341,24 +1351,56 @@
        x="71.739342"
        y="8.7953615"
        id="text7383-3"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
-         id="tspan26146"
-         x="71.739342"
-         y="8.7953615">Solution:</tspan><tspan
+         id="tspan1479">Solution:</tspan><tspan
          sodipodi:role="line"
-         id="tspan26148"
-         x="71.739342"
-         y="12.323136">Choosing the reference level based on a choice between equally priced levels</tspan></text>
+         id="tspan1481">Choosing the reference level based on a choice between equally rewarded levels</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:4.58611px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="23.127384"
+       y="-1.4909167"
+       id="text7383-3-4"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"><tspan
+         sodipodi:role="line"
+         id="tspan2361"
+         x="23.127384"
+         y="-1.4909167">Step 1: Computation of subjective values for each task level</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:0.253029;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect31-6-6-0"
+       width="222.55917"
+       height="10.304467"
+       x="-20.594233"
+       y="136.05916"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:4.58611px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="38.571918"
+       y="142.89911"
+       id="text7383-3-4-9"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"><tspan
+         sodipodi:role="line"
+         id="tspan2431"
+         x="38.571918"
+         y="142.89911">Step 2: Resulting assumed preference pattern</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
        x="83.121506"
        y="20.409101"
        id="text22354-5"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1379,7 +1421,7 @@
        x="83.121536"
        y="52.8904"
        id="text22354-5-5"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1400,7 +1442,7 @@
        x="83.121536"
        y="36.583603"
        id="text22354-5-1"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1421,7 +1463,7 @@
        x="125.90334"
        y="20.673683"
        id="text22354-5-6"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1442,7 +1484,7 @@
        x="125.90339"
        y="53.022682"
        id="text22354-5-5-0"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1463,7 +1505,7 @@
        x="126.03568"
        y="36.715893"
        id="text22354-5-1-8"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1484,7 +1526,7 @@
        x="151.03291"
        y="23.008455"
        id="text22354-3-06"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1501,7 +1543,7 @@
        x="100.02493"
        y="23.835453"
        id="text22354-3-06-1"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1514,7 +1556,7 @@
        x="100.05522"
        y="56.072227"
        id="text22354-3-06-1-1"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1527,7 +1569,7 @@
        x="100.18751"
        y="39.700111"
        id="text22354-3-06-1-0"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1540,7 +1582,7 @@
        x="165.56502"
        y="22.876167"
        id="text22354-3-12-2"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1553,7 +1595,7 @@
        x="165.62773"
        y="37.880959"
        id="text22354-3-12-1-4"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1566,7 +1608,7 @@
        x="151.35194"
        y="38.475578"
        id="text22354-3-1-2"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1583,7 +1625,7 @@
        id="path34413-909"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -1592,7 +1634,7 @@
        id="path34413-909-3"
        inkscape:transform-center-x="0.04987139"
        inkscape:transform-center-y="0.0030455775"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -1601,7 +1643,7 @@
        id="path34413-909-3-4"
        inkscape:transform-center-x="0.04987139"
        inkscape:transform-center-y="0.0030455775"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -1610,7 +1652,7 @@
        id="path34413-909-3-46"
        inkscape:transform-center-x="0.04987139"
        inkscape:transform-center-y="0.0030455775"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -1619,7 +1661,7 @@
        id="path34413-909-3-2"
        inkscape:transform-center-x="0.04987139"
        inkscape:transform-center-y="0.0030455775"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -1628,7 +1670,7 @@
        id="path34413-909-3-4-0"
        inkscape:transform-center-x="0.04987139"
        inkscape:transform-center-y="0.0030455775"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -1637,7 +1679,7 @@
        id="path34413-909-3-46-0"
        inkscape:transform-center-x="0.04987139"
        inkscape:transform-center-y="0.0030455775"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -1646,7 +1688,7 @@
        id="path34413-39-4"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -1655,7 +1697,7 @@
        id="path34413-8-2"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -1664,7 +1706,7 @@
        id="path34413-3-7"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <text
@@ -1673,7 +1715,7 @@
        x="165.97325"
        y="54.118927"
        id="text22354-3-12-1-4-5"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1686,7 +1728,7 @@
        x="165.48283"
        y="26.619095"
        id="text22354-3-12-2-4"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1699,7 +1741,7 @@
        x="165.54555"
        y="41.623886"
        id="text22354-3-12-1-4-0"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1712,7 +1754,7 @@
        x="165.89104"
        y="57.861855"
        id="text22354-3-12-1-4-5-1"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1725,7 +1767,7 @@
        x="151.43285"
        y="54.713547"
        id="text22354-3-1-2-0"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1742,7 +1784,7 @@
        id="path34413-8-2-3"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -1751,7 +1793,7 @@
        id="path34413-3-7-5"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -1761,7 +1803,7 @@
        height="66.827271"
        x="69.39782"
        y="67.644417"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -1771,7 +1813,7 @@
        height="14.410927"
        x="71.899834"
        y="82.467377"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -1781,7 +1823,7 @@
        height="14.410927"
        x="71.899834"
        y="98.778336"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -1791,7 +1833,7 @@
        height="14.410927"
        x="71.899834"
        y="115.09334"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -1801,7 +1843,7 @@
        height="14.410927"
        x="114.552"
        y="82.467377"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -1811,7 +1853,7 @@
        height="14.410927"
        x="114.552"
        y="98.678001"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -1821,7 +1863,7 @@
        height="14.410927"
        x="114.552"
        y="115.093"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <text
@@ -1830,7 +1872,7 @@
        x="72.003922"
        y="74.269257"
        id="text7383-3-8"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1847,7 +1889,7 @@
        x="82.724632"
        y="87.205902"
        id="text22354-5-7"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1868,7 +1910,7 @@
        x="83.25383"
        y="119.68723"
        id="text22354-5-5-4"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1889,7 +1931,7 @@
        x="83.121536"
        y="103.51269"
        id="text22354-5-1-0"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1910,7 +1952,7 @@
        x="125.77105"
        y="87.338196"
        id="text22354-5-6-6"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1931,7 +1973,7 @@
        x="126.03568"
        y="119.68723"
        id="text22354-5-5-0-5"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1952,7 +1994,7 @@
        x="125.7711"
        y="103.38039"
        id="text22354-5-1-8-3"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1973,7 +2015,7 @@
        x="150.90076"
        y="89.80526"
        id="text22354-3-06-9"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -1990,7 +2032,7 @@
        x="100.02493"
        y="91.293716"
        id="text22354-3-06-1-5"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -2003,7 +2045,7 @@
        x="99.658348"
        y="123.69482"
        id="text22354-3-06-1-1-2"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -2016,7 +2058,7 @@
        x="99.526054"
        y="107.29066"
        id="text22354-3-06-1-0-5"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -2029,7 +2071,7 @@
        x="165.96202"
        y="89.408394"
        id="text22354-3-12-2-0"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -2042,7 +2084,7 @@
        x="166.02473"
        y="105.3392"
        id="text22354-3-12-1-4-3"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -2055,7 +2097,7 @@
        x="150.9552"
        y="106.06612"
        id="text22354-3-1-2-6"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -2072,7 +2114,7 @@
        id="path34413-909-6"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -2081,7 +2123,7 @@
        id="path34413-909-3-5"
        inkscape:transform-center-x="0.04987139"
        inkscape:transform-center-y="0.0030455775"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -2090,7 +2132,7 @@
        id="path34413-909-3-4-1"
        inkscape:transform-center-x="0.04987139"
        inkscape:transform-center-y="0.0030455775"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -2099,7 +2141,7 @@
        id="path34413-909-3-46-2"
        inkscape:transform-center-x="0.04987139"
        inkscape:transform-center-y="0.0030455775"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -2108,7 +2150,7 @@
        id="path34413-909-3-2-5"
        inkscape:transform-center-x="0.04987139"
        inkscape:transform-center-y="0.0030455775"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -2117,7 +2159,7 @@
        id="path34413-909-3-4-0-5"
        inkscape:transform-center-x="0.04987139"
        inkscape:transform-center-y="0.0030455775"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -2126,7 +2168,7 @@
        id="path34413-909-3-46-0-9"
        inkscape:transform-center-x="0.04987139"
        inkscape:transform-center-y="0.0030455775"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -2135,7 +2177,7 @@
        id="path34413-39-4-1"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -2144,7 +2186,7 @@
        id="path34413-8-2-35"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -2153,7 +2195,7 @@
        id="path34413-3-7-1"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <text
@@ -2162,7 +2204,7 @@
        x="166.10567"
        y="121.4449"
        id="text22354-3-12-1-4-5-19"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -2175,7 +2217,7 @@
        x="165.87984"
        y="93.151314"
        id="text22354-3-12-2-4-1"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -2188,7 +2230,7 @@
        x="165.94255"
        y="109.08215"
        id="text22354-3-12-1-4-0-8"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -2201,7 +2243,7 @@
        x="166.02345"
        y="125.18781"
        id="text22354-3-12-1-4-5-1-3"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -2214,7 +2256,7 @@
        x="151.0361"
        y="121.77493"
        id="text22354-3-1-2-0-7"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
@@ -2231,7 +2273,7 @@
        id="path34413-8-2-3-4"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
@@ -2240,552 +2282,540 @@
        id="path34413-3-7-5-0"
        inkscape:transform-center-x="0.097749018"
        inkscape:transform-center-y="0.0024833967"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:#ffffff;fill-rule:evenodd;stroke:#f2d71f;stroke-width:0.211602;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#ffffff;fill-rule:evenodd;stroke:#f2d71f;stroke-width:0.258465;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect31-6-0-0"
-       width="29.288397"
-       height="47.096527"
-       x="39.008263"
-       y="135.2594"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       width="43.741535"
+       height="47.049664"
+       x="68.479309"
+       y="147.95409"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="41.004295"
-       y="138.67007"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.64583px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="71.911125"
+       y="152.47183"
        id="text22354-3-2-7-3-2"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
-         id="tspan26052"
-         x="41.004295"
-         y="138.67007">Addition 2:</tspan><tspan
+         id="tspan3107"
+         x="71.911125"
+         y="152.47183">Addition 2:</tspan><tspan
          sodipodi:role="line"
-         id="tspan26054"
-         x="41.004295"
-         y="141.31592">SVs reflect the true prefe-</tspan><tspan
+         id="tspan3109"
+         x="71.911125"
+         y="155.77911">SVs reflect the true preference</tspan><tspan
          sodipodi:role="line"
-         id="tspan26056"
-         x="41.004295"
-         y="143.96175">rence but are confounded</tspan><tspan
+         id="tspan3111"
+         x="71.911125"
+         y="159.08641">but are confounded with the</tspan><tspan
          sodipodi:role="line"
-         id="tspan26058"
-         x="41.004295"
-         y="146.60759">with the default SVs</tspan></text>
+         id="tspan3113"
+         x="71.911125"
+         y="162.39369">default SVs</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="41.284927"
-       y="150.91043"
+       x="71.790871"
+       y="166.22749"
        id="text22354-3-2-7-1-8"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
-         id="tspan7110-7"
-         x="41.284927"
-         y="150.91043">SV</tspan><tspan
+         id="tspan3041"
+         x="71.790871"
+         y="166.22749">SV</tspan><tspan
          sodipodi:role="line"
-         id="tspan7112-9"
-         x="41.284927"
-         y="153.55627" /><tspan
-         sodipodi:role="line"
-         id="tspan7114-2"
-         x="41.284927"
-         y="156.2021">1</tspan></text>
+         id="tspan3043"
+         x="71.790871"
+         y="168.87334">1</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.222036px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 43.677272,152.9611 v 24.76413"
+       d="m 74.712386,165.63272 v 24.76413"
        id="path6836-5"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.210839px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 66.006963,177.72523 H 43.677272"
+       style="fill:none;stroke:#000000;stroke-width:0.256311px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 107.71239,190.39685 H 74.712386"
        id="path6836-2-2"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.154664;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.188896;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect9330-0"
-       width="4.0224061"
+       width="6"
        height="14.992476"
-       x="46.076317"
-       y="162.66397"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       x="77.640594"
+       y="175.33524"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.185475;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.226526;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect9330-5-7"
-       width="4.0224061"
+       width="6"
        height="21.560787"
-       x="52.74456"
-       y="156.09567"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       x="88.013023"
+       y="168.76694"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.173814;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.212284;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect9330-57-3"
-       width="4.0224061"
+       width="6"
        height="18.934872"
-       x="59.754883"
-       y="158.72159"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       x="98.727547"
+       y="171.39285"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:#ffffff;fill-rule:evenodd;stroke:#265ada;stroke-width:0.211602;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#ffffff;fill-rule:evenodd;stroke:#265ada;stroke-width:0.258465;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect31-6-0-0-7"
-       width="29.288397"
-       height="47.096527"
-       x="102.93326"
-       y="135.2594"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       width="43.741535"
+       height="47.049664"
+       x="113.27919"
+       y="147.95409"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="104.92931"
-       y="138.67009"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="119.1725"
+       y="153.74666"
        id="text22354-3-2-7-3-2-6"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan23231"
-         x="104.92931"
-         y="138.67009">Solution:</tspan><tspan
+         x="119.1725"
+         y="153.74666">Solution:</tspan><tspan
          sodipodi:role="line"
          id="tspan23233"
-         x="104.92931"
-         y="141.31593">SVs reflect the true prefe-</tspan><tspan
+         x="119.1725"
+         y="157.27443">SVs reflect the true prefe-</tspan><tspan
          sodipodi:role="line"
          id="tspan23235"
-         x="104.92931"
-         y="143.96176">rence</tspan></text>
+         x="119.1725"
+         y="160.80222">rence</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="105.20994"
-       y="150.91052"
+       x="117.11997"
+       y="166.22758"
        id="text22354-3-2-7-1-8-1"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
-         id="tspan7110-7-8"
-         x="105.20994"
-         y="150.91052">SV</tspan><tspan
+         id="tspan3063"
+         x="117.11997"
+         y="166.22758">SV</tspan><tspan
          sodipodi:role="line"
-         id="tspan7112-9-5"
-         x="105.20994"
-         y="153.55637" /><tspan
-         sodipodi:role="line"
-         id="tspan7114-2-5"
-         x="105.20994"
-         y="156.20219">1</tspan></text>
+         id="tspan3065"
+         x="117.11997"
+         y="168.87343">1</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.222036px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 107.60245,152.96015 v 24.76413"
+       d="M 120.04149,165.63177 V 190.3959"
        id="path6836-5-0"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.210839px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 129.93227,177.72428 H 107.60245"
+       style="fill:none;stroke:#000000;stroke-width:0.25631px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 153.04149,190.3959 h -33"
        id="path6836-2-2-4"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.116194;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.141911;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect9330-0-8"
-       width="4.0224061"
+       width="6"
        height="8.4618368"
-       x="110.00124"
-       y="169.1947"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       x="122.44056"
+       y="181.86597"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.187476;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.22897;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect9330-5-7-1"
-       width="4.0224061"
+       width="6"
        height="22.028509"
-       x="116.66943"
-       y="155.62804"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       x="133.34204"
+       y="168.2993"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.161601;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.197368;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect9330-57-3-8"
-       width="4.0224061"
+       width="6"
        height="16.367401"
-       x="123.67972"
-       y="161.28915"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       x="144.05644"
+       y="173.96042"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:#ffffff;fill-rule:evenodd;stroke:#265ada;stroke-width:0.211602;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#ffffff;fill-rule:evenodd;stroke:#265ada;stroke-width:0.258465;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect31-6-0-0-7-0"
-       width="29.288397"
-       height="47.096527"
-       x="132.75079"
-       y="135.2594"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       width="43.741535"
+       height="47.049664"
+       x="158.07904"
+       y="147.95409"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="134.74683"
-       y="138.67009"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.64583px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="162.08376"
+       y="152.6897"
        id="text22354-3-2-7-3-2-6-8"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
-         id="tspan74863">Additional benefit:</tspan><tspan
+         id="tspan3133"
+         x="162.08376"
+         y="152.6897">Additional benefit:</tspan><tspan
          sodipodi:role="line"
-         id="tspan74865">SVs reveal a preference</tspan><tspan
+         id="tspan3135"
+         x="162.08376"
+         y="155.99698">SVs reveal a preference and</tspan><tspan
          sodipodi:role="line"
-         id="tspan74867">and the individual degree</tspan><tspan
+         id="tspan3137"
+         x="162.08376"
+         y="159.30428">the individual degree of effort</tspan><tspan
          sodipodi:role="line"
-         id="tspan74869">of effort discounting</tspan></text>
+         id="tspan3139"
+         x="162.08376"
+         y="162.61156">discounting</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="135.02739"
-       y="150.91052"
+       x="160.76079"
+       y="166.245"
        id="text22354-3-2-7-1-8-1-4"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
-         id="tspan7110-7-8-3"
-         x="135.02739"
-         y="150.91052">SV</tspan><tspan
+         id="tspan3085"
+         x="160.76079"
+         y="166.245">SV</tspan><tspan
          sodipodi:role="line"
-         id="tspan7112-9-5-7"
-         x="135.02739"
-         y="153.55637" /><tspan
-         sodipodi:role="line"
-         id="tspan7114-2-5-3"
-         x="135.02739"
-         y="156.20219">1</tspan></text>
+         id="tspan3087"
+         x="160.76079"
+         y="168.89084">1</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.222036px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 137.42067,152.96015 v 24.76413"
+       d="m 163.68324,165.64924 v 24.76413"
        id="path6836-5-0-6"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.210839px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 159.75036,177.72428 H 137.42067"
+       style="fill:none;stroke:#000000;stroke-width:0.256311px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 196.68324,190.41337 h -33"
        id="path6836-2-2-4-8"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.148162;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.180955;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect9330-0-8-6"
-       width="4.0224061"
+       width="6"
        height="13.758464"
-       x="139.81879"
-       y="163.89807"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       x="166.6105"
+       y="176.58675"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.174958;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.213681;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect9330-5-7-1-5"
-       width="4.0224061"
+       width="6"
        height="19.185076"
-       x="146.48689"
-       y="158.47147"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       x="176.98273"
+       y="171.16014"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.171292;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.209204;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect9330-57-3-8-6"
-       width="4.0224061"
+       width="6"
        height="18.389427"
-       x="153.49713"
-       y="159.26714"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       x="187.69708"
+       y="171.95581"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:#ffffff;fill-rule:evenodd;stroke:#f98d19;stroke-width:0.211602;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#ffffff;fill-rule:evenodd;stroke:#f98d19;stroke-width:0.258465;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect31-6-0-0-2"
-       width="29.288397"
-       height="47.096527"
-       x="9.2488012"
-       y="135.15981"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       width="43.741535"
+       height="47.049664"
+       x="23.679441"
+       y="147.95409"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="11.645245"
-       y="138.57053"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="28.257318"
+       y="153.73062"
        id="text22354-3-2-7-3-2-2"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan26078"
-         x="11.645245"
-         y="138.57053">Addition 1:</tspan><tspan
+         x="28.257318"
+         y="153.73062">Addition 1:</tspan><tspan
          sodipodi:role="line"
          id="tspan26080"
-         x="11.645245"
-         y="141.21637">SVs do not reflect the true</tspan><tspan
+         x="28.257318"
+         y="157.25839">SVs do not reflect the true</tspan><tspan
          sodipodi:role="line"
          id="tspan26082"
-         x="11.645245"
-         y="143.8622">preference</tspan></text>
+         x="28.257318"
+         y="160.78618">preference</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="11.925876"
-       y="150.81088"
+       x="25.803926"
+       y="166.22754"
        id="text22354-3-2-7-1-8-0"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
-         id="tspan7110-7-6"
-         x="11.925876"
-         y="150.81088">SV</tspan><tspan
+         id="tspan3019"
+         x="25.803926"
+         y="166.22754">SV</tspan><tspan
          sodipodi:role="line"
-         id="tspan7112-9-4"
-         x="11.925876"
-         y="153.45673" /><tspan
-         sodipodi:role="line"
-         id="tspan7114-2-1"
-         x="11.925876"
-         y="156.10255">1</tspan></text>
+         id="tspan3021"
+         x="25.803926"
+         y="168.87338">1</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.222036px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 14.318209,152.86149 v 24.76413"
+       d="m 28.725429,165.6327 v 24.76413"
        id="path6836-5-2"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.210839px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 36.647898,177.62562 H 14.318209"
+       style="fill:none;stroke:#000000;stroke-width:0.256311px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 61.725429,190.39683 h -33"
        id="path6836-2-2-7"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.189324;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.231227;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect9330-0-2"
-       width="4.0224061"
+       width="6"
        height="22.464903"
-       x="16.717258"
-       y="155.09203"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       x="31.653648"
+       y="167.86288"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.18827;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.22994;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect9330-5-7-0"
-       width="4.0224061"
+       width="6"
        height="22.215597"
-       x="23.385502"
-       y="155.34131"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       x="42.026062"
+       y="168.11217"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.164551;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.200971;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect9330-57-3-6"
-       width="4.0224061"
+       width="6"
        height="16.97044"
-       x="30.39583"
-       y="160.58647"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       x="52.740562"
+       y="173.35733"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:#ffffff;fill-rule:evenodd;stroke:#de201e;stroke-width:0.211602;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#ffffff;fill-rule:evenodd;stroke:#de201e;stroke-width:0.256992;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect31-6-0-0-2-1"
-       width="29.288397"
-       height="47.096527"
-       x="-20.457891"
-       y="135.15981"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       width="43.243008"
+       height="47.05114"
+       x="-20.591999"
+       y="147.95335"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="-15.671295"
-       y="180.59645"
+       x="-13.711432"
+       y="193.36729"
        id="text22354-3-2-7-5-0-4"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
-         id="tspan73393"
-         x="-15.671295"
-         y="180.59645">1-back  2-back  3-back</tspan></text>
+         id="tspan2593"
+         x="-13.711432"
+         y="193.36729">1-back        2-back        3-back</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="14.223406"
-       y="180.67818"
+       x="30.747297"
+       y="193.44904"
        id="text22354-3-2-7-5-0-4-2"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
-         id="tspan73393-0"
-         x="14.223406"
-         y="180.67818">1-back  2-back  3-back</tspan></text>
+         id="tspan2613"
+         x="30.747297"
+         y="193.44904">1-back        2-back        3-back</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="43.989029"
-       y="180.57812"
+       x="77.140808"
+       y="193.24939"
        id="text22354-3-2-7-5-0-4-2-8"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
-         id="tspan73393-0-9"
-         x="43.989029"
-         y="180.57812">1-back  2-back  3-back</tspan></text>
+         id="tspan2633"
+         x="77.140808"
+         y="193.24939">1-back        2-back        3-back</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="107.36031"
-       y="180.77356"
+       x="121.91628"
+       y="193.44482"
        id="text22354-3-2-7-5-0-4-2-8-9"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
-         id="tspan73393-0-9-0"
-         x="107.36031"
-         y="180.77356">1-back  2-back  3-back</tspan></text>
+         id="tspan2653"
+         x="121.91628"
+         y="193.44482">1-back        2-back        3-back</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="137.42586"
-       y="180.77356"
+       x="165.80505"
+       y="193.46223"
        id="text22354-3-2-7-5-0-4-2-8-9-4"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
-         id="tspan73393-0-9-0-4"
-         x="137.42586"
-         y="180.77356">1-back  2-back  3-back</tspan></text>
+         id="tspan2673"
+         x="165.80505"
+         y="193.46223">1-back        2-back        3-back</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="-18.461859"
-       y="138.5705"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-16.012915"
+       y="154.13147"
        id="text22354-3-2-7-3-2-2-6"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan21426"
-         x="-18.461859"
-         y="138.5705">Westbrook et al. (2013):</tspan><tspan
+         x="-16.012915"
+         y="154.13147">Westbrook et al. (2013):</tspan><tspan
          sodipodi:role="line"
          id="tspan21428"
-         x="-18.461859"
-         y="141.21634">SVs do not reflect the true</tspan><tspan
+         x="-16.012915"
+         y="157.65924">SVs do not reflect the true</tspan><tspan
          sodipodi:role="line"
          id="tspan21430"
-         x="-18.461859"
-         y="143.86217">preference</tspan></text>
+         x="-16.012915"
+         y="161.18703">preference</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="-18.181227"
-       y="150.81084"
+       x="-18.867195"
+       y="166.22748"
        id="text22354-3-2-7-1-8-0-8"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
-         id="tspan7110-7-6-2"
-         x="-18.181227"
-         y="150.81084">SV</tspan><tspan
+         id="tspan2997"
+         x="-18.867195"
+         y="166.22748">SV</tspan><tspan
          sodipodi:role="line"
-         id="tspan7112-9-4-8"
-         x="-18.181227"
-         y="153.45668" /><tspan
-         sodipodi:role="line"
-         id="tspan7114-2-1-3"
-         x="-18.181227"
-         y="156.10251">1</tspan></text>
+         id="tspan2999"
+         x="-18.867195"
+         y="168.87332">1</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.222036px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m -15.788904,152.86148 v 24.76413"
+       d="m -15.945705,165.63271 v 24.76413"
        id="path6836-5-2-5"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.210839px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 6.5407759,177.62561 H -15.788904"
+       style="fill:none;stroke:#000000;stroke-width:0.256311px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 17.054295,190.39684 h -33"
        id="path6836-2-2-7-7"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.188992;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.230821;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect9330-0-2-5"
-       width="4.0224061"
+       width="6"
        height="22.386269"
-       x="-13.389832"
-       y="155.17061"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       x="-13.017467"
+       y="167.94145"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.186602;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.227902;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect9330-5-7-0-0"
-       width="4.0224061"
+       width="6"
        height="21.823584"
-       x="-6.7215962"
-       y="155.73328"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       x="-2.6450639"
+       y="168.50412"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.180891;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.220927;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect9330-57-3-6-4"
-       width="4.0224061"
+       width="6"
        height="20.508101"
-       x="0.28873026"
-       y="157.04877"
-       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
+       x="8.0694294"
+       y="169.81961"
+       inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
   </g>
