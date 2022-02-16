@@ -1369,6 +1369,19 @@ Each hypothesis is detailed in the Design Table in the Appendix.
   var_m0_h2b <- as.data.frame(VarCorr(m0_h2b))
   icc_h2b <- var_m0_h2b$vcov[1] / (var_m0_h2b$vcov[1] + var_m0_h2b$vcov[2]) 
   
+  
+  # random slopes model --------------------------------------------------------
+  
+  ## maximal model ---- 
+  m1_h2b <- lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject), 
+                 data = h2b_data,
+                 REML = T) # parameters estimated by restricted log-likelihood maximization
+  
+  
+  ## plot model fit of the final model ----
+  m1_h2b_fit <- plot_model(m1_h2b, type = "diag")
+  
+  
   # get pseudo-r-squared -------------------------------------------------------
   
   ## for the whole model
@@ -1395,18 +1408,6 @@ Each hypothesis is detailed in the Design Table in the Appendix.
   
   # calculate f² with conditional R²
   h2c_r2 <- (h2b_total_r2[1,2] - h2c_without_r2[1,2]) / (1 - h2b_total_r2[1,2])
-  
-  
-  # random slopes model --------------------------------------------------------
-  
-  ## maximal model ---- 
-  m1_h2b <- lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject), 
-                 data = h2b_data,
-                 REML = T) # parameters estimated by restricted log-likelihood maximization
-  
-  
-  ## plot model fit of the final model ----
-  m1_h2b_fit <- plot_model(m1_h2b, type = "diag")
   
   
   # get Bayes factors ----------------------------------------------------------
