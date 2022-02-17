@@ -48,14 +48,14 @@ Research on ER choice has identified numerous factors that influence the choice 
 For example, it was shown that the intensity of a stimulus or situation plays a role in the choice [@Sheppes2011]. 
 Higher intensity of the stimulus leads to a choice of rather disengaging strategies, like distraction [@Sheppes2011;@Sheppes2014].
 Further influencing factors are for example extrinsic motivation (e.g., monetary incentives), motivational determinants (i.e., hedonic regulatory goals), and effort [@Sheppes2014;@Scheffel2021].
-Especially for effort, in our previous work we could show that the choice for an ER strategy is mainly influenced by the effort required to implement a given strategy  [@Scheffel2021].
+Especially for effort, in our previous work we could show that the choice for an ER strategy is mainly influenced by the effort required to implement a given strategy [@Scheffel2021].
 In this study, participants used the strategies distancing and suppression while inspecting emotional pictures.
 Afterwards they could choose, which strategy they want to use again.
-Participants tended to re-apply the strategy that was less effortful, even though it was not the most effective one - in this case: Suppression.
+Participants tended to re-apply the strategy that was subjectively less effortful, even though it was subjectively not the most effective one - in this case: suppression.
 Interestingly, the choice was independent of self reported habitual use of suppression and reappraisal.
 What has been missing in research on ER choice so far is information regarding the strategy *not* chosen.
-People choose a strategy that they prefer, for different, relatively well-known reasons. 
-However, nothing is revealed about the strategy that is not chosen.
+People choose a strategy that they prefer for different, relatively well-known reasons. 
+However, nothing is revealed about the strategy that is *not chosen*.
 
 The postulation of *adaptive* and *maladaptive* strategies was put into a new perspective with the concept of ER flexibility.
 Similar to other psychological domains such as attention and goal pursuit, *maladaptive* now refers to inflexible strategy use or use of strategies that are hindering the achievement of goals [@Aldao2015].
