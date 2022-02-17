@@ -20,7 +20,6 @@ library(ggplot2)    # for nice plots
 library(dplyr)
 library(BayesFactor)
 library(effectsize)
-library(dplyr)
 
 # set top level directory to source file
 here::i_am("flag_project_root_CERED.txt")
@@ -167,7 +166,7 @@ for (i in 1:length(datalist_EMG)) {
 
 # create variable "block"
 
-data_EMG$block[data_EMG$trigger == " S 21"] <- "view_neg"
+data_EMG$block[data_EMG$trigger == " S 21"] <- "view_neu"
 data_EMG$block[data_EMG$trigger == " S 22"] <- "view_neg"
 data_EMG$block[data_EMG$trigger == " S 23"] <- "distraction"
 data_EMG$block[data_EMG$trigger == " S 24"] <- "distancing"
@@ -380,6 +379,13 @@ EMGCorrView_aov <- afex::aov_ez(data = EMG_view,
                                within = "block",
                                fun_aggregate = mean,
                                include_aov = TRUE) 
+
+EMGLevView_aov <- afex::aov_ez(data = EMG_view,
+                               id = "ID",
+                               dv = "Lev",
+                               within = "block",
+                               fun_aggregate = mean,
+                               include_aov = TRUE)
 
 
 ```
