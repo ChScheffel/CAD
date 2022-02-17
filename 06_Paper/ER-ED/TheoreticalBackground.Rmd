@@ -47,7 +47,7 @@ Evidence from other contexts (e.g., intertemporal choice, [@Kable2007]) shows th
 Research on ER choice has identified numerous factors that influence the choice of ER strategies, which can be seen as indirect evidence for factors influencing SVs. 
 For example, it was shown that the intensity of a stimulus or situation plays a role in the choice [@Sheppes2011]. 
 Higher intensity of the stimulus leads to a choice of rather disengaging strategies, like distraction [@Sheppes2011;@Sheppes2014].
-Further influencing factors are for example extrinsic motivation (e.g. monetary incentives), motivational determinants (i.e. hedonic regulatory goals), and effort [@Sheppes2014;@Scheffel2021].
+Further influencing factors are for example extrinsic motivation (e.g., monetary incentives), motivational determinants (i.e., hedonic regulatory goals), and effort [@Sheppes2014;@Scheffel2021].
 Especially for effort, in our previous work we could show that the choice for an ER strategy is mainly influenced by effort [@Scheffel2021].
 In this study, participants used the strategies distancing and suppression while inspecting emotional pictures.
 Afterwards they could choose, which strategy they want to use again.
