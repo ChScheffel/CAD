@@ -205,7 +205,7 @@ SubjArousalView_con[1,1] <- "$View_{neutral} - View_{negative}$"
 FigSubjArousalViewPilot=ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Active viewing", 
-                   limits = c("view_neu", "view_neg"),
+                   limits = c("1_view_neu", "2_view_neg"),
                    labels = c("Neutral", "Negative"))+
   geom_jitter(size = 0.4)+
   labs(y = "Arousal Rating")
@@ -213,7 +213,7 @@ FigSubjArousalViewPilot=ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal
 # View neg and regulate conditions 
 
 Ratings_reg <- data_ER %>%
-  subset(data_ER$block != "view_neu" & data_ER$block != "choice")
+  subset(data_ER$block != "1_view_neu" & data_ER$block != "6_choice")
 Ratings_reg$block <- as.factor(Ratings_reg$block)
 
 
@@ -231,26 +231,26 @@ SubjArousalReg_con <- as.data.frame(pairs(SubjArousalReg_emm, adjust = "bonferro
 
 # Bayes Factors
 SubjArousalReg_BF <- BayesFactor::anovaBF(formula = arousal ~ block,
-                                           data = Ratings_reg,
-                                           progress = FALSE)
+                                          data = Ratings_reg,
+                                          progress = FALSE)
 
-SubjArousalReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "view_neg"],
-                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "distraction"],
+SubjArousalReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "2_view_neg"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "3_distraction"],
                                                                          progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "view_neg"],
-                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "distancing"],
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "2_view_neg"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "4_distancing"],
                                                                          progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "view_neg"],
-                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "suppression"],
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "2_view_neg"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "5_suppression"],
                                                                          progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "distraction"],
-                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "distancing"],
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "3_distraction"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "4_distancing"],
                                                                          progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "distraction"],
-                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "suppression"],
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "3_distraction"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "5_suppression"],
                                                                          progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "distancing"],
-                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "suppression"],
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "4_distancing"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "5_suppression"],
                                                                          progress = FALSE, paired = TRUE))$bf)
 
 SubjArousalReg_con <- cbind(SubjArousalReg_con,
