@@ -88,35 +88,11 @@ data_ER$trigger_reg = NULL
 # loop to correct block indicator
 
 data_ER$block[data_ER$trigger == 21] <- "1_view_neu"
-data_ER$block[data_ER$trigger == 21] <- "1_view_neu"
-
-for (i in 1:nrow(data_ER)) {
-  
-  if (data_ER$trigger[i] == 21) {
-    
-    data_ER$block[i] = "view_neu"
-    
-  } else if (data_ER$trigger[i] == 22) {
-    
-    data_ER$block[i] = "view_neg"
-    
-  } else if (data_ER$trigger[i] == 23 ) {
-    
-    data_ER$block[i] = "distraction"
-    
-  } else if (data_ER$trigger[i] == 24 ) {
-    
-    data_ER$block[i] = "distancing" 
-    
-  } else if (data_ER$trigge[i] == 25 ) {
-    
-    data_ER$block[i] = "suppression"
-  
-  } else if (data_ER$trigger[i] == 26) {
-    
-    data_ER$block[i] = "choice"
-  }
-}
+data_ER$block[data_ER$trigger == 22] <- "2_view_neg"
+data_ER$block[data_ER$trigger == 23] <- "3_distraction"
+data_ER$block[data_ER$trigger == 24] <- "4_distancing"
+data_ER$block[data_ER$trigger == 25] <- "5_suppression"
+data_ER$block[data_ER$trigger == 26] <- "6_choice"
 
 # store ER choice in data_choice frame
 
