@@ -21,7 +21,7 @@ here::i_am("flag_project_root_CERED.txt")
 Every day we are confronted with stressful or emotionally demanding situations. 
 The ability to modify emotional experiences, expressions, and physiological reactions [@Gross1998antecedent] to regulate emotions is an important cognitive skill. 
 It is therefore not surprising that emotion regulation (ER) has substantial implications for well-being and adaptive functioning [@Gross1998emerging].
-Different strategies <!-- Hier heißt es strategies, später dann tactices, dann wieder strategies. Das sollte vereinheitlicht werden, bzw. muss klar werden ob es einen Unterschied zwischen strategies und tactics gibt und wann das eine oder das andere der korrelte Begrifff ist --> can be used to regulate emotions, namely situation selection, situation modification, attentional deployment, cognitive change, and response modification [@Gross1998antecedent], and, following the taxonomy of Powers and LaBar [-@Powers2019], individuals can implement ER strategies by means of different tactics.
+Different strategies <!-- Ich bin immer noch nicht so richtig dahinter gekommen, was eigentlich der Unterschied zwischen strategies und tactics ist, ich meine, ich weiß, was der Unterschied zwischen einer Strategie und einer Taktik ist, aber inwiefern das in ER eine Rolle spiel, ist mir noch nicht so klar gweorden, aber ich habe auch Powers & LaBar nicht gelesen --> can be used to regulate emotions, namely situation selection, situation modification, attentional deployment, cognitive change, and response modification [@Gross1998antecedent], and, following the taxonomy of Powers and LaBar [-@Powers2019], individuals can implement ER strategies by means of different tactics.
 So called antecedent-focused strategies, e.g., attentional deployment and cognitive change, take effect early in the emotion generation process [@Gross1998antecedent].
 In contrast, response modification takes place late in the process and is therefore conceptualized as a response-focused strategy [@Gross1998antecedent].
 This postulated temporal sequence of ER strategies influences their effectiveness.
@@ -35,7 +35,7 @@ Especially strategies that do not put the emotional content of the situation int
 Long-term consequences of subjectively reported habitual use of emotion regulation strategies for affect and well-being have been discussed [@GrossJohn2003]. 
 Especially suppression is generally associated with poorer outcomes (i.e., more negative affect, lower general well-being), which led to the assumption of *adaptive* and *maladaptive* strategies.
 For example, it could be shown that maladaptive ER strategies mediate the effect between neuroticism and depressive symptoms [@Yoon2013].
-Also, a number of ER strategies is linked to psychological disorders (for meta-analytic review, see [@Aldao2010]). 
+Also, a number of ER strategies is linked to psychological disorders (for meta-analytic review, see Aldao et al. [@Aldao2010]). 
 
 <!--CS: Mit dem Teil bin ich noch nciht ganz zufrieden, freue mich über Anmerkungen, wie man das evtl. strukturieren kann! -->
 The postulation of *adaptive* and *maladaptive* strategies was put in a new perspective with the concept of ER flexibility.
