@@ -216,7 +216,7 @@ Paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
   EMGCorrView_con,
-  caption = "Paired contrasts for the rmANOVA comparing physiological arousal (*Corrugator* activity) of negative and neutral pictures in the condition \"active viewing\".",
+  caption = "Paired contrasts for the rmANOVA comparing physiological arousal (Corrugator activity) of negative and neutral pictures in the condition \"active viewing\".",
   note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.", 
   escape = FALSE,
   placement = "H"
@@ -231,7 +231,7 @@ Paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
   EMGLevView_con,
-  caption = "Paired contrasts for the rmANOVA comparing physiological arousal (*Levator* activity) of negative and neutral pictures in the condition \"active viewing\".",
+  caption = "Paired contrasts for the rmANOVA comparing physiological arousal (Levator activity) of negative and neutral pictures in the condition \"active viewing\".",
   note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.", 
   escape = FALSE,
   placement = "H"
@@ -256,7 +256,7 @@ Paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
   EMGCorrReg_con,
-  caption = "Paired contrasts for the rmANOVA comparing physiological arousal (*Corrugator* activity) of conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\".",
+  caption = "Paired contrasts for the rmANOVA comparing physiological arousal (Corrugator activity) of conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\".",
   note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.", 
   escape = FALSE,
   placement = "H"
@@ -271,7 +271,7 @@ Paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
   EMGLevReg_con,
-  caption = "Paired contrasts for the rmANOVA comparing physiological arousal (*Levator* activity) of conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\".",
+  caption = "Paired contrasts for the rmANOVA comparing physiological arousal (Levator activity) of conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\".",
   note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.", 
   escape = FALSE,
   placement = "H"
