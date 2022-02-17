@@ -166,7 +166,7 @@ data_quest = read.csv(here("04_RawData", "pilot", "ER-ED", "dfs", "df_quest.csv"
 # View condition
 
 Ratings_view <- data_ER %>%
-  subset(data_ER$block == "view_neu" | data_ER$block == "view_neg")
+  subset(data_ER$block == "1_view_neu" | data_ER$block == "2_view_neg")
 Ratings_view$block <- as.factor(Ratings_view$block)
 
 SubjArousalView_aov <- afex::aov_ez(data = Ratings_view,
@@ -185,8 +185,8 @@ SubjArousalView_con <- as.data.frame(pairs(SubjArousalView_emm, adjust = "bonfer
 SubjArousalView_BF <- BayesFactor::anovaBF(formula = arousal ~ block,
                                            data = Ratings_view,
                                            progress = FALSE)
-SubjArousalView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_view$arousal[Ratings_view$block == "view_neu"],
-                                                                        y = Ratings_view$arousal[Ratings_view$block == "view_neg"],
+SubjArousalView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_view$arousal[Ratings_view$block == "1_view_neu"],
+                                                                        y = Ratings_view$arousal[Ratings_view$block == "2_view_neg"],
                                                                         progress = FALSE, paired = TRUE))$bf
 
 SubjArousalView_con <- cbind(SubjArousalView_con,
@@ -197,7 +197,7 @@ SubjArousalView_con <- cbind(SubjArousalView_con,
 
 colnames(SubjArousalView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 # rename contrast for table
-SubjArousalView_con[1,1] <- "$View_{negative} - View_{neutral}$"
+SubjArousalView_con[1,1] <- "$View_{neutral} - View_{negative}$"
 
 # Figure to visualize arousal ratings
 
