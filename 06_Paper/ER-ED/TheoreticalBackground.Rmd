@@ -80,17 +80,17 @@ SVs of ER Strategies could be helpful to describe the ER repertoire [@Aldao2015]
 Depending on the flexibility of a person, different patterns of SVs could be conceivable: A person with high flexibility would show relatively high SVs for a number of strategies.
 This would mean that all strategies are a good option for goal achievement.
 A second person with less flexibilty, however, would show high SVs only for one strategy, or for no strategy at all.
-This in turn would mean that no strategy is a good choice to achieve goals.
+This in turn would mean that no strategy is a good choice to achieve ER goals.
 
 However, so far we have not seen any attempt in ER choice research to determine individual SVs of ER strategies.
-To investigate this question, the individual subjective values of each strategy available for selection would have to be determined.
+To investigate this question, the individual SVs of each strategy available for selection would have to be determined.
 Promising approaches can be found in studies on difficulty levels of effortful cognitive tasks.  
 Individual SVs of effortful cognitive tasks have been quantified using the Cognitive Effort Discounting Paradigm (COG-ED) [@Westbrook2013]. 
 
 ## 1.1 ER strategy discounting
 <!-- NHB template says that there should not be subheadings in the introduction -->
 In the original study by Westbrook et al. [-@Westbrook2013], cognitive load was varied using the *n*-back task, a working memory task that requires fast and accurate responses to sequentially presented stimuli. 
-Participants had to decide whether they wanted to repeat a higher *n*-back level for a larger, fixed monetary reward, or a lower level for a smaller, varying reward. 
+Participants had to decide in an iterative procedure whether they wanted to repeat a higher *n*-back level for a larger, fixed monetary reward, or a lower level for a smaller, varying reward, with the implicit assumption taht teh objectively easiest *n*-back level has the highest SV.
 In the current study, we want to use this paradigm to determine SVs of ER strategies.
 In doing so, we need to make an important change: We have to adapt the assumption that the easiest *n*-back level has the highest SV.
 As we have shown in previous studies, there are large inter-individual differences in the preference and perceived subjective effort of ER strategies [@Scheffel2021].
