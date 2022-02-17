@@ -261,12 +261,12 @@ SubjArousalReg_con <- cbind(SubjArousalReg_con,
 
 colnames(SubjArousalReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 
-SubjArousalReg_con[1,1] <- "$Distancing - Distraction$"
-SubjArousalReg_con[2,1] <- "$Distancing - Suppression$"
-SubjArousalReg_con[3,1] <- "$Distancing - View_{negative}$"
-SubjArousalReg_con[4,1] <- "$Distraction - Suppression$"
-SubjArousalReg_con[5,1] <- "$Distraction - View_{negative}$"
-SubjArousalReg_con[6,1] <- "$Suppression - View_{negative}$"
+SubjArousalReg_con[1,1] <- "$View_{negative} - Distraction$"
+SubjArousalReg_con[2,1] <- "$View_{negative} - Distancing$"
+SubjArousalReg_con[3,1] <- "$View_{negative} - Suppression$"
+SubjArousalReg_con[4,1] <- "$Distraction - Distancing$"
+SubjArousalReg_con[5,1] <- "$Distraction - Suppression$"
+SubjArousalReg_con[6,1] <- "$Distancing - Suppression$"
 
 # Figure to visualize arousal ratings
 
@@ -274,7 +274,7 @@ SubjArousalReg_con[6,1] <- "$Suppression - View_{negative}$"
 FigSubjArousalRegPilot <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Strategy", 
-                   limits = c("view_neg", "distraction", "distancing", "suppression"),
+                   limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
                    labels = c("View", "Distraction", "Distancing", "Suppression"))+
   geom_jitter(size = 0.4)+
   labs(y = "Arousal Rating")
@@ -298,46 +298,46 @@ SubjEffort_BF <- BayesFactor::anovaBF(formula = effort ~ block,
                                            data = Ratings_reg,
                                            progress = FALSE)
 
-SubjEffort_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "view_neg"],
-                                                                         y = Ratings_reg$effort[Ratings_reg$block == "distraction"],
-                                                                         progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "view_neg"],
-                                                                         y = Ratings_reg$effort[Ratings_reg$block == "distancing"],
-                                                                         progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "view_neg"],
-                                                                         y = Ratings_reg$effort[Ratings_reg$block == "suppression"],
-                                                                         progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "distraction"],
-                                                                         y = Ratings_reg$effort[Ratings_reg$block == "distancing"],
-                                                                         progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "distraction"],
-                                                                         y = Ratings_reg$effort[Ratings_reg$block == "suppression"],
-                                                                         progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "distancing"],
-                                                                         y = Ratings_reg$effort[Ratings_reg$block == "suppression"],
-                                                                         progress = FALSE, paired = TRUE))$bf)
+SubjEffort_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"],
+                                                                     y = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],
+                                                                     progress = FALSE, paired = TRUE))$bf,
+                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"],
+                                                                     y = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],
+                                                                     progress = FALSE, paired = TRUE))$bf,
+                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"],
+                                                                     y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],
+                                                                     progress = FALSE, paired = TRUE))$bf,
+                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],
+                                                                     y = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],
+                                                                     progress = FALSE, paired = TRUE))$bf,
+                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],
+                                                                     y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],
+                                                                     progress = FALSE, paired = TRUE))$bf,
+                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],
+                                                                     y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],
+                                                                     progress = FALSE, paired = TRUE))$bf)
 
 SubjEffort_con <- cbind(SubjEffort_con,
                         format(effectsize::t_to_eta2(t = SubjEffort_con$t.ratio,
                                                          df_error = SubjEffort_con$df,
                                                          ci = 0.95),
-                                   digits = 2))
+                               digits = 2))
 
 colnames(SubjEffort_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 
-SubjEffort_con[1,1] <- "$Distancing - Distraction$"
-SubjEffort_con[2,1] <- "$Distancing - Suppression$"
-SubjEffort_con[3,1] <- "$Distancing - View_{negative}$"
-SubjEffort_con[4,1] <- "$Distraction - Suppression$"
-SubjEffort_con[5,1] <- "$Distraction - View_{negative}$"
-SubjEffort_con[6,1] <- "$Suppression - View_{negative}$"
+SubjEffort_con[1,1] <- "$View_{negative} - Distancing$"
+SubjEffort_con[2,1] <- "$View_{negative} - Distraction$"
+SubjEffort_con[3,1] <- "$View_{negative} - Suppression$"
+SubjEffort_con[4,1] <- "$Distraction - Distancing$"
+SubjEffort_con[5,1] <- "$Distraction - Suppression$"
+SubjEffort_con[6,1] <- "$Distancing - Suppression$"
 
 # Figure to visualize effort ratings
 # figure
 FigSubjEffortPilot = ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Strategy", 
-                   limits = c("view_neg", "distraction", "distancing", "suppression"),
+                   limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
                    labels = c("View", "Distraction", "Distancing", "Suppression"))+
   geom_jitter(size = 0.4)+
   labs(y = "Effort Rating")
