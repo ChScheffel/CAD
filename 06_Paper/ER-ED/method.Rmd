@@ -390,29 +390,29 @@ EMGCorrView_BF <- BayesFactor::anovaBF(formula = Corr ~ block,
                                        data = EMG_view,
                                        progress = FALSE)
 EMGCorrView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_view$Coor[EMG_view$block == "view_neu"],
-                                                                    y = EMG_view$Corr[Ratings_view$block == "view_neg"],
+                                                                    y = EMG_view$Corr[EMG_view$block == "view_neg"],
                                                                     progress = FALSE, paired = TRUE))$bf
 
-SubjArousalView_con <- cbind(SubjArousalView_con,
-                             format(effectsize::t_to_eta2(t = SubjArousalView_con$t.ratio,
-                                                          df_error = SubjArousalView_con$df,
+EMGCorrView_con <- cbind(EMGCorrView_con,
+                         format(effectsize::t_to_eta2(t = EMGCorrView_con$t.ratio,
+                                                          df_error = EMGCorrView_con$df,
                                                           ci = 0.95),
                                                           digits = 2))
 
-colnames(SubjArousalView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+colnames(EMGCorrView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 # rename contrast for table
-SubjArousalView_con[1,1] <- "$View_{negative} - View_{neutral}$"
+EMGCorrView_con[1,1] <- "$View_{negative} - View_{neutral}$"
 
 # Figure to visualize arousal ratings
 
 # figure
-FigSubjArousalViewPilot=ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal))+
+FigEMGCorrViewPilot=ggplot2::ggplot(EMG_view, aes(x = block, y = arousal))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Active viewing", 
                    limits = c("view_neu", "view_neg"),
                    labels = c("Neutral", "Negative"))+
   geom_jitter(size = 0.4)+
-  labs(y = "Arousal Rating")
+  labs(y = "Corrugator activity")
 
 # levator
 
