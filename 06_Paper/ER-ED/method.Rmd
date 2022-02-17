@@ -145,10 +145,10 @@ for (i in 1:length(datalist_ER)) {
 datalist_EMG <- lapply(list.files(here("04_RawData", "pilot", "ER-ED", "EMG", "analysis"), pattern = '*_Peaks.txt', full.names = TRUE),
                           read.table, stringsAsFactors = FALSE, header = TRUE)
 datalist_EMG_Marker <- lapply(list.files(here("04_RawData", "pilot", "ER-ED", "EMG", "analysis"), pattern = "*.Markers", full.names = TRUE),
-                              read.table, stringsAsFactors = FALSE, header = TRUE, skip = 1, row.names = NULL)
+                              read.table, stringsAsFactors = FALSE, header = TRUE, skip = 1, row.names = NULL, sep = ",")
 
 # new empty frame to store files into
-data_EMG = data.frame(ID = character(), segment = double(), Corr = double(), 
+data_EMG = data.frame(ID = character(), trigger = double(), Corr = double(), 
                      Lev = double())
 
 # store EMG data in data_EMG frame
@@ -352,6 +352,24 @@ FigSubjEffortPilot = ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort))+
                    labels = c("View", "Distraction", "Distancing", "Suppression"))+
   geom_jitter(size = 0.4)+
   labs(y = "Effort Rating")
+
+
+### EMG
+
+# effect of valence on EMG
+
+EMG_view <- data_EMG %>%
+  subset(data_EMG$segment == "view_neu" | data_ER$block == "view_neg")
+Ratings_view$block <- as.factor(Ratings_view$block)
+
+SubjArousalView_aov <- afex::aov_ez(data = Ratings_view,
+                               id = "ID",
+                               dv = "arousal",
+                               within = "block",
+                               fun_aggregate = mean,
+                               include_aov = TRUE) 
+
+
 ```
 
 # 2. Method
