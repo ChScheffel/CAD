@@ -142,18 +142,20 @@ for (i in 1:length(datalist_ER)) {
 
 # import EMG data
 
-datalist_EMG = lapply(list.files(here("04_RawData", "pilot", "ER-ED/EMG/analysis"), pattern = '*_Peaks.txt', full.names = TRUE),
+datalist_EMG <- lapply(list.files(here("04_RawData", "pilot", "ER-ED", "EMG", "analysis"), pattern = '*_Peaks.txt', full.names = TRUE),
                           read.table, stringsAsFactors = FALSE, header = TRUE)
+datalist_EMG_Marker <- lapply(list.files(here("04_RawData", "pilot", "ER-ED", "EMG", "analysis"), pattern = "*.Markers", full.names = TRUE),
+                              read.table, stringsAsFactors = FALSE, header = TRUE, skip = 1, row.names = NULL, sep = ",")
 
 # new empty frame to store files into
-data_EMG = data.frame(ID = character(), segment = double(), Corr = double(), 
+data_EMG = data.frame(ID = character(), trigger = double(), Corr = double(), 
                      Lev = double())
 
 # store EMG data in data_EMG frame
 for (i in 1:length(datalist_EMG)) {
   
   tmp = data.frame(datalist_EMG[[i]][["Filename"]], 
-                   datalist_EMG[[i]][["Segment"]], 
+                   datalist_EMG_Marker[[i]][["Description"]], 
                    datalist_EMG[[i]][["T0T6000Corr.ASNM"]], 
                    datalist_EMG[[i]][["T0T6000Lev.ASNM"]])
   colnames(tmp) = names(data_EMG)
@@ -350,6 +352,25 @@ FigSubjEffortPilot = ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort))+
                    labels = c("View", "Distraction", "Distancing", "Suppression"))+
   geom_jitter(size = 0.4)+
   labs(y = "Effort Rating")
+
+
+### EMG
+
+# effect of valence on EMG
+# corrugator
+
+EMG_view <- data_EMG %>%
+  subset(data_EMG$block == "view_neu" | data_EMG$block == "view_neg")
+EMG_view$block <- as.factor(EMG_view$block)
+
+EMGCorrView_aov <- afex::aov_ez(data = EMG_view,
+                               id = "ID",
+                               dv = "Corr",
+                               within = "block",
+                               fun_aggregate = mean,
+                               include_aov = TRUE) 
+
+
 ```
 
 # 2. Method
