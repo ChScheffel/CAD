@@ -1776,6 +1776,7 @@ Each hypothesis is detailed in the [Design Table](#DesignTableSection) in the Ap
 
 
 # Methods
+
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study [cf. @Simmons2012].
 The paradigm was written and presented using *Psychopy* [@Peirce2019].
 We used *R* with *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages *afex* [@Singmann2021] and *BayesFactor* [@Morey2021] for all our analyses.
