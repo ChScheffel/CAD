@@ -37,7 +37,7 @@ Especially suppression is generally associated with poorer outcomes (i.e., more 
 For example, it could be shown that maladaptive ER strategies mediate the effect between neuroticism and depressive symptoms [@Yoon2013].
 Also, a number of ER strategies is linked to psychological disorders (for meta-analytic review, see Aldao et al. [@Aldao2010]). 
 
-<!--CS: Mit dem Teil bin ich noch nciht ganz zufrieden, freue mich über Anmerkungen, wie man das evtl. strukturieren kann! -->
+<!--CS: Mit dem Teil bin ich noch nicht ganz zufrieden, freue mich über Anmerkungen, wie man das evtl. strukturieren kann! AS: FInde den Teil eigentlich ganz gut gelungen, aber ich bin leider auch nicht os im Thema ER drin. -->
 The postulation of *adaptive* and *maladaptive* strategies was put in a new perspective with the concept of ER flexibility.
 Similar to other psychological domains, e.g., attention and goal pursuit, *maladaptive* now refers to inflexible strategy use or use of strategies that are hindering the achievement of goals [@Aldao2015].
 Adaptive flexible ER requires having a large repertoire of ER strategies [@Aldao2015].
@@ -48,7 +48,7 @@ Research on ER choice has identified numerous factors that influence the choice 
 For example, it was shown that the intensity of a stimulus or situation plays a role in the choice [@Sheppes2011]. 
 Higher intensity of the stimulus leads to a choice of rather disengaging strategies, like distraction [@Sheppes2011;@Sheppes2014].
 Further influencing factors are for example extrinsic motivation (e.g., monetary incentives), motivational determinants (i.e., hedonic regulatory goals), and effort [@Sheppes2014;@Scheffel2021].
-Especially for effort, in our previous work we could show that the choice for an ER strategy is mainly influenced by effort [@Scheffel2021].
+Especially for effort, in our previous work we could show that the choice for an ER strategy is mainly influenced by the effort required to implement a given strategy  [@Scheffel2021].
 In this study, participants used the strategies distancing and suppression while inspecting emotional pictures.
 Afterwards they could choose, which strategy they want to use again.
 Participants tended to re-apply the strategy that was less effortful, even though it was not the most effective one - in this case: Suppression.
