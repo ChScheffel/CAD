@@ -142,8 +142,10 @@ for (i in 1:length(datalist_ER)) {
 
 # import EMG data
 
-datalist_EMG = lapply(list.files(here("04_RawData", "pilot", "ER-ED/EMG/analysis"), pattern = '*_Peaks.txt', full.names = TRUE),
+datalist_EMG <- lapply(list.files(here("04_RawData", "pilot", "ER-ED", "EMG", "analysis"), pattern = '*_Peaks.txt', full.names = TRUE),
                           read.table, stringsAsFactors = FALSE, header = TRUE)
+datalist_EMG_Marker <- lapply(list.files(here("04_RawData", "pilot", "ER-ED", "EMG", "analysis"), pattern = "*.Markers", full.names = TRUE),
+                              read.table, stringsAsFactors = FALSE, header = TRUE, skip = 1, row.names = NULL)
 
 # new empty frame to store files into
 data_EMG = data.frame(ID = character(), segment = double(), Corr = double(), 
@@ -153,7 +155,7 @@ data_EMG = data.frame(ID = character(), segment = double(), Corr = double(),
 for (i in 1:length(datalist_EMG)) {
   
   tmp = data.frame(datalist_EMG[[i]][["Filename"]], 
-                   datalist_EMG[[i]][["Segment"]], 
+                   datalist_EMG_Marker[[i]][["Description"]], 
                    datalist_EMG[[i]][["T0T6000Corr.ASNM"]], 
                    datalist_EMG[[i]][["T0T6000Lev.ASNM"]])
   colnames(tmp) = names(data_EMG)
