@@ -607,16 +607,15 @@ Participants will receive 30€ in total or course credit for participation.
 
 ## 2.2 Pilot data
 
-The procedure described above was tested in a pilot study with $N=`r nrow(data_quest)`$ participants (`r length(which(data_quest$gender == 2))` female; age: $M = `r round(mean(data_quest[,"age"], na.rm = TRUE), digits = 1)`\text{ }\pm\text{ }SD = `r round(sd(data_quest[,"age"], na.rm = TRUE), digits = 1)`$).
+The procedure described above was tested in a pilot study with $N=`r nrow(data_quest)`$ participants (`r length(which(data_quest$gender == 2))` female; age: $M = `r round(mean(data_quest[,"age"], na.rm = TRUE), digits = 1)`\text{ }\pm\text{ }SD = `r round(sd(data_quest[,"age"], na.rm = TRUE), digits = 1)`$).<!-- This results in two digit numbers, with the last digit being zero. Perhaps use papaja::printnun(x, diguts = 1, gt1 = T) instead, this rounds up to 1 digit, but also only displays one digit (at least I hope so) -->
 Results showed significant higher subjective (... and physiological ?!) arousal for active viewing of negative pictures, compared to active viewing of neutral pictures.
 However, ER strategies could not reduce subjective arousal compared to active viewing of negative pictures.
 Yet we found accordance with our previous studies [@Scheffel2021] that the use of ER strategies compared to active viewing was associated with increased subjective effort.
 
-
 ## 2.3 Design
 
 Young, healthy participants (aged 18 to 30 years) will be recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden.
-Participants will be invited to fill out an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
+Participants will be invited to compete an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
 The study consists of two lab sessions, which take place in a shielded cabin with constant lighting.
 Before each session, participants receive information about the respective experimental procedure and provide informed consent.
 At the beginning of the first session participants fill out a demographic questionnaire and complete an n-Back task with the levels one to four.
