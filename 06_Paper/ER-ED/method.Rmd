@@ -87,6 +87,9 @@ data_ER$trigger_reg = NULL
 
 # loop to correct block indicator
 
+data_ER$block[data_ER$trigger == 21] <- "1_view_neu"
+data_ER$block[data_ER$trigger == 21] <- "1_view_neu"
+
 for (i in 1:nrow(data_ER)) {
   
   if (data_ER$trigger[i] == 21) {
@@ -455,7 +458,7 @@ FigEMGLevViewPilot=ggplot2::ggplot(EMG_view, aes(x = block, y = Lev))+
                    limits = c("1_view_neu", "2_view_neg"),
                    labels = c("Neutral", "Negative"))+
   geom_jitter(size = 0.4)+
-  labs(y = "Corrugator activity")
+  labs(y = "Levator activity")
 
 # effect of strategy on EMG
 
@@ -540,53 +543,53 @@ EMGLevReg_emm <- emmeans::emmeans(EMGLevReg_aov$aov, specs = "block")
 EMGLevReg_con <- as.data.frame(pairs(EMGLevReg_emm, adjust = "bonferroni"))
 
 # Bayes Factors
-EMGCorrReg_BF <- BayesFactor::anovaBF(formula = Corr ~ block,
+EMGLevReg_BF <- BayesFactor::anovaBF(formula = Lev ~ block,
                                       data = EMG_reg,
                                       progress = FALSE)
 
-EMGCorrReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = TRUE))$bf)
+EMGLevReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
+                                                                    y = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
+                                                                    progress = FALSE, paired = TRUE))$bf,
+                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
+                                                                    y = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
+                                                                    progress = FALSE, paired = TRUE))$bf,
+                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
+                                                                    y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
+                                                                    progress = FALSE, paired = TRUE))$bf,
+                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
+                                                                    y = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
+                                                                    progress = FALSE, paired = TRUE))$bf,
+                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
+                                                                    y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
+                                                                    progress = FALSE, paired = TRUE))$bf,
+                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
+                                                                    y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
+                                                                    progress = FALSE, paired = TRUE))$bf)
 
-EMGCorrReg_con <- cbind(EMGCorrReg_con,
-                        format(effectsize::t_to_eta2(t = EMGCorrReg_con$t.ratio,
-                                                     df_error = EMGCorrReg_con$df,
-                                                     ci = 0.95),digits = 2))
+EMGLevReg_con <- cbind(EMGLevReg_con,
+                       format(effectsize::t_to_eta2(t = EMGLevReg_con$t.ratio,
+                                                    df_error = EMGLevReg_con$df,
+                                                    ci = 0.95),digits = 2))
 
-colnames(EMGCorrReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+colnames(EMGLevReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 
-EMGCorrReg_con[1,1] <- "$View_{negative} - Distraction$"
-EMGCorrReg_con[2,1] <- "$View_{negative} - Distancing$"
-EMGCorrReg_con[3,1] <- "$View_{negative} - Suppression$"
-EMGCorrReg_con[4,1] <- "$Distraction - Distancing$"
-EMGCorrReg_con[5,1] <- "$Distraction - Suppression$"
-EMGCorrReg_con[6,1] <- "$Distancing - Suppression$"
+EMGLevReg_con[1,1] <- "$View_{negative} - Distraction$"
+EMGLevReg_con[2,1] <- "$View_{negative} - Distancing$"
+EMGLevReg_con[3,1] <- "$View_{negative} - Suppression$"
+EMGLevReg_con[4,1] <- "$Distraction - Distancing$"
+EMGLevReg_con[5,1] <- "$Distraction - Suppression$"
+EMGLevReg_con[6,1] <- "$Distancing - Suppression$"
 
 # Figure to visualize arousal ratings
 
 # figure
-FigEMGCorrRegPilot <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Corr))+
+FigEMGLevRegPilot <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Lev))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Strategy", 
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
                    labels = c("View", "Distraction", "Distancing", "Suppression"))+
   geom_jitter(size = 0.4)+
-  labs(y = "Corrugator activity")
+  labs(y = "Levator activity")
 
 ```
 
