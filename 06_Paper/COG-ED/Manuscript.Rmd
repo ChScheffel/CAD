@@ -104,40 +104,27 @@ header-includes   :
 
   knitr::opts_chunk$set(out.width = "\\textwidth")
 
-  # define required packages
-
-  packages = c("bibtex", "here", "tidyverse", "bayestestR", "papaja", "lmerTest", "afex", "emmeans", "sjPlot",
-               "kableExtra", "interactions", "glmmTMB", "BayesFactor", "ggplot2", "egg", "knitr", "effectsize",
-               "MuMIn")
-
-  # check whether each package is installed and install and/or load library
+  # load here-library for path-independent project structure (install here by calling install.packages("here") if necessary)
+  # set top level directory to source file
   
-  # the following code does not work for me, gives an error message upon knitting:
-  # > trying to use CRAN without setting a mirror
-  # removing "papaja" from the list of packages (see below) does not solve the 
-  # issue; perhaps we should setup the project using the renv package?
-  
-  installed_packages <- packages %in% rownames(installed.packages())
-  if (any(installed_packages == FALSE)) {
-     install.packages(packages[!installed_packages])
-  }
-  invisible(lapply(packages, library, character.only = TRUE))
-  
-  # papaja must be installed from GitHub so code above will not work for this package
-  # Install devtools package if necessary
-  # if(!"devtools" %in% rownames(installed.packages())) install.packages("devtools")
+  library(here)
 
-  # Install the stable development verions from GitHub
-  # devtools::install_github("crsh/papaja")
-
-  # Install the latest development snapshot from GitHub
-  # devtools::install_github("crsh/papaja@devel")
+  here::i_am("flag_project_root_CERED.txt")
+  
+  # load reproducible environment library to get all packages with correct versions form the renv.lock file
+  # install renv by calling install.packages("renv") if necessary
+  
+  library(renv)
+  
+  renv::init(here("06_Paper","COG-ED"))
+  
+  # the required packages are:
+  # "bibtex", "here", "tidyverse", "bayestestR", "papaja", "lmerTest", "afex", "emmeans", "sjPlot",
+  # "kableExtra", "interactions", "glmmTMB", "BayesFactor", "ggplot2", "egg", "knitr", "effectsize", and "MuMIn"
   
   # sets orthogonal contrasts for mixed-effects model and rmANOVA globally in order to get meaningful Type-III tests
   
   set_sum_contrasts()
-
-  # we will add the package versions before submission
 
 ```
 
@@ -2130,6 +2117,8 @@ Multi level model:
 
 `r table_1`
 
+The Bayes Factor $BF10$ of the multi level model approached infinity.
+
 \newpage
 
 ## Hypothesis 2c: Subjective values decline stronger with increasing task load for individuals with low compared to high NFC scores.
@@ -2147,11 +2136,13 @@ interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
 scale_x_continuous(breaks = c(-1,0,1), labels = c("2","3","4"))
 ```
 
-Johnson-Neyman interval:
+Johnson-Neyman interval: `r paste("[", round(h2c_jn.int[1], digits = 2), ", ", round(h2c_jn.int[2], digits = 2), "]", sep = "")`
 
-`r paste("[", round(h2c_jn.int[1], digits = 2), ", ", round(h2c_jn.int[2], digits = 2), "]", sep = "")`
+Bayes Factor: $BF10=$ `r format(extractBF(h2c_BF)$bf, digits = 2)`
 
-Specification curve analysis:
+\newpage
+
+## Specification curve analysis:
 
 ```{r FigSCA, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of the specification curve analysis for the multi level model. The upper panel shows the fixed effect estimates for Need for Cognition and n-back level as predictors of subjective values. Estimates with $p<.05$ are indicated by a dot on the line. $N=15$. The lower panel shows the preprocessing steps of each corresponding pipeline. The $BF10$ of each pipeline's multi level model approached infinity.", fig.pos="H"}
 
