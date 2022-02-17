@@ -164,6 +164,16 @@ for (i in 1:length(datalist_EMG)) {
   
 }
 
+# create variable "block"
+
+data_EMG$block[data_EMG$trigger == " S 21"] <- "view_neu"
+data_EMG$block[data_EMG$trigger == " S 22"] <- "view_neg"
+data_EMG$block[data_EMG$trigger == " S 23"] <- "distraction"
+data_EMG$block[data_EMG$trigger == " S 24"] <- "distancing"
+data_EMG$block[data_EMG$trigger == " S 25"] <- "suppression"
+data_EMG$block[data_EMG$trigger == " S 26"] <- "choice"
+
+
 # import questionnaire df
 
 data_quest = read.csv(here("04_RawData", "pilot", "ER-ED", "dfs", "df_quest.csv"), sep = ",")
@@ -369,6 +379,13 @@ EMGCorrView_aov <- afex::aov_ez(data = EMG_view,
                                within = "block",
                                fun_aggregate = mean,
                                include_aov = TRUE) 
+
+EMGLevView_aov <- afex::aov_ez(data = EMG_view,
+                               id = "ID",
+                               dv = "Lev",
+                               within = "block",
+                               fun_aggregate = mean,
+                               include_aov = TRUE)
 
 
 ```
