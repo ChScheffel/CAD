@@ -595,7 +595,7 @@ FigEMGCorrRegPilot <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Corr))+
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study [@Simmons2012].
 The paradigm was written and presented using *Psychopy* [@Peirce2019].
 We used *R* with *R Studio* [@RCore2021; @RStudioTeam2020] with the main packages ... <!-- name and reference the main analysis packages, agian for consistentcy with Zerna et al. --> for all our analyses.
-The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at https://github.com/ChScheffel/CERED 
+The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at https://github.com/ChScheffel/CERED.<!-- eventually perhaps refer to the _script and R Markdown file_ -->
 A complete list of all measures assessed in the study can be found at OSF (<https://osf.io/vnj8x/>) and GitHub (https://github.com/ChScheffel/CERED).
 <!-- Attention! OSF is still private --> 
 ## 2.1 Ethics information
