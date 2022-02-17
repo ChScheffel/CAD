@@ -3,17 +3,19 @@ title: "intro"
 author: "Christoph Scheffel"
 output: html_document
 ---
+
 ```{r SetupIntro, include = FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 
 library(targets)    # to keep track of all relevant files
-library(knitr)
+library(knitr)      # basic functions for R markdown documents
 library(here)       # to set directories without defined paths
 library(papaja)     # APA conform output
 
 # set top level directory to source file
 here::i_am("flag_project_root_CERED.txt")
 ```
+
 # 1. Introduction
 
 Every day we are confronted with stressful or emotionally demanding situations. 
@@ -86,7 +88,7 @@ Promising approaches can be found in studies on difficulty levels of effortful c
 Individual SVs of effortful cognitive tasks have been quantified using the Cognitive Effort Discounting Paradigm (COG-ED) [@Westbrook2013]. 
 
 ## 1.1 ER strategy discounting
-
+<!-- NHB template says that there should not be subheadings in the introduction -->
 In the original study by Westbrook et al. [-@Westbrook2013], cognitive load was varied using the *n*-back task, a working memory task that requires fast and accurate responses to sequentially presented stimuli. 
 Participants had to decide whether they wanted to repeat a higher *n*-back level for a larger, fixed monetary reward, or a lower level for a smaller, varying reward. 
 In the current study, we want to use this paradigm to determine SVs of ER strategies.
