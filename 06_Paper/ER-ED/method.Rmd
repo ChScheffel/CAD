@@ -20,6 +20,7 @@ library(ggplot2)    # for nice plots
 library(dplyr)
 library(BayesFactor)
 library(effectsize)
+library(dplyr)
 
 # set top level directory to source file
 here::i_am("flag_project_root_CERED.txt")
@@ -163,6 +164,16 @@ for (i in 1:length(datalist_EMG)) {
   data_EMG = rbind(tmp, data_EMG)
   
 }
+
+# create variable "block"
+
+data_EMG$block[data_EMG$trigger == " S 21"] <- "view_neg"
+data_EMG$block[data_EMG$trigger == " S 22"] <- "view_neg"
+data_EMG$block[data_EMG$trigger == " S 23"] <- "distraction"
+data_EMG$block[data_EMG$trigger == " S 24"] <- "distancing"
+data_EMG$block[data_EMG$trigger == " S 25"] <- "suppression"
+data_EMG$block[data_EMG$trigger == " S 26"] <- "choice"
+
 
 # import questionnaire df
 
