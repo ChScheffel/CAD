@@ -389,7 +389,7 @@ EMGCorrView_con <- as.data.frame(pairs(EMGCorrView_emm, adjust = "bonferroni"))
 EMGCorrView_BF <- BayesFactor::anovaBF(formula = Corr ~ block,
                                        data = EMG_view,
                                        progress = FALSE)
-EMGCorrView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_view$Coor[EMG_view$block == "view_neu"],
+EMGCorrView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_view$Corr[EMG_view$block == "view_neu"],
                                                                     y = EMG_view$Corr[EMG_view$block == "view_neg"],
                                                                     progress = FALSE, paired = TRUE))$bf
 
@@ -406,7 +406,7 @@ EMGCorrView_con[1,1] <- "$View_{negative} - View_{neutral}$"
 # Figure to visualize arousal ratings
 
 # figure
-FigEMGCorrViewPilot=ggplot2::ggplot(EMG_view, aes(x = block, y = arousal))+
+FigEMGCorrViewPilot=ggplot2::ggplot(EMG_view, aes(x = block, y = Corr))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Active viewing", 
                    limits = c("view_neu", "view_neg"),
@@ -423,6 +423,39 @@ EMGLevView_aov <- afex::aov_ez(data = EMG_view,
                                fun_aggregate = mean,
                                include_aov = TRUE)
 
+# compute posthoc tests for within measures
+EMGLevView_emm <- emmeans::emmeans(EMGLevView_aov$aov, specs = "block")
+
+EMGLevView_con <- as.data.frame(pairs(EMGLevView_emm, adjust = "bonferroni"))
+
+# Bayes Factors
+EMGLevView_BF <- BayesFactor::anovaBF(formula = Lev ~ block,
+                                       data = EMG_view,
+                                       progress = FALSE)
+EMGLevView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_view$Lev[EMG_view$block == "view_neu"],
+                                                                    y = EMG_view$Lev[EMG_view$block == "view_neg"],
+                                                                    progress = FALSE, paired = TRUE))$bf
+
+EMGLevView_con <- cbind(EMGLevView_con,
+                         format(effectsize::t_to_eta2(t = EMGLevView_con$t.ratio,
+                                                          df_error = EMGLevView_con$df,
+                                                          ci = 0.95),
+                                                          digits = 2))
+
+colnames(EMGLevView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+# rename contrast for table
+EMGLevView_con[1,1] <- "$View_{negative} - View_{neutral}$"
+
+# Figure to visualize arousal ratings
+
+# figure
+FigEMGLevViewPilot=ggplot2::ggplot(EMG_view, aes(x = block, y = Lev))+
+  geom_boxplot(width = 0.7, position = position_dodge(0.8))+
+  scale_x_discrete(name = "Active viewing", 
+                   limits = c("view_neu", "view_neg"),
+                   labels = c("Neutral", "Negative"))+
+  geom_jitter(size = 0.4)+
+  labs(y = "Corrugator activity")
 
 ```
 
