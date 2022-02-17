@@ -58,8 +58,8 @@ People choose a strategy that they prefer for different, relatively well-known r
 However, nothing is revealed about the strategy that is *not chosen*.
 
 The postulation of *adaptive* and *maladaptive* strategies was put into a new perspective with the concept of ER flexibility.
-Similar to other psychological domains such as attention and goal pursuit, *maladaptive* now refers to inflexible strategy use or use of strategies that are hindering the achievement of goals [@Aldao2015].
-In contrast, *adaptive* ER requires having a large repertoire of ER strategies to choose from [@Aldao2015] and choosing the strategy that is useful for goal achieving in a particular situation.
+Similar to other psychological domains such as attention and goal pursuit, *maladaptive* now refers to inflexible strategy use or the use of strategies that are hindering the achievement of goals [@Aldao2015].
+In contrast, *adaptive* ER requires having a large repertoire of ER strategies to choose from [@Aldao2015] and choosing the strategy that is useful for goal achievement in a particular situation.
 This greater ER variability has been shown to be related to reduced negative affect [@Blanke2020].
 The process of choosing an ER strategy from one's own repertoire likely shares similarities with other contexts such as intertemporal choice, in which individuals assign subjective values to every choice option [@Kable2007].
 Additionally, there are ER-specific influences on choice behaviour such as the intensity of the stimulus or situation, which leads to a choice of rather disengaging strategies like distraction, extrinsic motivation (e.g., monetary incentives), motivational determinants (i.e., hedonic regulatory goals), and effort [@Sheppes2014;@Scheffel2021].
