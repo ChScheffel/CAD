@@ -653,18 +653,20 @@ Further, 100 negative pictures, featuring categories animals, body, disaster, di
 An evolutionary algorithm [@Yu2010] was used to cluster these pictures into five sets with comparable valence and arousal values (set one: V: *M* $\pm$ *SD* = `r round(mean(stim_negative$valence[stim_negative$set == 1]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 1]), digits = 2)`, A: *M* $\pm$ *SD* = `r round(mean(stim_negative$arousal[stim_negative$set == 1]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 1]), digits = 2)`; set two: V: *M* $\pm$ *SD* = `r round(mean(stim_negative$valence[stim_negative$set == 2]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 2]), digits = 2)`, A: *M* $\pm$ *SD* = `r round(mean(stim_negative$arousal[stim_negative$set == 2]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 2]), digits = 2)`; set three: V: *M* $\pm$ *SD* = `r round(mean(stim_negative$valence[stim_negative$set == 3]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 3]), digits = 2)`, A: *M* $\pm$ *SD* = `r round(mean(stim_negative$arousal[stim_negative$set == 3]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 3]), digits = 2)`; set four: V: *M* $\pm$ *SD* = `r round(mean(stim_negative$valence[stim_negative$set == 4]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 4]), digits = 2)`, A: *M* $\pm$ *SD* = `r round(mean(stim_negative$arousal[stim_negative$set == 4]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 4]), digits = 2)`; set five: V: *M* $\pm$ *SD* = `r round(mean(stim_negative$valence[stim_negative$set == 5]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 5]), digits = 2)`, A: *M* $\pm$ *SD* = `r round(mean(stim_negative$arousal[stim_negative$set == 5]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 5]), digits = 2)`).
 A complete list of all pictures and their classification into sets can be found in supplementary material X.
 
-### 2.3.4 Electromyography
+### 2.3.4 Facial electromyography
 
-Two bipolar electromyograph (EMG) measures will be recorded in the region of the *corrugator supercilii* and the *levator labii* using Brain Vision Recorder (Brain Products Inc., Gilching, Germany).
-Passive surface Ag/AgCl electrodes (0.7 mm diameter, 10 mm distance between electrodes) filled with electrolyte gel will be used.
-Data will be sampled at 1000 Hz.
-To measure *corrugator EMG*, electrodes will be applied to the abraded and cleaned skin on the left *corrugator supercilii*, and to measure *levator EMG*, electrodes were applied in the region of the *levator labii*.
-The ground electrode will be placed at the left *Mastoid*.
+Bipolar facial electromyography (EMG) will be measured for *corrugator supercilii* and *levator labii* as indices of affective valence (Bradley & Lang, 2000).
+Two passive surface Ag/AgCl electrodes (8 mm inner diameter, 10 mm distance between electrodes) will be placed over each left muscle according to the guidelines of Fridlund and Cacioppo (1986).
+The ground electrode will be placed over the left *Mastoid*.
+Before electrode placement, the skin will be abraded with Every abrasive paste, cleaned with alcohol, and filled with Lectron III electrolyte gel.
+Raw signals will be amplified by a BrainAmp amplifier (Brain Products Inc., Gilching, Germany).
+Impedance level will be kept below 10 kΩ. 
+Data will be sampled at 1000 Hz, filtered, rectified and integrated. 
 A 20 Hz high pass (order 8), a 300 Hz low pass (order 8), and a 50 Hz notch filter will be applied to both signals.
-Afterwards, the signals will be rectified and segmented.
-EMG data will be baseline-corrected to -200 ms to 0 ms to stimulus onset.
-Last, the sampling rate is changed to 100 Hz and the AUC for the interval of 6000 ms stimulus presentation extracted for every stimulus.
-<!-- Liebe @Anne, habe das aus dem Analyzer zusammengefasst, stimmt das? -- -->
+Corrugator and Levator EMG will be analyzed during the 6 s of picture presenation.
+EMG data will be baseline-corrected using a time window of 2 s prior to stimulus onset (cf. Bradley & Lang, 2000). 
+Last, the sampling rate will be changed to 100 Hz, and EMG data will be averaged for each condition and each participant.
+<!-- AG: insert references -->
 
 ## 2.4 Sampling plan
 
@@ -685,7 +687,9 @@ The level of significance was set to $\alpha=.05$.
 *Effects of emotion regulation on arousal and effort* <br> To examine impact of valence of emotional pictures on subjective arousal, an repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for strategy active viewing will be conducted for behavioral data (subjective arousal ratings).
 To investigate the effect of the tree ER strategies on subjective arousal, another rmANOVA was conducted with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective arousal ratings of negative pictures.
 To examine the impact of valence on the emotional facial reaction, an rmANOVA with the factor valence (neutral and negative) for strategy active viewing was conducted for EMG activity of *corrugator* and *levator*.
-<!-- @Anne please check! =) --> A further rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) was conducted for EMG activity to examine the effects of ER strategies on the emotional facial reaction.
+<!-- @Anne please check! =) --> A further rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) was conducted for EMG activity to examine 
+<!-- AG: hier ein Check!-->
+the effects of ER strategies on the emotional facial reaction.
 <!-- @Anne please check! =) --> To examine the effect of ER strategies on cognitive effort, an rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings was conducted.
 Greenhouse-Geisser-corrected $p$-values and degrees of freedom were reported when assumption of sphericity was violated.
 Proportion of explained variance $\eta_{p}^{2}$ was reported as a measure of effect size.
