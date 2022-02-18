@@ -28,7 +28,7 @@ This postulated temporal sequence of ER strategies influences their effectivenes
 It is meta-analytically proven that all mentioned strategies reduce subjective emotional arousal [@Webb2012].
 Distraction as a tactic of attentional deployment and (expressive) suppression as a tactic of response modulation showed small to medium effect sizes on measures of emotional experience (distraction: _d~+~_ = 0.27; suppression: _d~+~_ = 0.27).
 Distancing as tactic of cognitive change showed the highest effectiveness with an effect size of _d~+~_ = 0.45 [@Webb2012].
-Moreover it is known that ER strategies reduce physiological arousal, measured via EMG in the region of the *corrugator supercilii* [@Zaehringer2020]. 
+Moreover it is known that ER strategies reduce physiological arousal, measured via electromyography (EMG) in the region of the *corrugator supercilii* [@Zaehringer2020]. 
 So these tactics from three different strategies proved to be effective in the short term. 
 However, in order to be able to make a statement on their general benefit, longer-term consequences must also be considered. 
 Especially strategies that do not put the emotional content of the situation into a neutral perspective (i.e., distraction and suppression) are presumed to be disadvantageous in the longer term.

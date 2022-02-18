@@ -601,7 +601,7 @@ Then, they complete an effort discounting (ED) procedure on screen, followed by 
 The second session, containing the ER paradigm, takes place exactly one week after session one.
 Participants provide informed consent and receive written instructions on the ER paradigm and ER strategies that they should apply.
 A brief training ensures that all participants are able to implement the ER strategies.
-Next, electrodes to measure EMG <!-- Has abbrev. EMG already are been introduced? -->being attached and the ER paradigm is conducted.
+Next, electrodes to measure EMG being attached and the ER paradigm is conducted.
 Participants receive 30.00€ or course credit as compensation.
 Study data are being collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden [@Harris2009; @Harris2019].
 
