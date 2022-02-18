@@ -62,7 +62,7 @@ In contrast, *adaptive* ER requires having a large repertoire of ER strategies t
 This greater ER variability has been shown to be related to reduced negative affect [@Blanke2020].
 The process of choosing an ER strategy from one's own repertoire likely shares similarities with other contexts such as intertemporal choice, in which individuals assign subjective values to every choice option [@Kable2007].
 Additionally, there are ER-specific influences on choice behaviour such as the intensity of the stimulus or situation, which leads to a choice of rather disengaging strategies like distraction, extrinsic motivation (e.g., monetary incentives), motivational determinants (i.e., hedonic regulatory goals), and effort [@Sheppes2014;@Scheffel2021].
-Effort in particular appeared to be the main factor in ER choice behaviour <!-- chekcne pob bei NHB AE oder BE genutzt wird -->in our previous work [@Scheffel2021].
+Effort in particular appeared to be the main factor in ER choice behaviour in our previous work [@Scheffel2021].
 In that study, participants used the strategies distancing and suppression while inspecting emotional pictures, and could choose which strategy they wanted to use again.
 Participants tended to re-apply the strategy that was less effortful, even though it was not the most effective one for them - in this case: Suppression.
 Interestingly, the choice was independent of self reported habitual use of suppression and reappraisal.
