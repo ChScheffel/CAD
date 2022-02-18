@@ -571,25 +571,30 @@ FigEMGLevRegPilot <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Lev))+
 
 # 2. Method
 
-The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at github.com/ChScheffel/COG-ER-ED.
-According to the 21-word-solution, "we report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study" in compliance with the 21-word-solution of open science [@Simmons2012].
-A complete list of all measures assessed in the study will be found at the OSF (<https://osf.io/vnj8x/>) and GitHub (github.com/ChScheffel/COG-ER-ED).
-<!-- Attention! OSF is still private --> All procedures performed in this study were in accordance with the ethical standards of the institutional and/or national research committee and with the 1964 Helsinki declaration and its later amendments or comparable ethical standards.
-
+We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study [@Simmons2012].
+The paradigm was written and presented using *Psychopy* [@Peirce2019].
+We used *R* with *R Studio* [@RCore2021; @RStudioTeam2020] with the main packages ... <!-- name and reference the main analysis packages, agian for consistentcy with Zerna et al. --> for all our analyses.
+The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at https://github.com/ChScheffel/CERED.<!-- eventually perhaps refer to the _script and R Markdown file_ -->
+A complete list of all measures assessed in the study can be found at OSF (<https://osf.io/vnj8x/>) and GitHub (https://github.com/ChScheffel/CERED).
+<!-- Attention! OSF is still private --> 
 ## 2.1 Ethics information
+
+<!-- So liest es sich in Josephines Ms. und so ähnlich liest es sich in publizierten NHB papers. -->
+The study protocol complies with all relevant ethical regulations and was approved by the ethics committee of the Technische Universität Dresden (reference number EK...).
+Prior to testing, written informed consent will be obtained.
+Participants will receive 30€ in total or course credit for participation.
 
 ## 2.2 Pilot data
 
-The procedure described above was tested in a pilot study with $N=`r nrow(data_quest)`$ participants (`r length(which(data_quest$gender == 2))` female; age: $M = `r round(mean(data_quest[,"age"], na.rm = TRUE), digits = 1)`\text{ }\pm\text{ }SD = `r round(sd(data_quest[,"age"], na.rm = TRUE), digits = 1)`$).
+The procedure described above was tested in a pilot study with $N=`r nrow(data_quest)`$ participants (`r length(which(data_quest$gender == 2))` female; age: $M = `r round(mean(data_quest[,"age"], na.rm = TRUE), digits = 1)`\text{ }\pm\text{ }SD = `r round(sd(data_quest[,"age"], na.rm = TRUE), digits = 1)`$).<!-- This results in two digit numbers, with the last digit being zero. Perhaps use papaja::printnun(x, diguts = 1, gt1 = T) instead, this rounds up to 1 digit, but also only displays one digit (at least I hope so) -->
 Results showed significant higher subjective (... and physiological ?!) arousal for active viewing of negative pictures, compared to active viewing of neutral pictures.
 However, ER strategies could not reduce subjective arousal compared to active viewing of negative pictures.
 Yet we found accordance with our previous studies [@Scheffel2021] that the use of ER strategies compared to active viewing was associated with increased subjective effort.
 
-
 ## 2.3 Design
 
 Young, healthy participants (aged 18 to 30 years) will be recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden.
-Participants will be invited to fill out an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
+Participants will be invited to compete an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
 The study consists of two lab sessions, which take place in a shielded cabin with constant lighting.
 Before each session, participants receive information about the respective experimental procedure and provide informed consent.
 At the beginning of the first session participants fill out a demographic questionnaire and complete an n-Back task with the levels one to four.
@@ -597,7 +602,7 @@ Then, they complete an ED procedure on screen, followed by a random repetition o
 <!--JZ: Hast du ED schon als Abkürzung eingeführt?--> The second session, containing the ER paradigm, takes place exactly one week after session one.
 Participants provide informed consent and receive written instructions on the ER paradigm and ER strategies that they should apply.
 A brief training ensures that all participants are able to implement the ER strategies.
-Next, electrodes to measure EMG are being attached and the ER paradigm is conducted.
+Next, electrodes to measure EMG <!-- Has abbrev. EMG already are been introduced? -->being attached and the ER paradigm is conducted.
 Participants receive 30.00€ or course credit as compensation.
 Study data are being collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden [@Harris2009; @Harris2019].
 
@@ -611,7 +616,7 @@ Implicit theories of willpower in emotion control are assessed using the implici
 To assess Need for Cognition, the German version short form of the Need for Cognition Scale [@Cacioppo1982; @Bless1994] is used.
 To assess self-control, sum scores of the German versions of the following questionnaires are used [@Paschke2016]: the Self-Regulation Scale (SRS) [@Schwarzer1999], the Brief Self-Control Scale (BSCS) @Tangney2004; @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11) [@Patton1995; @Hartmann2011].
 Attentional control is assessed using the Attentional Control Scale (ACS) [@Derryberry2002].
-
+<!-- Not sure whether you can state this so briefly without giving more detailed information on, e.g., sample items, the scale on which answers are recorded (e.g., -3 ... +3), the reliability of the measures. -->
 ### 2.3.2 Emotion regulation paradigm
 
 The ER paradigm roughly consists of three parts that will be described in the following.
@@ -678,10 +683,11 @@ To find an effect of $d=-0.32$ of ER on *corrugator* muscle activity with $\alph
 Power analyses of all other hypotheses yielded smaller sample sizes.
 However, if participants withdraw from study participation, technical failures occur, or experimenter considers the participant for not suitable for study participation (e.g., because the participant does not follow instructions or shows great fatigue), respective data will also be excluded from further analyses.
 Therefore, we aim to collect data of 90 participants.
+<!-- somehow refer to the Dign Table here, where everything is detailed -->
 
 ## 2.5 Analysis plan
 
-All statistical analyses will be performed using *RStudio* (version 1.4.1717) [@RStudioTeam2020]and *R* (version 4.1.0) [@RCore2021] for Windows.
+All statistical analyses will be performed using *RStudio* (version 1.4.1717) [@RStudioTeam2020]and *R* (version 4.1.0) [@RCore2021] for Windows.<!-- mention the main packages used and list the helper packages in the supplement -->
 The level of significance was set to $\alpha=.05$.
 
 *Effects of emotion regulation on arousal and effort* <br> To examine impact of valence of emotional pictures on subjective arousal, an repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for strategy active viewing will be conducted for behavioral data (subjective arousal ratings).
@@ -694,8 +700,8 @@ the effects of ER strategies on the emotional facial reaction.
 Greenhouse-Geisser-corrected $p$-values and degrees of freedom were reported when assumption of sphericity was violated.
 Proportion of explained variance $\eta_{p}^{2}$ was reported as a measure of effect size.
 If indicated by the data, estimated marginal means will be computed as post-hoc contrasts.
-
-*Subjective values of emotion regulation strategies* <br> For each ER strategy, SVs were calculated as follows: first, the value 0.015625 was added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
+<!-- perhaps alsway mention which r package will be used to run these proceudres -->
+*Subjective values of emotion regulation strategies* <br> For each ER strategy, SVs will be calculated as follows: first, the value 0.015625 will be added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.<!-- why exactly this value? -->
 Second, the resulting (monetary) value will be divided by 2.00 €.
 The final SV for each participant will be computed by averaging all final SVs of each strategy.
 The resulting values will be entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression) to explore for group effects.
@@ -705,7 +711,7 @@ To investigate, whether individual SVs predict ER choice, a Chi-squared test wit
 Furthermore, an ordinal logistic regression with dependent variable choice and independent variables SVs of each strategy will be computed.
 
 To explore the association between subjective arousal, physiological arousal, and subjective effort on SVs, a multilevel model (MLM) will be specified using the $lmerTest$ package [@Kuznetsova2017].
-First, ER strategies will be re-coded and centered for each subject according to their individual SVs: The strategy with the highest SV will be coded as -1, the strategy with the second highest SV 0, and the strategy with the lowest SV will be coded as 1.
+First, ER strategies will be recoded and centered for each subject according to their individual SVs: The strategy with the highest SV will be coded as -1, the strategy with the second highest SV 0, and the strategy with the lowest SV will be coded as 1.
 Restricted maximum likelihood (REML) will be applied to fit the model.
 A random slopes model of SVs including subjective effort (effort ratings), subjective arousal (arousal ratings), and physiological arousal (*corrugator* activity and *levator* activity) as level-1-predictor will be specified.
 $$
@@ -716,14 +722,15 @@ Intraclass correlation coefficient (ICC), $\rho$, will be reported for each mode
 
 The influence of personality traits on SVs will be investigated exploratorily.
 Therefore, the MLM specified above will be extended by the level-2-predictors NFC and self-control.
-<!--CS: Weitere Persönlichkeitsfaktoren ins Modell? Würde sagen erstmal nicht, denn sonst wird es a) überladen mit Prädiktoren und b) haben wir sonst kein Maß, was meiner Meinung nach mit ALLEN SVs zusammenhängen sollte. -->
+<!--CS: Weitere Persönlichkeitsfaktoren ins Modell? Würde sagen erstmal nicht, denn sonst wird es a) überladen mit Prädiktoren und b) haben wir sonst kein Maß, was meiner Meinung nach mit ALLEN SVs zusammenhängen sollte. Anm. AS: Ja, erstmal so schlank wie möglic halten. -->
 
 The association between flexible ER and SVs of ER strategies will be investigated with a regression using the $intercept$ and $slope$ of each participants' SVs to predict threir FlexER score.
 Therefore, SVs will be ordered by magnitude firstly.
 Secondly, for each participant a linear model will be built to estimate the individual $intercept$ and $slope$.
-<!--CS: Reicht das so als Beschreibung und wird klar, woher die Slopes und Intercepts kommen werden? -->
+<!--CS: Reicht das so als Beschreibung und wird klar, woher die Slopes und Intercepts kommen werden? AS: Mir ehrlich gesagt erstmal nicht so ... -->
 
-For each result of the analyses both, $p$-values and Bayes factor $BF10$, calculated using the *BayesFactor* package [@Morey2021], will be reported.
+For each result of the analyses both, $p$-values and Bayes factor $BF10$, calculated using the *BayesFactor* package [@Morey2021], will be reported. Bayses factors are calculated using the default prior widths of the functions *anovaBF*, *lmBF* and *regressionBF*. <!-- bzw welche Funktionen auch immer Du nutzt, hoffe, das reicht denen, denn wenn man genauer werden will, müsste man noch zwischen fixed und random effects priors unterscheiden, die zu allem Überdruß auch noch unterschiedliche Zahlenwerte haben, 1/2 für fixed und 1 für random bei anovaBF und lmBF, aber sqrt(2)/4 bei regressionBF -->
+
 
 ## Data availability
 

@@ -131,7 +131,7 @@ The funders have/had no role in study design, data collection and analysis, deci
 
 
 # Author Contributions
-
+<!-- ist das überhaupt noch erforderlich, wenn doch im YAML header die roles difiniert wurden? Habe das bishernoch nicht gemacht, aber ist das nicht dazu da, dass dadurch automatisch ein Role Statement erzeugt wird? --> 
 CS, AS, and JZ conceptualized the study and its methodology.
 CS and JZ acquired funding, investigated, administered the project, and wrote the software.
 CS, JZ, and AG did the formal analysis.
