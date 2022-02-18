@@ -93,10 +93,10 @@ In doing so, we need to make an important change: We have to adapt the assumptio
 As we have shown in previous studies, there are large inter-individual differences in the preference and perceived subjective effort of ER strategies [@Scheffel2021].
 Moreover, there is nothing like an objectively easiest ER strategy.
 Therefore, we have to add an additional step, which preceeds the other steps and where the option with the higher subjective value is determined. 
-In this step, the same monetary value (i.e., 1 EUR) is assigned to both options.
+In this step, the same monetary value (i.e., 1 €) is assigned to both options.
 The assumption is that participants now choose the option that has the higher SV for them.
 In the next step we return to the original paradigm.
-The higher monetary value (i.e., 2 EUR) is assigned to the option that was not chosen in the first step and therefore is assumed to have the lower SV.
+The higher monetary value (i.e., 2 €) is assigned to the option that was not chosen in the first step and therefore is assumed to have the lower SV.
 In the following steps, the lower value is changed in every iteration according to Westbrook et al. [-@Westbrook2013] until the indifference point is reached.
 This procedure will be repeated until all strategies have been compared.
 The SV of each strategy is calculated as the mean of this strategy's SV from all comparisons.
