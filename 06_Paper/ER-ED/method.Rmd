@@ -579,8 +579,7 @@ A complete list of all measures assessed in the study can be found at OSF (<http
 <!-- Attention! OSF is still private --> 
 ## 2.1 Ethics information
 
-<!-- So liest es sich in Josephines Ms. und so ähnlich liest es sich in publizierten NHB papers. -->
-The study protocol complies with all relevant ethical regulations and was approved by the ethics committee of the Technische Universität Dresden (reference number EK...).
+The study protocol complies with all relevant ethical regulations and was approved by the ethics committee of the Technische Universität Dresden (reference number EK...). <!-- Attention!add EK number, when approved --> 
 Prior to testing, written informed consent will be obtained.
 Participants will receive 30€ in total or course credit for participation.
 
@@ -598,8 +597,8 @@ Participants will be invited to compete an online survey containing different qu
 The study consists of two lab sessions, which take place in a shielded cabin with constant lighting.
 Before each session, participants receive information about the respective experimental procedure and provide informed consent.
 At the beginning of the first session participants fill out a demographic questionnaire and complete an n-Back task with the levels one to four.
-Then, they complete an ED procedure on screen, followed by a random repetition of one n-back level.
-<!--JZ: Hast du ED schon als Abkürzung eingeführt?--> The second session, containing the ER paradigm, takes place exactly one week after session one.
+Then, they complete an effort discounting (ED) procedure on screen, followed by a random repetition of one n-back level.
+The second session, containing the ER paradigm, takes place exactly one week after session one.
 Participants provide informed consent and receive written instructions on the ER paradigm and ER strategies that they should apply.
 A brief training ensures that all participants are able to implement the ER strategies.
 Next, electrodes to measure EMG <!-- Has abbrev. EMG already are been introduced? -->being attached and the ER paradigm is conducted.
