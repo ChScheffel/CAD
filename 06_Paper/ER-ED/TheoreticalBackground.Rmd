@@ -37,7 +37,6 @@ Especially suppression is generally associated with poorer outcomes (i.e., more 
 For example, it could be shown that maladaptive ER strategies mediate the effect between neuroticism and depressive symptoms [@Yoon2013].
 Also, a number of ER strategies is linked to psychological disorders (for meta-analytic review, see Aldao et al. [@Aldao2010]). 
 
-<!--CS: Mit dem Teil bin ich noch nicht ganz zufrieden, freue mich über Anmerkungen, wie man das evtl. strukturieren kann! AS: FInde den Teil eigentlich ganz gut gelungen, aber ich bin leider auch nicht os im Thema ER drin. -->
 The postulation of *adaptive* and *maladaptive* strategies was put in a new perspective with the concept of ER flexibility.
 Similar to other psychological domains, e.g., attention and goal pursuit, *maladaptive* now refers to inflexible strategy use or use of strategies that are hindering the achievement of goals [@Aldao2015].
 Adaptive flexible ER requires having a large repertoire of ER strategies [@Aldao2015].
@@ -87,8 +86,6 @@ To investigate this question, the individual SVs of each strategy available for 
 Promising approaches can be found in studies on difficulty levels of effortful cognitive tasks.  
 Individual SVs of effortful cognitive tasks have been quantified using the Cognitive Effort Discounting Paradigm (COG-ED) [@Westbrook2013]. 
 
-## 1.1 ER strategy discounting
-<!-- NHB template says that there should not be subheadings in the introduction -->
 In the original study by Westbrook et al. [-@Westbrook2013], cognitive load was varied using the *n*-back task, a working memory task that requires fast and accurate responses to sequentially presented stimuli. 
 Participants had to decide in an iterative procedure whether they wanted to repeat a higher *n*-back level for a larger, fixed monetary reward, or a lower level for a smaller, varying reward, with the implicit assumption taht teh objectively easiest *n*-back level has the highest SV.
 In the current study, we want to use this paradigm to determine SVs of ER strategies.
