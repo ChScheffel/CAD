@@ -87,33 +87,12 @@ data_ER$trigger_reg = NULL
 
 # loop to correct block indicator
 
-for (i in 1:nrow(data_ER)) {
-  
-  if (data_ER$trigger[i] == 21) {
-    
-    data_ER$block[i] = "view_neu"
-    
-  } else if (data_ER$trigger[i] == 22) {
-    
-    data_ER$block[i] = "view_neg"
-    
-  } else if (data_ER$trigger[i] == 23 ) {
-    
-    data_ER$block[i] = "distraction"
-    
-  } else if (data_ER$trigger[i] == 24 ) {
-    
-    data_ER$block[i] = "distancing" 
-    
-  } else if (data_ER$trigge[i] == 25 ) {
-    
-    data_ER$block[i] = "suppression"
-  
-  } else if (data_ER$trigger[i] == 26) {
-    
-    data_ER$block[i] = "choice"
-  }
-}
+data_ER$block[data_ER$trigger == 21] <- "1_view_neu"
+data_ER$block[data_ER$trigger == 22] <- "2_view_neg"
+data_ER$block[data_ER$trigger == 23] <- "3_distraction"
+data_ER$block[data_ER$trigger == 24] <- "4_distancing"
+data_ER$block[data_ER$trigger == 25] <- "5_suppression"
+data_ER$block[data_ER$trigger == 26] <- "6_choice"
 
 # store ER choice in data_choice frame
 
@@ -187,7 +166,7 @@ data_quest = read.csv(here("04_RawData", "pilot", "ER-ED", "dfs", "df_quest.csv"
 # View condition
 
 Ratings_view <- data_ER %>%
-  subset(data_ER$block == "view_neu" | data_ER$block == "view_neg")
+  subset(data_ER$block == "1_view_neu" | data_ER$block == "2_view_neg")
 Ratings_view$block <- as.factor(Ratings_view$block)
 
 SubjArousalView_aov <- afex::aov_ez(data = Ratings_view,
@@ -206,8 +185,8 @@ SubjArousalView_con <- as.data.frame(pairs(SubjArousalView_emm, adjust = "bonfer
 SubjArousalView_BF <- BayesFactor::anovaBF(formula = arousal ~ block,
                                            data = Ratings_view,
                                            progress = FALSE)
-SubjArousalView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_view$arousal[Ratings_view$block == "view_neu"],
-                                                                        y = Ratings_view$arousal[Ratings_view$block == "view_neg"],
+SubjArousalView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_view$arousal[Ratings_view$block == "1_view_neu"],
+                                                                        y = Ratings_view$arousal[Ratings_view$block == "2_view_neg"],
                                                                         progress = FALSE, paired = TRUE))$bf
 
 SubjArousalView_con <- cbind(SubjArousalView_con,
@@ -218,7 +197,7 @@ SubjArousalView_con <- cbind(SubjArousalView_con,
 
 colnames(SubjArousalView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 # rename contrast for table
-SubjArousalView_con[1,1] <- "$View_{negative} - View_{neutral}$"
+SubjArousalView_con[1,1] <- "$View_{neutral} - View_{negative}$"
 
 # Figure to visualize arousal ratings
 
@@ -226,7 +205,7 @@ SubjArousalView_con[1,1] <- "$View_{negative} - View_{neutral}$"
 FigSubjArousalViewPilot=ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Active viewing", 
-                   limits = c("view_neu", "view_neg"),
+                   limits = c("1_view_neu", "2_view_neg"),
                    labels = c("Neutral", "Negative"))+
   geom_jitter(size = 0.4)+
   labs(y = "Arousal Rating")
@@ -234,7 +213,7 @@ FigSubjArousalViewPilot=ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal
 # View neg and regulate conditions 
 
 Ratings_reg <- data_ER %>%
-  subset(data_ER$block != "view_neu" & data_ER$block != "choice")
+  subset(data_ER$block != "1_view_neu" & data_ER$block != "6_choice")
 Ratings_reg$block <- as.factor(Ratings_reg$block)
 
 
@@ -252,26 +231,26 @@ SubjArousalReg_con <- as.data.frame(pairs(SubjArousalReg_emm, adjust = "bonferro
 
 # Bayes Factors
 SubjArousalReg_BF <- BayesFactor::anovaBF(formula = arousal ~ block,
-                                           data = Ratings_reg,
-                                           progress = FALSE)
+                                          data = Ratings_reg,
+                                          progress = FALSE)
 
-SubjArousalReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "view_neg"],
-                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "distraction"],
+SubjArousalReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "2_view_neg"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "3_distraction"],
                                                                          progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "view_neg"],
-                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "distancing"],
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "2_view_neg"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "4_distancing"],
                                                                          progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "view_neg"],
-                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "suppression"],
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "2_view_neg"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "5_suppression"],
                                                                          progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "distraction"],
-                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "distancing"],
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "3_distraction"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "4_distancing"],
                                                                          progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "distraction"],
-                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "suppression"],
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "3_distraction"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "5_suppression"],
                                                                          progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "distancing"],
-                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "suppression"],
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "4_distancing"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "5_suppression"],
                                                                          progress = FALSE, paired = TRUE))$bf)
 
 SubjArousalReg_con <- cbind(SubjArousalReg_con,
@@ -282,12 +261,12 @@ SubjArousalReg_con <- cbind(SubjArousalReg_con,
 
 colnames(SubjArousalReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 
-SubjArousalReg_con[1,1] <- "$Distancing - Distraction$"
-SubjArousalReg_con[2,1] <- "$Distancing - Suppression$"
-SubjArousalReg_con[3,1] <- "$Distancing - View_{negative}$"
-SubjArousalReg_con[4,1] <- "$Distraction - Suppression$"
-SubjArousalReg_con[5,1] <- "$Distraction - View_{negative}$"
-SubjArousalReg_con[6,1] <- "$Suppression - View_{negative}$"
+SubjArousalReg_con[1,1] <- "$View_{negative} - Distraction$"
+SubjArousalReg_con[2,1] <- "$View_{negative} - Distancing$"
+SubjArousalReg_con[3,1] <- "$View_{negative} - Suppression$"
+SubjArousalReg_con[4,1] <- "$Distraction - Distancing$"
+SubjArousalReg_con[5,1] <- "$Distraction - Suppression$"
+SubjArousalReg_con[6,1] <- "$Distancing - Suppression$"
 
 # Figure to visualize arousal ratings
 
@@ -295,7 +274,7 @@ SubjArousalReg_con[6,1] <- "$Suppression - View_{negative}$"
 FigSubjArousalRegPilot <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Strategy", 
-                   limits = c("view_neg", "distraction", "distancing", "suppression"),
+                   limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
                    labels = c("View", "Distraction", "Distancing", "Suppression"))+
   geom_jitter(size = 0.4)+
   labs(y = "Arousal Rating")
@@ -319,46 +298,46 @@ SubjEffort_BF <- BayesFactor::anovaBF(formula = effort ~ block,
                                            data = Ratings_reg,
                                            progress = FALSE)
 
-SubjEffort_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "view_neg"],
-                                                                         y = Ratings_reg$effort[Ratings_reg$block == "distraction"],
-                                                                         progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "view_neg"],
-                                                                         y = Ratings_reg$effort[Ratings_reg$block == "distancing"],
-                                                                         progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "view_neg"],
-                                                                         y = Ratings_reg$effort[Ratings_reg$block == "suppression"],
-                                                                         progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "distraction"],
-                                                                         y = Ratings_reg$effort[Ratings_reg$block == "distancing"],
-                                                                         progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "distraction"],
-                                                                         y = Ratings_reg$effort[Ratings_reg$block == "suppression"],
-                                                                         progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "distancing"],
-                                                                         y = Ratings_reg$effort[Ratings_reg$block == "suppression"],
-                                                                         progress = FALSE, paired = TRUE))$bf)
+SubjEffort_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"],
+                                                                     y = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],
+                                                                     progress = FALSE, paired = TRUE))$bf,
+                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"],
+                                                                     y = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],
+                                                                     progress = FALSE, paired = TRUE))$bf,
+                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"],
+                                                                     y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],
+                                                                     progress = FALSE, paired = TRUE))$bf,
+                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],
+                                                                     y = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],
+                                                                     progress = FALSE, paired = TRUE))$bf,
+                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],
+                                                                     y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],
+                                                                     progress = FALSE, paired = TRUE))$bf,
+                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],
+                                                                     y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],
+                                                                     progress = FALSE, paired = TRUE))$bf)
 
 SubjEffort_con <- cbind(SubjEffort_con,
                         format(effectsize::t_to_eta2(t = SubjEffort_con$t.ratio,
                                                          df_error = SubjEffort_con$df,
                                                          ci = 0.95),
-                                   digits = 2))
+                               digits = 2))
 
 colnames(SubjEffort_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 
-SubjEffort_con[1,1] <- "$Distancing - Distraction$"
-SubjEffort_con[2,1] <- "$Distancing - Suppression$"
-SubjEffort_con[3,1] <- "$Distancing - View_{negative}$"
-SubjEffort_con[4,1] <- "$Distraction - Suppression$"
-SubjEffort_con[5,1] <- "$Distraction - View_{negative}$"
-SubjEffort_con[6,1] <- "$Suppression - View_{negative}$"
+SubjEffort_con[1,1] <- "$View_{negative} - Distancing$"
+SubjEffort_con[2,1] <- "$View_{negative} - Distraction$"
+SubjEffort_con[3,1] <- "$View_{negative} - Suppression$"
+SubjEffort_con[4,1] <- "$Distraction - Distancing$"
+SubjEffort_con[5,1] <- "$Distraction - Suppression$"
+SubjEffort_con[6,1] <- "$Distancing - Suppression$"
 
 # Figure to visualize effort ratings
 # figure
 FigSubjEffortPilot = ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Strategy", 
-                   limits = c("view_neg", "distraction", "distancing", "suppression"),
+                   limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
                    labels = c("View", "Distraction", "Distancing", "Suppression"))+
   geom_jitter(size = 0.4)+
   labs(y = "Effort Rating")
@@ -455,7 +434,7 @@ FigEMGLevViewPilot=ggplot2::ggplot(EMG_view, aes(x = block, y = Lev))+
                    limits = c("1_view_neu", "2_view_neg"),
                    labels = c("Neutral", "Negative"))+
   geom_jitter(size = 0.4)+
-  labs(y = "Corrugator activity")
+  labs(y = "Levator activity")
 
 # effect of strategy on EMG
 
@@ -540,53 +519,53 @@ EMGLevReg_emm <- emmeans::emmeans(EMGLevReg_aov$aov, specs = "block")
 EMGLevReg_con <- as.data.frame(pairs(EMGLevReg_emm, adjust = "bonferroni"))
 
 # Bayes Factors
-EMGCorrReg_BF <- BayesFactor::anovaBF(formula = Corr ~ block,
+EMGLevReg_BF <- BayesFactor::anovaBF(formula = Lev ~ block,
                                       data = EMG_reg,
                                       progress = FALSE)
 
-EMGCorrReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = TRUE))$bf)
+EMGLevReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
+                                                                    y = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
+                                                                    progress = FALSE, paired = TRUE))$bf,
+                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
+                                                                    y = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
+                                                                    progress = FALSE, paired = TRUE))$bf,
+                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
+                                                                    y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
+                                                                    progress = FALSE, paired = TRUE))$bf,
+                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
+                                                                    y = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
+                                                                    progress = FALSE, paired = TRUE))$bf,
+                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
+                                                                    y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
+                                                                    progress = FALSE, paired = TRUE))$bf,
+                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
+                                                                    y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
+                                                                    progress = FALSE, paired = TRUE))$bf)
 
-EMGCorrReg_con <- cbind(EMGCorrReg_con,
-                        format(effectsize::t_to_eta2(t = EMGCorrReg_con$t.ratio,
-                                                     df_error = EMGCorrReg_con$df,
-                                                     ci = 0.95),digits = 2))
+EMGLevReg_con <- cbind(EMGLevReg_con,
+                       format(effectsize::t_to_eta2(t = EMGLevReg_con$t.ratio,
+                                                    df_error = EMGLevReg_con$df,
+                                                    ci = 0.95),digits = 2))
 
-colnames(EMGCorrReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+colnames(EMGLevReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 
-EMGCorrReg_con[1,1] <- "$View_{negative} - Distraction$"
-EMGCorrReg_con[2,1] <- "$View_{negative} - Distancing$"
-EMGCorrReg_con[3,1] <- "$View_{negative} - Suppression$"
-EMGCorrReg_con[4,1] <- "$Distraction - Distancing$"
-EMGCorrReg_con[5,1] <- "$Distraction - Suppression$"
-EMGCorrReg_con[6,1] <- "$Distancing - Suppression$"
+EMGLevReg_con[1,1] <- "$View_{negative} - Distraction$"
+EMGLevReg_con[2,1] <- "$View_{negative} - Distancing$"
+EMGLevReg_con[3,1] <- "$View_{negative} - Suppression$"
+EMGLevReg_con[4,1] <- "$Distraction - Distancing$"
+EMGLevReg_con[5,1] <- "$Distraction - Suppression$"
+EMGLevReg_con[6,1] <- "$Distancing - Suppression$"
 
 # Figure to visualize arousal ratings
 
 # figure
-FigEMGCorrRegPilot <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Corr))+
+FigEMGLevRegPilot <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Lev))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Strategy", 
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
                    labels = c("View", "Distraction", "Distancing", "Suppression"))+
   geom_jitter(size = 0.4)+
-  labs(y = "Corrugator activity")
+  labs(y = "Levator activity")
 
 ```
 
@@ -679,18 +658,20 @@ Further, 100 negative pictures, featuring categories animals, body, disaster, di
 An evolutionary algorithm [@Yu2010] was used to cluster these pictures into five sets with comparable valence and arousal values (set one: V: *M* $\pm$ *SD* = `r round(mean(stim_negative$valence[stim_negative$set == 1]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 1]), digits = 2)`, A: *M* $\pm$ *SD* = `r round(mean(stim_negative$arousal[stim_negative$set == 1]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 1]), digits = 2)`; set two: V: *M* $\pm$ *SD* = `r round(mean(stim_negative$valence[stim_negative$set == 2]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 2]), digits = 2)`, A: *M* $\pm$ *SD* = `r round(mean(stim_negative$arousal[stim_negative$set == 2]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 2]), digits = 2)`; set three: V: *M* $\pm$ *SD* = `r round(mean(stim_negative$valence[stim_negative$set == 3]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 3]), digits = 2)`, A: *M* $\pm$ *SD* = `r round(mean(stim_negative$arousal[stim_negative$set == 3]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 3]), digits = 2)`; set four: V: *M* $\pm$ *SD* = `r round(mean(stim_negative$valence[stim_negative$set == 4]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 4]), digits = 2)`, A: *M* $\pm$ *SD* = `r round(mean(stim_negative$arousal[stim_negative$set == 4]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 4]), digits = 2)`; set five: V: *M* $\pm$ *SD* = `r round(mean(stim_negative$valence[stim_negative$set == 5]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 5]), digits = 2)`, A: *M* $\pm$ *SD* = `r round(mean(stim_negative$arousal[stim_negative$set == 5]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 5]), digits = 2)`).
 A complete list of all pictures and their classification into sets can be found in supplementary material X.
 
-### 2.3.4 Electromyography
+### 2.3.4 Facial electromyography
 
-Two bipolar electromyograph (EMG) measures will be recorded in the region of the *corrugator supercilii* and the *levator labii* using Brain Vision Recorder (Brain Products Inc., Gilching, Germany).
-Passive surface Ag/AgCl electrodes (0.7 mm diameter, 10 mm distance between electrodes) filled with electrolyte gel will be used.
-Data will be sampled at 1000 Hz.
-To measure *corrugator EMG*, electrodes will be applied to the abraded and cleaned skin on the left *corrugator supercilii*, and to measure *levator EMG*, electrodes were applied in the region of the *levator labii*.
-The ground electrode will be placed at the left *Mastoid*.
+Bipolar facial electromyography (EMG) will be measured for *corrugator supercilii* and *levator labii* as indices of affective valence (Bradley & Lang, 2000).
+Two passive surface Ag/AgCl electrodes (8 mm inner diameter, 10 mm distance between electrodes) will be placed over each left muscle according to the guidelines of Fridlund and Cacioppo (1986).
+The ground electrode will be placed over the left *Mastoid*.
+Before electrode placement, the skin will be abraded with Every abrasive paste, cleaned with alcohol, and filled with Lectron III electrolyte gel.
+Raw signals will be amplified by a BrainAmp amplifier (Brain Products Inc., Gilching, Germany).
+Impedance level will be kept below 10 kΩ. 
+Data will be sampled at 1000 Hz, filtered, rectified and integrated. 
 A 20 Hz high pass (order 8), a 300 Hz low pass (order 8), and a 50 Hz notch filter will be applied to both signals.
-Afterwards, the signals will be rectified and segmented.
-EMG data will be baseline-corrected to -200 ms to 0 ms to stimulus onset.
-Last, the sampling rate is changed to 100 Hz and the AUC for the interval of 6000 ms stimulus presentation extracted for every stimulus.
-<!-- Liebe @Anne, habe das aus dem Analyzer zusammengefasst, stimmt das? -- -->
+Corrugator and Levator EMG will be analyzed during the 6 s of picture presenation.
+EMG data will be baseline-corrected using a time window of 2 s prior to stimulus onset (cf. Bradley & Lang, 2000). 
+Last, the sampling rate will be changed to 100 Hz, and EMG data will be averaged for each condition and each participant.
+<!-- AG: insert references -->
 
 ## 2.4 Sampling plan
 
@@ -710,12 +691,14 @@ All statistical analyses will be performed using *RStudio* (version 1.4.1717) [@
 The level of significance was set to $\alpha=.05$.
 
 *Effects of emotion regulation on arousal and effort* <br> To examine impact of valence of emotional pictures on subjective arousal, an repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for strategy active viewing will be conducted for behavioral data (subjective arousal ratings).
-To investigate the effect of the tree ER strategies on subjective arousal, another rmANOVA will be conducted with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective arousal ratings of negative pictures.
-To examine the impact of valence on the emotional facial reaction, an rmANOVA with the factor valence (neutral and negative) for strategy active viewing will be conducted for EMG activity of *corrugator* and *levator*.
-<!-- @Anne please check! =) --> A further rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) will be conducted for EMG activity to examine the effects of ER strategies on the emotional facial reaction.
-<!-- @Anne please check! =) --> To examine the effect of ER strategies on cognitive effort, an rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings will be conducted.
-Greenhouse-Geisser-corrected $p$-values and degrees of freedom will be reported when the assumption of sphericity is violated.
-Proportion of explained variance $\eta_{p}^{2}$ will be reported as a measure of effect size.
+To investigate the effect of the tree ER strategies on subjective arousal, another rmANOVA was conducted with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective arousal ratings of negative pictures.
+To examine the impact of valence on the emotional facial reaction, an rmANOVA with the factor valence (neutral and negative) for strategy active viewing was conducted for EMG activity of *corrugator* and *levator*.
+<!-- @Anne please check! =) --> A further rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) was conducted for EMG activity to examine 
+<!-- AG: hier ein Check!-->
+the effects of ER strategies on the emotional facial reaction.
+<!-- @Anne please check! =) --> To examine the effect of ER strategies on cognitive effort, an rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings was conducted.
+Greenhouse-Geisser-corrected $p$-values and degrees of freedom were reported when assumption of sphericity was violated.
+Proportion of explained variance $\eta_{p}^{2}$ was reported as a measure of effect size.
 If indicated by the data, estimated marginal means will be computed as post-hoc contrasts.
 <!-- perhaps alsway mention which r package will be used to run these proceudres -->
 *Subjective values of emotion regulation strategies* <br> For each ER strategy, SVs will be calculated as follows: first, the value 0.015625 will be added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.<!-- why exactly this value? -->

@@ -165,10 +165,10 @@ include_graphics(here("99_Thinktank","Other","Paradigm_Scheme_T2.png" ))
 
 \newpage
 
-## Pilot study: Subjective arousal in the conditions "active viewing - neutral" and "active viewing - negative"
+## Pilot study: Subjective arousal in the conditions "Active viewing - neutral" and "Active viewing - negative"
 ANOVA:
 
-`r afex::nice(SubjArousalView_aov)%>% knitr::kable(x = .)` 
+`r afex::nice(SubjArousalView_aov) %>% knitr::kable(x = .)` 
 $BF10=$ `r round(extractBF(SubjArousalView_BF)$bf, digits = 2)`
 
 Paired contrasts:
@@ -188,7 +188,7 @@ print(FigSubjArousalViewPilot)
 ```
 ## Pilot study: Subjective arousal in the conditions "Active viewing - negative", "Distraction", "Distancing", and "Suppression"
 ANOVA:
-`r afex::nice(SubjArousalReg_aov)%>% knitr::kable(x = .)`
+`r afex::nice(SubjArousalReg_aov) %>% knitr::kable(x = .)`
 $BF10=$ `r round(extractBF(SubjArousalReg_BF)$bf, digits = 2)`
 
 Paired contrasts:
@@ -206,9 +206,89 @@ Figure:
 
 print(FigSubjArousalRegPilot)
 ```
+## Pilot study: Physiological arousal (*Corrugator* and *Levator* activity) in the conditions "Active viewing - neutral" and "Active viewing - negative"
+*Corrugator*:
+ANOVA: 
+`r afex::nice(EMGCorrView_aov) %>% knitr::kable(x = .)`
+$BF10=$ `r round(extractBF(EMGCorrView_BF)$bf, digits = 2)`
+
+Paired contrasts:
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+apa_table(
+  EMGCorrView_con,
+  caption = "Paired contrasts for the rmANOVA comparing physiological arousal (Corrugator activity) of negative and neutral pictures in the condition \"active viewing\".",
+  note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.", 
+  escape = FALSE,
+  placement = "H"
+)
+```
+*Levator*:
+ANOVA: 
+`r afex::nice(EMGLevView_aov) %>% knitr::kable(x = .)`
+$BF10=$ `r round(extractBF(EMGLevView_BF)$bf, digits = 2)`
+
+Paired contrasts:
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+apa_table(
+  EMGLevView_con,
+  caption = "Paired contrasts for the rmANOVA comparing physiological arousal (Levator activity) of negative and neutral pictures in the condition \"active viewing\".",
+  note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.", 
+  escape = FALSE,
+  placement = "H"
+)
+```
+Figures:
+```{r FigEMGCorrViewPilot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Corrugator activity for the conditions \"Active viewing - neutral\" and \"Active viewing - negative\" visualized as boxplots. Each dot represents the corrugator activity of a single trial. Bold dots represent outliers.", fig.pos="H", out.width="75%"}
+
+print(FigEMGCorrViewPilot)
+```
+```{r FigEMGLevViewPilot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Levator activity for the conditions \"Active viewing - neutral\" and \"Active viewing - negative\" visualized as boxplots. Each dot represents the levator activity of a single trial. Bold dots represent outliers.", fig.pos="H", out.width="75%"}
+
+print(FigEMGLevViewPilot)
+```
+## Pilot study: Physiological arousal (*Corrugator* and *Levator* activity) in the conditions"Active viewing - negative", "Distraction", "Distancing", and "Suppression"
+*Corrugator*:
+ANOVA: 
+`r afex::nice(EMGCorrReg_aov) %>% knitr::kable(x = .)`
+$BF10=$ `r round(extractBF(EMGCorrReg_BF)$bf, digits = 2)`
+
+Paired contrasts:
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+apa_table(
+  EMGCorrReg_con,
+  caption = "Paired contrasts for the rmANOVA comparing physiological arousal (Corrugator activity) of conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\".",
+  note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.", 
+  escape = FALSE,
+  placement = "H"
+)
+```
+*Levator*:
+ANOVA: 
+`r afex::nice(EMGLevReg_aov) %>% knitr::kable(x = .)`
+$BF10=$ `r round(extractBF(EMGLevReg_BF)$bf, digits = 2)`
+
+Paired contrasts:
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+apa_table(
+  EMGLevReg_con,
+  caption = "Paired contrasts for the rmANOVA comparing physiological arousal (Levator activity) of conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\".",
+  note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.", 
+  escape = FALSE,
+  placement = "H"
+)
+```
+Figures:
+```{r FigEMGCorrRegPilot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Corrugator activity for the conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\" visualized as boxplots. Each dot represents the corrugator activity of a single trial. Bold dots represent outliers.", fig.pos="H", out.width="75%"}
+
+print(FigEMGCorrRegPilot)
+```
+```{r FigEMGLevRegPilot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Levator activity for the conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\" visualized as boxplots. Each dot represents the levator activity of a single trial. Bold dots represent outliers.", fig.pos="H", out.width="75%"}
+
+print(FigEMGLevRegPilot)
+```
 ## Pilot study: Subjective effort in the conditions "Active viewing - negative", "Distraction", "Distancing", and "Suppression"
 ANOVA:
-`r afex::nice(SubjEffort_aov)%>% knitr::kable(x = .)`
+`r afex::nice(SubjEffort_aov) %>% knitr::kable(x = .)`
 $BF10=$ `r round(extractBF(SubjEffort_BF)$bf, digits = 2)`
 
 Paired contrasts:
@@ -226,3 +306,4 @@ Figure:
 
 print(FigSubjEffortPilot)
 ```
+
