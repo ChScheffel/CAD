@@ -617,6 +617,7 @@ To assess Need for Cognition, the German version short form of the Need for Cogn
 To assess self-control, sum scores of the German versions of the following questionnaires are used [@Paschke2016]: the Self-Regulation Scale (SRS) [@Schwarzer1999], the Brief Self-Control Scale (BSCS) @Tangney2004; @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11) [@Patton1995; @Hartmann2011].
 Attentional control is assessed using the Attentional Control Scale (ACS) [@Derryberry2002].
 <!-- Not sure whether you can state this so briefly without giving more detailed information on, e.g., sample items, the scale on which answers are recorded (e.g., -3 ... +3), the reliability of the measures. -->
+
 ### 2.3.2 Emotion regulation paradigm
 
 The ER paradigm roughly consists of three parts that will be described in the following.
@@ -668,7 +669,7 @@ Raw signals will be amplified by a BrainAmp amplifier (Brain Products Inc., Gilc
 Impedance level will be kept below 10 kΩ. 
 Data will be sampled at 1000 Hz, filtered, rectified and integrated. 
 A 20 Hz high pass (order 8), a 300 Hz low pass (order 8), and a 50 Hz notch filter will be applied to both signals.
-Corrugator and Levator EMG will be analyzed during the 6 s of picture presenation.
+Corrugator and Levator EMG will be analyzed during the 6 s of picture presentation.
 EMG data will be baseline-corrected using a time window of 2 s prior to stimulus onset (cf. Bradley & Lang, 2000). 
 Last, the sampling rate will be changed to 100 Hz, and EMG data will be averaged for each condition and each participant.
 <!-- AG: insert references -->
@@ -683,24 +684,27 @@ To find an effect of $d=-0.32$ of ER on *corrugator* muscle activity with $\alph
 Power analyses of all other hypotheses yielded smaller sample sizes.
 However, if participants withdraw from study participation, technical failures occur, or experimenter considers the participant for not suitable for study participation (e.g., because the participant does not follow instructions or shows great fatigue), respective data will also be excluded from further analyses.
 Therefore, we aim to collect data of 90 participants.
-<!-- somehow refer to the Dign Table here, where everything is detailed -->
+<!-- somehow refer to the Design Table here, where everything is detailed -->
 
 ## 2.5 Analysis plan
 
 All statistical analyses will be performed using *RStudio* (version 1.4.1717) [@RStudioTeam2020]and *R* (version 4.1.0) [@RCore2021] for Windows.<!-- mention the main packages used and list the helper packages in the supplement -->
-The level of significance was set to $\alpha=.05$.
+The level of significance will be set to $\alpha=.05$.
 
-*Effects of emotion regulation on arousal and effort* <br> To examine impact of valence of emotional pictures on subjective arousal, an repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for strategy active viewing will be conducted for behavioral data (subjective arousal ratings).
-To investigate the effect of the tree ER strategies on subjective arousal, another rmANOVA was conducted with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective arousal ratings of negative pictures.
-To examine the impact of valence on the emotional facial reaction, an rmANOVA with the factor valence (neutral and negative) for strategy active viewing was conducted for EMG activity of *corrugator* and *levator*.
-<!-- @Anne please check! =) --> A further rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) was conducted for EMG activity to examine 
-<!-- AG: hier ein Check!-->
-the effects of ER strategies on the emotional facial reaction.
-<!-- @Anne please check! =) --> To examine the effect of ER strategies on cognitive effort, an rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings was conducted.
-Greenhouse-Geisser-corrected $p$-values and degrees of freedom were reported when assumption of sphericity was violated.
-Proportion of explained variance $\eta_{p}^{2}$ was reported as a measure of effect size.
+*Effects of emotion regulation on arousal, facial EMG and effort* <br> To examine the impact of valence of emotional pictures on subjective arousal ratings, a repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for the strategy active viewing will be conducted.
+To investigate the effects of the three ER strategies on subjective arousal, another rmANOVA  with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective arousal ratings will be conducted.
+
+To examine the impact of valence on facial EMG, a rmANOVA with the factor valence (neutral and negative) for the strategy active viewing will be conducted for *corrugator* and *levator* activity.
+To examine the effects of the three ER strategies on facial EMG, another rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for *corrugator* and *levator* activity will be conducted.
+<!-- hier werden HE across neg + neu Bedingungen angeschaut, ist das korrekt? -->
+<!-- Habe den Text oben sprachlich vereinheitlicht, weil ich es sonst schwer zu lesen fand. -->
+
+To examine the effect of ER strategies on cognitive effort, a rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings will be conducted.
+Greenhouse-Geisser-corrected $p$-values and degrees of freedom will be reported when the assumption of sphericity is violated.
+Proportion of explained variance $\eta_{p}^{2}$ will be reported as a measure of effect size.
 If indicated by the data, estimated marginal means will be computed as post-hoc contrasts.
 <!-- perhaps alsway mention which r package will be used to run these proceudres -->
+
 *Subjective values of emotion regulation strategies* <br> For each ER strategy, SVs will be calculated as follows: first, the value 0.015625 will be added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.<!-- why exactly this value? -->
 Second, the resulting (monetary) value will be divided by 2.00 €.
 The final SV for each participant will be computed by averaging all final SVs of each strategy.
