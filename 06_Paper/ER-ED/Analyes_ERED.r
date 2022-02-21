@@ -21,6 +21,8 @@ library(renv)
 renv::activate(here("06_Paper","ER-ED"))
 renv::restore(here("06_Paper","ER-ED"))
 
+library(dplyr)
+library(ggplot2)
 
 ##################### DATA IMPORT #######################
 
