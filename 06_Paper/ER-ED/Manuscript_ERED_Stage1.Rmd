@@ -104,6 +104,22 @@ header-includes   :
 \setcounter{figure}{0}
 ---
 
+```{r setupManuscript, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(knitr)
+# set knitr options
+knitr::opts_chunk$set(out.width = "\\textwidth")
+
+# load libraries
+library(here) # for path independent file referencing
+  # set top level directory to source file
+
+  here::i_am("flag_project_root_CERED.txt")
+library(papaja) # APA conform output
+library(kableExtra) # for tables in R Markdown
+
+```
+
 ``` {r child = "TheoreticalBackground.Rmd"}
 ```
 
