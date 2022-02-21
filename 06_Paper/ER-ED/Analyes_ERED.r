@@ -577,8 +577,12 @@ EMGLevReg_con[6,1] <- "$Distancing - Suppression$"
 # figure
 FigEMGLevRegPilot <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Lev))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
-  scale_x_discrete(name = "Strategy", 
+  scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
-                   labels = c("View", "Distraction", "Distancing", "Suppression"))+
-  geom_jitter(size = 0.4)+
+                   labels = c("View", "Distraction", "Distancing", "Suppression")) +
+  geom_jitter(size = 0.4) +
   labs(y = "Levator activity")
+
+##################### SAVE WORKSPACE IMAGE #######################
+
+save.image(file = "Workspace_ERED.RData")
