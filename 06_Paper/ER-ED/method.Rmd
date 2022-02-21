@@ -10,7 +10,7 @@ editor_options:
 ```{r SetupMethod, include = FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 
-#library(readxl)     # import excel files
+library(readxl)     # import excel files
 library(here)       # to set directories without defined paths
 # set top level directory to source file
 here::i_am("flag_project_root_CERED.txt")
@@ -132,7 +132,7 @@ Two passive surface Ag/AgCl electrodes (8 mm inner diameter, 10 mm distance betw
 The ground electrode will be placed over the left *Mastoid*.
 Before electrode placement, the skin will be abraded with Every abrasive paste, cleaned with alcohol, and filled with Lectron III electrolyte gel.
 Raw signals will be amplified by a BrainAmp amplifier (Brain Products Inc., Gilching, Germany).
-Impedance level will be kept below 10 kΩ. 
+Impedance level will be kept below 10 $k\Omega$. 
 Data will be sampled at 1000 Hz, filtered, rectified and integrated. 
 A 20 Hz high pass (order 8), a 300 Hz low pass (order 8), and a 50 Hz notch filter will be applied to both signals.
 Corrugator and Levator EMG will be analyzed during the 6 s of picture presentation.
