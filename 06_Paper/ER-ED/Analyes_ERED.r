@@ -1,4 +1,14 @@
-# R Script for Analysis of CERED T2
+######################################################
+# R Script for analyses of the Registered Report
+# "Estimating individual subjective values of emotion regulation strategies"
+# Scheffel, C., Zerna, J., Gärtner, A., Dörfel, D., & Strobel, A. (2022)
+#
+# Christoph Scheffel
+# (christoph_scheffel@tu-dresden.de)
+#
+######################################################
+
+#################### SETUP ###########################
 
 # Open relevant packages
 library(targets)    # to keep track of all relevant files
