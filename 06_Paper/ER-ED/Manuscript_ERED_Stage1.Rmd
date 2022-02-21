@@ -117,6 +117,7 @@ here::i_am("flag_project_root_CERED.txt")
 
 library(papaja) # APA conform output
 library(kableExtra) # for tables in R Markdown
+library(BayesFactor) # for bayes factors
 
 # load workspace variables from analyses_ERED.R script
 load(here("06_Paper","ER-ED","Workspace_ERED.RData"))
