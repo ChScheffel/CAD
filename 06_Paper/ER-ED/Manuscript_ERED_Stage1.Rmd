@@ -112,11 +112,14 @@ knitr::opts_chunk$set(out.width = "\\textwidth")
 
 # load libraries
 library(here) # for path independent file referencing
-  # set top level directory to source file
+# set top level directory to source file
+here::i_am("flag_project_root_CERED.txt")
 
-  here::i_am("flag_project_root_CERED.txt")
 library(papaja) # APA conform output
 library(kableExtra) # for tables in R Markdown
+
+# load workspace variables from analyses_ERED.R script
+load(here("06_Paper","ER-ED","WorkspaceERED.RData"))
 
 ```
 
