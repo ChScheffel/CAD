@@ -23,6 +23,10 @@ renv::restore(here("06_Paper","ER-ED"))
 
 library(dplyr)
 library(ggplot2)
+#library(afex)       # for ANOVA
+#library(emmeans)
+#library(BayesFactor)
+#library(effectsize)
 
 ##################### DATA IMPORT #######################
 
