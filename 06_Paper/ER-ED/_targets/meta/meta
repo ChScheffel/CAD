@@ -1,9 +1,0 @@
-name|type|data|command|depend|seed|path|time|size|bytes|format|iteration|parent|children|seconds|warnings|error
-method.section|stem|ac4f6a219736e53f|4a524bfc69589ed2|ef46db3751d8e999|-1390126769||t18850.5850022675s|996925e1ed10e0be|63|rds|vector|||1.68||
-whole.report|stem|71b1fd5bc72112f4|cc2fcce297b1f87b|ef46db3751d8e999|244309054||t18872.4309345362s|996925e1ed10e0be|63|rds|vector|||1.72||
-raw_data|stem|81b4f89d22c39d51|ae1a508243a19442|56bf4a0a555dbee1|-979620141||t19033.5984788108s|1133e90286c78dae|9360|rds|vector|||0.04||
-whole.paper|stem|00c87fac7d0f754a|16b111d85d51f36f|4745aa592080ea1d|1060248920|Manuscript_ERED_Stage1.pdf*Manuscript_ERED_Stage1.Rmd*Manuscript_ERED_Stage1_files|t19033.5984773832s|64624c3e032982ca|891945|file|vector|||11.75|LaTeX Warning Command \texttwosuperior invalid in math mode on input line 472.|
-Quest|stem|aac4101b889ed38c|933a1c74c1929be4|ef46db3751d8e999|-1986929290|Questionnaires.R|t19027.5418839126s|ff1070515fe0d9bc|2127|file|vector|||0.98|Paket readr wurde unter R Version 4.1.2 erstellt|
-method|stem|fa602504b53626ea|0fb07213a19b2fe0|ef46db3751d8e999|-606615635|Method.Rmd|t19033.6029542132s|98875e90e97de682|35104|file|vector|||0||
-raw_data_file|stem|614bc5516686f3d1|2f4a1baca15a4307|4e3739ef91745af0|2110307107|C:/Users/scheffel/Scheffel/Forschung/A_Projects/2021_CERED/CERED/04_RawData/pilot/CERED_DATA.csv|t19020.5279747115s|6d430ddc139cce80|44736|file|vector|||0||
-intro|stem|bab376ecbf6dbb94|1ac7508f54253c0c|ef46db3751d8e999|-628138157|TheoreticalBackground.Rmd|t19033.5841384058s|d881aa3a5be27b19|14355|file|vector|||0||
