@@ -44,6 +44,7 @@ We used *R* with *R Studio* [@RCore2021; @RStudioTeam2020] with the main package
 The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at https://github.com/ChScheffel/CERED.<!-- eventually perhaps refer to the _script and R Markdown file_ -->
 A complete list of all measures assessed in the study can be found at OSF (<https://osf.io/vnj8x/>) and GitHub (https://github.com/ChScheffel/CERED).
 <!-- Attention! OSF is still private --> 
+
 ## 2.1 Ethics information
 
 The study protocol complies with all relevant ethical regulations and was approved by the ethics committee of the Technische Universität Dresden (reference number EK...). <!-- Attention!add EK number, when approved --> 
