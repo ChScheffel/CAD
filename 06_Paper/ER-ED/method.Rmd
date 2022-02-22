@@ -45,7 +45,7 @@ Participants will receive 30€ in total or course credit for participation.
 
 ## 2.2 Pilot data
 
-The procedure described above was tested in a pilot study with $N=`r nrow(data_quest)`$ participants (`r length(which(data_quest$gender == 2))` female; age: $M = `r round(mean(data_quest[,"age"], na.rm = TRUE), digits = 1)`\text{ }\pm\text{ }SD = `r round(sd(data_quest[,"age"], na.rm = TRUE), digits = 1)`$).<!-- This results in two digit numbers, with the last digit being zero. Perhaps use papaja::printnun(x, diguts = 1, gt1 = T) instead, this rounds up to 1 digit, but also only displays one digit (at least I hope so) -->
+The procedure described above was tested in a pilot study with $N=`r nrow(data_quest)`$ participants (`r length(which(data_quest$gender == 2))` female; age: $M = `r papaja::printnum(mean(data_quest[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`\text{ }\pm\text{ }SD = `r papaja::printnum(sd(data_quest[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`$).
 Results showed significant higher subjective (... and physiological ?!) arousal for active viewing of negative pictures, compared to active viewing of neutral pictures.
 However, ER strategies could not reduce subjective arousal compared to active viewing of negative pictures.
 Yet we found accordance with our previous studies [@Scheffel2021] that the use of ER strategies compared to active viewing was associated with increased subjective effort.
