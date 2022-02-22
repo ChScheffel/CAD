@@ -185,7 +185,6 @@ Therefore, the MLM specified above will be extended by the level-2-predictors NF
 The association between flexible ER and SVs of ER strategies will be investigated with a regression using the $intercept$ and $slope$ of each participants' SVs to predict their FlexER score.
 Firstly, SVs will be ordered by magnitude.
 Secondly, for each participant a linear model will be built to estimate the individual $intercept$ and $slope$.
-<!--CS: Reicht das so als Beschreibung und wird klar, woher die Slopes und Intercepts kommen werden? AS: Mir ehrlich gesagt erstmal nicht so ... -->
 
 For each result of the analyses both, $p$-values and Bayes factor $BF10$, calculated using the *BayesFactor* package [@Morey2021], will be reported. Bayses factors are calculated using the default prior widths of the functions *anovaBF*, *lmBF* and *regressionBF*.
 
