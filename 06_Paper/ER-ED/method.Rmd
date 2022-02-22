@@ -141,7 +141,7 @@ To find an effect of $d=-0.32$ of ER on *corrugator* muscle activity with $\alph
 Power analyses of all other hypotheses yielded smaller sample sizes.
 However, if participants withdraw from study participation, technical failures occur, or experimenter considers the participant for not suitable for study participation (e.g., because the participant does not follow instructions or shows great fatigue), respective data will also be excluded from further analyses.
 Therefore, we aim to collect data of 90 participants.
-<!-- somehow refer to the Design Table here, where everything is detailed -->
+Detailed information on power calculation for each hypothesis can be found in the desing table.
 
 ## 2.5 Analysis plan
 
