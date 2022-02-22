@@ -206,7 +206,8 @@ The scale has items such as "I keep my emotions to myself" (ERQ-suppression - 4 
 Flexible use of ER strategies is assessed using the FlexER Scale [@Doerfel2019] with items such as "If I want to feel less negative emotions, I have several strategies to achieve this.", which are answered on a 4-point scale ranging from "strongly agree" to "strongly disagree".
 Psychometric properties are currently under investigation.
 
-*Implicit theories of willpower.*
+*Implicit Theories Questionnaire.*
+Implicit theories of willpower in emotional control are assessed using the Implicit Theories Questionnaire of @Bernecker2017.
 
 *Need for Cognition Scale.*
 Need for Cognition (NFC) is assessed with the 16-item short version of the German NFC scale [@Bless1994]. 
@@ -227,6 +228,8 @@ The scale shows acceptable internal consistency (Cronbach’s $\alpha=.81$)[@Spr
 As a third measure of self-control, the Barratt Impulsiveness Scale (BIS-11)[@Patton1995; @Hartmann2011] is used.
 Responses to each item (e.g., "I am self-controlled.", recoded) are assessed on a 4-point scale ranging from 1 (never/rarely) to 4 (almost always/always).
 An internal consistency of Cronbach's $\alpha=.74$ and a retest reliability of $r_{tt}=.56$ for General Impulsiveness and $r_{tt}=.66$ for Total Score across 6 month were reported [@Hartmann2011].
+
+*Attentional Control Scale.*
 
 \newpage
 ## Pilot study: Subjective arousal in the conditions "Active viewing - neutral" and "Active viewing - negative"
