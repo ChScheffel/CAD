@@ -207,6 +207,15 @@ Need for Cognition (NFC) was assessed with the 16-item short version of the Germ
 Responses to each item (e.g., "Thinking is not my idea of fun", recoded) were recorded on a 7-point Likert scale ranging from -3 (completely disagree) to +3 (completely agree) and were summed to the total NFC score. 
 The scale shows comparably high internal consistency [Cronbach’s $\alpha>.80$; @Bless1994; @Fleischhauer2010] and a retest reliability of $r_{tt}=.83$ across 8 to 18 weeks [@Fleischhauer2015].
 
+*Self-Regulation Scale.*
+
+*Brief Self-Control Scale.* 
+As a second measure of self-control, the Brief Self-Control Scale (BSCS)[@Tangney2004; @Sproesser2011] was used. 
+It comprises 13 items (e.g., “I am good at resisting temptations”) with a 5-point rating scale ranging from 1 (not at all like me) to 5 (very much like me). 
+The scale shows acceptable internal consistency (Cronbach’s $\alpha=.81$)[@Sproesser2011] .
+
+*Baratt Impulsiveness Scale.*
+
 \newpage
 ## Pilot study: Subjective arousal in the conditions "Active viewing - neutral" and "Active viewing - negative"
 ANOVA:
