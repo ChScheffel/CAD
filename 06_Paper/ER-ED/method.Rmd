@@ -130,9 +130,8 @@ Impedance level will be kept below 10 $k\Omega$.
 Data will be sampled at 1000 Hz, filtered, rectified and integrated. 
 A 20 Hz high pass (order 8), a 300 Hz low pass (order 8), and a 50 Hz notch filter will be applied to both signals.
 Corrugator and Levator EMG will be analyzed during the 6 s of picture presentation.
-EMG data will be baseline-corrected using a time window of 2 s prior to stimulus onset (cf. Bradley & Lang, 2000). 
+EMG data will be baseline-corrected using a time window of 2 s prior to stimulus onset [cf, @Bradley2000]. 
 Last, the sampling rate will be changed to 100 Hz, and EMG data will be averaged for each condition and each participant.
-<!-- AG: insert references -->
 
 ## 2.4 Sampling plan
 
