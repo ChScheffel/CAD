@@ -353,7 +353,7 @@ Exploratorily, we want to investigate whether individual SVs are related to pers
 
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study.\textsuperscript{18}
 The paradigm was written and presented using \emph{Psychopy}.\textsuperscript{19}
-We used \emph{R} with \emph{R Studio}\textsuperscript{20,21} with the main packages \ldots{} for all our analyses.
+We used \emph{R} with \emph{R Studio}\textsuperscript{20,21} with the main packages \emph{afex}\textsuperscript{22} and \emph{BayesFactor}\textsuperscript{23} for all analyses.
 The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at \url{https://github.com/ChScheffel/CERED}.
 A complete list of all measures assessed in the study can be found at OSF (\url{https://osf.io/vnj8x/}) and GitHub (\url{https://github.com/ChScheffel/CERED}).
 
@@ -367,7 +367,7 @@ Participants will receive 30€ in total or course credit for participation.
 \hypertarget{pilot-data}{%
 \subsection{2.2 Pilot data}\label{pilot-data}}
 
-The procedure described above was tested in a pilot study with \(N=16\) participants (9 female; age: \(M = 24.10\text{ }\pm\text{ }SD = 3.60\)).
+The procedure described above was tested in a pilot study with \(N=16\) participants (9 female; age: \(M = 24.1\text{ }\pm\text{ }SD = 3.6\)).
 Results showed significant higher subjective (\ldots{} and physiological ?!) arousal for active viewing of negative pictures, compared to active viewing of neutral pictures.
 However, ER strategies could not reduce subjective arousal compared to active viewing of negative pictures.
 Yet we found accordance with our previous studies\textsuperscript{14} that the use of ER strategies compared to active viewing was associated with increased subjective effort.
@@ -375,7 +375,7 @@ Yet we found accordance with our previous studies\textsuperscript{14} that the u
 \hypertarget{design}{%
 \subsection{2.3 Design}\label{design}}
 
-Young, healthy participants (aged 18 to 30 years) will be recruited using the software \emph{ORSEE}\textsuperscript{22} at the Technische Universität Dresden.
+Young, healthy participants (aged 18 to 30 years) will be recruited using the software \emph{ORSEE}\textsuperscript{24} at the Technische Universität Dresden.
 Participants will be invited to compete an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
 The study consists of two lab sessions, which take place in a shielded cabin with constant lighting.
 Before each session, participants receive information about the respective experimental procedure and provide informed consent.
@@ -386,19 +386,19 @@ Participants provide informed consent and receive written instructions on the ER
 A brief training ensures that all participants are able to implement the ER strategies.
 Next, electrodes to measure EMG being attached and the ER paradigm is conducted.
 Participants receive 30.00€ or course credit as compensation.
-Study data are being collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden.\textsuperscript{23,24}
+Study data are being collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden.\textsuperscript{25,26}
 
 \hypertarget{psychometric-measures}{%
 \subsubsection{2.3.1 Psychometric measures}\label{psychometric-measures}}
 
-The online survey contains a number of questionnaires: General psychological well-being is assessed using the German version of the WHO-5 scale.\textsuperscript{25,26}
-To capture the construct of resilience, the German version 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)\textsuperscript{29} is used.
-Dispositional use of ER is assessed using the German version of the Emotion Regulation Questionnaire (ERQ).\textsuperscript{6,30}
-For the assessment of ER ability we use the Flexible Emotion Regulation Scale (FlexER).\textsuperscript{31}
-Implicit theories of willpower in emotion control are assessed using the implicit theories questionnaire from.\textsuperscript{32}
-To assess Need for Cognition, the German version short form of the Need for Cognition Scale\textsuperscript{33,34} is used.
-To assess self-control, sum scores of the German versions of the following questionnaires are used:\textsuperscript{35} the Self-Regulation Scale (SRS),\textsuperscript{36} the Brief Self-Control Scale (BSCS);\textsuperscript{37}{]},\textsuperscript{38} and the Barratt Impulsiveness Scale (BIS-11).\textsuperscript{39,40}
-Attentional control is assessed using the Attentional Control Scale (ACS).\textsuperscript{41}
+The online survey contains a number of questionnaires: General psychological well-being is assessed using the German version of the WHO-5 scale.\textsuperscript{27,28}
+To capture the construct of resilience, the German version 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)\textsuperscript{31} is used.
+Dispositional use of ER is assessed using the German version of the Emotion Regulation Questionnaire (ERQ).\textsuperscript{6,32}
+For the assessment of ER ability we use the Flexible Emotion Regulation Scale (FlexER).\textsuperscript{33}
+Implicit theories of willpower in emotion control are assessed using the implicit theories questionnaire from.\textsuperscript{34}
+To assess Need for Cognition, the German version short form of the Need for Cognition Scale\textsuperscript{35,36} is used.
+To assess self-control, sum scores of the German versions of the following questionnaires are used:\textsuperscript{37} the Self-Regulation Scale (SRS),\textsuperscript{38} the Brief Self-Control Scale (BSCS);\textsuperscript{39}{]},\textsuperscript{40} and the Barratt Impulsiveness Scale (BIS-11).\textsuperscript{41,42}
+Attentional control is assessed using the Attentional Control Scale (ACS).\textsuperscript{43}
 
 \hypertarget{emotion-regulation-paradigm}{%
 \subsubsection{2.3.2 Emotion regulation paradigm}\label{emotion-regulation-paradigm}}
@@ -437,10 +437,10 @@ As soon as they have decided, they see the respective instruction and the block 
 \hypertarget{stimuli}{%
 \subsubsection{2.3.3 Stimuli}\label{stimuli}}
 
-Pictures used in the paradigm were selected from the Emotional Picture Set (EmoPicS)\textsuperscript{42} and the International Affective Picture System (IAPS).\textsuperscript{43}
+Pictures used in the paradigm were selected from the Emotional Picture Set (EmoPicS)\textsuperscript{44} and the International Affective Picture System (IAPS).\textsuperscript{45}
 The 20 neutral pictures (Valence (V): \emph{M} \(\pm\) \emph{SD} = 4.81 \(\pm\) 0.51; Arousal (A): \emph{M} \(\pm\) \emph{SD} = 3 \(\pm\) 0.65) depicted content related to the categories persons, objects, and scenes.
 Further, 100 negative pictures, featuring categories animals, body, disaster, disgust, injury, suffering, violence, and weapons, were used.
-An evolutionary algorithm\textsuperscript{44} was used to cluster these pictures into five sets with comparable valence and arousal values (set one: V: \emph{M} \(\pm\) \emph{SD} = 2.84 \(\pm\) 0.57, A: \emph{M} \(\pm\) \emph{SD} = 5.62 \(\pm\) 0.34; set two: V: \emph{M} \(\pm\) \emph{SD} = 2.64 \(\pm\) 0.46, A: \emph{M} \(\pm\) \emph{SD} = 5.58 \(\pm\) 0.35; set three: V: \emph{M} \(\pm\) \emph{SD} = 2.82 \(\pm\) 0.62, A: \emph{M} \(\pm\) \emph{SD} = 5.60 \(\pm\) 0.39; set four: V: \emph{M} \(\pm\) \emph{SD} = 2.65 \(\pm\) 0.75, A: \emph{M} \(\pm\) \emph{SD} = 5.61 \(\pm\) 0.41; set five: V: \emph{M} \(\pm\) \emph{SD} = 2.74 \(\pm\) 0.70, A: \emph{M} \(\pm\) \emph{SD} = 5.63 \(\pm\) 0.37).
+An evolutionary algorithm\textsuperscript{46} was used to cluster these pictures into five sets with comparable valence and arousal values (set one: V: \emph{M} \(\pm\) \emph{SD} = 2.84 \(\pm\) 0.57, A: \emph{M} \(\pm\) \emph{SD} = 5.62 \(\pm\) 0.34; set two: V: \emph{M} \(\pm\) \emph{SD} = 2.64 \(\pm\) 0.46, A: \emph{M} \(\pm\) \emph{SD} = 5.58 \(\pm\) 0.35; set three: V: \emph{M} \(\pm\) \emph{SD} = 2.82 \(\pm\) 0.62, A: \emph{M} \(\pm\) \emph{SD} = 5.60 \(\pm\) 0.39; set four: V: \emph{M} \(\pm\) \emph{SD} = 2.65 \(\pm\) 0.75, A: \emph{M} \(\pm\) \emph{SD} = 5.61 \(\pm\) 0.41; set five: V: \emph{M} \(\pm\) \emph{SD} = 2.74 \(\pm\) 0.70, A: \emph{M} \(\pm\) \emph{SD} = 5.63 \(\pm\) 0.37).
 A complete list of all pictures and their classification into sets can be found in supplementary material X.
 
 \hypertarget{facial-electromyography}{%
@@ -461,9 +461,9 @@ Last, the sampling rate will be changed to 100 Hz, and EMG data will be averaged
 \hypertarget{sampling-plan}{%
 \subsection{2.4 Sampling plan}\label{sampling-plan}}
 
-Participants will be healthy adults in the age of 18 to 30, recruited using the software \emph{ORSEE}\textsuperscript{22} at the Technische Universität Dresden.
+Participants will be healthy adults in the age of 18 to 30, recruited using the software \emph{ORSEE}\textsuperscript{24} at the Technische Universität Dresden.
 Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.
-Sample size calculation is done using \emph{G*Power}.\textsuperscript{45,46}
+Sample size calculation is done using \emph{G*Power}.\textsuperscript{47,48}
 In a meta-analysis of Zaehringer and colleagues,\textsuperscript{5} effect sizes of ER on peripheral-physiological measures were reported.
 To find an effect of \(d=-0.32\) of ER on \emph{corrugator} muscle activity with \(\alpha=.05\) and \(\beta=.95\), data of least \(N=85\) have to be analyzed.
 Power analyses of all other hypotheses yielded smaller sample sizes.
@@ -496,13 +496,13 @@ Again, estimated, marginal means will be computed as post-hoc contrasts.
 To investigate, whether individual SVs predict ER choice, a Chi-squared test with predicted choice (highest SV of each participant) and actual choice will be computed.
 Furthermore, an ordinal logistic regression with dependent variable choice and independent variables SVs of each strategy will be computed.
 
-To explore the association between subjective arousal, physiological arousal, and subjective effort on SVs, a multilevel model (MLM) will be specified using the \(lmerTest\) package.\textsuperscript{47}
+To explore the association between subjective arousal, physiological arousal, and subjective effort on SVs, a multilevel model (MLM) will be specified using the \(lmerTest\) package.\textsuperscript{49}
 First, ER strategies will be recoded and centered for each subject according to their individual SVs: The strategy with the highest SV will be coded as -1, the strategy with the second highest SV 0, and the strategy with the lowest SV will be coded as 1.
 Restricted maximum likelihood (REML) will be applied to fit the model.
 A random slopes model of SVs including subjective effort (effort ratings), subjective arousal (arousal ratings), and physiological arousal (\emph{corrugator} activity and \emph{levator} activity) as level-1-predictor will be specified.
 \[
 SV \sim strategy\ + \text{effort rating} + \text{arousal rating} + corrugator \text{ activity} + levator \text{ activity} + (strategy|subject)
-\] Level-1-predictors will be centered within cluster.\textsuperscript{48}
+\] Level-1-predictors will be centered within cluster.\textsuperscript{50}
 Residuals of the final model will be inspected visually.
 Intraclass correlation coefficient (ICC), \(\rho\), will be reported for each model (null model, as well as full model).
 
@@ -513,7 +513,7 @@ The association between flexible ER and SVs of ER strategies will be investigate
 Therefore, SVs will be ordered by magnitude firstly.
 Secondly, for each participant a linear model will be built to estimate the individual \(intercept\) and \(slope\).
 
-For each result of the analyses both, \(p\)-values and Bayes factor \(BF10\), calculated using the \emph{BayesFactor} package,\textsuperscript{49} will be reported. Bayses factors are calculated using the default prior widths of the functions \emph{anovaBF}, \emph{lmBF} and \emph{regressionBF}.
+For each result of the analyses both, \(p\)-values and Bayes factor \(BF10\), calculated using the \emph{BayesFactor} package,\textsuperscript{23} will be reported. Bayses factors are calculated using the default prior widths of the functions \emph{anovaBF}, \emph{lmBF} and \emph{regressionBF}.
 
 \hypertarget{data-availability}{%
 \subsection{Data availability}\label{data-availability}}
@@ -618,117 +618,121 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
 \CSLLeftMargin{21. }
 \CSLRightInline{RStudio Team. {RStudio}: {Integrated} development for {R}. (2020).}
 
-\leavevmode\hypertarget{ref-Greiner2015}{}%
+\leavevmode\hypertarget{ref-Singmann2021}{}%
 \CSLLeftMargin{22. }
+\CSLRightInline{Singmann, H., Bolker, B., Westfall, J., Aust, F. \& Ben-Shachar, M. S. \emph{Afex: {A}nalysis of factorial experiments}. (2021).}
+
+\leavevmode\hypertarget{ref-Morey2021}{}%
+\CSLLeftMargin{23. }
+\CSLRightInline{Morey, R. D. \& Rouder, J. N. \emph{{BayesFactor}: {Computation} of {Bayes} factors for common designs}. (2021).}
+
+\leavevmode\hypertarget{ref-Greiner2015}{}%
+\CSLLeftMargin{24. }
 \CSLRightInline{Greiner, B. Subject pool recruitment procedures: {Organizing} experiments with {ORSEE}. \emph{Journal of the Economic Science Association} \textbf{1}, 114--125 (2015).}
 
 \leavevmode\hypertarget{ref-Harris2009}{}%
-\CSLLeftMargin{23. }
+\CSLLeftMargin{25. }
 \CSLRightInline{Harris, P. A. \emph{et al.} Research electronic data capture ({REDCap})---{A} metadata-driven methodology and workflow process for providing translational research informatics support. \emph{Journal of Biomedical Informatics} \textbf{42}, 377--381 (2009).}
 
 \leavevmode\hypertarget{ref-Harris2019}{}%
-\CSLLeftMargin{24. }
+\CSLLeftMargin{26. }
 \CSLRightInline{Harris, P. A. \emph{et al.} The {REDCap} consortium: {Building} an international community of software platform partners. \emph{Journal of Biomedical Informatics} \textbf{95}, 103208 (2019).}
 
 \leavevmode\hypertarget{ref-Bech2004}{}%
-\CSLLeftMargin{25. }
+\CSLLeftMargin{27. }
 \CSLRightInline{Bech, P. Measuring the dimensions of psychological general well-being by the WHO-5. \emph{Quality of life newsletter} \textbf{32}, 15--16 (2004).}
 
 \leavevmode\hypertarget{ref-Braehler2007}{}%
-\CSLLeftMargin{26. }
+\CSLLeftMargin{28. }
 \CSLRightInline{Brähler, E., Mühlan, H., Albani, C. \& Schmidt, S. Teststatistische pr{ü}fung und normierung der deutschen versionen des EUROHIS-QOL lebensqualit{ä}t-index und des WHO-5 wohlbefindens-index. \emph{Diagnostica} \textbf{53}, 83--96 (2007).}
 
 \leavevmode\hypertarget{ref-Connor2003}{}%
-\CSLLeftMargin{27. }
+\CSLLeftMargin{29. }
 \CSLRightInline{Connor, K. M. \& Davidson, J. R. Development of a new resilience scale: The connor-davidson resilience scale (CD-RISC). \emph{Depression and Anxiety} \textbf{18}, 76--82 (2003).}
 
 \leavevmode\hypertarget{ref-Sarubin2015}{}%
-\CSLLeftMargin{28. }
+\CSLLeftMargin{30. }
 \CSLRightInline{Sarubin, N. \emph{et al.} First analysis of the 10-and 25-item german version of the connor-davidson resilience scale (CD-RISC) regarding psychometric properties and components. \emph{Zeitschrift Fur Gesundheitspsychologie} \textbf{23}, 112--122 (2015).}
 
 \leavevmode\hypertarget{ref-Campbell-Sills2007}{}%
-\CSLLeftMargin{29. }
+\CSLLeftMargin{31. }
 \CSLRightInline{Campbell-Sills, L. \& Stein, M. B. Psychometric analysis and refinement of the connor-davidson resilience scale (CD-RISC): Validation of a 10-item measure of resilience. \emph{Journal of Traumatic Stress} \textbf{20}, 1019--28 (2007).}
 
 \leavevmode\hypertarget{ref-Abler2009}{}%
-\CSLLeftMargin{30. }
+\CSLLeftMargin{32. }
 \CSLRightInline{Abler, B. \& Kessler, H. Emotion regulation questionnaire - a german version of the ERQ by gross and john. \emph{Diagnostica} \textbf{55}, 144--152 (2009).}
 
 \leavevmode\hypertarget{ref-Doerfel2019}{}%
-\CSLLeftMargin{31. }
+\CSLLeftMargin{33. }
 \CSLRightInline{Dörfel, D., Gärtner, A. \& Strobel, A. A new self-report instrument for measuring emotion regulation flexibility. \emph{Society for Affective Science (SAS) Annual Conference} (2019).}
 
 \leavevmode\hypertarget{ref-Bernecker2017}{}%
-\CSLLeftMargin{32. }
+\CSLLeftMargin{34. }
 \CSLRightInline{Bernecker, K. \& Job, V. Implicit theories about willpower in resisting temptations and emotion control. \emph{Zeitschrift Fur Psychologie-Journal of Psychology} \textbf{225}, 157--166 (2017).}
 
 \leavevmode\hypertarget{ref-Cacioppo1982}{}%
-\CSLLeftMargin{33. }
+\CSLLeftMargin{35. }
 \CSLRightInline{Cacioppo, J. T. \& Petty, R. E. The need for cognition. \emph{Journal of Personality and Social Psychology} \textbf{42}, 116--131 (1982).}
 
 \leavevmode\hypertarget{ref-Bless1994}{}%
-\CSLLeftMargin{34. }
+\CSLLeftMargin{36. }
 \CSLRightInline{Bless, H., Wanke, M., Bohner, G., Fellhauer, R. F. \& Schwarz, N. Need for cognition - a scale measuring engagement and happiness in cognitive tasks. \emph{Zeitschrift Für Sozialpsychologie} \textbf{25}, 147--154 (1994).}
 
 \leavevmode\hypertarget{ref-Paschke2016}{}%
-\CSLLeftMargin{35. }
+\CSLLeftMargin{37. }
 \CSLRightInline{Paschke, L. M. \emph{et al.} Individual differences in self-reported self-control predict successful emotion regulation. \emph{Social Cognitive and Affective Neuroscience} \textbf{11}, 1193--204 (2016).}
 
 \leavevmode\hypertarget{ref-Schwarzer1999}{}%
-\CSLLeftMargin{36. }
+\CSLLeftMargin{38. }
 \CSLRightInline{Schwarzer, R., Diehl, M. \& Schmitz, G. S. Self-regulation scale. (1999).}
 
 \leavevmode\hypertarget{ref-Tangney2004}{}%
-\CSLLeftMargin{37. }
+\CSLLeftMargin{39. }
 \CSLRightInline{Tangney, J. P., Baumeister, R. F. \& Boone, A. L. High self-control predicts good adjustment, less pathology, better grades, and interpersonal success. \emph{Journal of Personality} \textbf{72}, 271--324 (2004).}
 
 \leavevmode\hypertarget{ref-Sproesser2011}{}%
-\CSLLeftMargin{38. }
+\CSLLeftMargin{40. }
 \CSLRightInline{Sproesser, G., Strohbach, S., Schupp, H. \& Renner, B. Candy or apple? How self-control resources and motives impact dietary healthiness in women. \emph{Appetite} \textbf{56}, 784--787 (2011).}
 
 \leavevmode\hypertarget{ref-Patton1995}{}%
-\CSLLeftMargin{39. }
+\CSLLeftMargin{41. }
 \CSLRightInline{Patton, J. H., Stanford, M. S. \& Barratt, E. S. Factor structure of the barratt impulsiveness scale. \emph{Journal of Clinical Psychology} \textbf{51}, 768--774 (1995).}
 
 \leavevmode\hypertarget{ref-Hartmann2011}{}%
-\CSLLeftMargin{40. }
+\CSLLeftMargin{42. }
 \CSLRightInline{Hartmann, A. S., Rief, W. \& Hilbert, A. Psychometric properties of the german version of the barratt impulsiveness scale, version 11 (BIS-11) for adolescents. \emph{Perceptual and Motor Skills} \textbf{112}, 353--368 (2011).}
 
 \leavevmode\hypertarget{ref-Derryberry2002}{}%
-\CSLLeftMargin{41. }
+\CSLLeftMargin{43. }
 \CSLRightInline{Derryberry, D. \& Reed, M. A. Anxiety-related attentional biases and their regulation by attentional control. \emph{Journal of abnormal psychology} \textbf{111}, 225--236 (2002).}
 
 \leavevmode\hypertarget{ref-Wessa2010}{}%
-\CSLLeftMargin{42. }
+\CSLLeftMargin{44. }
 \CSLRightInline{Wessa, M. \emph{et al.} EmoPicS: Subjective und psychophysiologische evalueation neuen bildmaterials für die klinisch-biopsychologische forschung. \emph{Zeitschrift für Klinische Psychologie und Psychotherapie} \textbf{39}, 77 (2010).}
 
 \leavevmode\hypertarget{ref-Lang2008}{}%
-\CSLLeftMargin{43. }
+\CSLLeftMargin{45. }
 \CSLRightInline{Lang, P. J., Bradley, M. M. \& Cuthbert, B. N. \emph{International affective picture system (IAPS): Affective ratings of pictures and instruction manual}. (University of Florida, 2008).}
 
 \leavevmode\hypertarget{ref-Yu2010}{}%
-\CSLLeftMargin{44. }
+\CSLLeftMargin{46. }
 \CSLRightInline{Yu, X. \& Gen, M. \emph{Introduction to evolutionary algorithms}. (Springer Science \& Business Media, 2010).}
 
 \leavevmode\hypertarget{ref-Faul2007}{}%
-\CSLLeftMargin{45. }
+\CSLLeftMargin{47. }
 \CSLRightInline{Faul, F., Erdfelder, E., Lang, A.-G. \& Buchner, A. G*{Power} 3: {A} flexible statistical power analysis program for the social, behavioral, and biomedical sciences. \emph{Behavior Research Methods} \textbf{39}, 175--191 (2007).}
 
 \leavevmode\hypertarget{ref-Faul2009}{}%
-\CSLLeftMargin{46. }
+\CSLLeftMargin{48. }
 \CSLRightInline{Faul, F., Erdfelder, E., Buchner, A. \& Lang, A.-G. Statistical power analyses using {G}*{Power} 3.1: {Tests} for correlation and regression analyses. \emph{Behavior Research Methods} \textbf{41}, 1149--1160 (2009).}
 
 \leavevmode\hypertarget{ref-Kuznetsova2017}{}%
-\CSLLeftMargin{47. }
+\CSLLeftMargin{49. }
 \CSLRightInline{Kuznetsova, A., Brockhoff, P. B. \& Christensen, R. H. B. {lmerTest} package: Tests in linear mixed effects models. \emph{Journal of Statistical Software} \textbf{82}, 1--26 (2017).}
 
 \leavevmode\hypertarget{ref-Enders2007}{}%
-\CSLLeftMargin{48. }
+\CSLLeftMargin{50. }
 \CSLRightInline{Enders, C. K. \& Tofighi, D. Centering predictor variables in cross-sectional multilevel models: {A} new look at an old issue. \emph{Psychological Methods} \textbf{12}, 121--138 (2007).}
-
-\leavevmode\hypertarget{ref-Morey2021}{}%
-\CSLLeftMargin{49. }
-\CSLRightInline{Morey, R. D. \& Rouder, J. N. \emph{{BayesFactor}: {Computation} of {Bayes} factors for common designs}. (2021).}
 
 \end{CSLReferences}
 
