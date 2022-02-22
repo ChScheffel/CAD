@@ -376,6 +376,7 @@ Yet we found accordance with our previous studies\textsuperscript{14} that the u
 \subsection{2.3 Design}\label{design}}
 
 Young, healthy participants (aged 18 to 30 years) will be recruited using the software \emph{ORSEE}\textsuperscript{24} at the Technische Universität Dresden.
+Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.
 Participants will be invited to compete an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
 The study consists of two lab sessions, which take place in a shielded cabin with constant lighting.
 Before each session, participants receive information about the respective experimental procedure and provide informed consent.
@@ -446,8 +447,8 @@ A complete list of all pictures and their classification into sets can be found 
 \hypertarget{facial-electromyography}{%
 \subsubsection{2.3.4 Facial electromyography}\label{facial-electromyography}}
 
-Bipolar facial electromyography (EMG) will be measured for \emph{corrugator supercilii} and \emph{levator labii} as indices of affective valence (Bradley \& Lang, 2000).
-Two passive surface Ag/AgCl electrodes (8 mm inner diameter, 10 mm distance between electrodes) will be placed over each left muscle according to the guidelines of Fridlund and Cacioppo (1986).
+Bipolar facial electromyography (EMG) will be measured for \emph{corrugator supercilii} and \emph{levator labii} as indices of affective valence.\textsuperscript{47}
+Two passive surface Ag/AgCl electrodes (8 mm inner diameter, 10 mm distance between electrodes) will be placed over each left muscle according to the guidelines of.\textsuperscript{48}
 The ground electrode will be placed over the left \emph{Mastoid}.
 Before electrode placement, the skin will be abraded with Every abrasive paste, cleaned with alcohol, and filled with Lectron III electrolyte gel.
 Raw signals will be amplified by a BrainAmp amplifier (Brain Products Inc., Gilching, Germany).
@@ -455,15 +456,13 @@ Impedance level will be kept below 10 \(k\Omega\).
 Data will be sampled at 1000 Hz, filtered, rectified and integrated.
 A 20 Hz high pass (order 8), a 300 Hz low pass (order 8), and a 50 Hz notch filter will be applied to both signals.
 Corrugator and Levator EMG will be analyzed during the 6 s of picture presentation.
-EMG data will be baseline-corrected using a time window of 2 s prior to stimulus onset (cf.~Bradley \& Lang, 2000).
+EMG data will be baseline-corrected using a time window of 2 s prior to stimulus onset.\textsuperscript{cf, 47}
 Last, the sampling rate will be changed to 100 Hz, and EMG data will be averaged for each condition and each participant.
 
 \hypertarget{sampling-plan}{%
 \subsection{2.4 Sampling plan}\label{sampling-plan}}
 
-Participants will be healthy adults in the age of 18 to 30, recruited using the software \emph{ORSEE}\textsuperscript{24} at the Technische Universität Dresden.
-Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.
-Sample size calculation is done using \emph{G*Power}.\textsuperscript{47,48}
+Sample size calculation is done using \emph{G*Power}.\textsuperscript{49,50}
 In a meta-analysis of Zaehringer and colleagues,\textsuperscript{5} effect sizes of ER on peripheral-physiological measures were reported.
 To find an effect of \(d=-0.32\) of ER on \emph{corrugator} muscle activity with \(\alpha=.05\) and \(\beta=.95\), data of least \(N=85\) have to be analyzed.
 Power analyses of all other hypotheses yielded smaller sample sizes.
@@ -496,13 +495,13 @@ Again, estimated, marginal means will be computed as post-hoc contrasts.
 To investigate, whether individual SVs predict ER choice, a Chi-squared test with predicted choice (highest SV of each participant) and actual choice will be computed.
 Furthermore, an ordinal logistic regression with dependent variable choice and independent variables SVs of each strategy will be computed.
 
-To explore the association between subjective arousal, physiological arousal, and subjective effort on SVs, a multilevel model (MLM) will be specified using the \(lmerTest\) package.\textsuperscript{49}
+To explore the association between subjective arousal, physiological arousal, and subjective effort on SVs, a multilevel model (MLM) will be specified using the \(lmerTest\) package.\textsuperscript{51}
 First, ER strategies will be recoded and centered for each subject according to their individual SVs: The strategy with the highest SV will be coded as -1, the strategy with the second highest SV 0, and the strategy with the lowest SV will be coded as 1.
 Restricted maximum likelihood (REML) will be applied to fit the model.
 A random slopes model of SVs including subjective effort (effort ratings), subjective arousal (arousal ratings), and physiological arousal (\emph{corrugator} activity and \emph{levator} activity) as level-1-predictor will be specified.
 \[
 SV \sim strategy\ + \text{effort rating} + \text{arousal rating} + corrugator \text{ activity} + levator \text{ activity} + (strategy|subject)
-\] Level-1-predictors will be centered within cluster.\textsuperscript{50}
+\] Level-1-predictors will be centered within cluster.\textsuperscript{52}
 Residuals of the final model will be inspected visually.
 Intraclass correlation coefficient (ICC), \(\rho\), will be reported for each model (null model, as well as full model).
 
@@ -718,20 +717,28 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
 \CSLLeftMargin{46. }
 \CSLRightInline{Yu, X. \& Gen, M. \emph{Introduction to evolutionary algorithms}. (Springer Science \& Business Media, 2010).}
 
-\leavevmode\hypertarget{ref-Faul2007}{}%
+\leavevmode\hypertarget{ref-Bradley2000}{}%
 \CSLLeftMargin{47. }
+\CSLRightInline{Bradley, M. M. \& Lang, P. J. Measuring emotion: Behavior, feeling, and physiology. in \emph{Cognitive neuroscience of emotion} (eds. Lane, R. D. \& Nadel, L.) 242--276 (Oxford University Press, 2000).}
+
+\leavevmode\hypertarget{ref-Fridlund1986}{}%
+\CSLLeftMargin{48. }
+\CSLRightInline{Fridlund, A. J. \& Cacioppo, J. T. Guidelines for human electromyographic research. \emph{Psychophysiology} \textbf{23}, 567--89 (1986).}
+
+\leavevmode\hypertarget{ref-Faul2007}{}%
+\CSLLeftMargin{49. }
 \CSLRightInline{Faul, F., Erdfelder, E., Lang, A.-G. \& Buchner, A. G*{Power} 3: {A} flexible statistical power analysis program for the social, behavioral, and biomedical sciences. \emph{Behavior Research Methods} \textbf{39}, 175--191 (2007).}
 
 \leavevmode\hypertarget{ref-Faul2009}{}%
-\CSLLeftMargin{48. }
+\CSLLeftMargin{50. }
 \CSLRightInline{Faul, F., Erdfelder, E., Buchner, A. \& Lang, A.-G. Statistical power analyses using {G}*{Power} 3.1: {Tests} for correlation and regression analyses. \emph{Behavior Research Methods} \textbf{41}, 1149--1160 (2009).}
 
 \leavevmode\hypertarget{ref-Kuznetsova2017}{}%
-\CSLLeftMargin{49. }
+\CSLLeftMargin{51. }
 \CSLRightInline{Kuznetsova, A., Brockhoff, P. B. \& Christensen, R. H. B. {lmerTest} package: Tests in linear mixed effects models. \emph{Journal of Statistical Software} \textbf{82}, 1--26 (2017).}
 
 \leavevmode\hypertarget{ref-Enders2007}{}%
-\CSLLeftMargin{50. }
+\CSLLeftMargin{52. }
 \CSLRightInline{Enders, C. K. \& Tofighi, D. Centering predictor variables in cross-sectional multilevel models: {A} new look at an old issue. \emph{Psychological Methods} \textbf{12}, 121--138 (2007).}
 
 \end{CSLReferences}
