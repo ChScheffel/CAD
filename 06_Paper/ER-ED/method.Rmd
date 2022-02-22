@@ -46,9 +46,10 @@ Participants will receive 30€ in total or course credit for participation.
 ## 2.2 Pilot data
 
 The procedure described above was tested in a pilot study with $N=`r nrow(data_quest)`$ participants (`r length(which(data_quest$gender == 2))` female; age: $M = `r papaja::printnum(mean(data_quest[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`\text{ }\pm\text{ }SD = `r papaja::printnum(sd(data_quest[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`$).
-Results showed significant higher subjective (... and physiological ?!) arousal for active viewing of negative pictures, compared to active viewing of neutral pictures.
-However, ER strategies could not reduce subjective arousal compared to active viewing of negative pictures.
-Yet we found accordance with our previous studies [@Scheffel2021] that the use of ER strategies compared to active viewing was associated with increased subjective effort.
+Results showed significant higher subjective arousal for active viewing of negative pictures, compared to active viewing of neutral pictures.
+ER strategies did not lead to a reduction of subjective arousal compared to active viewing of negative pictures.
+However, ER strategies were associated with reduced facial muscle activity of the *corrugator* and *levator* compared to active viewing of negative pictures.
+Yet we found in accordance with our previous studies [@Scheffel2021] that the use of ER strategies compared to active viewing was associated with increased subjective effort.
 
 ## 2.3 Design
 
@@ -160,7 +161,7 @@ Proportion of explained variance $\eta_{p}^{2}$ will be reported as a measure of
 If indicated by the data, estimated marginal means will be computed as post-hoc contrasts.
 rmANOVAS will be run using the *afex* package [@Singmann2021]
 
-*Subjective values of emotion regulation strategies* <br> For each ER strategy, SVs will be calculated as follows: first, the value 0.015625 will be added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.<!-- why exactly this value? -->
+*Subjective values of emotion regulation strategies* <br> For each ER strategy, SVs will be calculated as follows: first, the value 0.015625 will be added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
 Second, the resulting (monetary) value will be divided by 2.00 €.
 The final SV for each participant will be computed by averaging all final SVs of each strategy.
 The resulting values will be entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression) to explore for group effects.
