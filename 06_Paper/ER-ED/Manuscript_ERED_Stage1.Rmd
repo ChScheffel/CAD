@@ -194,7 +194,7 @@ include_graphics(here("99_Thinktank","Other","Paradigm_Scheme_T2.png" ))
 
 *Habitual use of reappraisal and suppression.* 
 Habitual use of reappraisal and suppression was measured using the 10-item Emotion Regulation Questionnaire (ERQ)[@GrossJohn2003;@Abler2009].
-The scale has items such as "I keep my emotions to myself" (ERQ-suppression) and "When I'm faced with a stressful situation, I make myself think about it in a way that helps me stay calm" (ERQ-reappraisal), which are answered on a 7-point Likert scale ranging from 1 (strongly disagree) to 7 (strongly agree), and has acceptable to high internal consistency (Cronbach’s $\alpha>.75$) [@Preece2020].
+The scale has items such as "I keep my emotions to myself" (ERQ-suppression - 4 items) and "When I'm faced with a stressful situation, I make myself think about it in a way that helps me stay calm" (ERQ-reappraisal - 6 items), which are answered on a 7-point Likert scale ranging from 1 (strongly disagree) to 7 (strongly agree), and has acceptable to high internal consistency (Cronbach’s $\alpha>.75$) [@Preece2020].
 
 *Emotion regulation flexibility.*
 Flexible use of ER strategies was assessed using the FlexER Scale [@Doerfel2019] with items such as "If I want to feel less negative emotions, I have several strategies to achieve this.", which are answered on a 4-point scale ranging from "strongly agree" to "strongly disagree".
@@ -205,9 +205,12 @@ Psychometric properties are currently under investigation.
 *Need for Cognition.*
 Need for Cognition (NFC) was assessed with the 16-item short version of the German NFC scale [@Bless1994]. 
 Responses to each item (e.g., "Thinking is not my idea of fun", recoded) were recorded on a 7-point Likert scale ranging from -3 (completely disagree) to +3 (completely agree) and were summed to the total NFC score. 
-The scale shows comparably high internal consistency [Cronbach’s $\alpha>.80$; @Bless1994; @Fleischhauer2010] and a retest reliability of $r_{tt}=.83$ across 8 to 18 weeks [@Fleischhauer2015].
+The scale shows comparably high internal consistency [Cronbach's $\alpha>.80$; @Bless1994; @Fleischhauer2010] and a retest reliability of $r_{tt}=.83$ across 8 to 18 weeks [@Fleischhauer2015].
 
 *Self-Regulation Scale.*
+As one measure of self-control, the Self-Regulation Scale (SRS)[@Schwarzer1999] was used.
+The scale has 10 items (e.g., "It is difficult for me to suppress thoughts that interfere with what I need to do.", recoded) on a 4-point scale ranging from 1 (not at all true) to 4 (exactly true).
+It has high internal consistency [Cronbach's $\alpha>.80$; @Schwarzer1999].
 
 *Brief Self-Control Scale.* 
 As a second measure of self-control, the Brief Self-Control Scale (BSCS)[@Tangney2004; @Sproesser2011] was used. 
