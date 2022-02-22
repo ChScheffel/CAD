@@ -196,7 +196,9 @@ include_graphics(here("99_Thinktank","Other","Paradigm_Scheme_T2.png" ))
 Habitual use of reappraisal and suppression was measured using the 10-item Emotion Regulation Questionnaire (ERQ)[@GrossJohn2003;@Abler2009].
 The scale has items such as "I keep my emotions to myself" (ERQ-suppression) and "When I'm faced with a stressful situation, I make myself think about it in a way that helps me stay calm" (ERQ-reappraisal), which are answered on a 7-point Likert scale ranging from 1 (strongly disagree) to 7 (strongly agree), and has acceptable to high internal consistency (Cronbach’s $\alpha>.75$) [@Preece2020].
 
-
+*Emotion regulation flexibility.*
+Flexible use of ER strategies was assessed using the FlexER Scale [@Doerfel2019] with items such as "If I want to feel less negative emotions, I have several strategies to achieve this.", which are answered on a 4-point scale ranging from "strongly agree" to "strongly disagree".
+Psychometric properties are currently under investigation.
 
 \newpage
 ## Pilot study: Subjective arousal in the conditions "Active viewing - neutral" and "Active viewing - negative"
