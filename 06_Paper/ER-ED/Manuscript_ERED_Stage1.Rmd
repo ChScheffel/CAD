@@ -217,7 +217,10 @@ As a second measure of self-control, the Brief Self-Control Scale (BSCS)[@Tangne
 It comprises 13 items (e.g., “I am good at resisting temptations”) with a 5-point rating scale ranging from 1 (not at all like me) to 5 (very much like me). 
 The scale shows acceptable internal consistency (Cronbach’s $\alpha=.81$)[@Sproesser2011] .
 
-*Baratt Impulsiveness Scale.*
+*Barratt Impulsiveness Scale.*
+As a third measure of self-control, the Barratt Impulsiveness Scale (BIS-11)[@Patton1995; @Hartmann2011] was used.
+Responses to each item (e.g., "I am self-controlled.", recoded) are assessed on a 4-point scale ranging from 1 (never/rarely) to 4 (almost always/always).
+An internal consistency of Cronbach's $\alpha=.74$ and a retest reliability of $r_{tt}=.56$ for General Impulsiveness and $r_{tt}=.66$ for Total Score across 6 month were reported [@Hartmann2011].
 
 \newpage
 ## Pilot study: Subjective arousal in the conditions "Active viewing - neutral" and "Active viewing - negative"
