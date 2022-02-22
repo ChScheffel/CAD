@@ -75,7 +75,7 @@ Habitual use of ER is assessed using the German version of the Emotion Regulatio
 For the assessment of ER ability we use the Flexible Emotion Regulation Scale (FlexER) [@Doerfel2019].
 Implicit theories of willpower in emotion control are assessed using the implicit theories questionnaire from @Bernecker2017.
 To assess Need for Cognition, the German version short form of the Need for Cognition Scale [@Cacioppo1982; @Bless1994] is used.
-To assess self-control, sum scores of the German versions of the following questionnaires are used [@Paschke2016]: the Self-Regulation Scale (SRS) [@Schwarzer1999], the Brief Self-Control Scale (BSCS) @Tangney2004; @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11) [@Patton1995; @Hartmann2011].
+To assess self-control, sum scores of the German versions of the following questionnaires are used [@Paschke2016]: the Self-Regulation Scale (SRS) [@Schwarzer1999], the Brief Self-Control Scale (BSCS) [@Tangney2004; @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11) [@Patton1995; @Hartmann2011].
 Attentional control is assessed using the Attentional Control Scale (ACS) [@Derryberry2002].
 For more detailed information on psychometric properties of the questionnaires, please see [supplementary material](#SupplementQuestionnaires). <!-- Not sure whether you can state this so briefly without giving more detailed information on, e.g., sample items, the scale on which answers are recorded (e.g., -3 ... +3), the reliability of the measures. -->
 
