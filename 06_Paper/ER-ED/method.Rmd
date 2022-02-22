@@ -141,26 +141,24 @@ To find an effect of $d=-0.32$ of ER on *corrugator* muscle activity with $\alph
 Power analyses of all other hypotheses yielded smaller sample sizes.
 However, if participants withdraw from study participation, technical failures occur, or experimenter considers the participant for not suitable for study participation (e.g., because the participant does not follow instructions or shows great fatigue), respective data will also be excluded from further analyses.
 Therefore, we aim to collect data of 90 participants.
-Detailed information on power calculation for each hypothesis can be found in the desing table.
+Detailed information on power calculation for each hypothesis can be found in the design table.
 
 ## 2.5 Analysis plan
 
-All statistical analyses will be performed using *RStudio* (version 1.4.1717) [@RStudioTeam2020]and *R* (version 4.1.0) [@RCore2021] for Windows.<!-- mention the main packages used and list the helper packages in the supplement -->
+Data collection and analysis will not be performed blind to the conditions of the experiments.
 The level of significance will be set to $\alpha=.05$.
 
 *Effects of emotion regulation on arousal, facial EMG and effort* <br> To examine the impact of valence of emotional pictures on subjective arousal ratings, a repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for the strategy active viewing will be conducted.
-To investigate the effects of the three ER strategies on subjective arousal, another rmANOVA  with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective arousal ratings will be conducted.
+To investigate the effects of the three ER strategies on subjective arousal, another rmANOVA  with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for subjective arousal ratings will be conducted.
 
 To examine the impact of valence on facial EMG, a rmANOVA with the factor valence (neutral and negative) for the strategy active viewing will be conducted for *corrugator* and *levator* activity.
-To examine the effects of the three ER strategies on facial EMG, another rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for *corrugator* and *levator* activity will be conducted.
-<!-- hier werden HE across neg + neu Bedingungen angeschaut, ist das korrekt? -->
-<!-- Habe den Text oben sprachlich vereinheitlicht, weil ich es sonst schwer zu lesen fand. -->
+To examine the effects of the three ER strategies on facial EMG, another rmANOVA with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for *corrugator* and *levator* activity will be conducted.
 
 To examine the effect of ER strategies on cognitive effort, a rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings will be conducted.
 Greenhouse-Geisser-corrected $p$-values and degrees of freedom will be reported when the assumption of sphericity is violated.
 Proportion of explained variance $\eta_{p}^{2}$ will be reported as a measure of effect size.
 If indicated by the data, estimated marginal means will be computed as post-hoc contrasts.
-<!-- perhaps alsway mention which r package will be used to run these proceudres -->
+rmANOVAS will be run using the *afex* package [@Singmann2021]
 
 *Subjective values of emotion regulation strategies* <br> For each ER strategy, SVs will be calculated as follows: first, the value 0.015625 will be added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.<!-- why exactly this value? -->
 Second, the resulting (monetary) value will be divided by 2.00 €.
@@ -183,15 +181,13 @@ Intraclass correlation coefficient (ICC), $\rho$, will be reported for each mode
 
 The influence of personality traits on SVs will be investigated exploratorily.
 Therefore, the MLM specified above will be extended by the level-2-predictors NFC and self-control.
-<!--CS: Weitere Persönlichkeitsfaktoren ins Modell? Würde sagen erstmal nicht, denn sonst wird es a) überladen mit Prädiktoren und b) haben wir sonst kein Maß, was meiner Meinung nach mit ALLEN SVs zusammenhängen sollte. Anm. AS: Ja, erstmal so schlank wie möglic halten. -->
 
-The association between flexible ER and SVs of ER strategies will be investigated with a regression using the $intercept$ and $slope$ of each participants' SVs to predict threir FlexER score.
-Therefore, SVs will be ordered by magnitude firstly.
+The association between flexible ER and SVs of ER strategies will be investigated with a regression using the $intercept$ and $slope$ of each participants' SVs to predict their FlexER score.
+Firstly, SVs will be ordered by magnitude.
 Secondly, for each participant a linear model will be built to estimate the individual $intercept$ and $slope$.
 <!--CS: Reicht das so als Beschreibung und wird klar, woher die Slopes und Intercepts kommen werden? AS: Mir ehrlich gesagt erstmal nicht so ... -->
 
-For each result of the analyses both, $p$-values and Bayes factor $BF10$, calculated using the *BayesFactor* package [@Morey2021], will be reported. Bayses factors are calculated using the default prior widths of the functions *anovaBF*, *lmBF* and *regressionBF*. <!-- bzw welche Funktionen auch immer Du nutzt, hoffe, das reicht denen, denn wenn man genauer werden will, müsste man noch zwischen fixed und random effects priors unterscheiden, die zu allem Überdruß auch noch unterschiedliche Zahlenwerte haben, 1/2 für fixed und 1 für random bei anovaBF und lmBF, aber sqrt(2)/4 bei regressionBF -->
-
+For each result of the analyses both, $p$-values and Bayes factor $BF10$, calculated using the *BayesFactor* package [@Morey2021], will be reported. Bayses factors are calculated using the default prior widths of the functions *anovaBF*, *lmBF* and *regressionBF*.
 
 ## Data availability
 
