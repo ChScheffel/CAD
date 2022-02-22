@@ -208,6 +208,7 @@ Psychometric properties are currently under investigation.
 
 *Implicit Theories Questionnaire.*
 Implicit theories of willpower in emotional control are assessed using the Implicit Theories Questionnaire of @Bernecker2017.
+4 items suchs as "
 
 *Need for Cognition Scale.*
 Need for Cognition (NFC) is assessed with the 16-item short version of the German NFC scale [@Bless1994]. 
