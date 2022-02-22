@@ -186,6 +186,19 @@ include_graphics(here("99_Thinktank","Other","Paradigm_Scheme_T2.png" ))
 
 \newpage
 
+## Detailed information on psychometric measures
+
+*General psychological well-being.* 
+
+*Resilience.*
+
+*Habitual use of reappraisal and suppression.* 
+Habitual use of reappraisal and suppression was measured using the 10-item Emotion Regulation Questionnaire (ERQ)[@GrossJohn2003;@Abler2009].
+The scale has items such as "I keep my emotions to myself" (ERQ-suppression) and "When I'm faced with a stressful situation, I make myself think about it in a way that helps me stay calm" (ERQ-reappraisal), which are answered on a 7-point Likert scale ranging from 1 (strongly disagree) to 7 (strongly agree), and has acceptable to high internal consistency (Cronbach’s $\alpha>.75$) [@Preece2020].
+
+
+
+\newpage
 ## Pilot study: Subjective arousal in the conditions "Active viewing - neutral" and "Active viewing - negative"
 ANOVA:
 
