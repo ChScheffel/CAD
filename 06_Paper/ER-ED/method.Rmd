@@ -53,6 +53,7 @@ Yet we found accordance with our previous studies [@Scheffel2021] that the use o
 ## 2.3 Design
 
 Young, healthy participants (aged 18 to 30 years) will be recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden.
+Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.
 Participants will be invited to compete an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
 The study consists of two lab sessions, which take place in a shielded cabin with constant lighting.
 Before each session, participants receive information about the respective experimental procedure and provide informed consent.
@@ -135,8 +136,6 @@ Last, the sampling rate will be changed to 100 Hz, and EMG data will be averaged
 
 ## 2.4 Sampling plan
 
-Participants will be healthy adults in the age of 18 to 30, recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden.
-<!--JZ: Das stand oben schon mal--> Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.
 Sample size calculation is done using *G\*Power* [@Faul2007; @Faul2009].
 In a meta-analysis of Zaehringer and colleagues [-@Zaehringer2020], effect sizes of ER on peripheral-physiological measures were reported.
 To find an effect of $d=-0.32$ of ER on *corrugator* muscle activity with $\alpha=.05$ and $\beta=.95$, data of least $N=85$ have to be analyzed.
