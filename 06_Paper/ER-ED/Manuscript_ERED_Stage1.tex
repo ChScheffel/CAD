@@ -368,9 +368,10 @@ Participants will receive 30€ in total or course credit for participation.
 \subsection{2.2 Pilot data}\label{pilot-data}}
 
 The procedure described above was tested in a pilot study with \(N=16\) participants (9 female; age: \(M = 24.1\text{ }\pm\text{ }SD = 3.6\)).
-Results showed significant higher subjective (\ldots{} and physiological ?!) arousal for active viewing of negative pictures, compared to active viewing of neutral pictures.
-However, ER strategies could not reduce subjective arousal compared to active viewing of negative pictures.
-Yet we found accordance with our previous studies\textsuperscript{14} that the use of ER strategies compared to active viewing was associated with increased subjective effort.
+Results showed significant higher subjective arousal for active viewing of negative pictures, compared to active viewing of neutral pictures.
+ER strategies did not lead to a reduction of subjective arousal compared to active viewing of negative pictures.
+However, ER strategies were associated with reduced facial muscle activity of the \emph{corrugator} and \emph{levator} compared to active viewing of negative pictures.
+Yet we found in accordance with our previous studies\textsuperscript{14} that the use of ER strategies compared to active viewing was associated with increased subjective effort.
 
 \hypertarget{design}{%
 \subsection{2.3 Design}\label{design}}
@@ -442,7 +443,7 @@ Pictures used in the paradigm were selected from the Emotional Picture Set (EmoP
 The 20 neutral pictures (Valence (V): \emph{M} \(\pm\) \emph{SD} = 4.81 \(\pm\) 0.51; Arousal (A): \emph{M} \(\pm\) \emph{SD} = 3 \(\pm\) 0.65) depicted content related to the categories persons, objects, and scenes.
 Further, 100 negative pictures, featuring categories animals, body, disaster, disgust, injury, suffering, violence, and weapons, were used.
 An evolutionary algorithm\textsuperscript{46} was used to cluster these pictures into five sets with comparable valence and arousal values (set one: V: \emph{M} \(\pm\) \emph{SD} = 2.84 \(\pm\) 0.57, A: \emph{M} \(\pm\) \emph{SD} = 5.62 \(\pm\) 0.34; set two: V: \emph{M} \(\pm\) \emph{SD} = 2.64 \(\pm\) 0.46, A: \emph{M} \(\pm\) \emph{SD} = 5.58 \(\pm\) 0.35; set three: V: \emph{M} \(\pm\) \emph{SD} = 2.82 \(\pm\) 0.62, A: \emph{M} \(\pm\) \emph{SD} = 5.60 \(\pm\) 0.39; set four: V: \emph{M} \(\pm\) \emph{SD} = 2.65 \(\pm\) 0.75, A: \emph{M} \(\pm\) \emph{SD} = 5.61 \(\pm\) 0.41; set five: V: \emph{M} \(\pm\) \emph{SD} = 2.74 \(\pm\) 0.70, A: \emph{M} \(\pm\) \emph{SD} = 5.63 \(\pm\) 0.37).
-A complete list of all pictures and their classification into sets can be found in supplementary material X.
+A complete list of all pictures and their classification into sets can be found in supplementary material 1.
 
 \hypertarget{facial-electromyography}{%
 \subsubsection{2.3.4 Facial electromyography}\label{facial-electromyography}}
@@ -456,7 +457,7 @@ Impedance level will be kept below 10 \(k\Omega\).
 Data will be sampled at 1000 Hz, filtered, rectified and integrated.
 A 20 Hz high pass (order 8), a 300 Hz low pass (order 8), and a 50 Hz notch filter will be applied to both signals.
 Corrugator and Levator EMG will be analyzed during the 6 s of picture presentation.
-EMG data will be baseline-corrected using a time window of 2 s prior to stimulus onset.\textsuperscript{cf, 47}
+EMG data will be baseline-corrected using a time window of 2 s prior to stimulus onset.\textsuperscript{47}
 Last, the sampling rate will be changed to 100 Hz, and EMG data will be averaged for each condition and each participant.
 
 \hypertarget{sampling-plan}{%
@@ -468,23 +469,25 @@ To find an effect of \(d=-0.32\) of ER on \emph{corrugator} muscle activity with
 Power analyses of all other hypotheses yielded smaller sample sizes.
 However, if participants withdraw from study participation, technical failures occur, or experimenter considers the participant for not suitable for study participation (e.g., because the participant does not follow instructions or shows great fatigue), respective data will also be excluded from further analyses.
 Therefore, we aim to collect data of 90 participants.
+Detailed information on power calculation for each hypothesis can be found in the \protect\hyperlink{DesignTable}{design table}.
 
 \hypertarget{analysis-plan}{%
 \subsection{2.5 Analysis plan}\label{analysis-plan}}
 
-All statistical analyses will be performed using \emph{RStudio} (version 1.4.1717)\textsuperscript{21}and \emph{R} (version 4.1.0)\textsuperscript{20} for Windows.
+Data collection and analysis will not be performed blind to the conditions of the experiments.
 The level of significance will be set to \(\alpha=.05\).
 
 \emph{Effects of emotion regulation on arousal, facial EMG and effort} To examine the impact of valence of emotional pictures on subjective arousal ratings, a repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for the strategy active viewing will be conducted.
-To investigate the effects of the three ER strategies on subjective arousal, another rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective arousal ratings will be conducted.
+To investigate the effects of the three ER strategies on subjective arousal, another rmANOVA with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for subjective arousal ratings will be conducted.
 
 To examine the impact of valence on facial EMG, a rmANOVA with the factor valence (neutral and negative) for the strategy active viewing will be conducted for \emph{corrugator} and \emph{levator} activity.
-To examine the effects of the three ER strategies on facial EMG, another rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for \emph{corrugator} and \emph{levator} activity will be conducted.
+To examine the effects of the three ER strategies on facial EMG, another rmANOVA with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for \emph{corrugator} and \emph{levator} activity will be conducted.
 
 To examine the effect of ER strategies on cognitive effort, a rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings will be conducted.
 Greenhouse-Geisser-corrected \(p\)-values and degrees of freedom will be reported when the assumption of sphericity is violated.
 Proportion of explained variance \(\eta_{p}^{2}\) will be reported as a measure of effect size.
 If indicated by the data, estimated marginal means will be computed as post-hoc contrasts.
+rmANOVAS will be run using the \emph{afex} package\textsuperscript{22}
 
 \emph{Subjective values of emotion regulation strategies} For each ER strategy, SVs will be calculated as follows: first, the value 0.015625 will be added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
 Second, the resulting (monetary) value will be divided by 2.00 €.
@@ -508,8 +511,8 @@ Intraclass correlation coefficient (ICC), \(\rho\), will be reported for each mo
 The influence of personality traits on SVs will be investigated exploratorily.
 Therefore, the MLM specified above will be extended by the level-2-predictors NFC and self-control.
 
-The association between flexible ER and SVs of ER strategies will be investigated with a regression using the \(intercept\) and \(slope\) of each participants' SVs to predict threir FlexER score.
-Therefore, SVs will be ordered by magnitude firstly.
+The association between flexible ER and SVs of ER strategies will be investigated with a regression using the \(intercept\) and \(slope\) of each participants' SVs to predict their FlexER score.
+Firstly, SVs will be ordered by magnitude.
 Secondly, for each participant a linear model will be built to estimate the individual \(intercept\) and \(slope\).
 
 For each result of the analyses both, \(p\)-values and Bayes factor \(BF10\), calculated using the \emph{BayesFactor} package,\textsuperscript{23} will be reported. Bayses factors are calculated using the default prior widths of the functions \emph{anovaBF}, \emph{lmBF} and \emph{regressionBF}.
@@ -782,7 +785,9 @@ The authors declare no competing interests.
 \end{figure}
 
 \emph{Figure 1.} Exemplary visualisation of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can also be represented by our paradigm.
-\# Design Table
+
+\hypertarget{DesignTable}{%
+\section{Design Table}\label{DesignTable}}
 
 \includepdf[pages={-}, landscape=true]{Supplement/Design_Table_T2.pdf}
 

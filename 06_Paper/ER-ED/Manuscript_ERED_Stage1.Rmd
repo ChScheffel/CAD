@@ -172,9 +172,9 @@ The authors declare no competing interests.
 ```{r fig1appendix, echo = FALSE, message = FALSE, warning = FALSE, out.width="98%"}
 include_graphics(here("99_Thinktank","Other","Paradigm_Scheme_T2.png" ))
 ```
-*Figure 1.* Exemplary visualisation of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can also be represented by our paradigm.
+*Figure 1.* Exemplary visualization of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can also be represented by our paradigm.
 
-# Design Table
+# Design Table {#DesignTable}
 
 \includepdf[pages={-}, landscape=true]{Supplement/Design_Table_T2.pdf}
 
