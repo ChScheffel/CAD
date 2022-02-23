@@ -298,7 +298,7 @@ apa_table(
 *Levator*:
 ANOVA: 
 `r afex::nice(EMGLevView_pilot_aov) %>% knitr::kable(x = .)`
-$BF10=$ `r round(extractBF(EMGLevView__pilotBF)$bf, digits = 2)`
+$BF10=$ `r round(extractBF(EMGLevView_pilot_BF)$bf, digits = 2)`
 
 Paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}

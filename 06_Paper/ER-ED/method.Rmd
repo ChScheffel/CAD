@@ -45,7 +45,7 @@ Participants will receive 30€ in total or course credit for participation.
 
 ## 2.2 Pilot data
 
-The procedure described above was tested in a pilot study with $N=`r nrow(data_quest)`$ participants (`r length(which(data_quest$gender == 2))` female; age: $M = `r papaja::printnum(mean(data_quest[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`\text{ }\pm\text{ }SD = `r papaja::printnum(sd(data_quest[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`$).
+The procedure described above was tested in a pilot study with $N=`r nrow(data_quest_pilot)`$ participants (`r length(which(data_quest_pilot$gender == 2))` female; age: $M = `r papaja::printnum(mean(data_quest_pilot[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`\text{ }\pm\text{ }SD = `r papaja::printnum(sd(data_quest_pilot[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`$).
 Results showed significant higher subjective arousal for active viewing of negative pictures, compared to active viewing of neutral pictures.
 ER strategies did not lead to a reduction of subjective arousal compared to active viewing of negative pictures.
 However, ER strategies were associated with reduced facial muscle activity of the *corrugator* and *levator* compared to active viewing of negative pictures.
