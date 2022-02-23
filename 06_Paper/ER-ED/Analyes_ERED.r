@@ -18,34 +18,35 @@ library(here)       # to set directories without defined paths
 here::i_am("flag_project_root_CERED.txt")
 
 library(renv)
-renv::activate(here("06_Paper","ER-ED"))
-renv::restore(here("06_Paper","ER-ED"))
+renv::activate(here("06_Paper", "ER-ED"))
+renv::restore(here("06_Paper", "ER-ED"))
 
 library(dplyr)
 library(ggplot2)
-#library(afex)       # for ANOVA
-#library(emmeans)
-#library(BayesFactor)
-#library(effectsize)
 
 ##################### DATA IMPORT #######################
 
 # import ER ratings and ER discounting data into lists
 
-datalist_ER <- lapply(list.files(here("04_RawData", "pilot", "ER-ED/logfiles"),
-                                pattern = '*_ER.*csv', full.names = TRUE),
-                                read.csv, stringsAsFactors = FALSE, header = TRUE)
+datalist_er <- lapply(list.files(here("04_RawData", "pilot", "ER-ED/logfiles"),
+                                pattern = "*_ER.*csv", full.names = TRUE),
+                                read.csv, stringsAsFactors = FALSE,
+                                header = TRUE)
   
-datalist_ED <- lapply(list.files(here("04_RawData", "pilot", "ER-ED/logfiles"),
-                                pattern = '*_ED.*csv', full.names = TRUE),
-                                read.csv, stringsAsFactors = FALSE, header = TRUE)
+datalist_er <- lapply(list.files(here("04_RawData", "pilot", "ER-ED/logfiles"),
+                                pattern = "*_ED.*csv", full.names = TRUE),
+                                read.csv, stringsAsFactors = FALSE,
+                                header = TRUE)
 
 # new empty frame to store files into
-data_ER <- data.frame(ID = character(), block = character(), arousal = double(),
-                     effort = double(), trigger = double(), trigger_reg = double())
+data_er <- data.frame(ID = character(), block = character(),
+                      arousal = double(), effort = double(),
+                      trigger = double(), trigger_reg = double())
 
-data_ED <- data.frame(ID = character(), step = double(), choice = character(),
-                     LBvalue = double(), LBlevel = double(), RBvalue = double(), RBlevel = double())
+data_ed <- data.frame(ID = character(), step = double(),
+                      choice = character(), LBvalue = double(),
+                      LBlevel = double(), RBvalue = double(),
+                      RBlevel = double())
 
 data_choice <- data.frame(ID = character(), choice = double())
 
@@ -79,7 +80,7 @@ for (i in 1:nrow(data_ER)) {
 
 # delete old column
 
-data_ER$trigger_reg = NULL
+data_ER$trigger_reg <- NULL
 
 # loop to correct block indicator
 
@@ -92,9 +93,9 @@ data_ER$block[data_ER$trigger == 26] <- "6_choice"
 
 # store ER choice in data_choice frame
 
-for (i in 1:length(datalist_ER)) {
-  tmp = data.frame(datalist_ER[[i]][["participant"]], datalist_ER[[i]][["resp_choice.keys"]])
-  colnames(tmp) = names(data_choice)
+for (i in seq_len(length(datalist_ER))) {
+  tmp <- data.frame(datalist_ER[[i]][["participant"]], datalist_ER[[i]][["resp_choice.keys"]])
+  colnames(tmp) <- names(data_choice)
   tmp = tmp[(!is.na(tmp$choice)), ]
   
   data_choice = rbind(tmp, data_choice)
