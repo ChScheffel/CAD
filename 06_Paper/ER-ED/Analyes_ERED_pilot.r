@@ -590,4 +590,4 @@ FigEMGLevRegPilot <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Lev)) +
 
 ##################### SAVE WORKSPACE IMAGE #######################
 
-save.image(file = "Workspace_ERED.RData")
+save.image(file = "Workspace_ERED_pilot.RData")
