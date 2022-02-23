@@ -28,36 +28,36 @@ library(ggplot2)
 
 # import ER ratings and ER discounting data into lists
 
-datalist_ER <- lapply(list.files(here("04_RawData", "pilot", "ER-ED/logfiles"),
-                                pattern = "*_ER.*csv", full.names = TRUE),
-                                read.csv, stringsAsFactors = FALSE,
-                                header = TRUE)
+datalist_ER_pilot <- lapply(list.files(here("04_RawData", "pilot", "ER-ED/logfiles"),
+                                       pattern = "*_ER.*csv", full.names = TRUE),
+                                       read.csv, stringsAsFactors = FALSE,
+                                       header = TRUE)
   
-datalist_ED <- lapply(list.files(here("04_RawData", "pilot", "ER-ED/logfiles"),
-                                pattern = "*_ED.*csv", full.names = TRUE),
-                                read.csv, stringsAsFactors = FALSE,
-                                header = TRUE)
+datalist_ED_pilot <- lapply(list.files(here("04_RawData", "pilot", "ER-ED/logfiles"),
+                                       pattern = "*_ED.*csv", full.names = TRUE),
+                                       read.csv, stringsAsFactors = FALSE,
+                                       header = TRUE)
 
 # new empty frame to store files into
-data_ER <- data.frame(ID = character(), block = character(),
-                      arousal = double(), effort = double(),
-                      trigger = double(), trigger_reg = double())
+data_ER_pilot <- data.frame(ID = character(), block = character(),
+                            arousal = double(), effort = double(),
+                            trigger = double(), trigger_reg = double())
 
-data_ED <- data.frame(ID = character(), step = double(),
-                      choice = character(), LBvalue = double(),
-                      LBlevel = double(), RBvalue = double(),
-                      RBlevel = double())
+data_ED_pilot <- data.frame(ID = character(), step = double(),
+                            choice = character(), LBvalue = double(),
+                            LBlevel = double(), RBvalue = double(),
+                            RBlevel = double())
 
-data_choice <- data.frame(ID = character(), choice = double())
+data_choice_pilot <- data.frame(ID = character(), choice = double())
 
 # store arousal and effort ratings in data_ER frame
-for (i in seq_len(length(datalist_ER))) {
-    tmp <- data.frame(datalist_ER[[i]][["participant"]],
-                     datalist_ER[[i]][["instr_1"]],
-                     datalist_ER[[i]][["slider_arousal.response"]],
-                     datalist_ER[[i]][["slider_effort.response"]],
-                     datalist_ER[[i]][["TriggerBlockView"]],
-                     datalist_ER[[i]][["TriggerBlockReg"]])
+for (i in seq_len(length(datalist_ER_pilot))) {
+    tmp <- data.frame(datalist_ER_pilot[[i]][["participant"]],
+                     datalist_ER_pilot[[i]][["instr_1"]],
+                     datalist_ER_pilot[[i]][["slider_arousal.response"]],
+                     datalist_ER_pilot[[i]][["slider_effort.response"]],
+                     datalist_ER_pilot[[i]][["TriggerBlockView"]],
+                     datalist_ER_pilot[[i]][["TriggerBlockReg"]])
     colnames(tmp) <- names(data_ER)
     tmp <- tmp[(!is.na(tmp$arousal)), ]
     
