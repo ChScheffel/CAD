@@ -28,22 +28,22 @@ library(ggplot2)
 
 # import ER ratings and ER discounting data into lists
 
-datalist_er <- lapply(list.files(here("04_RawData", "pilot", "ER-ED/logfiles"),
+datalist_ER <- lapply(list.files(here("04_RawData", "pilot", "ER-ED/logfiles"),
                                 pattern = "*_ER.*csv", full.names = TRUE),
                                 read.csv, stringsAsFactors = FALSE,
                                 header = TRUE)
   
-datalist_er <- lapply(list.files(here("04_RawData", "pilot", "ER-ED/logfiles"),
+datalist_ED <- lapply(list.files(here("04_RawData", "pilot", "ER-ED/logfiles"),
                                 pattern = "*_ED.*csv", full.names = TRUE),
                                 read.csv, stringsAsFactors = FALSE,
                                 header = TRUE)
 
 # new empty frame to store files into
-data_er <- data.frame(ID = character(), block = character(),
+data_ER <- data.frame(ID = character(), block = character(),
                       arousal = double(), effort = double(),
                       trigger = double(), trigger_reg = double())
 
-data_ed <- data.frame(ID = character(), step = double(),
+data_ED <- data.frame(ID = character(), step = double(),
                       choice = character(), LBvalue = double(),
                       LBlevel = double(), RBvalue = double(),
                       RBlevel = double())
@@ -60,21 +60,21 @@ for (i in seq_len(length(datalist_ER))) {
                      datalist_ER[[i]][["TriggerBlockReg"]])
     colnames(tmp) <- names(data_ER)
     tmp <- tmp[(!is.na(tmp$arousal)), ]
-  
-   data_ER <- rbind(tmp, data_ER)
+    
+    data_ER <- rbind(tmp, data_ER)
    }
 
 rownames(data_ER) <- seq_len(nrow(data_ER))
 
 # loop to store trigger in one column
 
-for (i in 1:nrow(data_ER)) {
+for (i in seq_len(nrow(data_ER))) {
   if (is.na(data_ER$trigger[i])) {
-    data_ER$trigger[i] = data_ER$trigger_reg[i]
+    data_ER$trigger[i] <- data_ER$trigger_reg[i]
   }
   
   if (is.na(data_ER$trigger[i])) {
-    data_ER$trigger[i] = 26
+    data_ER$trigger[i] <- 26
   }
 }
 
@@ -94,11 +94,12 @@ data_ER$block[data_ER$trigger == 26] <- "6_choice"
 # store ER choice in data_choice frame
 
 for (i in seq_len(length(datalist_ER))) {
-  tmp <- data.frame(datalist_ER[[i]][["participant"]], datalist_ER[[i]][["resp_choice.keys"]])
+  tmp <- data.frame(datalist_ER[[i]][["participant"]],
+                    datalist_ER[[i]][["resp_choice.keys"]])
   colnames(tmp) <- names(data_choice)
-  tmp = tmp[(!is.na(tmp$choice)), ]
+  tmp <- tmp[(!is.na(tmp$choice)), ]
   
-  data_choice = rbind(tmp, data_choice)
+  data_choice <- rbind(tmp, data_choice)
 }
 
 # store ED data in data_ED frame
@@ -118,23 +119,25 @@ for (i in seq_len(length(datalist_ER))) {
 
 # import EMG data
 
-datalist_EMG <- lapply(list.files(here("04_RawData", "pilot", "ER-ED", "EMG", "analysis"), pattern = '*_Peaks.txt', full.names = TRUE),
-                          read.table, stringsAsFactors = FALSE, header = TRUE)
-datalist_EMG_Marker <- lapply(list.files(here("04_RawData", "pilot", "ER-ED", "EMG", "analysis"), pattern = "*.Markers", full.names = TRUE),
-                              read.table, stringsAsFactors = FALSE, header = TRUE, skip = 1, row.names = NULL, sep = ",")
+datalist_EMG <- lapply(list.files(here("04_RawData", "pilot", "ER-ED", "EMG", "analysis"),
+                                  pattern = '*_Peaks.txt', full.names = TRUE),
+                       read.table, stringsAsFactors = FALSE, header = TRUE)
+datalist_EMG_Marker <- lapply(list.files(here("04_RawData", "pilot", "ER-ED", "EMG", "analysis"),
+                                         pattern = "*.Markers", full.names = TRUE),
+                              read.table, stringsAsFactors = FALSE, header = TRUE,
+                              skip = 1, row.names = NULL, sep = ",")
 
 # new empty frame to store files into
-data_EMG = data.frame(ID = character(), trigger = double(), Corr = double(), 
+data_emg <- data.frame(ID = character(), trigger = double(), Corr = double(),
                      Lev = double())
 
 # store EMG data in data_EMG frame
-for (i in 1:length(datalist_EMG)) {
-  
-  tmp = data.frame(datalist_EMG[[i]][["Filename"]], 
-                   datalist_EMG_Marker[[i]][["Description"]], 
-                   datalist_EMG[[i]][["T0T6000Corr.ASNM"]], 
+for (i in seq_len(length(datalist_EMG))) {
+  tmp <- data.frame(datalist_EMG[[i]][["Filename"]],
+                   datalist_EMG_Marker[[i]][["Description"]],
+                   datalist_EMG[[i]][["T0T6000Corr.ASNM"]],
                    datalist_EMG[[i]][["T0T6000Lev.ASNM"]])
-  colnames(tmp) = names(data_EMG)
+  colnames(tmp) <- names(data_EMG)
   
   data_EMG = rbind(tmp, data_EMG)
   
