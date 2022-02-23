@@ -195,7 +195,7 @@ SubjArousalView_aov <- afex::aov_ez(data = Ratings_view,
                                dv = "arousal",
                                within = "block",
                                fun_aggregate = mean,
-                               include_aov = TRUE) 
+                               include_aov = TRUE)
 
 # compute posthoc tests for within measures
 SubjArousalView_emm <- emmeans::emmeans(SubjArousalView_aov$aov, specs = "block")
@@ -218,20 +218,20 @@ SubjArousalView_con <- cbind(SubjArousalView_con,
 
 colnames(SubjArousalView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 # rename contrast for table
-SubjArousalView_con[1,1] <- "$View_{neutral} - View_{negative}$"
+SubjArousalView_con[1, 1] <- "$View_{neutral} - View_{negative}$"
 
 # Figure to visualize arousal ratings
 
 # figure
-FigSubjArousalViewPilot=ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal))+
-  geom_boxplot(width = 0.7, position = position_dodge(0.8))+
-  scale_x_discrete(name = "Active viewing", 
+FigSubjArousalViewPilot <- ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal)) +
+  geom_boxplot(width = 0.7, position = position_dodge(0.8)) +
+  scale_x_discrete(name = "Active viewing",
                    limits = c("1_view_neu", "2_view_neg"),
-                   labels = c("Neutral", "Negative"))+
-  geom_jitter(size = 0.4)+
+                   labels = c("Neutral", "Negative")) +
+  geom_jitter(size = 0.4) +
   labs(y = "Arousal Rating")
 
-# View neg and regulate conditions 
+# View neg and regulate conditions
 
 Ratings_reg <- data_ER %>%
   subset(data_ER$block != "1_view_neu" & data_ER$block != "6_choice")
@@ -282,22 +282,22 @@ SubjArousalReg_con <- cbind(SubjArousalReg_con,
 
 colnames(SubjArousalReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 
-SubjArousalReg_con[1,1] <- "$View_{negative} - Distraction$"
-SubjArousalReg_con[2,1] <- "$View_{negative} - Distancing$"
-SubjArousalReg_con[3,1] <- "$View_{negative} - Suppression$"
-SubjArousalReg_con[4,1] <- "$Distraction - Distancing$"
-SubjArousalReg_con[5,1] <- "$Distraction - Suppression$"
-SubjArousalReg_con[6,1] <- "$Distancing - Suppression$"
+SubjArousalReg_con[1, 1] <- "$View_{negative} - Distraction$"
+SubjArousalReg_con[2, 1] <- "$View_{negative} - Distancing$"
+SubjArousalReg_con[3, 1] <- "$View_{negative} - Suppression$"
+SubjArousalReg_con[4, 1] <- "$Distraction - Distancing$"
+SubjArousalReg_con[5, 1] <- "$Distraction - Suppression$"
+SubjArousalReg_con[6, 1] <- "$Distancing - Suppression$"
 
 # Figure to visualize arousal ratings
 
 # figure
-FigSubjArousalRegPilot <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal))+
-  geom_boxplot(width = 0.7, position = position_dodge(0.8))+
-  scale_x_discrete(name = "Strategy", 
+FigSubjArousalRegPilot <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal)) +
+  geom_boxplot(width = 0.7, position = position_dodge(0.8)) +
+  scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
-                   labels = c("View", "Distraction", "Distancing", "Suppression"))+
-  geom_jitter(size = 0.4)+
+                   labels = c("View", "Distraction", "Distancing", "Suppression")) +
+  geom_jitter(size = 0.4) +
   labs(y = "Arousal Rating")
 
 ## Subjective effort
@@ -346,21 +346,21 @@ SubjEffort_con <- cbind(SubjEffort_con,
 
 colnames(SubjEffort_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 
-SubjEffort_con[1,1] <- "$View_{negative} - Distancing$"
-SubjEffort_con[2,1] <- "$View_{negative} - Distraction$"
-SubjEffort_con[3,1] <- "$View_{negative} - Suppression$"
-SubjEffort_con[4,1] <- "$Distraction - Distancing$"
-SubjEffort_con[5,1] <- "$Distraction - Suppression$"
-SubjEffort_con[6,1] <- "$Distancing - Suppression$"
+SubjEffort_con[1, 1] <- "$View_{negative} - Distancing$"
+SubjEffort_con[2, 1] <- "$View_{negative} - Distraction$"
+SubjEffort_con[3, 1] <- "$View_{negative} - Suppression$"
+SubjEffort_con[4, 1] <- "$Distraction - Distancing$"
+SubjEffort_con[5, 1] <- "$Distraction - Suppression$"
+SubjEffort_con[6, 1] <- "$Distancing - Suppression$"
 
 # Figure to visualize effort ratings
 # figure
-FigSubjEffortPilot = ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort))+
-  geom_boxplot(width = 0.7, position = position_dodge(0.8))+
-  scale_x_discrete(name = "Strategy", 
+FigSubjEffortPilot <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort)) +
+  geom_boxplot(width = 0.7, position = position_dodge(0.8)) +
+  scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
-                   labels = c("View", "Distraction", "Distancing", "Suppression"))+
-  geom_jitter(size = 0.4)+
+                   labels = c("View", "Distraction", "Distancing", "Suppression")) +
+  geom_jitter(size = 0.4) +
   labs(y = "Effort Rating")
 
 
@@ -401,17 +401,17 @@ EMGCorrView_con <- cbind(EMGCorrView_con,
 
 colnames(EMGCorrView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 # rename contrast for table
-EMGCorrView_con[1,1] <- "$View_{neutral} - View_{negative}$"
+EMGCorrView_con[1, 1] <- "$View_{neutral} - View_{negative}$"
 
 # Figure to visualize arousal ratings
 
 # figure
-FigEMGCorrViewPilot=ggplot2::ggplot(EMG_view, aes(x = block, y = Corr))+
-  geom_boxplot(width = 0.7, position = position_dodge(0.8))+
-  scale_x_discrete(name = "Active viewing", 
+FigEMGCorrViewPilot <- ggplot2::ggplot(EMG_view, aes(x = block, y = Corr)) +
+  geom_boxplot(width = 0.7, position = position_dodge(0.8)) +
+  scale_x_discrete(name = "Active viewing",
                    limits = c("1_view_neu", "2_view_neg"),
-                   labels = c("Neutral", "Negative"))+
-  geom_jitter(size = 0.4)+
+                   labels = c("Neutral", "Negative")) +
+  geom_jitter(size = 0.4) +
   labs(y = "Corrugator activity")
 
 # levator
@@ -444,7 +444,7 @@ EMGLevView_con <- cbind(EMGLevView_con,
 
 colnames(EMGLevView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 # rename contrast for table
-EMGLevView_con[1,1] <- "$View_{neutral} - View_{negative}$"
+EMGLevView_con[1, 1] <- "$View_{neutral} - View_{negative}$"
 
 # Figure to visualize arousal ratings
 
@@ -507,22 +507,22 @@ EMGCorrReg_con <- cbind(EMGCorrReg_con,
 
 colnames(EMGCorrReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 
-EMGCorrReg_con[1,1] <- "$View_{negative} - Distraction$"
-EMGCorrReg_con[2,1] <- "$View_{negative} - Distancing$"
-EMGCorrReg_con[3,1] <- "$View_{negative} - Suppression$"
-EMGCorrReg_con[4,1] <- "$Distraction - Distancing$"
-EMGCorrReg_con[5,1] <- "$Distraction - Suppression$"
-EMGCorrReg_con[6,1] <- "$Distancing - Suppression$"
+EMGCorrReg_con[1, 1] <- "$View_{negative} - Distraction$"
+EMGCorrReg_con[2, 1] <- "$View_{negative} - Distancing$"
+EMGCorrReg_con[3, 1] <- "$View_{negative} - Suppression$"
+EMGCorrReg_con[4, 1] <- "$Distraction - Distancing$"
+EMGCorrReg_con[5, 1] <- "$Distraction - Suppression$"
+EMGCorrReg_con[6, 1] <- "$Distancing - Suppression$"
 
 # Figure to visualize arousal ratings
 
 # figure
-FigEMGCorrRegPilot <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Corr))+
-  geom_boxplot(width = 0.7, position = position_dodge(0.8))+
-  scale_x_discrete(name = "Strategy", 
+FigEMGCorrRegPilot <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Corr)) +
+  geom_boxplot(width = 0.7, position = position_dodge(0.8)) +
+  scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
-                   labels = c("View", "Distraction", "Distancing", "Suppression"))+
-  geom_jitter(size = 0.4)+
+                   labels = c("View", "Distraction", "Distancing", "Suppression")) +
+  geom_jitter(size = 0.4) +
   labs(y = "Corrugator activity")
 
 # levator
@@ -570,18 +570,18 @@ EMGLevReg_con <- cbind(EMGLevReg_con,
 
 colnames(EMGLevReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 
-EMGLevReg_con[1,1] <- "$View_{negative} - Distraction$"
-EMGLevReg_con[2,1] <- "$View_{negative} - Distancing$"
-EMGLevReg_con[3,1] <- "$View_{negative} - Suppression$"
-EMGLevReg_con[4,1] <- "$Distraction - Distancing$"
-EMGLevReg_con[5,1] <- "$Distraction - Suppression$"
-EMGLevReg_con[6,1] <- "$Distancing - Suppression$"
+EMGLevReg_con[1, 1] <- "$View_{negative} - Distraction$"
+EMGLevReg_con[2, 1] <- "$View_{negative} - Distancing$"
+EMGLevReg_con[3, 1] <- "$View_{negative} - Suppression$"
+EMGLevReg_con[4, 1] <- "$Distraction - Distancing$"
+EMGLevReg_con[5, 1] <- "$Distraction - Suppression$"
+EMGLevReg_con[6, 1] <- "$Distancing - Suppression$"
 
 # Figure to visualize arousal ratings
 
 # figure
-FigEMGLevRegPilot <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Lev))+
-  geom_boxplot(width = 0.7, position = position_dodge(0.8))+
+FigEMGLevRegPilot <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Lev)) +
+  geom_boxplot(width = 0.7, position = position_dodge(0.8)) +
   scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
                    labels = c("View", "Distraction", "Distancing", "Suppression")) +
