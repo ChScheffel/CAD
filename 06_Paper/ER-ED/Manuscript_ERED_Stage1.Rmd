@@ -208,7 +208,8 @@ Psychometric properties are currently under investigation.
 
 *Implicit Theories Questionnaire.*
 Implicit theories of willpower in emotional control are assessed using the Implicit Theories Questionnaire of @Bernecker2017.
-4 items suchs as "
+4 items such as "Having to control a strong emotion makes you exhausted and you are less able to manage your feelings right afterwards." are rated on a 6-point scale ranging from 1 (fully agree) to 6 (do not agree at all).
+The questionnaire showed an internal consistency of Cronbach's $\alpha=.87$[@Bernecker2017].
 
 *Need for Cognition Scale.*
 Need for Cognition (NFC) is assessed with the 16-item short version of the German NFC scale [@Bless1994]. 
@@ -231,6 +232,10 @@ Responses to each item (e.g., "I am self-controlled.", recoded) are assessed on 
 An internal consistency of Cronbach's $\alpha=.74$ and a retest reliability of $r_{tt}=.56$ for General Impulsiveness and $r_{tt}=.66$ for Total Score across 6 month were reported [@Hartmann2011].
 
 *Attentional Control Scale.*
+Attentional control is measured using the Attentional Control Scale (ACS)[@Derryberry2002] with items such as "My concentration is good even if there is music in the room around me".
+The 20 items are rated on a 4-point scale ranging from 1 (almost never) to 4 (always).
+An internal consistency of Cronbach's $\alpha=.88$ was reported [@Derryberry2002].
+
 
 \newpage
 ## Pilot study: Subjective arousal in the conditions "Active viewing - neutral" and "Active viewing - negative"
