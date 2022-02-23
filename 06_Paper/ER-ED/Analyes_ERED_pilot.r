@@ -58,48 +58,48 @@ for (i in seq_len(length(datalist_ER_pilot))) {
                      datalist_ER_pilot[[i]][["slider_effort.response"]],
                      datalist_ER_pilot[[i]][["TriggerBlockView"]],
                      datalist_ER_pilot[[i]][["TriggerBlockReg"]])
-    colnames(tmp) <- names(data_ER)
+    colnames(tmp) <- names(data_ER_pilot)
     tmp <- tmp[(!is.na(tmp$arousal)), ]
     
-    data_ER <- rbind(tmp, data_ER)
+    data_ER_pilot <- rbind(tmp, data_ER_pilot)
    }
 
-rownames(data_ER) <- seq_len(nrow(data_ER))
+rownames(data_ER_pilot) <- seq_len(nrow(data_ER_pilot))
 
 # loop to store trigger in one column
 
-for (i in seq_len(nrow(data_ER))) {
-  if (is.na(data_ER$trigger[i])) {
-    data_ER$trigger[i] <- data_ER$trigger_reg[i]
+for (i in seq_len(nrow(data_ER_pilot))) {
+  if (is.na(data_ER_pilot$trigger[i])) {
+    data_ER_pilot$trigger[i] <- data_ER_pilot$trigger_reg[i]
   }
   
-  if (is.na(data_ER$trigger[i])) {
-    data_ER$trigger[i] <- 26
+  if (is.na(data_ER_pilot$trigger[i])) {
+    data_ER_pilot$trigger[i] <- 26
   }
 }
 
 # delete old column
 
-data_ER$trigger_reg <- NULL
+data_ER_pilot$trigger_reg <- NULL
 
 # loop to correct block indicator
 
-data_ER$block[data_ER$trigger == 21] <- "1_view_neu"
-data_ER$block[data_ER$trigger == 22] <- "2_view_neg"
-data_ER$block[data_ER$trigger == 23] <- "3_distraction"
-data_ER$block[data_ER$trigger == 24] <- "4_distancing"
-data_ER$block[data_ER$trigger == 25] <- "5_suppression"
-data_ER$block[data_ER$trigger == 26] <- "6_choice"
+data_ER_pilot$block[data_ER_pilot$trigger == 21] <- "1_view_neu"
+data_ER_pilot$block[data_ER_pilot$trigger == 22] <- "2_view_neg"
+data_ER_pilot$block[data_ER_pilot$trigger == 23] <- "3_distraction"
+data_ER_pilot$block[data_ER_pilot$trigger == 24] <- "4_distancing"
+data_ER_pilot$block[data_ER_pilot$trigger == 25] <- "5_suppression"
+data_ER_pilot$block[data_ER_pilot$trigger == 26] <- "6_choice"
 
 # store ER choice in data_choice frame
 
-for (i in seq_len(length(datalist_ER))) {
-  tmp <- data.frame(datalist_ER[[i]][["participant"]],
-                    datalist_ER[[i]][["resp_choice.keys"]])
-  colnames(tmp) <- names(data_choice)
+for (i in seq_len(length(datalist_ER_pilot))) {
+  tmp <- data.frame(datalist_ER_pilot[[i]][["participant"]],
+                    datalist_ER_pilot[[i]][["resp_choice.keys"]])
+  colnames(tmp) <- names(data_choice_pilot)
   tmp <- tmp[(!is.na(tmp$choice)), ]
   
-  data_choice <- rbind(tmp, data_choice)
+  data_choice_pilot <- rbind(tmp, data_choice_pilot)
 }
 
 # store ED data in data_ED frame
@@ -119,50 +119,49 @@ for (i in seq_len(length(datalist_ER))) {
 
 # import EMG data
 
-datalist_EMG <- lapply(list.files(here("04_RawData", "pilot", "ER-ED", "EMG", "analysis"),
-                                  pattern = '*_Peaks.txt', full.names = TRUE),
-                       read.table, stringsAsFactors = FALSE, header = TRUE)
-datalist_EMG_Marker <- lapply(list.files(here("04_RawData", "pilot", "ER-ED", "EMG", "analysis"),
-                                         pattern = "*.Markers", full.names = TRUE),
-                              read.table, stringsAsFactors = FALSE, header = TRUE,
-                              skip = 1, row.names = NULL, sep = ",")
+datalist_EMG_pilot <- lapply(list.files(here("04_RawData", "pilot", "ER-ED", "EMG", "analysis"),
+                                        pattern = "*_Peaks.txt", full.names = TRUE),
+                            read.table, stringsAsFactors = FALSE, header = TRUE)
+datalist_EMG_Marker_pilot <- lapply(list.files(here("04_RawData", "pilot", "ER-ED", "EMG", "analysis"),
+                                               pattern = "*.Markers", full.names = TRUE),
+                                    read.table, stringsAsFactors = FALSE, header = TRUE,
+                                    skip = 1, row.names = NULL, sep = ",")
 
 # new empty frame to store files into
-data_emg <- data.frame(ID = character(), trigger = double(), Corr = double(),
+data_EMG_pilot <- data.frame(ID = character(), trigger = double(), Corr = double(),
                      Lev = double())
 
 # store EMG data in data_EMG frame
-for (i in seq_len(length(datalist_EMG))) {
-  tmp <- data.frame(datalist_EMG[[i]][["Filename"]],
-                   datalist_EMG_Marker[[i]][["Description"]],
-                   datalist_EMG[[i]][["T0T6000Corr.ASNM"]],
-                   datalist_EMG[[i]][["T0T6000Lev.ASNM"]])
-  colnames(tmp) <- names(data_EMG)
+for (i in seq_len(length(datalist_EMG_pilot))) {
+  tmp <- data.frame(datalist_EMG_pilot[[i]][["Filename"]],
+                   datalist_EMG_Marker_pilot[[i]][["Description"]],
+                   datalist_EMG_pilot[[i]][["T0T6000Corr.ASNM"]],
+                   datalist_EMG_pilot[[i]][["T0T6000Lev.ASNM"]])
+  colnames(tmp) <- names(data_EMG_pilot)
   
-  data_EMG = rbind(tmp, data_EMG)
-  
+  data_EMG_pilot <- rbind(tmp, data_EMG_pilot)
 }
 
 # create variable "block"
 
-data_EMG$block[data_EMG$trigger == " S 21"] <- "1_view_neu"
-data_EMG$block[data_EMG$trigger == " S 22"] <- "2_view_neg"
-data_EMG$block[data_EMG$trigger == " S 23"] <- "3_distraction"
-data_EMG$block[data_EMG$trigger == " S 24"] <- "4_distancing"
-data_EMG$block[data_EMG$trigger == " S 25"] <- "5_suppression"
-data_EMG$block[data_EMG$trigger == " S 26"] <- "6_choice"
+data_EMG_pilot$block[data_EMG_pilot$trigger == " S 21"] <- "1_view_neu"
+data_EMG_pilot$block[data_EMG_pilot$trigger == " S 22"] <- "2_view_neg"
+data_EMG_pilot$block[data_EMG_pilot$trigger == " S 23"] <- "3_distraction"
+data_EMG_pilot$block[data_EMG_pilot$trigger == " S 24"] <- "4_distancing"
+data_EMG_pilot$block[data_EMG_pilot$trigger == " S 25"] <- "5_suppression"
+data_EMG_pilot$block[data_EMG_pilot$trigger == " S 26"] <- "6_choice"
 
 
 # import questionnaire data from RedCap
   
-data_redcap <- read.csv(here("04_RawData", "pilot", "CERED_DATA.csv"),
-                        stringsAsFactors = FALSE, header = TRUE,
-                        na.strings = c("", "NA"))
-colnames(data_redcap)[1] <- "set" # rename the first column
+data_redcap_pilot <- read.csv(here("04_RawData", "pilot", "CERED_DATA.csv"),
+                              stringsAsFactors = FALSE, header = TRUE,
+                              na.strings = c("", "NA"))
+colnames(data_redcap_pilot)[1] <- "set" # rename the first column
 
 # remove unnecessary variables from questionnaire data frame
   
-data_quest_raw <- data_redcap %>%
+data_quest_raw_pilot <- data_redcap_pilot %>%
     subset(select = c(set, subject, age, gender, edu,
     nfc_01, nfc_02, nfc_03, nfc_04, nfc_05, nfc_06, nfc_07, nfc_08, nfc_09, nfc_10, nfc_11, nfc_12, nfc_13, nfc_14, nfc_15, nfc_16,
     bis11_01, bis11_02, bis11_03, bis11_04, bis11_05, bis11_06, bis11_07, bis11_08, bis11_09, bis11_10, bis11_11, bis11_12, bis11_13, bis11_14, bis11_15, bis11_16, bis11_17, bis11_18, bis11_19, bis11_20, bis11_21, bis11_22, bis11_23, bis11_24, bis11_25, bis11_26, bis11_27, bis11_28, bis11_29, bis11_30,
@@ -177,53 +176,54 @@ data_quest_raw <- data_redcap %>%
 
 # built new data frame without empty rows
 
-data_quest <- data_redcap %>%
+data_quest_pilot <- data_redcap_pilot %>%
     subset(!is.na(subject), select = c(subject, age, gender, edu))
 
+##################### EFFECTS OF ER ON SUBJECTIVE AND PHYSIOLOGICAL MARKERS #######################
 
 ## Subjective arousal
 
 # ANOVA subjective arousal ratings
 # View condition
 
-Ratings_view <- data_ER %>%
-  subset(data_ER$block == "1_view_neu" | data_ER$block == "2_view_neg")
-Ratings_view$block <- as.factor(Ratings_view$block)
+Ratings_view_pilot <- data_ER_pilot %>%
+  subset(data_ER_pilot$block == "1_view_neu" | data_ER_pilot$block == "2_view_neg")
+Ratings_view_pilot$block <- as.factor(Ratings_view_pilot$block)
 
-SubjArousalView_aov <- afex::aov_ez(data = Ratings_view,
-                               id = "ID",
-                               dv = "arousal",
-                               within = "block",
-                               fun_aggregate = mean,
-                               include_aov = TRUE)
+SubjArousalView_pilot_aov <- afex::aov_ez(data = Ratings_view_pilot,
+                                          id = "ID",
+                                          dv = "arousal",
+                                          within = "block",
+                                          fun_aggregate = mean,
+                                          include_aov = TRUE)
 
 # compute posthoc tests for within measures
-SubjArousalView_emm <- emmeans::emmeans(SubjArousalView_aov$aov, specs = "block")
+SubjArousalView_pilot_emm <- emmeans::emmeans(SubjArousalView_pilot_aov$aov, specs = "block")
 
-SubjArousalView_con <- as.data.frame(pairs(SubjArousalView_emm, adjust = "bonferroni"))
+SubjArousalView_pilot_con <- as.data.frame(pairs(SubjArousalView_pilot_emm, adjust = "bonferroni"))
 
 # Bayes Factors
-SubjArousalView_BF <- BayesFactor::anovaBF(formula = arousal ~ block,
-                                           data = Ratings_view,
-                                           progress = FALSE)
-SubjArousalView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_view$arousal[Ratings_view$block == "1_view_neu"],
-                                                                        y = Ratings_view$arousal[Ratings_view$block == "2_view_neg"],
-                                                                        progress = FALSE, paired = TRUE))$bf
+SubjArousalView_pilot_BF <- BayesFactor::anovaBF(formula = arousal ~ block,
+                                                 data = Ratings_view_pilot,
+                                                 progress = FALSE)
+SubjArousalView_pilot_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_view_pilot$arousal[Ratings_view_pilot$block == "1_view_neu"],
+                                                                              y = Ratings_view_pilot$arousal[Ratings_view_pilot$block == "2_view_neg"],
+                                                                              progress = FALSE, paired = TRUE))$bf
 
-SubjArousalView_con <- cbind(SubjArousalView_con,
-                             format(effectsize::t_to_eta2(t = SubjArousalView_con$t.ratio,
-                                                          df_error = SubjArousalView_con$df,
-                                                          ci = 0.95),
-                                                          digits = 2))
+SubjArousalView_pilot_con <- cbind(SubjArousalView_pilot_con,
+                                  format(effectsize::t_to_eta2(t = SubjArousalView_pilot_con$t.ratio,
+                                                               df_error = SubjArousalView_pilot_con$df,
+                                                               ci = 0.95),
+                                                               digits = 2))
 
-colnames(SubjArousalView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+colnames(SubjArousalView_pilot_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 # rename contrast for table
-SubjArousalView_con[1, 1] <- "$View_{neutral} - View_{negative}$"
+SubjArousalView_pilot_con[1, 1] <- "$View_{neutral} - View_{negative}$"
 
 # Figure to visualize arousal ratings
 
 # figure
-FigSubjArousalViewPilot <- ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal)) +
+FigSubjArousalViewPilot <- ggplot2::ggplot(Ratings_view_pilot, aes(x = block, y = arousal)) +
   geom_boxplot(width = 0.7, position = position_dodge(0.8)) +
   scale_x_discrete(name = "Active viewing",
                    limits = c("1_view_neu", "2_view_neg"),
@@ -233,66 +233,66 @@ FigSubjArousalViewPilot <- ggplot2::ggplot(Ratings_view, aes(x = block, y = arou
 
 # View neg and regulate conditions
 
-Ratings_reg <- data_ER %>%
-  subset(data_ER$block != "1_view_neu" & data_ER$block != "6_choice")
-Ratings_reg$block <- as.factor(Ratings_reg$block)
+Ratings_reg_pilot <- data_ER_pilot %>%
+  subset(data_ER_pilot$block != "1_view_neu" & data_ER_pilot$block != "6_choice")
+Ratings_reg_pilot$block <- as.factor(Ratings_reg_pilot$block)
 
 
-SubjArousalReg_aov <- afex::aov_ez(data = Ratings_reg,
-                              id = "ID",
-                              dv = "arousal",
-                              within = "block",
-                              fun_aggregate = mean,
-                              include_aov = TRUE)
+SubjArousalReg_pilot_aov <- afex::aov_ez(data = Ratings_reg_pilot,
+                                         id = "ID",
+                                         dv = "arousal",
+                                         within = "block",
+                                         fun_aggregate = mean,
+                                         include_aov = TRUE)
 
 # compute posthoc tests for within measures
-SubjArousalReg_emm <- emmeans::emmeans(SubjArousalReg_aov$aov, specs = "block")
+SubjArousalReg_pilot_emm <- emmeans::emmeans(SubjArousalReg_pilot_aov$aov, specs = "block")
 
-SubjArousalReg_con <- as.data.frame(pairs(SubjArousalReg_emm, adjust = "bonferroni"))
+SubjArousalReg_pilot_con <- as.data.frame(pairs(SubjArousalReg_pilot_emm, adjust = "bonferroni"))
 
 # Bayes Factors
-SubjArousalReg_BF <- BayesFactor::anovaBF(formula = arousal ~ block,
-                                          data = Ratings_reg,
-                                          progress = FALSE)
+SubjArousalReg_pilot_BF <- BayesFactor::anovaBF(formula = arousal ~ block,
+                                                data = Ratings_reg_pilot,
+                                                progress = FALSE)
 
-SubjArousalReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "2_view_neg"],
-                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "3_distraction"],
-                                                                         progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "2_view_neg"],
-                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "4_distancing"],
-                                                                         progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "2_view_neg"],
-                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "5_suppression"],
-                                                                         progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "3_distraction"],
-                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "4_distancing"],
-                                                                         progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "3_distraction"],
-                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "5_suppression"],
-                                                                         progress = FALSE, paired = TRUE))$bf,
-                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "4_distancing"],
-                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "5_suppression"],
-                                                                         progress = FALSE, paired = TRUE))$bf)
+SubjArousalReg_pilot_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg_pilot$arousal[Ratings_reg_pilot$block == "2_view_neg"],
+                                                                               y = Ratings_reg_pilot$arousal[Ratings_reg_pilot$block == "3_distraction"],
+                                                                               progress = FALSE, paired = TRUE))$bf,
+                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg_pilot$arousal[Ratings_reg_pilot$block == "2_view_neg"],
+                                                                               y = Ratings_reg_pilot$arousal[Ratings_reg_pilot$block == "4_distancing"],
+                                                                               progress = FALSE, paired = TRUE))$bf,
+                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg_pilot$arousal[Ratings_reg_pilot$block == "2_view_neg"],
+                                                                               y = Ratings_reg_pilot$arousal[Ratings_reg_pilot$block == "5_suppression"],
+                                                                               progress = FALSE, paired = TRUE))$bf,
+                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg_pilot$arousal[Ratings_reg_pilot$block == "3_distraction"],
+                                                                               y = Ratings_reg_pilot$arousal[Ratings_reg_pilot$block == "4_distancing"],
+                                                                               progress = FALSE, paired = TRUE))$bf,
+                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg_pilot$arousal[Ratings_reg_pilot$block == "3_distraction"],
+                                                                               y = Ratings_reg_pilot$arousal[Ratings_reg_pilot$block == "5_suppression"],
+                                                                               progress = FALSE, paired = TRUE))$bf,
+                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg_pilot$arousal[Ratings_reg_pilot$block == "4_distancing"],
+                                                                               y = Ratings_reg_pilot$arousal[Ratings_reg_pilot$block == "5_suppression"],
+                                                                               progress = FALSE, paired = TRUE))$bf)
+ 
+SubjArousalReg_pilot_con <- cbind(SubjArousalReg_pilot_con,
+                                  format(effectsize::t_to_eta2(t = SubjArousalReg_pilot_con$t.ratio,
+                                                              df_error = SubjArousalReg_pilot_con$df,
+                                                              ci = 0.95),
+                                        digits = 2))
 
-SubjArousalReg_con <- cbind(SubjArousalReg_con,
-                            format(effectsize::t_to_eta2(t = SubjArousalReg_con$t.ratio,
-                                                         df_error = SubjArousalReg_con$df,
-                                                         ci = 0.95),
-                                   digits = 2))
+colnames(SubjArousalReg_pilot_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 
-colnames(SubjArousalReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
-
-SubjArousalReg_con[1, 1] <- "$View_{negative} - Distraction$"
-SubjArousalReg_con[2, 1] <- "$View_{negative} - Distancing$"
-SubjArousalReg_con[3, 1] <- "$View_{negative} - Suppression$"
-SubjArousalReg_con[4, 1] <- "$Distraction - Distancing$"
-SubjArousalReg_con[5, 1] <- "$Distraction - Suppression$"
-SubjArousalReg_con[6, 1] <- "$Distancing - Suppression$"
+SubjArousalReg_pilot_con[1, 1] <- "$View_{negative} - Distraction$"
+SubjArousalReg_pilot_con[2, 1] <- "$View_{negative} - Distancing$"
+SubjArousalReg_pilot_con[3, 1] <- "$View_{negative} - Suppression$"
+SubjArousalReg_pilot_con[4, 1] <- "$Distraction - Distancing$"
+SubjArousalReg_pilot_con[5, 1] <- "$Distraction - Suppression$"
+SubjArousalReg_pilot_con[6, 1] <- "$Distancing - Suppression$"
 
 # Figure to visualize arousal ratings
 
 # figure
-FigSubjArousalRegPilot <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal)) +
+FigSubjArousalRegPilot <- ggplot2::ggplot(Ratings_reg_pilot, aes(x = block, y = arousal)) +
   geom_boxplot(width = 0.7, position = position_dodge(0.8)) +
   scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
@@ -302,60 +302,60 @@ FigSubjArousalRegPilot <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousa
 
 ## Subjective effort
 
-SubjEffort_aov <- afex::aov_ez(data = Ratings_reg,
-                          id = "ID",
-                          dv = "effort",
-                          within = "block",
-                          fun_aggregate = mean,
-                          include_aov = TRUE)
+SubjEffort_pilot_aov <- afex::aov_ez(data = Ratings_reg_pilot,
+                                     id = "ID",
+                                     dv = "effort",
+                                     within = "block",
+                                     fun_aggregate = mean,
+                                     include_aov = TRUE)
 
 # compute posthoc tests for within measure
-SubjEffort_emm <- emmeans::emmeans(SubjEffort_aov$aov, specs = "block")
+SubjEffort_pilot_emm <- emmeans::emmeans(SubjEffort_pilot_aov$aov, specs = "block")
 
-SubjEffort_con <- as.data.frame(pairs(SubjEffort_emm, adjust = "bonferroni"))
+SubjEffort_pilot_con <- as.data.frame(pairs(SubjEffort_pilot_emm, adjust = "bonferroni"))
 
 # Bayes Factors
-SubjEffort_BF <- BayesFactor::anovaBF(formula = effort ~ block,
-                                           data = Ratings_reg,
-                                           progress = FALSE)
+SubjEffort_pilot_BF <- BayesFactor::anovaBF(formula = effort ~ block,
+                                            data = Ratings_reg_pilot,
+                                            progress = FALSE)
 
-SubjEffort_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"],
-                                                                     y = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"],
-                                                                     y = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"],
-                                                                     y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],
-                                                                     y = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],
-                                                                     y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],
-                                                                     y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = TRUE))$bf)
-
-SubjEffort_con <- cbind(SubjEffort_con,
-                        format(effectsize::t_to_eta2(t = SubjEffort_con$t.ratio,
-                                                         df_error = SubjEffort_con$df,
-                                                         ci = 0.95),
+SubjEffort_pilot_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg_pilot$effort[Ratings_reg_pilot$block == "2_view_neg"],
+                                                                           y = Ratings_reg_pilot$effort[Ratings_reg_pilot$block == "3_distraction"],
+                                                                           progress = FALSE, paired = TRUE))$bf,
+                               BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg_pilot$effort[Ratings_reg_pilot$block == "2_view_neg"],
+                                                                           y = Ratings_reg_pilot$effort[Ratings_reg_pilot$block == "4_distancing"],
+                                                                           progress = FALSE, paired = TRUE))$bf,
+                               BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg_pilot$effort[Ratings_reg_pilot$block == "2_view_neg"],
+                                                                           y = Ratings_reg_pilot$effort[Ratings_reg_pilot$block == "5_suppression"],
+                                                                           progress = FALSE, paired = TRUE))$bf,
+                               BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg_pilot$effort[Ratings_reg_pilot$block == "3_distraction"],
+                                                                           y = Ratings_reg_pilot$effort[Ratings_reg_pilot$block == "4_distancing"],
+                                                                           progress = FALSE, paired = TRUE))$bf,
+                               BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg_pilot$effort[Ratings_reg_pilot$block == "3_distraction"],
+                                                                           y = Ratings_reg_pilot$effort[Ratings_reg_pilot$block == "5_suppression"],
+                                                                           progress = FALSE, paired = TRUE))$bf,
+                               BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg_pilot$effort[Ratings_reg_pilot$block == "4_distancing"],
+                                                                           y = Ratings_reg_pilot$effort[Ratings_reg_pilot$block == "5_suppression"],
+                                                                           progress = FALSE, paired = TRUE))$bf)
+ 
+SubjEffort_pilot_con <- cbind(SubjEffort_pilot_con,
+                        format(effectsize::t_to_eta2(t = SubjEffort_pilot_con$t.ratio,
+                                                     df_error = SubjEffort_pilot_con$df,
+                                                     ci = 0.95),
                                digits = 2))
 
-colnames(SubjEffort_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+colnames(SubjEffort_pilot_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 
-SubjEffort_con[1, 1] <- "$View_{negative} - Distancing$"
-SubjEffort_con[2, 1] <- "$View_{negative} - Distraction$"
-SubjEffort_con[3, 1] <- "$View_{negative} - Suppression$"
-SubjEffort_con[4, 1] <- "$Distraction - Distancing$"
-SubjEffort_con[5, 1] <- "$Distraction - Suppression$"
-SubjEffort_con[6, 1] <- "$Distancing - Suppression$"
+SubjEffort_pilot_con[1, 1] <- "$View_{negative} - Distancing$"
+SubjEffort_pilot_con[2, 1] <- "$View_{negative} - Distraction$"
+SubjEffort_pilot_con[3, 1] <- "$View_{negative} - Suppression$"
+SubjEffort_pilot_con[4, 1] <- "$Distraction - Distancing$"
+SubjEffort_pilot_con[5, 1] <- "$Distraction - Suppression$"
+SubjEffort_pilot_con[6, 1] <- "$Distancing - Suppression$"
 
 # Figure to visualize effort ratings
 # figure
-FigSubjEffortPilot <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort)) +
+FigSubjEffortPilot <- ggplot2::ggplot(Ratings_reg_pilot, aes(x = block, y = effort)) +
   geom_boxplot(width = 0.7, position = position_dodge(0.8)) +
   scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
@@ -369,44 +369,44 @@ FigSubjEffortPilot <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort)) +
 # effect of valence on EMG
 # corrugator
 
-EMG_view <- data_EMG %>%
-  subset(data_EMG$block == "1_view_neu" | data_EMG$block == "2_view_neg")
-EMG_view$block <- as.factor(EMG_view$block)
+EMG_view_pilot <- data_EMG_pilot %>%
+  subset(data_EMG_pilot$block == "1_view_neu" | data_EMG_pilot$block == "2_view_neg")
+EMG_view_pilot$block <- as.factor(EMG_view_pilot$block)
 
-EMGCorrView_aov <- afex::aov_ez(data = EMG_view,
-                               id = "ID",
-                               dv = "Corr",
-                               within = "block",
-                               fun_aggregate = mean,
-                               include_aov = TRUE)
+EMGCorrView_pilot_aov <- afex::aov_ez(data = EMG_view_pilot,
+                                      id = "ID",
+                                      dv = "Corr",
+                                      within = "block",
+                                      fun_aggregate = mean,
+                                      include_aov = TRUE)
 
 # compute posthoc tests for within measures
-EMGCorrView_emm <- emmeans::emmeans(EMGCorrView_aov$aov, specs = "block")
+EMGCorrView_pilot_emm <- emmeans::emmeans(EMGCorrView_pilot_aov$aov, specs = "block")
 
-EMGCorrView_con <- as.data.frame(pairs(EMGCorrView_emm, adjust = "bonferroni"))
+EMGCorrView_pilot_con <- as.data.frame(pairs(EMGCorrView_pilot_emm, adjust = "bonferroni"))
 
 # Bayes Factors
-EMGCorrView_BF <- BayesFactor::anovaBF(formula = Corr ~ block,
-                                       data = EMG_view,
-                                       progress = FALSE)
-EMGCorrView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_view$Corr[EMG_view$block == "1_view_neu"],
-                                                                    y = EMG_view$Corr[EMG_view$block == "2_view_neg"],
-                                                                    progress = FALSE, paired = TRUE))$bf
+EMGCorrView_pilot_BF <- BayesFactor::anovaBF(formula = Corr ~ block,
+                                             data = EMG_view_pilot,
+                                             progress = FALSE)
+EMGCorrView_pilot_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_view_pilot$Corr[EMG_view_pilot$block == "1_view_neu"],
+                                                                          y = EMG_view_pilot$Corr[EMG_view_pilot$block == "2_view_neg"],
+                                                                          progress = FALSE, paired = TRUE))$bf
 
-EMGCorrView_con <- cbind(EMGCorrView_con,
-                         format(effectsize::t_to_eta2(t = EMGCorrView_con$t.ratio,
-                                                          df_error = EMGCorrView_con$df,
-                                                          ci = 0.95),
-                                                          digits = 2))
+EMGCorrView_pilot_con <- cbind(EMGCorrView_pilot_con,
+                         format(effectsize::t_to_eta2(t = EMGCorrView_pilot_con$t.ratio,
+                                                      df_error = EMGCorrView_pilot_con$df,
+                                                      ci = 0.95),
+                                                      digits = 2))
 
-colnames(EMGCorrView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+colnames(EMGCorrView_pilot_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 # rename contrast for table
-EMGCorrView_con[1, 1] <- "$View_{neutral} - View_{negative}$"
+EMGCorrView_pilot_con[1, 1] <- "$View_{neutral} - View_{negative}$"
 
 # Figure to visualize arousal ratings
 
 # figure
-FigEMGCorrViewPilot <- ggplot2::ggplot(EMG_view, aes(x = block, y = Corr)) +
+FigEMGCorrViewPilot <- ggplot2::ggplot(EMG_view_pilot, aes(x = block, y = Corr)) +
   geom_boxplot(width = 0.7, position = position_dodge(0.8)) +
   scale_x_discrete(name = "Active viewing",
                    limits = c("1_view_neu", "2_view_neg"),
@@ -416,40 +416,40 @@ FigEMGCorrViewPilot <- ggplot2::ggplot(EMG_view, aes(x = block, y = Corr)) +
 
 # levator
 
-EMGLevView_aov <- afex::aov_ez(data = EMG_view,
-                               id = "ID",
-                               dv = "Lev",
-                               within = "block",
-                               fun_aggregate = mean,
-                               include_aov = TRUE)
+EMGLevView_pilot_aov <- afex::aov_ez(data = EMG_view_pilot,
+                                     id = "ID",
+                                     dv = "Lev",
+                                     within = "block",
+                                     fun_aggregate = mean,
+                                     include_aov = TRUE)
 
 # compute posthoc tests for within measures
-EMGLevView_emm <- emmeans::emmeans(EMGLevView_aov$aov, specs = "block")
+EMGLevView_pilot_emm <- emmeans::emmeans(EMGLevView_pilot_aov$aov, specs = "block")
 
-EMGLevView_con <- as.data.frame(pairs(EMGLevView_emm, adjust = "bonferroni"))
+EMGLevView_pilot_con <- as.data.frame(pairs(EMGLevView_pilot_emm, adjust = "bonferroni"))
 
 # Bayes Factors
-EMGLevView_BF <- BayesFactor::anovaBF(formula = Lev ~ block,
-                                       data = EMG_view,
-                                       progress = FALSE)
-EMGLevView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_view$Lev[EMG_view$block == "1_view_neu"],
-                                                                   y = EMG_view$Lev[EMG_view$block == "2_view_neg"],
-                                                                   progress = FALSE, paired = TRUE))$bf
+EMGLevView_pilot_BF <- BayesFactor::anovaBF(formula = Lev ~ block,
+                                            data = EMG_view_pilot,
+                                            progress = FALSE)
+EMGLevView_pilot_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_view_pilot$Lev[EMG_view_pilot$block == "1_view_neu"],
+                                                                         y = EMG_view_pilot$Lev[EMG_view_pilot$block == "2_view_neg"],
+                                                                         progress = FALSE, paired = TRUE))$bf
 
-EMGLevView_con <- cbind(EMGLevView_con,
-                        format(effectsize::t_to_eta2(t = EMGLevView_con$t.ratio,
-                                                     df_error = EMGLevView_con$df,
+EMGLevView_pilot_con <- cbind(EMGLevView_pilot_con,
+                        format(effectsize::t_to_eta2(t = EMGLevView_pilot_con$t.ratio,
+                                                     df_error = EMGLevView_pilot_con$df,
                                                      ci = 0.95),
                                                      digits = 2))
 
-colnames(EMGLevView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+colnames(EMGLevView_pilot_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 # rename contrast for table
-EMGLevView_con[1, 1] <- "$View_{neutral} - View_{negative}$"
+EMGLevView_pilot_con[1, 1] <- "$View_{neutral} - View_{negative}$"
 
 # Figure to visualize arousal ratings
 
 # figure
-FigEMGLevViewPilot=ggplot2::ggplot(EMG_view, aes(x = block, y = Lev))+
+FigEMGLevViewPilot=ggplot2::ggplot(EMG_view_pilot, aes(x = block, y = Lev))+
   geom_boxplot(width = 0.7, position = position_dodge(0.8))+
   scale_x_discrete(name = "Active viewing", 
                    limits = c("1_view_neu", "2_view_neg"),
@@ -459,65 +459,65 @@ FigEMGLevViewPilot=ggplot2::ggplot(EMG_view, aes(x = block, y = Lev))+
 
 # effect of strategy on EMG
 
-EMG_reg <- data_EMG %>%
-  subset(data_EMG$block != "1_view_neu" & data_EMG$block != "6_choice")
-EMG_reg$block <- as.factor(EMG_reg$block)
+EMG_reg_pilot <- data_EMG_pilot %>%
+  subset(data_EMG_pilot$block != "1_view_neu" & data_EMG_pilot$block != "6_choice")
+EMG_reg_pilot$block <- as.factor(EMG_reg_pilot$block)
 
 # corrugator
-EMGCorrReg_aov <- afex::aov_ez(data = EMG_reg,
-                              id = "ID",
-                              dv = "Corr",
-                              within = "block",
-                              fun_aggregate = mean,
-                              include_aov = TRUE)
+EMGCorrReg_pilot_aov <- afex::aov_ez(data = EMG_reg_pilot,
+                                     id = "ID",
+                                     dv = "Corr",
+                                     within = "block",
+                                     fun_aggregate = mean,
+                                     include_aov = TRUE)
 
 # compute posthoc tests for within measures
-EMGCorrReg_emm <- emmeans::emmeans(EMGCorrReg_aov$aov, specs = "block")
+EMGCorrReg_pilot_emm <- emmeans::emmeans(EMGCorrReg_pilot_aov$aov, specs = "block")
 
-EMGCorrReg_con <- as.data.frame(pairs(EMGCorrReg_emm, adjust = "bonferroni"))
+EMGCorrReg_pilot_con <- as.data.frame(pairs(EMGCorrReg_pilot_emm, adjust = "bonferroni"))
 
 # Bayes Factors
-EMGCorrReg_BF <- BayesFactor::anovaBF(formula = Corr ~ block,
-                                      data = EMG_reg,
-                                      progress = FALSE)
+EMGCorrReg_pilot_BF <- BayesFactor::anovaBF(formula = Corr ~ block,
+                                            data = EMG_reg_pilot,
+                                            progress = FALSE)
 
-EMGCorrReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = TRUE))$bf)
+EMGCorrReg_pilot_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg_pilot$Corr[EMG_reg_pilot$block == "2_view_neg"],
+                                                                           y = EMG_reg_pilot$Corr[EMG_reg_pilot$block == "3_distraction"],
+                                                                           progress = FALSE, paired = TRUE))$bf,
+                               BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg_pilot$Corr[EMG_reg$block == "2_view_neg"],
+                                                                           y = EMG_reg_pilot$Corr[EMG_reg_pilot$block == "4_distancing"],
+                                                                           progress = FALSE, paired = TRUE))$bf,
+                               BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg_pilot$Corr[EMG_reg_pilot$block == "2_view_neg"],
+                                                                           y = EMG_reg_pilot$Corr[EMG_reg_pilot$block == "5_suppression"],
+                                                                           progress = FALSE, paired = TRUE))$bf,
+                               BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg_pilot$Corr[EMG_reg_pilot$block == "3_distraction"],
+                                                                           y = EMG_reg_pilot$Corr[EMG_reg_pilot$block == "4_distancing"],
+                                                                           progress = FALSE, paired = TRUE))$bf,
+                               BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg_pilot$Corr[EMG_reg_pilot$block == "3_distraction"],
+                                                                           y = EMG_reg_pilot$Corr[EMG_reg_pilot$block == "5_suppression"],
+                                                                           progress = FALSE, paired = TRUE))$bf,
+                               BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg_pilot$Corr[EMG_reg_pilot$block == "4_distancing"],
+                                                                           y = EMG_reg_pilot$Corr[EMG_reg_pilot$block == "5_suppression"],
+                                                                           progress = FALSE, paired = TRUE))$bf)
+ 
+EMGCorrReg_pilot_con <- cbind(EMGCorrReg_pilot_con,
+                              format(effectsize::t_to_eta2(t = EMGCorrReg_pilot_con$t.ratio,
+                                                          df_error = EMGCorrReg_pilot_con$df,
+                                                          ci = 0.95),digits = 2))
 
-EMGCorrReg_con <- cbind(EMGCorrReg_con,
-                        format(effectsize::t_to_eta2(t = EMGCorrReg_con$t.ratio,
-                                                     df_error = EMGCorrReg_con$df,
-                                                     ci = 0.95),digits = 2))
+colnames(EMGCorrReg_pilot_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 
-colnames(EMGCorrReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
-
-EMGCorrReg_con[1, 1] <- "$View_{negative} - Distraction$"
-EMGCorrReg_con[2, 1] <- "$View_{negative} - Distancing$"
-EMGCorrReg_con[3, 1] <- "$View_{negative} - Suppression$"
-EMGCorrReg_con[4, 1] <- "$Distraction - Distancing$"
-EMGCorrReg_con[5, 1] <- "$Distraction - Suppression$"
-EMGCorrReg_con[6, 1] <- "$Distancing - Suppression$"
+EMGCorrReg_pilot_con[1, 1] <- "$View_{negative} - Distraction$"
+EMGCorrReg_pilot_con[2, 1] <- "$View_{negative} - Distancing$"
+EMGCorrReg_pilot_con[3, 1] <- "$View_{negative} - Suppression$"
+EMGCorrReg_pilot_con[4, 1] <- "$Distraction - Distancing$"
+EMGCorrReg_pilot_con[5, 1] <- "$Distraction - Suppression$"
+EMGCorrReg_pilot_con[6, 1] <- "$Distancing - Suppression$"
 
 # Figure to visualize arousal ratings
 
 # figure
-FigEMGCorrRegPilot <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Corr)) +
+FigEMGCorrRegPilot <- ggplot2::ggplot(EMG_reg_pilot, aes(x = block, y = Corr)) +
   geom_boxplot(width = 0.7, position = position_dodge(0.8)) +
   scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
@@ -527,60 +527,60 @@ FigEMGCorrRegPilot <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Corr)) +
 
 # levator
 
-EMGLevReg_aov <- afex::aov_ez(data = EMG_reg,
-                              id = "ID",
-                              dv = "Lev",
-                              within = "block",
-                              fun_aggregate = mean,
-                              include_aov = TRUE)
+EMGLevReg_pilot_aov <- afex::aov_ez(data = EMG_reg_pilot,
+                                    id = "ID",
+                                    dv = "Lev",
+                                    within = "block",
+                                    fun_aggregate = mean,
+                                    include_aov = TRUE)
 
 # compute posthoc tests for within measures
-EMGLevReg_emm <- emmeans::emmeans(EMGLevReg_aov$aov, specs = "block")
+EMGLevReg_pilot_emm <- emmeans::emmeans(EMGLevReg_pilot_aov$aov, specs = "block")
 
-EMGLevReg_con <- as.data.frame(pairs(EMGLevReg_emm, adjust = "bonferroni"))
+EMGLevReg_pilot_con <- as.data.frame(pairs(EMGLevReg_pilot_emm, adjust = "bonferroni"))
 
 # Bayes Factors
-EMGLevReg_BF <- BayesFactor::anovaBF(formula = Lev ~ block,
-                                      data = EMG_reg,
-                                      progress = FALSE)
+EMGLevReg_pilot_BF <- BayesFactor::anovaBF(formula = Lev ~ block,
+                                           data = EMG_reg_pilot,
+                                           progress = FALSE)
+ 
+EMGLevReg_pilot_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg_pilot$Lev[EMG_reg_pilot$block == "2_view_neg"],
+                                                                          y = EMG_reg_pilot$Lev[EMG_reg_pilot$block == "3_distraction"],
+                                                                          progress = FALSE, paired = TRUE))$bf,
+                              BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg_pilot$Lev[EMG_reg_pilot$block == "2_view_neg"],
+                                                                          y = EMG_reg_pilot$Lev[EMG_reg_pilot$block == "4_distancing"],
+                                                                          progress = FALSE, paired = TRUE))$bf,
+                              BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg_pilot$Lev[EMG_reg_pilot$block == "2_view_neg"],
+                                                                          y = EMG_reg_pilot$Lev[EMG_reg_pilot$block == "5_suppression"],
+                                                                          progress = FALSE, paired = TRUE))$bf,
+                              BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg_pilot$Lev[EMG_reg_pilot$block == "3_distraction"],
+                                                                          y = EMG_reg_pilot$Lev[EMG_reg_pilot$block == "4_distancing"],
+                                                                          progress = FALSE, paired = TRUE))$bf,
+                              BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg_pilot$Lev[EMG_reg_pilot$block == "3_distraction"],
+                                                                          y = EMG_reg_pilot$Lev[EMG_reg_pilot$block == "5_suppression"],
+                                                                          progress = FALSE, paired = TRUE))$bf,
+                              BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg_pilot$Lev[EMG_reg_pilot$block == "4_distancing"],
+                                                                          y = EMG_reg_pilot$Lev[EMG_reg_pilot$block == "5_suppression"],
+                                                                          progress = FALSE, paired = TRUE))$bf)
 
-EMGLevReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
-                                                                    y = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
-                                                                    progress = FALSE, paired = TRUE))$bf,
-                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
-                                                                    y = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
-                                                                    progress = FALSE, paired = TRUE))$bf,
-                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
-                                                                    y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
-                                                                    progress = FALSE, paired = TRUE))$bf,
-                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
-                                                                    y = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
-                                                                    progress = FALSE, paired = TRUE))$bf,
-                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
-                                                                    y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
-                                                                    progress = FALSE, paired = TRUE))$bf,
-                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
-                                                                    y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
-                                                                    progress = FALSE, paired = TRUE))$bf)
+EMGLevReg_pilot_con <- cbind(EMGLevReg_pilot_con,
+                             format(effectsize::t_to_eta2(t = EMGLevReg_pilot_con$t.ratio,
+                                                           df_error = EMGLevReg_pilot_con$df,
+                                                           ci = 0.95),digits = 2))
+ 
+colnames(EMGLevReg_pilot_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 
-EMGLevReg_con <- cbind(EMGLevReg_con,
-                       format(effectsize::t_to_eta2(t = EMGLevReg_con$t.ratio,
-                                                    df_error = EMGLevReg_con$df,
-                                                    ci = 0.95),digits = 2))
-
-colnames(EMGLevReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
-
-EMGLevReg_con[1, 1] <- "$View_{negative} - Distraction$"
-EMGLevReg_con[2, 1] <- "$View_{negative} - Distancing$"
-EMGLevReg_con[3, 1] <- "$View_{negative} - Suppression$"
-EMGLevReg_con[4, 1] <- "$Distraction - Distancing$"
-EMGLevReg_con[5, 1] <- "$Distraction - Suppression$"
-EMGLevReg_con[6, 1] <- "$Distancing - Suppression$"
+EMGLevReg_pilot_con[1, 1] <- "$View_{negative} - Distraction$"
+EMGLevReg_pilot_con[2, 1] <- "$View_{negative} - Distancing$"
+EMGLevReg_pilot_con[3, 1] <- "$View_{negative} - Suppression$"
+EMGLevReg_pilot_con[4, 1] <- "$Distraction - Distancing$"
+EMGLevReg_pilot_con[5, 1] <- "$Distraction - Suppression$"
+EMGLevReg_pilot_con[6, 1] <- "$Distancing - Suppression$"
 
 # Figure to visualize arousal ratings
 
 # figure
-FigEMGLevRegPilot <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Lev)) +
+FigEMGLevRegPilot <- ggplot2::ggplot(EMG_reg_pilot, aes(x = block, y = Lev)) +
   geom_boxplot(width = 0.7, position = position_dodge(0.8)) +
   scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
