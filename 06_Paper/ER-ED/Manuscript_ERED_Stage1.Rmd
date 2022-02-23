@@ -214,7 +214,7 @@ The questionnaire showed an internal consistency of Cronbach's $\alpha=.87$[@Ber
 *Need for Cognition Scale.*
 Need for Cognition (NFC) is assessed with the 16-item short version of the German NFC scale [@Bless1994]. 
 Responses to each item (e.g., "Thinking is not my idea of fun", recoded) are recorded on a 7-point Likert scale ranging from -3 (completely disagree) to +3 (completely agree) and are summed to the total NFC score. 
-The scale shows comparably high internal consistency [Cronbach's $\alpha>.80$; @Bless1994; @Fleischhauer2010] and a retest reliability of $r_{tt}=.83$ across 8 to 18 weeks [@Fleischhauer2015].
+The scale shows comparably high internal consistency (Cronbach's $\alpha>.80$)[@Bless1994; @Fleischhauer2010] and a retest reliability of $r_{tt}=.83$ across 8 to 18 weeks [@Fleischhauer2015].
 
 *Self-Regulation Scale.*
 As one measure of self-control, the Self-Regulation Scale (SRS)[@Schwarzer1999] is used.
