@@ -24,8 +24,8 @@
   # install renv by calling install.packages("renv") if necessary
   
   library(renv)
-  renv::activate(here("06_Paper","COG-ED"))
-  renv::restore(here("06_Paper","COG-ED"))
+  source(here("06_Paper","COG-ED", "renv", "activate.R"))
+  
   
   # the required packages are:
   # "bibtex", "here", "tidyverse", "bayestestR", "papaja", "lmerTest", "afex", "emmeans", "sjPlot", "purrr",
@@ -209,14 +209,14 @@
     
     # for 1-back
     
-    if (is_empty(which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 1)) == FALSE) {
+    if (rlang::is_empty(which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 1)) == FALSE) {
       tempone <- append(tempone, data_ED$flexvalue[subjectindex[i]-1 +
                                                      which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 1)]/2)
     } else {
       # do nothing
     }
     
-    if (is_empty(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 1)) == FALSE) {
+    if (rlang::is_empty(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 1)) == FALSE) {
       tempone <- append(tempone, rep(1, length(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 1))))
     } else {
       # do nothing
@@ -224,14 +224,14 @@
     
     # for 2-back
     
-    if (is_empty(which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 2)) == FALSE) {
+    if (rlang::is_empty(which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 2)) == FALSE) {
       temptwo <- append(temptwo, data_ED$flexvalue[subjectindex[i]-1 +
                                                      which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 2)]/2)
     } else {
       # do nothing
     }
     
-    if (is_empty(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 2)) == FALSE) {
+    if (rlang::is_empty(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 2)) == FALSE) {
       temptwo <- append(temptwo, rep(1, length(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 2))))
     } else {
       # do nothing
@@ -239,14 +239,14 @@
     
     # for 3-back
     
-    if (is_empty(which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 3)) == FALSE) {
+    if (rlang::is_empty(which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 3)) == FALSE) {
       tempthree <- append(tempthree, data_ED$flexvalue[subjectindex[i]-1 +
                                                          which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 3)]/2)
     } else {
       # do nothing
     }
     
-    if (is_empty(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 3)) == FALSE) {
+    if (rlang::is_empty(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 3)) == FALSE) {
       tempthree <- append(tempthree, rep(1, length(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 3))))
     } else {
       # do nothing
@@ -254,14 +254,14 @@
     
     # for 4-back
     
-    if (is_empty(which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 4)) == FALSE) {
+    if (rlang::is_empty(which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 4)) == FALSE) {
       tempfour <- append(tempfour, data_ED$flexvalue[subjectindex[i]-1 +
                                                        which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 4)]/2)
     } else {
       # do nothing
     }
     
-    if (is_empty(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 4)) == FALSE) {
+    if (rlang::is_empty(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 4)) == FALSE) {
       tempfour <- append(tempfour, rep(1, length(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 4))))
     } else {
       # do nothing
@@ -754,7 +754,7 @@
   
   # obtain estimated marginal means for ANOVA model
   
-  hypothesis1a_emm <- emmeans(object = hypothesis1a_rmanova$aov,
+  hypothesis1a_emm <- emmeans::emmeans(object = hypothesis1a_rmanova$aov,
                               specs = "level")
   
   # calculate pairwise comparisons on estimated marginal means
@@ -774,7 +774,7 @@
   # get effect size and confidence interval
   
   hypothesis1a_contrasts <- cbind(hypothesis1a_contrasts,
-                                  format(t_to_eta2(t = hypothesis1a_contrasts$t.ratio, df_error = hypothesis1a_contrasts$df, ci = 0.95), digits = 2))
+                                  format(effectsize::t_to_eta2(t = hypothesis1a_contrasts$t.ratio, df_error = hypothesis1a_contrasts$df, ci = 0.95), digits = 2))
   
   # rename contrasts and column names
   
@@ -829,7 +829,7 @@
   
   # obtain estimated marginal means for ANOVA model
   
-  hypothesis1b_emm <- emmeans(object = hypothesis1b_rmanova$aov,
+  hypothesis1b_emm <- emmeans::emmeans(object = hypothesis1b_rmanova$aov,
                               specs = "level")
   # calculate pairwise comparisons on estimated marginal means
   
@@ -848,7 +848,7 @@
   # get effect size and confidence interval
   
   hypothesis1b_contrasts <- cbind(hypothesis1b_contrasts,
-                                  format(t_to_eta2(t = hypothesis1b_contrasts$t.ratio, df_error = hypothesis1b_contrasts$df, ci = 0.95), digits = 2))
+                                  format(effectsize::t_to_eta2(t = hypothesis1b_contrasts$t.ratio, df_error = hypothesis1b_contrasts$df, ci = 0.95), digits = 2))
   
   # rename contrasts and column names
   
@@ -918,22 +918,22 @@
   # obtain estimated marginal means for ANOVA model and
   # calculate pairwise comparisons on estimated marginal means
   
-  hypothesis1c_emm <- emmeans(object = hypothesis1c_mental_rmanova$aov, specs = "level")
+  hypothesis1c_emm <- emmeans::emmeans(object = hypothesis1c_mental_rmanova$aov, specs = "level")
   hypothesis1c_mental_contrasts <- as.data.frame(pairs(hypothesis1c_emm))
   
-  hypothesis1c_emm <- emmeans(object = hypothesis1c_physical_rmanova$aov, specs = "level")
+  hypothesis1c_emm <- emmeans::emmeans(object = hypothesis1c_physical_rmanova$aov, specs = "level")
   hypothesis1c_physical_contrasts <- as.data.frame(pairs(hypothesis1c_emm))
   
-  hypothesis1c_emm <- emmeans(object = hypothesis1c_time_rmanova$aov, specs = "level")
+  hypothesis1c_emm <- emmeans::emmeans(object = hypothesis1c_time_rmanova$aov, specs = "level")
   hypothesis1c_time_contrasts <- as.data.frame(pairs(hypothesis1c_emm))
   
-  hypothesis1c_emm <- emmeans(object = hypothesis1c_performance_rmanova$aov, specs = "level")
+  hypothesis1c_emm <- emmeans::emmeans(object = hypothesis1c_performance_rmanova$aov, specs = "level")
   hypothesis1c_performance_contrasts <- as.data.frame(pairs(hypothesis1c_emm))
   
-  hypothesis1c_emm <- emmeans(object = hypothesis1c_effort_rmanova$aov, specs = "level")
+  hypothesis1c_emm <- emmeans::emmeans(object = hypothesis1c_effort_rmanova$aov, specs = "level")
   hypothesis1c_effort_contrasts <- as.data.frame(pairs(hypothesis1c_emm))
   
-  hypothesis1c_emm <- emmeans(object = hypothesis1c_frustration_rmanova$aov, specs = "level")
+  hypothesis1c_emm <- emmeans::emmeans(object = hypothesis1c_frustration_rmanova$aov, specs = "level")
   hypothesis1c_frustration_contrasts <- as.data.frame(pairs(hypothesis1c_emm))
   
   # get Bayes factors
@@ -1020,27 +1020,27 @@
   # get effect sizes and confidence intervals
   
   hypothesis1c_mental_contrasts <- cbind(hypothesis1c_mental_contrasts,
-                                         format(t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio,
+                                         format(effectsize::t_to_eta2(t = hypothesis1c_mental_contrasts$t.ratio,
                                                           df_error = hypothesis1c_mental_contrasts$df, ci = 0.95), digits = 2))
   
   hypothesis1c_physical_contrasts <- cbind(hypothesis1c_physical_contrasts,
-                                           format(t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio,
+                                           format(effectsize::t_to_eta2(t = hypothesis1c_physical_contrasts$t.ratio,
                                                             df_error = hypothesis1c_physical_contrasts$df, ci = 0.95), digits = 2))
   
   hypothesis1c_time_contrasts <- cbind(hypothesis1c_time_contrasts,
-                                       format(t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio,
+                                       format(effectsize::t_to_eta2(t = hypothesis1c_time_contrasts$t.ratio,
                                                         df_error = hypothesis1c_time_contrasts$df, ci = 0.95), digits = 2))
   
   hypothesis1c_effort_contrasts <- cbind(hypothesis1c_effort_contrasts,
-                                         format(t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio,
+                                         format(effectsize::t_to_eta2(t = hypothesis1c_effort_contrasts$t.ratio,
                                                           df_error = hypothesis1c_effort_contrasts$df, ci = 0.95), digits = 2))
   
   hypothesis1c_frustration_contrasts <- cbind(hypothesis1c_frustration_contrasts,
-                                              format(t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio,
+                                              format(effectsize::t_to_eta2(t = hypothesis1c_frustration_contrasts$t.ratio,
                                                                df_error = hypothesis1c_frustration_contrasts$df, ci = 0.95), digits = 2))
   
   hypothesis1c_performance_contrasts <- cbind(hypothesis1c_performance_contrasts,
-                                              format(t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio,
+                                              format(effectsize::t_to_eta2(t = hypothesis1c_performance_contrasts$t.ratio,
                                                                df_error = hypothesis1c_performance_contrasts$df, ci = 0.95), digits = 2))
   
   # rename columns and contrasts
@@ -1081,7 +1081,7 @@
   
   # obtain estimated marginal means for ANOVA model
   
-  hypothesis2a_emm <- emmeans(object = hypothesis2a_rmanova$aov,
+  hypothesis2a_emm <- emmeans::emmeans(object = hypothesis2a_rmanova$aov,
                               specs = "level")
   
   # calculate pairwise comparisons on estimated marginal means
@@ -1107,7 +1107,7 @@
   # get effect size and confidence intervals
   
   hypothesis2a_contrasts <- cbind(hypothesis2a_contrasts,
-                                  format(t_to_eta2(t = hypothesis2a_contrasts$t.ratio, df_error = hypothesis2a_contrasts$df, ci = 0.95), digits = 2))
+                                  format(effectsize::t_to_eta2(t = hypothesis2a_contrasts$t.ratio, df_error = hypothesis2a_contrasts$df, ci = 0.95), digits = 2))
   
   # rename columns and contrasts
   
@@ -1180,50 +1180,50 @@
   
   
   # null model -----------------------------------------------------------------
-  m0_h2b <- lmer(sv ~ 1 + (1|subject), 
+  m0_h2b <- lme4::lmer(sv ~ 1 + (1|subject), 
                  data = h2b_data,
                  REML = T)
   
   # intraclass correlation (ICC)
-  var_m0_h2b <- as.data.frame(VarCorr(m0_h2b))
+  var_m0_h2b <- as.data.frame(lme4::VarCorr(m0_h2b))
   icc_h2b <- var_m0_h2b$vcov[1] / (var_m0_h2b$vcov[1] + var_m0_h2b$vcov[2]) 
   
   
   # random slopes model --------------------------------------------------------
   
   ## maximal model ---- 
-  m1_h2b <- lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject), 
+  m1_h2b <- lme4::lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject), 
                  data = h2b_data,
                  REML = T) # parameters estimated by restricted log-likelihood maximization
   
   
   ## plot model fit of the final model ----
-  m1_h2b_fit <- plot_model(m1_h2b, type = "diag")
+  m1_h2b_fit <- sjPlot::plot_model(m1_h2b, type = "diag")
   
   
   # get pseudo-r-squared -------------------------------------------------------
   
   ## for the whole model
-  h2b_total_r2 <- r.squaredGLMM(m1_h2b, pj2014 = T)
+  h2b_total_r2 <- MuMIn::r.squaredGLMM(m1_h2b, pj2014 = T)
   
   ## H2b: n-back level
   # model without effect
-  m1_h2b_without <- lmer(sv ~ 1 + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
+  m1_h2b_without <- lme4::lmer(sv ~ 1 + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
                          data = h2b_data,
                          REML = T)
   # calculate R²
-  h2b_without_r2 <- r.squaredGLMM(m1_h2b_without, pj2014 = T)
+  h2b_without_r2 <- MuMIn::r.squaredGLMM(m1_h2b_without, pj2014 = T)
   
   # calculate f² with conditional R²
   h2b_f2 <- (h2b_total_r2[1,2] - h2b_without_r2[1,2]) / (1 - h2b_total_r2[1,2])
   
   
   ## H2c: NFC score
-  m1_h2c_without <- lmer(sv ~ level.cwc + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
+  m1_h2c_without <- lme4::lmer(sv ~ level.cwc + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
                          data = h2b_data,
                          REML = T)
   # calculate R²
-  h2c_without_r2 <- r.squaredGLMM(m1_h2c_without, pj2014 = T)
+  h2c_without_r2 <- MuMIn::r.squaredGLMM(m1_h2c_without, pj2014 = T)
   
   # calculate f² with conditional R²
   h2c_f2 <- (h2b_total_r2[1,2] - h2c_without_r2[1,2]) / (1 - h2b_total_r2[1,2])
@@ -1253,8 +1253,8 @@
   # prepare MLM results for reporting ------------------------------------------
   
   # get random and fixed effects
-  m1_h2b.ranef <- as.data.frame(summary(m1_h2b)$varcor)
-  m1_h2b.fixef <- summary(m1_h2b)$coefficients
+  m1_h2b.ranef <- as.data.frame(base::summary(m1_h2b)$varcor)
+  m1_h2b.fixef <- base::summary(m1_h2b)$coefficients
   
   # prepare table
   h2b_result.table <- as.data.frame(cbind(row.names(m1_h2b.fixef[-c(6,7),]), 
@@ -1364,11 +1364,11 @@
     
     # define the null model
     
-    m0_sca <- lmer(sv ~ 1 + (1|subject), data = sca_data, REML = T)
+    m0_sca <- lme4::lmer(sv ~ 1 + (1|subject), data = sca_data, REML = T)
     
     # random slopes model
     
-    m1_sca <- lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
+    m1_sca <- lme4::lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
                    data = sca_data, REML = T)
     
     # convert random factor to type factor
@@ -1386,8 +1386,8 @@
     # combine current results and the bigger data frame
     
     newdata <- data.frame(pipeline = c(names(pipelines_data[i]),names(pipelines_data[i])),
-                          beta = c(summary(m1_sca)$coefficients[2,1],summary(m1_sca)$coefficients[3,1]),
-                          pvalue = c(summary(m1_sca)$coefficients[2,5],summary(m1_sca)$coefficients[3,5]),
+                          beta = c(base::summary(m1_sca)$coefficients[2,1],base::summary(m1_sca)$coefficients[3,1]),
+                          pvalue = c(base::summary(m1_sca)$coefficients[2,5],base::summary(m1_sca)$coefficients[3,5]),
                           predictor = c("Level", "NFC"),
                           BF10 = c(extractBF(sca_BF)$bf, extractBF(sca_BF)$bf))
     sca_results <- rbind(sca_results, newdata)
@@ -1468,7 +1468,7 @@
   
   # calculate linear model to estimate prediction of NFC by SVs
   
-  hypothesis3a <- summary(lm(h3_data$nfc ~ h3_data$axauc))
+  hypothesis3a <- base::summary(stats::lm(h3_data$nfc ~ h3_data$axauc))
   
   # get Bayes factor
   
@@ -1522,7 +1522,7 @@
   
   # compute multiple linear regression to predict NCS based on SV AUC and NASA-TLX AUC
   
-  hypothesis3b <- summary(lm(h3_data$nfc ~ h3_data$axauc + h3_data$auc_ntlx))
+  hypothesis3b <- base::summary(stats::lm(h3_data$nfc ~ h3_data$axauc + h3_data$auc_ntlx))
   
   # get Bayes factor
   
