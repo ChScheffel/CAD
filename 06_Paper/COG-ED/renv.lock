@@ -617,6 +617,18 @@
       "Hash": "3f6bcfb0ee5d671d9fd1893d2faa79cb",
       "Requirements": []
     },
+    "ggeffects": {
+      "Package": "ggeffects",
+      "Version": "1.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "c5c7376ceca707bebc485955b7e07ffc",
+      "Requirements": [
+        "MASS",
+        "insight",
+        "sjlabelled"
+      ]
+    },
     "ggplot2": {
       "Package": "ggplot2",
       "Version": "3.3.5",
@@ -1452,6 +1464,85 @@
       "Requirements": [
         "R6",
         "stringr"
+      ]
+    },
+    "sjPlot": {
+      "Package": "sjPlot",
+      "Version": "2.8.10",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "a1c3b806dea3a10345d5fb584344c78a",
+      "Requirements": [
+        "MASS",
+        "bayestestR",
+        "datawizard",
+        "dplyr",
+        "effectsize",
+        "ggeffects",
+        "ggplot2",
+        "insight",
+        "knitr",
+        "parameters",
+        "performance",
+        "purrr",
+        "rlang",
+        "scales",
+        "sjlabelled",
+        "sjmisc",
+        "sjstats",
+        "tidyr"
+      ]
+    },
+    "sjlabelled": {
+      "Package": "sjlabelled",
+      "Version": "1.1.8",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "60437c5938a8d6abb1ac3b530bab024e",
+      "Requirements": [
+        "insight"
+      ]
+    },
+    "sjmisc": {
+      "Package": "sjmisc",
+      "Version": "2.8.9",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "86176cb3be04b2930649dce2bf56d3cb",
+      "Requirements": [
+        "dplyr",
+        "insight",
+        "magrittr",
+        "purrr",
+        "rlang",
+        "sjlabelled",
+        "tidyselect"
+      ]
+    },
+    "sjstats": {
+      "Package": "sjstats",
+      "Version": "0.18.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "30c55099bbe117030d8649b4ba8fc01b",
+      "Requirements": [
+        "MASS",
+        "bayestestR",
+        "broom",
+        "dplyr",
+        "effectsize",
+        "emmeans",
+        "insight",
+        "lme4",
+        "magrittr",
+        "modelr",
+        "parameters",
+        "performance",
+        "purrr",
+        "rlang",
+        "sjlabelled",
+        "sjmisc",
+        "tidyr"
       ]
     },
     "snow": {
