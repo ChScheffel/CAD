@@ -1208,7 +1208,7 @@
   
   ## H2b: n-back level
   # model without effect
-  m1_h2b_without <- lme4::lmer(sv ~ 1 + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
+  m1_h2b_without <- lmerTest::lmer(sv ~ 1 + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
                          data = h2b_data,
                          REML = T)
   # calculate R²
@@ -1219,7 +1219,7 @@
   
   
   ## H2c: NFC score
-  m1_h2c_without <- lme4::lmer(sv ~ level.cwc + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
+  m1_h2c_without <- lmerTest::lmer(sv ~ level.cwc + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
                          data = h2b_data,
                          REML = T)
   # calculate R²
@@ -1286,7 +1286,7 @@
   
   # simple slopes analysis -----------------------------------------------------
   
-  m1_h2c.ss <- sim_slopes(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none", 
+  m1_h2c.ss <- interactions::sim_slopes(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none", 
                           cond.int = T,                       # print conditional intercepts
                           control.fdr = T,                    # adjust false discovery rate
                           confint = T)                        # add confidence intervals
@@ -1312,17 +1312,17 @@
   
   # remove leading zeros in the p-value column
   
-  h2c_ss.table$ `$p$-value` <- str_replace(h2c_ss.table$ `$p$-value`, "0.", ".")
+  h2c_ss.table$ `$p$-value` <- stringr::str_replace(h2c_ss.table$ `$p$-value`, "0.", ".")
   
   # calculate Johnson-Neyman intervals
-  h2c_jn <- johnson_neyman(model = m1_h2b, pred = level.cwc, modx = nfc.cgm, control.fdr = T)
+  h2c_jn <- interactions::johnson_neyman(model = m1_h2b, pred = level.cwc, modx = nfc.cgm, control.fdr = T)
   h2c_jn.int <- h2c_jn$bounds
   
   # save plot
   h2c_jn.plot <- h2c_jn$plot
   
   # create interaction plot
-  Figure2 <- interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
+  Figure2 <- interactions::interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
                            plot.points = T, point.shape = T,
                            x.label = "n-back level", y.label = "subjective value",
                            legend.main = "NFC", interval = T) + theme_apa() +
@@ -1364,11 +1364,11 @@
     
     # define the null model
     
-    m0_sca <- lme4::lmer(sv ~ 1 + (1|subject), data = sca_data, REML = T)
+    m0_sca <- lmerTest::lmer(sv ~ 1 + (1|subject), data = sca_data, REML = T)
     
     # random slopes model
     
-    m1_sca <- lme4::lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
+    m1_sca <- lmerTest::lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
                    data = sca_data, REML = T)
     
     # convert random factor to type factor
@@ -1450,7 +1450,7 @@
   for (i in 1:(length(subjectindex)-1)) {
     
     newdata <- data.frame(subject = data_SV$subject[subjectindex[i]],
-                          axauc = auc(data_SV$level[subjectindex[i]:(subjectindex[i]+3)], data_SV$sv[subjectindex[i]:(subjectindex[i]+3)], method = "trapezoid") *
+                          axauc = bayestestR::auc(data_SV$level[subjectindex[i]:(subjectindex[i]+3)], data_SV$sv[subjectindex[i]:(subjectindex[i]+3)], method = "trapezoid") *
                             ((data_SV$sv[subjectindex[i]+3] - data_SV$sv[subjectindex[i]+2]) +
                                (data_SV$sv[subjectindex[i]+2] - data_SV$sv[subjectindex[i]+1]) +
                                (data_SV$sv[subjectindex[i]+1] - data_SV$sv[subjectindex[i]])))
@@ -1492,17 +1492,17 @@
   for (i in 1:(length(subjectindex)-1)) {
     
     newdata <- data.frame(subject = data_ntlx$subject[subjectindex[i]],
-                          auc_mental = auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
+                          auc_mental = bayestestR::auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
                                            data_ntlx$mental[subjectindex[i]:(subjectindex[i+1]-1)], method = "trapezoid", sort = FALSE),
-                          auc_physical = auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
+                          auc_physical = bayestestR::auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
                                              data_ntlx$physical[subjectindex[i]:(subjectindex[i+1]-1)], method = "trapezoid", sort = FALSE),
-                          auc_time = auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
+                          auc_time = bayestestR::auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
                                          data_ntlx$time[subjectindex[i]:(subjectindex[i+1]-1)], method = "trapezoid", sort = FALSE),
-                          auc_performance = auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
+                          auc_performance = bayestestR::auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
                                                 data_ntlx$performance[subjectindex[i]:(subjectindex[i+1]-1)], method = "trapezoid", sort = FALSE),
-                          auc_effort = auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
+                          auc_effort = bayestestR::auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
                                            data_ntlx$effort[subjectindex[i]:(subjectindex[i+1]-1)], method = "trapezoid", sort = FALSE),
-                          auc_frustration = auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
+                          auc_frustration = bayestestR::auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
                                                 data_ntlx$frustration[subjectindex[i]:(subjectindex[i+1]-1)], method = "trapezoid", sort = FALSE))
     ntlx <- rbind(ntlx, newdata)
     
