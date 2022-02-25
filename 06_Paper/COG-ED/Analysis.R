@@ -1118,7 +1118,7 @@
   
   base::remove(h2a_data)
   
-##### Hypothesis 2b ############################################################
+##### Hypothesis 2b, c #########################################################
   
   # H2b: Subjective values decline with increasing n-back level, even after controlling for declining task
   # performance measured by signal detection d’ and reaction time.
@@ -1180,7 +1180,7 @@
   
   
   # null model -----------------------------------------------------------------
-  m0_h2b <- lme4::lmer(sv ~ 1 + (1|subject), 
+  m0_h2b <- lmerTest::lmer(sv ~ 1 + (1|subject), 
                  data = h2b_data,
                  REML = T)
   
@@ -1192,7 +1192,7 @@
   # random slopes model --------------------------------------------------------
   
   ## maximal model ---- 
-  m1_h2b <- lme4::lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject), 
+  m1_h2b <- lmerTest::lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject), 
                  data = h2b_data,
                  REML = T) # parameters estimated by restricted log-likelihood maximization
   
