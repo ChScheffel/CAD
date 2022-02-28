@@ -62,17 +62,17 @@ Ich war etwas verwirrt dass die Pilotdaten schon hier kommen. Ich hätte erwarte
 Young healthy participants (aged 18 to 30 years) will be recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden.
 Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.
 Participants will be invited to complete an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
-The study consists of two lab sessions, which take place in a shielded cabin with constant lighting.
-Before each session, participants receive information about the respective experimental procedure and provide informed consent.
-At the beginning of the first session participants fill out a demographic questionnaire and complete an n-back task with the levels one to four.
-Then, they complete an effort discounting (ED) procedure on screen, followed by a random repetition of one n-back level.
-The second session, containing the ER paradigm, takes place exactly one week after session one.
-Participants provide informed consent and receive written instructions on the ER paradigm and ER strategies that they should apply.
-A brief training ensures that all participants are able to implement the ER strategies.
-Next, electrodes to measure EMG being attached and the ER paradigm is conducted.
-Participants receive 30.00€ or course credit as compensation.
+The study consists of two lab sessions, which will take place in a shielded cabin with constant lighting.
+Before each session, participants will receive information about the respective experimental procedure and provide informed consent.
+At the beginning of the first session participants will fill out a demographic questionnaire and complete an n-back task with the levels one to four.
+Then, they will complete an effort discounting (ED) procedure on screen, followed by a random repetition of one n-back level.
+The second session will comprise the ER paradigm and take place exactly one week after session one.
+Participants will provide informed consent and receive written instructions on the ER paradigm and ER strategies that they should apply.
+A brief training will ensure that all participants are able to implement the ER strategies.
+Next, electrodes to measure facial EMG will be attached and the ER paradigm will be conducted.
+Participants will receive 30.00€ or course credit as compensation.
 <!-- das steht schon bei Ethics information, evtl. kürzen. -->
-Study data are being collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden [@Harris2009; @Harris2019].
+Study data will be collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden [@Harris2009; @Harris2019].
 
 ### 2.3.1 Psychometric measures
 
