@@ -63,9 +63,9 @@ abstract          : |
  However, SVs of ER strategies have not been determined so far. 
  We present a paradigm that is suitable for determining individual SVs of ER strategies. 
  Using a multilevel modelling approach, it will be investigated whether individual SVs can be explained by effectiveness (subjective arousal, facial muscle activity) and subjective effort. 
- Relations of SVs to personality traits will be explored
+ Relations of SVs to personality traits will be explored.
 keywords          : "emotion regulation, regulatory effort, effort discounting, registered report, specification curve analysis"
-wordcount         : "X"
+wordcount         : "139"
 bibliography      : ER_ED.bib
 floatsintext      : yes
 figsintext        : yes
