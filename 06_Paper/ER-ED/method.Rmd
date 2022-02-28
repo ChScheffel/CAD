@@ -131,7 +131,8 @@ A complete list of all pictures and their classification into sets can be found 
 
 ### 2.3.4 Facial electromyography
 
-Bipolar facial electromyography (EMG) will be measured for *corrugator supercilii* and *levator labii* as indices of affective valence [@Bradley2000].
+Bipolar facial electromyography (EMG) will be measured for *corrugator supercilii* and *levator labii* as indices of affective valence [@Bradley2000], similar to previous work by our group [@Gärtner, Jawinski, Strobel, 2021].
+<!-- da wir das ja sogar schon gemacht haben, fände ich es cool die Studie zu erwähnen. :-) Zeigt ja auch, dass wir keine Neulinge auf dem Gebiet sind. Referenz muss glaub noch in Bib eingefügt werden! --> 
 Two passive surface Ag/AgCl electrodes (8 mm inner diameter, 10 mm distance between electrodes) will be placed over each left muscle according to the guidelines of @Fridlund1986.
 The ground electrode will be placed over the left *Mastoid*.
 Before electrode placement, the skin will be abraded with Every abrasive paste, cleaned with alcohol, and filled with Lectron III electrolyte gel.
