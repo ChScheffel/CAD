@@ -46,25 +46,32 @@ Participants will receive 30€ in total or course credit for participation.
 ## 2.2 Pilot data
 
 The procedure described above was tested in a pilot study with $N=`r nrow(data_quest_pilot)`$ participants (`r length(which(data_quest_pilot$gender == 2))` female; age: $M = `r papaja::printnum(mean(data_quest_pilot[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`\text{ }\pm\text{ }SD = `r papaja::printnum(sd(data_quest_pilot[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`$).
-Results showed significant higher subjective arousal for active viewing of negative pictures, compared to active viewing of neutral pictures.
-ER strategies did not lead to a reduction of subjective arousal compared to active viewing of negative pictures.
-However, ER strategies were associated with reduced facial muscle activity of the *corrugator* and *levator* compared to active viewing of negative pictures.
-Yet we found in accordance with our previous studies [@Scheffel2021] that the use of ER strategies compared to active viewing was associated with increased subjective effort.
+<!-- direkt "above" wird das nicht beschrieben, die genaue procedure wird eigentlich auch erst unten beschrieben. Ich würde eher schreiben "The newly developed ER paradigm was tested in a pilot study" oder so ähnlich. --> 
+Regarding self-reported arousal, results showed significant higher subjective arousal for active viewing of negative compared to neutral pictures.
+<!-- Signifikanz beruht auf p-Werten? Würde ich angeben. --> 
+However, ER strategies did not lead to a reduction of subjective arousal compared to active viewing of negative pictures.
+Regarding physiological responses, ER strategies were associated with reduced facial muscle activity of the *corrugator* and *levator* compared to active viewing of negative pictures.
+In accordance with our previous study [@Scheffel2021], we found that the use of ER strategies compared to active viewing was associated with increased subjective effort.
+<!-- kann man die Results irgendwo nachvollziehen? Ich würde zumindest MW, SD und p-Werte angeben wenn gesagt wird, dass es "signifikant" höher/nierdiger ist. Auch um zu zeigen, worauf sich die Aussage stützt. 
+könnte man die Ergebnisse sogar in einer Tabelle/Abbildung darstellen? Je nachdem, wie wichtig die Pilotdaten für das Gesamt-Ms. sind... 
+
+Ich war etwas verwirrt dass die Pilotdaten schon hier kommen. Ich hätte erwartet, dass erst das Paradigma genau beschrieben wird, und dann als "Schmankerl" die ersten Pilotdaten mitgeliefert werden. Evtl. mit einer extra Überschrift "Introduction / Methods / Pilot study (oder data)". So gehen sie m.E. etwas unter, weil man sich nachfolgend wieder auf die Details des Paradigmas konzentriert. Hier wurde aber auch nicht alles untersucht, wie z.B. Fragebögen? --> 
 
 ## 2.3 Design
 
-Young, healthy participants (aged 18 to 30 years) will be recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden.
+Young healthy participants (aged 18 to 30 years) will be recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden.
 Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.
 Participants will be invited to compete an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
 The study consists of two lab sessions, which take place in a shielded cabin with constant lighting.
 Before each session, participants receive information about the respective experimental procedure and provide informed consent.
-At the beginning of the first session participants fill out a demographic questionnaire and complete an n-Back task with the levels one to four.
+At the beginning of the first session participants fill out a demographic questionnaire and complete an n-back task with the levels one to four.
 Then, they complete an effort discounting (ED) procedure on screen, followed by a random repetition of one n-back level.
 The second session, containing the ER paradigm, takes place exactly one week after session one.
 Participants provide informed consent and receive written instructions on the ER paradigm and ER strategies that they should apply.
 A brief training ensures that all participants are able to implement the ER strategies.
 Next, electrodes to measure EMG being attached and the ER paradigm is conducted.
 Participants receive 30.00€ or course credit as compensation.
+<!-- das steht schon bei Ethics information, evtl. kürzen. -->
 Study data are being collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden [@Harris2009; @Harris2019].
 
 ### 2.3.1 Psychometric measures
