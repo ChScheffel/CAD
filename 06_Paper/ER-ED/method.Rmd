@@ -77,18 +77,20 @@ Study data will be collected and managed using REDCap electronic data capture to
 ### 2.3.1 Psychometric measures
 
 The online survey contains a number of questionnaires: General psychological well-being is assessed using the German version of the WHO-5 scale [@Bech2004; @Braehler2007].
-To capture the construct of resilience, the German version 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; @Sarubin2015] is used.
+<!-- Hier und im Folgenden wird wieder Präsens verwendet - vereinheitlichen? -->
+To measure resilience, the German version 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; @Sarubin2015] is used.
 Habitual use of ER is assessed using the German version of the Emotion Regulation Questionnaire (ERQ) [@GrossJohn2003; @Abler2009].
-For the assessment of ER ability we use the Flexible Emotion Regulation Scale (FlexER) [@Doerfel2019].
+For the assessment of ER flexibility we use the Flexible Emotion Regulation Scale (FlexER) [@Doerfel2019].
 Implicit theories of willpower in emotion control are assessed using the implicit theories questionnaire from @Bernecker2017.
 To assess Need for Cognition, the German version short form of the Need for Cognition Scale [@Cacioppo1982; @Bless1994] is used.
 To assess self-control, sum scores of the German versions of the following questionnaires are used [@Paschke2016]: the Self-Regulation Scale (SRS) [@Schwarzer1999], the Brief Self-Control Scale (BSCS) [@Tangney2004; @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11) [@Patton1995; @Hartmann2011].
 Attentional control is assessed using the Attentional Control Scale (ACS) [@Derryberry2002].
-For more detailed information on psychometric properties of the questionnaires, please see [supplementary material](#SupplementQuestionnaires). <!-- Not sure whether you can state this so briefly without giving more detailed information on, e.g., sample items, the scale on which answers are recorded (e.g., -3 ... +3), the reliability of the measures. -->
+For more detailed information on psychometric properties of the questionnaires, please see [supplementary material](#SupplementQuestionnaires). <!-- Not sure whether you can state this so briefly without giving more detailed information on, e.g., sample items, the scale on which answers are recorded (e.g., -3 ... +3), the reliability of the measures. 
+AG: im Paper würde man das hier angeben, bei RR reicht vielleicht Supplememt? -->
 
 ### 2.3.2 Emotion regulation paradigm
 
-The ER paradigm roughly consists of three parts that will be described in the following.
+The ER paradigm consists of three parts that will be described in the following.
 
 *Part one: ER task.* <br> Part one is a standard ER task in a block design (see Figure X), similar to paradigms previously used by our group [@Scheffel2021].
 Participants are told to actively view neutral and negative pictures (see [2.3.3](##stimuli)) or to regulate all upcoming emotions by means of distraction, distancing, and expressive suppression, respectively.
@@ -98,24 +100,24 @@ Participants are asked to "actively view all pictures and permit all emotions th
 During the third, fourth, and fifth block, participants see negative pictures and are asked to regulate their emotions using distraction, distancing, and suppression.
 In order to achieve distraction, participants are asked to think of a geometric object or an everyday activity, like brushing their teeth.
 During distancing, participants are asked to "take the position of a non-involved observer, thinking about the picture in a neutral way." Participants are told not to re-interpret the situation or attaching a different meaning to the situation.
-During suppression, participants are told to "suppress their emotional facial expression." They should imagine being observed by a third person that should not be able to tell just by looking at the facial expression whether the person is looking at an emotional picture.
+During suppression, participants are told to "suppress their emotional facial expression." They should imagine being observed by a third person that should not be able to tell by looking at the facial expression whether the person is looking at an emotional picture.
 Participants are instructed not to suppress their thoughts or change their facial expression to the opposite [@Scheffel2021].
 All participants receive written instruction and complete a training session.
 After the training session, participants are asked about their applied ER strategies to avoid misapplication.
 The order of the three regulation blocks (distraction, distancing, and suppression) is randomized between participants.
 
 *Part two: ER effort discounting.* <br> In the second part, ER effort discounting takes place.
-The procedure of the discounting follows the COG-ED paradigm by Westbrook et al. [-@Westbrook2013] with major change.
+The procedure of the discounting follows the COG-ED paradigm by Westbrook et al. [-@Westbrook2013] with a major change.
 We use the following adaption that allows the computation of SVs for different strategies without presuming that all individuals would inherently evaluate the same strategy as the easiest one: For each possible pairing (distraction vs. distancing, distraction vs. suppression, and distancing vs. suppression), two strategies with monetary values are presented.
 The order of the comparisons is randomized.
 Because there is no strategy that is objectively more difficult, we added an initial comparison that begins with the option "1 EUR for strategy A or 1 EUR for strategy B".
 The strategy that is not chosen is assigned the value of 2 EUR.
 From this point on, comparisons between strategies follow the original COG-ED paradigm [@Westbrook2013].
-Participants are instructed to decide as realistically as possible, imagining the displayed money would really be up for election.
+Participants are instructed to decide as realistically as possible by imagining that the money displayed is actually available for choice.
 
 *Part three: ER choice.* <br> After the discounting part, participants choose which of the three ER strategies (distraction, distancing or suppression) they want to re-apply.
-Importantly, there are no further instruction on what basis they should make their decision.
-Participants should make their decision freely, according to the criteria they consider important for themselves.
+Importantly, there is no further instruction on what basis they should make their decision.
+Participants should make their decision freely, according to criteria they consider important for themselves.
 However, participants are asked to state the reasons for the decision afterwards.
 As soon as they have decided, they see the respective instruction and the block with another 20 negative pictures starts.
 
