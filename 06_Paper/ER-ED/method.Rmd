@@ -61,7 +61,7 @@ Ich war etwas verwirrt dass die Pilotdaten schon hier kommen. Ich hätte erwarte
 
 Young healthy participants (aged 18 to 30 years) will be recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden.
 Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.
-Participants will be invited to compete an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
+Participants will be invited to complete an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
 The study consists of two lab sessions, which take place in a shielded cabin with constant lighting.
 Before each session, participants receive information about the respective experimental procedure and provide informed consent.
 At the beginning of the first session participants fill out a demographic questionnaire and complete an n-back task with the levels one to four.
