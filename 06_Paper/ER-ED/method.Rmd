@@ -156,11 +156,13 @@ Detailed information on power calculation for each hypothesis can be found in th
 <!-- hier würde ich den Verweis zur Design Table ganz explizit machen, also sagen, wo diese zu finden ist. -->
 
 ## 2.5 Analysis plan
+<!-- hier wird wieder durchgehend Futur verwendet - würde das in Methods vereinheitlichen. -->
 
 Data collection and analysis will not be performed blind to the conditions of the experiments.
 The level of significance will be set to $\alpha=.05$.
 
-*Effects of emotion regulation on arousal, facial EMG and effort* <br> To examine the impact of valence of emotional pictures on subjective arousal ratings, a repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for the strategy active viewing will be conducted.
+<!-- Bei den krusiven Zwischenüberschriften wie in der nächsten Zeile würde ich Punkte setzen, sieht sonst im PDF sehr eng zusammen aus. ;-)  -->
+*Effects of emotion regulation on arousal, facial EMG and effort.* <br> To examine the impact of valence of emotional pictures on subjective arousal ratings, a repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for the strategy active viewing will be conducted.
 To investigate the effects of the three ER strategies on subjective arousal, another rmANOVA  with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for subjective arousal ratings will be conducted.
 
 To examine the impact of valence on facial EMG, a rmANOVA with the factor valence (neutral and negative) for the strategy active viewing will be conducted for *corrugator* and *levator* activity.
@@ -172,19 +174,19 @@ Proportion of explained variance $\eta_{p}^{2}$ will be reported as a measure of
 If indicated by the data, estimated marginal means will be computed as post-hoc contrasts.
 rmANOVAS will be run using the *afex* package [@Singmann2021]
 
-*Subjective values of emotion regulation strategies* <br> For each ER strategy, SVs will be calculated as follows: first, the value 0.015625 will be added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
+*Subjective values of emotion regulation strategies.* <br> For each ER strategy, SVs will be calculated as follows: first, the value 0.015625 will be added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
 Second, the resulting (monetary) value will be divided by 2.00 €.
 The final SV for each participant will be computed by averaging all final SVs of each strategy.
-The resulting values will be entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression) to explore for group effects.
-Again, estimated, marginal means will be computed as post-hoc contrasts.
+The resulting values will be entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression) and explore group effects.
+Again, estimated marginal means will be computed as post-hoc contrasts.
 
-To investigate, whether individual SVs predict ER choice, a Chi-squared test with predicted choice (highest SV of each participant) and actual choice will be computed.
-Furthermore, an ordinal logistic regression with dependent variable choice and independent variables SVs of each strategy will be computed.
+To investigate whether individual SVs predict ER choice, a Chi-squared test with predicted choice (highest SV of each participant) and actual choice will be computed.
+Furthermore, an ordinal logistic regression with the dependent variable choice and independent variables SVs of each strategy will be computed.
 
-To explore the association between subjective arousal, physiological arousal, and subjective effort on SVs, a multilevel model (MLM) will be specified using the $lmerTest$ package [@Kuznetsova2017].
+To explore the association between subjective arousal, physiological responses, and subjective effort on SVs, a multilevel model (MLM) will be specified using the $lmerTest$ package [@Kuznetsova2017].
 First, ER strategies will be recoded and centered for each subject according to their individual SVs: The strategy with the highest SV will be coded as -1, the strategy with the second highest SV 0, and the strategy with the lowest SV will be coded as 1.
 Restricted maximum likelihood (REML) will be applied to fit the model.
-A random slopes model of SVs including subjective effort (effort ratings), subjective arousal (arousal ratings), and physiological arousal (*corrugator* activity and *levator* activity) as level-1-predictor will be specified.
+A random slopes model of SVs including subjective effort (effort ratings), subjective arousal (arousal ratings), and physiological responses (*corrugator* and *levator* activity) as level-1-predictors will be specified.
 $$
 SV \sim strategy\ + \text{effort rating} + \text{arousal rating} + corrugator \text{ activity} + levator \text{ activity} + (strategy|subject)
 $$ Level-1-predictors will be centered within cluster [@Enders2007].
@@ -198,7 +200,7 @@ The association between flexible ER and SVs of ER strategies will be investigate
 Firstly, SVs will be ordered by magnitude.
 Secondly, for each participant a linear model will be built to estimate the individual $intercept$ and $slope$.
 
-For each result of the analyses both, $p$-values and Bayes factor $BF10$, calculated using the *BayesFactor* package [@Morey2021], will be reported. Bayses factors are calculated using the default prior widths of the functions *anovaBF*, *lmBF* and *regressionBF*.
+For each result of the analyses, both $p$-values and Bayes factors $BF10$, calculated using the *BayesFactor* package [@Morey2021], will be reported. Bayes factors are calculated using the default prior widths of the functions *anovaBF*, *lmBF* and *regressionBF*.
 
 ## Data availability
 
