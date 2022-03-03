@@ -47,14 +47,10 @@ Participants will receive 30€ in total or course credit for participation.
 
 The newly developed ER paradigm was tested in a pilot study with $N=`r nrow(data_quest_pilot)`$ participants (`r length(which(data_quest_pilot$gender == 2))` female; age: $M = `r papaja::printnum(mean(data_quest_pilot[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`\text{ }\pm\text{ }SD = `r papaja::printnum(sd(data_quest_pilot[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`$).
 Regarding self-reported arousal, results showed significant higher subjective arousal for active viewing of negative compared to neutral pictures.
-<!-- Signifikanz beruht auf p-Werten? Würde ich angeben. --> 
 However, ER strategies did not lead to a reduction of subjective arousal compared to active viewing of negative pictures.
 Regarding physiological responses, ER strategies were associated with reduced facial muscle activity of the *corrugator* and *levator* compared to active viewing of negative pictures.
 In accordance with our previous study [@Scheffel2021], we found that the use of ER strategies compared to active viewing was associated with increased subjective effort.
-<!-- kann man die Results irgendwo nachvollziehen? Ich würde zumindest MW, SD und p-Werte angeben wenn gesagt wird, dass es "signifikant" höher/nierdiger ist. Auch um zu zeigen, worauf sich die Aussage stützt. 
-könnte man die Ergebnisse sogar in einer Tabelle/Abbildung darstellen? Je nachdem, wie wichtig die Pilotdaten für das Gesamt-Ms. sind... 
-
-Ich war etwas verwirrt dass die Pilotdaten schon hier kommen. Ich hätte erwartet, dass erst das Paradigma genau beschrieben wird, und dann als "Schmankerl" die ersten Pilotdaten mitgeliefert werden. Evtl. mit einer extra Überschrift "Introduction / Methods / Pilot study (oder data)". So gehen sie m.E. etwas unter, weil man sich nachfolgend wieder auf die Details des Paradigmas konzentriert. Hier wurde aber auch nicht alles untersucht, wie z.B. Fragebögen? --> 
+All results are detailed in the [Supplementary Material](#SupplementaryMaterial)
 
 ## 2.3 Design
 
@@ -69,8 +65,6 @@ The second session will comprise the ER paradigm and take place exactly one week
 Participants will provide informed consent and receive written instructions on the ER paradigm and ER strategies that they should apply.
 A brief training will ensure that all participants are able to implement the ER strategies.
 Next, electrodes to measure facial EMG will be attached and the ER paradigm will be conducted.
-Participants will receive 30.00€ or course credit as compensation.
-<!-- das steht schon bei Ethics information, evtl. kürzen. -->
 Study data will be collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden [@Harris2009; @Harris2019].
 
 ### 2.3.1 Psychometric measures
