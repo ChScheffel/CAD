@@ -46,42 +46,51 @@ Participants will receive 30€ in total or course credit for participation.
 ## 2.2 Pilot data
 
 The procedure described above was tested in a pilot study with $N=`r nrow(data_quest_pilot)`$ participants (`r length(which(data_quest_pilot$gender == 2))` female; age: $M = `r papaja::printnum(mean(data_quest_pilot[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`\text{ }\pm\text{ }SD = `r papaja::printnum(sd(data_quest_pilot[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`$).
-Results showed significant higher subjective arousal for active viewing of negative pictures, compared to active viewing of neutral pictures.
-ER strategies did not lead to a reduction of subjective arousal compared to active viewing of negative pictures.
-However, ER strategies were associated with reduced facial muscle activity of the *corrugator* and *levator* compared to active viewing of negative pictures.
-Yet we found in accordance with our previous studies [@Scheffel2021] that the use of ER strategies compared to active viewing was associated with increased subjective effort.
+<!-- direkt "above" wird das nicht beschrieben, die genaue procedure wird eigentlich auch erst unten beschrieben. Ich würde eher schreiben "The newly developed ER paradigm was tested in a pilot study" oder so ähnlich. --> 
+Regarding self-reported arousal, results showed significant higher subjective arousal for active viewing of negative compared to neutral pictures.
+<!-- Signifikanz beruht auf p-Werten? Würde ich angeben. --> 
+However, ER strategies did not lead to a reduction of subjective arousal compared to active viewing of negative pictures.
+Regarding physiological responses, ER strategies were associated with reduced facial muscle activity of the *corrugator* and *levator* compared to active viewing of negative pictures.
+In accordance with our previous study [@Scheffel2021], we found that the use of ER strategies compared to active viewing was associated with increased subjective effort.
+<!-- kann man die Results irgendwo nachvollziehen? Ich würde zumindest MW, SD und p-Werte angeben wenn gesagt wird, dass es "signifikant" höher/nierdiger ist. Auch um zu zeigen, worauf sich die Aussage stützt. 
+könnte man die Ergebnisse sogar in einer Tabelle/Abbildung darstellen? Je nachdem, wie wichtig die Pilotdaten für das Gesamt-Ms. sind... 
+
+Ich war etwas verwirrt dass die Pilotdaten schon hier kommen. Ich hätte erwartet, dass erst das Paradigma genau beschrieben wird, und dann als "Schmankerl" die ersten Pilotdaten mitgeliefert werden. Evtl. mit einer extra Überschrift "Introduction / Methods / Pilot study (oder data)". So gehen sie m.E. etwas unter, weil man sich nachfolgend wieder auf die Details des Paradigmas konzentriert. Hier wurde aber auch nicht alles untersucht, wie z.B. Fragebögen? --> 
 
 ## 2.3 Design
 
-Young, healthy participants (aged 18 to 30 years) will be recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden.
+Young healthy participants (aged 18 to 30 years) will be recruited using the software *ORSEE* [@Greiner2015] at the Technische Universität Dresden.
 Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.
-Participants will be invited to compete an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
-The study consists of two lab sessions, which take place in a shielded cabin with constant lighting.
-Before each session, participants receive information about the respective experimental procedure and provide informed consent.
-At the beginning of the first session participants fill out a demographic questionnaire and complete an n-Back task with the levels one to four.
-Then, they complete an effort discounting (ED) procedure on screen, followed by a random repetition of one n-back level.
-The second session, containing the ER paradigm, takes place exactly one week after session one.
-Participants provide informed consent and receive written instructions on the ER paradigm and ER strategies that they should apply.
-A brief training ensures that all participants are able to implement the ER strategies.
-Next, electrodes to measure EMG being attached and the ER paradigm is conducted.
-Participants receive 30.00€ or course credit as compensation.
-Study data are being collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden [@Harris2009; @Harris2019].
+Participants will be invited to complete an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
+The study consists of two lab sessions, which will take place in a shielded cabin with constant lighting.
+Before each session, participants will receive information about the respective experimental procedure and provide informed consent.
+At the beginning of the first session participants will fill out a demographic questionnaire and complete an n-back task with the levels one to four.
+Then, they will complete an effort discounting (ED) procedure on screen, followed by a random repetition of one n-back level.
+The second session will comprise the ER paradigm and take place exactly one week after session one.
+Participants will provide informed consent and receive written instructions on the ER paradigm and ER strategies that they should apply.
+A brief training will ensure that all participants are able to implement the ER strategies.
+Next, electrodes to measure facial EMG will be attached and the ER paradigm will be conducted.
+Participants will receive 30.00€ or course credit as compensation.
+<!-- das steht schon bei Ethics information, evtl. kürzen. -->
+Study data will be collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden [@Harris2009; @Harris2019].
 
 ### 2.3.1 Psychometric measures
 
 The online survey contains a number of questionnaires: General psychological well-being is assessed using the German version of the WHO-5 scale [@Bech2004; @Braehler2007].
-To capture the construct of resilience, the German version 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; @Sarubin2015] is used.
+<!-- Hier und im Folgenden wird wieder Präsens verwendet - vereinheitlichen? -->
+To measure resilience, the German version 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; @Sarubin2015] is used.
 Habitual use of ER is assessed using the German version of the Emotion Regulation Questionnaire (ERQ) [@GrossJohn2003; @Abler2009].
-For the assessment of ER ability we use the Flexible Emotion Regulation Scale (FlexER) [@Doerfel2019].
+For the assessment of ER flexibility we use the Flexible Emotion Regulation Scale (FlexER) [@Doerfel2019].
 Implicit theories of willpower in emotion control are assessed using the implicit theories questionnaire from @Bernecker2017.
 To assess Need for Cognition, the German version short form of the Need for Cognition Scale [@Cacioppo1982; @Bless1994] is used.
 To assess self-control, sum scores of the German versions of the following questionnaires are used [@Paschke2016]: the Self-Regulation Scale (SRS) [@Schwarzer1999], the Brief Self-Control Scale (BSCS) [@Tangney2004; @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11) [@Patton1995; @Hartmann2011].
 Attentional control is assessed using the Attentional Control Scale (ACS) [@Derryberry2002].
-For more detailed information on psychometric properties of the questionnaires, please see [supplementary material](#SupplementQuestionnaires). <!-- Not sure whether you can state this so briefly without giving more detailed information on, e.g., sample items, the scale on which answers are recorded (e.g., -3 ... +3), the reliability of the measures. -->
+For more detailed information on psychometric properties of the questionnaires, please see [supplementary material](#SupplementQuestionnaires). <!-- Not sure whether you can state this so briefly without giving more detailed information on, e.g., sample items, the scale on which answers are recorded (e.g., -3 ... +3), the reliability of the measures. 
+AG: im Paper würde man das hier angeben, bei RR reicht vielleicht Supplememt? -->
 
 ### 2.3.2 Emotion regulation paradigm
 
-The ER paradigm roughly consists of three parts that will be described in the following.
+The ER paradigm consists of three parts that will be described in the following.
 
 *Part one: ER task.* <br> Part one is a standard ER task in a block design (see Figure X), similar to paradigms previously used by our group [@Scheffel2021].
 Participants are told to actively view neutral and negative pictures (see [2.3.3](##stimuli)) or to regulate all upcoming emotions by means of distraction, distancing, and expressive suppression, respectively.
@@ -91,24 +100,24 @@ Participants are asked to "actively view all pictures and permit all emotions th
 During the third, fourth, and fifth block, participants see negative pictures and are asked to regulate their emotions using distraction, distancing, and suppression.
 In order to achieve distraction, participants are asked to think of a geometric object or an everyday activity, like brushing their teeth.
 During distancing, participants are asked to "take the position of a non-involved observer, thinking about the picture in a neutral way." Participants are told not to re-interpret the situation or attaching a different meaning to the situation.
-During suppression, participants are told to "suppress their emotional facial expression." They should imagine being observed by a third person that should not be able to tell just by looking at the facial expression whether the person is looking at an emotional picture.
+During suppression, participants are told to "suppress their emotional facial expression." They should imagine being observed by a third person that should not be able to tell by looking at the facial expression whether the person is looking at an emotional picture.
 Participants are instructed not to suppress their thoughts or change their facial expression to the opposite [@Scheffel2021].
 All participants receive written instruction and complete a training session.
 After the training session, participants are asked about their applied ER strategies to avoid misapplication.
 The order of the three regulation blocks (distraction, distancing, and suppression) is randomized between participants.
 
 *Part two: ER effort discounting.* <br> In the second part, ER effort discounting takes place.
-The procedure of the discounting follows the COG-ED paradigm by Westbrook et al. [-@Westbrook2013] with major change.
+The procedure of the discounting follows the COG-ED paradigm by Westbrook et al. [-@Westbrook2013] with a major change.
 We use the following adaption that allows the computation of SVs for different strategies without presuming that all individuals would inherently evaluate the same strategy as the easiest one: For each possible pairing (distraction vs. distancing, distraction vs. suppression, and distancing vs. suppression), two strategies with monetary values are presented.
 The order of the comparisons is randomized.
 Because there is no strategy that is objectively more difficult, we added an initial comparison that begins with the option "1 EUR for strategy A or 1 EUR for strategy B".
 The strategy that is not chosen is assigned the value of 2 EUR.
 From this point on, comparisons between strategies follow the original COG-ED paradigm [@Westbrook2013].
-Participants are instructed to decide as realistically as possible, imagining the displayed money would really be up for election.
+Participants are instructed to decide as realistically as possible by imagining that the money displayed is actually available for choice.
 
 *Part three: ER choice.* <br> After the discounting part, participants choose which of the three ER strategies (distraction, distancing or suppression) they want to re-apply.
-Importantly, there are no further instruction on what basis they should make their decision.
-Participants should make their decision freely, according to the criteria they consider important for themselves.
+Importantly, there is no further instruction on what basis they should make their decision.
+Participants should make their decision freely, according to criteria they consider important for themselves.
 However, participants are asked to state the reasons for the decision afterwards.
 As soon as they have decided, they see the respective instruction and the block with another 20 negative pictures starts.
 
@@ -122,7 +131,8 @@ A complete list of all pictures and their classification into sets can be found 
 
 ### 2.3.4 Facial electromyography
 
-Bipolar facial electromyography (EMG) will be measured for *corrugator supercilii* and *levator labii* as indices of affective valence [@Bradley2000].
+Bipolar facial electromyography (EMG) will be measured for *corrugator supercilii* and *levator labii* as indices of affective valence [@Bradley2000], similar to previous work by our group [@Gärtner, Jawinski, Strobel, 2021].
+<!-- da wir das ja sogar schon gemacht haben, fände ich es cool die Studie zu erwähnen. :-) Zeigt ja auch, dass wir keine Neulinge auf dem Gebiet sind. Referenz muss glaub noch in Bib eingefügt werden! --> 
 Two passive surface Ag/AgCl electrodes (8 mm inner diameter, 10 mm distance between electrodes) will be placed over each left muscle according to the guidelines of @Fridlund1986.
 The ground electrode will be placed over the left *Mastoid*.
 Before electrode placement, the skin will be abraded with Every abrasive paste, cleaned with alcohol, and filled with Lectron III electrolyte gel.
@@ -137,19 +147,22 @@ Last, the sampling rate will be changed to 100 Hz, and EMG data will be averaged
 ## 2.4 Sampling plan
 
 Sample size calculation is done using *G\*Power* [@Faul2007; @Faul2009].
-In a meta-analysis of Zaehringer and colleagues [-@Zaehringer2020], effect sizes of ER on peripheral-physiological measures were reported.
-To find an effect of $d=-0.32$ of ER on *corrugator* muscle activity with $\alpha=.05$ and $\beta=.95$, data of least $N=85$ have to be analyzed.
+In a meta-analysis of Zaehringer and colleagues [-@Zaehringer2020], effect sizes of ER on peripheral-physiological measures were reported:
+To find an effect of $d=-0.32$ of ER on *corrugator* muscle activity with $\alpha=.05$ and $\beta=.95$, data of at least $N=85$ have to be analyzed.
 Power analyses of all other hypotheses yielded smaller sample sizes.
 However, if participants withdraw from study participation, technical failures occur, or experimenter considers the participant for not suitable for study participation (e.g., because the participant does not follow instructions or shows great fatigue), respective data will also be excluded from further analyses.
 Therefore, we aim to collect data of 90 participants.
-Detailed information on power calculation for each hypothesis can be found in the [design table](#DesignTable).
+Detailed information on power calculation for each hypothesis can be found in the [design table](#DesignTable) in the Supplement.
+<!-- hier würde ich den Verweis zur Design Table ganz explizit machen, also sagen, wo diese zu finden ist. -->
 
 ## 2.5 Analysis plan
+<!-- hier wird wieder durchgehend Futur verwendet - würde das in Methods vereinheitlichen. -->
 
 Data collection and analysis will not be performed blind to the conditions of the experiments.
 The level of significance will be set to $\alpha=.05$.
 
-*Effects of emotion regulation on arousal, facial EMG and effort* <br> To examine the impact of valence of emotional pictures on subjective arousal ratings, a repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for the strategy active viewing will be conducted.
+<!-- Bei den krusiven Zwischenüberschriften wie in der nächsten Zeile würde ich Punkte setzen, sieht sonst im PDF sehr eng zusammen aus. ;-)  -->
+*Effects of emotion regulation on arousal, facial EMG and effort.* <br> To examine the impact of valence of emotional pictures on subjective arousal ratings, a repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for the strategy active viewing will be conducted.
 To investigate the effects of the three ER strategies on subjective arousal, another rmANOVA  with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for subjective arousal ratings will be conducted.
 
 To examine the impact of valence on facial EMG, a rmANOVA with the factor valence (neutral and negative) for the strategy active viewing will be conducted for *corrugator* and *levator* activity.
@@ -161,19 +174,19 @@ Proportion of explained variance $\eta_{p}^{2}$ will be reported as a measure of
 If indicated by the data, estimated marginal means will be computed as post-hoc contrasts.
 rmANOVAS will be run using the *afex* package [@Singmann2021]
 
-*Subjective values of emotion regulation strategies* <br> For each ER strategy, SVs will be calculated as follows: first, the value 0.015625 will be added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
+*Subjective values of emotion regulation strategies.* <br> For each ER strategy, SVs will be calculated as follows: first, the value 0.015625 will be added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
 Second, the resulting (monetary) value will be divided by 2.00 €.
 The final SV for each participant will be computed by averaging all final SVs of each strategy.
-The resulting values will be entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression) to explore for group effects.
-Again, estimated, marginal means will be computed as post-hoc contrasts.
+The resulting values will be entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression) and explore group effects.
+Again, estimated marginal means will be computed as post-hoc contrasts.
 
-To investigate, whether individual SVs predict ER choice, a Chi-squared test with predicted choice (highest SV of each participant) and actual choice will be computed.
-Furthermore, an ordinal logistic regression with dependent variable choice and independent variables SVs of each strategy will be computed.
+To investigate whether individual SVs predict ER choice, a Chi-squared test with predicted choice (highest SV of each participant) and actual choice will be computed.
+Furthermore, an ordinal logistic regression with the dependent variable choice and independent variables SVs of each strategy will be computed.
 
-To explore the association between subjective arousal, physiological arousal, and subjective effort on SVs, a multilevel model (MLM) will be specified using the $lmerTest$ package [@Kuznetsova2017].
+To explore the association between subjective arousal, physiological responses, and subjective effort on SVs, a multilevel model (MLM) will be specified using the $lmerTest$ package [@Kuznetsova2017].
 First, ER strategies will be recoded and centered for each subject according to their individual SVs: The strategy with the highest SV will be coded as -1, the strategy with the second highest SV 0, and the strategy with the lowest SV will be coded as 1.
 Restricted maximum likelihood (REML) will be applied to fit the model.
-A random slopes model of SVs including subjective effort (effort ratings), subjective arousal (arousal ratings), and physiological arousal (*corrugator* activity and *levator* activity) as level-1-predictor will be specified.
+A random slopes model of SVs including subjective effort (effort ratings), subjective arousal (arousal ratings), and physiological responses (*corrugator* and *levator* activity) as level-1-predictors will be specified.
 $$
 SV \sim strategy\ + \text{effort rating} + \text{arousal rating} + corrugator \text{ activity} + levator \text{ activity} + (strategy|subject)
 $$ Level-1-predictors will be centered within cluster [@Enders2007].
@@ -187,7 +200,7 @@ The association between flexible ER and SVs of ER strategies will be investigate
 Firstly, SVs will be ordered by magnitude.
 Secondly, for each participant a linear model will be built to estimate the individual $intercept$ and $slope$.
 
-For each result of the analyses both, $p$-values and Bayes factor $BF10$, calculated using the *BayesFactor* package [@Morey2021], will be reported. Bayses factors are calculated using the default prior widths of the functions *anovaBF*, *lmBF* and *regressionBF*.
+For each result of the analyses, both $p$-values and Bayes factors $BF10$, calculated using the *BayesFactor* package [@Morey2021], will be reported. Bayes factors are calculated using the default prior widths of the functions *anovaBF*, *lmBF* and *regressionBF*.
 
 ## Data availability
 
