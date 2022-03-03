@@ -116,7 +116,7 @@ However, participants will be asked to state the reasons for the decision afterw
 As soon as they have decided, they will see the respective instruction and the block with another 20 negative pictures starts.
 
 ```{r Design_ER-ED, echo = FALSE, message = FALSE, warning = FALSE, fig.cap="Block design of the paradigm. Every participant starts with two "active viewing" blocks continaing neutral (Block 1) and negative (Block 2) pictures. Order of the regulation blocks (Blocks 3, 4, and 5) is randomized between participants. After, the discounting procedure takes place. All three regulation strategies are pairwise compared. Before the last block, participants can decide which regulation strategy they want to reapply. Subjective arousal and effort ratings are assessed after each block using a slider on screen with a continuous scale."}
-include_graphics(here("0g_Paper", "ER-ED", "figures", "Design_ER-ED.png"))
+include_graphics(here("06_Paper", "ER-ED", "figures", "Design_ER-ED.png"))
 ```
 
 ### 2.3.3 Stimuli
