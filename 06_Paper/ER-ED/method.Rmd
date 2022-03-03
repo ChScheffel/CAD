@@ -83,7 +83,7 @@ For more detailed information on psychometric properties of the questionnaires, 
 
 The ER paradigm will consist of three parts that will be described in the following.
 
-*Part one: ER task.* <br> Part one will be a standard ER task in a block design (see Figure \@ref(fig:Design_ER-ED)), similar to paradigms previously used by our group [@Scheffel2021].
+*Part one: ER task.* <br> Part one will be a standard ER task in a block design (see Figure \@ref(fig:DesignERED)), similar to paradigms previously used by our group [@Scheffel2021].
 Participants will be told to actively view neutral and negative pictures (see [2.3.3](##stimuli)) or to regulate all upcoming emotions by means of distraction, distancing, and expressive suppression, respectively.
 Every participant first will have the condition "active viewing-neutral" that serves as a baseline condition.
 During this block, 20 neutral pictures will be presented.
@@ -115,7 +115,7 @@ Participants should make their decision freely, according to criteria they consi
 However, participants will be asked to state the reasons for the decision afterwards.
 As soon as they have decided, they will see the respective instruction and the block with another 20 negative pictures starts.
 
-```{r Design_ER-ED, echo = FALSE, message = FALSE, warning = FALSE, fig.cap="Block design of the paradigm. Every participant starts with two "active viewing" blocks continaing neutral (Block 1) and negative (Block 2) pictures. Order of the regulation blocks (Blocks 3, 4, and 5) is randomized between participants. After, the discounting procedure takes place. All three regulation strategies are pairwise compared. Before the last block, participants can decide which regulation strategy they want to reapply. Subjective arousal and effort ratings are assessed after each block using a slider on screen with a continuous scale."}
+```{r DesignERED, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Block design of the paradigm. Every participant starts with two \"active viewing\" blocks continaing neutral (Block 1) and negative (Block 2) pictures. Order of the regulation blocks (Blocks 3, 4, and 5) is randomized between participants. After, the discounting procedure takes place. All three regulation strategies are pairwise compared. Before the last block, participants can decide which regulation strategy they want to reapply. Subjective arousal and effort ratings are assessed after each block using a slider on screen with a continuous scale."}
 include_graphics(here("06_Paper", "ER-ED", "figures", "Design_ER-ED.png"))
 ```
 
