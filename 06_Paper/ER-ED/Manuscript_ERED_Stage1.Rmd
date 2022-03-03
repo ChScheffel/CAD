@@ -168,7 +168,7 @@ In the top half, the person has a clear preference for one of the three strategi
 In the lower half, they have no clear preference and therefore show an inconsistent response pattern. 
 This pattern can also be represented by our paradigm.
 
-```{r Design_ER-ED_appendix, echo=FALSE, message=FALSE, warning=FALSE}
+```{r DesignEREDappendix, echo=FALSE, message=FALSE, warning=FALSE}
 include_graphics(here("06_Paper", "ER-ED", "figures", "Design_ER-ED.png"))
 ```
 *Figure 2.* 
