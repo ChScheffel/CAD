@@ -28,7 +28,7 @@ This postulated temporal sequence of ER strategies influences their effectivenes
 It is meta-analytically proven that all mentioned strategies reduce subjective emotional arousal [@Webb2012].
 Distraction as a tactic of attentional deployment and (expressive) suppression as a tactic of response modulation showed small to medium effect sizes on measures of emotional experience (distraction: _d~+~_ = 0.27; suppression: _d~+~_ = 0.27).
 Distancing as tactic of cognitive change showed the highest effectiveness with an effect size of _d~+~_ = 0.45 [@Webb2012].
-Moreover, it is known that ER strategies reduce physiological responses of emotions, especially emotional valence as measured via facial electromyography (EMG). [@Zaehringer2020]. 
+Moreover, it is known that ER strategies reduce physiological responses of emotions, especially emotional valence as measured via facial electromyography (EMG)[@Zaehringer2020] .
 <!-- hier ist noch der Bezug zum Arousal drin gewesen, habe ich angepasst. Corrugator habe ich raus genommen, weil auch Levator untersucht wird (müssten sonst m.E. beide genannt werden.) Generell fehlt noch etwas die Einbettung, warum die beiden ausgewählt wurden. Soll ich da noch etwas ergänzen? bei Zaehringer wird der Levator überhaupt nicht genannt, die Metaanalyse bezieht sich nur auf den Corrugator. Wir hatten damals gesagt, dass viele der negativen Bilder primär auch recht eklig sind und daher der Levator passender sein könnte, weil er speuzifisch auf Ekel zu reagieren scheint, der Corrugator hingegen auf negative Bilder im Allgemeinen. Prinzipiell haben wir aber für beide die gleichen Hypothesen. Können aber auch warten, was die Reviewer sagen.--> 
 So these tactics from three different strategies proved to be effective in the short term. 
 However, in order to be able to make a statement on their general benefit, longer-term consequences must also be considered. 
@@ -90,14 +90,12 @@ This procedure will be repeated until all strategies have been compared.
 The SV of each strategy is calculated as the mean of this strategy's SV from all comparisons.
 In case a participant has a clear preference for one strategy, the SV of this strategy will be 1.
 But our paradigm can also account for the case that a person does not have a clear preference.
-Then no SV will be 1, but still, the SVs of all strategies can be interpreted as absolute values and in relation to the other strategy's SVs (see figure 1).
+Then no SV will be 1, but still, the SVs of all strategies can be interpreted as absolute values and in relation to the other strategy's SVs (see Figure \@ref(fig:ResponsePatterns)).
 Additionally, we will test our adapted paradigm in a *n*-back task and explore whether this paradigm can describe individuals that do not prefer the easiest *n*-back option (see Zerna et al., ...).
 
-```{r fig1, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Exemplary visualization of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can be represented by our paradigm."}
-include_graphics(here("99_Thinktank","Other","Paradigm_Scheme_T2.png" ))
+```{r ResponsePatterns, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Exemplary visualization of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can be represented by our paradigm."}
+include_graphics(here("06_Paper", "ER-ED", "figures", "Paradigm_Scheme_T2.png" ))
 ```
-
-## 1.2 The present study
 
 The aim of the present study is to evaluate whether this paradigm is suitable for determining SVs of ER strategies. 
 As a manipulation check, we want to investigate whether the ER strategies distraction, distancing, and suppression effectively reduce emotional arousal and physiological responses as well as whether they require cognitive effort. 
