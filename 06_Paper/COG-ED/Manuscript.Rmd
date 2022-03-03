@@ -240,10 +240,10 @@ Study data will be collected and managed using REDCap electronic data capture to
 ## Sampling plan
 
 Sample size determination was mainly based on the results of the analyses of Westbrook et al. [-@Westbrook2013] (see [Design Table](#DesignTableSection)).
-As there was no prior evidence on the magnitude of an interaction between *n*-back level and NFC, we assumed a small to medium effect size of $f=.175$.
-Sample size analysis with *G\*Power* [@Faul2007; @Faul2009] for a repeated measures ANOVA with within-between interaction indicated that we should collect data from at least 72 participants, assuming $\alpha=.05$ and $\beta=.95$.
-The power analyses of all other hypotheses yielded smaller necessary sample sizes.
-To account for technical errors and exclusions of physiological data of the second lab session due to excessive noise, we aim to collect data of 80 participants.
+The hypothesis that yielded the largest necessary sample size was a repeated measures ANOVA with within-between interaction of NFC and *n*-back level influencing SVs.
+Sample size analysis with *G\*Power* [@Faul2007; @Faul2009] indicated that we should collect data from at least 72 participants, assuming $\alpha=.05$ and $\beta=.95$.
+However, the sample size analysis for the hypotheses of the second lab session revealed a larger necessary sample size of 85 participants to find an effect of $d=-0.32$ of emotion regulation on facial muscle activity with $\alpha=.05$ and $\beta=.95$.
+To account for technical errors, noisy physiological data, or participants who indicate that they did not follow the instructions, we aim to collect about $50\%$ more data sets than necessary, $N=120$ in total.
 
 ## Analysis plan
 
