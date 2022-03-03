@@ -31,7 +31,7 @@ stim_neutral <- readxl::read_xlsx(file.path(here("01_Paradigms", "ER-ED", "ER_ED
 # 2. Method
 
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study [@Simmons2012].
-The paradigm was written and presented using *Psychopy* [@Peirce2019].
+The paradigm was written and presented using *PsychoPy* [@Peirce2019].
 We used *R* with *R Studio* [@RCore2021; @RStudioTeam2020] with the main packages *afex* [@Singmann2021] and *BayesFactor*[@Morey2021] for all analyses.
 The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at https://github.com/ChScheffel/CERED.<!-- eventually perhaps refer to the _script and R Markdown file_ -->
 A complete list of all measures assessed in the study can be found at OSF (<https://osf.io/vnj8x/>) and GitHub (https://github.com/ChScheffel/CERED).
@@ -45,8 +45,7 @@ Participants will receive 30€ in total or course credit for participation.
 
 ## 2.2 Pilot data
 
-The procedure described above was tested in a pilot study with $N=`r nrow(data_quest_pilot)`$ participants (`r length(which(data_quest_pilot$gender == 2))` female; age: $M = `r papaja::printnum(mean(data_quest_pilot[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`\text{ }\pm\text{ }SD = `r papaja::printnum(sd(data_quest_pilot[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`$).
-<!-- direkt "above" wird das nicht beschrieben, die genaue procedure wird eigentlich auch erst unten beschrieben. Ich würde eher schreiben "The newly developed ER paradigm was tested in a pilot study" oder so ähnlich. --> 
+The newly developed ER paradigm was tested in a pilot study with $N=`r nrow(data_quest_pilot)`$ participants (`r length(which(data_quest_pilot$gender == 2))` female; age: $M = `r papaja::printnum(mean(data_quest_pilot[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`\text{ }\pm\text{ }SD = `r papaja::printnum(sd(data_quest_pilot[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`$).
 Regarding self-reported arousal, results showed significant higher subjective arousal for active viewing of negative compared to neutral pictures.
 <!-- Signifikanz beruht auf p-Werten? Würde ich angeben. --> 
 However, ER strategies did not lead to a reduction of subjective arousal compared to active viewing of negative pictures.
