@@ -159,10 +159,24 @@ The authors declare no competing interests.
 # Figures and figure captions
 
 \newpage
-```{r fig1appendix, echo = FALSE, message = FALSE, warning = FALSE}
-include_graphics(here("99_Thinktank","Other","Paradigm_Scheme_T2.png" ))
+```{r ResponsePatternsAppendix, echo = FALSE, message = FALSE, warning = FALSE}
+include_graphics(here("06_Paper","ER-ED", "figures", "Paradigm_Scheme_T2.png" ))
 ```
-*Figure 1.* Exemplary visualization of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can also be represented by our paradigm.
+*Figure 1.* 
+Exemplary visualization of two response patterns. 
+In the top half, the person has a clear preference for one of the three strategies. 
+In the lower half, they have no clear preference and therefore show an inconsistent response pattern. 
+This pattern can also be represented by our paradigm.
+
+```{r Design_ER-ED_appendix, echo=FALSE, message=FALSE, warning=FALSE}
+include_graphics(here("06_Paper", "ER-ED", "figures", "Design_ER-ED.png"))
+```
+*Figure 2.* 
+Block design of the paradigm. 
+Every participant starts with two "active viewing" blocks continaing neutral (Block 1) and negative (Block 2) pictures. 
+Order of the regulation blocks (Blocks 3, 4, and 5) is randomized between participants. After, the discounting procedure takes place.
+All three regulation strategies are pairwise compared. Before the last block, participants can decide which regulation strategy they want to reapply. 
+Subjective arousal and effort ratings are assessed after each block using a slider on screen with a continuous scale.
 
 # Design Table {#DesignTable}
 
@@ -269,7 +283,7 @@ Figure:
 
 print(FigSubjArousalRegPilot)
 ```
-## Pilot study: Physiological arousal (*Corrugator* and *Levator* activity) in the conditions "Active viewing - neutral" and "Active viewing - negative"
+## Pilot study: Physiological responding (*Corrugator* and *Levator* activity) in the conditions "Active viewing - neutral" and "Active viewing - negative"
 *Corrugator*:
 ANOVA: 
 `r afex::nice(EMGCorrView_pilot_aov) %>% knitr::kable(x = .)`
@@ -279,7 +293,7 @@ Paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
   EMGCorrView_pilot_con,
-  caption = "Paired contrasts for the rmANOVA comparing physiological arousal (Corrugator activity) of negative and neutral pictures in the condition \"active viewing\".",
+  caption = "Paired contrasts for the rmANOVA comparing physiological responding (Corrugator activity) of negative and neutral pictures in the condition \"active viewing\".",
   note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.", 
   escape = FALSE,
   placement = "H"
@@ -294,7 +308,7 @@ Paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
   EMGLevView_pilot_con,
-  caption = "Paired contrasts for the rmANOVA comparing physiological arousal (Levator activity) of negative and neutral pictures in the condition \"active viewing\".",
+  caption = "Paired contrasts for the rmANOVA comparing physiological responding (Levator activity) of negative and neutral pictures in the condition \"active viewing\".",
   note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.", 
   escape = FALSE,
   placement = "H"
@@ -309,7 +323,7 @@ print(FigEMGCorrViewPilot)
 
 print(FigEMGLevViewPilot)
 ```
-## Pilot study: Physiological arousal (*Corrugator* and *Levator* activity) in the conditions"Active viewing - negative", "Distraction", "Distancing", and "Suppression"
+## Pilot study: Physiological responding (*Corrugator* and *Levator* activity) in the conditions"Active viewing - negative", "Distraction", "Distancing", and "Suppression"
 *Corrugator*:
 ANOVA: 
 `r afex::nice(EMGCorrReg_pilot_aov) %>% knitr::kable(x = .)`
@@ -319,7 +333,7 @@ Paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
   EMGCorrReg_pilot_con,
-  caption = "Paired contrasts for the rmANOVA comparing physiological arousal (Corrugator activity) of conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\".",
+  caption = "Paired contrasts for the rmANOVA comparing physiological responding (Corrugator activity) of conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\".",
   note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.", 
   escape = FALSE,
   placement = "H"
@@ -334,7 +348,7 @@ Paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
   EMGLevReg_pilot_con,
-  caption = "Paired contrasts for the rmANOVA comparing physiological arousal (Levator activity) of conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\".",
+  caption = "Paired contrasts for the rmANOVA comparing physiological respodning (Levator activity) of conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\".",
   note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.", 
   escape = FALSE,
   placement = "H"
