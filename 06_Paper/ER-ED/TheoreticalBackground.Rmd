@@ -57,9 +57,6 @@ What has been missing in research on ER choice so far is information regarding t
 People choose a strategy that they prefer for different, relatively well-known reasons. 
 However, nothing is revealed about the strategy that is *not chosen*.
 
-
-<!-- der nächste Absatz hier ist doppelt, daher gelöscht. --> 
-
 We assume that people choose the strategy that has the highest value for them at the moment.
 The value is determined against the background of goal achievement in the specific situation: A strategy is highly valued if it facilitates goal achievement [@Aldao2015]. 
 One certainly central goal is the regulation of negative affect.
@@ -103,17 +100,15 @@ include_graphics(here("99_Thinktank","Other","Paradigm_Scheme_T2.png" ))
 ## 1.2 The present study
 
 The aim of the present study is to evaluate whether this paradigm is suitable for determining SVs of ER strategies. 
-As a manipulation check, we want to investigate whether the ER strategies distraction, distancing, and suppression effectively reduce emotional arousal and physiologicall responses as well as whether they require cognitive effort. The following hypotheses are proposed:
-<!-- ich würde hier  investigate schreiben, oder wird hier tatsächlich "nur" exploriert? 
-es gibt bisher noch keine Begründnung/Einbettung der nachfolgenden Hypothesen. Z.B.: Warum wird Corrugator und Levator untersucht? m.E. müsste oben jeweils noch ein Satz ergänzt werden, warum genau diese Variable in der aktuellen Studie untersucht werden soll.--> 
+As a manipulation check, we want to investigate whether the ER strategies distraction, distancing, and suppression effectively reduce emotional arousal and physiological responses as well as whether they require cognitive effort. 
+The following hypotheses are proposed:
+<!-- es gibt bisher noch keine Begründnung/Einbettung der nachfolgenden Hypothesen. Z.B.: Warum wird Corrugator und Levator untersucht? m.E. müsste oben jeweils noch ein Satz ergänzt werden, warum genau diese Variable in der aktuellen Studie untersucht werden soll.--> 
 
 * H1a) Subjective arousal (arousal ratings) is lower after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
 * H2a) Physiological responses in facial EMG that is sensitive to negative emotion (*corrugator* activity) are lower after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
 * H2b) Physiological responses in facial EMG that is sensitive to negative emotion (*levator* activity) are lower after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
 * H3a) Subjective effort (effort ratings) is greater after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
 * H3b) The majority of participants re-uses the strategy that was least effortful for them.
-
-<!-- die letzte Hypothese finde ich etwas unklar formuliert, z.B. was heißt "majority", lässt sich das spezifieren (z.B. > 50%?) -->
 
 Furthermore, we want to investigate whether the following variables predict individual subjective values of ER strategies and whether effort is the best predictor for SVs of ER strategies with the following hypotheses:
 
@@ -123,14 +118,9 @@ Furthermore, we want to investigate whether the following variables predict indi
 * H4d) EMG *levator* activity negatively predicts SVs of ER strategies.
 * H5a) SVs decline with increasing effort, even after controlling for task performance measured by subjective arousal ratings, *corrugator* and *levator* activity.
 
-<!-- beim Lesen hatte ich den Eindruck, dass bis hierhin klare Hypothesen stehen und erst danach der exploratorische Teil kommt.
-habe mich hier auch wieder kurz gefragt, warum wir die EDA nicht erfassen. in der MA von Zaehringer sieht man, dass die Effektgröße für SCR nahe Null liegt. besser sieht es aber für die SCL aus. wenn deine Strategien erneut in Blöcken dargeboten werden, könnte man überlegen die SCL über die verschiedenen Blöcke zu erheben. Man könnte dann Zulassen vs. einzelne ER Strategien vs. Choice Block untersuchen. Können aber nach wie vor gern auf die Reviewer Anmerkung warten, vielleicht schlagen sie das vor. --> 
-
-We also want to explore whether SVs are related to flexible emotion regulation:
+We also want to investigate whether SVs are related to flexible emotion regulation:
 
 * H6a) The higher the SV, the more likely the respective strategy is chosen.
 * H6b) SVs are lower and decline stronger when ER flexibility is lower.
 
 Exploratorily, we want to investigate whether individual SVs are related to personality traits and how individual SVs of ER strategies relate to SVs of other tasks with different demand levels, namely *n*-back.
-<!-- bei den exploratorischen Hypothesen sollte auf multiples Testen korrigiert werden (oder auch insgesamt...). wird darauf bei den Methoden ausreichend eingegangen? --> 
-
