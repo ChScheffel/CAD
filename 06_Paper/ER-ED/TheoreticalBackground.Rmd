@@ -46,14 +46,15 @@ A growing number of studies report findings about the repertoire of emotion regu
 Lougheed, J. P., & Hollenstein, T. (2012). A limited repertoire of emotion regulation strategies is associated with internalizing problems in adolescence. Social Development, 21(4), 704-721. doi:10.1111/j.1467-9507.2012.00663.x
 Southward, M. W., Altenburger, E. M., Moss, S. A., Cregg, D. R., & Cheavens, J. S. (2018). Flexible, yet firm: A model of healthy emotion regulation. Journal of Social and Clinical Psychology, 37(4), 231-251. doi:10.1521/jscp.2018.37.4.231-->
 Additionally, greater ER flexibility is related to reduced negative affect and therefore beneficial in daily life [@Blanke2020].
+
 How do people choose strategies from their repertoire? 
 Similarly to the expectancy-value model of emotion regulation <!-- Tamir et al, siehe comment oben --> it could be assumed, that people also assign a value to an ER strategy reflecting the usefulness of this strategy for goal achieving.
-Evidence from other contexts (e.g., intertemporal choice, [@Kable2007]) shows that subjective values (SVs) are attributed to the choice options on the basis of which the decision is made.
+Evidence from other psychological domains (e.g., intertemporal choice, [@Kable2007]) shows that subjective values (SVs) are attributed to the choice options on the basis of which the decision is made. <!-- Der letzte Teil des Satzes klingt komisch, weiß aber nicht so richtig, was ihr sagen wollt.-->
 Research on ER choice has identified numerous factors that influence the choice of ER strategies, which can be seen as indirect evidence for factors influencing SVs. 
-For example, it was shown that the intensity of a stimulus or situation plays a role in the choice [@Sheppes2011]. 
-Higher intensity of the stimulus leads to a choice of rather disengaging strategies, like distraction [@Sheppes2011;@Sheppes2014].
-Further influencing factors are for example extrinsic motivation (e.g., monetary incentives), motivational determinants (i.e., hedonic regulatory goals), and effort [@Sheppes2014;@Scheffel2021].
-Especially for effort, in our previous work we could show that the choice for an ER strategy is mainly influenced by the effort required to implement a given strategy [@Scheffel2021].
+For example, a study found that the intensity of a stimulus or situation plays a role in the choice [@Sheppes2011]. 
+Higher intensity of the (negative) stimulus lead to a choice of rather disengaging strategies <!-- oder 'of tactics of attentional deployment'?-->, like distraction [@Sheppes2011;@Sheppes2014].
+ER choice was further influenced by, among others, extrinsic motivation (e.g., monetary incentives), motivational determinants (i.e., hedonic regulatory goals), and effort [@Sheppes2014;@Scheffel2021].
+With regard to effort, we could show in our previous work that the choice for an ER strategy is mainly influenced by the effort required to implement a given strategy [@Scheffel2021].
 In this study, participants used the strategies distancing and suppression while inspecting emotional pictures.
 Afterwards, they choose which strategy they wanted to use again.
 Participants tended to re-apply the strategy that was subjectively less effortful, even though it was subjectively not the most effective one - in this case: suppression.
