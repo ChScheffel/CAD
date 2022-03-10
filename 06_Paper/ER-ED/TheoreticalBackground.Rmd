@@ -98,15 +98,20 @@ include_graphics(here("06_Paper", "ER-ED", "figures", "Paradigm_Scheme_T2.png" )
 ```
 
 The aim of the present study is to evaluate whether this paradigm is suitable for determining SVs of ER strategies. 
-As a manipulation check, we first want to investigate whether the valence (neutral, negative) of the pictures is effecting subjective and physiological arousal (EMG). <!-- Denise: "or/and physiological valence" see comment below --> Second, we want to check whether the ER strategies distraction, distancing, and suppression effectively reduce subjective and physiological arousal as well as whether they require cognitive effort. 
+As a manipulation check, we first want to investigate whether the valence (neutral, negative) of the pictures is effecting subjective and physiological arousal (EMG). <!-- Denise: "or/and physiological valence" see comment below --> Second, we want to check whether the ER strategies distraction, distancing, and suppression effectively reduce subjective and physiological arousal as well as, third, whether they require cognitive effort. 
 The following hypotheses are proposed:
 <!-- es gibt bisher noch keine Begründnung/Einbettung der nachfolgenden Hypothesen. Z.B.: Warum wird Corrugator und Levator untersucht? m.E. müsste oben jeweils noch ein Satz ergänzt werden, warum genau diese Variable in der aktuellen Studie untersucht werden soll.--> <!-- Denise: ja, das hab ich auch bemerkt, ist EMG auch arousal? Dann dies erstens noch einführen und argumentieren und dann auch als physiological arousal aufführen. oder steht corrugator für arousal und levator für valence? dann auch so benennen. Außerdem subjective ratings auch immer konsistent benennen. Ich schlage vor hier in den hypothesen immer von subjective arousal zu sprechen, dies dann im Methodenteil über die subjective ratings operationalisieren (fehlt übrigens im Methodenteil noch.-->
+<!-- Denise: im analysis plan habt ihr auch den vergleich negative vs. neutral (active viewing) beschrieben, deshalb hab ich das hier mal als Hypothese aufgenommen-->
 
 
+* H1a) Subjective arousal is lower after actively viewing neutral pictures compared to actively viewing negative pictures. 
+* H1b) Physiological arousal (EMG *corrugator* activity) is lower while actively viewing neutral pictures compared to actively viewing negative pictures.
+* H1c) Physiological arousal (EMG *levator* activity) is lower while actively viewing neutral pictures compared to actively viewing negative pictures. 
+<!-- Denise: or physiological valence, see comment above -->
 
-* H1a) Subjective arousal (arousal ratings) is lower after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
-* H2a) Physiological responses in facial EMG that is sensitive to negative emotion (*corrugator* activity) are lower after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
-* H2b) Physiological responses in facial EMG that is sensitive to negative emotion (*levator* activity) are lower after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
+* H2a) Subjective arousal (arousal ratings) is lower after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
+* H2b) Physiological responses in facial EMG that is sensitive to negative emotion (*corrugator* activity) are lower after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
+* H2c) Physiological responses in facial EMG that is sensitive to negative emotion (*levator* activity) are lower after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
 * H3a) Subjective effort (effort ratings) is greater after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
 * H3b) The majority of participants re-uses the strategy that was least effortful for them.
 
