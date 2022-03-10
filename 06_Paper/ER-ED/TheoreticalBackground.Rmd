@@ -45,8 +45,9 @@ A growing number of studies report findings about the repertoire of emotion regu
 <!-- Dixon-Gordon, K. L., Aldao, A., & De Los Reyes, A. (2015). Repertoires of emotion regulation: A person-centered approach to assessing emotion regulation strategies and links to psychopathology. Cogn Emot, 29(7), 1314-1325. doi:10.1080/02699931.2014.983046
 Lougheed, J. P., & Hollenstein, T. (2012). A limited repertoire of emotion regulation strategies is associated with internalizing problems in adolescence. Social Development, 21(4), 704-721. doi:10.1111/j.1467-9507.2012.00663.x
 Southward, M. W., Altenburger, E. M., Moss, S. A., Cregg, D. R., & Cheavens, J. S. (2018). Flexible, yet firm: A model of healthy emotion regulation. Journal of Social and Clinical Psychology, 37(4), 231-251. doi:10.1521/jscp.2018.37.4.231-->
-For example, greater ER flexibility is related to reduced negative affect and therefore beneficial in daily life [@Blanke2020].
-Strategies have to be chosen from the repertoire that are useful for goal achieving.
+Additionally, greater ER flexibility is related to reduced negative affect and therefore beneficial in daily life [@Blanke2020].
+How do people choose strategies from their repertoire? 
+Similarly to the expectancy-value model of emotion regulation <!-- Tamir et al, siehe comment oben --> it could be assumed, that people also assign a value to an ER strategy reflecting the usefulness of this strategy for goal achieving.
 Evidence from other contexts (e.g., intertemporal choice, [@Kable2007]) shows that subjective values (SVs) are attributed to the choice options on the basis of which the decision is made.
 Research on ER choice has identified numerous factors that influence the choice of ER strategies, which can be seen as indirect evidence for factors influencing SVs. 
 For example, it was shown that the intensity of a stimulus or situation plays a role in the choice [@Sheppes2011]. 
