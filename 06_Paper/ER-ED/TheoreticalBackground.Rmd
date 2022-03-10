@@ -118,10 +118,13 @@ The following hypotheses are proposed:
 
 Furthermore, we want to investigate whether the following variables predict individual subjective values of ER strategies and whether effort is the best predictor for SVs of ER strategies with the following hypotheses:
 
-* H4a) Subjective effort ratings negatively predict SVs of ER strategies.
-* H4b) Subjective arousal ratings negatively predict SVs of ER strategies.
-* H4c) EMG *corrugator* activity negatively predicts SVs of ER strategies.
-* H4d) EMG *levator* activity negatively predicts SVs of ER strategies.
+* H4a) Subjective effort negatively predicts SVs of ER strategies.
+* H4b) Subjective arousal negatively predicts SVs of ER strategies.
+* H4c) Physiological arousal / valence (EMG *corrugator* activity) negatively predicts SVs of ER strategies.
+* H4d) Physiological arousal / valence (EMG *levator* activity) negatively predicts SVs of ER strategies.
+
+<!-- Denise: Für Hyp. 4 kann ich leider ganz schlecht beurteilen, ob eure stat. Analyse diese Hyp. beantwortet, da ich die stat. Analyse noch nicht so richtig verstanden habe --> 
+
 * H5a) SVs decline with increasing effort, even after controlling for task performance measured by subjective arousal ratings, *corrugator* and *levator* activity.
 
 We also want to investigate whether SVs are related to flexible emotion regulation:
