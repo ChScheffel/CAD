@@ -129,9 +129,11 @@ Furthermore, we want to investigate whether the following variables predict indi
 
 <!-- Gibt es zu Hyp. 5 einen Abschnitt im 'Analysis Plan'? Das MLM? Ich schlage vor, dass der Analysis Plan streng nach den Hypothesen geordnet wird, dann ist es viel leichter zu lesen, zu verstehen und ihr vergesst auch nichts.-->
 
-We also want to investigate whether SVs are related to flexible emotion regulation:
+We also want to investigate whether SVs are related to flexible emotion regulation: <!-- Denise: Ihr habt ER Flex schon im Theoretischen Hintergrund eingeführt, aber mir fehlt noch bischen der differentielle Aspekt, den ihr ja hier untersuchen wollt. Ich versuche, dies mal oben reinzuformulieren. -->
 
-* H6a) The higher the SV, the more likely the respective strategy is chosen.
-* H6b) SVs are lower and decline stronger when ER flexibility is lower.
+* H6a) The higher the SV, the more likely the respective strategy is chosen. <!-- warum ist diese Hyp. hier bei ER Flexbility?-->
+* H6b) SVs are lower and decline stronger when ER flexibility is lower. 
+
+<!-- Denise: Hyp. 6b Was heißt "decline stronger?" Meint ihr "decline stronger with increasing effort" oder "decline from strategy A to stratey B"? Mein Problem ist, dass ich immer noch nicht 100% durch das ERED Paradigma durchsteige und die Auswertung der SVs auch noch nicht 100% verstehe. Das liegt nicht unbedingt an eurem Methodenteil, aber eventuell muss das noch etwas ausführlicher beschrieben werden. Da es anderen Reviewers ja auch so gehen könnte.--> 
 
 Exploratorily, we want to investigate whether individual SVs are related to personality traits and how individual SVs of ER strategies relate to SVs of other tasks with different demand levels, namely *n*-back.
