@@ -100,7 +100,9 @@ include_graphics(here("06_Paper", "ER-ED", "figures", "Paradigm_Scheme_T2.png" )
 The aim of the present study is to evaluate whether this paradigm is suitable for determining SVs of ER strategies. 
 As a manipulation check, we want to investigate whether the ER strategies distraction, distancing, and suppression effectively reduce emotional arousal and physiological responses as well as whether they require cognitive effort. 
 The following hypotheses are proposed:
-<!-- es gibt bisher noch keine Begründnung/Einbettung der nachfolgenden Hypothesen. Z.B.: Warum wird Corrugator und Levator untersucht? m.E. müsste oben jeweils noch ein Satz ergänzt werden, warum genau diese Variable in der aktuellen Studie untersucht werden soll.--> 
+<!-- es gibt bisher noch keine Begründnung/Einbettung der nachfolgenden Hypothesen. Z.B.: Warum wird Corrugator und Levator untersucht? m.E. müsste oben jeweils noch ein Satz ergänzt werden, warum genau diese Variable in der aktuellen Studie untersucht werden soll.--> <!-- Denise: ja, das hab ich auch bemerkt-->
+
+
 
 * H1a) Subjective arousal (arousal ratings) is lower after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
 * H2a) Physiological responses in facial EMG that is sensitive to negative emotion (*corrugator* activity) are lower after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
