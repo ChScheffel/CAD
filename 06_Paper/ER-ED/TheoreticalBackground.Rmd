@@ -127,6 +127,8 @@ Furthermore, we want to investigate whether the following variables predict indi
 
 * H5a) SVs decline with increasing effort, even after controlling for task performance measured by subjective arousal ratings, *corrugator* and *levator* activity.
 
+<!-- Gibt es zu Hyp. 5 einen Abschnitt im 'Analysis Plan'? Das MLM? Ich schlage vor, dass der Analysis Plan streng nach den Hypothesen geordnet wird, dann ist es viel leichter zu lesen, zu verstehen und ihr vergesst auch nichts.-->
+
 We also want to investigate whether SVs are related to flexible emotion regulation:
 
 * H6a) The higher the SV, the more likely the respective strategy is chosen.
