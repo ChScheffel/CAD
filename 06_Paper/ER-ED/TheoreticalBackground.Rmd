@@ -125,7 +125,7 @@ Furthermore, we want to investigate whether the following variables predict indi
 
 <!-- Denise: Für Hyp. 4 kann ich leider ganz schlecht beurteilen, ob eure stat. Analyse diese Hyp. beantwortet, da ich die stat. Analyse noch nicht so richtig verstanden habe --> 
 
-* H5a) SVs decline with increasing effort, even after controlling for task performance measured by subjective arousal ratings, *corrugator* and *levator* activity.
+* H5a) SVs decline with increasing effort, even after controlling for task performance (decline in subjective arousal after ER), and physiological arousal (EMF *corrugator* and *levator* activity).
 
 <!-- Gibt es zu Hyp. 5 einen Abschnitt im 'Analysis Plan'? Das MLM? Ich schlage vor, dass der Analysis Plan streng nach den Hypothesen geordnet wird, dann ist es viel leichter zu lesen, zu verstehen und ihr vergesst auch nichts.-->
 
