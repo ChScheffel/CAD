@@ -114,7 +114,7 @@ The following hypotheses are proposed:
 * H2c) Physiological arousal <!-- Denise: or physiological valence, see comment above --> (EMG *levator* activity) is lower while using an ER strategy (distraction, distancing, suppression) compared to active viewing.
 
 * H3a) Subjective effort is greater after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
-* H3b) The majority of participants re-uses the strategy that was least effortful for them.
+* H3b) The majority of participants re-uses the strategy that was least effortful for them. <!-- Könnt ihr diese Hypothese statistisch testen? Finde im 'Analysis Plan' nicht, wie ihr das testen möchtet, das muss dort noch erklärt werden. Mein Vorschlag für diese Hypothese: When having free choice, participants re-use the strategy with less subjective effort.-->
 
 Furthermore, we want to investigate whether the following variables predict individual subjective values of ER strategies and whether effort is the best predictor for SVs of ER strategies with the following hypotheses:
 
