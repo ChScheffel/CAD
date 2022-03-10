@@ -98,9 +98,9 @@ include_graphics(here("06_Paper", "ER-ED", "figures", "Paradigm_Scheme_T2.png" )
 ```
 
 The aim of the present study is to evaluate whether this paradigm is suitable for determining SVs of ER strategies. 
-As a manipulation check, we want to investigate whether the ER strategies distraction, distancing, and suppression effectively reduce emotional arousal and physiological responses as well as whether they require cognitive effort. 
+As a manipulation check, we first want to investigate whether the valence (neutral, negative) of the pictures is effecting subjective and physiological arousal (EMG). <!-- Denise: "or/and physiological valence" see comment below --> Second, we want to check whether the ER strategies distraction, distancing, and suppression effectively reduce subjective and physiological arousal as well as whether they require cognitive effort. 
 The following hypotheses are proposed:
-<!-- es gibt bisher noch keine Begründnung/Einbettung der nachfolgenden Hypothesen. Z.B.: Warum wird Corrugator und Levator untersucht? m.E. müsste oben jeweils noch ein Satz ergänzt werden, warum genau diese Variable in der aktuellen Studie untersucht werden soll.--> <!-- Denise: ja, das hab ich auch bemerkt-->
+<!-- es gibt bisher noch keine Begründnung/Einbettung der nachfolgenden Hypothesen. Z.B.: Warum wird Corrugator und Levator untersucht? m.E. müsste oben jeweils noch ein Satz ergänzt werden, warum genau diese Variable in der aktuellen Studie untersucht werden soll.--> <!-- Denise: ja, das hab ich auch bemerkt, ist EMG auch arousal? Dann dies erstens noch einführen und argumentieren und dann auch als physiological arousal aufführen. oder steht corrugator für arousal und levator für valence? dann auch so benennen. Außerdem subjective ratings auch immer konsistent benennen. Ich schlage vor hier in den hypothesen immer von subjective arousal zu sprechen, dies dann im Methodenteil über die subjective ratings operationalisieren (fehlt übrigens im Methodenteil noch.-->
 
 
 
