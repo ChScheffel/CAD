@@ -87,19 +87,19 @@ In the present study, we want to use this paradigm to determine SVs of ER strate
 In doing so, we need to make an important change: We have to adapt the assumption that the easiest *n*-back level has the highest SV.
 As we have shown in previous studies, there are large inter-individual differences in the preference and perceived subjective effort of ER strategies [@Scheffel2021].
 Moreover, there is nothing like an objectively easiest ER strategy.
-Therefore, we have to add an additional step, which preceeds the other steps and where the option with the higher subjective value is determined. 
+Therefore, we have to add an additional step, which precedes the other steps and where the ER option with the higher subjective value is determined. 
 In this step, the same monetary value (i.e., 1 €) is assigned to both options.
 The assumption is that participants now choose the option that has the higher SV for them.
 In the next step we return to the original paradigm.
 The higher monetary value (i.e., 2 €) is assigned to the option that was not chosen in the first step and therefore is assumed to have the lower SV.
-In the following steps, the lower value is changed in every iteration according to Westbrook et al. [-@Westbrook2013] until the indifference point is reached.
+In the following steps, the lower value is changed in every iteration according to Westbrook et al. [-@Westbrook2013] until the indifference point is reached. <!-- Hier komme ich noch nicht so ganz mit, könntet ihr das noch klarer beschreiben, was hier passiert? Meint ihr folgendes?: ... The lower monetary value is assigned to different options? oder The lower monetary value is further lowered? Also wird geschaut, wie tief der Wert sein muss, damit die andere Strategie gewählt wird? Sorry, obwohl ihr es schon so oft erklärt habt, bin ich hier immer noch lost, aber das könnte ja anderen Reviewers auch so gehen. Und das die Revs genau in Westbrook schauen, das könnt ihr leider nicht erwarten. -->
 This procedure will be repeated until all strategies have been compared.
 The SV of each strategy is calculated as the mean of this strategy's SV from all comparisons.
 In case a participant has a clear preference for one strategy, the SV of this strategy will be 1.
 But our paradigm can also account for the case that a person does not have a clear preference.
 Then no SV will be 1, but still, the SVs of all strategies can be interpreted as absolute values and in relation to the other strategy's SVs (see Figure \@ref(fig:ResponsePatterns)).
-Additionally, we will test our adapted paradigm in a *n*-back task and explore whether this paradigm can describe individuals that do not prefer the easiest *n*-back option (see Zerna et al., ...).
-
+In a separate study, we will test our adapted paradigm together with a *n*-back task and explore whether this paradigm can describe individuals that do not prefer the easiest *n*-back option (see Zerna et al., ...).
+<!-- Figure 1 macht das Paradigma schon deutlicher, aber alles verstehe ich noch nicht, z.B. es könnte deutlicher werden, dass der monetäre Wert für die gewählte Strategie sich über die mehreren durchläufe ergibt (übrigens sprecht ihr manchmal von € manchmal von $ das sollte einheitlich sein). Und was ich leider gar nicht verstehe, ist wie sich immer der Wert 1 für die am Ende preferierte Strategie ergibt (also z.B. in der oberen Hälfte SV StrategyB(Strategy A) = 1)-->
 ```{r ResponsePatterns, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Exemplary visualization of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can be represented by our paradigm."}
 include_graphics(here("06_Paper", "ER-ED", "figures", "Paradigm_Scheme_T2.png" ))
 ```
