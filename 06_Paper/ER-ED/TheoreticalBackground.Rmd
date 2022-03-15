@@ -46,7 +46,7 @@ Additionally, greater ER flexibility is related to reduced negative affect and t
 How do people choose strategies from their repertoire? 
 Similarly to the expectancy-value model of emotion regulation [@Tamir2015] it could be assumed, that people also assign a value to an ER strategy reflecting the usefulness of this strategy for goal achieving.
 Evidence from other psychological domains (e.g., intertemporal choice, [@Kable2007]) shows that subjective values (SVs) are attributed to the choice options on the basis of which the decision is made. 
-Research on ER choice has identified numerous factors that influence the choice of ER strategies, which can be seen as indirect evidence for factors influencing SVs. 
+Research on ER choice has identified numerous factors that influence the choice of ER strategies, which can be seen as indirect evidence for factors influencing SVs[@Sheppes2014]. 
 For example, a study found that the intensity of a stimulus or situation plays a role in the choice [@Sheppes2011]. 
 Higher intensity of the (negative) stimulus lead to a choice of rather disengaging tactics of attentional deployment, like distraction [@Sheppes2011;@Sheppes2014].
 ER choice was further influenced by, among others, extrinsic motivation (e.g., monetary incentives), motivational determinants (i.e., hedonic regulatory goals), and effort [@Sheppes2014;@Scheffel2021].
@@ -55,15 +55,15 @@ In our study, participants used the strategies distancing and suppression while 
 Afterwards, they choose which strategy they wanted to use again.
 Participants tended to re-apply the strategy that was subjectively less effortful, even though it was subjectively not the most effective one - in this case: suppression.
 Interestingly, the choice was independent of self-reported habitual use of suppression and reappraisal.
-What has been missing in research on ER choice so far is information regarding the strategy *not* chosen.<!-- Denise: und fehlen nicht auch noch mehr Studien, die speziell effort im Blick haben? -->
-People choose a strategy that they prefer for different, relatively well-known reasons[@Sheppes2014]. <!-- Denise: Ist das so? Na gut, es gibt schon einiges an Choice und Goals, aber zu Effort als reason? Ich bin nicht ganz überzeugt davon, dass die Argumentation sich ab hier vor allem auf die nicht gewählte Strategie fokussiert. Kann man nicht auch sagen, dass es noch zu wenig zu effort gibt, das Scheffel2021 eine der ersten war, die mehrere Strategien hinsichtlich effort mit subjektiven, physiologischen und Verhaltensmaßen untersucht hat, dass sich nun die Frage stellt, was genau der subjektive Effort macht, nämlich den Subjective Value beeinflussen, dass dies eben auch für die gewählte Strategie oder im Vergleich mehrerer Taktiken noch nicht untersucht wurde. Und das ihr deshalb nun so vorgeht? -->
+This could be seen as an indirect evidence that subjective effort has an influence on SVs of ER strategies
+ <!-- Denise: Ist das so? Na gut, es gibt schon einiges an Choice und Goals, aber zu Effort als reason? Ich bin nicht ganz überzeugt davon, dass die Argumentation sich ab hier vor allem auf die nicht gewählte Strategie fokussiert. Kann man nicht auch sagen, dass es noch zu wenig zu effort gibt, das Scheffel2021 eine der ersten war, die mehrere Strategien hinsichtlich effort mit subjektiven, physiologischen und Verhaltensmaßen untersucht hat, dass sich nun die Frage stellt, was genau der subjektive Effort macht, nämlich den Subjective Value beeinflussen, dass dies eben auch für die gewählte Strategie oder im Vergleich mehrerer Taktiken noch nicht untersucht wurde. Und das ihr deshalb nun so vorgeht? -->
 
 We assume that people choose the strategy that has the highest value for them at the moment.
 The value is determined against the background of goal achievement in the specific situation: A strategy is highly valued if it facilitates goal achievement [@Aldao2015]. 
 One certainly central goal is the regulation of negative affect.
 A second, intrinsic and less obvious goal is the avoidance of effort [@Inzlicht2018].
 When given the choice, most individuals prefer tasks that are less effortful [@Hull1943].
-We assume that both aspects are traded off against each other by individuals to determine individual subjective values (SVs) of ER strategies: A strategy is more valuable if it can reduce emotional arousal *and* is less effortful. <!-- Genau, die Argumentation ist super, nur braucht ihr dafür oben den Hinweis auf die nicht gewählte Strategie?-->
+We assume that both aspects are traded off against each other by individuals to determine individual subjective values (SVs) of ER strategies: A strategy is more valuable if it can reduce emotional arousal *and* is less effortful.
 SVs of ER Strategies could therefore be helpful to describe the ER repertoire [@Aldao2015] more comprehensively.
 Depending on the flexibility of a person, different patterns of SVs could be conceivable: A person with high flexibility would show relatively high SVs for a number of strategies.
 This would mean that all strategies are a good option for goal achievement.
@@ -111,12 +111,12 @@ The following hypotheses are proposed:
 * H1b) Physiological responding (EMG *corrugator* activity) is lower while actively viewing neutral pictures compared to actively viewing negative pictures.
 * H1c) Physiological responding (EMG *levator* activity) is lower while actively viewing neutral pictures compared to actively viewing negative pictures. 
 
-* H2a) Subjective arousal is lower after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
-* H2b) Physiological responding (EMG *corrugator* activity) is lower while using an ER strategy (distraction, distancing, suppression) compared to active viewing.
-* H2c) Physiological responding (EMG *levator* activity) is lower while using an ER strategy (distraction, distancing, suppression) compared to active viewing.
+* H2a) Subjective arousal (arousal rating) is lower after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
+* H3a) Physiological responding (EMG *corrugator* activity) is lower while using an ER strategy (distraction, distancing, suppression) compared to active viewing.
+* H3b) Physiological responding (EMG *levator* activity) is lower while using an ER strategy (distraction, distancing, suppression) compared to active viewing.
 
-* H3a) Subjective effort is greater after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
-* H3b) The majority of participants re-uses the strategy that was least effortful for them. <!-- Könnt ihr diese Hypothese statistisch testen? Finde im 'Analysis Plan' nicht, wie ihr das testen möchtet, das muss dort noch erklärt werden. Mein Vorschlag für diese Hypothese: When having free choice, participants re-use the strategy with less subjective effort.-->
+* H4a) Subjective effort (effort rating) is greater after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
+* H3b) The majority of participants re-uses the strategy that was least effortful for them. 
 
 Furthermore, we want to investigate whether the following variables predict individual subjective values of ER strategies and whether effort is the best predictor for SVs of ER strategies with the following hypotheses:
 
