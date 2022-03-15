@@ -116,20 +116,20 @@ The following hypotheses are proposed:
 * H3b) Physiological responding (EMG *levator* activity) is lower while using an ER strategy (distraction, distancing, suppression) compared to active viewing.
 
 * H4a) Subjective effort (effort rating) is greater after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
-* H3b) The majority of participants re-uses the strategy that was least effortful for them. 
+* H5b) The majority of participants re-uses the strategy that was least effortful for them. 
 
 Furthermore, we want to investigate whether the following variables predict individual subjective values of ER strategies and whether effort is the best predictor for SVs of ER strategies with the following hypotheses:
 
-* H4a) Subjective effort negatively predicts SVs of ER strategies.
-* H4b) Subjective arousal negatively predicts SVs of ER strategies.
-* H4c) Physiological responding (EMG *corrugator* activity) negatively predicts SVs of ER strategies.
-* H4d) Physiological responding (EMG *levator* activity) negatively predicts SVs of ER strategies.
+* H5a) Subjective effort (effort ratings) negatively predicts SVs of ER strategies.
+* H5b) Subjective arousal (arousal ratings) negatively predicts SVs of ER strategies.
+* H5c) Physiological responding (EMG *corrugator* activity) negatively predicts SVs of ER strategies.
+* H5d) Physiological responding (EMG *levator* activity) negatively predicts SVs of ER strategies.
 
-* H5a) SVs decline with increasing effort, even after controlling for task performance (subjective arousal ratings), and physiological responding (EMF *corrugator* and *levator* activity).
+* H6a) SVs decline with increasing effort, even after controlling for task performance (subjective arousal ratings), and physiological responding (EMF *corrugator* and *levator* activity).
 
 We also want to investigate whether SVs are related to flexible emotion regulation: 
 
-* H6a) The higher the SV, the more likely the respective strategy is chosen.
-* H6b) SVs are lower and decline stronger when ER flexibility is lower. 
+* H7a) The higher the SV, the more likely the respective strategy is chosen.
+* H7b) SVs are lower and decline stronger when ER flexibility is lower. 
 
 Exploratorily, we want to investigate whether individual SVs are related to personality traits and how individual SVs of ER strategies relate to SVs of other tasks with different demand levels, namely *n*-back.
