@@ -186,7 +186,7 @@ Subjective arousal and effort ratings are assessed after each block using a slid
 
 # Supplementary Material {#SupplementaryMaterial}
 
-\includepdf[pages={-}, landscape=true]{Supplement/StimList_Suppl.pdf}
+\includepdf[pages={-}]{Supplement/StimList_Suppl.pdf}
 
 \newpage
 
