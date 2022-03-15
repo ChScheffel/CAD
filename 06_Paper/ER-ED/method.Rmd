@@ -101,6 +101,8 @@ After the training session, participants will be asked about their applied ER st
 The order of the three regulation blocks (distraction, distancing, and suppression) will be randomized between participants.
 Each of the blocks consisted of 20 trials showing neutral (Block 1) and negative (Blocks 2, 3, 4, 5) pictures.
 Each trial began with a fixation cross that lasted 3 to 5 seconds (random uniform distributed).
+It was followed by neutral or negative picture for a total of 6 seconds.
+After each block, participants retrospectively rated their subjective emotional arousal on a continous scale (ranging from "not at all aroused" to "very highly aroused") and their subjective effort (ranging from "not very exhausting" to "very exhausting") using a slider on screen.
 
 *Part two: ER effort discounting.* <br> In the second part, ER effort discounting will take place.
 The procedure of the discounting will follow the COG-ED paradigm by Westbrook et al. [-@Westbrook2013] with a major change.
@@ -158,17 +160,25 @@ Detailed information on power calculation for each hypothesis can be found in th
 Data collection and analysis will not be performed blind to the conditions of the experiments.
 The level of significance will be set to $\alpha=.05$.
 
-*Effects of emotion regulation on arousal, facial EMG and effort.* <br> To examine the impact of valence of emotional pictures on subjective arousal ratings, a repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for the strategy active viewing will be conducted.
-To investigate the effects of the three ER strategies on subjective arousal, another rmANOVA  with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for subjective arousal ratings will be conducted.
+*Effect of valence on arousal and facial EMG.*<br> 
+To examine the impact of valence of emotional pictures on subjective arousal ratings (H1a), a repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for the strategy active viewing will be conducted.
 
-To examine the impact of valence on facial EMG, a rmANOVA with the factor valence (neutral and negative) for the strategy active viewing will be conducted for *corrugator* and *levator* activity.
-To examine the effects of the three ER strategies on facial EMG, another rmANOVA with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for *corrugator* and *levator* activity will be conducted.
-
-To examine the effect of ER strategies on cognitive effort, a rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings will be conducted.
+To examine the impact of valence on physiolocigal responding (H1b and H1c), a rmANOVA with the factor valence (neutral and negative) for the strategy active viewing will be conducted for EMG *corrugator* and *levator* activity.
 Greenhouse-Geisser-corrected $p$-values and degrees of freedom will be reported when the assumption of sphericity is violated.
 Proportion of explained variance $\eta_{p}^{2}$ will be reported as a measure of effect size.
 If indicated by the data, estimated marginal means will be computed as post-hoc contrasts.
-rmANOVAS will be run using the *afex* package [@Singmann2021]
+rmANOVAS will be run using the *afex* package [@Singmann2021].
+
+*Effects of emotion regulation on arousal, facial EMG and effort.* <br> 
+To investigate the effects of the three ER strategies on subjective arousal (H2a), another rmANOVA  with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for subjective arousal ratings will be conducted.
+
+To examine the effects of the three ER strategies on physiological responding (H3a and H3b), another rmANOVA with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for EMG *corrugator* and *levator* activity will be conducted.
+
+To examine the effect of ER strategies on subjective effort, a rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings will be conducted.
+Greenhouse-Geisser-corrected $p$-values and degrees of freedom will be reported when the assumption of sphericity is violated.
+Proportion of explained variance $\eta_{p}^{2}$ will be reported as a measure of effect size.
+If indicated by the data, estimated marginal means will be computed as post-hoc contrasts.
+rmANOVAS will be run using the *afex* package [@Singmann2021].
 
 *Subjective values of emotion regulation strategies.* <br> For each ER strategy, SVs will be calculated as follows: first, the value 0.015625 will be added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
 Second, the resulting (monetary) value will be divided by 2.00 €.
