@@ -9,9 +9,9 @@
    id="svg5"
    inkscape:version="1.1 (c68e22c387, 2021-05-23)"
    sodipodi:docname="Paradigm_Scheme.svg"
-   inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CogEmotED\99_Thinktank\other\Paradigm_Scheme.png"
-   inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96"
+   inkscape:export-filename="C:\Users\josep\Documents\04_Projekte\01_COG-ED_Revision\CERED\99_Thinktank\Other\Paradigm_Scheme.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -27,12 +27,12 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="1.32"
-     inkscape:cx="365.90909"
-     inkscape:cy="474.62121"
+     inkscape:cx="366.28788"
+     inkscape:cy="254.92424"
      inkscape:window-width="1920"
-     inkscape:window-height="1009"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
@@ -830,8 +830,8 @@
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan26466"
-         x="-6.3012247"
-         y="19.372862">2-back for 2$</tspan><tspan
+         x="-6.3012238"
+         y="19.372862">2-back for 2€</tspan><tspan
          sodipodi:role="line"
          id="tspan26468"
          x="-6.3012242"
@@ -839,7 +839,7 @@
          sodipodi:role="line"
          id="tspan26470"
          x="-6.3012238"
-         y="26.428411">1-back for 1$?</tspan></text>
+         y="26.428411">1-back for 1€?</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -856,7 +856,7 @@
          sodipodi:role="line"
          id="tspan34980"
          x="18.589558"
-         y="25.264753">for 1.99$</tspan></text>
+         y="25.264753">for 1.99€</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1029,7 +1029,7 @@
          sodipodi:role="line"
          x="18.8155"
          y="40.300617"
-         id="tspan38728">for 1.80$</tspan></text>
+         id="tspan38728">for 1.80€</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1045,8 +1045,8 @@
          y="64.848495">2-back</tspan><tspan
          sodipodi:role="line"
          x="18.779503"
-         y="68.376282"
-         id="tspan41194">for 1.20$</tspan></text>
+         y="68.376274"
+         id="tspan41194">for 1.20€</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1062,8 +1062,8 @@
          y="93.601852">3-back</tspan><tspan
          sodipodi:role="line"
          x="18.696497"
-         y="97.129623"
-         id="tspan42930">for 1.90$</tspan></text>
+         y="97.129631"
+         id="tspan42930">for 1.90€</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1079,8 +1079,8 @@
          y="108.65112">2-back</tspan><tspan
          sodipodi:role="line"
          x="18.828789"
-         y="112.17889"
-         id="tspan43962">for 0.60$</tspan></text>
+         y="112.1789"
+         id="tspan43962">for 0.60€</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1096,8 +1096,8 @@
          y="123.76395">3-back</tspan><tspan
          sodipodi:role="line"
          x="18.828787"
-         y="127.29172"
-         id="tspan45226">for 1.10$</tspan></text>
+         y="127.29173"
+         id="tspan45226">for 1.10€</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1109,8 +1109,8 @@
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan26442"
-         x="-6.1961017"
-         y="34.3591">3-back for 2$</tspan><tspan
+         x="-6.1961007"
+         y="34.3591">3-back for 2€</tspan><tspan
          sodipodi:role="line"
          id="tspan26444"
          x="-6.1961012"
@@ -1118,7 +1118,7 @@
          sodipodi:role="line"
          id="tspan26446"
          x="-6.1961007"
-         y="41.41465">1-back for 1$?</tspan></text>
+         y="41.41465">1-back for 1€?</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1130,8 +1130,8 @@
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan26418"
-         x="-6.5923114"
-         y="62.84457">3-back for 2$</tspan><tspan
+         x="-6.5923104"
+         y="62.84457">3-back for 2€</tspan><tspan
          sodipodi:role="line"
          id="tspan26420"
          x="-6.5923109"
@@ -1139,7 +1139,7 @@
          sodipodi:role="line"
          id="tspan26422"
          x="-6.5923104"
-         y="69.900116">2-back for 1$?</tspan></text>
+         y="69.900124">2-back for 1€?</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1151,16 +1151,16 @@
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan26394"
-         x="-6.59232"
-         y="91.271713">2-back for 2$</tspan><tspan
+         x="-6.592319"
+         y="91.271713">2-back for 2€</tspan><tspan
          sodipodi:role="line"
          id="tspan26396"
          x="-6.5923195"
-         y="94.7995">or</tspan><tspan
+         y="94.799492">or</tspan><tspan
          sodipodi:role="line"
          id="tspan26398"
          x="-6.592319"
-         y="98.327271">3-back for 1$?</tspan></text>
+         y="98.327263">3-back for 1€?</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1172,16 +1172,16 @@
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan26370"
-         x="-6.5964503"
-         y="106.22357">1-back for 2$</tspan><tspan
+         x="-6.5964494"
+         y="106.22357">1-back for 2€</tspan><tspan
          sodipodi:role="line"
          id="tspan26372"
          x="-6.5964499"
-         y="109.75134">or</tspan><tspan
+         y="109.75135">or</tspan><tspan
          sodipodi:role="line"
          id="tspan26374"
          x="-6.5964494"
-         y="113.27913">2-back for 1$?</tspan></text>
+         y="113.27912">2-back for 1€?</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1193,8 +1193,8 @@
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan26346"
-         x="-6.3277326"
-         y="121.1068">1-back for 2$</tspan><tspan
+         x="-6.3277316"
+         y="121.1068">1-back for 2€</tspan><tspan
          sodipodi:role="line"
          id="tspan26348"
          x="-6.3277321"
@@ -1202,7 +1202,7 @@
          sodipodi:role="line"
          id="tspan26350"
          x="-6.3277316"
-         y="128.16235">3-back for 1$?</tspan></text>
+         y="128.16235">3-back for 1€?</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.181921px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
        d="m 6.8460646,21.722723 4.9860794,-0.01377"
@@ -1406,7 +1406,7 @@
          sodipodi:role="line"
          id="tspan2102"
          x="83.121506"
-         y="20.409101">1-back for 1$</tspan><tspan
+         y="20.409101">1-back for 1€</tspan><tspan
          sodipodi:role="line"
          id="tspan2104"
          x="83.121506"
@@ -1414,7 +1414,7 @@
          sodipodi:role="line"
          id="tspan2106"
          x="83.121506"
-         y="27.464651">2-back for 1$?</tspan></text>
+         y="27.464651">2-back for 1€?</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1427,7 +1427,7 @@
          sodipodi:role="line"
          id="tspan3963"
          x="83.121536"
-         y="52.8904">2-back for 1$</tspan><tspan
+         y="52.8904">2-back for 1€</tspan><tspan
          sodipodi:role="line"
          id="tspan3965"
          x="83.121536"
@@ -1435,7 +1435,7 @@
          sodipodi:role="line"
          id="tspan3967"
          x="83.121536"
-         y="59.94595">3-back for 1$?</tspan></text>
+         y="59.94595">3-back for 1€?</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1448,7 +1448,7 @@
          sodipodi:role="line"
          id="tspan3939"
          x="83.121536"
-         y="36.583603">1-back for 1$</tspan><tspan
+         y="36.583603">1-back for 1€</tspan><tspan
          sodipodi:role="line"
          id="tspan3941"
          x="83.121536"
@@ -1456,7 +1456,7 @@
          sodipodi:role="line"
          id="tspan3943"
          x="83.121536"
-         y="43.639153">3-back for 1$?</tspan></text>
+         y="43.639153">3-back for 1€?</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1469,7 +1469,7 @@
          sodipodi:role="line"
          id="tspan4639"
          x="125.90334"
-         y="20.673683">1-back for 2$</tspan><tspan
+         y="20.673683">1-back for 2€</tspan><tspan
          sodipodi:role="line"
          id="tspan4641"
          x="125.90334"
@@ -1477,7 +1477,7 @@
          sodipodi:role="line"
          id="tspan4643"
          x="125.90334"
-         y="27.729233">2-back for 1$?</tspan></text>
+         y="27.729233">2-back for 1€?</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1490,7 +1490,7 @@
          sodipodi:role="line"
          id="tspan4687"
          x="125.90339"
-         y="53.022682">3-back for 2$</tspan><tspan
+         y="53.022682">3-back for 2€</tspan><tspan
          sodipodi:role="line"
          id="tspan4689"
          x="125.90339"
@@ -1498,7 +1498,7 @@
          sodipodi:role="line"
          id="tspan4691"
          x="125.90339"
-         y="60.078232">2-back for 1$?</tspan></text>
+         y="60.078232">2-back for 1€?</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1511,7 +1511,7 @@
          sodipodi:role="line"
          id="tspan4663"
          x="126.03568"
-         y="36.715893">1-back for 2$</tspan><tspan
+         y="36.715893">1-back for 2€</tspan><tspan
          sodipodi:role="line"
          id="tspan4665"
          x="126.03568"
@@ -1519,7 +1519,7 @@
          sodipodi:role="line"
          id="tspan4667"
          x="126.03568"
-         y="43.771442">3-back for 1$?</tspan></text>
+         y="43.771442">3-back for 1€?</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1536,7 +1536,7 @@
          sodipodi:role="line"
          x="151.03291"
          y="26.53623"
-         id="tspan48082">for 0.40$</tspan></text>
+         id="tspan48082">for 0.40€</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1618,7 +1618,7 @@
          sodipodi:role="line"
          x="151.35194"
          y="42.003353"
-         id="tspan49606">for 1.10$</tspan></text>
+         id="tspan49606">for 1.10€</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.181921px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-43)"
        d="m 139.21325,23.249373 4.98608,-0.01377"
@@ -1777,7 +1777,7 @@
          sodipodi:role="line"
          x="151.43285"
          y="58.241322"
-         id="tspan51104">for 0.90$</tspan></text>
+         id="tspan51104">for 0.90€</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.181921px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-8-3-6)"
        d="m 158.61025,55.244651 4.98608,-0.01377"
@@ -1895,7 +1895,7 @@
          sodipodi:role="line"
          id="tspan2102-2"
          x="82.724632"
-         y="87.205902">1-back for 1$</tspan><tspan
+         y="87.205902">1-back for 1€</tspan><tspan
          sodipodi:role="line"
          id="tspan2104-5"
          x="82.724632"
@@ -1903,7 +1903,7 @@
          sodipodi:role="line"
          id="tspan2106-7"
          x="82.724632"
-         y="94.261452">2-back for 1$?</tspan></text>
+         y="94.261452">2-back for 1€?</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1916,15 +1916,15 @@
          sodipodi:role="line"
          id="tspan3963-0"
          x="83.25383"
-         y="119.68723">2-back for 1$</tspan><tspan
+         y="119.68723">2-back for 1€</tspan><tspan
          sodipodi:role="line"
          id="tspan3965-7"
          x="83.25383"
-         y="123.215">or</tspan><tspan
+         y="123.21501">or</tspan><tspan
          sodipodi:role="line"
          id="tspan3967-2"
          x="83.25383"
-         y="126.74277">3-back for 1$?</tspan></text>
+         y="126.74278">3-back for 1€?</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1937,7 +1937,7 @@
          sodipodi:role="line"
          id="tspan3939-2"
          x="83.121536"
-         y="103.51269">1-back for 1$</tspan><tspan
+         y="103.51269">1-back for 1€</tspan><tspan
          sodipodi:role="line"
          id="tspan3941-2"
          x="83.121536"
@@ -1945,7 +1945,7 @@
          sodipodi:role="line"
          id="tspan3943-8"
          x="83.121536"
-         y="110.56824">3-back for 1$?</tspan></text>
+         y="110.56824">3-back for 1€?</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1958,7 +1958,7 @@
          sodipodi:role="line"
          id="tspan4639-8"
          x="125.77105"
-         y="87.338196">1-back for 2$</tspan><tspan
+         y="87.338196">1-back for 2€</tspan><tspan
          sodipodi:role="line"
          id="tspan4641-0"
          x="125.77105"
@@ -1966,7 +1966,7 @@
          sodipodi:role="line"
          id="tspan4643-5"
          x="125.77105"
-         y="94.393745">2-back for 1$?</tspan></text>
+         y="94.393745">2-back for 1€?</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -1979,15 +1979,15 @@
          sodipodi:role="line"
          id="tspan6097"
          x="126.03568"
-         y="119.68723">2-back for 2$</tspan><tspan
+         y="119.68723">2-back for 2€</tspan><tspan
          sodipodi:role="line"
          id="tspan6099"
          x="126.03568"
-         y="123.215">or</tspan><tspan
+         y="123.21501">or</tspan><tspan
          sodipodi:role="line"
          id="tspan6101"
          x="126.03568"
-         y="126.74278">3-back for 1$?</tspan></text>
+         y="126.74278">3-back for 1€?</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -2000,15 +2000,15 @@
          sodipodi:role="line"
          id="tspan6013"
          x="125.7711"
-         y="103.38039">3-back for 2$</tspan><tspan
+         y="103.38039">3-back for 2€</tspan><tspan
          sodipodi:role="line"
          id="tspan6015"
          x="125.7711"
-         y="106.90817">or</tspan><tspan
+         y="106.90816">or</tspan><tspan
          sodipodi:role="line"
          id="tspan6017"
          x="125.7711"
-         y="110.43594">1-back for 1$?</tspan></text>
+         y="110.43594">1-back for 1€?</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -2025,7 +2025,7 @@
          sodipodi:role="line"
          x="150.90076"
          y="93.333038"
-         id="tspan52450">for 0.40$</tspan></text>
+         id="tspan52450">for 0.40€</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -2107,7 +2107,7 @@
          sodipodi:role="line"
          x="150.9552"
          y="109.59389"
-         id="tspan53564">for 1.30$</tspan></text>
+         id="tspan53564">for 1.30€</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.181921px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-43-7)"
        d="m 138.75142,90.178472 4.98608,-0.01377"
@@ -2266,7 +2266,7 @@
          sodipodi:role="line"
          x="151.0361"
          y="125.30271"
-         id="tspan55448">for 1.50$</tspan></text>
+         id="tspan55448">for 1.50€</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.181921px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-8-3-6-6)"
        d="m 158.37781,122.37055 4.98608,-0.0138"
