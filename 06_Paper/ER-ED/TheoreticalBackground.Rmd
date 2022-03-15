@@ -37,7 +37,7 @@ In addition, a number of ER strategies have been associated with mental disorder
 For example, it was shown that maladaptive ER strategies mediate the effect between neuroticism and depressive symptoms [@Yoon2013].
 
 The postulation of *adaptive* and *maladaptive* ER strategies has been challenged by the concepts of ER repertoire and ER flexibility.
-Within this framework, *maladaptive*  refers to inflexible ER strategy use or use of strategies that are hindering goal achievement [@Aldao2015] <!--Tamir, M. (2016). Why do people regulate their emotions? A taxonomy of motives in emotion regulation. Personality and Social Psychology Review, 20(3), 199-222. doi:10.1177/1088868315586325 ;  Tamir, M., Bigman, Y. E., Rhodes, E., Salerno, J., & Schreier, J. (2015). An expectancy-value model of emotion regulation: Implications for motivation, emotional experience, and decision making. Emotion, 15(1), 90-103. doi:10.1037/emo0000021  Könnte vor allem das 2. Paper noch hilfreich sein um mehr auf die Values hinzuargumentieren? Ist schon länger her, als ich das gelesen hab. Aber evtl. lohnt es sich, Tamir sagt hier, dass reguliert wird, wenn Personen annehmen, dass die Emotion die sie erzielen möchten, useful ist, also einen Wert hat. Das ist schon anders als die subjective Values, die ihr den ER Strategien zuschreiben möchtet, aber zeigt ja, dass die Analyse von Values im Rahmen von ER als Decision Making schon untersucht wurde, nur eben nicht direkt Values den Strategien zugeschrieben wurde-->.
+Within this framework, *maladaptive*  refers to inflexible ER strategy use or use of strategies that are hindering goal achievement [@Aldao2015].
 Adaptive flexible ER requires a large repertoire of ER strategies [@Aldao2015].
 The term “repertoire” can be defined as the ability to utilize a wide range of regulatory strategies in divergent contextual demands and opportunities [@Bonanno2013].
 A growing number of studies report findings about the repertoire of emotion regulation strategies and its relationship to psychopathology [@DixonGordon2015;@Lougheed2012;@Southward2018]. 
@@ -45,7 +45,7 @@ Additionally, greater ER flexibility is related to reduced negative affect and t
 
 How do people choose strategies from their repertoire? 
 Similarly to the expectancy-value model of emotion regulation [@Tamir2015] it could be assumed, that people also assign a value to an ER strategy reflecting the usefulness of this strategy for goal achieving.
-Evidence from other psychological domains (e.g., intertemporal choice, [@Kable2007]) shows that subjective values (SVs) are attributed to the choice options on the basis of which the decision is made. 
+Evidence from other psychological domains (e.g., intertemporal choice[@Kable2007]) shows that subjective values (SVs) are attributed to the choice options on the basis of which the decision is made. 
 Research on ER choice has identified numerous factors that influence the choice of ER strategies, which can be seen as indirect evidence for factors influencing SVs[@Sheppes2014]. 
 For example, a study found that the intensity of a stimulus or situation plays a role in the choice [@Sheppes2011]. 
 Higher intensity of the (negative) stimulus lead to a choice of rather disengaging tactics of attentional deployment, like distraction [@Sheppes2011;@Sheppes2014].
@@ -55,8 +55,9 @@ In our study, participants used the strategies distancing and suppression while 
 Afterwards, they choose which strategy they wanted to use again.
 Participants tended to re-apply the strategy that was subjectively less effortful, even though it was subjectively not the most effective one - in this case: suppression.
 Interestingly, the choice was independent of self-reported habitual use of suppression and reappraisal.
-This could be seen as an indirect evidence that subjective effort has an influence on SVs of ER strategies
- <!-- Denise: Ist das so? Na gut, es gibt schon einiges an Choice und Goals, aber zu Effort als reason? Ich bin nicht ganz überzeugt davon, dass die Argumentation sich ab hier vor allem auf die nicht gewählte Strategie fokussiert. Kann man nicht auch sagen, dass es noch zu wenig zu effort gibt, das Scheffel2021 eine der ersten war, die mehrere Strategien hinsichtlich effort mit subjektiven, physiologischen und Verhaltensmaßen untersucht hat, dass sich nun die Frage stellt, was genau der subjektive Effort macht, nämlich den Subjective Value beeinflussen, dass dies eben auch für die gewählte Strategie oder im Vergleich mehrerer Taktiken noch nicht untersucht wurde. Und das ihr deshalb nun so vorgeht? -->
+Nonetheless, there are only few studies to date that examined the required effort of several strategies in more detail and compared them with each other.
+Furthermore, the research on ER choice lacks information regarding the strategies that were *not* chosen in each case.
+It is unclear whether people had clear preferences or whether the choice options were similarly attractive.
 
 We assume that people choose the strategy that has the highest value for them at the moment.
 The value is determined against the background of goal achievement in the specific situation: A strategy is highly valued if it facilitates goal achievement [@Aldao2015]. 
@@ -71,7 +72,8 @@ A second person with less flexibility, however, would show high SVs only for one
 This in turn would mean that there is only a limited amount of strategies in the repertoire to choose from. 
 Subsequently, the ability to choose an appropriate strategy for a specific situation is also limited.
 
-However, so far we have not seen any attempt in ER choice research to determine individual SVs of ER strategies.
+So far we have not seen any attempt in ER choice research to determine individual SVs of ER strategies.
+However, this would be useful to describe interindividual differences in the preference of ER strategies and the ER repertoire more comprehensively.
 To investigate this question, the individual SVs of each strategy available for selection would have to be determined.
 Promising approaches can be found in studies on difficulty levels of effortful cognitive tasks.  
 Individual SVs of effortful cognitive tasks have been quantified using the Cognitive Effort Discounting Paradigm (COG-ED) [@Westbrook2013]. 
@@ -87,7 +89,7 @@ In this step, the same monetary value (i.e., 1 €) is assigned to both options.
 The assumption is that participants now choose the option that has the higher SV for them.
 In the next step we return to the original paradigm.
 The higher monetary value (i.e., 2 €) is assigned to the option that was not chosen in the first step and therefore is assumed to have the lower SV.
-In the following steps, the lower value is changed in every iteration according to Westbrook et al. [-@Westbrook2013] until the indifference point is reached. <!-- Hier komme ich noch nicht so ganz mit, könntet ihr das noch klarer beschreiben, was hier passiert? Meint ihr folgendes?: ... The lower monetary value is assigned to different options? oder The lower monetary value is further lowered? Also wird geschaut, wie tief der Wert sein muss, damit die andere Strategie gewählt wird? Sorry, obwohl ihr es schon so oft erklärt habt, bin ich hier immer noch lost, aber das könnte ja anderen Reviewers auch so gehen. Und das die Revs genau in Westbrook schauen, das könnt ihr leider nicht erwarten. -->
+In the following steps, the lower value is changed in every iteration according to Westbrook et al. [-@Westbrook2013] until the indifference point is reached.
 This procedure will be repeated until all strategies have been compared.
 The SV of each strategy is calculated as the mean of this strategy's SV from all comparisons.
 In case a participant has a clear preference for one strategy, the SV of this strategy will be 1.
@@ -104,8 +106,6 @@ As a manipulation check, we first want to investigate whether the valence (neutr
 Second, we want to check whether the ER strategies distraction, distancing, and suppression effectively reduce subjective and physiological responding as well as, third, whether they require cognitive effort. 
 The following hypotheses are proposed:
 <!-- es gibt bisher noch keine Begründnung/Einbettung der nachfolgenden Hypothesen. Z.B.: Warum wird Corrugator und Levator untersucht? m.E. müsste oben jeweils noch ein Satz ergänzt werden, warum genau diese Variable in der aktuellen Studie untersucht werden soll.--> <!-- Denise: ja, das hab ich auch bemerkt, ist EMG auch arousal? Dann dies erstens noch einführen und argumentieren und dann auch als physiological arousal aufführen. oder steht corrugator für arousal und levator für valence? dann auch so benennen. Außerdem subjective arousal/ subjective effort auch immer konsistent benennen. Ich schlage vor hier in den hypothesen immer von subjective arousal / effort zu sprechen, dies dann im Methodenteil über die subjective ratings / effort ratings zu operationalisieren (fehlt übrigens im Methodenteil noch.-->
-<!-- Denise: im analysis plan habt ihr auch den vergleich negative vs. neutral (active viewing) beschrieben, deshalb hab ich das hier mal als Hypothese aufgenommen-->
-
 
 * H1a) Subjective arousal is lower after actively viewing neutral pictures compared to actively viewing negative pictures. 
 * H1b) Physiological responding (EMG *corrugator* activity) is lower while actively viewing neutral pictures compared to actively viewing negative pictures.

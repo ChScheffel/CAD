@@ -99,6 +99,8 @@ Participants will be instructed not to suppress their thoughts or change their f
 All participants will receive written instruction and complete a training session.
 After the training session, participants will be asked about their applied ER strategies to avoid misapplication.
 The order of the three regulation blocks (distraction, distancing, and suppression) will be randomized between participants.
+Each of the blocks consisted of 20 trials showing neutral (Block 1) and negative (Blocks 2, 3, 4, 5) pictures.
+Each trial began with a fixation cross that lasted 3 to 5 seconds (random uniform distributed).
 
 *Part two: ER effort discounting.* <br> In the second part, ER effort discounting will take place.
 The procedure of the discounting will follow the COG-ED paradigm by Westbrook et al. [-@Westbrook2013] with a major change.
