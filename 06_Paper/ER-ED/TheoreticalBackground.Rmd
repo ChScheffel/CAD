@@ -44,8 +44,8 @@ A growing number of studies report findings about the repertoire of emotion regu
 Additionally, greater ER flexibility is related to reduced negative affect and therefore beneficial in daily life [@Blanke2020].
 
 How do people choose strategies from their repertoire? 
-Similarly to the expectancy-value model of emotion regulation <!-- Tamir et al, siehe comment oben --> it could be assumed, that people also assign a value to an ER strategy reflecting the usefulness of this strategy for goal achieving.
-Evidence from other psychological domains (e.g., intertemporal choice, [@Kable2007]) shows that subjective values (SVs) are attributed to the choice options on the basis of which the decision is made. <!-- Der letzte Teil des Satzes klingt komisch, weiß aber nicht so richtig, was ihr sagen wollt.-->
+Similarly to the expectancy-value model of emotion regulation [@Tamir2015] it could be assumed, that people also assign a value to an ER strategy reflecting the usefulness of this strategy for goal achieving.
+Evidence from other psychological domains (e.g., intertemporal choice, [@Kable2007]) shows that subjective values (SVs) are attributed to the choice options on the basis of which the decision is made. 
 Research on ER choice has identified numerous factors that influence the choice of ER strategies, which can be seen as indirect evidence for factors influencing SVs. 
 For example, a study found that the intensity of a stimulus or situation plays a role in the choice [@Sheppes2011]. 
 Higher intensity of the (negative) stimulus lead to a choice of rather disengaging tactics of attentional deployment, like distraction [@Sheppes2011;@Sheppes2014].
@@ -57,7 +57,6 @@ Participants tended to re-apply the strategy that was subjectively less effortfu
 Interestingly, the choice was independent of self-reported habitual use of suppression and reappraisal.
 What has been missing in research on ER choice so far is information regarding the strategy *not* chosen.<!-- Denise: und fehlen nicht auch noch mehr Studien, die speziell effort im Blick haben? -->
 People choose a strategy that they prefer for different, relatively well-known reasons[@Sheppes2014]. <!-- Denise: Ist das so? Na gut, es gibt schon einiges an Choice und Goals, aber zu Effort als reason? Ich bin nicht ganz überzeugt davon, dass die Argumentation sich ab hier vor allem auf die nicht gewählte Strategie fokussiert. Kann man nicht auch sagen, dass es noch zu wenig zu effort gibt, das Scheffel2021 eine der ersten war, die mehrere Strategien hinsichtlich effort mit subjektiven, physiologischen und Verhaltensmaßen untersucht hat, dass sich nun die Frage stellt, was genau der subjektive Effort macht, nämlich den Subjective Value beeinflussen, dass dies eben auch für die gewählte Strategie oder im Vergleich mehrerer Taktiken noch nicht untersucht wurde. Und das ihr deshalb nun so vorgeht? -->
-However, nothing is revealed about the strategy that is *not chosen*.
 
 We assume that people choose the strategy that has the highest value for them at the moment.
 The value is determined against the background of goal achievement in the specific situation: A strategy is highly valued if it facilitates goal achievement [@Aldao2015]. 
@@ -109,13 +108,12 @@ The following hypotheses are proposed:
 
 
 * H1a) Subjective arousal is lower after actively viewing neutral pictures compared to actively viewing negative pictures. 
-* H1b) Physiological arousal (EMG *corrugator* activity) is lower while actively viewing neutral pictures compared to actively viewing negative pictures.
-* H1c) Physiological arousal (EMG *levator* activity) is lower while actively viewing neutral pictures compared to actively viewing negative pictures. 
-<!-- Denise: or physiological valence, see comment above -->
+* H1b) Physiological responding (EMG *corrugator* activity) is lower while actively viewing neutral pictures compared to actively viewing negative pictures.
+* H1c) Physiological responding (EMG *levator* activity) is lower while actively viewing neutral pictures compared to actively viewing negative pictures. 
 
 * H2a) Subjective arousal is lower after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
-* H2b) Physiological arousal <!-- Denise: or physiological valence, see comment above --> (EMG *corrugator* activity) is lower while using an ER strategy (distraction, distancing, suppression) compared to active viewing.
-* H2c) Physiological arousal <!-- Denise: or physiological valence, see comment above --> (EMG *levator* activity) is lower while using an ER strategy (distraction, distancing, suppression) compared to active viewing.
+* H2b) Physiological responding (EMG *corrugator* activity) is lower while using an ER strategy (distraction, distancing, suppression) compared to active viewing.
+* H2c) Physiological responding (EMG *levator* activity) is lower while using an ER strategy (distraction, distancing, suppression) compared to active viewing.
 
 * H3a) Subjective effort is greater after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
 * H3b) The majority of participants re-uses the strategy that was least effortful for them. <!-- Könnt ihr diese Hypothese statistisch testen? Finde im 'Analysis Plan' nicht, wie ihr das testen möchtet, das muss dort noch erklärt werden. Mein Vorschlag für diese Hypothese: When having free choice, participants re-use the strategy with less subjective effort.-->
@@ -124,20 +122,14 @@ Furthermore, we want to investigate whether the following variables predict indi
 
 * H4a) Subjective effort negatively predicts SVs of ER strategies.
 * H4b) Subjective arousal negatively predicts SVs of ER strategies.
-* H4c) Physiological arousal / valence (EMG *corrugator* activity) negatively predicts SVs of ER strategies.
-* H4d) Physiological arousal / valence (EMG *levator* activity) negatively predicts SVs of ER strategies.
+* H4c) Physiological responding (EMG *corrugator* activity) negatively predicts SVs of ER strategies.
+* H4d) Physiological responding (EMG *levator* activity) negatively predicts SVs of ER strategies.
 
-<!-- Denise: Für Hyp. 4 kann ich leider ganz schlecht beurteilen, ob eure stat. Analyse diese Hyp. beantwortet, da ich die stat. Analyse noch nicht so richtig verstanden habe --> 
+* H5a) SVs decline with increasing effort, even after controlling for task performance (subjective arousal ratings), and physiological responding (EMF *corrugator* and *levator* activity).
 
-* H5a) SVs decline with increasing effort, even after controlling for task performance (decline in subjective arousal after ER), and physiological arousal (EMF *corrugator* and *levator* activity).
+We also want to investigate whether SVs are related to flexible emotion regulation: 
 
-<!-- Gibt es zu Hyp. 5 einen Abschnitt im 'Analysis Plan'? Das MLM? Ich schlage vor, dass der Analysis Plan streng nach den Hypothesen geordnet wird, dann ist es viel leichter zu lesen, zu verstehen und ihr vergesst auch nichts.-->
-
-We also want to investigate whether SVs are related to flexible emotion regulation: <!-- Denise: Ihr habt ER Flex schon im Theoretischen Hintergrund eingeführt, aber mir fehlt noch bischen der differentielle Aspekt, den ihr ja hier untersuchen wollt. Ich versuche, dies mal oben reinzuformulieren. -->
-
-* H6a) The higher the SV, the more likely the respective strategy is chosen. <!-- warum ist diese Hyp. hier bei ER Flexbility?-->
+* H6a) The higher the SV, the more likely the respective strategy is chosen.
 * H6b) SVs are lower and decline stronger when ER flexibility is lower. 
-
-<!-- Denise: Hyp. 6b Was heißt "decline stronger?" Meint ihr "decline stronger with increasing effort" oder "decline from strategy A to stratey B"? Mein Problem ist, dass ich immer noch nicht 100% durch das ERED Paradigma durchsteige und die Auswertung der SVs auch noch nicht 100% verstehe. Das liegt nicht unbedingt an eurem Methodenteil, aber eventuell muss das noch etwas ausführlicher beschrieben werden. Da es anderen Reviewers ja auch so gehen könnte.--> 
 
 Exploratorily, we want to investigate whether individual SVs are related to personality traits and how individual SVs of ER strategies relate to SVs of other tasks with different demand levels, namely *n*-back.
