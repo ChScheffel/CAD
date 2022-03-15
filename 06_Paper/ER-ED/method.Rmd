@@ -148,7 +148,7 @@ In a meta-analysis of Zaehringer and colleagues [-@Zaehringer2020], effect sizes
 To find an effect of $d=-0.32$ of ER on *corrugator* muscle activity with $\alpha=.05$ and $\beta=.95$, data of at least $N=85$ have to be analyzed.
 Power analyses of all other hypotheses yielded smaller sample sizes.
 However, if participants withdraw from study participation, technical failures occur, or experimenter considers the participant for not suitable for study participation (e.g., because the participant does not follow instructions or shows great fatigue), respective data will also be excluded from further analyses.
-Therefore, we aim to collect data of XX participants.
+Therefore, we aim to collect data of $N=120$ participants, about $50%$ more data sets, than necessary.
 Detailed information on power calculation for each hypothesis can be found in the [design table](#DesignTable).
 
 ## 2.5 Analysis plan

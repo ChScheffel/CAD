@@ -1,8 +1,8 @@
 ﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on August 25, 2021, at 10:44
+This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
+    on März 09, 2022, at 10:56
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -35,7 +35,7 @@ _thisDir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(_thisDir)
 
 # Store info about the experiment session
-psychopyVersion = '2021.1.4'
+psychopyVersion = '2021.2.3'
 expName = 'ER_paradigm'  # from the Builder filename that created this script
 expInfo = {'participant': '', 'session': '001'}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\scheffel\\Scheffel\\Forschung\\A_Projects\\2021_COG-ER-ED\\COG-ER-ED\\01_Paradigms\\ER-ED\\ER_Training\\ER_TRAINING_lastrun.py',
+    originPath='C:\\Users\\scheffel\\Scheffel\\Forschung\\A_Projects\\2021_CERED\\CERED\\01_Paradigms\\ER-ED\\ER_Training\\ER_TRAINING_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -77,13 +77,16 @@ if expInfo['frameRate'] != None:
 else:
     frameDur = 1.0 / 60.0  # could not measure, so guess
 
+# Setup eyetracking
+ioDevice = ioConfig = ioSession = ioServer = eyetracker = None
+
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard()
 
 # Initialize components for Routine "WelcomeScreen"
 WelcomeScreenClock = core.Clock()
 WelcomeText = visual.TextStim(win=win, name='WelcomeText',
-    text='Willkommen!\n\nIn diesem Training sollen Sie drei Emotionsregulations-Strategien kennen lernen und diese erproben. Außerdem sollen Sie die verschiedenen Fragen am Ende jedes Blockes kennen lernen.\n\nWährend des Experimentes werden noch keine Messungen vorgenommen.\n\nZum Forfahren Leertaste drücken.',
+    text='Willkommen!\n\nIn diesem Training sollen Sie drei Emotionsregulations-Strategien kennen lernen und diese erproben. Außerdem sollen Sie die verschiedenen Fragen am Ende jedes Blockes kennen lernen.\n\nWährend des Experimentes werden noch keine Messungen vorgenommen.\n\nZum Fortfahren Leertaste drücken.',
     font='Open Sans',
     pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
@@ -133,9 +136,9 @@ text_slider_arousal = visual.TextStim(win=win, name='text_slider_arousal',
     languageStyle='LTR',
     depth=0.0);
 slider_arousal = visual.Slider(win=win, name='slider_arousal',
-    size=[1.0,0.1], pos=(0, -0.2), units=None,
+    startValue=None, size=[1.0,0.1], pos=(0, -0.2), units=None,
     labels=("sehr gering", "sehr hoch"), ticks=(0,400), granularity=0.0,
-    style='rating', styleTweaks=(), opacity=None,
+    style='slider', styleTweaks=(), opacity=None,
     color='black', fillColor='black', borderColor='black', colorSpace='rgb',
     font='Open Sans', labelHeight=0.05,
     flip=False, depth=-1, readOnly=False)
@@ -150,9 +153,9 @@ text_slider_effort = visual.TextStim(win=win, name='text_slider_effort',
     languageStyle='LTR',
     depth=0.0);
 slider_effort = visual.Slider(win=win, name='slider_effort',
-    size=(1.0,0.1), pos=(0, -0.2), units=None,
+    startValue=None, size=(1.0,0.1), pos=(0, -0.2), units=None,
     labels=("sehr gering","sehr hoch"), ticks=(0,400), granularity=0.0,
-    style='rating', styleTweaks=(), opacity=None,
+    style='slider', styleTweaks=(), opacity=None,
     color='black', fillColor='black', borderColor='black', colorSpace='rgb',
     font='Open Sans', labelHeight=0.05,
     flip=False, depth=-1, readOnly=False)
@@ -290,7 +293,7 @@ for thisBlocks_training in blocks_training:
     # ------Prepare to start Routine "Instruction"-------
     continueRoutine = True
     # update component parameters for each repeat
-    text_instruction.setText(instr_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + '\n' + instr_2 + '\n\n' + instr_3 + '\n\n' + 'Zum Starten des Blocks Leertaste dürcken')
+    text_instruction.setText(instr_1 + '\n\n' + 'In diesem Block werden Sie eine Reihe von Bildern sehen. Diese sollen Sie aufmerksam ansehen.' + '\n' + instr_2 + '\n\n' + instr_3 + '\n\n' + 'Zum Starten des Blocks Leertaste drücken')
     instr_view_resp.keys = []
     instr_view_resp.rt = []
     _instr_view_resp_allKeys = []
