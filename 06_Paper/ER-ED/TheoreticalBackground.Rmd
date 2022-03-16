@@ -27,14 +27,23 @@ This postulated temporal sequence of ER strategies influences their effectivenes
 Albeit it is meta-analytically proven that all mentioned strategies reduce subjective emotional experience, distraction as a tactic of attentional deployment and (expressive) suppression as a tactic of response modulation showed only small to medium effect sizes (distraction: _d~+~_ = 0.27; suppression: _d~+~_ = 0.27).
 In contrast, distancing as tactic of cognitive change showed the highest effectiveness with an effect size of _d~+~_ = 0.45 [@Webb2012].
 
-Moreover, it is known that ER strategies <!-- all these strategies?--> reduce physiological responses of emotions, especially emotional valence as measured via facial electromyography (EMG)[@Zaehringer2020] .
+Psychophysiological measures provide further important information on the effectiveness of emotion regulation strategies (for an overview, see [@Zaehringer2020]).
+Compared to cardiovascular, electrodermal, and pupillometric autonomic responses, facial electromyography has been reported consistently across studies to be influenced by emotion regulation with even medium effect sizes.
+For example, studies have shown that reappraisal of negative emotion is associated with reduced activity of the corrugator supercilii (associated with anger, sadness, and fear) with _d~-~_ = 0.32 ([@Zaehringer2020]).
+In addition, the levator labii superioris (associated with disgust) has also been associated with reduced activity during reappraisal (Burr et al., 2021; https://doi.org/10.1371/journal.pone.0247246). 
+Similar effects have been reported for suppression (Burr et al., 2021), distancing (Gärtner et al., 2021), and distraction (Schönfelder et al., 2014 DOI: 10.1093/scan/nst116).
+Importantly, results on electromyographic measures  seem to be more consistent compared to other autonomic measures, likely because they are specific to emotional valence and its changes.
+<!-- Anne: please add references-->
+
 <!-- hier ist noch der Bezug zum Arousal drin gewesen, habe ich angepasst. Corrugator habe ich raus genommen, weil auch Levator untersucht wird (müssten sonst m.E. beide genannt werden.) Generell fehlt noch etwas die Einbettung, warum die beiden ausgewählt wurden. Soll ich da noch etwas ergänzen? bei Zaehringer wird der Levator überhaupt nicht genannt, die Metaanalyse bezieht sich nur auf den Corrugator. Wir hatten damals gesagt, dass viele der negativen Bilder primär auch recht eklig sind und daher der Levator passender sein könnte, weil er speuzifisch auf Ekel zu reagieren scheint, der Corrugator hingegen auf negative Bilder im Allgemeinen. Prinzipiell haben wir aber für beide die gleichen Hypothesen. Können aber auch warten, was die Reviewer sagen.--> 
 <!-- Denise: Ja das ist noch ein schwächerer Punkt in der Intro. Ich habe auch nur Paper gefunden, die EMG corrugator und levator für negative valence berichten, levator eher für Ekel, aber das muss hier kommen. Ein Satz für EMG reicht nicht aus. Wenn ihr weder auf Valence noch auf Arousal (so wie ich bei den Hypothesen noch vorgeschlagen hatte) hier gehen möchtet, dann könnte man das Konstrukt ja muscle activation o.ä. nennen und dies dann im Methodenteil über EMG corrugator und levator operationalisieren. Ich denke aber, dass die getrennte Analyse der beiden Muskelgruppen nivht gerechtfertig ist, da ihr ja keine getrennten Effekte annehmt, sondern der levator eventuel noch sinnvoll ist, da wir viele Ekelbilder haben. Habt ihr schonmal überlegt einen index über beide Aktivierungen zu bilden und dann darüber die Muskelaktivierung zu operationalisieren? Würde die Hypothesen und auch die Interpretation einfacher machen. Falls das nichts bringt, kann man explorativ immer noch die beiden EMGs getrennt analysieren und dies dann so berichten. -->
+<!-- Anne: EMG wird ganz eindeutig in der Literatur für Valenz verwendet (und EDA oder pupil dilation für Arousal), ich finde, das sollten wir hier auch so labeln. Falls das aus irgendeinenm Grund blöd erscheint, würde ich alternativ überall von physiological responses sprechen. Aber "physiological valence" passt m.E. am besten.-->
+
 Similarly to the differences in short term effectiveness, these tactics from three different strategies are also related to different medium and long-term consequences. 
 In particular, strategies that do not change the emotional content of the situation, for instance by taking a neutral perspective (i.e., distraction and suppression) are presumed to be disadvantageous in the longer term.
 Thus, the self-reported habitual use of suppression is associated with more negative affect and lower general well-being [@GrossJohn2003]. 
-In addition, a number of ER strategies have been associated with mental disorders (for meta-analytic review, see Aldao et al. [@Aldao2010]), which led to the postulation of *adaptive* and *maladaptive* ER strategies.
-For example, it was shown that maladaptive ER strategies mediate the effect between neuroticism and depressive symptoms [@Yoon2013].
+In addition, a number of ER strategies <!-- Anne: welche? siehe auch nöchster Kommentar, an irgendeiner Stelle würde ich ein zwei Beispiele nennen.--> have been associated with mental disorders (for meta-analytic review, see Aldao et al. [@Aldao2010]), which led to the postulation of *adaptive* (such as reappraisal, acceptance) and *maladaptive* (such as suppression, rumination) ER strategies.
+For example, it was shown that maladaptive ER strategies <!-- Anne: hier würde ich die konkrete Strategie(n) in Klammer nennen--> mediate the effect between neuroticism and depressive symptoms [@Yoon2013].
 
 The postulation of *adaptive* and *maladaptive* ER strategies has been challenged by the concepts of ER repertoire and ER flexibility.
 Within this framework, *maladaptive*  refers to inflexible ER strategy use or use of strategies that are hindering goal achievement [@Aldao2015].
@@ -102,14 +111,12 @@ include_graphics(here("06_Paper", "ER-ED", "figures", "Paradigm_Scheme_T2.png" )
 ```
 
 The aim of the present study is to evaluate whether this paradigm is suitable for determining SVs of ER strategies. 
-As a manipulation check, we first want to investigate whether the valence (neutral, negative) of the pictures is effecting subjective and physiological responding (EMG).
+As a manipulation check, we first want to investigate whether the valence of the pictures (neutral, negative) is effecting subjective and physiological responding (EMG).
 Second, we want to check whether the ER strategies distraction, distancing, and suppression effectively reduce subjective and physiological responding as well as, third, whether they require cognitive effort. 
 The following hypotheses are proposed:
-<!-- es gibt bisher noch keine Begründnung/Einbettung der nachfolgenden Hypothesen. Z.B.: Warum wird Corrugator und Levator untersucht? m.E. müsste oben jeweils noch ein Satz ergänzt werden, warum genau diese Variable in der aktuellen Studie untersucht werden soll.--> <!-- Denise: ja, das hab ich auch bemerkt, ist EMG auch arousal? Dann dies erstens noch einführen und argumentieren und dann auch als physiological arousal aufführen. oder steht corrugator für arousal und levator für valence? dann auch so benennen. Außerdem subjective arousal/ subjective effort auch immer konsistent benennen. Ich schlage vor hier in den hypothesen immer von subjective arousal / effort zu sprechen, dies dann im Methodenteil über die subjective ratings / effort ratings zu operationalisieren (fehlt übrigens im Methodenteil noch.-->
 
 * H1a) Subjective arousal is lower after actively viewing neutral pictures compared to actively viewing negative pictures. 
-* H1b) Physiological responding (EMG *corrugator* activity) is lower while actively viewing neutral pictures compared to actively viewing negative pictures.
-* H1c) Physiological responding (EMG *levator* activity) is lower while actively viewing neutral pictures compared to actively viewing negative pictures. 
+* H1b) Physiological responding (EMG *corrugator* and *levator* activity) is lower while actively viewing neutral pictures compared to actively viewing negative pictures.
 
 * H2a) Subjective arousal (arousal rating) is lower after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
 * H3a) Physiological responding (EMG *corrugator* activity) is lower while using an ER strategy (distraction, distancing, suppression) compared to active viewing.
