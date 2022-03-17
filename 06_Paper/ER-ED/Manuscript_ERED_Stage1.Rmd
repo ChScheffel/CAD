@@ -168,7 +168,7 @@ In the top half, the person has a clear preference for one of the three strategi
 In the lower half, they have no clear preference and therefore show an inconsistent response pattern. 
 This pattern can also be represented by our paradigm.
 
-```{r DesignEREDappendix, echo=FALSE, message=FALSE, warning=FALSE}
+```{r DesignEREDappendix, echo=FALSE, message=FALSE, warning=FALSE, fig.pos="H"}
 include_graphics(here("06_Paper", "ER-ED", "figures", "Design_ER-ED.png"))
 ```
 *Figure 2.* 
@@ -186,7 +186,7 @@ Subjective arousal and effort ratings are assessed after each block using a slid
 
 # Supplementary Material {#SupplementaryMaterial}
 
-\includepdf[pages={-}]{Supplement/StimList_Suppl.pdf}
+\includepdf[pages={-}, landscape=true]{Supplement/StimList_Suppl.pdf}
 
 \newpage
 
