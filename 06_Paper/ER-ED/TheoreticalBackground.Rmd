@@ -33,7 +33,6 @@ For example, studies have shown that reappraisal of negative emotion is associat
 In addition, the levator labii superioris (associated with disgust) has also been associated with reduced activity during reappraisal [@Burr2021]. 
 Similar effects have been reported for suppression [@Burr2021], distancing [@Gaertner2021], and distraction [@Schoenfelder2014].
 Importantly, results on electromyographic measures  seem to be more consistent compared to other autonomic measures, likely because they are specific to emotional valence and its changes.
-<!-- Anne: please add references-->
 
 Similarly to the differences in short term effectiveness, these tactics from three different strategies are also related to different medium and long-term consequences. 
 In particular, strategies that do not change the emotional content of the situation, for instance by taking a neutral perspective (i.e., distraction and suppression) are presumed to be disadvantageous in the longer term.
