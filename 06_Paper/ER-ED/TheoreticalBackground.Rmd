@@ -31,7 +31,7 @@ Psychophysiological measures provide further important information on the effect
 Compared to cardiovascular, electrodermal, and pupillometric autonomic responses, facial electromyography has been reported consistently across studies to be influenced by emotion regulation with even medium effect sizes.
 For example, studies have shown that reappraisal of negative emotion is associated with reduced activity of the corrugator supercilii (associated with anger, sadness, and fear) with _d~-~_ = 0.32 [@Zaehringer2020].
 In addition, the levator labii superioris (associated with disgust) has also been associated with reduced activity during reappraisal [@Burr2021]. 
-Similar effects have been reported for suppression (Burr et al., 2021), distancing (Gärtner et al., 2021), and distraction (Schönfelder et al., 2014 DOI: 10.1093/scan/nst116).
+Similar effects have been reported for suppression [@Burr2021], distancing [@Gaertner2021], and distraction [@Schoenfelder2014].
 Importantly, results on electromyographic measures  seem to be more consistent compared to other autonomic measures, likely because they are specific to emotional valence and its changes.
 <!-- Anne: please add references-->
 
