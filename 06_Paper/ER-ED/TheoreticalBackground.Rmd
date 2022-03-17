@@ -38,7 +38,7 @@ Similarly to the differences in short term effectiveness, these tactics from thr
 In particular, strategies that do not change the emotional content of the situation, for instance by taking a neutral perspective (i.e., distraction and suppression) are presumed to be disadvantageous in the longer term.
 Thus, the self-reported habitual use of suppression is associated with more negative affect and lower general well-being [@GrossJohn2003]. 
 In addition, a number of ER strategies, e.g., rumination and suppression, have been associated with mental disorders (for meta-analytic review, see Aldao et al. [@Aldao2010]), which led to the postulation of *adaptive* (such as reappraisal, acceptance) and *maladaptive* (such as suppression, rumination) ER strategies.
-For example, it was shown that maladaptive ER strategies <!-- Anne: hier würde ich die konkrete Strategie(n) in Klammer nennen--> mediate the effect between neuroticism and depressive symptoms [@Yoon2013].
+For example, it was shown that maladaptive ER strategies (rumination and suppression) mediate the effect between neuroticism and depressive symptoms [@Yoon2013].
 
 The postulation of *adaptive* and *maladaptive* ER strategies has been challenged by the concepts of ER repertoire and ER flexibility.
 Within this framework, *maladaptive*  refers to inflexible ER strategy use or use of strategies that are hindering goal achievement [@Aldao2015].
