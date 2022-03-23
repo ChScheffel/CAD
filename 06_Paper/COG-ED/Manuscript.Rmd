@@ -45,8 +45,7 @@ author:
     affiliation   : "1"
     role: 
       - Conceptualization
-      - Methodology
-      - Formal analysis
+      - Funding acquistion
       - Writing - review & editing
 affiliation:
   - id            : "1"
@@ -248,6 +247,8 @@ To account for technical errors, noisy physiological data, or participants who i
 ## Analysis plan
 
 Data collection and analysis will not be performed blind to the conditions of the experiments.
+We will exclude the data of a participant from all analyses, if the participant states that they did not follow the instructions or if the investigator notes that the participant misunderstood the instructions.
+No data will be replaced.
 We aim to conduct all analysis as described in Westbrook et al. [-@Westbrook2013], but the level of detail was not always sufficient, so there might be deviations regarding data cleaning and degrees of freedom.
 The performance measure *d'* will be computed as the difference of the *z*-transformed hit rate and the *z*-transformed false alarm rate [@Macmillan1990].
 Reaction time (RT) data will be trimmed by excluding all trials with responses faster than 100\ ms, as the relevant cognitive processes cannot have been completed before [@Whelan2008; @Berger2021].
@@ -325,7 +326,8 @@ The funders have/had no role in study design, data collection and analysis, deci
 
 # Author Contributions
 
-JZ and CS conceptualized the study and its methodology, acquired funding, investigated, administered the project, and wrote the software.
+JZ, CS, and AS conceptualized the study and acquired funding.
+JZ and CS developed the methodology, investigated, administered the project, and wrote the software.
 JZ and CK did the formal analysis, visualized the results, and prepared the original draft.
 All authors reviewed, edited, and approved the final version of the manuscript.
 
