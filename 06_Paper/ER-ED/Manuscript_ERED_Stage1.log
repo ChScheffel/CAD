@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.17)  17 MAR 2022 10:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.17)  24 MAR 2022 09:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1399,7 +1399,7 @@ Package rerunfilecheck Info: File `Manuscript_ERED_Stage1.out' has not changed.
 Here is how much of TeX's memory you used:
  17891 strings out of 480236
  300887 string characters out of 5893968
- 610442 words of memory out of 5000000
+ 610458 words of memory out of 5000000
  35288 multiletter control sequences out of 15000+600000
  529362 words of font info for 76 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
