@@ -58,7 +58,7 @@ abstract: |
   We aim to replicate the analysis of Westbrook and colleagues with our adaptation, the Cognitive and Emotion Regulation Effort Discounting paradigm, which quantifies SVs without assuming that the easiest level is preferred, thereby enabling the quantification of SVs for tasks without objective order of task load.
   
 keywords          : "effort discounting, registered report, specification curve analysis, need for cognition, n-back"
-wordcount         : "X"
+wordcount         : "~ 3,700"
 bibliography      : CERED.bib
 floatsintext      : yes
 figsintext        : yes
@@ -428,6 +428,8 @@ apa_table(
 )
 ```
 
+\newpage
+
 Physical subscale ANOVA:
 
 `r apa_print(hypothesis1c_physical_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_physical_rmanova$anova_table[1,"F"], df = hypothesis1c_physical_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_physical_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_physical_rmanova$anova_table[1,"F"], df = hypothesis1c_physical_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_physical_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_physical_BF)$bf, digits = 2)`
@@ -443,6 +445,8 @@ apa_table(
   placement = "H"
 )
 ```
+
+\newpage
 
 Time subscale ANOVA:
 
@@ -460,6 +464,8 @@ apa_table(
 )
 ```
 
+\newpage
+
 Performance subscale ANOVA:
 
 `r apa_print(hypothesis1c_performance_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_performance_rmanova$anova_table[1,"F"], df = hypothesis1c_performance_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_performance_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_performance_rmanova$anova_table[1,"F"], df = hypothesis1c_performance_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_performance_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_performance_BF)$bf, digits = 2)`
@@ -476,6 +482,8 @@ apa_table(
 )
 ```
 
+\newpage
+
 Effort subscale ANOVA:
 
 `r apa_print(hypothesis1c_effort_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_effort_rmanova$anova_table[1,"F"], df = hypothesis1c_effort_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_effort_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_effort_rmanova$anova_table[1,"F"], df = hypothesis1c_effort_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_effort_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_effort_BF)$bf, digits = 2)`
@@ -491,6 +499,8 @@ apa_table(
   placement = "H"
 )
 ```
+
+\newpage
 
 Frustration subscale ANOVA:
 
