@@ -37,7 +37,6 @@ author:
     affiliation   : "1"
     role:
       - Formal analysis
-      - Writing - original draft preparation
       - Writing - review & editing
       - Visualization
   - name          : "Alexander Strobel"
@@ -199,7 +198,7 @@ We used *R* with *R Studio* [@RCT2020; @RStudioTeam2020] with the main packages 
 
 ## Ethics information
 
-The study protocol complies with all relevant ethical regulations and was approved by the ethics committee of the Technische Universität Dresden (reference number EK...).
+The study protocol complies with all relevant ethical regulations and was approved by the ethics committee of the Technische Universität Dresden (reference number SR-EK-50012022).
 Prior to testing, written informed consent will be obtained.
 Participants will receive 30€ in total or course credit for participation.
 
@@ -247,7 +246,7 @@ To account for technical errors, noisy physiological data, or participants who i
 ## Analysis plan
 
 Data collection and analysis will not be performed blind to the conditions of the experiments.
-We will exclude the data of a participant from all analyses, if the participant states that they did not follow the instructions or if the investigator notes that the participant misunderstood the instructions.
+We will exclude the data of a participant from all analyses, if the participant states that they did not follow the instructions, if the investigator notes that the participant misunderstood the instructions, or if the participant withdraws their consent.
 No data will be replaced.
 We aim to conduct all analysis as described in Westbrook et al. [-@Westbrook2013], but the level of detail was not always sufficient, so there might be deviations regarding data cleaning and degrees of freedom.
 The performance measure *d'* will be computed as the difference of the *z*-transformed hit rate and the *z*-transformed false alarm rate [@Macmillan1990].
@@ -329,6 +328,7 @@ The funders have/had no role in study design, data collection and analysis, deci
 JZ, CS, and AS conceptualized the study and acquired funding.
 JZ and CS developed the methodology, investigated, administered the project, and wrote the software.
 JZ and CK did the formal analysis, visualized the results, and prepared the original draft.
+JZ prepared the original draft.
 All authors reviewed, edited, and approved the final version of the manuscript.
 
 
