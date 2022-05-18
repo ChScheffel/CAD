@@ -106,12 +106,17 @@ After each block, participants retrospectively rated their subjective emotional 
 
 *Part two: ER effort discounting.* <br> In the second part, ER effort discounting will take place.
 The procedure of the discounting will follow the COG-ED paradigm by Westbrook et al.[-@Westbrook2013] with a major change.
-We will use the following adaption that allows the computation of SVs for different strategies without presuming that all individuals would inherently evaluate the same strategy as the easiest one: For each possible pairing (distraction vs. distancing, distraction vs. suppression, and distancing vs. suppression), two strategies with monetary values will be presented.
-The order of the comparisons will be randomized.
+We will use the following adaption that allows the computation of SVs for different strategies without presuming that all individuals would inherently evaluate the same strategy as the easiest one: For each possible pairing (distraction vs. distancing, distraction vs. suppression, and distancing vs. suppression), each of the two strategies will be presented with a monetary reward.
+The order of the pairings will be randomized.
 Because there is no strategy that is objectively more difficult, we will add an initial comparison that begins with the option "1 € for strategy A or 1 € for strategy B".
-The strategy that is not chosen will be assigned the value of 2 €.
+The participants decide by clicking the on-screen button of the respective option.
+The strategy that is not chosen will be assigned the fixed value of 2 €, the chosen strategy will be assigned a starting value of 1 €.
 From this point on, comparisons between strategies will follow the original COG-ED paradigm[@Westbrook2013].
-Participants will be instructed to decide as realistically as possible by imagining that the money displayed is actually available for choice.
+Each pairing is presented six consecutive times, and with each decision the reward of the strategy with the starting value of 1 € is either lowered (if this strategy was chosen) or raised (if the strategy with the fixed 2 € reward was chosen).
+The adjustment starts at 0.50 € and each is half the adjustment of the previous step, rounded to two digits after the decimal point.
+If a participant always chooses the strategy with the fixed 2 € reward, the other strategy's last value on display will be 1.97 €, if they always choose the lower strategy, its last value will be 0.03 €.
+The sixth adjustment of 0.02 € will be done during data analysis, based on the participants' decision in the last display of the pairing.
+Participants will be instructed to decide as realistically as possible by imagining that the monetary reward is actually available for choice.
 
 *Part three: ER choice.* <br> After the discounting part, participants will choose which of the three ER strategies (distraction, distancing or suppression) they want to re-apply.
 Importantly, there will be no further instruction on what basis they should make their decision.
@@ -183,8 +188,8 @@ Proportion of explained variance $\eta_{p}^{2}$ will be reported as a measure of
 If indicated by the data, estimated marginal means will be computed as post-hoc contrasts.
 rmANOVAS will be run using the *afex* package[@Singmann2021].
 
-*Subjective values of emotion regulation strategies.* <br> For each ER strategy, SVs will be calculated as follows: first, the value 0.015625 will be added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
-Second, the resulting (monetary) value will be divided by 2.00 €.
+*Subjective values of emotion regulation strategies.* <br> For each ER strategy, SVs will be calculated as follows: first, the value 0.02 € will be added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
+Second, the resulting monetary value will be divided by 2.00 € to arrive at the SV, which is between 0 and 1.
 The final SV for each participant will be computed by averaging all final SVs of each strategy.
 The resulting values will be entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression) and explore group effects.
 Again, estimated marginal means will be computed as post-hoc contrasts.
