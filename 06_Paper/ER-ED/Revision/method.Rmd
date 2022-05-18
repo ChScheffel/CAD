@@ -189,8 +189,10 @@ If indicated by the data, estimated marginal means will be computed as post-hoc 
 rmANOVAS will be run using the *afex* package[@Singmann2021].
 
 *Subjective values of emotion regulation strategies.* <br> For each ER strategy, SVs will be calculated as follows: first, the value 0.02 € will be added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
-Second, the resulting monetary value will be divided by 2.00 € to arrive at the SV, which is between 0 and 1.
-The final SV for each participant will be computed by averaging all final SVs of each strategy.
+Second, the resulting monetary value will be divided by 2.00 € to arrive at the SV of the opposite strategy in each pairing.
+Therefore, the SVs of the flexible strategies are 1, because they were chosen in the initial comparison of each pairing in which the same value was offered for both strategies, so they are the preferred strategy of each pairing.
+The SVs of the fixed strategies lay between 0 and 1, with lower values indicating that the participant would need a much higher monetary incentive to choose this strategy over the other one in the pairing. 
+The final SV per strategy for each participant will be computed by averaging the SVs of each strategy across pairings.
 The resulting values will be entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression) and explore group effects.
 Again, estimated marginal means will be computed as post-hoc contrasts.
 
