@@ -58,12 +58,13 @@ Participants will be excluded from participation if they do not fluently speak G
 Participants will be invited to complete an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
 The study consists of two lab sessions, which will take place in a shielded cabin with constant lighting.
 Before each session, participants will receive information about the respective experimental procedure and provide informed consent.
-At the beginning of the first session participants will fill out a demographic questionnaire and complete an n-back task with the levels one to four.
-Then, they will complete an effort discounting (ED) procedure on screen, followed by a random repetition of one n-back level.
-The second session will comprise the ER paradigm and take place exactly one week after session one.
+In the first session participants will fill out a demographic questionnaire and complete an n-back task with the levels one to four.
+Then, they will complete an effort discounting (ED) procedure regarding the n-back levels on screen, followed by a random repetition of one n-back level.
+The second session will take place exactly one week after session one.
 Participants will provide informed consent and receive written instructions on the ER paradigm and ER strategies that they should apply.
 A brief training will ensure that all participants are able to implement the ER strategies.
-Next, electrodes to measure facial EMG will be attached and the ER paradigm will be conducted.
+Next, electrodes to measure facial EMG will be attached and the ER paradigm will be conducted, followed by an ED procedure regarding the ER strategies.
+After that, participants will choose one ER strategy to repeat one more time.
 Study data will be collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden[@Harris2009; @Harris2019].
 
 ### 2.3.1 Psychometric measures
