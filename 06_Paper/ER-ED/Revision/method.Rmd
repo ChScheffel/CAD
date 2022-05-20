@@ -135,6 +135,7 @@ The 20 neutral pictures (Valence (V): *M* $\pm$ *SD* = `r round(mean(stim_neutra
 Further, 100 negative pictures, featuring categories animals, body, disaster, disgust, injury, suffering, violence, and weapons, will be used.
 An evolutionary algorithm [@Yu2010] is used to cluster these pictures into five sets with comparable valence and arousal values (set one: V: *M* $\pm$ *SD* = `r round(mean(stim_negative$valence[stim_negative$set == 1]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 1]), digits = 2)`, A: *M* $\pm$ *SD* = `r round(mean(stim_negative$arousal[stim_negative$set == 1]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 1]), digits = 2)`; set two: V: *M* $\pm$ *SD* = `r round(mean(stim_negative$valence[stim_negative$set == 2]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 2]), digits = 2)`, A: *M* $\pm$ *SD* = `r round(mean(stim_negative$arousal[stim_negative$set == 2]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 2]), digits = 2)`; set three: V: *M* $\pm$ *SD* = `r round(mean(stim_negative$valence[stim_negative$set == 3]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 3]), digits = 2)`, A: *M* $\pm$ *SD* = `r round(mean(stim_negative$arousal[stim_negative$set == 3]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 3]), digits = 2)`; set four: V: *M* $\pm$ *SD* = `r round(mean(stim_negative$valence[stim_negative$set == 4]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 4]), digits = 2)`, A: *M* $\pm$ *SD* = `r round(mean(stim_negative$arousal[stim_negative$set == 4]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 4]), digits = 2)`; set five: V: *M* $\pm$ *SD* = `r round(mean(stim_negative$valence[stim_negative$set == 5]), digits = 2)` $\pm$ `r round(sd(stim_negative$valence[stim_negative$set == 5]), digits = 2)`, A: *M* $\pm$ *SD* = `r round(mean(stim_negative$arousal[stim_negative$set == 5]), digits = 2)` $\pm$ `r round(sd(stim_negative$arousal[stim_negative$set == 5]), digits = 2)`).
 A complete list of all pictures and their classification into sets can be found in supplementary material 1.
+The five sets of negative pictures will be assigned randomly to the blocks.
 
 ### 2.3.4 Facial electromyography
 
@@ -182,7 +183,7 @@ To investigate the effects of the three ER strategies on subjective arousal (H2a
 
 To examine the effects of the three ER strategies on physiological responding (H3a and H3b), another rmANOVA with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for EMG *corrugator* and *levator* activity will be conducted.
 
-To examine the effect of ER strategies on subjective effort, a rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings will be conducted.
+To examine the effect of ER strategies on subjective effort (H4a), a rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings will be conducted.
 Greenhouse-Geisser-corrected $p$-values and degrees of freedom will be reported when the assumption of sphericity is violated.
 Proportion of explained variance $\eta_{p}^{2}$ will be reported as a measure of effect size.
 If indicated by the data, estimated marginal means will be computed as post-hoc contrasts.
@@ -193,13 +194,8 @@ Second, the resulting monetary value will be divided by 2.00 € to arrive at th
 Therefore, the SVs of the flexible strategies are 1, because they were chosen in the initial comparison of each pairing in which the same value was offered for both strategies, so they are the preferred strategy of each pairing.
 The SVs of the fixed strategies lay between 0 and 1, with lower values indicating that the participant would need a much higher monetary incentive to choose this strategy over the other one in the pairing. 
 The final SV per strategy for each participant will be computed by averaging the SVs of each strategy across pairings.
-The resulting values will be entered in a rmANOVA to compare the SVs of the three strategies (distraction, distancing, and suppression) and explore group effects.
-Again, estimated marginal means will be computed as post-hoc contrasts.
 
-To investigate whether individual SVs predict ER choice, a Chi-squared test with predicted choice (highest SV of each participant) and actual choice will be computed.
-Furthermore, an ordinal logistic regression with the dependent variable choice and independent variables SVs of each strategy will be computed.
-
-To explore the association between subjective arousal, physiological responses, and subjective effort on SVs, a multilevel model (MLM) will be specified using the $lmerTest$ package[@Kuznetsova2017].
+To explore the association between subjective effort (H5a), subjective arousal (H5b), and physiological responding (H5c,d) on SVs, a multilevel model (MLM) will be specified using the $lmerTest$ package[@Kuznetsova2017].
 First, ER strategies will be recoded and centered for each subject according to their individual SVs: The strategy with the highest SV will be coded as -1, the strategy with the second highest SV 0, and the strategy with the lowest SV will be coded as 1.
 Restricted maximum likelihood (REML) will be applied to fit the model.
 A random slopes model of SVs including subjective effort (effort ratings), subjective arousal (arousal ratings), and physiological responses (*corrugator* and *levator* activity) as level-1-predictors will be specified.
@@ -210,12 +206,15 @@ Level-1-predictors will be centered within cluster[@Enders2007].
 Residuals of the final model will be inspected visually.
 Intraclass correlation coefficient (ICC), $\rho$, will be reported for each model (null model, as well as full model).
 
-The influence of personality traits on SVs will be investigated exploratorily.
-Therefore, the MLM specified above will be extended by the level-2-predictors NFC and self-control.
+To investigate whether individual SVs predict ER choice (H7a), a Chi-squared test with predicted choice (highest SV of each participant) and actual choice will be computed.
+Furthermore, an ordinal logistic regression with the dependent variable choice and independent variables SVs of each strategy will be computed.
 
-The association between flexible ER and SVs of ER strategies will be investigated with a regression using the $intercept$ and $slope$ of each participants' SVs to predict their FlexER score.
+The association between flexible ER and SVs of ER strategies (H7b) will be investigated with a regression using the $intercept$ and $slope$ of each participants' SVs to predict their FlexER score.
 Firstly, SVs will be ordered by magnitude.
 Secondly, for each participant a linear model will be built to estimate the individual $intercept$ and $slope$.
+
+The influence of personality traits on SVs will be investigated exploratorily.
+Therefore, the MLM specified above will be extended by the level-2-predictors NFC and self-control.
 
 For each result of the analyses, both $p$-values and Bayes factors $BF10$, calculated using the *BayesFactor* package[@Morey2021], will be reported. 
 Bayes factors are calculated using the default prior widths of the functions *anovaBF*, *lmBF* and *regressionBF*.
