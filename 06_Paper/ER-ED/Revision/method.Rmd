@@ -69,10 +69,14 @@ Study data will be collected and managed using REDCap electronic data capture to
 
 ### 2.3.1 Psychometric measures
 
-The online survey will contain a number of questionnaires: General psychological well-being will be assessed using the German version of the WHO-5 scale[@Bech2004; @Braehler2007].
+The online survey will contain a number of questionnaires. In the focus of the current project is the Flexible Emotion Regulation Scale (FlexER)[@Doerfel2019].  
+It assess flexible use of ER strategies with items such as "If I want to feel less negative emotions, I have several strategies to achieve this." 
+The items are rated on a 4-point scale ranging from "strongly agree" to "strongly disagree".
+
+Further psychological constructs will be assessed but have no clear hypothesies in the present work an are therefore investigated only exploratory:
+General psychological well-being will be assessed using the German version of the WHO-5 scale[@Bech2004; @Braehler2007].
 To measure resilience, the German version 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; @Sarubin2015] will be used.
 Habitual use of ER will be assessed using the German version of the Emotion Regulation Questionnaire (ERQ)[@GrossJohn2003; @Abler2009].
-For the assessment of ER flexibility we will use the Flexible Emotion Regulation Scale (FlexER)[@Doerfel2019].
 Implicit theories of willpower in emotion control will be assessed using the implicit theories questionnaire from Bernecker and Job[@Bernecker2017].
 To assess Need for Cognition, the German version short form of the Need for Cognition Scale[@Cacioppo1982; @Bless1994] will be used.
 To assess self-control [@Paschke2016], sum scores of the German versions of the following questionnaires will be used: the Self-Regulation Scale (SRS)[@Schwarzer1999], the Brief Self-Control Scale (BSCS)[@Tangney2004; @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11)[@Patton1995; @Hartmann2011].
