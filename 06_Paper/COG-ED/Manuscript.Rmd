@@ -184,7 +184,7 @@ The COG-ED paradigm has been applied to tasks in different domains before, showi
 ```
 
 Our hypotheses were derived from the results of Westbrook et al.[-@Westbrook2013].
-Regarding the associations of subjective and objective task load we hypothesize that (1a) the signal detection parameter *d'* declines with increasing *n*-back level, (1b) reaction time increases with increasing *n*-back level, and (1c) perceived task load increases with increasing *n*-back level.
+As a manipulation check, we hypothesize that with increasing *n*-back level the (1a) the signal detection parameter *d'* declines, while (1b) reaction time and (1c) perceived task load increase.
 Regarding the associations of task load and effort discounting we hypothesize that (2a) SVs decline with increasing *n*-back level, and (2b) they do so even after controlling for declining task performance.
 A hypothesis that was not investigated in the original study is that (2c) SVs decline stronger with increasing task load for individuals with low compared to high NFC scores.
 And regarding individual differences in effort discounting we hypothesize that (3a) SVs predict individual NFC scores, and (3b) perceived task load does not predict individual NFC scores.
