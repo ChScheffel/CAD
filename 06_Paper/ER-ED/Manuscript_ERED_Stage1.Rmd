@@ -121,7 +121,7 @@ library(kableExtra) # for tables in R Markdown
 library(BayesFactor) # for bayes factors
 
 # load workspace variables from analyses_ERED.R script
-load(here("06_Paper","ER-ED","Workspace_ERED_pilot.RData"))
+load(here("06_Paper","ER-ED","Revision","Workspace_ERED_pilot.RData"))
 
 ```
 
@@ -161,7 +161,7 @@ The authors declare no competing interests.
 
 \newpage
 ```{r ResponsePatternsAppendix, echo = FALSE, message = FALSE, warning = FALSE}
-include_graphics(here("06_Paper","ER-ED", "figures", "Paradigm_Scheme_T2.png" ))
+include_graphics(here("06_Paper","ER-ED", "Revision", "figures", "Paradigm_Scheme_T2.png" ))
 ```
 *Figure 1.* 
 Exemplary visualization of two response patterns. 
@@ -170,7 +170,7 @@ In the lower half, they have no clear preference and therefore show an inconsist
 This pattern can also be represented by our paradigm.
 
 ```{r DesignEREDappendix, echo=FALSE, message=FALSE, warning=FALSE, fig.pos="H"}
-include_graphics(here("06_Paper", "ER-ED", "figures", "Design_ER-ED.png"))
+include_graphics(here("06_Paper", "ER-ED", "Revision", "figures", "Design_ER-ED.png"))
 ```
 *Figure 2.* 
 Block design of the paradigm. 

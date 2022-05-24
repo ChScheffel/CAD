@@ -18,8 +18,8 @@ library(here)       # to set directories without defined paths
 here::i_am("flag_project_root_CERED.txt")
 
 library(renv)
-renv::activate(here("06_Paper", "ER-ED"))
-renv::restore(here("06_Paper", "ER-ED"))
+renv::activate(here("06_Paper", "ER-ED", "Revision"))
+renv::restore(here("06_Paper", "ER-ED", "Revision"))
 
 library(dplyr)
 library(ggplot2)

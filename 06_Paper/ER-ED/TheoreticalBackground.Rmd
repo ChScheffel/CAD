@@ -102,36 +102,14 @@ Then no SV will be 1, but still, the SVs of all strategies can be interpreted as
 In a separate study, we will test our adapted paradigm together with a *n*-back task and explore whether this paradigm can describe individuals that do not prefer the easiest *n*-back option (see Zerna et al.[@Zerna2022]).
 
 ```{r ResponsePatterns, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Exemplary visualization of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can be represented by our paradigm."}
-include_graphics(here("06_Paper", "ER-ED", "figures", "Paradigm_Scheme_T2.png" ))
+include_graphics(here("06_Paper", "ER-ED", "Revision", "figures", "Paradigm_Scheme_T2.png" ))
 ```
 
 The aim of the present study is to evaluate whether this paradigm is suitable for determining SVs of ER strategies. 
-As a manipulation check, we first want to investigate whether the valence of the pictures (neutral, negative) is effecting subjective and physiological responding (EMG).
-Second, we want to check whether the ER strategies distraction, distancing, and suppression effectively reduce subjective and physiological responding as well as, third, whether they require cognitive effort. 
-The following hypotheses are proposed:
-
-* H1a) Subjective arousal is lower after actively viewing neutral pictures compared to actively viewing negative pictures. 
-* H1b) Physiological responding (EMG *corrugator* and *levator* activity) is lower while actively viewing neutral pictures compared to actively viewing negative pictures.
-
-* H2a) Subjective arousal (arousal rating) is lower after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
-* H3a) Physiological responding (EMG *corrugator* activity) is lower while using an ER strategy (distraction, distancing, suppression) compared to active viewing.
-* H3b) Physiological responding (EMG *levator* activity) is lower while using an ER strategy (distraction, distancing, suppression) compared to active viewing.
-
-* H4a) Subjective effort (effort rating) is greater after using an ER strategy (distraction, distancing, suppression) compared to active viewing.
-* H5b) The majority of participants re-uses the strategy that was least effortful for them. 
-
-Furthermore, we want to investigate whether the following variables predict individual subjective values of ER strategies and whether effort is the best predictor for SVs of ER strategies with the following hypotheses:
-
-* H5a) Subjective effort (effort ratings) negatively predicts SVs of ER strategies.
-* H5b) Subjective arousal (arousal ratings) negatively predicts SVs of ER strategies.
-* H5c) Physiological responding (EMG *corrugator* activity) negatively predicts SVs of ER strategies.
-* H5d) Physiological responding (EMG *levator* activity) negatively predicts SVs of ER strategies.
-
-* H6a) SVs decline with increasing effort, even after controlling for task performance (subjective arousal ratings), and physiological responding (EMF *corrugator* and *levator* activity).
-
-We also want to investigate whether SVs are related to flexible emotion regulation: 
-
-* H7a) The higher the SV, the more likely the respective strategy is chosen.
-* H7b) SVs are lower and decline stronger when ER flexibility is lower. 
-
+As a manipulation check, we first want to investigate whether the valence of the pictures is affecting subjective and physiological responding, resulting in lower subjective arousal ratings after and lower EMG activity during neutral compared to negative pictures.
+Second, we want to check whether the ER strategies distraction, distancing, and suppression effectively reduce subjective arousal and physiological responding compared to the active viewing condition.
+Third, we want to see whether the strategies subjectively require more cognitive effort than the active viewing condition, and whether participants re-apply the for them least effortful strategy. 
+Furthermore, we want to investigate whether subjective effort and arousal ratings, and EMG activity predict individual subjective values of ER strategies.
+And lastly, we want to check whether the SV of a strategy is associated with its likelihood of being chosen again, and whether SVs reflect participants' self-reported ER flexibility.
+All hypotheses are detailed in the [design table](#DesignTable).
 Exploratorily, we want to investigate whether individual SVs are related to personality traits and how individual SVs of ER strategies relate to SVs of other tasks with different demand levels, namely *n*-back.
