@@ -67,7 +67,7 @@ We assume that people choose the strategy that has the highest value for them at
 The value is determined against the background of goal achievement in the specific situation: A strategy is highly valued if it facilitates goal achievement[@Aldao2015]. 
 One certainly central goal is the regulation of negative affect.
 A second, intrinsic and less obvious goal is the avoidance of effort[@Inzlicht2018].
-When given the choice, most individuals prefer tasks that are less effortful[@Hull1943].
+When given the choice, most individuals prefer tasks that are less effortful[@Hull1943].  
 We assume that both aspects are traded off against each other by individuals to determine individual subjective values (SVs) of ER strategies: A strategy is more valuable if it can reduce emotional arousal *and* is less effortful.
 SVs of ER Strategies could therefore be helpful to describe the ER repertoire[@Aldao2015] more comprehensively.
 Depending on the flexibility of a person, different patterns of SVs could be conceivable: A person with high flexibility would show relatively high SVs for a number of strategies.
@@ -88,6 +88,13 @@ In the present study, we want to use this paradigm to determine SVs of ER strate
 In doing so, we need to make an important change: We have to adapt the assumption that the easiest *n*-back level has the highest SV.
 As we have shown in previous studies, there are large inter-individual differences in the preference and perceived subjective effort of ER strategies[@Scheffel2021].
 Moreover, there is nothing like an objectively easiest ER strategy.
+<!-- Kommentar Denise: ich pack jetzt erstmal das AO Paper zu der  Energie, die die Strategien brauchen, und andere Überlegungen hier her. bin mir aber nicht sicher, ob das woanders nicht besser passt.--> It could be assumed, that the antecedent-focused strategies, i.e. attentional deployment and cognitive change, require less effort, because according to Gross [-@Gross1998antecedent] these strategies apply when the emotional reaction has not fully developed, yet. 
+In contrast, suppression would need ongoing effort, because it takes effect late in the emotion generating process and does not alter the emotion itself. 
+A similar assumption has been made by Mesmer-Magnus et al. <!--Mesmer-Magnus, J. R., DeChurch, L. A., & Wax, A. (2012). Moving emotional labor beyond surface and deep acting: A discordance-congruence perspective. Organizational Psychology Review, 2(1), 6-53. https://doi.org/10.1177/2041386611417746 -->, who state that Surface Acting (the equivalent to expressive suppression in emotional labor research) is supposed to continuously require high levels of energy (hence effort). Deep Acting (which refers to reappraisal), in turn, only initially needs the use of energy. 
+This would be in conflict with findings in our prevoius studies, that showed that many people choose expressive suppression because they evaluated it as less effortful, hence easy[@Scheffel2021].
+Others define emotion regulation on a continuum from explicit, conscious, and effortful to implicit, unconscious, automatic and effortless <!--Gyurak, A., Gross, J. J., & Etkin, A. (2011). Explicit and implicit emotion regulation: a dual-process framework. Cogn Emot, 25(3), 400-412. https://doi.org/10.1080/02699931.2010.544160-->. This would mean, that all explicit strategies that have been proposed by the process model of emotion regulation are similarly effortful[@Gross1998antecedent].  <!--Schaut mal, ob ihr mit dieser Argumentation einverstanden seid-->
+Similarly, the flexibility approach of emotion regulation also states, that there is no "best" strategy <!-- Gross, J. J. (2015). Emotion Regulation: Current Status and Future Prospects. Psychological Inquiry, 26(1), 1-26. https://doi.org/10.1080/1047840x.2014.940781-->. An emotion regulation attempt is adaptive, when the intended, individual goal is reached. Those attempts could also consist of sequences of regulatory efforts using different strategies, which might be effective and effortless only in this specific context.
+
 Therefore, we have to add an additional step, which precedes the other steps and where the ER option with the higher subjective value is determined. 
 In this step, the same monetary value (i.e., 1 €) is assigned to both options.
 The assumption is that participants now choose the option that has the higher SV for them.
