@@ -162,7 +162,7 @@ Figure\ 1 illustrates how different modifications of the COG-ED paradigm return 
 The COG-ED paradigm sets the SV of 1-back to 1, regardless of the response pattern.
 Adding a comparison of 2-back and 3-back allows the SVs of those two levels to be more differentiated, but leaves the SV of 1-back unchanged.
 Adding three more comparisons of the same levels but using the easier level as reference does approach the true preference, but has two disadvantages.
-First, the SVs are still distorted by the SVs returned by the original paradigm, and second, having more task levels would lead to an exponential increase in comparisons.
+First, the SVs are still quite alike among levels due to the fact that every more difficult level has only been compared with the easiest level, and second, having more task levels would lead to an exponential increase in comparisons.
 Therefore, the solution lies in reducing the number of necessary comparisons by presenting only one effort discounting round for each possible pair of levels, and by starting each round with a choice between equal rewards.
 For example, the participant is presented with the choice of receiving 1€ for 2-back or 1€ for 4-back.
 The level chosen by the participant will then be used as the level with a flexible value, which starts at 1€ and is changed in every iteration.
