@@ -1,6 +1,6 @@
 ---
 title             : "When easy is not preferred: An effort discounting paradigm for estimating subjective values of tasks"
-shorttitle        : "The CERED paradigm for estimating subjective values"
+shorttitle        : "The CAD paradigm for estimating subjective values"
 author: 
   - name          : "Josephine Zerna"
     orcid         : "0000-0003-2892-884X"
@@ -59,7 +59,7 @@ abstract: |
   
 keywords          : "effort discounting, registered report, specification curve analysis, need for cognition, n-back"
 wordcount         : "~ 3,700"
-bibliography      : CERED.bib
+bibliography      : CAD.bib
 floatsintext      : yes
 figsintext        : yes
 figurelist        : no
@@ -118,7 +118,7 @@ header-includes   :
   
   # set top level directory to source file
 
-  here::i_am("flag_project_root_CERED.txt")
+  here::i_am("flag_project_root_CAD.txt")
   
   # load the workspace variables that have been computed with the Analysis.R script
   
@@ -171,8 +171,8 @@ This procedure allows to compute SVs based on actual individual preference inste
 Each level's SV is calculated as the mean of this level's SVs from all comparisons in which it appeared.
 If the participant has a clear preference for one level, this level's SV will be 1.
 If not, then no level's SV will be 1, but each level's SV can still be interpreted as an absolute and relative value, so each participant's effort discounting behaviour can still be quantified.
-Since we also aim to establish this paradigm for the assessment of tasks with no objective task load, e.g., emotion regulation tasks[@ScheffelZerna2022], we call it the Cognitive and Emotion Regulation Effort Discounting Paradigm (CERED).
-In the present study, we will validate the CERED paradigm by conceptually replicating the findings of Westbrook et al.[-@Westbrook2013].
+Since we also aim to establish this paradigm for the assessment of tasks with no objective task load, e.g., emotion regulation tasks[@ScheffelZerna2022], we call it the Cognitive and Affective Discounting Paradigm (CAD).
+In the present study, we will validate the CAD paradigm by conceptually replicating the findings of Westbrook et al.[-@Westbrook2013].
 Additionally, we will compare the effort discounting behavior of participants regarding the *n*-back task and an emotion regulation task.
 The full results of the latter will be published in a second Registered Report[@ScheffelZerna2022].
 The COG-ED paradigm has been applied to tasks in different domains before, showing that SVs across task domains correlate [@Crawford2021], but these tasks had an objective order of task load, which is not the case for the choice of emotion regulation strategies or other paradigms where there is no objective order of task load.
@@ -210,7 +210,7 @@ NFC will be assessed using the 16-item short form of the Need for Cognition Scal
 Responses to each item (e.g., "Thinking is not my idea of fun", recoded) will be recorded on a 7-point Likert scale.
 The NFC scale shows comparably high internal consistency (Cronbach's $\alpha>.80$) [@Bless1994; @Fleischhauer2010].
 Several other personality questionnaires will be used in this study but are the topic of the Registered Report for the second lab session[@ScheffelZerna2022].
-A full list of measures can be found in our [Github repository](https://github.com/ChScheffel/CERED).
+A full list of measures can be found in our [Github repository](https://github.com/ChScheffel/CAD).
 In the first session, participants provide informed consent and demographic data before completing the computer-based paradigm.
 The paradigm starts with the *n*-back levels one to four, presented sequentially with two runs per level, consisting of 64 consonants (16 targets, 48 non-targets) per run.
 The levels are referred to by color (1-back black, 2-back red, 3-back blue, 4-back green) to avoid anchor effects in the effort discounting procedure.
@@ -300,7 +300,7 @@ The data of this study can be downloaded from [osf.io/vnj8x/](https://osf.io/vnj
 
 ## Code availability
 
-The paradigm code as well as the R Markdown file used to analyze the data and write this document is available at [github.com/ChScheffel/CERED](https://github.com/ChScheffel/CERED).
+The paradigm code as well as the R Markdown file used to analyze the data and write this document is available at [github.com/ChScheffel/CAD](https://github.com/ChScheffel/CAD).
 
 \newpage
 
