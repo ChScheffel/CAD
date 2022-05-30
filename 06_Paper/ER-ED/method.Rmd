@@ -106,7 +106,7 @@ The order of the three regulation blocks (distraction, distancing, and suppressi
 Each of the blocks consisted of 20 trials showing neutral (Block 1) and negative (Blocks 2, 3, 4, 5) pictures.
 Each trial began with a fixation cross that lasted 3 to 5 seconds (random uniform distributed).
 It was followed by neutral or negative picture for a total of 6 seconds.
-After each block, participants retrospectively rated their subjective emotional arousal ("not at all aroused" to "very highly aroused"), their subjective effort ("not very exhausting" to "very exhausting"), and the utility of each strategy ("not useful at all" to "very useful") on a continuous scale using a slider on screen.
+After each block, participants retrospectively rated their subjective emotional arousal ("not at all aroused" to "very highly aroused"), their subjective effort ("not very exhausting" to "very exhausting"), and - after the ragulation blocks - the utility of the respective strategy ("not useful at all" to "very useful") on a continuous scale using a slider on screen.
 
 *Part two: ER effort discounting.* <br> In the second part, ER effort discounting will take place.
 The procedure of the discounting will follow the COG-ED paradigm by Westbrook et al.[-@Westbrook2013] with a major change.
