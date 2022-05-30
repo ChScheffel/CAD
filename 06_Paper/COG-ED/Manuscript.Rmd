@@ -202,18 +202,6 @@ The study protocol complies with all relevant ethical regulations and was approv
 Prior to testing, written informed consent will be obtained.
 Participants will receive 30€ in total or course credit for participation.
 
-## Pilot data
-
-The sample of the pilot study consisted of $N=`r length(setindex)-1`$ participants (`r round((table(data_quest$gender)[2]/(length(setindex)-1))*100, digits = 1)`% female, $M=`r printnum(mean(data_quest[,"age"], na.rm = TRUE))`$ ($SD=`r printnum(sd(data_quest[,"age"], na.rm = TRUE))`$)\ years old).
-One participant's data was removed because they misunderstood the instruction.
-Due to a technical error the subjective task load data of one participant was incomplete, so the hypotheses involving the NASA Task Load Index were analyzed with $n=`r length(setindex)-2`$ data sets.
-The results showed increases in subjective and objective task load measures with higher *n*-back level.
-Importantly, SVs were lower for higher *n*-back levels, but not different between 1- and 2-back, which can be considered preliminary proof-of-concept, as this phenomon can only emerge in this version of the paradigm.
-A multi-level model (MLM) revealed that *n*-back level was a reliable predictor of SV, even after controlling for declining task performance (d’ and RT) as well as correct and post-correct answers, while NFC was not, most likely due to the small sample size for individual differences analyses.
-The specification curve analysis showed that this pattern was true for all 63 pipelines.
-Finally, while the $AxAUC$ value did not predict any amount of variance in individual NFC scores, the $AUC$ of NASA-TLX scores did.
-All results are detailed in the Supplementary Material.
-
 ## Design
 
 Healthy participants aged 18 to 30\ years will be recruited using the software *ORSEE*[@Greiner2015].
@@ -292,6 +280,18 @@ This is the opposite for the sum of the ascent between SVs.
 Therefore, we multiply both indicators, arriving at a value reflecting both degree and direction of preference, called $AxAUC$.
 
 The results of each analysis will be assessed on the basis of both $p$-value and the Bayes factor $BF10$, calculated with the *BayesFactor* package[@Morey2021] using the default prior widths of the functions *anovaBF*, *lmBF* and *regressionBF*.
+
+## Pilot data
+
+The sample of the pilot study consisted of $N=`r length(setindex)-1`$ participants (`r round((table(data_quest$gender)[2]/(length(setindex)-1))*100, digits = 1)`% female, $M=`r printnum(mean(data_quest[,"age"], na.rm = TRUE))`$ ($SD=`r printnum(sd(data_quest[,"age"], na.rm = TRUE))`$)\ years old).
+One participant's data was removed because they misunderstood the instruction.
+Due to a technical error the subjective task load data of one participant was incomplete, so the hypotheses involving the NASA Task Load Index were analyzed with $n=`r length(setindex)-2`$ data sets.
+The results showed increases in subjective and objective task load measures with higher *n*-back level.
+Importantly, SVs were lower for higher *n*-back levels, but not different between 1- and 2-back, which can be considered preliminary proof-of-concept, as this phenomon can only emerge in this version of the paradigm.
+A multi-level model (MLM) revealed that *n*-back level was a reliable predictor of SV, even after controlling for declining task performance (d’ and RT) as well as correct and post-correct answers, while NFC was not, most likely due to the small sample size for individual differences analyses.
+The specification curve analysis showed that this pattern was true for all 63 pipelines.
+Finally, while the $AxAUC$ value did not predict any amount of variance in individual NFC scores, the $AUC$ of NASA-TLX scores did.
+All results are detailed in the Supplementary Material.
 
 ## Data availability
 
