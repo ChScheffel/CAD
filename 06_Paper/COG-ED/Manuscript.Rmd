@@ -1,6 +1,6 @@
 ---
 title             : "When easy is not preferred: An effort discounting paradigm for estimating subjective values of tasks"
-shorttitle        : "The CERED paradigm for estimating subjective values"
+shorttitle        : "The CAD paradigm for estimating subjective values"
 author: 
   - name          : "Josephine Zerna"
     orcid         : "0000-0003-2892-884X"
@@ -59,7 +59,7 @@ abstract: |
   
 keywords          : "effort discounting, registered report, specification curve analysis, need for cognition, n-back"
 wordcount         : "~ 3,700"
-bibliography      : CERED.bib
+bibliography      : CAD.bib
 floatsintext      : yes
 figsintext        : yes
 figurelist        : no
@@ -118,7 +118,7 @@ header-includes   :
   
   # set top level directory to source file
 
-  here::i_am("flag_project_root_CERED.txt")
+  here::i_am("flag_project_root_CAD.txt")
   
   # load the workspace variables that have been computed with the Analysis.R script
   
@@ -171,8 +171,8 @@ This procedure allows to compute SVs based on actual individual preference inste
 Each level's SV is calculated as the mean of this level's SVs from all comparisons in which it appeared.
 If the participant has a clear preference for one level, this level's SV will be 1.
 If not, then no level's SV will be 1, but each level's SV can still be interpreted as an absolute and relative value, so each participant's effort discounting behaviour can still be quantified.
-Since we also aim to establish this paradigm for the assessment of tasks with no objective task load, e.g., emotion regulation tasks[@ScheffelZerna2022], we call it the Cognitive and Emotion Regulation Effort Discounting Paradigm (CERED).
-In the present study, we will validate the CERED paradigm by conceptually replicating the findings of Westbrook et al.[-@Westbrook2013].
+Since we also aim to establish this paradigm for the assessment of tasks with no objective task load, e.g., emotion regulation tasks[@ScheffelZerna2022], we call it the Cognitive and Affective Discounting Paradigm (CAD).
+In the present study, we will validate the CAD paradigm by conceptually replicating the findings of Westbrook et al.[-@Westbrook2013].
 Additionally, we will compare the effort discounting behavior of participants regarding the *n*-back task and an emotion regulation task.
 The full results of the latter will be published in a second Registered Report[@ScheffelZerna2022].
 The COG-ED paradigm has been applied to tasks in different domains before, showing that SVs across task domains correlate [@Crawford2021], but these tasks had an objective order of task load, which is not the case for the choice of emotion regulation strategies or other paradigms where there is no objective order of task load.
@@ -210,15 +210,20 @@ NFC will be assessed using the 16-item short form of the Need for Cognition Scal
 Responses to each item (e.g., "Thinking is not my idea of fun", recoded) will be recorded on a 7-point Likert scale.
 The NFC scale shows comparably high internal consistency (Cronbach's $\alpha>.80$) [@Bless1994; @Fleischhauer2010].
 Several other personality questionnaires will be used in this study but are the topic of the Registered Report for the second lab session[@ScheffelZerna2022].
-A full list of measures can be found in our [Github repository](https://github.com/ChScheffel/CERED).
+A full list of measures can be found in our [Github repository](https://github.com/ChScheffel/CAD).
 In the first session, participants provide informed consent and demographic data before completing the computer-based paradigm.
 The paradigm starts with the *n*-back levels one to four, presented sequentially with two runs per level, consisting of 64 consonants (16 targets, 48 non-targets) per run.
 The levels are referred to by color (1-back black, 2-back red, 3-back blue, 4-back green) to avoid anchor effects in the effort discounting procedure.
 To assess perceived task load, we will use the 6-item NASA Task Load Index (NASA-TLX)[@Hart1988], where participants evaluate their subjective perception of mental load, physical load, effort, frustration, performance, and time pressure during the task on a 20-point scale.
 After each level, participants fill out the NASA-TLX on a tablet.
-Then, they complete the effort discounting procedure on screen, where each possible pairing of the four *n*-back levels is presented in a randomized order.
-Participants are instructed to decide as realistically as possible, because one of their choices from the last iteration steps will be randomly chosen for one final run of *n*-back.
-This is only done to incentivise truthful behavior in the effort discounting procedure, so the *n*-back data of this part will not be analyzed.
+Then, they complete the effort discounting procedure on screen and are instructed to do so as realistically as possible, even though the displayed rewards will not be paid out on top of their compensation.
+They are told that one of their choices will be randomly picked for the final run of *n*-back, the data of which will not be analyzed as it serves to incentivise truthful behavior.
+The procedure starts with a presentation of each possible pair of *n*-back levels, and the participants click on the level they would rather do for a reward of 1\ €.
+Each pair is presented three times in total, with the order of presentation and the matter of which level is presented left/right fully randomized between participants.
+After these 18 decisions, the paradigm assigns which level is flexible or fixed within each pair, based on which level was chosen at least twice or at the maximum once, respectively.
+Then the effort discounting sensu Westbrook [@Westbrook2013] begins, with the pairs being presented in randomized order.
+Each pair goes through all six iteration steps before moving on to the next pair.
+After the computer paradigm, participants will fill out a short questionnaire on the tablet, indicating whether they have adhered to the instructions (yes/no) and what the primary motivation for their decisions during the effort discounting procedure was (avoid boredom/relax/avoid effort/seek challenge/other).
 The second session consists of an emotion regulation task with negative pictures and the instruction to suppress facial reactions, detach cognitively from the picture content, and distract oneself, respectively.
 The paradigm follows the same structure of task and effort discounting procedure, but participants can decide which strategy they want to reapply in the last block.
 Study data will be collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden[@Harris2009; @Harris2019].
@@ -299,7 +304,7 @@ The data of this study can be downloaded from [osf.io/vnj8x/](https://osf.io/vnj
 
 ## Code availability
 
-The paradigm code as well as the R Markdown file used to analyze the data and write this document is available at [github.com/ChScheffel/CERED](https://github.com/ChScheffel/CERED).
+The paradigm code as well as the R Markdown file used to analyze the data and write this document is available at [github.com/ChScheffel/CAD](https://github.com/ChScheffel/CAD).
 
 \newpage
 
