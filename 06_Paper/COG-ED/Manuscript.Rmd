@@ -216,10 +216,14 @@ The paradigm starts with the *n*-back levels one to four, presented sequentially
 The levels are referred to by color (1-back black, 2-back red, 3-back blue, 4-back green) to avoid anchor effects in the effort discounting procedure.
 To assess perceived task load, we will use the 6-item NASA Task Load Index (NASA-TLX)[@Hart1988], where participants evaluate their subjective perception of mental load, physical load, effort, frustration, performance, and time pressure during the task on a 20-point scale.
 After each level, participants fill out the NASA-TLX on a tablet.
-Then, they complete the effort discounting procedure on screen, where each possible pairing of the four *n*-back levels is presented in a randomized order.
-Participants are instructed to decide as realistically as possible, because one of their choices from the last iteration steps will be randomly chosen for one final run of *n*-back.
-This is only done to incentivise truthful behavior in the effort discounting procedure, so the *n*-back data of this part will not be analyzed.
-After the computer paradigm, participants will fill out a short questionnaire on the tablet, indicating whether they have adhered to the instructions (yes/no) and what the primary motivation for their decisions during the ED procedure was (avoid boredom/relax/avoid effort/seek challenge/other).
+Then, they complete the effort discounting procedure on screen and are instructed to do so as realistically as possible, even though the displayed rewards will not be paid out on top of their compensation.
+They are told that one of their choices will be randomly picked for the final run of *n*-back, the data of which will not be analyzed as it serves to incentivise truthful behavior.
+The procedure starts with a presentation of each possible pair of *n*-back levels, and the participants click on the level they would rather do for a reward of 1\ €.
+Each pair is presented three times in total, with the order of presentation and the matter of which level is presented left/right fully randomized between participants.
+After these 18 decisions, the paradigm assigns which level is flexible or fixed within each pair, based on which level was chosen at least twice or at the maximum once, respectively.
+Then the effort discounting sensu Westbrook [@Westbrook2013] begins, with the pairs being presented in randomized order.
+Each pair goes through all six iteration steps before moving on to the next pair.
+After the computer paradigm, participants will fill out a short questionnaire on the tablet, indicating whether they have adhered to the instructions (yes/no) and what the primary motivation for their decisions during the effort discounting procedure was (avoid boredom/relax/avoid effort/seek challenge/other).
 The second session consists of an emotion regulation task with negative pictures and the instruction to suppress facial reactions, detach cognitively from the picture content, and distract oneself, respectively.
 The paradigm follows the same structure of task and effort discounting procedure, but participants can decide which strategy they want to reapply in the last block.
 Study data will be collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden[@Harris2009; @Harris2019].
