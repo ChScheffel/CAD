@@ -67,9 +67,11 @@ We assume that people choose the strategy that has the highest value for them at
 The value is determined against the background of goal achievement in the specific situation: A strategy is highly valued if it facilitates goal achievement[@Aldao2015]. 
 One certainly central goal is the regulation of negative affect.
 A second, intrinsic and less obvious goal is the avoidance of effort[@Inzlicht2018].
-When given the choice, most individuals prefer tasks that are less effortful[@Hull1943].
+When given the choice, most individuals prefer tasks that are less effortful[@Hull1943] and chose strategies that were less effortful[@Scheffel2021].
 We assume that both aspects are traded off against each other by individuals to determine individual subjective values (SVs) of ER strategies: A strategy is more valuable if it can reduce emotional arousal *and* is less effortful.
-SVs of ER Strategies could therefore be helpful to describe the ER repertoire[@Aldao2015] more comprehensively.
+In addition, perceived utility should have an impact on SVs. 
+A strategy that is less effortful and can objectively regulate arousal (i.e., is effective), but is not subjectively perceived as useful, should have a low SV.
+Moreover, SVs of ER Strategies could therefore be helpful to describe the ER repertoire[@Aldao2015] more comprehensively.
 Depending on the flexibility of a person, different patterns of SVs could be conceivable: A person with high flexibility would show relatively high SVs for a number of strategies.
 This would mean that all strategies are a good option for goal achievement.
 A second person with less flexibility, however, would show high SVs only for one or very few strategies.
