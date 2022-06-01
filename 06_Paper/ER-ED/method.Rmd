@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 library(here)       # to set directories without defined paths
 # set top level directory to source file
-here::i_am("flag_project_root_CERED.txt")
+here::i_am("flag_project_root_CAD.txt")
 
 library(papaja)     # APA conform output
 library(readxl)     # import excel files
@@ -69,8 +69,9 @@ Study data will be collected and managed using REDCap electronic data capture to
 
 ### 2.3.1 Psychometric measures
 
-The online survey will contain a number of questionnaires. In the focus of the current project is the Flexible Emotion Regulation Scale (FlexER)[@Doerfel2019].  
-It assess flexible use of ER strategies with items such as "If I want to feel less negative emotions, I have several strategies to achieve this." 
+The online survey will contain a number of questionnaires. 
+In the focus of the current project is the Flexible Emotion Regulation Scale (FlexER)[@Doerfel2019].  
+It assess flexible use of ER strategies with items such as "If I want to feel less negative emotions, I have several strategies to achieve this.", which we define as ER flexibility. 
 The items are rated on a 4-point scale ranging from "strongly agree" to "strongly disagree".
 
 Further psychological constructs will be assessed but have no clear hypothesies in the present work an are therefore investigated only exploratory:
@@ -129,7 +130,7 @@ However, participants will be asked to state the reasons for the decision afterw
 As soon as they have decided, they will see the respective instruction and the block with another 20 negative pictures starts.
 
 ```{r DesignERED, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Block design of the paradigm. Every participant starts with two \"active viewing\" blocks continaing neutral (Block 1) and negative (Block 2) pictures. Order of the regulation blocks (Blocks 3, 4, and 5) is randomized between participants. After, the discounting procedure takes place. All three regulation strategies are pairwise compared. Before the last block, participants can decide which regulation strategy they want to reapply. Subjective arousal and effort ratings are assessed after each block using a slider on screen with a continuous scale."}
-include_graphics(here("06_Paper", "ER-ED", "Revision", "figures", "Design_ER-ED.png"))
+include_graphics(here("06_Paper", "ER-ED", "figures", "Design_ER-ED.png"))
 ```
 
 ### 2.3.3 Stimuli
