@@ -326,7 +326,7 @@
   
 ##### Preprocessing pipelines for the SCA ######################################
   
-  # create new data frames for the specification curve analysis <!-- specification curve analysis has not been mentioned in the ms. so far -->
+  # create new data frames for the specification curve analysis
   # the data frame names are a combination of the letters from each of these categories, indicating how they will be preprocessed:
   #
   # across which dimensions the transformation and outlier exclusion will be done:
@@ -722,11 +722,56 @@
     
     dprime$d <- dprime$hitrate.z - dprime$falsealarmrate.z
     
-    # feed d# trialwise into the pipeline data frame
+    # feed d' trialwise into the pipeline data frame
     
     for (i in 1:nrow(pipelines_data[[j]])) {
       
       pipelines_data[[j]]$dprime[i] <- dprime$d[dprime$subject == pipelines_data[[j]]$subject[i] & dprime$level == pipelines_data[[j]]$level[i]]
+      
+    }
+  }
+
+##### median RT for every pipeline #############################################
+  
+  # calculate the median RT for correct and post-correct trials for every pipeline
+  # per subject and per condition
+  # the median RT will be another column in the data frames, and will be the same
+  # within one subject and level, just like the SVs and d prime
+  
+  for (j in 1:length(pipelines_data)) {
+    
+    # compute index of rows in which the levels change
+    
+    levelindex <- c(1,which(pipelines_data[[j]]$level != dplyr::lag(pipelines_data[[j]]$level)),nrow(pipelines_data[[j]]))
+    
+    # set up empty data frame for the loop to feed into
+    
+    medianRT <- data.frame(subject = character(), level = double(), medianRT = double())
+    
+    # calculate median RT per subject and level (only for correct & post-correct trials)
+    
+    for (i in 1:(length(levelindex)-1)) {
+      
+      # current level and current subject
+      x <- pipelines_data[[j]]$level[levelindex[i]]
+      mysubject <- pipelines_data[[j]]$subject[levelindex[i]]
+      
+      # compute median reaction time
+      mymedianRT <- median(pipelines_data[[j]]$rt[pipelines_data[[j]]$level == x & pipelines_data[[j]]$response == 1 & pipelines_data[[j]]$correct == 1 & pipelines_data[[j]]$subject == mysubject], na.rm = TRUE)
+
+      # bind data to data frame
+      newdata <- data.frame(subject = pipelines_data[[j]]$subject[levelindex[i]],
+                            level = pipelines_data[[j]]$level[levelindex[i]],
+                            medianRT = mymedianRT)
+      medianRT <- rbind(medianRT, newdata)
+      
+    }
+    
+    # feed the median RT trialwise into the pipeline data frame
+    
+    for (i in 1:nrow(pipelines_data[[j]])) {
+      
+      pipelines_data[[j]]$medianRT[i] <- medianRT$medianRT[medianRT$subject == pipelines_data[[j]]$subject[i] & medianRT$level == pipelines_data[[j]]$level[i]]
       
     }
   }
