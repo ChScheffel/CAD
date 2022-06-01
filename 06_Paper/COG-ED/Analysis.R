@@ -6,7 +6,7 @@
 #
 # Corresponding author: Josephine Zerna (josephine.zerna@tu-dresden.de)
 #
-# Please download the repsitory from github.com/ChScheffel/CERED
+# Please download the repsitory from github.com/ChScheffel/CAD
 #
 #
 ################################################################################
@@ -18,7 +18,7 @@
   
   library(here)
   
-  here::i_am("flag_project_root_CERED.txt")
+  here::i_am("flag_project_root_CAD.txt")
   
   # load reproducible environment library to get all packages with correct versions form the renv.lock file
   # install renv by calling install.packages("renv") if necessary
@@ -39,7 +39,7 @@
   
   # set top level directory to source file
   
-  here::i_am("flag_project_root_CERED.txt")
+  here::i_am("flag_project_root_CAD.txt")
   
   # import n-back and effort discounting data into a list each
   
