@@ -385,270 +385,229 @@
     
     if (pipeline_name[[1]][1] == "A" & pipeline_name[[1]][2] == "A") {
       
-      # the second decision is the type of transformation, depending on the third letter in the data frame name
-      
-      if (pipeline_name[[1]][3] == "L") {
-        
-        pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] <-
-          log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1])
-        pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0] <-
-          log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0])
-        
-      } else if (pipeline_name[[1]][3] == "I") {
-        
-        pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] <-
-          1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1])
-        pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0] <-
-          1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0])
-        
-      } else if (pipeline_name[[1]][3] == "S") {
-        
-        pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] <-
-          sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1])
-        pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0] <-
-          sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0])
-      }
-      
-      # compute median and median absolute deviation
-      
-      pipemedian <- median(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1], na.rm = TRUE)
-      pipemad <- mad(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1], na.rm = TRUE)
-      
-      # the third decision is the outlier exclusion
-      
-      if (pipeline_name[[1]][4] == "2") {
-        
-        pipelines_data[[i]] <- pipelines_data[[i]][c(which(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] < (pipemedian + 2 * pipemad)
-                                                           & pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] > (pipemedian - 2 * pipemad))), ]
-        
-      } else if (pipeline_name[[1]][4] == "5") {
-        
-        pipelines_data[[i]] <- pipelines_data[[i]][c(which(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] < (pipemedian + 2.5 * pipemad)
-                                                           & pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] > (pipemedian - 2.5 * pipemad))), ]
-      } else if (pipeline_name[[1]][4] == "3") {
-        
-        pipelines_data[[i]] <- pipelines_data[[i]][c(which(pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] < (pipemedian + 3 * pipemad)
-                                                           & pipelines_data[[i]]$rt[pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] > (pipemedian - 3 * pipemad))), ]
-      }
+          # the numbers of all rows in which response, correct, and postcorrect are 1 (i.e. the ones where we will analyze reaction time )
+          # (we will still keep the other rows until we have calculated d prime, then we will remove them)
+          
+          piperows <- row.names(pipelines_data[[i]][pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 & pipelines_data[[i]]$postcorrect == 1, ])
+    
+          # the second decision is the type of transformation, depending on the third letter in the data frame name
+          
+              if (pipeline_name[[1]][3] == "L") {
+                
+                pipelines_data[[i]][piperows, "rt"] <- log10(pipelines_data[[i]][piperows, "rt"])
+                
+              } else if (pipeline_name[[1]][3] == "I") {
+                
+                pipelines_data[[i]][piperows, "rt"] <- 1/(pipelines_data[[i]][piperows, "rt"])
+                
+              } else if (pipeline_name[[1]][3] == "S") {
+                
+                pipelines_data[[i]][piperows, "rt"] <- sqrt(pipelines_data[[i]][piperows, "rt"])
+                
+              }
+          
+          # compute median and median absolute deviation
+          
+          pipemedian <- median(pipelines_data[[i]][piperows, "rt"], na.rm = TRUE)
+          pipemad <- mad(pipelines_data[[i]][piperows, "rt"], na.rm = TRUE)
+          
+          # the third decision is the outlier exclusion
+          
+              if (pipeline_name[[1]][4] == "2") {
+                
+                # logical vector of which of the piperows are out of the defined range
+                pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 2 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 2 * pipemad)
+                
+                # exclude the rows out of range from the data frame
+                pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                pipelines_data[[i]] <- pipelines_data[[i]][-pipedrop, ]
+                
+              } else if (pipeline_name[[1]][4] == "5") {
+                
+                # logical vector of which of the piperows are out of the defined range
+                pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 2.5 * pipemad)
+                
+                # exclude the rows out of range from the data frame
+                pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                pipelines_data[[i]] <- pipelines_data[[i]][-pipedrop, ]
+                
+              } else if (pipeline_name[[1]][4] == "3") {
+                
+                # logical vector of which of the piperows are out of the defined range
+                pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 3 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 3 * pipemad)
+                
+                # exclude the rows out of range from the data frame
+                pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                pipelines_data[[i]] <- pipelines_data[[i]][-pipedrop, ]
+                
+              }
       
     } else if (pipeline_name[[1]][1] == "A" & pipeline_name[[1]][2] == "W") {
       
       # apply the transformations and exclusions across subjects but within levels
       
-      for (x in 1:4) {
-        
-        # the second decision is the type of transformation, depending on the third letter in the data frame name
-        
-        if (pipeline_name[[1]][3] == "L") {
+          for (x in 1:4) {
+            
+            # the numbers of all rows in which response, correct, and postcorrect are 1 within that level
+            
+            piperows <- row.names(pipelines_data[[i]][pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 &
+                                                        pipelines_data[[i]]$correct == 1 & pipelines_data[[i]]$postcorrect == 1, ])
+            
+            # the second decision is the type of transformation, depending on the third letter in the data frame name
+            
+                if (pipeline_name[[1]][3] == "L") {
+                  
+                  pipelines_data[[i]][piperows, "rt"] <- log10(pipelines_data[[i]][piperows, "rt"])
+                  
+                } else if (pipeline_name[[1]][3] == "I") {
+                  
+                  pipelines_data[[i]][piperows, "rt"] <- 1/log10(pipelines_data[[i]][piperows, "rt"])
+                  
+                } else if (pipeline_name[[1]][3] == "S") {
+                  
+                  pipelines_data[[i]][piperows, "rt"] <- sqrt(pipelines_data[[i]][piperows, "rt"])
+                  
+                }
+            
+            # compute median and median absolute deviation
+            
+            pipemedian <- median(pipelines_data[[i]][piperows, "rt"], na.rm = TRUE)
+            pipemad <- mad(pipelines_data[[i]][piperows, "rt"], na.rm = TRUE)
+            
+            # the third decision is the outlier exclusion
+            
+                if (pipeline_name[[1]][4] == "2") {
+                  
+                  pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 2 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 2 * pipemad)
+                  pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                  pipelines_data[[i]] <- ifelse(length(piperows[pipeexclude]) > 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
+                  
+                } else if (pipeline_name[[1]][4] == "5") {
+                  
+                  pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 2.5 * pipemad)
+                  pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                  pipelines_data[[i]] <- ifelse(length(piperows[pipeexclude]) > 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
+                  
+                } else if (pipeline_name[[1]][4] == "3") {
+                  
+                  pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 3 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 3 * pipemad)
+                  pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                  pipelines_data[[i]] <- ifelse(length(piperows[pipeexclude]) > 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
+                  
+                }
+          }
           
-          pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] <-
-            log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1])
-          pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0] <-
-            log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0])
-          
-        } else if (pipeline_name[[1]][3] == "I") {
-          
-          pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] <-
-            1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1])
-          pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0] <-
-            1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0])
-          
-        } else if (pipeline_name[[1]][3] == "S") {
-          
-          pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] <-
-            sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1])
-          pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0] <-
-            sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0])
-          
-        }
-        
-        # compute median and median absolute deviation
-        
-        pipemedian <- median(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1], na.rm = TRUE)
-        pipemad <- mad(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1], na.rm = TRUE)
-        
-        # the third decision is the outlier exclusion
-        
-        if (pipeline_name[[1]][4] == "2") {
-          
-          ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))) > 0,
-                 pipelines_data[[i]] <-
-                   pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                                  (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))), ],
-                 pipelines_data[[i]] <- pipelines_data[[i]])
-          
-        } else if (pipeline_name[[1]][4] == "5") {
-          
-          ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                (pipelines_data[[i]]$rt > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2.5 * pipemad)))) > 0,
-                 pipelines_data[[i]] <-
-                   pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                                  (pipelines_data[[i]]$rt > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2.5 * pipemad)))), ],
-                 pipelines_data[[i]] <- pipelines_data[[i]])
-          
-        } else if (pipeline_name[[1]][4] == "3") {
-          
-          ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                (pipelines_data[[i]]$rt > (pipemedian + 3 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 3 * pipemad)))) > 0,
-                 pipelines_data[[i]] <-
-                   pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                                  (pipelines_data[[i]]$rt > (pipemedian + 3 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 3 * pipemad)))), ],
-                 pipelines_data[[i]] <- pipelines_data[[i]])
-        }
-      }
-      
       
     } else if (pipeline_name[[1]][1] == "W" & pipeline_name[[1]][2] == "W") {
       
       # apply the transformations and exclusions within subjects and within levels
       
-      for (x in 1:4) {
-        
-        for (y in 1:length(table(pipelines_data[[i]]$subject))) {
+        for (x in 1:4) {
           
-          # save the name of the subject as a temporary variable
-          
-          pipesubject <- names(table(pipelines_data[[i]]$subject))[y]
-          
-          # the second decision is the type of transformation, depending on the third letter in the data frame name
-          
-          if (pipeline_name[[1]][3] == "L") {
-            
-            pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                     pipelines_data[[i]]$subject == pipesubject] <-
-              log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 & pipelines_data[[i]]$subject == pipesubject])
-            pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0 &
-                                     pipelines_data[[i]]$subject == pipesubject] <-
-              log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0 & pipelines_data[[i]]$subject == pipesubject])
-            
-          } else if (pipeline_name[[1]][3] == "I") {
-            
-            pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                     pipelines_data[[i]]$subject == pipesubject] <-
-              1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 & pipelines_data[[i]]$subject == pipesubject])
-            pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0 &
-                                     pipelines_data[[i]]$subject == pipesubject] <-
-              1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0 & pipelines_data[[i]]$subject == pipesubject])
-            
-          } else if (pipeline_name[[1]][3] == "S") {
-            
-            pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                     pipelines_data[[i]]$subject == pipesubject] <-
-              sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 & pipelines_data[[i]]$subject == pipesubject])
-            pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0 &
-                                     pipelines_data[[i]]$subject == pipesubject] <-
-              sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0 & pipelines_data[[i]]$subject == pipesubject])
-          }
-          
-          # compute median and median absolute deviation
-          
-          pipemedian <- median(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 & pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
-          pipemad <- mad(pipelines_data[[i]]$rt[pipelines_data[[i]]$level == x & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 & pipelines_data[[i]]$subject == pipesubject], na.rm = TRUE)
-          
-          # the third decision is the outlier exclusion
-          
-          if (pipeline_name[[1]][4] == "2") {
-            
-            ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                  (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))) > 0,
-                   pipelines_data[[i]] <-
-                     pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                                    (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))), ],
-                   pipelines_data[[i]] <- pipelines_data[[i]])
-            
-          } else if (pipeline_name[[1]][4] == "5") {
-            
-            ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                  (pipelines_data[[i]]$rt > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2.5 * pipemad)))) > 0,
-                   pipelines_data[[i]] <-
-                     pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                                    (pipelines_data[[i]]$rt > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2.5 * pipemad)))), ],
-                   pipelines_data[[i]] <- pipelines_data[[i]])
-            
-          } else if (pipeline_name[[1]][4] == "3") {
-            
-            ifelse(length(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                  (pipelines_data[[i]]$rt > (pipemedian + 3 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 3 * pipemad)))) > 0,
-                   pipelines_data[[i]] <-
-                     pipelines_data[[i]][-c(which(pipelines_data[[i]]$level == x & pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                                    (pipelines_data[[i]]$rt > (pipemedian + 3 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 3 * pipemad)))), ],
-                   pipelines_data[[i]] <- pipelines_data[[i]])
-          }
+            for (y in 1:length(table(pipelines_data[[i]]$subject))) {
+              
+              # the numbers of all rows in which response, correct, and postcorrect are 1 within that level within that subject
+              
+              piperows <- row.names(pipelines_data[[i]][pipelines_data[[i]]$subject == names(table(pipelines_data[[i]]$subject))[y] & pipelines_data[[i]]$level == x &
+                                                          pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 & pipelines_data[[i]]$postcorrect == 1, ])
+              
+              # the second decision is the type of transformation, depending on the third letter in the data frame name
+              
+                  if (pipeline_name[[1]][3] == "L") {
+                    
+                    pipelines_data[[i]][piperows, "rt"] <- log10(pipelines_data[[i]][piperows, "rt"])
+                    
+                  } else if (pipeline_name[[1]][3] == "I") {
+                    
+                    pipelines_data[[i]][piperows, "rt"] <- 1/(pipelines_data[[i]][piperows, "rt"])
+                    
+                  } else if (pipeline_name[[1]][3] == "S") {
+                    
+                    pipelines_data[[i]][piperows, "rt"] <- sqrt(pipelines_data[[i]][piperows, "rt"])
+                  }
+                  
+              # compute median and median absolute deviation
+              
+              pipemedian <- median(pipelines_data[[i]][piperows, "rt"], na.rm = TRUE)
+              pipemad <- mad(pipelines_data[[i]][piperows, "rt"], na.rm = TRUE)
+              
+              # the third decision is the outlier exclusion
+              
+                  if (pipeline_name[[1]][4] == "2") {
+                    
+                    pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 2 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 2 * pipemad)
+                    pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                    pipelines_data[[i]] <- ifelse(length(piperows[pipeexclude]) > 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
+                    
+                  } else if (pipeline_name[[1]][4] == "5") {
+                    
+                    pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 2.5 * pipemad)
+                    pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                    pipelines_data[[i]] <- ifelse(length(piperows[pipeexclude]) > 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
+                    
+                  } else if (pipeline_name[[1]][4] == "3") {
+                    
+                    pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 3 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 3 * pipemad)
+                    pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                    pipelines_data[[i]] <- ifelse(length(piperows[pipeexclude]) > 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
+                  }
+            }
         }
-      }
       
     } else if (pipeline_name[[1]][1] == "W" & pipeline_name[[1]][2] == "A") {
       
       # apply the transformations and exclusions within subjects but across levels
       
-      for (y in 1:length(table(pipelines_data[[i]]$subject))) {
-        
-        # save the name of the subject as a temporary variable
-        
-        pipesubject <- names(table(pipelines_data[[i]]$subject))[y]
-        
-        # the second decision is the type of transformation, depending on the third letter in the data frame name
-        
-        if (pipeline_name[[1]][3] == "L") {
+          for (y in 1:length(table(pipelines_data[[i]]$subject))) {
+            
+            # the numbers of all rows in which response, correct, and postcorrect are 1 within that level within that subject
+            
+            piperows <- row.names(pipelines_data[[i]][pipelines_data[[i]]$subject == names(table(pipelines_data[[i]]$subject))[y] & pipelines_data[[i]]$response == 1 &
+                                                        pipelines_data[[i]]$correct == 1 & pipelines_data[[i]]$postcorrect == 1, ])
+            
+            # the second decision is the type of transformation, depending on the third letter in the data frame name
+            
+                if (pipeline_name[[1]][3] == "L") {
+                  
+                  pipelines_data[[i]][piperows, "rt"] <- log10(pipelines_data[[i]][piperows, "rt"])
+                  
+                } else if (pipeline_name[[1]][3] == "I") {
+                  
+                  pipelines_data[[i]][piperows, "rt"] <- 1/(pipelines_data[[i]][piperows, "rt"])
+                  
+                } else if (pipeline_name[[1]][3] == "S") {
+                  
+                  pipelines_data[[i]][piperows, "rt"] <- sqrt(pipelines_data[[i]][piperows, "rt"])
+                  
+                }
+            
+            # compute median and median absolute deviation
+            
+            pipemedian <- median(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1], na.rm = TRUE)
+            pipemad <- mad(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1], na.rm = TRUE)
+            
+            # the third decision is the outlier exclusion
+            
+                if (pipeline_name[[1]][4] == "2") {
+                  
+                  pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 2 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 2 * pipemad)
+                  pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                  pipelines_data[[i]] <- ifelse(length(piperows[pipeexclude]) > 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
+                  
+                } else if (pipeline_name[[1]][4] == "5") {
+                  
+                  pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 2.5 * pipemad)
+                  pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                  pipelines_data[[i]] <- ifelse(length(piperows[pipeexclude]) > 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
+                  
+                } else if (pipeline_name[[1]][4] == "3") {
+                  
+                  pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 3 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 3 * pipemad)
+                  pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                  pipelines_data[[i]] <- ifelse(length(piperows[pipeexclude]) > 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
+                }
+          }
           
-          pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] <-
-            log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1])
-          pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0] <-
-            log10(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0])
-          
-        } else if (pipeline_name[[1]][3] == "I") {
-          
-          pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] <-
-            1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1])
-          pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0] <-
-            1/(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0])
-          
-        } else if (pipeline_name[[1]][3] == "S") {
-          
-          pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1] <-
-            sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1])
-          pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0] <-
-            sqrt(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 0])
-          
-        }
-        
-        # compute median and median absolute deviation
-        
-        pipemedian <- median(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1], na.rm = TRUE)
-        pipemad <- mad(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1], na.rm = TRUE)
-        
-        # the third decision is the outlier exclusion
-        
-        if (pipeline_name[[1]][4] == "2") {
-          
-          ifelse(length(which(pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))) > 0,
-                 pipelines_data[[i]] <-
-                   pipelines_data[[i]][-c(which(pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                                  (pipelines_data[[i]]$rt > (pipemedian + 2 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2 * pipemad)))), ],
-                 pipelines_data[[i]] <- pipelines_data[[i]])
-          
-        } else if (pipeline_name[[1]][4] == "5") {
-          
-          ifelse(length(which(pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                (pipelines_data[[i]]$rt > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2.5 * pipemad)))) > 0,
-                 pipelines_data[[i]] <-
-                   pipelines_data[[i]][-c(which(pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                                  (pipelines_data[[i]]$rt > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 2.5 * pipemad)))), ],
-                 pipelines_data[[i]] <- pipelines_data[[i]])
-          
-        } else if (pipeline_name[[1]][4] == "3") {
-          
-          ifelse(length(which(pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                (pipelines_data[[i]]$rt > (pipemedian + 3 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 3 * pipemad)))) > 0,
-                 pipelines_data[[i]] <-
-                   pipelines_data[[i]][-c(which(pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1 &
-                                                  (pipelines_data[[i]]$rt > (pipemedian + 3 * pipemad) | pipelines_data[[i]]$rt < (pipemedian - 3 * pipemad)))), ],
-                 pipelines_data[[i]] <- pipelines_data[[i]])
-        }
-      }
-      
     }
     
     # the time-based exclusions are done outside of the A/A-A/W-W/W-W/A-conditions because they are independent of dimension:
@@ -658,15 +617,17 @@
     
     if (pipeline_name[[1]][4] == "O") {
       
-      ifelse(nrow(pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.1 & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1)), ]) > 0,
-             pipelines_data[[i]] <- pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.1 & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1)), ],
-             pipelines_data[[i]] <- pipelines_data[[i]])
+      pipeexclude <- row.names(pipelines_data[[i]][pipelines_data[[i]]$rt < 0.1 & pipelines_data[[i]]$response == 1 &
+                                                     pipelines_data[[i]]$correct == 1 & pipelines_data[[i]]$postcorrect == 1, ])
+      pipedrop <- ifelse(length(pipeexclude) > 0, which(rownames(pipelines_data[[i]]) %in% pipeexclude), 0)
+      pipelines_data[[i]] <- ifelse(pipedrop != 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
       
     } else if (pipeline_name[[1]][4] == "T") {
       
-      ifelse(nrow(pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.2 & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1)), ]) > 0,
-             pipelines_data[[i]] <- pipelines_data[[i]][-c(which(pipelines_data[[i]]$rt < 0.2 & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1)), ],
-             pipelines_data[[i]] <- pipelines_data[[i]])
+      pipeexclude <- row.names(pipelines_data[[i]][pipelines_data[[i]]$rt < 0.2 & pipelines_data[[i]]$response == 1 &
+                                                     pipelines_data[[i]]$correct == 1 & pipelines_data[[i]]$postcorrect == 1, ])
+      pipedrop <- ifelse(length(pipeexclude) > 0, which(rownames(pipelines_data[[i]]) %in% pipeexclude), 0)
+      pipelines_data[[i]] <- ifelse(pipedrop != 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
       
     }
     
@@ -774,6 +735,18 @@
       pipelines_data[[j]]$medianRT[i] <- medianRT$medianRT[medianRT$subject == pipelines_data[[j]]$subject[i] & medianRT$level == pipelines_data[[j]]$level[i]]
       
     }
+  }
+  
+  # remove the temporary variables
+  
+  base::remove(x, mysubject, mymedianRT, newdata, medianRT)
+  
+##### Boil all pipelines down to levels per subject, not trials ################
+  
+  for (j in 1:length(pipelines_data)) {
+    
+    pipelines_data[[j]] <- unique(pipelines_data[[j]][ ,c("subject","level","sv","nfc","dprime","medianRT")])
+    
   }
   
 ##### Hypothesis 1a ############################################################
