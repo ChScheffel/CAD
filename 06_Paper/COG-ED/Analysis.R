@@ -6,7 +6,7 @@
 #
 # Corresponding author: Josephine Zerna (josephine.zerna@tu-dresden.de)
 #
-# Please download the repsitory from github.com/ChScheffel/CERED
+# Please download the repsitory from github.com/ChScheffel/CAD
 #
 #
 ################################################################################
@@ -18,7 +18,7 @@
   
   library(here)
   
-  here::i_am("flag_project_root_CERED.txt")
+  here::i_am("flag_project_root_CAD.txt")
   
   # load reproducible environment library to get all packages with correct versions form the renv.lock file
   # install renv by calling install.packages("renv") if necessary
@@ -39,7 +39,7 @@
   
   # set top level directory to source file
   
-  here::i_am("flag_project_root_CERED.txt")
+  here::i_am("flag_project_root_CAD.txt")
   
   # import n-back and effort discounting data into a list each
   
@@ -161,7 +161,7 @@
   
 ##### Subjective value computation #############################################
   
-  # apply the addition or subtraction of 0.015625 to the last choices
+  # apply the addition or subtraction of 0.02 to the last choices
   
   for (i in 1:nrow(data_ED)) {
     
@@ -170,15 +170,15 @@
     
     if (data_ED$choice[i] == 1) {
       if (data_ED$LBvalue[i] == 2.00) {
-        data_ED$flexvalue[i] <- round(data_ED$RBvalue[i] + 0.015625, digits = 2)
+        data_ED$flexvalue[i] <- round(data_ED$RBvalue[i] + 0.02, digits = 2)
       } else {
-        data_ED$flexvalue[i] <- round(data_ED$LBvalue[i] - 0.015625, digits = 2)
+        data_ED$flexvalue[i] <- round(data_ED$LBvalue[i] - 0.02, digits = 2)
       }
     } else {
       if (data_ED$RBvalue[i] == 2.00) {
-        data_ED$flexvalue[i] <- round(data_ED$LBvalue[i] + 0.015625, digits = 2)
+        data_ED$flexvalue[i] <- round(data_ED$LBvalue[i] + 0.02, digits = 2)
       } else {
-        data_ED$flexvalue[i] <- round(data_ED$RBvalue[i] - 0.015625, digits = 2)
+        data_ED$flexvalue[i] <- round(data_ED$RBvalue[i] - 0.02, digits = 2)
       }
     }
     
