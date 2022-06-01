@@ -161,7 +161,7 @@
   
 ##### Subjective value computation #############################################
   
-  # apply the addition or subtraction of 0.015625 to the last choices
+  # apply the addition or subtraction of 0.02 to the last choices
   
   for (i in 1:nrow(data_ED)) {
     
@@ -170,15 +170,15 @@
     
     if (data_ED$choice[i] == 1) {
       if (data_ED$LBvalue[i] == 2.00) {
-        data_ED$flexvalue[i] <- round(data_ED$RBvalue[i] + 0.015625, digits = 2)
+        data_ED$flexvalue[i] <- round(data_ED$RBvalue[i] + 0.02, digits = 2)
       } else {
-        data_ED$flexvalue[i] <- round(data_ED$LBvalue[i] - 0.015625, digits = 2)
+        data_ED$flexvalue[i] <- round(data_ED$LBvalue[i] - 0.02, digits = 2)
       }
     } else {
       if (data_ED$RBvalue[i] == 2.00) {
-        data_ED$flexvalue[i] <- round(data_ED$LBvalue[i] + 0.015625, digits = 2)
+        data_ED$flexvalue[i] <- round(data_ED$LBvalue[i] + 0.02, digits = 2)
       } else {
-        data_ED$flexvalue[i] <- round(data_ED$RBvalue[i] - 0.015625, digits = 2)
+        data_ED$flexvalue[i] <- round(data_ED$RBvalue[i] - 0.02, digits = 2)
       }
     }
     
