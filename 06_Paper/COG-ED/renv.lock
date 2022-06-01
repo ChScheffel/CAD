@@ -64,6 +64,17 @@
         "Matrix"
       ]
     },
+    "MuMIn": {
+      "Package": "MuMIn",
+      "Version": "1.46.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "e3bde3fe47922841a3926588ea9e7c7e",
+      "Requirements": [
+        "Matrix",
+        "nlme"
+      ]
+    },
     "R6": {
       "Package": "R6",
       "Version": "2.5.1",
