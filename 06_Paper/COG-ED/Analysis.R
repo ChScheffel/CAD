@@ -29,7 +29,7 @@
   
   # the required packages are:
   # "bibtex", "here", "tidyverse", "bayestestR", "papaja", "lmerTest", "afex", "emmeans", "sjPlot", "purrr",
-  # "kableExtra", "interactions", "glmmTMB", "BayesFactor", "ggplot2", "egg", "knitr", "effectsize", and "MuMIn"
+  # "kableExtra", "interactions", "glmmTMB", "BayesFactor", "ggplot2", "egg", "knitr", "effectsize", "pracma", and "MuMIn"
   
   # sets orthogonal contrasts for mixed-effects model and rmANOVA globally in order to get meaningful Type-III tests
   
@@ -419,8 +419,10 @@
                 pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 2 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 2 * pipemad)
                 
                 # exclude the rows out of range from the data frame
-                pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
-                pipelines_data[[i]] <- pipelines_data[[i]][-pipedrop, ]
+                if (sum(pipeexclude) != 0) {
+                  pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                  pipelines_data[[i]] <- pipelines_data[[i]][-pipedrop, ]
+                }
                 
               } else if (pipeline_name[[1]][4] == "5") {
                 
@@ -428,8 +430,10 @@
                 pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 2.5 * pipemad)
                 
                 # exclude the rows out of range from the data frame
-                pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
-                pipelines_data[[i]] <- pipelines_data[[i]][-pipedrop, ]
+                if (sum(pipeexclude) != 0) {
+                  pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                  pipelines_data[[i]] <- pipelines_data[[i]][-pipedrop, ]
+                }
                 
               } else if (pipeline_name[[1]][4] == "3") {
                 
@@ -437,9 +441,10 @@
                 pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 3 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 3 * pipemad)
                 
                 # exclude the rows out of range from the data frame
-                pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
-                pipelines_data[[i]] <- pipelines_data[[i]][-pipedrop, ]
-                
+                if (sum(pipeexclude) != 0) {
+                  pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                  pipelines_data[[i]] <- pipelines_data[[i]][-pipedrop, ]
+                }                
               }
       
     } else if (pipeline_name[[1]][1] == "A" & pipeline_name[[1]][2] == "W") {
@@ -479,21 +484,24 @@
                 if (pipeline_name[[1]][4] == "2") {
                   
                   pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 2 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 2 * pipemad)
-                  pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
-                  pipelines_data[[i]] <- ifelse(length(piperows[pipeexclude]) > 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
-                  
+                  if (sum(pipeexclude) != 0) {
+                    pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                    pipelines_data[[i]] <- pipelines_data[[i]][-pipedrop, ]
+                  }                  
                 } else if (pipeline_name[[1]][4] == "5") {
                   
                   pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 2.5 * pipemad)
-                  pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
-                  pipelines_data[[i]] <- ifelse(length(piperows[pipeexclude]) > 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
-                  
+                  if (sum(pipeexclude) != 0) {
+                    pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                    pipelines_data[[i]] <- pipelines_data[[i]][-pipedrop, ]
+                  }                  
                 } else if (pipeline_name[[1]][4] == "3") {
                   
                   pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 3 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 3 * pipemad)
-                  pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
-                  pipelines_data[[i]] <- ifelse(length(piperows[pipeexclude]) > 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
-                  
+                  if (sum(pipeexclude) != 0) {
+                    pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                    pipelines_data[[i]] <- pipelines_data[[i]][-pipedrop, ]
+                  }                  
                 }
           }
           
@@ -536,21 +544,24 @@
                   if (pipeline_name[[1]][4] == "2") {
                     
                     pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 2 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 2 * pipemad)
-                    pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
-                    pipelines_data[[i]] <- ifelse(length(piperows[pipeexclude]) > 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
-                    
+                    if (sum(pipeexclude) != 0) {
+                      pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                      pipelines_data[[i]] <- pipelines_data[[i]][-pipedrop, ]
+                    }                    
                   } else if (pipeline_name[[1]][4] == "5") {
                     
                     pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 2.5 * pipemad)
-                    pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
-                    pipelines_data[[i]] <- ifelse(length(piperows[pipeexclude]) > 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
-                    
+                    if (sum(pipeexclude) != 0) {
+                      pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                      pipelines_data[[i]] <- pipelines_data[[i]][-pipedrop, ]
+                    }                    
                   } else if (pipeline_name[[1]][4] == "3") {
                     
                     pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 3 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 3 * pipemad)
-                    pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
-                    pipelines_data[[i]] <- ifelse(length(piperows[pipeexclude]) > 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
-                  }
+                    if (sum(pipeexclude) != 0) {
+                      pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                      pipelines_data[[i]] <- pipelines_data[[i]][-pipedrop, ]
+                    }                  }
             }
         }
       
@@ -583,28 +594,32 @@
             
             # compute median and median absolute deviation
             
-            pipemedian <- median(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1], na.rm = TRUE)
-            pipemad <- mad(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == pipesubject & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1], na.rm = TRUE)
+            pipemedian <- median(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == names(table(pipelines_data[[i]]$subject))[y] & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1], na.rm = TRUE)
+            pipemad <- mad(pipelines_data[[i]]$rt[pipelines_data[[i]]$subject == names(table(pipelines_data[[i]]$subject))[y] & pipelines_data[[i]]$response == 1 & pipelines_data[[i]]$correct == 1], na.rm = TRUE)
             
             # the third decision is the outlier exclusion
             
                 if (pipeline_name[[1]][4] == "2") {
                   
                   pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 2 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 2 * pipemad)
-                  pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
-                  pipelines_data[[i]] <- ifelse(length(piperows[pipeexclude]) > 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
-                  
+                  if (sum(pipeexclude) != 0) {
+                    pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                    pipelines_data[[i]] <- pipelines_data[[i]][-pipedrop, ]
+                  }                  
                 } else if (pipeline_name[[1]][4] == "5") {
                   
                   pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 2.5 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 2.5 * pipemad)
-                  pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
-                  pipelines_data[[i]] <- ifelse(length(piperows[pipeexclude]) > 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
-                  
+                  if (sum(pipeexclude) != 0) {
+                    pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                    pipelines_data[[i]] <- pipelines_data[[i]][-pipedrop, ]
+                  }                  
                 } else if (pipeline_name[[1]][4] == "3") {
                   
                   pipeexclude <- pipelines_data[[i]][piperows, "rt"] > (pipemedian + 3 * pipemad) | pipelines_data[[i]][piperows, "rt"] < (pipemedian - 3 * pipemad)
-                  pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
-                  pipelines_data[[i]] <- ifelse(length(piperows[pipeexclude]) > 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
+                  if (sum(pipeexclude) != 0) {
+                    pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+                    pipelines_data[[i]] <- pipelines_data[[i]][-pipedrop, ]
+                  }
                 }
           }
           
@@ -617,18 +632,23 @@
     
     if (pipeline_name[[1]][4] == "O") {
       
-      pipeexclude <- row.names(pipelines_data[[i]][pipelines_data[[i]]$rt < 0.1 & pipelines_data[[i]]$response == 1 &
-                                                     pipelines_data[[i]]$correct == 1 & pipelines_data[[i]]$postcorrect == 1, ])
-      pipedrop <- ifelse(length(pipeexclude) > 0, which(rownames(pipelines_data[[i]]) %in% pipeexclude), 0)
-      pipelines_data[[i]] <- ifelse(pipedrop != 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
-      
+      piperows <- row.names(pipelines_data[[i]][pipelines_data[[i]]$response == 1 &
+                                                  pipelines_data[[i]]$correct == 1 & pipelines_data[[i]]$postcorrect == 1, ])
+      pipeexclude <- pipelines_data[[i]][piperows, "rt"] < 0.1
+      if (sum(pipeexclude) != 0) {
+        pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+        pipelines_data[[i]] <- pipelines_data[[i]][-pipedrop, ]
+      }
+
     } else if (pipeline_name[[1]][4] == "T") {
       
-      pipeexclude <- row.names(pipelines_data[[i]][pipelines_data[[i]]$rt < 0.2 & pipelines_data[[i]]$response == 1 &
-                                                     pipelines_data[[i]]$correct == 1 & pipelines_data[[i]]$postcorrect == 1, ])
-      pipedrop <- ifelse(length(pipeexclude) > 0, which(rownames(pipelines_data[[i]]) %in% pipeexclude), 0)
-      pipelines_data[[i]] <- ifelse(pipedrop != 0, pipelines_data[[i]][-pipedrop, ], pipelines_data[[i]])
-      
+      piperows <- row.names(pipelines_data[[i]][pipelines_data[[i]]$response == 1 &
+                                                  pipelines_data[[i]]$correct == 1 & pipelines_data[[i]]$postcorrect == 1, ])
+      pipeexclude <- pipelines_data[[i]][piperows, "rt"] < 0.2
+      if (sum(pipeexclude) != 0) {
+        pipedrop <- which(rownames(pipelines_data[[i]]) %in% piperows[pipeexclude])
+        pipelines_data[[i]] <- pipelines_data[[i]][-pipedrop, ]
+      }      
     }
     
   }
