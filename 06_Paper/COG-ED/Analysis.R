@@ -653,6 +653,10 @@
     
   }
   
+  # remove the temporary variables
+  
+  base::remove(pipedrop, pipeexclude, pipemad, pipemedian, piperows)
+  
 ##### d prime for every pipeline ###############################################
   
   # calculate d' for every pipeline because it depends on the total number of target and non-target trials
@@ -712,6 +716,10 @@
     }
   }
 
+  # remove the temporary variables
+  
+  base::remove(falsealarms, hits)
+  
 ##### median RT for every pipeline #############################################
   
   # calculate the median RT for correct and post-correct trials for every pipeline
