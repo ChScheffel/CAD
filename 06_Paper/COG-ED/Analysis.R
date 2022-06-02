@@ -786,7 +786,6 @@
   # make a temporary copy of the data frame without 1-back
   
   h1a_data <- pipelines_data[["AARN"]][pipelines_data[["AARN"]]$level != 1, ]
-  h1a_data <- unique(h1a_data[ ,c("subject","level","dprime")])
   h1a_data$level <- as.factor(h1a_data$level)
   
   # calculate ANOVA
@@ -1116,7 +1115,7 @@
   
   # make a temporary copy of the data frame
   
-  h2a_data <- unique(pipelines_data[["AARO"]][ ,c("subject","level","sv")])
+  h2a_data <- pipelines_data[["AARO"]][ ,c("subject","level","sv")]
   h2a_data$level <- as.factor(h2a_data$level)
   
   # calculate ANOVA
@@ -1480,8 +1479,8 @@
   # H3a: Subjective values positively predict individual NCS scores.
   
   # make a temporary copy of the data frame
-  
-  data_SV <- unique(pipelines_data[["AARO"]][ ,c("subject","level","sv")])
+
+  data_SV <- pipelines_data[["AARO"]][ ,c("subject","level","sv")]
   
   # create an index for the rows in which the participant ID changes
   
