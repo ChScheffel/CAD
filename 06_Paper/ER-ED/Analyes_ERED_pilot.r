@@ -15,11 +15,11 @@
 library(here)       # to set directories without defined paths
 
 # set top level directory to source file
-here::i_am("flag_project_root_CERED.txt")
+here::i_am("flag_project_root_CAD.txt")
 
 library(renv)
-renv::activate(here("06_Paper", "ER-ED", "Revision"))
-renv::restore(here("06_Paper", "ER-ED", "Revision"))
+renv::activate(here("06_Paper", "ER-ED"))
+renv::restore(here("06_Paper", "ER-ED"))
 
 library(dplyr)
 library(ggplot2)
