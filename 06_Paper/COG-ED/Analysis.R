@@ -655,7 +655,7 @@
   
   # remove the temporary variables
   
-  base::remove(pipedrop, pipeexclude, pipemad, pipemedian, piperows)
+  base::remove(pipedrop, pipeexclude, pipemad, pipemedian, piperows, pipeline_name)
   
 ##### d prime for every pipeline ###############################################
   
