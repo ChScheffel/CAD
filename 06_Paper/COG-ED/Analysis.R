@@ -1109,7 +1109,10 @@
   
   # calculate pairwise comparisons on estimated marginal means
   
-  hypothesis2a_contrasts <- as.data.frame(pairs(hypothesis2a_emm))
+  hypothesis2a_contrasts <- emmeans::contrast(hypothesis2a_emm, method = list("Declining Linear" = c(3,1,-1,-3),
+                                                                              "Ascending Quadratic" = c(-1,1,1,-1),
+                                                                              "Declining Logistic" = c(3,2,-2,-3),
+                                                                              "Positively Skewed Normal" = c(1,2,-1,-2)))
   
   # get Bayes factors
   
