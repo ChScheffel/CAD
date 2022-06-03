@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.17)  3 JUN 2022 11:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.17)  3 JUN 2022 13:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -792,17 +792,28 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [13] [14 <c:/Users/scheffel/Scheffel/Forschung/A_Projects/2021_CERED/CAD/06_Paper/ER-ED/figures/Design_ER-ED.png>]
 Underfull \vbox (badness 2189) has occurred while \output is active []
 
-[15] [16] [17]
-Overfull \hbox (101.1205pt too wide) detected at line 502
+[15] [16]
+Underfull \vbox (badness 3977) has occurred while \output is active []
+
+[17]
+Overfull \hbox (101.1205pt too wide) detected at line 495
 \OML/lmm/m/it/12 SV \OMS/lmsy/m/n/12 ^^X \OML/lmm/m/it/12 strategy  \OT1/lmr/m/n/12 + [] + [] + [] + \OML/lmm/m/it/12 corrugator[] \OT1/lmr/m/n/12 + \OML/lmm/m/it/12 levator[] \OT1/lmr/m/n/12 + (\OML/lmm/m/it/12 strategy\OMS/lmsy/m/n/12 j\OML/lmm/m/it/12 subject\OT1/lmr/m/n/12 )
  []
 
+
+Underfull \vbox (badness 1946) has occurred while \output is active []
+
 [18]
-Overfull \hbox (0.8855pt too wide) in paragraph at lines 539--542
+Overfull \hbox (0.8855pt too wide) in paragraph at lines 535--538
  [] 
  []
 
 
+Overfull \hbox (0.8855pt too wide) in paragraph at lines 539--542
+ [] 
+ []
+
+[19]
 Overfull \hbox (0.8855pt too wide) in paragraph at lines 543--546
  [] 
  []
@@ -817,7 +828,7 @@ Overfull \hbox (0.8855pt too wide) in paragraph at lines 551--554
  [] 
  []
 
-[19]
+
 Overfull \hbox (0.8855pt too wide) in paragraph at lines 555--558
  [] 
  []
@@ -833,6 +844,9 @@ Overfull \hbox (0.8855pt too wide) in paragraph at lines 563--566
  []
 
 
+Underfull \vbox (badness 7433) has occurred while \output is active []
+
+[20]
 Overfull \hbox (0.8855pt too wide) in paragraph at lines 567--570
  [] 
  []
@@ -848,9 +862,6 @@ Overfull \hbox (0.8855pt too wide) in paragraph at lines 575--578
  []
 
 
-Underfull \vbox (badness 1072) has occurred while \output is active []
-
-[20]
 Overfull \hbox (0.8855pt too wide) in paragraph at lines 579--582
  [] 
  []
@@ -866,6 +877,9 @@ Overfull \hbox (0.8855pt too wide) in paragraph at lines 587--590
  []
 
 
+Underfull \vbox (badness 7433) has occurred while \output is active []
+
+[21]
 Overfull \hbox (0.8855pt too wide) in paragraph at lines 591--594
  [] 
  []
@@ -881,9 +895,6 @@ Overfull \hbox (0.8855pt too wide) in paragraph at lines 599--602
  []
 
 
-Underfull \vbox (badness 7433) has occurred while \output is active []
-
-[21]
 Overfull \hbox (0.8855pt too wide) in paragraph at lines 603--606
  [] 
  []
@@ -903,7 +914,7 @@ Overfull \hbox (0.8855pt too wide) in paragraph at lines 615--618
  [] 
  []
 
-
+[22]
 Overfull \hbox (0.8855pt too wide) in paragraph at lines 619--622
  [] 
  []
@@ -918,7 +929,7 @@ Overfull \hbox (0.8855pt too wide) in paragraph at lines 627--630
  [] 
  []
 
-[22]
+
 Overfull \hbox (0.8855pt too wide) in paragraph at lines 631--634
  [] 
  []
@@ -938,7 +949,7 @@ Overfull \hbox (0.8855pt too wide) in paragraph at lines 643--646
  [] 
  []
 
-
+[23]
 Overfull \hbox (0.8855pt too wide) in paragraph at lines 647--650
  [] 
  []
@@ -958,7 +969,7 @@ Overfull \hbox (0.8855pt too wide) in paragraph at lines 659--662
  [] 
  []
 
-[23]
+
 Overfull \hbox (0.8855pt too wide) in paragraph at lines 663--666
  [] 
  []
@@ -978,7 +989,7 @@ Overfull \hbox (0.8855pt too wide) in paragraph at lines 675--678
  [] 
  []
 
-
+[24]
 Overfull \hbox (0.8855pt too wide) in paragraph at lines 679--682
  [] 
  []
@@ -993,7 +1004,7 @@ Overfull \hbox (0.8855pt too wide) in paragraph at lines 687--690
  [] 
  []
 
-[24]
+
 Overfull \hbox (0.8855pt too wide) in paragraph at lines 691--694
  [] 
  []
@@ -1013,7 +1024,7 @@ Overfull \hbox (0.8855pt too wide) in paragraph at lines 703--706
  [] 
  []
 
-
+[25]
 Overfull \hbox (0.8855pt too wide) in paragraph at lines 707--710
  [] 
  []
@@ -1029,9 +1040,6 @@ Overfull \hbox (0.8855pt too wide) in paragraph at lines 715--718
  []
 
 
-Underfull \vbox (badness 3199) has occurred while \output is active []
-
-[25]
 Overfull \hbox (0.8855pt too wide) in paragraph at lines 719--722
  [] 
  []
@@ -1051,7 +1059,7 @@ Overfull \hbox (0.8855pt too wide) in paragraph at lines 731--734
  [] 
  []
 
-
+[26]
 Overfull \hbox (0.8855pt too wide) in paragraph at lines 735--738
  [] 
  []
@@ -1066,7 +1074,7 @@ Overfull \hbox (0.8855pt too wide) in paragraph at lines 743--746
  [] 
  []
 
-[26]
+
 Overfull \hbox (0.8855pt too wide) in paragraph at lines 747--750
  [] 
  []
@@ -1086,7 +1094,7 @@ Overfull \hbox (0.8855pt too wide) in paragraph at lines 759--762
  [] 
  []
 
-
+[27]
 Overfull \hbox (0.8855pt too wide) in paragraph at lines 763--766
  [] 
  []
@@ -1097,9 +1105,6 @@ Overfull \hbox (0.8855pt too wide) in paragraph at lines 767--770
  []
 
 
-Underfull \vbox (badness 7433) has occurred while \output is active []
-
-[27]
 Overfull \hbox (0.8855pt too wide) in paragraph at lines 771--774
  [] 
  []
@@ -1120,6 +1125,9 @@ Overfull \hbox (0.8855pt too wide) in paragraph at lines 783--786
  []
 
 
+Underfull \vbox (badness 7433) has occurred while \output is active []
+
+[28]
 Overfull \hbox (0.8855pt too wide) in paragraph at lines 787--790
  [] 
  []
@@ -1134,7 +1142,7 @@ Overfull \hbox (0.8855pt too wide) in paragraph at lines 795--798
  [] 
  []
 
-[28]
+
 Overfull \hbox (0.8855pt too wide) in paragraph at lines 799--802
  [] 
  []
@@ -1144,19 +1152,14 @@ Overfull \hbox (0.8855pt too wide) in paragraph at lines 803--806
  [] 
  []
 
-
-Overfull \hbox (0.8855pt too wide) in paragraph at lines 807--810
- [] 
- []
-
 [29] [30] [31]
 File: C:/Users/scheffel/Scheffel/Forschung/A_Projects/2021_CERED/CAD/06_Paper/ER-ED/figures/Paradigm_Scheme_T2.png Graphic file (type png)
 <use C:/Users/scheffel/Scheffel/Forschung/A_Projects/2021_CERED/CAD/06_Paper/ER-ED/figures/Paradigm_Scheme_T2.png>
-Package pdftex.def Info: C:/Users/scheffel/Scheffel/Forschung/A_Projects/2021_CERED/CAD/06_Paper/ER-ED/figures/Paradigm_Scheme_T2.png  used on input line 839.
+Package pdftex.def Info: C:/Users/scheffel/Scheffel/Forschung/A_Projects/2021_CERED/CAD/06_Paper/ER-ED/figures/Paradigm_Scheme_T2.png  used on input line 835.
 (pdftex.def)             Requested size: 469.77403pt x 296.57837pt.
 File: C:/Users/scheffel/Scheffel/Forschung/A_Projects/2021_CERED/CAD/06_Paper/ER-ED/figures/Design_ER-ED.png Graphic file (type png)
 <use C:/Users/scheffel/Scheffel/Forschung/A_Projects/2021_CERED/CAD/06_Paper/ER-ED/figures/Design_ER-ED.png>
-Package pdftex.def Info: C:/Users/scheffel/Scheffel/Forschung/A_Projects/2021_CERED/CAD/06_Paper/ER-ED/figures/Design_ER-ED.png  used on input line 849.
+Package pdftex.def Info: C:/Users/scheffel/Scheffel/Forschung/A_Projects/2021_CERED/CAD/06_Paper/ER-ED/figures/Design_ER-ED.png  used on input line 845.
 (pdftex.def)             Requested size: 324.7324pt x 565.6318pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1168,207 +1171,207 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <Supplement/Design_Table_T2.pdf, id=374, 845.07718pt x 597.55246pt>
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf  used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf  used on input line 858.
 (pdftex.def)             Requested size: 469.75839pt x 332.16525pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf  used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf  used on input line 858.
 (pdftex.def)             Requested size: 469.75839pt x 332.16525pt.
 <Supplement/Design_Table_T2.pdf, id=377, page=1, 845.07718pt x 597.55246pt>
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 1>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page1 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page1 used on input line 858.
 (pdftex.def)             Requested size: 845.07512pt x 597.551pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 1>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page1 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page1 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [34]
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 1>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page1 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page1 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 1>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page1 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page1 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 1>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page1 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page1 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [35 <./Supplement/Design_Table_T2.pdf>]
 <Supplement/Design_Table_T2.pdf, id=408, page=2, 845.07718pt x 597.55246pt>
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 2>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page2 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page2 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 2>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page2 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page2 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 2>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page2 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page2 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [36 <./Supplement/Design_Table_T2.pdf>]
 <Supplement/Design_Table_T2.pdf, id=414, page=3, 845.07718pt x 597.55246pt>
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 3>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page3 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page3 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 3>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page3 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page3 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 3>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page3 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page3 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [37 <./Supplement/Design_Table_T2.pdf>]
 <Supplement/Design_Table_T2.pdf, id=421, page=4, 845.07718pt x 597.55246pt>
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 4>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page4 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page4 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 4>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page4 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page4 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 4>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page4 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page4 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [38 <./Supplement/Design_Table_T2.pdf>]
 <Supplement/Design_Table_T2.pdf, id=427, page=5, 845.07718pt x 597.55246pt>
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 5>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page5 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page5 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 5>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page5 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page5 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 5>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page5 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page5 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [39 <./Supplement/Design_Table_T2.pdf>]
 <Supplement/Design_Table_T2.pdf, id=433, page=6, 845.07718pt x 597.55246pt>
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 6>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page6 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page6 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 6>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page6 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page6 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 6>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page6 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page6 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [40 <./Supplement/Design_Table_T2.pdf>]
 <Supplement/Design_Table_T2.pdf, id=439, page=7, 845.07718pt x 597.55246pt>
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 7>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page7 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page7 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 7>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page7 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page7 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 7>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page7 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page7 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [41 <./Supplement/Design_Table_T2.pdf>]
 <Supplement/Design_Table_T2.pdf, id=445, page=8, 845.07718pt x 597.55246pt>
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 8>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page8 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page8 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 8>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page8 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page8 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 8>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page8 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page8 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [42 <./Supplement/Design_Table_T2.pdf>]
 <Supplement/Design_Table_T2.pdf, id=451, page=9, 845.07718pt x 597.55246pt>
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 9>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page9 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page9 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 9>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page9 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page9 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 9>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page9 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page9 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [43 <./Supplement/Design_Table_T2.pdf>]
 <Supplement/Design_Table_T2.pdf, id=458, page=10, 845.07718pt x 597.55246pt>
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 10>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page10 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page10 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 10>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page10 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page10 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 10>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page10 used on input line 862.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page10 used on input line 858.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [44 <./Supplement/Design_Table_T2.pdf>]
 <Supplement/StimList_Suppl.pdf, id=464, 845.07718pt x 597.55246pt>
 File: Supplement/StimList_Suppl.pdf Graphic file (type pdf)
 <use Supplement/StimList_Suppl.pdf>
-Package pdftex.def Info: Supplement/StimList_Suppl.pdf  used on input line 869.
+Package pdftex.def Info: Supplement/StimList_Suppl.pdf  used on input line 865.
 (pdftex.def)             Requested size: 469.75839pt x 332.16525pt.
 File: Supplement/StimList_Suppl.pdf Graphic file (type pdf)
 <use Supplement/StimList_Suppl.pdf>
-Package pdftex.def Info: Supplement/StimList_Suppl.pdf  used on input line 869.
+Package pdftex.def Info: Supplement/StimList_Suppl.pdf  used on input line 865.
 (pdftex.def)             Requested size: 469.75839pt x 332.16525pt.
 <Supplement/StimList_Suppl.pdf, id=467, page=1, 845.07718pt x 597.55246pt>
 File: Supplement/StimList_Suppl.pdf Graphic file (type pdf)
 <use Supplement/StimList_Suppl.pdf, page 1>
-Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 869.
+Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 865.
 (pdftex.def)             Requested size: 845.07512pt x 597.551pt.
 File: Supplement/StimList_Suppl.pdf Graphic file (type pdf)
 <use Supplement/StimList_Suppl.pdf, page 1>
-Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 869.
+Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 865.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [45]
 File: Supplement/StimList_Suppl.pdf Graphic file (type pdf)
 <use Supplement/StimList_Suppl.pdf, page 1>
-Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 869.
+Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 865.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/StimList_Suppl.pdf Graphic file (type pdf)
 <use Supplement/StimList_Suppl.pdf, page 1>
-Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 869.
+Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 865.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/StimList_Suppl.pdf Graphic file (type pdf)
 <use Supplement/StimList_Suppl.pdf, page 1>
-Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 869.
+Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 865.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [46 <./Supplement/StimList_Suppl.pdf>] [47] [48]
-Overfull \hbox (23.2881pt too wide) in paragraph at lines 947--964
+Overfull \hbox (23.2881pt too wide) in paragraph at lines 943--960
  [] 
  []
 
 <Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalViewPilot-1.pdf, id=502, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalViewPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalViewPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalViewPilot-1.pdf  used on input line 971.
+Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalViewPilot-1.pdf  used on input line 967.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [49]
-Overfull \hbox (52.68124pt too wide) in paragraph at lines 995--1017
+Overfull \hbox (52.68124pt too wide) in paragraph at lines 991--1013
  [] 
  []
 
@@ -1379,18 +1382,18 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalRegPilot-1.pdf, id=522, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalRegPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalRegPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalRegPilot-1.pdf  used on input line 1024.
+Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalRegPilot-1.pdf  used on input line 1020.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [51 <./Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalRegPilot-1.pdf>]
-Overfull \hbox (47.44104pt too wide) in paragraph at lines 1049--1066
+Overfull \hbox (47.44104pt too wide) in paragraph at lines 1045--1062
  [] 
  []
 
 
-Overfull \hbox (15.29416pt too wide) in paragraph at lines 1089--1106
+Overfull \hbox (15.29416pt too wide) in paragraph at lines 1085--1102
  [] 
  []
 
@@ -1398,20 +1401,20 @@ Overfull \hbox (15.29416pt too wide) in paragraph at lines 1089--1106
 <Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrViewPilot-1.pdf, id=546, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrViewPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrViewPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrViewPilot-1.pdf  used on input line 1113.
+Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrViewPilot-1.pdf  used on input line 1109.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
 <Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevViewPilot-1.pdf, id=547, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevViewPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevViewPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevViewPilot-1.pdf  used on input line 1116.
+Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevViewPilot-1.pdf  used on input line 1112.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
 [53 <./Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrViewPilot-1.pdf> <./Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevViewPilot-1.pdf>]
-Overfull \hbox (63.93918pt too wide) in paragraph at lines 1141--1163
+Overfull \hbox (63.93918pt too wide) in paragraph at lines 1137--1159
  [] 
  []
 
 
-Overfull \hbox (54.14752pt too wide) in paragraph at lines 1186--1208
+Overfull \hbox (54.14752pt too wide) in paragraph at lines 1182--1204
  [] 
  []
 
@@ -1422,18 +1425,18 @@ Underfull \vbox (badness 1400) has occurred while \output is active []
 <Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrRegPilot-1.pdf, id=571, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrRegPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrRegPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrRegPilot-1.pdf  used on input line 1215.
+Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrRegPilot-1.pdf  used on input line 1211.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
 <Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevRegPilot-1.pdf, id=572, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevRegPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevRegPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevRegPilot-1.pdf  used on input line 1218.
+Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevRegPilot-1.pdf  used on input line 1214.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [55 <./Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrRegPilot-1.pdf>]
-Overfull \hbox (52.68124pt too wide) in paragraph at lines 1242--1264
+Overfull \hbox (52.68124pt too wide) in paragraph at lines 1238--1260
  [] 
  []
 
@@ -1444,7 +1447,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <Manuscript_ERED_Stage1_files/figure-latex/FigSubjEffortPilot-1.pdf, id=597, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage1_files/figure-latex/FigSubjEffortPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage1_files/figure-latex/FigSubjEffortPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigSubjEffortPilot-1.pdf  used on input line 1271.
+Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigSubjEffortPilot-1.pdf  used on input line 1267.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
 AED endfloat: Processing end Figures and Tables [57 <./Manuscript_ERED_Stage1_files/figure-latex/FigSubjEffortPilot-1.pdf>] (./Manuscript_ERED_Stage1.aux)
 Package rerunfilecheck Info: File `Manuscript_ERED_Stage1.out' has not changed.
@@ -1461,7 +1464,7 @@ Here is how much of TeX's memory you used:
 pdfTeX warning (dest): name{ux5cux23stimuli} has been referenced but does not exist, replaced by a fixed one
 
 {c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri8.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on Manuscript_ERED_Stage1.pdf (57 pages, 1257874 bytes).
+Output written on Manuscript_ERED_Stage1.pdf (57 pages, 1259265 bytes).
 PDF statistics:
  715 PDF objects out of 1000 (max. 8388607)
  586 compressed objects within 6 object streams
