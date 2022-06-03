@@ -64,7 +64,7 @@ One certainly central goal is the regulation of negative affect.
 The effectiveness of ER strategies should therefore influence the respective SV.
 A second, intrinsic, and less obvious goal is the avoidance of effort[@Inzlicht2018].
 When given the choice, most individuals prefer tasks that are less effortful[@Hull1943].
-Cognitive effort avoidance has been reported in many contexts, for example in affective context[@Gonzalez-Garcia2021], the context of decision making[@Kool2010], and executive functions[@Cheval2020], and is associated with Need for Cognition (NFC)[@Caccioppo1982], a stable measure of the individual pursuit and enjoyment of cognitive effort[@Westbrook2013;@Strobel2020].
+Cognitive effort avoidance has been reported in many contexts, for example in affective context[@Gonzalez-Garcia2021], the context of decision making[@Kool2010], and executive functions[@Cheval2020], and is associated with Need for Cognition (NFC)[@Cacioppo1982], a stable measure of the individual pursuit and enjoyment of cognitive effort[@Westbrook2013;@Strobel2020].
 In the area of emotion regulation, too, there are initial indications that people show a tendency towards effort avoidance.
 Across two studies, we could show in previous work that the choice for an ER strategy is mainly influenced by the effort required to implement a given strategy[@Scheffel2021].
 In our studies, participants used the strategies distancing and suppression while inspecting emotional pictures.
