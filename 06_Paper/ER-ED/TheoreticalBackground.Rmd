@@ -64,23 +64,17 @@ One certainly central goal is the regulation of negative affect.
 The effectiveness of ER strategies should therefore influence the respective SV.
 A second, intrinsic, and less obvious goal is the avoidance of effort[@Inzlicht2018].
 When given the choice, most individuals prefer tasks that are less effortful[@Hull1943].
-Cognitive effort avoidance has been reported in many contexts, for example in affective context[@Gonzalez-Garcia2021], the context of decision making[@Kool2010], and executive functions[@Cheval2020], and could even be deescribed as trait-like characteristic[@Kool2014].
-
-
-and chose strategies that were less effortful[@Scheffel2021].
-
-
-With regard to effort, we could show in our previous work that the choice for an ER strategy is mainly influenced by the effort required to implement a given strategy[@Scheffel2021].
-In our study, participants used the strategies distancing and suppression while inspecting emotional pictures.
+Cognitive effort avoidance has been reported in many contexts, for example in affective context[@Gonzalez-Garcia2021], the context of decision making[@Kool2010], and executive functions[@Cheval2020], and is associated with Need for Cognition (NFC)[@Caccioppo1982], a stable measure of the individual pursuit and enjoyment of cognitive effort[@Westbrook2013;@Strobel2020].
+In the area of emotion regulation, too, there are initial indications that people show a tendency towards effort avoidance.
+Across two studies, we could show in previous work that the choice for an ER strategy is mainly influenced by the effort required to implement a given strategy[@Scheffel2021].
+In our studies, participants used the strategies distancing and suppression while inspecting emotional pictures.
 Afterwards, they choose which strategy they wanted to use again.
 Participants tended to re-apply the strategy that was subjectively less effortful, even though it was subjectively not the most effective one - in this case: suppression.
-Interestingly, the choice was independent of self-reported habitual use of suppression and reappraisal.
-
-We assume that both aspects are traded off against each other by individuals to determine individual subjective values (SVs) of ER strategies: A strategy is more valuable if it can reduce emotional arousal *and* is less effortful.
-
+Moreover, the majority of participants stated afterwards the main reason for their choice was effort.
+We assume therefore that, although individuals trade off both factors - effectiveness and effort - against each other, effort should be the more important predictor for SVs of ER strategies.
 In addition, perceived utility should have an impact on SVs. 
 A strategy that is less effortful and can objectively regulate arousal (i.e., is effective), but is not subjectively perceived as useful, should have a low SV.
-Moreover, SVs of ER Strategies could therefore be helpful to describe the ER repertoire[@Aldao2015] more comprehensively.
+SVs of ER Strategies could therefore be helpful to describe the ER repertoire[@Aldao2015] more comprehensively.
 Depending on the flexibility of a person, different patterns of SVs could be conceivable: A person with high flexibility would show relatively high SVs for a number of strategies.
 This would mean that all strategies are a good option for goal achievement.
 A second person with less flexibility, however, would show high SVs only for only one strategy or low SVs for all of the strategies.
