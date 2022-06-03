@@ -64,7 +64,7 @@ One certainly central goal is the regulation of negative affect.
 The effectiveness of ER strategies should therefore influence the respective SV.
 A second, intrinsic, and less obvious goal is the avoidance of effort[@Inzlicht2018].
 When given the choice, most individuals prefer tasks that are less effortful[@Hull1943].
-Cognitive effort avoidance has been reported in many contexts, for example in affective context[@Gonzalez-Garcia2021], the context of decision making[@Kool2010], and executive functions[@Cheval2020], and could even be deescribed as trait-like characteristic[@Kool2014].
+Cognitive effort avoidance has been reported in many contexts, for example in affective context[@Gonzalez-Garcia2021], the context of decision making[@Kool2010], and executive functions[@Cheval2020], and could even be described as trait-like characteristic[@Kool2014].
 
 
 and chose strategies that were less effortful[@Scheffel2021].
