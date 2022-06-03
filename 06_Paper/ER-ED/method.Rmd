@@ -173,26 +173,19 @@ Data of whole participants will be excluded from analysis if participants withdr
 EMG data of subjects will be excluded from analysis if errors occured during recording.
 No further data exclusions are planned.
 The level of significance will be set to $\alpha=.05$.
+For hypotheses H1-4, repeated measures analysis of variance (rmANOVA) will be conducted and estimated marginal means will be computed using the *afex* package[@Singmann2021].
+Greenhouse-Geisser-corrected degrees of freedom and associated $p$-values and will be reported when the assumption of sphericity is violated.
+If the within-subjects factor of interest is significant, pairwise contrasts will be calculated using Bonferroni adjustment for multiple testing.
+Proportion of explained variance $\eta_{p}^{2}$ will be reported as a measure of effect size.
 
 *Effect of valence on arousal and facial EMG.*<br> 
-To examine the impact of valence of emotional pictures on subjective arousal ratings (H1a), a repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for the strategy active viewing will be conducted.
-
+To examine the impact of valence of emotional pictures on subjective arousal ratings (H1a), a rmANOVA with the factor valence (neutral and negative) for the strategy active viewing will be conducted.
 To examine the impact of valence on physiolocigal responding (H1b and H1c), a rmANOVA with the factor valence (neutral and negative) for the strategy active viewing will be conducted for EMG *corrugator* and *levator* activity.
-Greenhouse-Geisser-corrected $p$-values and degrees of freedom will be reported when the assumption of sphericity is violated.
-Proportion of explained variance $\eta_{p}^{2}$ will be reported as a measure of effect size.
-If indicated by the data, estimated marginal means will be computed as post-hoc contrasts.
-rmANOVAS will be run using the *afex* package[@Singmann2021].
 
 *Effects of emotion regulation on arousal, facial EMG and effort.* <br> 
 To investigate the effects of the three ER strategies on subjective arousal (H2a), another rmANOVA  with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for subjective arousal ratings will be conducted.
-
 To examine the effects of the three ER strategies on physiological responding (H3a and H3b), another rmANOVA with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for EMG *corrugator* and *levator* activity will be conducted.
-
 To examine the effect of ER strategies on subjective effort (H4a), a rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings will be conducted.
-Greenhouse-Geisser-corrected $p$-values and degrees of freedom will be reported when the assumption of sphericity is violated.
-Proportion of explained variance $\eta_{p}^{2}$ will be reported as a measure of effect size.
-If indicated by the data, estimated marginal means will be computed as post-hoc contrasts.
-rmANOVAS will be run using the *afex* package[@Singmann2021].
 
 *Subjective values of emotion regulation strategies.* <br> For each ER strategy, SVs will be calculated as follows: first, the value 0.02 € will be added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
 Second, the resulting monetary value will be divided by 2.00 € to arrive at the SV of the opposite strategy in each pairing.
@@ -214,9 +207,9 @@ Intraclass correlation coefficient (ICC), $\rho$, will be reported for each mode
 To investigate whether individual SVs predict ER choice (H7a), a Chi-squared test with predicted choice (highest SV of each participant) and actual choice will be computed.
 Furthermore, an ordinal logistic regression with the dependent variable choice and independent variables SVs of each strategy will be computed.
 
-The association between flexible ER and SVs of ER strategies (H7b) will be investigated with a regression using the $intercept$ and $slope$ of each participants' SVs to predict their FlexER score.
-Firstly, SVs will be ordered by magnitude.
-Secondly, for each participant a linear model will be built to estimate the individual $intercept$ and $slope$.
+The association between flexible ER and SVs of ER strategies (H7b) will be investigated with a linear regression using the individual $intercept$ (i.e., the extent to which an invididual considers any of the ER strategies useful) and $slope$ (i.e., the extent to which one strategy is preferred over others, indicating less flexibility) of each participants' SVs to predict their FlexER score.
+To estimate individual $intercepts$ and $slopes$, SVs will first be sorted by magnitude in descending order.
+Values will be fitted in a linear model to estimate individual $intercepts$ and $slopes$.
 
 The influence of personality traits on SVs will be investigated exploratorily.
 Therefore, the MLM specified above will be extended by the level-2-predictors NFC and self-control.
