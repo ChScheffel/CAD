@@ -207,9 +207,12 @@ Intraclass correlation coefficient (ICC), $\rho$, will be reported for each mode
 To investigate whether individual SVs predict ER choice (H7a), a Chi-squared test with predicted choice (highest SV of each participant) and actual choice will be computed.
 Furthermore, an ordinal logistic regression with the dependent variable choice and independent variables SVs of each strategy will be computed.
 
-The association between flexible ER and SVs of ER strategies (H7b) will be investigated with a linear regression using the individual $intercept$ (i.e., the extent to which an invididual considers any of the ER strategies useful) and $slope$ (i.e., the extent to which one strategy is preferred over others, indicating less flexibility) of each participants' SVs to predict their FlexER score.
-To estimate individual $intercepts$ and $slopes$, SVs will first be sorted by magnitude in descending order.
-Values will be fitted in a linear model to estimate individual $intercepts$ and $slopes$.
+The association between flexible ER and SVs of ER strategies (H7b) will be investigated with a linear regression using the individual $intercept$ and $slope$ of each participants' SVs to predict their FlexER score.
+To this end, for each participant, SVs will be sorted by magnitude in descending order and entered as dependent variable in a linear model, with strategy (centered, i.e., -1, 0, 1) as independent variable.
+The resulting $intercept$ informs about the extent to which an individual considers any or all of the ER strategies as useful for regulation their emotion, while the $slope$ informs about the flexibility in the use of emotion regulation strategies. 
+The individual intercepts and slopes will then be entered as predictors in a regression model with the FlexER score as dependent variable. 
+A positive association with the predictor $intercept$ would indicate that overall higher SVs attached to ER strategies predicts higher scores on the FlexER scale. 
+A positive association with the predictor $slope$ would indicate that less negative slopes, i.e., a smaller preference for a given ER strategy, would be associated with a higher score of the FlexER scale.
 
 The influence of personality traits on SVs will be investigated exploratorily.
 Therefore, the MLM specified above will be extended by the level-2-predictors NFC and self-control.
