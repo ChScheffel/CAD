@@ -809,7 +809,13 @@
   # get Bayes factors
   
   hypothesis1a_BF <- BayesFactor::anovaBF(formula = dprime ~ level, data = h1a_data, progress = FALSE)
-  hypothesis1a_contrasts$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h1a_data$dprime[h1a_data$level == 2], y = h1a_data$dprime[h1a_data$level == 3],
+  hypothesis1a_contrasts$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h1a_data$dprime[h1a_data$level == 1], y = h1a_data$dprime[h1a_data$level == 2],
+                                                     progress = FALSE, paired = TRUE))$bf,
+                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h1a_data$dprime[h1a_data$level == 1], y = h1a_data$dprime[h1a_data$level == 3],
+                                                     progress = FALSE, paired = TRUE))$bf,
+                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h1a_data$dprime[h1a_data$level == 1], y = h1a_data$dprime[h1a_data$level == 4],
+                                                     progress = FALSE, paired = TRUE))$bf,
+                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h1a_data$dprime[h1a_data$level == 2], y = h1a_data$dprime[h1a_data$level == 3],
                                                      progress = FALSE, paired = TRUE))$bf,
                                    BayesFactor::extractBF(BayesFactor::ttestBF(x = h1a_data$dprime[h1a_data$level == 2], y = h1a_data$dprime[h1a_data$level == 4],
                                                      progress = FALSE, paired = TRUE))$bf,
@@ -861,7 +867,13 @@
   # get Bayes factors
   
   hypothesis1b_BF <- BayesFactor::anovaBF(formula = medianRT ~ level, data = h1b_data, progress = FALSE)
-  hypothesis1b_contrasts$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h1b_data$medianRT[h1b_data$level == 2], y = h1b_data$medianRT[h1b_data$level == 3],
+  hypothesis1b_contrasts$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h1b_data$medianRT[h1b_data$level == 1], y = h1b_data$medianRT[h1b_data$level == 2],
+                                                     progress = FALSE, paired = TRUE))$bf,
+                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h1b_data$medianRT[h1b_data$level == 1], y = h1b_data$medianRT[h1b_data$level == 3],
+                                                     progress = FALSE, paired = TRUE))$bf,
+                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h1b_data$medianRT[h1b_data$level == 1], y = h1b_data$medianRT[h1b_data$level == 4],
+                                                     progress = FALSE, paired = TRUE))$bf,
+                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h1b_data$medianRT[h1b_data$level == 2], y = h1b_data$medianRT[h1b_data$level == 3],
                                                      progress = FALSE, paired = TRUE))$bf,
                                    BayesFactor::extractBF(BayesFactor::ttestBF(x = h1b_data$medianRT[h1b_data$level == 2], y = h1b_data$medianRT[h1b_data$level == 4],
                                                      progress = FALSE, paired = TRUE))$bf,
