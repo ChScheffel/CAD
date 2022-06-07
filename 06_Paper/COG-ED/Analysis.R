@@ -1494,13 +1494,24 @@
   hypothesis3a_rmanova <- afex::aov_ez("subject", "svdiff", h3a_data,
                                        between = c("nfcmedian"), within = c("nlevels"))
   
-  # get Bayes factor
+  # obtain estimated marginal means for ANOVA model
+  
+  hypothesis3a_emm <- emmeans::emmeans(object = hypothesis3a_rmanova, "nfcmedian")
+  
+  # calculate pairwise comparisons on estimated marginal means
+  
+  hypothesis3a_contrasts <- as.data.frame(pairs(hypothesis3a_emm))
+  
+  # get Bayes factors
   
   hypothesis3a_BF <- anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = h3a_data, progress = FALSE)
+  hypothesis3a_contrasts$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = h3a_data$svdiff[h3a_data$nfcmedian == "high"],
+                                                                             y = h3a_data$svdiff[h3a_data$nfcmedian == "low"],
+                                                                             progress = FALSE, paired = FALSE))$bf
   
   # remove temporary variables
   
-  base::remove(diffscores, mediannfc)
+  base::remove(diffscores, mediannfc, h3a_data)
 
   
 ##### Hypothesis 3b ############################################################
@@ -1533,9 +1544,20 @@
   hypothesis3b_rmanova <- afex::aov_ez("subject", "ntlx", h3b_data,
                                        between = c("nfcmedian"), within = c("level"))
   
-  # get Bayes factor
+  # obtain estimated marginal means for ANOVA model
+  
+  hypothesis3b_emm <- emmeans::emmeans(object = hypothesis3b_rmanova, "nfcmedian")
+  
+  # calculate pairwise comparisons on estimated marginal means
+  
+  hypothesis3b_contrasts <- as.data.frame(pairs(hypothesis3b_emm))
+  
+  # get Bayes factors
   
   hypothesis3b_BF <- anovaBF(formula = ntlx ~ level * nfcmedian, data = h3b_data, progress = FALSE)
+  hypothesis3b_contrasts$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "high"],
+                                                                             y = h3b_data$ntlx[h3b_data$nfcmedian == "low"],
+                                                                             progress = FALSE, paired = FALSE))$bf
   
   # delete temporary data frame
   
