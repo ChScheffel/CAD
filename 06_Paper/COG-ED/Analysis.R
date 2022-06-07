@@ -1563,6 +1563,11 @@
   
   base::remove(ntlx, h3b_data, mediannfc)
   
+##### Hypothesis 3c ############################################################
+  
+  # Here we will repeat the same method of hypothesis 3b, but with the aversiveness-scores
+  # in place of the NTLX scores. Since we did not assess those in the pilot study, we
+  # cannot have the data to analyze it at the moment.
   
 ##### Save variables ###########################################################
   
