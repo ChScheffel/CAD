@@ -1478,25 +1478,25 @@
   # create a data frame with the difference scores per subject (2-1,3-2,4-3)
   
   diffscores <- diff(data_SV$sv)
-  h3_data <- data.frame(subject = data_SV$subject[-c(seq(from = 4, to = nrow(data_SV), by = 4))],
+  h3a_data <- data.frame(subject = data_SV$subject[-c(seq(from = 4, to = nrow(data_SV), by = 4))],
                         nlevels = as.factor(rep(c("1-2","2-3","3-4"), nrow(data_SV)/4)),
                         svdiff = diffscores[-c(seq(from = 4, to = nrow(data_SV)-4, by = 4))],
                         nfc = data_SV$nfc[-c(seq(from = 4, to = nrow(data_SV), by = 4))])
   
   # add column indicating NFC score above or below median
   
-  mediannfc <- median(h3_data$nfc)
-  h3_data$nfcmedian <- ifelse(h3_data$nfc < mediannfc, "low", "high")
-  h3_data$nfcmedian <- as.factor(h3_data$nfcmedian)
+  mediannfc <- median(h3a_data$nfc)
+  h3a_data$nfcmedian <- ifelse(h3a_data$nfc < mediannfc, "low", "high")
+  h3a_data$nfcmedian <- as.factor(h3a_data$nfcmedian)
   
   # compute two-way ANOVA
   
-  hypothesis3a_rmanova <- afex::aov_ez("subject", "svdiff", h3_data,
+  hypothesis3a_rmanova <- afex::aov_ez("subject", "svdiff", h3a_data,
                                        between = c("nfcmedian"), within = c("nlevels"))
   
   # get Bayes factor
   
-  hypothesis3a_BF <- anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = h3_data, progress = FALSE)
+  hypothesis3a_BF <- anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = h3a_data, progress = FALSE)
   
   # remove temporary variables
   
@@ -1507,55 +1507,40 @@
   
   # H3b: NASA-TLX scores negatively predict individual NCS scores.
   
-  # create an index for the rows in which the participant ID changes
+  # make a temporary copy of the data frame
   
-  subjectindex <- c(1,which(data_ntlx$subject != dplyr::lag(data_ntlx$subject)),nrow(data_ntlx))
+  h3b_data <- pipelines_data[["AARO"]][ ,c("subject","level","nfc")]
   
-  # prepare temporary data frame for loop to feed into
+  # compute column containing the average of the NASA-TLX subscales per level per subject
   
-  ntlx <- data.frame(subject = character(), auc_mental = double(), auc_physical = double(), auc_time = double(),
-                     auc_performance = double(), auc_effort = double(), auc_frustration = double())
-  
-  # calculate AUCs per NASA-TLX subscale per participant
-  
-  for (i in 1:(length(subjectindex)-1)) {
-    
-    newdata <- data.frame(subject = data_ntlx$subject[subjectindex[i]],
-                          auc_mental = bayestestR::auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
-                                           data_ntlx$mental[subjectindex[i]:(subjectindex[i+1]-1)], method = "trapezoid", sort = FALSE),
-                          auc_physical = bayestestR::auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
-                                             data_ntlx$physical[subjectindex[i]:(subjectindex[i+1]-1)], method = "trapezoid", sort = FALSE),
-                          auc_time = bayestestR::auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
-                                         data_ntlx$time[subjectindex[i]:(subjectindex[i+1]-1)], method = "trapezoid", sort = FALSE),
-                          auc_performance = bayestestR::auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
-                                                data_ntlx$performance[subjectindex[i]:(subjectindex[i+1]-1)], method = "trapezoid", sort = FALSE),
-                          auc_effort = bayestestR::auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
-                                           data_ntlx$effort[subjectindex[i]:(subjectindex[i+1]-1)], method = "trapezoid", sort = FALSE),
-                          auc_frustration = bayestestR::auc(data_ntlx$level[subjectindex[i]:(subjectindex[i+1]-1)],
-                                                data_ntlx$frustration[subjectindex[i]:(subjectindex[i+1]-1)], method = "trapezoid", sort = FALSE))
-    ntlx <- rbind(ntlx, newdata)
-    
-  }
-  
-  # add column containing the average of the NASA-TLX subscale AUCs
-  
-  ntlx <- cbind(ntlx, auc_ntlx = rowMeans(ntlx[ ,grep("auc", colnames(ntlx))]))
+  ntlx <- data.frame(subject = data_ntlx$subject,
+                     level = data_ntlx$level,
+                     ntlx = rowMeans(data_ntlx[ ,c("physical","mental","time","effort","performance","frustration")]))
   
   # merge data frames based on subject
   
-  h3_data <- merge(h3_data, ntlx)
+  h3b_data <- merge(h3b_data, ntlx)
   
-  # delete temporary data frame
+  # add column indicating NFC score above or below median
   
-  base::remove(ntlx, newdata)
+  mediannfc <- median(h3b_data$nfc)
+  h3b_data$nfcmedian <- ifelse(h3b_data$nfc < mediannfc, "low", "high")
+  h3b_data$nfcmedian <- as.factor(h3b_data$nfcmedian)
+  h3b_data$level <- as.factor(h3b_data$level)
   
-  # compute multiple linear regression to predict NCS based on SV AUC and NASA-TLX AUC
+  # compute two-way ANOVA
   
-  hypothesis3b <- base::summary(stats::lm(h3_data$nfc ~ h3_data$axauc + h3_data$auc_ntlx))
+  hypothesis3b_rmanova <- afex::aov_ez("subject", "ntlx", h3b_data,
+                                       between = c("nfcmedian"), within = c("level"))
   
   # get Bayes factor
   
-  hypothesis3b_BF <- regressionBF(formula = nfc ~ axauc + auc_ntlx, data = h3_data, progress = FALSE)
+  hypothesis3b_BF <- anovaBF(formula = ntlx ~ level * nfcmedian, data = h3b_data, progress = FALSE)
+  
+  # delete temporary data frame
+  
+  base::remove(ntlx, h3b_data, mediannfc)
+  
   
 ##### Save variables ###########################################################
   
