@@ -1469,48 +1469,39 @@
   
 ##### Hypothesis 3a ############################################################
   
-  # H3a: Subjective values positively predict individual NCS scores.
+  # H3a: Subjective values positively predict individual NFC scores.
   
   # make a temporary copy of the data frame
 
-  data_SV <- pipelines_data[["AARO"]][ ,c("subject","level","sv")]
+  data_SV <- pipelines_data[["AARO"]][ ,c("subject","level","sv","nfc")]
   
-  # create an index for the rows in which the participant ID changes
+  # create a data frame with the difference scores per subject (2-1,3-2,4-3)
   
-  subjectindex <- c(1,which(data_SV$subject != dplyr::lag(data_SV$subject)),nrow(data_SV))
+  diffscores <- diff(data_SV$sv)
+  h3_data <- data.frame(subject = data_SV$subject[-c(seq(from = 4, to = nrow(data_SV), by = 4))],
+                        nlevels = as.factor(rep(c("1-2","2-3","3-4"), nrow(data_SV)/4)),
+                        svdiff = diffscores[-c(seq(from = 4, to = nrow(data_SV)-4, by = 4))],
+                        nfc = data_SV$nfc[-c(seq(from = 4, to = nrow(data_SV), by = 4))])
   
-  # prepare empty data frame for the loop to feed into
+  # add column indicating NFC score above or below median
   
-  h3_data <- data.frame(subject = character(), axauc = double())
+  mediannfc <- median(h3_data$nfc)
+  h3_data$nfcmedian <- ifelse(h3_data$nfc < mediannfc, "low", "high")
+  h3_data$nfcmedian <- as.factor(h3_data$nfcmedian)
   
-  # calculate AUC of SVs per subject
+  # compute two-way ANOVA
   
-  for (i in 1:(length(subjectindex)-1)) {
-    
-    newdata <- data.frame(subject = data_SV$subject[subjectindex[i]],
-                          axauc = bayestestR::auc(data_SV$level[subjectindex[i]:(subjectindex[i]+3)], data_SV$sv[subjectindex[i]:(subjectindex[i]+3)], method = "trapezoid") *
-                            ((data_SV$sv[subjectindex[i]+3] - data_SV$sv[subjectindex[i]+2]) +
-                               (data_SV$sv[subjectindex[i]+2] - data_SV$sv[subjectindex[i]+1]) +
-                               (data_SV$sv[subjectindex[i]+1] - data_SV$sv[subjectindex[i]])))
-    h3_data <- rbind(h3_data, newdata)
-    
-  }
-  
-  # add NFC values to data frame
-  
-  for (i in 1:(nrow(h3_data))) {
-    
-    h3_data$nfc[i] <- pipelines_data[["AARO"]]$nfc[pipelines_data[["AARO"]]$subject == h3_data$subject[i]]
-    
-  }
-  
-  # calculate linear model to estimate prediction of NFC by SVs
-  
-  hypothesis3a <- base::summary(stats::lm(h3_data$nfc ~ h3_data$axauc))
+  hypothesis3a_rmanova <- afex::aov_ez("subject", "svdiff", h3_data,
+                                       between = c("nfcmedian"), within = c("nlevels"))
   
   # get Bayes factor
   
-  hypothesis3a_BF <- regressionBF(formula = nfc ~ axauc, data = h3_data, progress = FALSE)
+  hypothesis3a_BF <- anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = h3_data, progress = FALSE)
+  
+  # remove temporary variables
+  
+  base::remove(diffscores, mediannfc)
+
   
 ##### Hypothesis 3b ############################################################
   
