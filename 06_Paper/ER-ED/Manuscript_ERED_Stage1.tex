@@ -411,7 +411,7 @@ If a participant always chooses the strategy with the fixed 2 € reward, the ot
 The sixth adjustment of 0.02 € will be done during data analysis, based on the participants' decision in the last display of the pairing.
 Participants will be instructed to decide as realistically as possible by imagining that the monetary reward is actually available for choice.
 
-\emph{Part three: ER choice.} After the discounting part, participants will choose which of the three ER strategies (distraction, distancing or suppression) they want to re-apply.
+\emph{Part three: ER choice.} After the discounting part, participants will choose which one of the three ER strategies (distraction, distancing or suppression) they want to re-apply.
 Importantly, there will be no further instruction on what basis they should make their decision.
 Participants should make their decision freely, according to criteria they consider important for themselves.
 However, participants will be asked to state the reasons for the decision afterwards.
@@ -466,26 +466,19 @@ Data of whole participants will be excluded from analysis if participants withdr
 EMG data of subjects will be excluded from analysis if errors occured during recording.
 No further data exclusions are planned.
 The level of significance will be set to \(\alpha=.05\).
+For hypotheses H1-4, repeated measures analysis of variance (rmANOVA) will be conducted and estimated marginal means will be computed using the \emph{afex} package\textsuperscript{36}.
+Greenhouse-Geisser-corrected degrees of freedom and associated \(p\)-values and will be reported when the assumption of sphericity is violated.
+If the within-subjects factor of interest is significant, pairwise contrasts will be calculated using Bonferroni adjustment for multiple testing.
+Proportion of explained variance \(\eta_{p}^{2}\) will be reported as a measure of effect size.
 
 \emph{Effect of valence on arousal and facial EMG.}
-To examine the impact of valence of emotional pictures on subjective arousal ratings (H1a), a repeated measures analysis of variance (rmANOVA) with the factor valence (neutral and negative) for the strategy active viewing will be conducted.
-
+To examine the impact of valence of emotional pictures on subjective arousal ratings (H1a), a rmANOVA with the factor valence (neutral and negative) for the strategy active viewing will be conducted.
 To examine the impact of valence on physiolocigal responding (H1b and H1c), a rmANOVA with the factor valence (neutral and negative) for the strategy active viewing will be conducted for EMG \emph{corrugator} and \emph{levator} activity.
-Greenhouse-Geisser-corrected \(p\)-values and degrees of freedom will be reported when the assumption of sphericity is violated.
-Proportion of explained variance \(\eta_{p}^{2}\) will be reported as a measure of effect size.
-If indicated by the data, estimated marginal means will be computed as post-hoc contrasts.
-rmANOVAS will be run using the \emph{afex} package\textsuperscript{36}.
 
 \emph{Effects of emotion regulation on arousal, facial EMG and effort.}
 To investigate the effects of the three ER strategies on subjective arousal (H2a), another rmANOVA with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for subjective arousal ratings will be conducted.
-
 To examine the effects of the three ER strategies on physiological responding (H3a and H3b), another rmANOVA with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for EMG \emph{corrugator} and \emph{levator} activity will be conducted.
-
 To examine the effect of ER strategies on subjective effort (H4a), a rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings will be conducted.
-Greenhouse-Geisser-corrected \(p\)-values and degrees of freedom will be reported when the assumption of sphericity is violated.
-Proportion of explained variance \(\eta_{p}^{2}\) will be reported as a measure of effect size.
-If indicated by the data, estimated marginal means will be computed as post-hoc contrasts.
-rmANOVAS will be run using the \emph{afex} package\textsuperscript{36}.
 
 \emph{Subjective values of emotion regulation strategies.} For each ER strategy, SVs will be calculated as follows: first, the value 0.02 € will be added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
 Second, the resulting monetary value will be divided by 2.00 € to arrive at the SV of the opposite strategy in each pairing.
@@ -507,9 +500,12 @@ Intraclass correlation coefficient (ICC), \(\rho\), will be reported for each mo
 To investigate whether individual SVs predict ER choice (H7a), a Chi-squared test with predicted choice (highest SV of each participant) and actual choice will be computed.
 Furthermore, an ordinal logistic regression with the dependent variable choice and independent variables SVs of each strategy will be computed.
 
-The association between flexible ER and SVs of ER strategies (H7b) will be investigated with a regression using the \(intercept\) and \(slope\) of each participants' SVs to predict their FlexER score.
-Firstly, SVs will be ordered by magnitude.
-Secondly, for each participant a linear model will be built to estimate the individual \(intercept\) and \(slope\).
+The association between flexible ER and SVs of ER strategies (H7b) will be investigated with a linear regression using the individual \(intercept\) and \(slope\) of each participants' SVs to predict their FlexER score.
+To this end, for each participant, SVs will be sorted by magnitude in descending order and entered as dependent variable in a linear model, with strategy (centered, i.e., -1, 0, 1) as independent variable.
+The resulting \(intercept\) informs about the extent to which an individual considers any or all of the ER strategies as useful for regulation their emotion, while the \(slope\) informs about the flexibility in the use of emotion regulation strategies.
+The individual intercepts and slopes will then be entered as predictors in a regression model with the FlexER score as dependent variable.
+A positive association with the predictor \(intercept\) would indicate that overall higher SVs attached to ER strategies predicts higher scores on the FlexER scale.
+A positive association with the predictor \(slope\) would indicate that less negative slopes, i.e., a smaller preference for a given ER strategy, would be associated with a higher score of the FlexER scale.
 
 The influence of personality traits on SVs will be investigated exploratorily.
 Therefore, the MLM specified above will be extended by the level-2-predictors NFC and self-control.
