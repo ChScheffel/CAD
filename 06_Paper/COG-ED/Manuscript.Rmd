@@ -263,8 +263,9 @@ Estimated marginal means will be used for the paired contrasts of each rmANOVA, 
 To determine the influence of task performance on the association of SVs and *n*-back level, we will set up an MLM using the $lmerTest$ package[@Kuznetsova2017]. 
 We will apply restricted maximum likelihood (REML) to fit the model.
 As an effect size measure for random effects we will firstly calculate the intraclass correlation (ICC), which displays the proportion of variance that is explained by differences between persons.
-Second, we will estimate a random slopes model of SVs including n-back level as level-1-predictor and, additionally, NFC as level-2-predictor. 
-Within the model, we will control for *d'*, RT, correct, and post-correct trials.
+Second, we will estimate a random slopes model of SVs including n-back level as level-1-predictor and, additionally, NFC as level-2-predictor.
+As Mussel et al.[-@Mussel2016] could show, participants with high versus low NFC not only have a more shallow decline in performance with higher n-back levels, but show a demand-specific increase in EEG theta oscillations, which has been associated with mental effort.
+Within the model, we will therefore control for *d'*, RT, correct, and post-correct trials.
 $$
 SV \sim level\ * NFC + d' + RT + correct + postcorrect + (level|subject)
 $$
