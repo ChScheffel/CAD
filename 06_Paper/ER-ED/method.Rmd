@@ -185,7 +185,7 @@ To examine the impact of valence on physiolocigal responding (H1b and H1c), a rm
 *Effects of emotion regulation on arousal, facial EMG and effort.* <br> 
 To investigate the effects of the three ER strategies on subjective arousal (H2a), another rmANOVA  with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for subjective arousal ratings will be conducted.
 To examine the effects of the three ER strategies on physiological responding (H3a and H3b), another rmANOVA with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for EMG *corrugator* and *levator* activity will be conducted.
-To examine the effect of ER strategies on subjective effort (H4a), a rmANOVA with the factor strategy (active viewing, distraction, distancing, and suppression) for subjective effort ratings will be conducted.
+To examine the effect of ER strategies on subjective effort (H4a), a rmANOVA with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for subjective effort ratings will be conducted.
 
 *Subjective values of emotion regulation strategies.* <br> For each ER strategy, SVs will be calculated as follows: first, the value 0.02 € will be added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
 Second, the resulting monetary value will be divided by 2.00 € to arrive at the SV of the opposite strategy in each pairing.
