@@ -71,7 +71,7 @@ Study data will be collected and managed using REDCap electronic data capture to
 
 The online survey will contain a number of questionnaires. 
 In the focus of the current project is the Flexible Emotion Regulation Scale (FlexER)[@Doerfel2019].  
-It assess flexible use of ER strategies with items such as "If I want to feel less negative emotions, I have several strategies to achieve this.", which we define as ER flexibility. 
+It assesses flexible use of ER strategies with items such as "If I want to feel less negative emotions, I have several strategies to achieve this.", which we define as ER flexibility. 
 The items are rated on a 4-point scale ranging from "strongly agree" to "strongly disagree".
 
 Further psychological constructs will be assessed but have no clear hypothesies in the present work an are therefore investigated only exploratory:
