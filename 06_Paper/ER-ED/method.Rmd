@@ -74,7 +74,7 @@ In the focus of the current project is the Flexible Emotion Regulation Scale (Fl
 It assesses flexible use of ER strategies with items such as "If I want to feel less negative emotions, I have several strategies to achieve this.", which we define as ER flexibility. 
 The items are rated on a 4-point scale ranging from "strongly agree" to "strongly disagree".
 
-Further psychological constructs will be assessed but have no clear hypothesies in the present work an are therefore investigated only exploratory:
+Further psychological constructs will be assessed but have no clear hypotheses in the present work and are therefore investigated only exploratory:
 General psychological well-being will be assessed using the German version of the WHO-5 scale[@Bech2004; @Braehler2007].
 To measure resilience, the German version 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; @Sarubin2015] will be used.
 Habitual use of ER will be assessed using the German version of the Emotion Regulation Questionnaire (ERQ)[@GrossJohn2003; @Abler2009].
