@@ -257,9 +257,10 @@ To test our hypotheses, we will perform a series of rmANOVAs and an MLM with ort
 Declining performance will be investigated by calculating an rmANOVA with three paired contrasts comparing *d'* between two levels of 2-, 3-, and 4-back at a time.
 Another rmANOVA with three paired contrasts will be computed to compare the mean RT between two levels of 2-, 3-, and 4-back at a time.
 To investigate changes in NASA-TLX ratings, six rmANOVAs will be computed, one for each NASA-TLX subscale, and each with six paired contrasts comparing the ratings between two levels of 1-, 2-, 3-, and 4-back at a time.
-For each effort discounting round, SVs will be calculated by adding or subtracting 0.015625 from the last monetary value of the flexible level, depending on the participant's last choice.
-This value is the result of dividing the first adjustment of 0.50€ by 2 five times, once in each effort discounting round.
-Then, these final monetary values will be divided by 2€, and the SV of each level per participant will be computed by averaging all final values of each level, regardless of whether it was fixed or flexible.
+For each effort discounting round, the SV of the fixed level will be calculated by adding or subtracting the last adjustment of 0.02\ € from the last monetary value of the flexible level, depending on the participant's last choice, and dividing this value by 2\ €.
+This yields an SV between 0 and 1 for the fixed compared with the flexible level, while the SV of the flexible level is 1.
+The closer the SV of the fixed level is to 0, the stronger the preference for the flexible level.
+All SVs of each level will be averaged to compute one "global" SV for each level.
 An rmANOVA with six paired contrasts will be computed, comparing the SVs between two levels of 1-, 2-, 3-, and 4-back at a time.
 Estimated marginal means will be used for the paired contrasts of each rmANOVA, including Tukey method for *p*-value adjustment.
 
