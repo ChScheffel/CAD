@@ -1496,7 +1496,7 @@
   
   # obtain estimated marginal means for ANOVA model
   
-  hypothesis3a_emm <- emmeans::emmeans(object = hypothesis3a_rmanova, "nfcmedian")
+  hypothesis3a_emm <- emmeans::emmeans(object = hypothesis3a_rmanova, c("nfcmedian","nlevels"))
   
   # calculate pairwise comparisons on estimated marginal means
   
