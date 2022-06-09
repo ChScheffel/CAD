@@ -33,8 +33,8 @@ stim_neutral <- readxl::read_xlsx(file.path(here("01_Paradigms", "ER-ED", "ER_ED
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study[@Simmons2012].
 The paradigm was written and presented using *PsychoPy*[@Peirce2019].
 We used *R* with *R Studio*[@RCore2021; @RStudioTeam2020] with the main packages *afex*[@Singmann2021] and *BayesFactor*[@Morey2021] for all analyses.
-The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at https://github.com/ChScheffel/CERED.
-A complete list of all measures assessed in the study can be found at OSF (<https://osf.io/vnj8x/>) and GitHub (https://github.com/ChScheffel/CERED).
+The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at https://github.com/ChScheffel/CAD.
+A complete list of all measures assessed in the study can be found at OSF (<https://osf.io/vnj8x/>) and GitHub (https://github.com/ChScheffel/CAD).
 
 ## 2.1 Ethics information
 
@@ -104,7 +104,7 @@ Participants will be instructed not to suppress their thoughts or change their f
 All participants will receive written instruction and complete a training session.
 After the training session, participants will be asked about their applied ER strategies to avoid misapplication.
 The order of the three regulation blocks (distraction, distancing, and suppression) will be randomized between participants.
-<!-- Kommentar Denise: Die folgenden Sätze waren im Präteritum formuliert, ich hab es einfach umformuliert-->Each of the blocks consists of 20 trials showing neutral (Block 1) and negative (Blocks 2, 3, 4, 5) pictures.
+Each of the blocks consists of 20 trials showing neutral (Block 1) and negative (Blocks 2, 3, 4, 5) pictures.
 Each trial begins with a fixation cross that lasts 3 to 5 seconds (random uniform distributed).
 It is followed by neutral or negative pictures for a total of 6 seconds.
 After each block, participants retrospectively will rate their subjective emotional arousal ("not at all aroused" to "very highly aroused"), their subjective effort ("not very exhausting" to "very exhausting"), and - after the ragulation blocks - the utility of the respective strategy ("not useful at all" to "very useful") on a continuous scale using a slider on screen.
@@ -226,4 +226,4 @@ The data of this study can be downloaded from [osf.io/vnj8x/](https://osf.io/vnj
 
 ## Code availability
 
-The paradigm code, as well as the R Markdown file used to analyze the data and write this document is available at our [Github repository](https://github.com/ChScheffel/CERED).
+The paradigm code, as well as the R Markdown file used to analyze the data and write this document is available at our [Github repository](https://github.com/ChScheffel/CAD).
