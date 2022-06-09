@@ -66,8 +66,8 @@ abstract          : |
  Using a multilevel modelling approach, it will be investigated whether individual SVs can be explained by effectiveness (subjective arousal, facial muscle activity) and subjective effort. 
  Relations of SVs to personality traits will be explored.
 keywords          : "emotion regulation, regulatory effort, effort discounting, registered report, specification curve analysis"
-wordcount         : "5630"
-bibliography      : ER_ED.bib
+wordcount         : "6233"
+bibliography      : ["ER_ED.bib"]
 floatsintext      : yes
 figsintext        : yes
 figurelist        : no
@@ -98,12 +98,18 @@ header-includes   :
     - \usepackage{setspace}\doublespacing
     - \usepackage[final]{pdfpages}
     - \usepackage{chngcntr}
-
+editor_options: 
+  markdown: 
+    wrap: sentence
 ---
+
+```{=tex}
 \renewcommand\thesection{\Alph{section}}
 \counterwithout{figure}{section}
 \setcounter{figure}{0}
----
+```
+
+------------------------------------------------------------------------
 
 ```{r setupManuscript, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -125,7 +131,7 @@ load(here("06_Paper","ER-ED","Workspace_ERED_pilot.RData"))
 
 ```
 
-``` {r child = "TheoreticalBackground.Rmd"}
+```{r child = "TheoreticalBackground.Rmd"}
 ```
 
 ```{r child = "Method.Rmd"}
@@ -133,13 +139,17 @@ load(here("06_Paper","ER-ED","Workspace_ERED_pilot.RData"))
 
 # References
 
+```{=tex}
 \begingroup
 \setlength{\parindent}{-0.5in}
 \setlength{\leftskip}{0.5in}
+```
+::: {#refs custom-style="Bibliography"}
+:::
 
-<div id="refs" custom-style="Bibliography"></div>
+```{=tex}
 \endgroup
-
+```
 \newpage
 
 # Acknowledgements
@@ -154,29 +164,33 @@ The funders have/had no role in study design, data collection and analysis, deci
 
 The authors declare no competing interests.
 
+```{=tex}
 \newpage
 \setcounter{figure}{0}
-
+```
 # Figures and figure captions
 
 \newpage
+
 ```{r ResponsePatternsAppendix, echo = FALSE, message = FALSE, warning = FALSE}
 include_graphics(here("06_Paper","ER-ED", "figures", "Paradigm_Scheme_T2.png" ))
 ```
-*Figure 1.* 
-Exemplary visualization of two response patterns. 
-In the top half, the person has a clear preference for one of the three strategies. 
-In the lower half, they have no clear preference and therefore show an inconsistent response pattern. 
+
+*Figure 1.* Exemplary visualization of two response patterns.
+In the top half, the person has a clear preference for one of the three strategies.
+In the lower half, they have no clear preference and therefore show an inconsistent response pattern.
 This pattern can also be represented by our paradigm.
 
 ```{r DesignEREDappendix, echo=FALSE, message=FALSE, warning=FALSE, fig.pos="H"}
 include_graphics(here("06_Paper", "ER-ED", "figures", "Design_ER-ED.png"))
 ```
-*Figure 2.* 
-Block design of the paradigm. 
-Every participant starts with two "active viewing" blocks continaing neutral (Block 1) and negative (Block 2) pictures. 
-Order of the regulation blocks (Blocks 3, 4, and 5) is randomized between participants. After, the discounting procedure takes place.
-All three regulation strategies are pairwise compared. Before the last block, participants can decide which regulation strategy they want to reapply. 
+
+*Figure 2.* Block design of the paradigm.
+Every participant starts with two "active viewing" blocks containing neutral (Block 1) and negative (Block 2) pictures.
+Order of the regulation blocks (Blocks 3, 4, and 5) is randomized between participants.
+After, the discounting procedure takes place.
+All three regulation strategies are pairwise compared.
+Before the last block, participants can decide which regulation strategy they want to reapply.
 Subjective arousal and effort ratings are assessed after each block using a slider on screen with a continuous scale.
 
 # Design Table {#DesignTable}
@@ -193,63 +207,50 @@ Subjective arousal and effort ratings are assessed after each block using a slid
 
 ## Detailed information on psychometric measures {#SupplementQuestionnaires}
 
-*WHO-5.*
-General psychological well-being is assessed using the WHO-5 scale[@Bech2004; @Braehler2007].
+*WHO-5.* General psychological well-being is assessed using the WHO-5 scale[@Bech2004; @Braehler2007].
 5 Items such as "Over the past 2 weeks I have felt calm and relaxed." are rated on a 6-point Likert scale raning from 0 (at no time) to 5 (all of the time).
 The german version of the scale showed a high internal consistency (Cronbach's $\alpha=.92$)[@Braehler2007].
 
-*Connor-Davidson Resilience Scale.*
-Resilience is assessed using the Connor-Davidson Resilience Scale (CD-RISC)[@Connor2003; @Campbell-Sills2007; @Sarubin2015].
+*Connor-Davidson Resilience Scale.* Resilience is assessed using the Connor-Davidson Resilience Scale (CD-RISC)[@Connor2003; @Campbell-Sills2007; @Sarubin2015].
 10 items such as "I am able to adapt to change." are rated on a scale from 0 (not true at all) to 4 (true nearly all the time).
 The 10-item version showed a high internal consistency (Cronbach's $\alpha=.84$) and a satisfactory retest-reliability of $r_{tt}=.81$ across 6 month[@Sarubin2015].
 
-*Emotion Regulation Questionnaire.* 
-Habitual use of reappraisal and suppression is measured using the 10-item Emotion Regulation Questionnaire (ERQ)[@GrossJohn2003;@Abler2009].
-The scale has items such as "I keep my emotions to myself" (ERQ-suppression - 4 items) and "When I'm faced with a stressful situation, I make myself think about it in a way that helps me stay calm" (ERQ-reappraisal - 6 items), which are answered on a 7-point Likert scale ranging from 1 (strongly disagree) to 7 (strongly agree), and has acceptable to high internal consistency (Cronbach’s $\alpha>.75$) [@Preece2020].
+*Emotion Regulation Questionnaire.* Habitual use of reappraisal and suppression is measured using the 10-item Emotion Regulation Questionnaire (ERQ)[@GrossJohn2003; @Abler2009].
+The scale has items such as "I keep my emotions to myself" (ERQ-suppression - 4 items) and "When I'm faced with a stressful situation, I make myself think about it in a way that helps me stay calm" (ERQ-reappraisal - 6 items), which are answered on a 7-point Likert scale ranging from 1 (strongly disagree) to 7 (strongly agree), and has acceptable to high internal consistency (Cronbach's $\alpha>.75$) [@Preece2020].
 
-*FlexER Scale.*
-Flexible use of ER strategies is assessed using the FlexER Scale [@Doerfel2019] with items such as "If I want to feel less negative emotions, I have several strategies to achieve this.", which are answered on a 4-point scale ranging from "strongly agree" to "strongly disagree".
+*FlexER Scale.* Flexible use of ER strategies is assessed using the FlexER Scale [@Doerfel2019] with items such as "If I want to feel less negative emotions, I have several strategies to achieve this.", which are answered on a 4-point scale ranging from "strongly agree" to "strongly disagree".
 Psychometric properties are currently under investigation.
 
-*Implicit Theories Questionnaire.*
-Implicit theories of willpower in emotional control are assessed using the Implicit Theories Questionnaire of @Bernecker2017.
+*Implicit Theories Questionnaire.* Implicit theories of willpower in emotional control are assessed using the Implicit Theories Questionnaire of @Bernecker2017.
 4 items such as "Having to control a strong emotion makes you exhausted and you are less able to manage your feelings right afterwards." are rated on a 6-point scale ranging from 1 (fully agree) to 6 (do not agree at all).
 The questionnaire showed an internal consistency of Cronbach's $\alpha=.87$[@Bernecker2017].
 
-*Need for Cognition Scale.*
-Need for Cognition (NFC) is assessed with the 16-item short version of the German NFC scale [@Bless1994]. 
-Responses to each item (e.g., "Thinking is not my idea of fun", recoded) are recorded on a 7-point Likert scale ranging from -3 (completely disagree) to +3 (completely agree) and are summed to the total NFC score. 
-The scale shows comparably high internal consistency (Cronbach's $\alpha>.80$)[@Bless1994; @Fleischhauer2010] and a retest reliability of $r_{tt}=.83$ across 8 to 18 weeks [@Fleischhauer2015].
+*Need for Cognition Scale.* Need for Cognition (NFC) is assessed with the 16-item short version of the German NFC scale [@Bless1994]. Responses to each item (e.g., "Thinking is not my idea of fun", recoded) are recorded on a 7-point Likert scale ranging from -3 (completely disagree) to +3 (completely agree) and are summed to the total NFC score. The scale shows comparably high internal consistency (Cronbach's $\alpha>.80$)[@Bless1994; @Fleischhauer2010] and a retest reliability of $r_{tt}=.83$ across 8 to 18 weeks [@Fleischhauer2015].
 
-*Self-Regulation Scale.*
-As one measure of self-control, the Self-Regulation Scale (SRS)[@Schwarzer1999] is used.
-The scale has 10 items (e.g., "It is difficult for me to suppress thoughts that interfere with what I need to do.", recoded) on a 4-point scale ranging from 1 (not at all true) to 4 (exactly true).
-It has high internal consistency [Cronbach's $\alpha>.80$; @Schwarzer1999].
+*Self-Regulation Scale.* As one measure of self-control, the Self-Regulation Scale (SRS)[@Schwarzer1999] is used. The scale has 10 items (e.g., "It is difficult for me to suppress thoughts that interfere with what I need to do.", recoded) on a 4-point scale ranging from 1 (not at all true) to 4 (exactly true). It has high internal consistency [Cronbach's $\alpha>.80$; @Schwarzer1999].
 
-*Brief Self-Control Scale.* 
-As a second measure of self-control, the Brief Self-Control Scale (BSCS)[@Tangney2004; @Sproesser2011] is used. 
-It comprises 13 items (e.g., “I am good at resisting temptations”) with a 5-point rating scale ranging from 1 (not at all like me) to 5 (very much like me). 
-The scale shows acceptable internal consistency (Cronbach’s $\alpha=.81$)[@Sproesser2011] .
+*Brief Self-Control Scale.* As a second measure of self-control, the Brief Self-Control Scale (BSCS)[@Tangney2004; @Sproesser2011] is used.
+It comprises 13 items (e.g., "I am good at resisting temptations") with a 5-point rating scale ranging from 1 (not at all like me) to 5 (very much like me).
+The scale shows acceptable internal consistency (Cronbach's $\alpha=.81$)[@Sproesser2011] .
 
-*Barratt Impulsiveness Scale.*
-As a third measure of self-control, the Barratt Impulsiveness Scale (BIS-11)[@Patton1995; @Hartmann2011] is used.
+*Barratt Impulsiveness Scale.* As a third measure of self-control, the Barratt Impulsiveness Scale (BIS-11)[@Patton1995; @Hartmann2011] is used.
 Responses to each item (e.g., "I am self-controlled.", recoded) are assessed on a 4-point scale ranging from 1 (never/rarely) to 4 (almost always/always).
 An internal consistency of Cronbach's $\alpha=.74$ and a retest reliability of $r_{tt}=.56$ for General Impulsiveness and $r_{tt}=.66$ for Total Score across 6 month were reported [@Hartmann2011].
 
-*Attentional Control Scale.*
-Attentional control is measured using the Attentional Control Scale (ACS)[@Derryberry2002] with items such as "My concentration is good even if there is music in the room around me".
+*Attentional Control Scale.* Attentional control is measured using the Attentional Control Scale (ACS)[@Derryberry2002] with items such as "My concentration is good even if there is music in the room around me".
 The 20 items are rated on a 4-point scale ranging from 1 (almost never) to 4 (always).
 An internal consistency of Cronbach's $\alpha=.88$ was reported [@Derryberry2002].
 
-
 \newpage
+
 ## Pilot study: Subjective arousal in the conditions "Active viewing - neutral" and "Active viewing - negative"
+
 ANOVA:
 
-`r afex::nice(SubjArousalView_pilot_aov) %>% knitr::kable(x = .)` 
-$BF10=$ `r round(extractBF(SubjArousalView_pilot_BF)$bf, digits = 2)`
+`r afex::nice(SubjArousalView_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(extractBF(SubjArousalView_pilot_BF)$bf, digits = 2)`
 
 Paired contrasts:
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
   SubjArousalView_pilot_con,
@@ -259,17 +260,20 @@ apa_table(
   placement = "H"
 )
 ```
+
 Figure:
+
 ```{r FigSubjArousalViewPilot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective arousal ratings for the conditions \"Active viewing - neutral\" and \"Active viewing - negative\" visualized as boxplots. Each dot represents the effort rating of a single subject. Bold dots represent outliers.", fig.pos="H", out.width="75%"}
 
 print(FigSubjArousalViewPilot)
 ```
+
 ## Pilot study: Subjective arousal in the conditions "Active viewing - negative", "Distraction", "Distancing", and "Suppression"
-ANOVA:
-`r afex::nice(SubjArousalReg_pilot_aov) %>% knitr::kable(x = .)`
-$BF10=$ `r round(extractBF(SubjArousalReg_pilot_BF)$bf, digits = 2)`
+
+ANOVA: `r afex::nice(SubjArousalReg_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(extractBF(SubjArousalReg_pilot_BF)$bf, digits = 2)`
 
 Paired contrasts:
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
   SubjArousalReg_pilot_con,
@@ -279,18 +283,20 @@ apa_table(
   placement = "H"
 )
 ```
+
 Figure:
+
 ```{r FigSubjArousalRegPilot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective arousal ratings for the conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\" visualized as boxplots. Each dot represents the effort rating of a single subject. Bold dots represent outliers.", fig.pos="H", out.width="75%"}
 
 print(FigSubjArousalRegPilot)
 ```
+
 ## Pilot study: Physiological responding (*Corrugator* and *Levator* activity) in the conditions "Active viewing - neutral" and "Active viewing - negative"
-*Corrugator*:
-ANOVA: 
-`r afex::nice(EMGCorrView_pilot_aov) %>% knitr::kable(x = .)`
-$BF10=$ `r round(extractBF(EMGCorrView_pilot_BF)$bf, digits = 2)`
+
+*Corrugator*: ANOVA: `r afex::nice(EMGCorrView_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(extractBF(EMGCorrView_pilot_BF)$bf, digits = 2)`
 
 Paired contrasts:
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
   EMGCorrView_pilot_con,
@@ -300,12 +306,11 @@ apa_table(
   placement = "H"
 )
 ```
-*Levator*:
-ANOVA: 
-`r afex::nice(EMGLevView_pilot_aov) %>% knitr::kable(x = .)`
-$BF10=$ `r round(extractBF(EMGLevView_pilot_BF)$bf, digits = 2)`
+
+*Levator*: ANOVA: `r afex::nice(EMGLevView_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(extractBF(EMGLevView_pilot_BF)$bf, digits = 2)`
 
 Paired contrasts:
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
   EMGLevView_pilot_con,
@@ -315,22 +320,25 @@ apa_table(
   placement = "H"
 )
 ```
+
 Figures:
+
 ```{r FigEMGCorrViewPilot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Corrugator activity for the conditions \"Active viewing - neutral\" and \"Active viewing - negative\" visualized as boxplots. Each dot represents the corrugator activity of a single trial. Bold dots represent outliers.", fig.pos="H", out.width="75%"}
 
 print(FigEMGCorrViewPilot)
 ```
+
 ```{r FigEMGLevViewPilot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Levator activity for the conditions \"Active viewing - neutral\" and \"Active viewing - negative\" visualized as boxplots. Each dot represents the levator activity of a single trial. Bold dots represent outliers.", fig.pos="H", out.width="75%"}
 
 print(FigEMGLevViewPilot)
 ```
+
 ## Pilot study: Physiological responding (*Corrugator* and *Levator* activity) in the conditions"Active viewing - negative", "Distraction", "Distancing", and "Suppression"
-*Corrugator*:
-ANOVA: 
-`r afex::nice(EMGCorrReg_pilot_aov) %>% knitr::kable(x = .)`
-$BF10=$ `r round(extractBF(EMGCorrReg_pilot_BF)$bf, digits = 2)`
+
+*Corrugator*: ANOVA: `r afex::nice(EMGCorrReg_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(extractBF(EMGCorrReg_pilot_BF)$bf, digits = 2)`
 
 Paired contrasts:
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
   EMGCorrReg_pilot_con,
@@ -340,12 +348,11 @@ apa_table(
   placement = "H"
 )
 ```
-*Levator*:
-ANOVA: 
-`r afex::nice(EMGLevReg_pilot_aov) %>% knitr::kable(x = .)`
-$BF10=$ `r round(extractBF(EMGLevReg_pilot_BF)$bf, digits = 2)`
+
+*Levator*: ANOVA: `r afex::nice(EMGLevReg_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(extractBF(EMGLevReg_pilot_BF)$bf, digits = 2)`
 
 Paired contrasts:
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
   EMGLevReg_pilot_con,
@@ -355,21 +362,25 @@ apa_table(
   placement = "H"
 )
 ```
+
 Figures:
+
 ```{r FigEMGCorrRegPilot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Corrugator activity for the conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\" visualized as boxplots. Each dot represents the corrugator activity of a single trial. Bold dots represent outliers.", fig.pos="H", out.width="75%"}
 
 print(FigEMGCorrRegPilot)
 ```
+
 ```{r FigEMGLevRegPilot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Levator activity for the conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\" visualized as boxplots. Each dot represents the levator activity of a single trial. Bold dots represent outliers.", fig.pos="H", out.width="75%"}
 
 print(FigEMGLevRegPilot)
 ```
+
 ## Pilot study: Subjective effort in the conditions "Active viewing - negative", "Distraction", "Distancing", and "Suppression"
-ANOVA:
-`r afex::nice(SubjEffort_pilot_aov) %>% knitr::kable(x = .)`
-$BF10=$ `r round(extractBF(SubjEffort_pilot_BF)$bf, digits = 2)`
+
+ANOVA: `r afex::nice(SubjEffort_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(extractBF(SubjEffort_pilot_BF)$bf, digits = 2)`
 
 Paired contrasts:
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
   SubjEffort_pilot_con,
@@ -379,9 +390,10 @@ apa_table(
   placement = "H"
 )
 ```
+
 Figure:
+
 ```{r FigSubjEffortPilot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective effort ratings for the conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\" visualized as boxplots. Each dot represents the effort rating of a single subject. Bold dots represent outliers.", fig.pos="H", out.width="75%"}
 
 print(FigSubjEffortPilot)
 ```
-
