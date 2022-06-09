@@ -112,7 +112,6 @@ After each block, participants retrospectively will rate their subjective emotio
 *Part two: ER effort discounting.* <br> In the second part, ER effort discounting will take place.
 The procedure of the discounting will follow the COG-ED paradigm by Westbrook et al.[-@Westbrook2013] with a major change.
 We will use the following adaption that allows the computation of SVs for different strategies without presuming that all individuals would inherently evaluate the same strategy as the easiest one: For each possible pairing (distraction vs. distancing, distraction vs. suppression, and distancing vs. suppression), each of the two strategies will be presented with a monetary reward.
-The order of the pairings will be randomized.
 Because there is no strategy that is objectively more difficult, we will add initial comparisons asking the participants to choose between "1 € for strategy A or 1 € for strategy B".
 They decide by clicking the on-screen button of the respective option.
 Each of the three strategy pairs will be presented three times in total, in a randomized order and randomly assigned which strategy appears on the left or right side of the screen.
