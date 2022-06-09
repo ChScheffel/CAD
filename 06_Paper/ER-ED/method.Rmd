@@ -71,10 +71,10 @@ Study data will be collected and managed using REDCap electronic data capture to
 
 The online survey will contain a number of questionnaires. 
 In the focus of the current project is the Flexible Emotion Regulation Scale (FlexER)[@Doerfel2019].  
-It assess flexible use of ER strategies with items such as "If I want to feel less negative emotions, I have several strategies to achieve this.", which we define as ER flexibility. 
+It assesses flexible use of ER strategies with items such as "If I want to feel less negative emotions, I have several strategies to achieve this.", which we define as ER flexibility. 
 The items are rated on a 4-point scale ranging from "strongly agree" to "strongly disagree".
 
-Further psychological constructs will be assessed but have no clear hypothesies in the present work an are therefore investigated only exploratory:
+Further psychological constructs will be assessed but have no clear hypotheses in the present work and are therefore investigated only exploratory:
 General psychological well-being will be assessed using the German version of the WHO-5 scale[@Bech2004; @Braehler2007].
 To measure resilience, the German version 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; @Sarubin2015] will be used.
 Habitual use of ER will be assessed using the German version of the Emotion Regulation Questionnaire (ERQ)[@GrossJohn2003; @Abler2009].
@@ -126,7 +126,7 @@ Participants will be instructed to decide as realistically as possible by imagin
 *Part three: ER choice.* <br> After the discounting part, participants will choose which one of the three ER strategies (distraction, distancing or suppression) they want to re-apply.
 Importantly, there will be no further instruction on what basis they should make their decision.
 Participants should make their decision freely, according to criteria they consider important for themselves.
-However, participants will be asked to state the reasons for the decision afterwards.
+However, participants will be asked to state the reasons for the decision afterwards in RedCap using a free text field.
 As soon as they have decided, they will see the respective instruction and the block with another 20 negative pictures starts.
 
 ```{r DesignERED, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Block design of the paradigm. Every participant starts with two \"active viewing\" blocks continaing neutral (Block 1) and negative (Block 2) pictures. Order of the regulation blocks (Blocks 3, 4, and 5) is randomized between participants. After, the discounting procedure takes place. All three regulation strategies are pairwise compared. Before the last block, participants can decide which regulation strategy they want to reapply. Subjective arousal and effort ratings are assessed after each block using a slider on screen with a continuous scale."}
