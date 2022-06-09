@@ -3,12 +3,11 @@
 \PassOptionsToPackage{hyphens}{url}
 %
 \documentclass[
-  english,
   man,floatsintext]{apa6}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -34,16 +33,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={Estimating individual subjective values of emotion regulation strategies},
-  pdfauthor={Christoph Scheffel,1, Josephine Zerna,1, Anne Gärtner1, Denise Dörfel1, \& Alexander Strobel1},
-  pdflang={en-EN},
-  pdfkeywords={emotion regulation, regulatory effort, effort discounting, registered report, specification curve analysis},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -70,6 +59,38 @@
   \let\oldsubparagraph\subparagraph
   \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
 % Manuscript styling
 \usepackage{upgreek}
 \captionsetup{font=singlespacing,justification=justified}
@@ -100,6 +121,20 @@
 % \setlength{\parindent}{0.5in}
 % \setlength{\parskip}{0pt plus 0pt minus 0pt}
 
+% Overwrite redefinition of paragraph and subparagraph by the default LaTeX template
+% See https://github.com/crsh/papaja/issues/292
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries\itshape\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-\z@\relax}%
+  {\normalfont\normalsize\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
 % \usepackage{etoolbox}
 \makeatletter
 \patchcmd{\HyOrg@maketitle}
@@ -111,8 +146,16 @@
   {\section*{\protect\normalfont{\@title}}}
   {}{\typeout{Failed to patch title.}}
 \makeatother
-\shorttitle{Subjective values of emotion regulation strategies}
-\keywords{emotion regulation, regulatory effort, effort discounting, registered report, specification curve analysis\newline\indent Word count: 5630}
+
+\usepackage{xpatch}
+\makeatletter
+\xapptocmd\appendix
+  {\xapptocmd\section
+    {\addcontentsline{toc}{section}{\appendixname\ifoneappendix\else~\theappendix\fi\\: #1}}
+    {}{\InnerPatchFailed}%
+  }
+{}{\PatchFailed}
+\keywords{emotion regulation, regulatory effort, effort discounting, registered report, specification curve analysis\newline\indent Word count: 6233}
 \usepackage{lineno}
 
 \linenumbers
@@ -134,44 +177,26 @@
 \usepackage{setspace}\doublespacing
 \usepackage[final]{pdfpages}
 \usepackage{chngcntr}
-\ifxetex
-  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
-  \usepackage{polyglossia}
-  \setmainlanguage[]{english}
-\else
-  \usepackage[main=english]{babel}
-% get rid of language-specific shorthands (see #6817):
-\let\LanguageShortHands\languageshorthands
-\def\languageshorthands#1{}
-\fi
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
-  % set entry spacing
-  \ifnum #2 > 0
-  \setlength{\parskip}{#2\baselineskip}
-  \fi
- }%
- {}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Estimating individual subjective values of emotion regulation strategies},
+  pdfauthor={Christoph Scheffel,1, Josephine Zerna,1, Anne Gärtner1, Denise Dörfel1, \& Alexander Strobel1},
+  pdflang={en-EN},
+  pdfkeywords={emotion regulation, regulatory effort, effort discounting, registered report, specification curve analysis},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{Estimating individual subjective values of emotion regulation strategies}
 \author{Christoph Scheffel\textsuperscript{$\dagger{}$,1}, Josephine Zerna\textsuperscript{$\dagger{}$,1}, Anne Gärtner\textsuperscript{1}, Denise Dörfel\textsuperscript{1}, \& Alexander Strobel\textsuperscript{1}}
 \date{}
 
+
+\shorttitle{Subjective values of emotion regulation strategies}
 
 \authornote{
 
@@ -183,7 +208,7 @@ Correspondence concerning this article should be addressed to Christoph Scheffel
 
 \affiliation{\vspace{0.5cm}\textsuperscript{1} Faculty of Psychology, Technische Universität Dresden, 01069 Dresden, Germany}
 
-\abstract{
+\abstract{%
 Individuals have a repertoire of emotion regulation (ER) strategies at their disposal, which they can use more or less flexibly.
 In ER flexibility research, strategies that facilitate goal achievement are considered adaptive and therefore are subjectively valuable.
 Individuals are motivated to reduce their emotional arousal effectively and to avoid cognitive effort.
@@ -325,8 +350,8 @@ Exploratorily, we want to investigate whether individual SVs are related to pers
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study\textsuperscript{35}.
 The paradigm was written and presented using \emph{PsychoPy}\textsuperscript{36}.
 We used \emph{R} with \emph{R Studio}\textsuperscript{37,38} with the main packages \emph{afex}\textsuperscript{39} and \emph{BayesFactor}\textsuperscript{40} for all analyses.
-The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at \url{https://github.com/ChScheffel/CERED}.
-A complete list of all measures assessed in the study can be found at OSF (\url{https://osf.io/vnj8x/}) and GitHub (\url{https://github.com/ChScheffel/CERED}).
+The R Markdown file used to analyze the data and write this document, as well as the raw data and the materials are freely available at \url{https://github.com/ChScheffel/CAD}.
+A complete list of all measures assessed in the study can be found at OSF (\url{https://osf.io/vnj8x/}) and GitHub (\url{https://github.com/ChScheffel/CAD}).
 
 \hypertarget{ethics-information}{%
 \subsection{2.1 Ethics information}\label{ethics-information}}
@@ -367,16 +392,16 @@ Study data will be collected and managed using REDCap electronic data capture to
 
 The online survey will contain a number of questionnaires.
 In the focus of the current project is the Flexible Emotion Regulation Scale (FlexER)\textsuperscript{44}.\\
-It assess flexible use of ER strategies with items such as ``If I want to feel less negative emotions, I have several strategies to achieve this.'', which we define as ER flexibility.
+It assesses flexible use of ER strategies with items such as ``If I want to feel less negative emotions, I have several strategies to achieve this.'', which we define as ER flexibility.
 The items are rated on a 4-point scale ranging from ``strongly agree'' to ``strongly disagree''.
 
-Further psychological constructs will be assessed but have no clear hypothesies in the present work an are therefore investigated only exploratory:
+Further psychological constructs will be assessed but have no clear hypotheses in the present work and are therefore investigated only exploratory:
 General psychological well-being will be assessed using the German version of the WHO-5 scale\textsuperscript{45,46}.
 To measure resilience, the German version 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)\textsuperscript{49} will be used.
 Habitual use of ER will be assessed using the German version of the Emotion Regulation Questionnaire (ERQ)\textsuperscript{9,50}.
 Implicit theories of willpower in emotion control will be assessed using the implicit theories questionnaire from Bernecker and Job\textsuperscript{51}.
 To assess Need for Cognition, the German version short form of the Need for Cognition Scale\textsuperscript{28,52} will be used.
-To assess self-control,\textsuperscript{53} sum scores of the German versions of the following questionnaires will be used: the Self-Regulation Scale (SRS)\textsuperscript{54}, the Brief Self-Control Scale (BSCS)\textsuperscript{55,56}, and the Barratt Impulsiveness Scale (BIS-11)\textsuperscript{57,58}.
+To assess self-control\textsuperscript{53}, sum scores of the German versions of the following questionnaires will be used: the Self-Regulation Scale (SRS)\textsuperscript{54}, the Brief Self-Control Scale (BSCS)\textsuperscript{55,56}, and the Barratt Impulsiveness Scale (BIS-11)\textsuperscript{57,58}.
 Attentional control will be assessed using the Attentional Control Scale (ACS)\textsuperscript{59}.
 For more detailed information on psychometric properties of the questionnaires, please see \protect\hyperlink{SupplementQuestionnaires}{supplementary material}.
 
@@ -409,11 +434,11 @@ After each block, participants retrospectively will rate their subjective emotio
 \emph{Part two: ER effort discounting.} In the second part, ER effort discounting will take place.
 The procedure of the discounting will follow the COG-ED paradigm by Westbrook et al.\textsuperscript{29} with a major change.
 We will use the following adaption that allows the computation of SVs for different strategies without presuming that all individuals would inherently evaluate the same strategy as the easiest one: For each possible pairing (distraction vs.~distancing, distraction vs.~suppression, and distancing vs.~suppression), each of the two strategies will be presented with a monetary reward.
-The order of the pairings will be randomized.
-Because there is no strategy that is objectively more difficult, we will add an initial comparison that begins with the option ``1 € for strategy A or 1 € for strategy B''.
-The participants decide by clicking the on-screen button of the respective option.
-The strategy that is not chosen will be assigned the fixed value of 2 €, the chosen strategy will be assigned a starting value of 1 €.
-From this point on, comparisons between strategies will follow the original COG-ED paradigm\textsuperscript{29}.
+Because there is no strategy that is objectively more difficult, we will add initial comparisons asking the participants to choose between ``1 € for strategy A or 1 € for strategy B''.
+They decide by clicking the on-screen button of the respective option.
+Each of the three strategy pairs will be presented three times in total, in a randomized order and randomly assigned which strategy appears on the left or right side of the screen.
+For each pair, the strategy that was chosen at least two out of three times will be assigned the flexible starting value of 1 €, the other strategy will be assigned the fixed value of 2 €.
+After this, comparisons between strategies will follow the original COG-ED paradigm\textsuperscript{29}.
 Each pairing is presented six consecutive times, and with each decision the reward of the strategy with the starting value of 1 € is either lowered (if this strategy was chosen) or raised (if the strategy with the fixed 2 € reward was chosen).
 The adjustment starts at 0.50 € and each is half the adjustment of the previous step, rounded to two digits after the decimal point.
 If a participant always chooses the strategy with the fixed 2 € reward, the other strategy's last value on display will be 1.97 €, if they always choose the lower strategy, its last value will be 0.03 €.
@@ -444,7 +469,7 @@ The five sets of negative pictures will be assigned randomly to the blocks.
 \subsubsection{2.3.4 Facial electromyography}\label{facial-electromyography}}
 
 Bipolar facial electromyography (EMG) will be measured for \emph{corrugator supercilii} and \emph{levator labii} as indices of affective valence\textsuperscript{63}, similar to previous work by our group\textsuperscript{7}.
-Two passive surface Ag/AgCl electrodes (8 mm inner diameter, 10 mm distance between electrodes) will be placed over each left muscle according to the guidelines of.\textsuperscript{64}
+Two passive surface Ag/AgCl electrodes (8 mm inner diameter, 10 mm distance between electrodes) will be placed over each left muscle according to the guidelines of\textsuperscript{64}.
 The ground electrode will be placed over the left \emph{Mastoid}.
 Before electrode placement, the skin will be abraded with Every abrasive paste, cleaned with alcohol, and filled with Lectron III electrolyte gel.
 Raw signals will be amplified by a BrainAmp amplifier (Brain Products Inc., Gilching, Germany).
@@ -452,7 +477,7 @@ Impedance level will be kept below 10 \(k\Omega\).
 Data will be sampled at 1000 Hz, filtered, rectified and integrated.
 A 20 Hz high pass (order 8), a 300 Hz low pass (order 8), and a 50 Hz notch filter will be applied to both signals.
 Corrugator and Levator EMG will be analyzed during the 6 s of picture presentation.
-EMG data will be baseline-corrected using a time window of 2 s prior to stimulus onset.\textsuperscript{63}
+EMG data will be baseline-corrected using a time window of 2 s prior to stimulus onset\textsuperscript{63}.
 Last, the sampling rate will be changed to 100 Hz, and EMG data will be averaged for each condition and each participant.
 
 \hypertarget{sampling-plan}{%
@@ -530,7 +555,7 @@ The data of this study can be downloaded from \href{https://osf.io/vnj8x/}{osf.i
 \hypertarget{code-availability}{%
 \subsection{Code availability}\label{code-availability}}
 
-The paradigm code, as well as the R Markdown file used to analyze the data and write this document is available at our \href{https://github.com/ChScheffel/CERED}{Github repository}.
+The paradigm code, as well as the R Markdown file used to analyze the data and write this document is available at our \href{https://github.com/ChScheffel/CAD}{Github repository}.
 
 \hypertarget{references}{%
 \section{References}\label{references}}
@@ -541,289 +566,289 @@ The paradigm code, as well as the R Markdown file used to analyze the data and w
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{0}{0}
-\leavevmode\hypertarget{ref-Gross1998antecedent}{}%
-\CSLLeftMargin{1. }
-\CSLRightInline{Gross, J. J. Antecedent- and response-focused emotion regulation: Divergent consequences for experience, expression, and physiology. \emph{Journal of Personality and Social Psychology} \textbf{74}, 224--37 (1998).}
+\leavevmode\vadjust pre{\hypertarget{ref-Gross1998antecedent}{}}%
+\CSLLeftMargin{1. }%
+\CSLRightInline{Gross, J. J. \href{https://doi.org/10.1037/0022-3514.74.1.224}{Antecedent- and response-focused emotion regulation: Divergent consequences for experience, expression, and physiology}. \emph{Journal of Personality and Social Psychology} \textbf{74}, 224--37 (1998).}
 
-\leavevmode\hypertarget{ref-Gross1998emerging}{}%
-\CSLLeftMargin{2. }
-\CSLRightInline{Gross, J. J. The emerging field of emotion regulation: An integrative review. \emph{Review of General Psychology} \textbf{2}, 271--299 (1998).}
+\leavevmode\vadjust pre{\hypertarget{ref-Gross1998emerging}{}}%
+\CSLLeftMargin{2. }%
+\CSLRightInline{Gross, J. J. \href{https://doi.org/10.1037/1089-2680.2.3.271}{The emerging field of emotion regulation: An integrative review}. \emph{Review of General Psychology} \textbf{2}, 271--299 (1998).}
 
-\leavevmode\hypertarget{ref-Powers2019}{}%
-\CSLLeftMargin{3. }
-\CSLRightInline{Powers, J. P. \& LaBar, K. S. Regulating emotion through distancing: A taxonomy, neurocognitive model, and supporting meta-analysis. \emph{Neuroscience and Biobehavioral Reviews} \textbf{96}, 155--173 (2019).}
+\leavevmode\vadjust pre{\hypertarget{ref-Powers2019}{}}%
+\CSLLeftMargin{3. }%
+\CSLRightInline{Powers, J. P. \& LaBar, K. S. \href{https://doi.org/10.1016/j.neubiorev.2018.04.023}{Regulating emotion through distancing: A taxonomy, neurocognitive model, and supporting meta-analysis}. \emph{Neuroscience and Biobehavioral Reviews} \textbf{96}, 155--173 (2019).}
 
-\leavevmode\hypertarget{ref-Webb2012}{}%
-\CSLLeftMargin{4. }
-\CSLRightInline{Webb, T. L., Miles, E. \& Sheeran, P. Dealing with feeling: A meta-analysis of the effectiveness of strategies derived from the process model of emotion regulation. \emph{Psychological Bulletin} \textbf{138}, 775--808 (2012).}
+\leavevmode\vadjust pre{\hypertarget{ref-Webb2012}{}}%
+\CSLLeftMargin{4. }%
+\CSLRightInline{Webb, T. L., Miles, E. \& Sheeran, P. \href{https://doi.org/10.1037/a0027600}{Dealing with feeling: A meta-analysis of the effectiveness of strategies derived from the process model of emotion regulation}. \emph{Psychological Bulletin} \textbf{138}, 775--808 (2012).}
 
-\leavevmode\hypertarget{ref-Zaehringer2020}{}%
-\CSLLeftMargin{5. }
-\CSLRightInline{Zaehringer, J., Jennen-Steinmetz, C., Schmahl, C., Ende, G. \& Paret, C. Psychophysiological effects of downregulating negative emotions: Insights from a meta-analysis of healthy adults. \emph{Front Psychol} \textbf{11}, 470 (2020).}
+\leavevmode\vadjust pre{\hypertarget{ref-Zaehringer2020}{}}%
+\CSLLeftMargin{5. }%
+\CSLRightInline{Zaehringer, J., Jennen-Steinmetz, C., Schmahl, C., Ende, G. \& Paret, C. \href{https://doi.org/10.3389/fpsyg.2020.00470}{Psychophysiological effects of downregulating negative emotions: Insights from a meta-analysis of healthy adults}. \emph{Front Psychol} \textbf{11}, 470 (2020).}
 
-\leavevmode\hypertarget{ref-Burr2021}{}%
-\CSLLeftMargin{6. }
-\CSLRightInline{Burr, D. A., Pizzie, R. G. \& Kraemer, D. J. M. Anxiety, not regulation tendency, predicts how individuals regulate in the laboratory: An exploratory comparison of self-report and psychophysiology. \emph{Plos One} \textbf{16}, (2021).}
+\leavevmode\vadjust pre{\hypertarget{ref-Burr2021}{}}%
+\CSLLeftMargin{6. }%
+\CSLRightInline{Burr, D. A., Pizzie, R. G. \& Kraemer, D. J. M. \href{https://doi.org/ARTN\%20e0247246\%0A10.1371/journal.pone.0247246}{Anxiety, not regulation tendency, predicts how individuals regulate in the laboratory: An exploratory comparison of self-report and psychophysiology}. \emph{Plos One} \textbf{16}, (2021).}
 
-\leavevmode\hypertarget{ref-Gaertner2021}{}%
-\CSLLeftMargin{7. }
+\leavevmode\vadjust pre{\hypertarget{ref-Gaertner2021}{}}%
+\CSLLeftMargin{7. }%
 \CSLRightInline{Gärtner, A., Jawinski, P. \& Strobel, A. Individual differences in inhibitory control are not related to emotion regulation. \emph{PsyArXiv} (2021) doi:\href{https://doi.org/10.31234/osf.io/cd8rx}{10.31234/osf.io/cd8rx}.}
 
-\leavevmode\hypertarget{ref-Schoenfelder2014}{}%
-\CSLLeftMargin{8. }
-\CSLRightInline{Schönfelder, S., Kanske, P., Heissler, J. \& Wessa, M. Time course of emotion-related responding during distraction and reappraisal. \emph{Social Cognitive and Affective Neuroscience} \textbf{9}, 1310--9 (2014).}
+\leavevmode\vadjust pre{\hypertarget{ref-Schoenfelder2014}{}}%
+\CSLLeftMargin{8. }%
+\CSLRightInline{Schönfelder, S., Kanske, P., Heissler, J. \& Wessa, M. \href{https://doi.org/10.1093/scan/nst116}{Time course of emotion-related responding during distraction and reappraisal}. \emph{Social Cognitive and Affective Neuroscience} \textbf{9}, 1310--9 (2014).}
 
-\leavevmode\hypertarget{ref-GrossJohn2003}{}%
-\CSLLeftMargin{9. }
-\CSLRightInline{Gross, J. J. \& John, O. P. Individual differences in two emotion regulation processes: Implications for affect, relationships, and well-being. \emph{Journal of Personality and Social Psychology} \textbf{85}, 348--62 (2003).}
+\leavevmode\vadjust pre{\hypertarget{ref-GrossJohn2003}{}}%
+\CSLLeftMargin{9. }%
+\CSLRightInline{Gross, J. J. \& John, O. P. \href{https://doi.org/10.1037/0022-3514.85.2.348}{Individual differences in two emotion regulation processes: Implications for affect, relationships, and well-being}. \emph{Journal of Personality and Social Psychology} \textbf{85}, 348--62 (2003).}
 
-\leavevmode\hypertarget{ref-Aldao2010}{}%
-\CSLLeftMargin{10. }
-\CSLRightInline{Aldao, A., Nolen-Hoeksema, S. \& Schweizer, S. Emotion-regulation strategies across psychopathology: A meta-analytic review. \emph{Clinical Psychology Review} \textbf{30}, 217--237 (2010).}
+\leavevmode\vadjust pre{\hypertarget{ref-Aldao2010}{}}%
+\CSLLeftMargin{10. }%
+\CSLRightInline{Aldao, A., Nolen-Hoeksema, S. \& Schweizer, S. \href{https://doi.org/10.1016/j.cpr.2009.11.004}{Emotion-regulation strategies across psychopathology: A meta-analytic review}. \emph{Clinical Psychology Review} \textbf{30}, 217--237 (2010).}
 
-\leavevmode\hypertarget{ref-Yoon2013}{}%
-\CSLLeftMargin{11. }
-\CSLRightInline{Yoon, K. L., Maltby, J. \& Joormann, J. A pathway from neuroticism to depression: Examining the role of emotion regulation. \emph{Anxiety, Stress, \& Coping} \textbf{26}, 558--72 (2013).}
+\leavevmode\vadjust pre{\hypertarget{ref-Yoon2013}{}}%
+\CSLLeftMargin{11. }%
+\CSLRightInline{Yoon, K. L., Maltby, J. \& Joormann, J. \href{https://doi.org/10.1080/10615806.2012.734810}{A pathway from neuroticism to depression: Examining the role of emotion regulation}. \emph{Anxiety, Stress, \& Coping} \textbf{26}, 558--72 (2013).}
 
-\leavevmode\hypertarget{ref-Aldao2015}{}%
-\CSLLeftMargin{12. }
-\CSLRightInline{Aldao, A., Sheppes, G. \& Gross, J. J. Emotion regulation flexibility. \emph{Cognitive Therapy and Research} \textbf{39}, 263--278 (2015).}
+\leavevmode\vadjust pre{\hypertarget{ref-Aldao2015}{}}%
+\CSLLeftMargin{12. }%
+\CSLRightInline{Aldao, A., Sheppes, G. \& Gross, J. J. \href{https://doi.org/10.1007/s10608-014-9662-4}{Emotion regulation flexibility}. \emph{Cognitive Therapy and Research} \textbf{39}, 263--278 (2015).}
 
-\leavevmode\hypertarget{ref-Bonanno2013}{}%
-\CSLLeftMargin{13. }
-\CSLRightInline{Bonanno, G. A. \& Burton, C. L. Regulatory flexibility: An individual differences perspective on coping and emotion regulation. \emph{Perspectives on Psychological Science} \textbf{8}, 591--612 (2013).}
+\leavevmode\vadjust pre{\hypertarget{ref-Bonanno2013}{}}%
+\CSLLeftMargin{13. }%
+\CSLRightInline{Bonanno, G. A. \& Burton, C. L. \href{https://doi.org/10.1177/1745691613504116}{Regulatory flexibility: An individual differences perspective on coping and emotion regulation}. \emph{Perspectives on Psychological Science} \textbf{8}, 591--612 (2013).}
 
-\leavevmode\hypertarget{ref-DixonGordon2015}{}%
-\CSLLeftMargin{14. }
-\CSLRightInline{Dixon-Gordon, K. L., Aldao, A. \& De Los Reyes, A. Repertoires of emotion regulation: A person-centered approach to assessing emotion regulation strategies and links to psychopathology. \emph{Cogn Emot} \textbf{29}, 1314--25 (2015).}
+\leavevmode\vadjust pre{\hypertarget{ref-DixonGordon2015}{}}%
+\CSLLeftMargin{14. }%
+\CSLRightInline{Dixon-Gordon, K. L., Aldao, A. \& De Los Reyes, A. \href{https://doi.org/10.1080/02699931.2014.983046}{Repertoires of emotion regulation: A person-centered approach to assessing emotion regulation strategies and links to psychopathology}. \emph{Cogn Emot} \textbf{29}, 1314--25 (2015).}
 
-\leavevmode\hypertarget{ref-Lougheed2012}{}%
-\CSLLeftMargin{15. }
-\CSLRightInline{Lougheed, J. P. \& Hollenstein, T. A limited repertoire of emotion regulation strategies is associated with internalizing problems in adolescence. \emph{Social Development} \textbf{21}, 704--721 (2012).}
+\leavevmode\vadjust pre{\hypertarget{ref-Lougheed2012}{}}%
+\CSLLeftMargin{15. }%
+\CSLRightInline{Lougheed, J. P. \& Hollenstein, T. \href{https://doi.org/10.1111/j.1467-9507.2012.00663.x}{A limited repertoire of emotion regulation strategies is associated with internalizing problems in adolescence}. \emph{Social Development} \textbf{21}, 704--721 (2012).}
 
-\leavevmode\hypertarget{ref-Southward2018}{}%
-\CSLLeftMargin{16. }
-\CSLRightInline{Southward, M. W., Altenburger, E. M., Moss, S. A., Cregg, D. R. \& Cheavens, J. S. Flexible, yet firm: A model of healthy emotion regulation. \emph{Journal of Social and Clinical Psychology} \textbf{37}, 231--251 (2018).}
+\leavevmode\vadjust pre{\hypertarget{ref-Southward2018}{}}%
+\CSLLeftMargin{16. }%
+\CSLRightInline{Southward, M. W., Altenburger, E. M., Moss, S. A., Cregg, D. R. \& Cheavens, J. S. \href{https://doi.org/DOI\%2010.1521/jscp.2018.37.4.231}{Flexible, yet firm: A model of healthy emotion regulation}. \emph{Journal of Social and Clinical Psychology} \textbf{37}, 231--251 (2018).}
 
-\leavevmode\hypertarget{ref-Blanke2020}{}%
-\CSLLeftMargin{17. }
-\CSLRightInline{Blanke, E. S. \emph{et al.} Mix it to fix it: Emotion regulation variability in daily life. \emph{Emotion} \textbf{20}, 473--485 (2020).}
+\leavevmode\vadjust pre{\hypertarget{ref-Blanke2020}{}}%
+\CSLLeftMargin{17. }%
+\CSLRightInline{Blanke, E. S. \emph{et al.} \href{https://doi.org/10.1037/emo0000566}{Mix it to fix it: Emotion regulation variability in daily life}. \emph{Emotion} \textbf{20}, 473--485 (2020).}
 
-\leavevmode\hypertarget{ref-Tamir2015}{}%
-\CSLLeftMargin{18. }
-\CSLRightInline{Tamir, M., Bigman, Y. E., Rhodes, E., Salerno, J. \& Schreier, J. An expectancy-value model of emotion regulation: Implications for motivation, emotional experience, and decision making. \emph{Emotion} \textbf{15}, 90--103 (2015).}
+\leavevmode\vadjust pre{\hypertarget{ref-Tamir2015}{}}%
+\CSLLeftMargin{18. }%
+\CSLRightInline{Tamir, M., Bigman, Y. E., Rhodes, E., Salerno, J. \& Schreier, J. \href{https://doi.org/10.1037/emo0000021}{An expectancy-value model of emotion regulation: Implications for motivation, emotional experience, and decision making}. \emph{Emotion} \textbf{15}, 90--103 (2015).}
 
-\leavevmode\hypertarget{ref-Kable2007}{}%
-\CSLLeftMargin{19. }
-\CSLRightInline{Kable, J. W. \& Glimcher, P. W. The neural correlates of subjective value during intertemporal choice. \emph{Nat Neurosci} \textbf{10}, 1625--33 (2007).}
+\leavevmode\vadjust pre{\hypertarget{ref-Kable2007}{}}%
+\CSLLeftMargin{19. }%
+\CSLRightInline{Kable, J. W. \& Glimcher, P. W. \href{https://doi.org/10.1038/nn2007}{The neural correlates of subjective value during intertemporal choice}. \emph{Nat Neurosci} \textbf{10}, 1625--33 (2007).}
 
-\leavevmode\hypertarget{ref-Sheppes2014}{}%
-\CSLLeftMargin{20. }
-\CSLRightInline{Sheppes, G. \emph{et al.} Emotion regulation choice: A conceptual framework and supporting evidence. \emph{Journal of Experimental Psychology: General} \textbf{143}, 163--81 (2014).}
+\leavevmode\vadjust pre{\hypertarget{ref-Sheppes2014}{}}%
+\CSLLeftMargin{20. }%
+\CSLRightInline{Sheppes, G. \emph{et al.} \href{https://doi.org/10.1037/a0030831}{Emotion regulation choice: A conceptual framework and supporting evidence}. \emph{Journal of Experimental Psychology: General} \textbf{143}, 163--81 (2014).}
 
-\leavevmode\hypertarget{ref-Sheppes2011}{}%
-\CSLLeftMargin{21. }
-\CSLRightInline{Sheppes, G., Scheibe, S., Suri, G. \& Gross, J. J. Emotion-regulation choice. \emph{Psychological Science} \textbf{22}, 1391--6 (2011).}
+\leavevmode\vadjust pre{\hypertarget{ref-Sheppes2011}{}}%
+\CSLLeftMargin{21. }%
+\CSLRightInline{Sheppes, G., Scheibe, S., Suri, G. \& Gross, J. J. \href{https://doi.org/10.1177/0956797611418350}{Emotion-regulation choice}. \emph{Psychological Science} \textbf{22}, 1391--6 (2011).}
 
-\leavevmode\hypertarget{ref-Scheffel2021}{}%
-\CSLLeftMargin{22. }
-\CSLRightInline{Scheffel, C. \emph{et al.} Effort beats effectiveness in emotion regulation choice: Differences between suppression and distancing in subjective and physiological measures. \emph{Psychophysiology} \textbf{00}, e13908 (2021).}
+\leavevmode\vadjust pre{\hypertarget{ref-Scheffel2021}{}}%
+\CSLLeftMargin{22. }%
+\CSLRightInline{Scheffel, C. \emph{et al.} \href{https://doi.org/10.1111/psyp.13908}{Effort beats effectiveness in emotion regulation choice: Differences between suppression and distancing in subjective and physiological measures}. \emph{Psychophysiology} \textbf{00}, e13908 (2021).}
 
-\leavevmode\hypertarget{ref-Inzlicht2018}{}%
-\CSLLeftMargin{23. }
-\CSLRightInline{Inzlicht, M., Shenhav, A. \& Olivola, C. Y. The effort paradox: Effort is both costly and valued. \emph{Trends Cogn Sci} \textbf{22}, 337--349 (2018).}
+\leavevmode\vadjust pre{\hypertarget{ref-Inzlicht2018}{}}%
+\CSLLeftMargin{23. }%
+\CSLRightInline{Inzlicht, M., Shenhav, A. \& Olivola, C. Y. \href{https://doi.org/10.1016/j.tics.2018.01.007}{The effort paradox: Effort is both costly and valued}. \emph{Trends Cogn Sci} \textbf{22}, 337--349 (2018).}
 
-\leavevmode\hypertarget{ref-Hull1943}{}%
-\CSLLeftMargin{24. }
+\leavevmode\vadjust pre{\hypertarget{ref-Hull1943}{}}%
+\CSLLeftMargin{24. }%
 \CSLRightInline{Hull, C. L. \emph{Principles of behavior: An introduction to behavior theory}. (Appleton-Century-Crofts, 1943).}
 
-\leavevmode\hypertarget{ref-Gonzalez-Garcia2021}{}%
-\CSLLeftMargin{25. }
-\CSLRightInline{Gonzalez-Garcia, C. \emph{et al.} Induced affective states do not modulate effort avoidance. \emph{Psychol Res} \textbf{85}, 1016--1028 (2021).}
+\leavevmode\vadjust pre{\hypertarget{ref-Gonzalez-Garcia2021}{}}%
+\CSLLeftMargin{25. }%
+\CSLRightInline{Gonzalez-Garcia, C. \emph{et al.} \href{https://doi.org/10.1007/s00426-020-01300-9}{Induced affective states do not modulate effort avoidance}. \emph{Psychol Res} \textbf{85}, 1016--1028 (2021).}
 
-\leavevmode\hypertarget{ref-Kool2010}{}%
-\CSLLeftMargin{26. }
-\CSLRightInline{Kool, W., McGuire, J. T., Rosen, Z. B. \& Botvinick, M. M. Decision making and the avoidance of cognitive demand. \emph{J Exp Psychol Gen} \textbf{139}, 665--82 (2010).}
+\leavevmode\vadjust pre{\hypertarget{ref-Kool2010}{}}%
+\CSLLeftMargin{26. }%
+\CSLRightInline{Kool, W., McGuire, J. T., Rosen, Z. B. \& Botvinick, M. M. \href{https://doi.org/10.1037/a0020198}{Decision making and the avoidance of cognitive demand}. \emph{J Exp Psychol Gen} \textbf{139}, 665--82 (2010).}
 
-\leavevmode\hypertarget{ref-Cheval2020}{}%
-\CSLLeftMargin{27. }
-\CSLRightInline{Cheval, B. \emph{et al.} Higher inhibitory control is required to escape the innate attraction to effort minimization. \emph{Psychology of Sport and Exercise} \textbf{51}, (2020).}
+\leavevmode\vadjust pre{\hypertarget{ref-Cheval2020}{}}%
+\CSLLeftMargin{27. }%
+\CSLRightInline{Cheval, B. \emph{et al.} \href{https://doi.org/ARTN\%20101781\%0A10.1016/j.psychsport.2020.101781}{Higher inhibitory control is required to escape the innate attraction to effort minimization}. \emph{Psychology of Sport and Exercise} \textbf{51}, (2020).}
 
-\leavevmode\hypertarget{ref-Cacioppo1982}{}%
-\CSLLeftMargin{28. }
-\CSLRightInline{Cacioppo, J. T. \& Petty, R. E. The need for cognition. \emph{Journal of Personality and Social Psychology} \textbf{42}, 116--131 (1982).}
+\leavevmode\vadjust pre{\hypertarget{ref-Cacioppo1982}{}}%
+\CSLLeftMargin{28. }%
+\CSLRightInline{Cacioppo, J. T. \& Petty, R. E. \href{https://doi.org/10.1037//0022-3514.42.1.116}{The need for cognition}. \emph{Journal of Personality and Social Psychology} \textbf{42}, 116--131 (1982).}
 
-\leavevmode\hypertarget{ref-Westbrook2013}{}%
-\CSLLeftMargin{29. }
-\CSLRightInline{Westbrook, A., Kester, D. \& Braver, T. S. What is the subjective cost of cognitive effort? {Load}, trait, and aging effects revealed by economic preference. \emph{PLOS ONE} \textbf{8}, e68210 (2013).}
+\leavevmode\vadjust pre{\hypertarget{ref-Westbrook2013}{}}%
+\CSLLeftMargin{29. }%
+\CSLRightInline{Westbrook, A., Kester, D. \& Braver, T. S. \href{https://doi.org/10.1371/journal.pone.0068210}{What is the subjective cost of cognitive effort? {Load}, trait, and aging effects revealed by economic preference}. \emph{PLOS ONE} \textbf{8}, e68210 (2013).}
 
-\leavevmode\hypertarget{ref-Strobel2020}{}%
-\CSLLeftMargin{30. }
-\CSLRightInline{Strobel, A. \emph{et al.} Dispositional cognitive effort investment and behavioral demand avoidance: Are they related? \emph{PLoS One} \textbf{15}, e0239817 (2020).}
+\leavevmode\vadjust pre{\hypertarget{ref-Strobel2020}{}}%
+\CSLLeftMargin{30. }%
+\CSLRightInline{Strobel, A. \emph{et al.} \href{https://doi.org/10.1371/journal.pone.0239817}{Dispositional cognitive effort investment and behavioral demand avoidance: Are they related?} \emph{PLoS One} \textbf{15}, e0239817 (2020).}
 
-\leavevmode\hypertarget{ref-MesmerMagnus2012}{}%
-\CSLLeftMargin{31. }
-\CSLRightInline{Mesmer-Magnus, J. R., DeChurch, L. A. \& Wax, A. Moving emotional labor beyond surface and deep acting: A discordance-congruence perspective. \emph{Organizational Psychology Review} \textbf{2}, 6--53 (2012).}
+\leavevmode\vadjust pre{\hypertarget{ref-MesmerMagnus2012}{}}%
+\CSLLeftMargin{31. }%
+\CSLRightInline{Mesmer-Magnus, J. R., DeChurch, L. A. \& Wax, A. \href{https://doi.org/10.1177/2041386611417746}{Moving emotional labor beyond surface and deep acting: A discordance-congruence perspective}. \emph{Organizational Psychology Review} \textbf{2}, 6--53 (2012).}
 
-\leavevmode\hypertarget{ref-Gyurak2011}{}%
-\CSLLeftMargin{32. }
-\CSLRightInline{Gyurak, A., Gross, J. J. \& Etkin, A. Explicit and implicit emotion regulation: A dual-process framework. \emph{Cogn Emot} \textbf{25}, 400--12 (2011).}
+\leavevmode\vadjust pre{\hypertarget{ref-Gyurak2011}{}}%
+\CSLLeftMargin{32. }%
+\CSLRightInline{Gyurak, A., Gross, J. J. \& Etkin, A. \href{https://doi.org/10.1080/02699931.2010.544160}{Explicit and implicit emotion regulation: A dual-process framework}. \emph{Cogn Emot} \textbf{25}, 400--12 (2011).}
 
-\leavevmode\hypertarget{ref-Gross2015}{}%
-\CSLLeftMargin{33. }
-\CSLRightInline{Gross, J. J. Emotion regulation: Current status and future prospects. \emph{Psychological Inquiry} \textbf{26}, 1--26 (2015).}
+\leavevmode\vadjust pre{\hypertarget{ref-Gross2015}{}}%
+\CSLLeftMargin{33. }%
+\CSLRightInline{Gross, J. J. \href{https://doi.org/10.1080/1047840x.2014.940781}{Emotion regulation: Current status and future prospects}. \emph{Psychological Inquiry} \textbf{26}, 1--26 (2015).}
 
-\leavevmode\hypertarget{ref-Zerna2022}{}%
-\CSLLeftMargin{34. }
+\leavevmode\vadjust pre{\hypertarget{ref-Zerna2022}{}}%
+\CSLLeftMargin{34. }%
 \CSLRightInline{Zerna, J., Scheffel, C., Kührt, C. \& Strobel, A. When easy is not preferred: An effort discounting for estimating subjective values of taks. \emph{PsyArXiv} (2022) doi:\href{https://doi.org/10.31234/osf.io/ysh3q}{10.31234/osf.io/ysh3q}.}
 
-\leavevmode\hypertarget{ref-Simmons2012}{}%
-\CSLLeftMargin{35. }
+\leavevmode\vadjust pre{\hypertarget{ref-Simmons2012}{}}%
+\CSLLeftMargin{35. }%
 \CSLRightInline{Simmons, J. P., Nelson, L. D. \& Simonsohn, U. A. A 21 word solution. \emph{SSRN Electronic Journal} (2012) doi:\href{https://doi.org/10.2139/ssrn.2160588}{10.2139/ssrn.2160588}.}
 
-\leavevmode\hypertarget{ref-Peirce2019}{}%
-\CSLLeftMargin{36. }
-\CSLRightInline{Peirce, J. \emph{et al.} {PsychoPy2}: {Experiments} in behavior made easy. \emph{Behavior Research Methods} \textbf{51}, 195--203 (2019).}
+\leavevmode\vadjust pre{\hypertarget{ref-Peirce2019}{}}%
+\CSLLeftMargin{36. }%
+\CSLRightInline{Peirce, J. \emph{et al.} \href{https://doi.org/10.3758/s13428-018-01193-y}{{PsychoPy2}: {Experiments} in behavior made easy}. \emph{Behavior Research Methods} \textbf{51}, 195--203 (2019).}
 
-\leavevmode\hypertarget{ref-RCore2021}{}%
-\CSLLeftMargin{37. }
-\CSLRightInline{R Core Team. \emph{R: A language and environment for statistical computing}. (R Foundation for Statistical Computing, 2021).}
+\leavevmode\vadjust pre{\hypertarget{ref-RCore2021}{}}%
+\CSLLeftMargin{37. }%
+\CSLRightInline{R Core Team. \emph{\href{https://www.R-project.org/}{R: A language and environment for statistical computing}}. (R Foundation for Statistical Computing, 2021).}
 
-\leavevmode\hypertarget{ref-RStudioTeam2020}{}%
-\CSLLeftMargin{38. }
-\CSLRightInline{RStudio Team. {RStudio}: {Integrated} development for {R}. (2020).}
+\leavevmode\vadjust pre{\hypertarget{ref-RStudioTeam2020}{}}%
+\CSLLeftMargin{38. }%
+\CSLRightInline{RStudio Team. \href{http://www.rstudio.com}{{RStudio}: {Integrated} development for {R}}. (2020).}
 
-\leavevmode\hypertarget{ref-Singmann2021}{}%
-\CSLLeftMargin{39. }
-\CSLRightInline{Singmann, H., Bolker, B., Westfall, J., Aust, F. \& Ben-Shachar, M. S. \emph{Afex: {A}nalysis of factorial experiments}. (2021).}
+\leavevmode\vadjust pre{\hypertarget{ref-Singmann2021}{}}%
+\CSLLeftMargin{39. }%
+\CSLRightInline{Singmann, H., Bolker, B., Westfall, J., Aust, F. \& Ben-Shachar, M. S. \emph{\href{https://CRAN.R-project.org/package=afex}{Afex: {A}nalysis of factorial experiments}}. (2021).}
 
-\leavevmode\hypertarget{ref-Morey2021}{}%
-\CSLLeftMargin{40. }
-\CSLRightInline{Morey, R. D. \& Rouder, J. N. \emph{{BayesFactor}: {Computation} of {Bayes} factors for common designs}. (2021).}
+\leavevmode\vadjust pre{\hypertarget{ref-Morey2021}{}}%
+\CSLLeftMargin{40. }%
+\CSLRightInline{Morey, R. D. \& Rouder, J. N. \emph{\href{https://CRAN.R-project.org/package=BayesFactor}{{BayesFactor}: {Computation} of {Bayes} factors for common designs}}. (2021).}
 
-\leavevmode\hypertarget{ref-Greiner2015}{}%
-\CSLLeftMargin{41. }
-\CSLRightInline{Greiner, B. Subject pool recruitment procedures: {Organizing} experiments with {ORSEE}. \emph{Journal of the Economic Science Association} \textbf{1}, 114--125 (2015).}
+\leavevmode\vadjust pre{\hypertarget{ref-Greiner2015}{}}%
+\CSLLeftMargin{41. }%
+\CSLRightInline{Greiner, B. \href{https://doi.org/10.1007/s40881-015-0004-4}{Subject pool recruitment procedures: {Organizing} experiments with {ORSEE}}. \emph{Journal of the Economic Science Association} \textbf{1}, 114--125 (2015).}
 
-\leavevmode\hypertarget{ref-Harris2009}{}%
-\CSLLeftMargin{42. }
-\CSLRightInline{Harris, P. A. \emph{et al.} Research electronic data capture ({REDCap})---{A} metadata-driven methodology and workflow process for providing translational research informatics support. \emph{Journal of Biomedical Informatics} \textbf{42}, 377--381 (2009).}
+\leavevmode\vadjust pre{\hypertarget{ref-Harris2009}{}}%
+\CSLLeftMargin{42. }%
+\CSLRightInline{Harris, P. A. \emph{et al.} \href{https://doi.org/10.1016/j.jbi.2008.08.010}{Research electronic data capture ({REDCap})---{A} metadata-driven methodology and workflow process for providing translational research informatics support}. \emph{Journal of Biomedical Informatics} \textbf{42}, 377--381 (2009).}
 
-\leavevmode\hypertarget{ref-Harris2019}{}%
-\CSLLeftMargin{43. }
-\CSLRightInline{Harris, P. A. \emph{et al.} The {REDCap} consortium: {Building} an international community of software platform partners. \emph{Journal of Biomedical Informatics} \textbf{95}, 103208 (2019).}
+\leavevmode\vadjust pre{\hypertarget{ref-Harris2019}{}}%
+\CSLLeftMargin{43. }%
+\CSLRightInline{Harris, P. A. \emph{et al.} \href{https://doi.org/10.1016/j.jbi.2019.103208}{The {REDCap} consortium: {Building} an international community of software platform partners}. \emph{Journal of Biomedical Informatics} \textbf{95}, 103208 (2019).}
 
-\leavevmode\hypertarget{ref-Doerfel2019}{}%
-\CSLLeftMargin{44. }
+\leavevmode\vadjust pre{\hypertarget{ref-Doerfel2019}{}}%
+\CSLLeftMargin{44. }%
 \CSLRightInline{Dörfel, D., Gärtner, A. \& Strobel, A. A new self-report instrument for measuring emotion regulation flexibility. \emph{Society for Affective Science (SAS) Annual Conference} (2019).}
 
-\leavevmode\hypertarget{ref-Bech2004}{}%
-\CSLLeftMargin{45. }
+\leavevmode\vadjust pre{\hypertarget{ref-Bech2004}{}}%
+\CSLLeftMargin{45. }%
 \CSLRightInline{Bech, P. Measuring the dimensions of psychological general well-being by the WHO-5. \emph{Quality of life newsletter} \textbf{32}, 15--16 (2004).}
 
-\leavevmode\hypertarget{ref-Braehler2007}{}%
-\CSLLeftMargin{46. }
-\CSLRightInline{Brähler, E., Mühlan, H., Albani, C. \& Schmidt, S. Teststatistische pr{ü}fung und normierung der deutschen versionen des EUROHIS-QOL lebensqualit{ä}t-index und des WHO-5 wohlbefindens-index. \emph{Diagnostica} \textbf{53}, 83--96 (2007).}
+\leavevmode\vadjust pre{\hypertarget{ref-Braehler2007}{}}%
+\CSLLeftMargin{46. }%
+\CSLRightInline{Brähler, E., Mühlan, H., Albani, C. \& Schmidt, S. \href{https://doi.org/10.1026/0012-1924.53.2.83}{Teststatistische pr{ü}fung und normierung der deutschen versionen des EUROHIS-QOL lebensqualit{ä}t-index und des WHO-5 wohlbefindens-index}. \emph{Diagnostica} \textbf{53}, 83--96 (2007).}
 
-\leavevmode\hypertarget{ref-Connor2003}{}%
-\CSLLeftMargin{47. }
-\CSLRightInline{Connor, K. M. \& Davidson, J. R. Development of a new resilience scale: The connor-davidson resilience scale (CD-RISC). \emph{Depression and Anxiety} \textbf{18}, 76--82 (2003).}
+\leavevmode\vadjust pre{\hypertarget{ref-Connor2003}{}}%
+\CSLLeftMargin{47. }%
+\CSLRightInline{Connor, K. M. \& Davidson, J. R. \href{https://doi.org/10.1002/da.10113}{Development of a new resilience scale: The connor-davidson resilience scale (CD-RISC)}. \emph{Depression and Anxiety} \textbf{18}, 76--82 (2003).}
 
-\leavevmode\hypertarget{ref-Sarubin2015}{}%
-\CSLLeftMargin{48. }
-\CSLRightInline{Sarubin, N. \emph{et al.} First analysis of the 10-and 25-item german version of the connor-davidson resilience scale (CD-RISC) regarding psychometric properties and components. \emph{Zeitschrift Fur Gesundheitspsychologie} \textbf{23}, 112--122 (2015).}
+\leavevmode\vadjust pre{\hypertarget{ref-Sarubin2015}{}}%
+\CSLLeftMargin{48. }%
+\CSLRightInline{Sarubin, N. \emph{et al.} \href{https://doi.org/10.1026/0943-8149/a000142}{First analysis of the 10-and 25-item german version of the connor-davidson resilience scale (CD-RISC) regarding psychometric properties and components}. \emph{Zeitschrift Fur Gesundheitspsychologie} \textbf{23}, 112--122 (2015).}
 
-\leavevmode\hypertarget{ref-Campbell-Sills2007}{}%
-\CSLLeftMargin{49. }
-\CSLRightInline{Campbell-Sills, L. \& Stein, M. B. Psychometric analysis and refinement of the connor-davidson resilience scale (CD-RISC): Validation of a 10-item measure of resilience. \emph{Journal of Traumatic Stress} \textbf{20}, 1019--28 (2007).}
+\leavevmode\vadjust pre{\hypertarget{ref-Campbell-Sills2007}{}}%
+\CSLLeftMargin{49. }%
+\CSLRightInline{Campbell-Sills, L. \& Stein, M. B. \href{https://doi.org/10.1002/jts.20271}{Psychometric analysis and refinement of the connor-davidson resilience scale (CD-RISC): Validation of a 10-item measure of resilience}. \emph{Journal of Traumatic Stress} \textbf{20}, 1019--28 (2007).}
 
-\leavevmode\hypertarget{ref-Abler2009}{}%
-\CSLLeftMargin{50. }
-\CSLRightInline{Abler, B. \& Kessler, H. Emotion regulation questionnaire - a german version of the ERQ by gross and john. \emph{Diagnostica} \textbf{55}, 144--152 (2009).}
+\leavevmode\vadjust pre{\hypertarget{ref-Abler2009}{}}%
+\CSLLeftMargin{50. }%
+\CSLRightInline{Abler, B. \& Kessler, H. \href{https://doi.org/10.1026/0012-1924.55.3.144}{Emotion regulation questionnaire - a german version of the ERQ by gross and john}. \emph{Diagnostica} \textbf{55}, 144--152 (2009).}
 
-\leavevmode\hypertarget{ref-Bernecker2017}{}%
-\CSLLeftMargin{51. }
-\CSLRightInline{Bernecker, K. \& Job, V. Implicit theories about willpower in resisting temptations and emotion control. \emph{Zeitschrift Fur Psychologie-Journal of Psychology} \textbf{225}, 157--166 (2017).}
+\leavevmode\vadjust pre{\hypertarget{ref-Bernecker2017}{}}%
+\CSLLeftMargin{51. }%
+\CSLRightInline{Bernecker, K. \& Job, V. \href{https://doi.org/10.1027/2151-2604/a000292}{Implicit theories about willpower in resisting temptations and emotion control}. \emph{Zeitschrift Fur Psychologie-Journal of Psychology} \textbf{225}, 157--166 (2017).}
 
-\leavevmode\hypertarget{ref-Bless1994}{}%
-\CSLLeftMargin{52. }
-\CSLRightInline{Bless, H., Wanke, M., Bohner, G., Fellhauer, R. F. \& Schwarz, N. Need for cognition - a scale measuring engagement and happiness in cognitive tasks. \emph{Zeitschrift Für Sozialpsychologie} \textbf{25}, 147--154 (1994).}
+\leavevmode\vadjust pre{\hypertarget{ref-Bless1994}{}}%
+\CSLLeftMargin{52. }%
+\CSLRightInline{Bless, H., Wanke, M., Bohner, G., Fellhauer, R. F. \& Schwarz, N. \href{\%3CGo\%20to\%20ISI\%3E://WOS:A1994NR83900004}{Need for cognition - a scale measuring engagement and happiness in cognitive tasks}. \emph{Zeitschrift Für Sozialpsychologie} \textbf{25}, 147--154 (1994).}
 
-\leavevmode\hypertarget{ref-Paschke2016}{}%
-\CSLLeftMargin{53. }
-\CSLRightInline{Paschke, L. M. \emph{et al.} Individual differences in self-reported self-control predict successful emotion regulation. \emph{Social Cognitive and Affective Neuroscience} \textbf{11}, 1193--204 (2016).}
+\leavevmode\vadjust pre{\hypertarget{ref-Paschke2016}{}}%
+\CSLLeftMargin{53. }%
+\CSLRightInline{Paschke, L. M. \emph{et al.} \href{https://doi.org/10.1093/scan/nsw036}{Individual differences in self-reported self-control predict successful emotion regulation}. \emph{Social Cognitive and Affective Neuroscience} \textbf{11}, 1193--204 (2016).}
 
-\leavevmode\hypertarget{ref-Schwarzer1999}{}%
-\CSLLeftMargin{54. }
-\CSLRightInline{Schwarzer, R., Diehl, M. \& Schmitz, G. S. Self-regulation scale. (1999).}
+\leavevmode\vadjust pre{\hypertarget{ref-Schwarzer1999}{}}%
+\CSLLeftMargin{54. }%
+\CSLRightInline{Schwarzer, R., Diehl, M. \& Schmitz, G. S. \href{http://userpage.fu-berlin.de/~health/selfreg_g.htm}{Self-regulation scale}. (1999).}
 
-\leavevmode\hypertarget{ref-Tangney2004}{}%
-\CSLLeftMargin{55. }
-\CSLRightInline{Tangney, J. P., Baumeister, R. F. \& Boone, A. L. High self-control predicts good adjustment, less pathology, better grades, and interpersonal success. \emph{Journal of Personality} \textbf{72}, 271--324 (2004).}
+\leavevmode\vadjust pre{\hypertarget{ref-Tangney2004}{}}%
+\CSLLeftMargin{55. }%
+\CSLRightInline{Tangney, J. P., Baumeister, R. F. \& Boone, A. L. \href{https://doi.org/10.1111/j.0022-3506.2004.00263.x}{High self-control predicts good adjustment, less pathology, better grades, and interpersonal success}. \emph{Journal of Personality} \textbf{72}, 271--324 (2004).}
 
-\leavevmode\hypertarget{ref-Sproesser2011}{}%
-\CSLLeftMargin{56. }
-\CSLRightInline{Sproesser, G., Strohbach, S., Schupp, H. \& Renner, B. Candy or apple? How self-control resources and motives impact dietary healthiness in women. \emph{Appetite} \textbf{56}, 784--787 (2011).}
+\leavevmode\vadjust pre{\hypertarget{ref-Sproesser2011}{}}%
+\CSLLeftMargin{56. }%
+\CSLRightInline{Sproesser, G., Strohbach, S., Schupp, H. \& Renner, B. \href{https://doi.org/10.1016/j.appet.2011.01.028}{Candy or apple? How self-control resources and motives impact dietary healthiness in women}. \emph{Appetite} \textbf{56}, 784--787 (2011).}
 
-\leavevmode\hypertarget{ref-Patton1995}{}%
-\CSLLeftMargin{57. }
-\CSLRightInline{Patton, J. H., Stanford, M. S. \& Barratt, E. S. Factor structure of the barratt impulsiveness scale. \emph{Journal of Clinical Psychology} \textbf{51}, 768--774 (1995).}
+\leavevmode\vadjust pre{\hypertarget{ref-Patton1995}{}}%
+\CSLLeftMargin{57. }%
+\CSLRightInline{Patton, J. H., Stanford, M. S. \& Barratt, E. S. \href{https://doi.org/10.1002/1097-4679(199511)51:6\%3C768::aid-jclp2270510607\%3E3.0.co;2-1}{Factor structure of the barratt impulsiveness scale}. \emph{Journal of Clinical Psychology} \textbf{51}, 768--774 (1995).}
 
-\leavevmode\hypertarget{ref-Hartmann2011}{}%
-\CSLLeftMargin{58. }
-\CSLRightInline{Hartmann, A. S., Rief, W. \& Hilbert, A. Psychometric properties of the german version of the barratt impulsiveness scale, version 11 (BIS-11) for adolescents. \emph{Perceptual and Motor Skills} \textbf{112}, 353--368 (2011).}
+\leavevmode\vadjust pre{\hypertarget{ref-Hartmann2011}{}}%
+\CSLLeftMargin{58. }%
+\CSLRightInline{Hartmann, A. S., Rief, W. \& Hilbert, A. \href{https://doi.org/10.2466/08.09.10.PMS.112.2.353-368}{Psychometric properties of the german version of the barratt impulsiveness scale, version 11 (BIS-11) for adolescents}. \emph{Perceptual and Motor Skills} \textbf{112}, 353--368 (2011).}
 
-\leavevmode\hypertarget{ref-Derryberry2002}{}%
-\CSLLeftMargin{59. }
-\CSLRightInline{Derryberry, D. \& Reed, M. A. Anxiety-related attentional biases and their regulation by attentional control. \emph{Journal of abnormal psychology} \textbf{111}, 225--236 (2002).}
+\leavevmode\vadjust pre{\hypertarget{ref-Derryberry2002}{}}%
+\CSLLeftMargin{59. }%
+\CSLRightInline{Derryberry, D. \& Reed, M. A. \href{https://doi.org/10.1037//0021-843X.111.2.225}{Anxiety-related attentional biases and their regulation by attentional control.} \emph{Journal of abnormal psychology} \textbf{111}, 225--236 (2002).}
 
-\leavevmode\hypertarget{ref-Wessa2010}{}%
-\CSLLeftMargin{60. }
+\leavevmode\vadjust pre{\hypertarget{ref-Wessa2010}{}}%
+\CSLLeftMargin{60. }%
 \CSLRightInline{Wessa, M. \emph{et al.} EmoPicS: Subjective und psychophysiologische evalueation neuen bildmaterials für die klinisch-biopsychologische forschung. \emph{Zeitschrift für Klinische Psychologie und Psychotherapie} \textbf{39}, 77 (2010).}
 
-\leavevmode\hypertarget{ref-Lang2008}{}%
-\CSLLeftMargin{61. }
+\leavevmode\vadjust pre{\hypertarget{ref-Lang2008}{}}%
+\CSLLeftMargin{61. }%
 \CSLRightInline{Lang, P. J., Bradley, M. M. \& Cuthbert, B. N. \emph{International affective picture system (IAPS): Affective ratings of pictures and instruction manual}. (University of Florida, 2008).}
 
-\leavevmode\hypertarget{ref-Yu2010}{}%
-\CSLLeftMargin{62. }
+\leavevmode\vadjust pre{\hypertarget{ref-Yu2010}{}}%
+\CSLLeftMargin{62. }%
 \CSLRightInline{Yu, X. \& Gen, M. \emph{Introduction to evolutionary algorithms}. (Springer Science \& Business Media, 2010).}
 
-\leavevmode\hypertarget{ref-Bradley2000}{}%
-\CSLLeftMargin{63. }
+\leavevmode\vadjust pre{\hypertarget{ref-Bradley2000}{}}%
+\CSLLeftMargin{63. }%
 \CSLRightInline{Bradley, M. M. \& Lang, P. J. Measuring emotion: Behavior, feeling, and physiology. in \emph{Cognitive neuroscience of emotion} (eds. Lane, R. D. \& Nadel, L.) 242--276 (Oxford University Press, 2000).}
 
-\leavevmode\hypertarget{ref-Fridlund1986}{}%
-\CSLLeftMargin{64. }
-\CSLRightInline{Fridlund, A. J. \& Cacioppo, J. T. Guidelines for human electromyographic research. \emph{Psychophysiology} \textbf{23}, 567--89 (1986).}
+\leavevmode\vadjust pre{\hypertarget{ref-Fridlund1986}{}}%
+\CSLLeftMargin{64. }%
+\CSLRightInline{Fridlund, A. J. \& Cacioppo, J. T. \href{https://doi.org/10.1111/j.1469-8986.1986.tb00676.x}{Guidelines for human electromyographic research}. \emph{Psychophysiology} \textbf{23}, 567--89 (1986).}
 
-\leavevmode\hypertarget{ref-Faul2007}{}%
-\CSLLeftMargin{65. }
-\CSLRightInline{Faul, F., Erdfelder, E., Lang, A.-G. \& Buchner, A. G*{Power} 3: {A} flexible statistical power analysis program for the social, behavioral, and biomedical sciences. \emph{Behavior Research Methods} \textbf{39}, 175--191 (2007).}
+\leavevmode\vadjust pre{\hypertarget{ref-Faul2007}{}}%
+\CSLLeftMargin{65. }%
+\CSLRightInline{Faul, F., Erdfelder, E., Lang, A.-G. \& Buchner, A. \href{https://doi.org/10.3758/BF03193146}{G*{Power} 3: {A} flexible statistical power analysis program for the social, behavioral, and biomedical sciences}. \emph{Behavior Research Methods} \textbf{39}, 175--191 (2007).}
 
-\leavevmode\hypertarget{ref-Faul2009}{}%
-\CSLLeftMargin{66. }
-\CSLRightInline{Faul, F., Erdfelder, E., Buchner, A. \& Lang, A.-G. Statistical power analyses using {G}*{Power} 3.1: {Tests} for correlation and regression analyses. \emph{Behavior Research Methods} \textbf{41}, 1149--1160 (2009).}
+\leavevmode\vadjust pre{\hypertarget{ref-Faul2009}{}}%
+\CSLLeftMargin{66. }%
+\CSLRightInline{Faul, F., Erdfelder, E., Buchner, A. \& Lang, A.-G. \href{https://doi.org/10.3758/BRM.41.4.1149}{Statistical power analyses using {G}*{Power} 3.1: {Tests} for correlation and regression analyses}. \emph{Behavior Research Methods} \textbf{41}, 1149--1160 (2009).}
 
-\leavevmode\hypertarget{ref-Kuznetsova2017}{}%
-\CSLLeftMargin{67. }
-\CSLRightInline{Kuznetsova, A., Brockhoff, P. B. \& Christensen, R. H. B. {lmerTest} package: Tests in linear mixed effects models. \emph{Journal of Statistical Software} \textbf{82}, 1--26 (2017).}
+\leavevmode\vadjust pre{\hypertarget{ref-Kuznetsova2017}{}}%
+\CSLLeftMargin{67. }%
+\CSLRightInline{Kuznetsova, A., Brockhoff, P. B. \& Christensen, R. H. B. \href{https://doi.org/10.18637/jss.v082.i13}{{lmerTest} package: Tests in linear mixed effects models}. \emph{Journal of Statistical Software} \textbf{82}, 1--26 (2017).}
 
-\leavevmode\hypertarget{ref-Enders2007}{}%
-\CSLLeftMargin{68. }
-\CSLRightInline{Enders, C. K. \& Tofighi, D. Centering predictor variables in cross-sectional multilevel models: {A} new look at an old issue. \emph{Psychological Methods} \textbf{12}, 121--138 (2007).}
+\leavevmode\vadjust pre{\hypertarget{ref-Enders2007}{}}%
+\CSLLeftMargin{68. }%
+\CSLRightInline{Enders, C. K. \& Tofighi, D. \href{https://doi.org/10.1037/1082-989x.12.2.121}{Centering predictor variables in cross-sectional multilevel models: {A} new look at an old issue.} \emph{Psychological Methods} \textbf{12}, 121--138 (2007).}
 
-\leavevmode\hypertarget{ref-Preece2020}{}%
-\CSLLeftMargin{69. }
-\CSLRightInline{Preece, D. A., Becerra, R., Robinson, K. \& Gross, J. J. The emotion regulation questionnaire: Psychometric properties in general community samples. \emph{J Pers Assess} \textbf{102}, 348--356 (2020).}
+\leavevmode\vadjust pre{\hypertarget{ref-Preece2020}{}}%
+\CSLLeftMargin{69. }%
+\CSLRightInline{Preece, D. A., Becerra, R., Robinson, K. \& Gross, J. J. \href{https://doi.org/10.1080/00223891.2018.1564319}{The emotion regulation questionnaire: Psychometric properties in general community samples}. \emph{J Pers Assess} \textbf{102}, 348--356 (2020).}
 
-\leavevmode\hypertarget{ref-Fleischhauer2010}{}%
-\CSLLeftMargin{70. }
-\CSLRightInline{Fleischhauer, M. \emph{et al.} Same or different? {Clarifying} the relationship of need for cognition to personality and intelligence. \emph{Personality \& Social Psychology Bulletin} \textbf{36}, 82--96 (2010).}
+\leavevmode\vadjust pre{\hypertarget{ref-Fleischhauer2010}{}}%
+\CSLLeftMargin{70. }%
+\CSLRightInline{Fleischhauer, M. \emph{et al.} \href{https://doi.org/10.1177/0146167209351886}{Same or different? {Clarifying} the relationship of need for cognition to personality and intelligence}. \emph{Personality \& Social Psychology Bulletin} \textbf{36}, 82--96 (2010).}
 
-\leavevmode\hypertarget{ref-Fleischhauer2015}{}%
-\CSLLeftMargin{71. }
-\CSLRightInline{Fleischhauer, M., Strobel, A. \& Strobel, A. Directly and indirectly assessed {N}eed for {C}ognition differentially predict spontaneous and reflective information processing behavior. \emph{Journal of Individual Differences} \textbf{36}, 101--109 (2015).}
+\leavevmode\vadjust pre{\hypertarget{ref-Fleischhauer2015}{}}%
+\CSLLeftMargin{71. }%
+\CSLRightInline{Fleischhauer, M., Strobel, A. \& Strobel, A. \href{https://doi.org/10.1027/1614-0001/a000161}{Directly and indirectly assessed {N}eed for {C}ognition differentially predict spontaneous and reflective information processing behavior}. \emph{Journal of Individual Differences} \textbf{36}, 101--109 (2015).}
 
 \end{CSLReferences}
 
@@ -852,12 +877,12 @@ The authors declare no competing interests.
 \section{Figures and figure captions}\label{figures-and-figure-captions}}
 
 \newpage
+
 \begin{figure}
 \includegraphics[width=\textwidth]{C:/Users/scheffel/Scheffel/Forschung/A_Projects/2021_CERED/CAD/06_Paper/ER-ED/figures/Paradigm_Scheme_T2} \caption{ }\label{fig:ResponsePatternsAppendix}
 \end{figure}
 
-\emph{Figure 1.}
-Exemplary visualization of two response patterns.
+\emph{Figure 1.} Exemplary visualization of two response patterns.
 In the top half, the person has a clear preference for one of the three strategies.
 In the lower half, they have no clear preference and therefore show an inconsistent response pattern.
 This pattern can also be represented by our paradigm.
@@ -866,11 +891,12 @@ This pattern can also be represented by our paradigm.
 \includegraphics[width=\textwidth]{C:/Users/scheffel/Scheffel/Forschung/A_Projects/2021_CERED/CAD/06_Paper/ER-ED/figures/Design_ER-ED} \caption{ }\label{fig:DesignEREDappendix}
 \end{figure}
 
-\emph{Figure 2.}
-Block design of the paradigm.
-Every participant starts with two ``active viewing'' blocks continaing neutral (Block 1) and negative (Block 2) pictures.
-Order of the regulation blocks (Blocks 3, 4, and 5) is randomized between participants. After, the discounting procedure takes place.
-All three regulation strategies are pairwise compared. Before the last block, participants can decide which regulation strategy they want to reapply.
+\emph{Figure 2.} Block design of the paradigm.
+Every participant starts with two ``active viewing'' blocks containing neutral (Block 1) and negative (Block 2) pictures.
+Order of the regulation blocks (Blocks 3, 4, and 5) is randomized between participants.
+After, the discounting procedure takes place.
+All three regulation strategies are pairwise compared.
+Before the last block, participants can decide which regulation strategy they want to reapply.
 Subjective arousal and effort ratings are assessed after each block using a slider on screen with a continuous scale.
 
 \hypertarget{DesignTable}{%
@@ -890,53 +916,39 @@ Subjective arousal and effort ratings are assessed after each block using a slid
 \hypertarget{SupplementQuestionnaires}{%
 \subsection{Detailed information on psychometric measures}\label{SupplementQuestionnaires}}
 
-\emph{WHO-5.}
-General psychological well-being is assessed using the WHO-5 scale\textsuperscript{45,46}.
+\emph{WHO-5.} General psychological well-being is assessed using the WHO-5 scale\textsuperscript{45,46}.
 5 Items such as ``Over the past 2 weeks I have felt calm and relaxed.'' are rated on a 6-point Likert scale raning from 0 (at no time) to 5 (all of the time).
 The german version of the scale showed a high internal consistency (Cronbach's \(\alpha=.92\))\textsuperscript{46}.
 
-\emph{Connor-Davidson Resilience Scale.}
-Resilience is assessed using the Connor-Davidson Resilience Scale (CD-RISC)\textsuperscript{47--49}.
+\emph{Connor-Davidson Resilience Scale.} Resilience is assessed using the Connor-Davidson Resilience Scale (CD-RISC)\textsuperscript{47--49}.
 10 items such as ``I am able to adapt to change.'' are rated on a scale from 0 (not true at all) to 4 (true nearly all the time).
 The 10-item version showed a high internal consistency (Cronbach's \(\alpha=.84\)) and a satisfactory retest-reliability of \(r_{tt}=.81\) across 6 month\textsuperscript{48}.
 
-\emph{Emotion Regulation Questionnaire.}
-Habitual use of reappraisal and suppression is measured using the 10-item Emotion Regulation Questionnaire (ERQ)\textsuperscript{9,50}.
-The scale has items such as ``I keep my emotions to myself'' (ERQ-suppression - 4 items) and ``When I'm faced with a stressful situation, I make myself think about it in a way that helps me stay calm'' (ERQ-reappraisal - 6 items), which are answered on a 7-point Likert scale ranging from 1 (strongly disagree) to 7 (strongly agree), and has acceptable to high internal consistency (Cronbach's \(\alpha>.75\)).\textsuperscript{69}
+\emph{Emotion Regulation Questionnaire.} Habitual use of reappraisal and suppression is measured using the 10-item Emotion Regulation Questionnaire (ERQ)\textsuperscript{9,50}.
+The scale has items such as ``I keep my emotions to myself'' (ERQ-suppression - 4 items) and ``When I'm faced with a stressful situation, I make myself think about it in a way that helps me stay calm'' (ERQ-reappraisal - 6 items), which are answered on a 7-point Likert scale ranging from 1 (strongly disagree) to 7 (strongly agree), and has acceptable to high internal consistency (Cronbach's \(\alpha>.75\))\textsuperscript{69}.
 
-\emph{FlexER Scale.}
-Flexible use of ER strategies is assessed using the FlexER Scale\textsuperscript{44} with items such as ``If I want to feel less negative emotions, I have several strategies to achieve this.'', which are answered on a 4-point scale ranging from ``strongly agree'' to ``strongly disagree''.
+\emph{FlexER Scale.} Flexible use of ER strategies is assessed using the FlexER Scale\textsuperscript{44} with items such as ``If I want to feel less negative emotions, I have several strategies to achieve this.'', which are answered on a 4-point scale ranging from ``strongly agree'' to ``strongly disagree''.
 Psychometric properties are currently under investigation.
 
-\emph{Implicit Theories Questionnaire.}
-Implicit theories of willpower in emotional control are assessed using the Implicit Theories Questionnaire of.\textsuperscript{51}
+\emph{Implicit Theories Questionnaire.} Implicit theories of willpower in emotional control are assessed using the Implicit Theories Questionnaire of\textsuperscript{51}.
 4 items such as ``Having to control a strong emotion makes you exhausted and you are less able to manage your feelings right afterwards.'' are rated on a 6-point scale ranging from 1 (fully agree) to 6 (do not agree at all).
 The questionnaire showed an internal consistency of Cronbach's \(\alpha=.87\)\textsuperscript{51}.
 
-\emph{Need for Cognition Scale.}
-Need for Cognition (NFC) is assessed with the 16-item short version of the German NFC scale.\textsuperscript{52}
-Responses to each item (e.g., ``Thinking is not my idea of fun'', recoded) are recorded on a 7-point Likert scale ranging from -3 (completely disagree) to +3 (completely agree) and are summed to the total NFC score.
-The scale shows comparably high internal consistency (Cronbach's \(\alpha>.80\))\textsuperscript{52,70} and a retest reliability of \(r_{tt}=.83\) across 8 to 18 weeks.\textsuperscript{71}
+\emph{Need for Cognition Scale.} Need for Cognition (NFC) is assessed with the 16-item short version of the German NFC scale\textsuperscript{52}. Responses to each item (e.g., ``Thinking is not my idea of fun'', recoded) are recorded on a 7-point Likert scale ranging from -3 (completely disagree) to +3 (completely agree) and are summed to the total NFC score. The scale shows comparably high internal consistency (Cronbach's \(\alpha>.80\))\textsuperscript{52,70} and a retest reliability of \(r_{tt}=.83\) across 8 to 18 weeks\textsuperscript{71}.
 
-\emph{Self-Regulation Scale.}
-As one measure of self-control, the Self-Regulation Scale (SRS)\textsuperscript{54} is used.
-The scale has 10 items (e.g., ``It is difficult for me to suppress thoughts that interfere with what I need to do.'', recoded) on a 4-point scale ranging from 1 (not at all true) to 4 (exactly true).
-It has high internal consistency {[}Cronbach's \(\alpha>.80\);{]}.\textsuperscript{54}
+\emph{Self-Regulation Scale.} As one measure of self-control, the Self-Regulation Scale (SRS)\textsuperscript{54} is used. The scale has 10 items (e.g., ``It is difficult for me to suppress thoughts that interfere with what I need to do.'', recoded) on a 4-point scale ranging from 1 (not at all true) to 4 (exactly true). It has high internal consistency {[}Cronbach's \(\alpha>.80\);\textsuperscript{54}{]}.
 
-\emph{Brief Self-Control Scale.}
-As a second measure of self-control, the Brief Self-Control Scale (BSCS)\textsuperscript{55,56} is used.
+\emph{Brief Self-Control Scale.} As a second measure of self-control, the Brief Self-Control Scale (BSCS)\textsuperscript{55,56} is used.
 It comprises 13 items (e.g., ``I am good at resisting temptations'') with a 5-point rating scale ranging from 1 (not at all like me) to 5 (very much like me).
 The scale shows acceptable internal consistency (Cronbach's \(\alpha=.81\))\textsuperscript{56} .
 
-\emph{Barratt Impulsiveness Scale.}
-As a third measure of self-control, the Barratt Impulsiveness Scale (BIS-11)\textsuperscript{57,58} is used.
+\emph{Barratt Impulsiveness Scale.} As a third measure of self-control, the Barratt Impulsiveness Scale (BIS-11)\textsuperscript{57,58} is used.
 Responses to each item (e.g., ``I am self-controlled.'', recoded) are assessed on a 4-point scale ranging from 1 (never/rarely) to 4 (almost always/always).
-An internal consistency of Cronbach's \(\alpha=.74\) and a retest reliability of \(r_{tt}=.56\) for General Impulsiveness and \(r_{tt}=.66\) for Total Score across 6 month were reported.\textsuperscript{58}
+An internal consistency of Cronbach's \(\alpha=.74\) and a retest reliability of \(r_{tt}=.56\) for General Impulsiveness and \(r_{tt}=.66\) for Total Score across 6 month were reported\textsuperscript{58}.
 
-\emph{Attentional Control Scale.}
-Attentional control is measured using the Attentional Control Scale (ACS)\textsuperscript{59} with items such as ``My concentration is good even if there is music in the room around me''.
+\emph{Attentional Control Scale.} Attentional control is measured using the Attentional Control Scale (ACS)\textsuperscript{59} with items such as ``My concentration is good even if there is music in the room around me''.
 The 20 items are rated on a 4-point scale ranging from 1 (almost never) to 4 (always).
-An internal consistency of Cronbach's \(\alpha=.88\) was reported.\textsuperscript{59}
+An internal consistency of Cronbach's \(\alpha=.88\) was reported\textsuperscript{59}.
 
 \newpage
 
@@ -1044,8 +1056,7 @@ Figure:
 \hypertarget{pilot-study-physiological-responding-corrugator-and-levator-activity-in-the-conditions-active-viewing---neutral-and-active-viewing---negative}{%
 \subsection{\texorpdfstring{Pilot study: Physiological responding (\emph{Corrugator} and \emph{Levator} activity) in the conditions ``Active viewing - neutral'' and ``Active viewing - negative''}{Pilot study: Physiological responding (Corrugator and Levator activity) in the conditions ``Active viewing - neutral'' and ``Active viewing - negative''}}\label{pilot-study-physiological-responding-corrugator-and-levator-activity-in-the-conditions-active-viewing---neutral-and-active-viewing---negative}}
 
-\emph{Corrugator}:
-ANOVA:
+\emph{Corrugator}: ANOVA:
 
 \begin{tabular}{l|l|l|l|l|l}
 \hline
@@ -1084,8 +1095,7 @@ $View_{neutral} - View_{negative}$ & -1.11 & 0.36 & 15.00 & -3.11 & 0.01 & 5,019
 
 \end{table}
 
-\emph{Levator}:
-ANOVA:
+\emph{Levator}: ANOVA:
 
 \begin{tabular}{l|l|l|l|l|l}
 \hline
@@ -1129,15 +1139,15 @@ Figures:
 \begin{figure}[H]
 \includegraphics[width=0.75\linewidth]{Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrViewPilot-1} \caption{Corrugator activity for the conditions "Active viewing - neutral" and "Active viewing - negative" visualized as boxplots. Each dot represents the corrugator activity of a single trial. Bold dots represent outliers.}\label{fig:FigEMGCorrViewPilot}
 \end{figure}
+
 \begin{figure}[H]
 \includegraphics[width=0.75\linewidth]{Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevViewPilot-1} \caption{Levator activity for the conditions "Active viewing - neutral" and "Active viewing - negative" visualized as boxplots. Each dot represents the levator activity of a single trial. Bold dots represent outliers.}\label{fig:FigEMGLevViewPilot}
 \end{figure}
 
 \hypertarget{pilot-study-physiological-responding-corrugator-and-levator-activity-in-the-conditionsactive-viewing---negative-distraction-distancing-and-suppression}{%
-\subsection{\texorpdfstring{Pilot study: Physiological responding (\emph{Corrugator} and \emph{Levator} activity) in the conditions``Active viewing - negative'', ``Distraction'', ``Distancing'', and ``Suppression''}{Pilot study: Physiological responding (Corrugator and Levator activity) in the conditions``Active viewing - negative'', ``Distraction'', ``Distancing'', and ``Suppression''}}\label{pilot-study-physiological-responding-corrugator-and-levator-activity-in-the-conditionsactive-viewing---negative-distraction-distancing-and-suppression}}
+\subsection{\texorpdfstring{Pilot study: Physiological responding (\emph{Corrugator} and \emph{Levator} activity) in the conditions''Active viewing - negative'', ``Distraction'', ``Distancing'', and ``Suppression''}{Pilot study: Physiological responding (Corrugator and Levator activity) in the conditions''Active viewing - negative'', ``Distraction'', ``Distancing'', and ``Suppression''}}\label{pilot-study-physiological-responding-corrugator-and-levator-activity-in-the-conditionsactive-viewing---negative-distraction-distancing-and-suppression}}
 
-\emph{Corrugator}:
-ANOVA:
+\emph{Corrugator}: ANOVA:
 
 \begin{tabular}{l|l|l|l|l|l}
 \hline
@@ -1181,8 +1191,7 @@ $Distancing - Suppression$ & -0.03 & 0.27 & 45.00 & -0.10 & 1.00 & 0.06 & 2.36e-
 
 \end{table}
 
-\emph{Levator}:
-ANOVA:
+\emph{Levator}: ANOVA:
 
 \begin{tabular}{l|l|l|l|l|l}
 \hline
@@ -1231,6 +1240,7 @@ Figures:
 \begin{figure}[H]
 \includegraphics[width=0.75\linewidth]{Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrRegPilot-1} \caption{Corrugator activity for the conditions "Active viewing - negative", "Distraction", "Distancing", and "Suppression" visualized as boxplots. Each dot represents the corrugator activity of a single trial. Bold dots represent outliers.}\label{fig:FigEMGCorrRegPilot}
 \end{figure}
+
 \begin{figure}[H]
 \includegraphics[width=0.75\linewidth]{Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevRegPilot-1} \caption{Levator activity for the conditions "Active viewing - negative", "Distraction", "Distancing", and "Suppression" visualized as boxplots. Each dot represents the levator activity of a single trial. Bold dots represent outliers.}\label{fig:FigEMGLevRegPilot}
 \end{figure}
