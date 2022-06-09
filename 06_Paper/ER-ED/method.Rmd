@@ -113,10 +113,11 @@ After each block, participants retrospectively will rate their subjective emotio
 The procedure of the discounting will follow the COG-ED paradigm by Westbrook et al.[-@Westbrook2013] with a major change.
 We will use the following adaption that allows the computation of SVs for different strategies without presuming that all individuals would inherently evaluate the same strategy as the easiest one: For each possible pairing (distraction vs. distancing, distraction vs. suppression, and distancing vs. suppression), each of the two strategies will be presented with a monetary reward.
 The order of the pairings will be randomized.
-Because there is no strategy that is objectively more difficult, we will add an initial comparison that begins with the option "1 € for strategy A or 1 € for strategy B".
-The participants decide by clicking the on-screen button of the respective option.
-The strategy that is not chosen will be assigned the fixed value of 2 €, the chosen strategy will be assigned a starting value of 1 €.
-From this point on, comparisons between strategies will follow the original COG-ED paradigm[@Westbrook2013].
+Because there is no strategy that is objectively more difficult, we will add initial comparisons asking the participants to choose between "1 € for strategy A or 1 € for strategy B".
+They decide by clicking the on-screen button of the respective option.
+Each of the three strategy pairs will be presented three times in total, in a randomized order and randomly assigned which strategy appears on the left or right side of the screen.
+For each pair, the strategy that was chosen at least two out of three times will be assigned the flexible starting value of 1 €, the other strategy will be assigned the fixed value of 2 €.
+After this, comparisons between strategies will follow the original COG-ED paradigm[@Westbrook2013].
 Each pairing is presented six consecutive times, and with each decision the reward of the strategy with the starting value of 1 € is either lowered (if this strategy was chosen) or raised (if the strategy with the fixed 2 € reward was chosen).
 The adjustment starts at 0.50 € and each is half the adjustment of the previous step, rounded to two digits after the decimal point.
 If a participant always chooses the strategy with the fixed 2 € reward, the other strategy's last value on display will be 1.97 €, if they always choose the lower strategy, its last value will be 0.03 €.
