@@ -253,16 +253,18 @@ The performance measure *d'* will be computed as the difference of the *z*-trans
 Reaction time (RT) data will be trimmed by excluding all trials with responses faster than 100\ ms, as the relevant cognitive processes cannot have been completed before[@Whelan2008; @Berger2021].
 Aggregated RT values will be described using the median and the median of absolute deviation ($MAD$) as robust estimates of center and variability, respectively[@Lachaud2011].
 Error- and post-error trials will be excluded in repeated measures analyses of variance (rmANOVA) and controlled for in an MLM, because RT on the latter is longer due to more cautious behavior[@Dutilh2012; @Houtman2012].
-To test our hypotheses, we will perform a series of rmANOVAs and an MLM with orthogonal sum-to-zero contrasts in order to meaningfully interpret results[@Singmann2019]. 
-Declining performance will be investigated by calculating an rmANOVA with three paired contrasts comparing *d'* between two levels of 2-, 3-, and 4-back at a time.
-Another rmANOVA with three paired contrasts will be computed to compare the mean RT between two levels of 2-, 3-, and 4-back at a time.
-To investigate changes in NASA-TLX ratings, six rmANOVAs will be computed, one for each NASA-TLX subscale, and each with six paired contrasts comparing the ratings between two levels of 1-, 2-, 3-, and 4-back at a time.
+To test our hypotheses, we will perform a series of rmANOVAs and an MLM with orthogonal sum-to-zero contrasts in order to meaningfully interpret results[@Singmann2019].<br>
+*Manipulation check.*
+Declining performance will be investigated by calculating an rmANOVA with six paired contrasts comparing *d'* between two levels of 1- to 4-back at a time.
+Another rmANOVA with six paired contrasts will be computed to compare the median RT between two levels of 1- to 4-back at a time.
+To investigate changes in NASA-TLX ratings, six rmANOVAs will be computed, one for each NASA-TLX subscale, and each with six paired contrasts comparing the ratings between two levels of 1- to 4-back at a time.<br>
+*Subjective values.*
 For each effort discounting round, the SV of the fixed level will be calculated by adding or subtracting the last adjustment of 0.02\ € from the last monetary value of the flexible level, depending on the participant's last choice, and dividing this value by 2\ €.
 This yields an SV between 0 and 1 for the fixed compared with the flexible level, while the SV of the flexible level is 1.
 The closer the SV of the fixed level is to 0, the stronger the preference for the flexible level.
 All SVs of each level will be averaged to compute one "global" SV for each level.
-An rmANOVA with six paired contrasts will be computed, comparing the SVs between two levels of 1-, 2-, 3-, and 4-back at a time.
-Estimated marginal means will be used for the paired contrasts of each rmANOVA, including Tukey method for *p*-value adjustment.
+An rmANOVA with four different contrasts will be computed to investigate the association of SVs and the *n*-back levels: Declining linear (3,1,-1,-3), ascending quadratic (-1,1,1,-1), declining logistic (3,2,-2,-3), and positively skewed normal (1,2,-1,-2).
+Depending on whether the linear or one of the other three contrasts fits the curve best, we will apply a linear or nonlinear multi-level model in the next step, respectively.
 
 To determine the influence of task performance on the association of SVs and *n*-back level, we will set up an MLM using the $lmerTest$ package[@Kuznetsova2017]. 
 We will apply restricted maximum likelihood (REML) to fit the model.
