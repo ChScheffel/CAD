@@ -192,8 +192,11 @@ Adding a comparison of the more difficult levels with each other allows the SVs 
 Adding those same pairs again, but with the oppositve assignment of fixed and flexible level, does approach the true preference, but has two disadvantages.
 First, the SVs are still quite alike across levels due to the fact that every more difficult level has only been compared with the easiest level, and second, having more task levels than just three would lead to an exponential increase in comparisons.
 Therefore, the solution lies in reducing the number of necessary comparisons by presenting only one effort discounting round for each possible pair of levels after determining for each pair which level should be fixed and which should be flexible.
-In each pair, the level chosen by the participant at least two out of three times will be used as the level with a flexible value, which starts at 1€ and is changed in every iteration.
-The other level in the pair will be set to a fixed value of 2€.
+This will be determined by presenting each possible pair of levels on screen with the question "Would you prefer 1\ € for level A or 1\ € for level B?".
+Participants respond by clicking the respective on-screen button.
+Each pair will be presented three times, resulting in 18 presented pairs, which are fully randomized in order and in the assignment of which level is on the left or right of the screen.
+For each pair, the level that was chosen by the participant at least two out of three times will be used as the level with a flexible value, which starts at 1\ € and is changed in every iteration.
+The other level in the pair will be set to a fixed value of 2\ €.
 Then, the effort discounting sensu Westbrook [-@Westbrook2013] begins, but with all possible pairs and with the individually determined assignment of fixed and flexible level.
 The order in which the pairs are presented will be fully randomized, and each pair will go through all iteration steps of adding/subtracting 0.50\ €, 0.25\ €, 0.13\ €, 0.06\ €, 0.03\ €, 0.02\ € to/from the flexible level's reward (each adjustment half of the previous one, rounded to two decimals) before moving on to the next one.
 This procedure allows to compute SVs based on actual individual preference instead of objective task load.
