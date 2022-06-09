@@ -290,6 +290,7 @@ This is the opposite for the sum of the ascent between SVs.
 Therefore, we multiply both indicators, arriving at a value reflecting both degree and direction of preference, called $AxAUC$.
 
 The results of each analysis will be assessed on the basis of both $p$-value and the Bayes factor $BF10$, calculated with the *BayesFactor* package[@Morey2021] using the default prior widths of the functions *anovaBF*, *lmBF* and *regressionBF*.
+We will consider a $BF10$ close to or above 3/10 as moderate/strong evidence for the alternative hypothesis, and a $BF10$ close to or below .33/.10 as moderate/strong evidence for the null hypothesis [@Wetzels2015].
 
 ## Pilot data
 
