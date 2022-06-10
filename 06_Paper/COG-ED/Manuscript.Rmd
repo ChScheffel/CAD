@@ -281,16 +281,16 @@ If necessary, we will adjusted the optimization algorithm to improve model fit.
 We will visually inspect the residuals of the model for evidence to perform model criticism. 
 This will be done by excluding all data points with absolute standardized residuals above 3 SD. 
 As effect size measures, we will calculate pseudo *R²* for our model and *f²* to estimate the effect of n-back level according to Lorah[-@Lorah2018].
-To ensure the validity of the MLM, we will conduct a specification curve analysis[@Simonsohn2020], which will include 63 possible preprocessing pipelines of the RT data.
-These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, 2, 2.5, or 3\ $MAD$ from the median, RTs below 100\ or\ 200\ ms), and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within *n*-back levels).
-The MLM will be run with each of the 63\ pipelines, which will also include our main pipeline (untransformed data, exclusion of RTs below 100\ ms).
-The ratio of pipelines that lead to significant versus non-significant effects will provide an indication of how robust the effect actually is.
 
 The association of SVs and NFC will be examined with an rmANOVA.
 We will subtract the SV of 1- from 2-back, 2- from 3-back, and 3- from 4-back per participant, yielding three SV difference scores per participant.
 The sample will be divided into participants with low and high NFC using a median split.
 We will then compute an rmANOVA with the within-factor n-back level and the between-factor NFC group to determine whether there is a main effect of level and/or group, and/or an interaction between level and group on the SV difference scores.
 Post-hoc tests will be computed depending on which effect reaches significance at $p<.01$.
+To ensure the validity of this association, we will conduct a specification curve analysis[@Simonsohn2020], which will include 63 possible preprocessing pipelines of the RT data.
+These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, 2, 2.5, or 3\ $MAD$ from the median, RTs below 100\ or\ 200\ ms), and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within *n*-back levels).
+The rmANOVA will be run with each of the 63\ pipelines, which will also include our main pipeline (untransformed data, exclusion of RTs below 100\ ms).
+The ratio of pipelines that lead to significant versus non-significant effects will provide an indication of how robust the effect actually is.
 
 The association of subjective task load with NFC will be examined similarly.
 We will calculate NASA-TLX sum scores per participant per level and compute an rmANOVA with the within-factor n-back level and the between-factor NFC group, and apply post-hoc tests based on which effect reaches significance at $p<.01$.
