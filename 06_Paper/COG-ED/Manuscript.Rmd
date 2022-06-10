@@ -266,22 +266,21 @@ All SVs of each level will be averaged to compute one "global" SV for each level
 An rmANOVA with four different contrasts will be computed to investigate the association of SVs and the *n*-back levels: Declining linear (3,1,-1,-3), ascending quadratic (-1,1,1,-1), declining logistic (3,2,-2,-3), and positively skewed normal (1,2,-1,-2).
 Depending on whether the linear or one of the other three contrasts fits the curve best, we will apply a linear or nonlinear multi-level model in the next step, respectively.
 
-To determine the influence of task performance on the association of SVs and *n*-back level, we will set up an MLM using the $lmerTest$ package[@Kuznetsova2017]. 
+To determine the influence of task performance on the association of SVs and *n*-back level, we will perform MLM. 
 We will apply restricted maximum likelihood (REML) to fit the model.
 As an effect size measure for random effects we will firstly calculate the intraclass correlation (ICC), which displays the proportion of variance that is explained by differences between persons.
-Second, we will estimate a random slopes model of SVs including n-back level as level-1-predictor and, additionally, NFC as level-2-predictor.
+Second, we will estimate a random slopes model of n-back level (level 1, fixed and random factor: 0-back, 1-back, 2-back, 3-back) predicting SV nested within subjects.
 As Mussel et al.[-@Mussel2016] could show, participants with high versus low NFC not only have a more shallow decline in performance with higher n-back levels, but show a demand-specific increase in EEG theta oscillations, which has been associated with mental effort.
-Within the model, we will therefore control for *d'*, RT, correct, and post-correct trials.
+We control for performance, i.e., *d'* (level 1, fixed factor, continuous), median RT (level 1, fixed factor, continuous) in order to eliminate a possible influence of declining performance on SV ratings.
 $$
-SV \sim level\ * NFC + d' + RT + correct + postcorrect + (level|subject)
+SV \sim level\ + d' + median RT + (level|subject)
 $$
-Level-1-predictors will be centered within cluster, whereas the level-2-predictor will be centered at the grand mean as recommended by Enders & Tofighi[-@Enders2007]. 
+Level-1-predictors will be centered within cluster as recommended by Enders & Tofighi[-@Enders2007]. 
 By this, the model yields interpretable parameter estimates. 
-We will visually inspect the residuals of the final model.
-The approximately normal distribution indicates no evidence to perform model criticism.  
-As effect size measures, we calculate pseudo *R²* for our model and *f²* to estimate the effects of n-back level and NFC according to Lorah[-@Lorah2018].
-Third, we will perform a simple slopes analysis with n-back level as predictor and NFC as moderator. 
-To evaluate the moderating effect, we will calculate the Johnson-Neyman interval.
+If necessary, we will adjusted the optimization algorithm to improve model fit. 
+We will visually inspect the residuals of the model for evidence to perform model criticism. 
+This will be done by excluding all data points with absolute standardized residuals above 3 SD. 
+As effect size measures, we will calculate pseudo *R²* for our model and *f²* to estimate the effect of n-back level according to Lorah[-@Lorah2018].
 To ensure the validity of the MLM, we will conduct a specification curve analysis[@Simonsohn2020], which will include 63 possible preprocessing pipelines of the RT data.
 These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, 2, 2.5, or 3\ $MAD$ from the median, RTs below 100\ or\ 200\ ms), and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within *n*-back levels).
 The MLM will be run with each of the 63\ pipelines, which will also include our main pipeline (untransformed data, exclusion of RTs below 100\ ms).
@@ -308,8 +307,8 @@ The sample of the pilot study consisted of $N=`r length(setindex)-1`$ participan
 One participant's data was removed because they misunderstood the instruction.
 Due to a technical error the subjective task load data of one participant was incomplete, so the hypotheses involving the NASA Task Load Index were analyzed with $n=`r length(setindex)-2`$ data sets.
 The results showed increases in subjective and objective task load measures with higher *n*-back level.
-Importantly, SVs were lower for higher *n*-back levels, but not different between 1- and 2-back, which can be considered preliminary proof-of-concept, as this phenomon can only emerge in this version of the paradigm.
-A multi-level model (MLM) revealed that *n*-back level was a reliable predictor of SV, even after controlling for declining task performance (d’ and RT) as well as correct and post-correct answers, while NFC was not, most likely due to the small sample size for individual differences analyses.
+Importantly, SVs were lower for higher *n*-back levels, but not different between 1- and 2-back, which can be considered preliminary proof-of-concept, as this phenomenon can only emerge in this version of the paradigm.
+The LMM revealed *n*-back level as a reliable predictor of SV, even after controlling for declining task performance (*d’* and median RT).
 The specification curve analysis showed that this pattern was true for all 63 pipelines.
 Finally, while the $AxAUC$ value did not predict any amount of variance in individual NFC scores, the $AUC$ of NASA-TLX scores did.
 All results are detailed in the Supplementary Material.
@@ -568,7 +567,7 @@ Multi level model:
 ```{r,echo=FALSE, message=FALSE, warning=FALSE}
 kable(h2b_result.table,
         caption = "Effects of n-back load level on subjective value controlled 
-    for task performance (d' and reaction time), correct and postcorrect trials.",
+    for task performance (d' and reaction time).",
         booktabs = T,                          # no vertical lines
         escape = F,                            # correctly print special characters)
         align = c("l",rep("r",7))) %>%         # right aligns the text in every numerical column
@@ -577,6 +576,7 @@ kable(h2b_result.table,
              escape = F,                    # correctly print special characters
              threeparttable = T)            # line breaks in the footnote
 ```
+The intraclass correlation equals `r format(icc_h2b, digits = 2)`. 
 
 The Bayes Factor $BF10$ of the multi level model approached infinity.
 
@@ -586,43 +586,7 @@ The effect size is $f^2=$ `r format(h2b_f2, digits = 2)`.
 
 \newpage
 
-## Hypothesis 2c: Subjective values decline stronger with increasing task load for individuals with low compared to high NFC scores.
-
-Simple slopes analysis:
-
-```{r,echo=FALSE, message=FALSE, warning=FALSE}
-kable(h2c_ss.table,
-        caption = "Interaction between NFC and n-back load level.",
-        # "Slopes of n-back level for different NFC values."
-        booktabs = T,                          # no vertical lines
-        escape = F,                            # correctly print special characters)
-        align = c("l",rep("r",6))) %>%         # right aligns the text in every numerical column
-    kable_styling(latex_options = c("striped")) %>%
-    add_header_above(c(" " = 1, "Slopes of NFC" = 4, "Conditional Intercept" = 2)) %>%
-    footnote(general = "NFC = Need for Cognition, SE = standard error. ***$p$ < .001, **$p$ < .01, *$p$ < 0.5.",
-             escape = F,                    # correctly print special characters
-             threeparttable = T)            # line breaks in the footnote
-```
-
-```{r FigHyp2c, echo=FALSE, message=FALSE, warning=FALSE, fig.cap=paste("Simple slopes analysis for how n-back level predicts the subjective value, depending on the participant's NFC. Slope of $1SD$ below the mean: $\\beta=$ ", round(m1_h2c.ss$slopes$Est.[1], digits = 2), ", $SE=$ ", round(m1_h2c.ss$slopes$S.E.[1], digits = 2), ", $p=$ ", round(m1_h2c.ss$slopes$p[1], digits = 3), ", slope of the mean: $\\beta=$ ", round(m1_h2c.ss$slopes$Est.[2], digits = 2), ", $SE=$ ", round(m1_h2c.ss$slopes$S.E.[2], digits = 2), ", $p=$ ", round(m1_h2c.ss$slopes$p[2], digits = 3), " slope of $1SD$ above the mean: $\\beta=$ ", round(m1_h2c.ss$slopes$Est.[3], digits = 2), ", $SE=$ ", round(m1_h2c.ss$slopes$S.E.[3], digits = 2), ", $p=$ ", round(m1_h2c.ss$slopes$p[3], digits = 3), ". NFC = Need for Cognition, SD = standard deviation.", sep=""), fig.pos="H"}
-
-interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
-                               plot.points = TRUE, point.shape = TRUE,
-                               x.label = "n-back level", y.label = "subjective value",
-                               legend.main = "NFC", interval = TRUE) + theme_apa() +
-scale_x_continuous(breaks = c(-1,0,1), labels = c("2","3","4"))
-```
-
-Johnson-Neyman interval: `r paste("[", round(h2c_jn.int[1], digits = 2), ", ", round(h2c_jn.int[2], digits = 2), "]", sep = "")`
-
-Bayes Factor: $BF10=$ `r format(extractBF(h2c_BF)$bf, digits = 2)`
-
-The effect size is $f^2=$ `r format(h2c_f2, digits = 2)`.
-
-\newpage
-
 ## Specification curve analysis:
-
 ```{r FigSCA, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of the specification curve analysis for the multi level model. The upper panel shows the fixed effect estimates for Need for Cognition and n-back level as predictors of subjective values. Estimates with $p<.05$ are indicated by a dot on the line. $N=15$. The lower panel shows the preprocessing steps of each corresponding pipeline. The $BF10$ of each pipeline's multi level model approached infinity.", fig.pos="H"}
 
 # create the upper panel first, which will show the estimates of 'level' and 'nfc'

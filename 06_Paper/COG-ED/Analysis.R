@@ -104,7 +104,7 @@
   data_nback[data_nback == "None"] <- 0
   data_nback$response <- as.numeric(data_nback$response)
   
-  # for the multi level model to be able to assess the influence of post-error trials, we will include that as a regressor
+  # for reaction time preprocessing we account for post-error trials, that we will exclude from aggregated reaction time
   # so the nback data frame will contain a column of ones and zeros
   
   # add the "correct" column, but shifted down by one row
@@ -1156,12 +1156,10 @@
   
   base::remove(h2a_data)
   
-##### Hypothesis 2b, c #########################################################
+##### Hypothesis 2b ############################################################
   
   # H2b: Subjective values decline with increasing n-back level, even after controlling for declining task
   # performance measured by signal detection d’ and reaction time.
-  
-  # H2c: SVs decline stronger with increasing task load for individuals with low compared to high NFC scores.
   
   # detach afex in order to use lmerTest
   
@@ -1177,18 +1175,17 @@
   
   detach_package(afex)
   
-  # get all relevant variables -------------------------------------------------
+  ## get all relevant variables ------------------------------------------------
   
   h2b_data <- pipelines_data[["AARO"]]
   
   # get subset for MLM without RT = NA
   
-  h2b_data <- droplevels(subset(h2b_data[ ,c("subject", "level", "sv", "dprime", "correct", "postcorrect", "rt", "nfc")],
-                                subset = !is.na(rt)
-                                & level > 1)) #FIXME
+  h2b_data <- droplevels(subset(h2b_data[ ,c("subject", "level", "sv", "dprime", "medianRT")],
+                                subset = !is.na(sv)))
   
   
-  # center predictors ----------------------------------------------------------
+  ## center predictors ---------------------------------------------------------
   
   ## center level 1 predictors
   # two ways: centering at the grand mean (CGM) vs. centering within cluster (CWC) = group mean centering
@@ -1198,26 +1195,25 @@
   # dprime
   h2b_data$dprime.cwc <- h2b_data$dprime - (ave(h2b_data$dprime, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
   
-  # RT
-  h2b_data$rt.cwc <- h2b_data$rt - (ave(h2b_data$rt, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
+  # medianRT
+  h2b_data$medianRT.cwc <- h2b_data$medianRT - (ave(h2b_data$medianRT, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
   
   # level
   h2b_data$level.cwc <- h2b_data$level - (ave(h2b_data$level, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
   
-  # correct 
-  h2b_data$correct.cwc <- h2b_data$correct - (ave(h2b_data$correct, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
   
-  # postcorrect
-  h2b_data$postcorrect.cwc <- h2b_data$postcorrect - (ave(h2b_data$postcorrect, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
-  
-  ## level 2 predictor
+  ## no level 2 predictors
   # > CGM
   
-  # NFC
-  h2b_data$nfc.cgm <- scale(h2b_data$nfc, scale = F)
   
   
-  # null model -----------------------------------------------------------------
+  ## the following analyses for h2b depend on the actual relation of sv and level
+  # that is examined by the previous ANOVAs in H2a and indicated by model fit
+  
+  ## A - linear relation (linear mixed model) ----------------------------------
+  
+  ### null model ----
+  
   m0_h2b <- lmerTest::lmer(sv ~ 1 + (1|subject), 
                  data = h2b_data,
                  REML = T)
@@ -1227,78 +1223,87 @@
   icc_h2b <- var_m0_h2b$vcov[1] / (var_m0_h2b$vcov[1] + var_m0_h2b$vcov[2]) 
   
   
-  # random slopes model --------------------------------------------------------
+  ### random slopes model ----
   
-  ## maximal model ---- 
-  m1_h2b <- lmerTest::lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject), 
+  ## maximal model
+  m1_h2b <- lmerTest::lmer(sv ~ level.cwc + dprime.cwc + medianRT.cwc + (level.cwc|subject), 
                  data = h2b_data,
                  REML = T) # parameters estimated by restricted log-likelihood maximization
+    # boundary (singular) fit: see help('isSingular') <- model is over-specified
+  
+  # check different optimizer
+  m2_h2b <- lmerTest::lmer(sv ~ level.cwc + dprime.cwc + medianRT.cwc + (level.cwc|subject), 
+                           data = h2b_data,
+                           REML = T, # parameters estimated by restricted log-likelihood maximization
+                           control = lmerControl(optimizer = "nloptwrap", optCtrl = list(algorithm = "NLOPT_LN_NELDERMEAD")))
+
+  ## perform model criticism
+  
+  # identify potential outliers that do not fit within the model
+  potential_outliers_m2_h2b <- subset(h2b_data, abs(scale(resid(m2_h2b))) > 3)    # 1 obs.
+  100/60*1
+    # [1] 1.666667 = 1.7 %
+  
+  # exclude outliers
+  h2b_data_norm <- droplevels(subset(h2b_data, abs(scale(resid(m2_h2b))) < 3))
+  
+  m3_h2b <- lmerTest::lmer(sv ~ level.cwc + dprime.cwc + medianRT.cwc + (level.cwc|subject),
+                           data = h2b_data_norm,
+                           REML = T) # parameters estimated by restricted log-likelihood maximization
+    # boundary (singular) fit: see help('isSingular')
+  
+  # check different optimizer  
+  m4_h2b <- lmerTest::lmer(sv ~ level.cwc + dprime.cwc + medianRT.cwc + (level.cwc|subject),
+                           data = h2b_data_norm,
+                           REML = T,
+                           control = lmerControl(optimizer = "nmkbw"))
+    # m4_h2b is the final model
+  
+  ## plot model fit of the final model
+  m4_h2b_fit <- sjPlot::plot_model(m4_h2b, type = "diag")
   
   
-  ## plot model fit of the final model ----
-  m1_h2b_fit <- sjPlot::plot_model(m1_h2b, type = "diag")
-  
-  
-  # get pseudo-r-squared -------------------------------------------------------
+  ### get pseudo-r-squared ----
   
   ## for the whole model
-  h2b_total_r2 <- MuMIn::r.squaredGLMM(m1_h2b, pj2014 = T)
+  h2b_total_r2 <- MuMIn::r.squaredGLMM(m4_h2b, pj2014 = T)
   
-  ## H2b: n-back level
+  ## for n-back level
   # model without effect
-  m1_h2b_without <- lmerTest::lmer(sv ~ 1 + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
-                         data = h2b_data,
-                         REML = T)
+  m4_h2b_without <- lmerTest::lmer(sv ~ 1 + dprime.cwc + medianRT.cwc + (level.cwc|subject),
+                                   data = h2b_data_norm,
+                                   control = lmerControl(optimizer = "nmkbw"))
   # calculate R²
-  h2b_without_r2 <- MuMIn::r.squaredGLMM(m1_h2b_without, pj2014 = T)
+  h2b_without_r2 <- MuMIn::r.squaredGLMM(m4_h2b_without, pj2014 = T)
   
   # calculate f² with conditional R²
   h2b_f2 <- (h2b_total_r2[1,2] - h2b_without_r2[1,2]) / (1 - h2b_total_r2[1,2])
   
   
-  ## H2c: NFC score
-  m1_h2c_without <- lmerTest::lmer(sv ~ level.cwc + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
-                         data = h2b_data,
-                         REML = T)
-  # calculate R²
-  h2c_without_r2 <- MuMIn::r.squaredGLMM(m1_h2c_without, pj2014 = T)
-  
-  # calculate f² with conditional R²
-  h2c_f2 <- (h2b_total_r2[1,2] - h2c_without_r2[1,2]) / (1 - h2b_total_r2[1,2])
-  
-  
-  # get Bayes factors ----------------------------------------------------------
+  ### get Bayes Factors ----
   
   # the random factor needs to be a factor
   h2b_data$subject <- factor(h2b_data$subject)
   
   # H2b
-  h2b_full_BF <- lmBF(sv ~ level.cwc + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + subject,
-                      data = h2b_data, whichRandom = 'subject', progress = FALSE)
-  h2b_null_BF <- lmBF(sv ~ 1 + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + subject,
-                      data = h2b_data, whichRandom = 'subject', progress = FALSE)
+  h2b_full_BF <- BayesFactor::lmBF(sv ~ level.cwc + dprime.cwc + medianRT.cwc + subject,
+                                   data = h2b_data_norm, whichRandom = 'subject', progress = FALSE)
+  h2b_null_BF <- BayesFactor::lmBF(sv ~ 1 + dprime.cwc + medianRT.cwc + subject,
+                                   data = h2b_data_norm, whichRandom = 'subject', progress = FALSE)
   h2b_BF <- h2b_full_BF / h2b_null_BF
   
   
-  # H2c
-  h2c_full_BF <- lmBF(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + subject,
-                      data = h2b_data, whichRandom = 'subject', progress = FALSE)
-  h2c_null_BF <- lmBF(sv ~ level.cwc + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + subject,
-                      data = h2b_data, whichRandom = 'subject', progress = FALSE)
-  h2c_BF <- h2c_full_BF / h2c_null_BF
-  
-  
-  # prepare MLM results for reporting ------------------------------------------
+  ### prepare MLM results for reporting ----
   
   # get random and fixed effects
-  m1_h2b.ranef <- as.data.frame(base::summary(m1_h2b)$varcor)
-  m1_h2b.fixef <- base::summary(m1_h2b)$coefficients
+  m4_h2b.ranef <- as.data.frame(base::summary(m4_h2b)$varcor)
+  m4_h2b.fixef <- base::summary(m4_h2b)$coefficients
   
   # prepare table
-  h2b_result.table <- as.data.frame(cbind(row.names(m1_h2b.fixef[-c(6,7),]), 
-                                          m1_h2b.fixef[-c(6,7),c(1, 2, 5)]))
+  h2b_result.table <- as.data.frame(cbind(row.names(m4_h2b.fixef), 
+                                          m4_h2b.fixef[,c(1, 2, 5)]))
   h2b_result.table$ranef.sd <- NA
-  h2b_result.table$ranef.sd[c(1,2)] <- m1_h2b.ranef$sdcor[c(1,2)]
+  h2b_result.table$ranef.sd[c(1,2)] <- m4_h2b.ranef$sdcor[c(1,2)]
   
   colnames(h2b_result.table)[1] <- "Parameter"
   colnames(h2b_result.table)[2] <- "Beta"
@@ -1307,7 +1312,7 @@
   colnames(h2b_result.table)[5] <- "Random Effects (SD)"
   
   row.names(h2b_result.table) <- NULL
-  h2b_result.table$Parameter[1:6] <- c("Intercept", "n-back level", "NFC", "d'", "RT", "level x NFC")
+  h2b_result.table$Parameter[1:4] <- c("Intercept", "$N$-back level", "d'", "median RT")
   
   h2b_result.table[2:5] <- lapply(h2b_result.table[2:5], as.numeric)
   h2b_result.table[c(2,3,5)] <- round(h2b_result.table[c(2,3,5)], digits = 2)
@@ -1320,51 +1325,15 @@
   h2b_result.table$ `$p$-value`[which(h2b_result.table$ `$p$-value`<.001)] <- 
     paste0("<.001***")
   
-  h2b_result.table$ `Random Effects (SD)`[3:6] <- paste0("")
+  h2b_result.table$ `Random Effects (SD)`[3:4] <- paste0("")
   
-  # simple slopes analysis -----------------------------------------------------
   
-  m1_h2c.ss <- interactions::sim_slopes(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none", 
-                          cond.int = T,                       # print conditional intercepts
-                          control.fdr = T,                    # adjust false discovery rate
-                          confint = T)                        # add confidence intervals
+
+  ## B - declining linear relation (nonlinear mixed model) ---------------------
+  ## C - ascending quadratic relation (nonlinear mixed model) ------------------
+  ## D - declining logistic relation (nonlinear mixed model) -------------------
+  ## E - positively skewed normal (nonlinear mixed model) ----------------------
   
-  #create table
-  h2c_ss.table <- data.frame("Value of NFC" = c("- 1 SD", "Mean", "+ 1 SD"),
-                             round(m1_h2c.ss$slopes[c(2:3)], digits = 2),
-                             c(paste0("[", round(m1_h2c.ss$slopes[1,4], digits = 2), ",", round(m1_h2c.ss$slopes[1,5], digits = 2), "]"),
-                               paste0("[", round(m1_h2c.ss$slopes[2,4], digits = 2), ",", round(m1_h2c.ss$slopes[2,5], digits = 2), "]"),
-                               paste0("[", round(m1_h2c.ss$slopes[3,4], digits = 2), ",", round(m1_h2c.ss$slopes[3,5], digits = 2), "]")),
-                             round(m1_h2c.ss$slopes[7], digits = 3),
-                             round(m1_h2c.ss$ints[c(2,3)], digits = 2))
-  colnames(h2c_ss.table) <- c("Value of NFC", "Beta", "$SE$", "95\\% CI", "$p$-value", "Beta", "$SE$" )
-  # columns 2:5 belong to "Slopes of NFC"
-  # columns 6:7 belong to "Conditional Intercept"
-  
-  h2c_ss.table$ `$p$-value`  [which(h2c_ss.table$ `$p$-value`<.01)] <- 
-    paste0(h2c_ss.table$ `$p$-value`[which(h2c_ss.table$ `$p$-value`<.01)],"*")
-  h2c_ss.table$ `$p$-value`[which(h2c_ss.table$ `$p$-value`<.05)] <- 
-    paste0(h2c_ss.table$ `$p$-value`[which(h2c_ss.table$ `$p$-value`<.05)],"*")
-  h2c_ss.table$ `$p$-value`[which(h2c_ss.table$ `$p$-value`<.001)] <- 
-    paste0("<.001***")
-  
-  # remove leading zeros in the p-value column
-  
-  h2c_ss.table$ `$p$-value` <- stringr::str_replace(h2c_ss.table$ `$p$-value`, "0.", ".")
-  
-  # calculate Johnson-Neyman intervals
-  h2c_jn <- interactions::johnson_neyman(model = m1_h2b, pred = level.cwc, modx = nfc.cgm, control.fdr = T)
-  h2c_jn.int <- h2c_jn$bounds
-  
-  # save plot
-  h2c_jn.plot <- h2c_jn$plot
-  
-  # create interaction plot
-  Figure2 <- interactions::interact_plot(m1_h2b, pred = level.cwc, modx = nfc.cgm, centered = "none",
-                           plot.points = T, point.shape = T,
-                           x.label = "n-back level", y.label = "subjective value",
-                           legend.main = "NFC", interval = T) + theme_apa() +
-    scale_x_continuous(breaks = c(-1,0,1), labels = c("2","3","4"))
   
 ##### Specification Curve Analysis #############################################
   
