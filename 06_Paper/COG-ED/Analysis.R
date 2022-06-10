@@ -1334,108 +1334,7 @@
   ## D - declining logistic relation (nonlinear mixed model) -------------------
   ## E - positively skewed normal (nonlinear mixed model) ----------------------
   
-  
-##### Specification Curve Analysis #############################################
-  
-  # here we repeat the multi level model with all analysis pipelines
-  
-  # prepare empty data frame for the loop to feed into
-  
-  sca_results <- data.frame(pipeline = character(), beta = double(), pvalue = double(), predictor = character(), BF10 = double())
-  
-  # loop through the pipelines
-  
-  for (i in 1:length(pipelines_data)) {
-    
-    # make a temporary copy of the data frame
-    
-    sca_data <- pipelines_data[[i]]
-    
-    # get a subset without RT = NA
-    
-    sca_data <- droplevels(subset(sca_data[ ,c("subject", "level", "sv", "dprime", "correct", "postcorrect", "rt", "nfc")], subset = !is.na(rt)))
-    
-    # center the predictors
-    
-    # centering the level 1 predictors (d', RT, level, correct, postcorrect) within cluster
-    
-    sca_data$dprime.cwc       <- sca_data$dprime - (ave(sca_data$dprime, sca_data$subject, FUN = function(x) mean(x, na.rm = T)))
-    sca_data$rt.cwc           <- sca_data$rt - (ave(sca_data$rt, sca_data$subject, FUN = function(x) mean(x, na.rm = T)))
-    sca_data$level.cwc        <- sca_data$level - (ave(sca_data$level, sca_data$subject, FUN = function(x) mean(x, na.rm = T)))
-    sca_data$correct.cwc      <- sca_data$correct - (ave(sca_data$correct, sca_data$subject, FUN = function(x) mean(x, na.rm = T)))
-    sca_data$postcorrect.cwc  <- sca_data$postcorrect - (ave(sca_data$postcorrect, sca_data$subject, FUN = function(x) mean(x, na.rm = T)))
-    
-    # centering the level 2 predictor NFC at the grand mean
-    
-    sca_data$nfc.cgm <- scale(sca_data$nfc, scale = F)
-    
-    # define the null model
-    
-    m0_sca <- lmerTest::lmer(sv ~ 1 + (1|subject), data = sca_data, REML = T)
-    
-    # random slopes model
-    
-    m1_sca <- lmerTest::lmer(sv ~ level.cwc * nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + (level.cwc|subject),
-                   data = sca_data, REML = T)
-    
-    # convert random factor to type factor
-    
-    sca_data$subject <- factor(sca_data$subject)
-    
-    # compute Bayes factor
-    
-    sca_full_BF <- lmBF(sv ~ level.cwc + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + subject,
-                        data = sca_data, whichRandom = 'subject', progress = FALSE)
-    sca_null_BF <- lmBF(sv ~ 1 + nfc.cgm + dprime.cwc + rt.cwc + correct.cwc + postcorrect.cwc + subject,
-                        data = sca_data, whichRandom = 'subject', progress = FALSE)
-    sca_BF <- sca_full_BF / sca_null_BF
-    
-    # combine current results and the bigger data frame
-    
-    newdata <- data.frame(pipeline = c(names(pipelines_data[i]),names(pipelines_data[i])),
-                          beta = c(base::summary(m1_sca)$coefficients[2,1],base::summary(m1_sca)$coefficients[3,1]),
-                          pvalue = c(base::summary(m1_sca)$coefficients[2,5],base::summary(m1_sca)$coefficients[3,5]),
-                          predictor = c("Level", "NFC"),
-                          BF10 = c(BayesFactor::extractBF(sca_BF)$bf, BayesFactor::extractBF(sca_BF)$bf))
-    sca_results <- rbind(sca_results, newdata)
-    
-  }
-  
-##### SCA plot preparation #####################################################
-  
-  # add a row number and sort the data frame by the fixed effects estimate of the predictor 'level'
-  
-  sca_results <- cbind(sca_results, num = rep(c(1:(nrow(sca_results)/2)), each = 2))
-  sca_results <- sca_results[order(sca_results$predictor, sca_results$beta, decreasing = TRUE), ]
-  sca_results[sca_results$predictor == "NFC", ] <- sca_results[match(sca_results$num[sca_results$predictor == "Level"],
-                                                                     sca_results$num[sca_results$predictor == "NFC"]),]
-  
-  # lock it in place by turning it into a factor
-  
-  sca_results$num <- factor(sca_results$num, levels = sca_results$num[sca_results$predictor == "NFC"])
-  
-  # add a column to plot only points that are significant
-  
-  sca_results$sign <- ifelse(sca_results$pvalue < .05, sca_results$beta, NA)
-  
-  # add columns to the data frame that describe the pipeline
-  
-  sca_results$Dim <- ifelse(substr(sca_results$pipeline,1,2) == "AA", 2,
-                            ifelse(substr(sca_results$pipeline,1,2) == "AW", 3,
-                                   ifelse(substr(sca_results$pipeline,1,2) == "WW", 4,
-                                          ifelse(substr(sca_results$pipeline,1,2) == "WA", 5, NA))))
-  sca_results$Trans <- ifelse(substr(sca_results$pipeline,3,3) == "R", 7,
-                              ifelse(substr(sca_results$pipeline,3,3) == "L", 8,
-                                     ifelse(substr(sca_results$pipeline,3,3) == "L", 8,
-                                            ifelse(substr(sca_results$pipeline,3,3) == "I", 9,
-                                                   ifelse(substr(sca_results$pipeline,3,3) == "S", 10, NA)))))
-  sca_results$Excl <- ifelse(substr(sca_results$pipeline,4,4) == "N", 12,
-                             ifelse(substr(sca_results$pipeline,4,4) == "2", 13,
-                                    ifelse(substr(sca_results$pipeline,4,4) == "5", 14,
-                                           ifelse(substr(sca_results$pipeline,4,4) == "3", 15,
-                                                  ifelse(substr(sca_results$pipeline,4,4) == "O", 16, 
-                                                         ifelse(substr(sca_results$pipeline,4,4) == "T", 17, NA))))))
-  
+
 ##### Hypothesis 3a ############################################################
   
   # H3a: Subjective values positively predict individual NFC scores.
@@ -1537,6 +1436,65 @@
   # Here we will repeat the same method of hypothesis 3a, but with the aversiveness-scores
   # in place of the SV scores. Since we did not assess those in the pilot study, we
   # do not have the data to analyze it at the moment.
+  
+##### Specification Curve Analysis #############################################
+  
+  # # Repeat the analysis of hypothesis 3a will all pipelines
+  # 
+  # # prepare empty data frame for the loop to feed into
+  # 
+  # sca_results <- data.frame(pipeline = character(), effect = double(), pvalue = double(), f = character(), BF10 = double())
+  # 
+  # # loop through the pipelines
+  # 
+  # for (i in 1:length(pipelines_data)) {
+  #   
+  #   # make a temporary copy of the data frame
+  #   
+  #   mydata <- pipelines_data[[i]][ ,c("subject","level","sv","nfc")]
+  #   
+  #   # create a data frame with the difference scores per subject (2-1,3-2,4-3)
+  #   
+  #   diffscores <- diff(mydata$sv)
+  #   sca_data <- data.frame(subject = mydata$subject[-c(seq(from = 4, to = nrow(mydata), by = 4))],
+  #                          nlevels = as.factor(rep(c("1-2","2-3","3-4"), nrow(mydata)/4)),
+  #                          svdiff = diffscores[-c(seq(from = 4, to = nrow(mydata)-4, by = 4))],
+  #                          nfc = mydata$nfc[-c(seq(from = 4, to = nrow(mydata), by = 4))])
+  #   
+  #   # add column indicating NFC score above or below median
+  #   
+  #   mediannfc <- median(sca_data$nfc)
+  #   sca_data$nfcmedian <- ifelse(sca_data$nfc < mediannfc, "low", "high")
+  #   sca_data$nfcmedian <- as.factor(sca_data$nfcmedian)
+  #   
+  #   # compute two-way ANOVA
+  #   
+  #   sca_rmanova <- afex::aov_ez("subject", "svdiff", sca_data,
+  #                                        between = c("nfcmedian"), within = c("nlevels"))
+  #   
+  #   # obtain estimated marginal means for ANOVA model
+  #   
+  #   sca_emm <- emmeans::emmeans(object = sca_rmanova, c("nfcmedian","nlevels"))
+  #   
+  #   # calculate pairwise comparisons on estimated marginal means
+  #   
+  #   sca_contrasts <- as.data.frame(pairs(sca_emm))
+  #   
+  #   # get Bayes factors
+  #   
+  #   sca_BF <- anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = sca_data, progress = FALSE)
+  #   sca_contrasts$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = sca_data$svdiff[sca_data$nfcmedian == "high"],
+  #                                                                              y = sca_data$svdiff[sca_data$nfcmedian == "low"],
+  #                                                                              progress = FALSE, paired = FALSE))$bf
+  #   
+  #   # combine current results and the bigger data frame
+  #   # (still has to be coded)
+  #   
+  # }
+  # 
+  # # remove temporary variables
+  # 
+  # base::remove(diffscores, mediannfc, sca_data, sca_rmanova, sca_contrasts, sca_BF, sca_emm)
   
 ##### Save variables ###########################################################
   
