@@ -1254,7 +1254,7 @@
   m2_h2b <- lmerTest::lmer(sv ~ level.cwc + dprime.cwc + medianRT.cwc + (level.cwc|subject), 
                            data = h2b_data,
                            REML = T, # parameters estimated by restricted log-likelihood maximization
-                           control = lmerControl(optimizer = "nloptwrap", optCtrl = list(algorithm = "NLOPT_LN_NELDERMEAD")))
+                           control = lme4::lmerControl(optimizer = "nloptwrap", optCtrl = list(algorithm = "NLOPT_LN_NELDERMEAD")))
 
   ## perform model criticism
   
@@ -1275,7 +1275,7 @@
   m4_h2b <- lmerTest::lmer(sv ~ level.cwc + dprime.cwc + medianRT.cwc + (level.cwc|subject),
                            data = h2b_data_norm,
                            REML = T,
-                           control = lmerControl(optimizer = "nmkbw"))
+                           control = lme4::lmerControl(optimizer = "nmkbw"))
     # m4_h2b is the final model
   
   ## plot model fit of the final model
@@ -1291,7 +1291,7 @@
   # model without effect
   m4_h2b_without <- lmerTest::lmer(sv ~ 1 + dprime.cwc + medianRT.cwc + (level.cwc|subject),
                                    data = h2b_data_norm,
-                                   control = lmerControl(optimizer = "nmkbw"))
+                                   control = lme4::lmerControl(optimizer = "nmkbw"))
   # calculate R²
   h2b_without_r2 <- MuMIn::r.squaredGLMM(m4_h2b_without, pj2014 = T)
   
