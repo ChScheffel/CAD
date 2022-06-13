@@ -586,53 +586,6 @@ The effect size is $f^2=$ `r format(h2b_f2, digits = 2)`.
 
 \newpage
 
-## Specification curve analysis:
-```{r FigSCA, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of the specification curve analysis for the multi level model. The upper panel shows the fixed effect estimates for Need for Cognition and n-back level as predictors of subjective values. Estimates with $p<.05$ are indicated by a dot on the line. $N=15$. The lower panel shows the preprocessing steps of each corresponding pipeline. The $BF10$ of each pipeline's multi level model approached infinity.", fig.pos="H"}
-
-# create the upper panel first, which will show the estimates of 'level' and 'nfc'
-  
-  sca_upperplot <- ggplot(data = sca_results, aes(x = num, y = beta)) +
-    geom_line(aes(group = predictor)) +
-    geom_point(data = sca_results, aes(x = num, y = sign)) +
-    geom_text(x = 3, y = -0.02, label = "NFC", size = 3) +
-    geom_text(x = 3, y = -0.13, label = "Level", size = 3) +
-    theme_classic() +
-    labs(x = NULL, y = "Fixed effects\nestimate \u03b2") +
-    scale_y_continuous(lim = c(NA,0.01)) +
-    theme(axis.text.x = element_blank(),
-          axis.line.y = element_line(size = 1, color = "black"), axis.title.y = element_text(margin = margin(r = 10)),
-          legend.position = "none")
-
-  # create the lower part of the plot that indicates the pipeline specifications
-  
-  sca_lowerplot <- ggplot(data = sca_results) +
-    geom_hline(yintercept = c(1,6,11), color = "grey", size = 0.5) +
-    geom_hline(yintercept = c(2:5,7:10,12:17), color = "grey", linetype = "dashed", size = 0.2) +
-    geom_point(aes(x = num, y = Dim)) +
-    geom_point(aes(x = num, y = Trans)) +
-    geom_point(aes(x = num, y = Excl)) +
-    theme_classic() +
-    labs(x = "Analysis pipeline", y = NULL) +
-    scale_y_reverse(breaks = c(1:17), lim = c(17,0.5), labels = c(expression(bold("Dimension")),
-                                                                "Across S, across C", "Across S, within C",
-                                                                "Within S, within C", "Within S, across C",
-                                                                expression(bold("Transformation")),
-                                                                "Raw/None", "Log", "Inverse", "Square-root",
-                                                                expression(bold("Exclusion")),
-                                                                "None", "2 MAD from median", " 2.5 MAD from median",
-                                                                "3 MAD from median", "100ms after onset", "200ms after onset")) +
-    theme(axis.text.x = element_blank(), axis.title.x = element_text(margin = margin(t = 10)),
-          axis.line.y = element_line(size = 1, color = "black"),
-          legend.position = "none")
-  
-  # put both plots into one
-  
-  ggarrange(sca_upperplot, sca_lowerplot, nrow = 2, heights = c(1,2.5))
-  
-```
-
-\newpage
-
 ## Hypothesis 3a: Subjective values positively predict individual NCS scores.
 
 Intercept:
