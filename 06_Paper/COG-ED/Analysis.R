@@ -1155,31 +1155,21 @@
                                                                               "Declining Logistic" = c(3,2,-2,-3),
                                                                               "Positively Skewed Normal" = c(1,2,-1,-2)))
   
-  # get Bayes factors
-  
-  hypothesis2a_BF <- BayesFactor::anovaBF(formula = sv ~ level, data = h2a_data, progress = FALSE)
-  hypothesis2a_contrasts$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h2a_data$sv[h2a_data$level == 1], y = h2a_data$sv[h2a_data$level == 2],
-                                                     progress = FALSE, paired = TRUE))$bf,
-                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h2a_data$sv[h2a_data$level == 1], y = h2a_data$sv[h2a_data$level == 3],
-                                                     progress = FALSE, paired = TRUE))$bf,
-                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h2a_data$sv[h2a_data$level == 1], y = h2a_data$sv[h2a_data$level == 4],
-                                                     progress = FALSE, paired = TRUE))$bf,
-                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h2a_data$sv[h2a_data$level == 2], y = h2a_data$sv[h2a_data$level == 3],
-                                                     progress = FALSE, paired = TRUE))$bf,
-                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h2a_data$sv[h2a_data$level == 2], y = h2a_data$sv[h2a_data$level == 4],
-                                                     progress = FALSE, paired = TRUE))$bf,
-                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h2a_data$sv[h2a_data$level == 3], y = h2a_data$sv[h2a_data$level == 4],
-                                                     progress = FALSE, paired = TRUE))$bf)
+  # we still have to get the Bayes Factors here, but we'll do that in the main study
   
   # get effect size and confidence intervals
   
+  hypothesis2a_contrasts <- as.data.frame(hypothesis2a_contrasts)
   hypothesis2a_contrasts <- cbind(hypothesis2a_contrasts,
                                   format(effectsize::t_to_eta2(t = hypothesis2a_contrasts$t.ratio, df_error = hypothesis2a_contrasts$df, ci = 0.95), digits = 2))
   
   # rename columns and contrasts
   
-  colnames(hypothesis2a_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+  colnames(hypothesis2a_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\eta_{p}^{2}$", "$95\\% CI$")
   hypothesis2a_contrasts$Contrast <- gsub("X", "", hypothesis2a_contrasts$Contrast)
+  hypothesis2a_contrasts[ ,c("Estimate","$SE$","$t$")] <- format(round(hypothesis2a_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 2), nsmall = 2)
+  hypothesis2a_contrasts$`$p$` <- format(round(hypothesis2a_contrasts$`$p$`, digits = 3), nsmall = 2)
+  hypothesis2a_contrasts$`$p$`[hypothesis2a_contrasts$`$p$` == "0.000"] <- "<.001"
   
   # remove the temporary variable
   
