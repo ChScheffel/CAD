@@ -586,24 +586,19 @@ The effect size is $f^2=$ `r format(h2b_f2, digits = 2)`.
 
 \newpage
 
-## Hypothesis 3a: Subjective values positively predict individual NCS scores.
+## Hypothesis 3a: Participants with high NFC scores have higher subjective values for 2- and 3-back but lower subjective values for 1-back than participants with low NFC scores.
 
-Intercept:
-`r apa_print(hypothesis3a)$estimate$Intercept`
+ANOVA:
 
-Predictor $AxAUC$:
-`r apa_print(hypothesis3a)$estimate$h3_data_axauc`
-
-Fit:
-`r apa_print(hypothesis3a)$estimate$modelfit$r2`
-
-Effect size and confidence interval:
-
-$\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis3a$fstatistic[1], df = hypothesis3a$fstatistic[2], df_error = hypothesis3a$fstatistic[3], ci = 0.95), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis3a$fstatistic[1], df = hypothesis3a$fstatistic[2], df_error = hypothesis3a$fstatistic[3], ci = 0.95), digits = 2)[1,2]`
-
-Bayes factor:
-
-$BF10=$ `r extractBF(hypothesis3a_BF)$bf`
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis3a_rmanova,
+  caption = "Main effects and interaction of NFC group and n-back level on subjective values",
+  note = "NFC = Need for Cognition, Sum Sq = sum of squares, $df$ = degrees of freedom, $F$ = $F$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
 
 \newpage
 
