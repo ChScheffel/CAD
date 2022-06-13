@@ -1383,18 +1383,18 @@
   
   # obtain estimated marginal means for ANOVA model
   
-  hypothesis3a_emm <- emmeans::emmeans(object = hypothesis3a_rmanova, c("nfcmedian","nlevels"))
+  #hypothesis3a_emm <- emmeans::emmeans(object = hypothesis3a_rmanova, c("nfcmedian","nlevels"))
   
   # calculate pairwise comparisons on estimated marginal means
   
-  hypothesis3a_contrasts <- as.data.frame(pairs(hypothesis3a_emm))
+  #hypothesis3a_contrasts <- as.data.frame(pairs(hypothesis3a_emm))
   
   # get Bayes factors
   
-  hypothesis3a_BF <- anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = h3a_data, progress = FALSE)
-  hypothesis3a_contrasts$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = h3a_data$svdiff[h3a_data$nfcmedian == "high"],
-                                                                             y = h3a_data$svdiff[h3a_data$nfcmedian == "low"],
-                                                                             progress = FALSE, paired = FALSE))$bf
+  #hypothesis3a_BF <- anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = h3a_data, progress = FALSE)
+  #hypothesis3a_contrasts$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = h3a_data$svdiff[h3a_data$nfcmedian == "high"],
+  #                                                                           y = h3a_data$svdiff[h3a_data$nfcmedian == "low"],
+  #                                                                           progress = FALSE, paired = FALSE))$bf
   
   # remove temporary variables
   
