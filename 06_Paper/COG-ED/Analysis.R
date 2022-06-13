@@ -1400,7 +1400,7 @@
   rownames(hypothesis3a_rmanova) <- c("Intercept", "NFC group", "n-back level", "NFC group x n-back level")
   hypothesis3a_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")] <- format(round(hypothesis3a_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")], digits = 2), nsmall = 2)
   hypothesis3a_rmanova$`$p$` <- format(round(hypothesis3a_rmanova$`$p$`, digits = 3), nsmall = 2)
-  hypothesis3a_rmanova$`$p$`[hypothesis3a_rmanova$`$p$` == 0.000] <- "<.001"
+  hypothesis3a_rmanova$`$p$`[hypothesis3a_rmanova$`$p$` == "0.000"] <- "<.001"
   
   # obtain estimated marginal means for ANOVA model
   
@@ -1449,12 +1449,33 @@
   
   # compute two-way ANOVA
   
-  hypothesis3b_rmanova <- afex::aov_ez("subject", "ntlx", h3b_data,
+  hypothesis3b_model <- afex::aov_ez("subject", "ntlx", h3b_data,
                                        between = c("nfcmedian"), within = c("level"))
+  
+  # format S3 class into data frame
+  
+  hypothesis3b_rmanova <- summary(hypothesis3b_model)
+  hypothesis3b_rmanova <- hypothesis3b_rmanova[["univariate.tests"]]
+  hypothesis3b_rmanova <- as.data.frame(matrix(hypothesis3b_rmanova, nrow = 4, ncol = 6))
+  
+  
+  # get effect size
+  
+  hypothesis3b_rmanova <- cbind(hypothesis3b_rmanova,
+                                format(effectsize::F_to_eta2(f = hypothesis3b_rmanova[,5], df = hypothesis3b_rmanova[,2],
+                                                             df_error = hypothesis3b_rmanova[,4], ci = 0.95), digits = 2))
+  
+  # formatting
+  
+  colnames(hypothesis3b_rmanova) <- c("Sum Sq", "$df$", "error Sum Sq", "error $df$", "$F$", "$p$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+  rownames(hypothesis3b_rmanova) <- c("Intercept", "NFC group", "n-back level", "NFC group x n-back level")
+  hypothesis3b_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")] <- format(round(hypothesis3b_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")], digits = 2), nsmall = 2)
+  hypothesis3b_rmanova$`$p$` <- format(round(hypothesis3b_rmanova$`$p$`, digits = 3), nsmall = 2)
+  hypothesis3b_rmanova$`$p$`[hypothesis3b_rmanova$`$p$` == "0.000"] <- "<.001"
   
   # obtain estimated marginal means for ANOVA model
   
-  hypothesis3b_emm <- emmeans::emmeans(object = hypothesis3b_rmanova, "nfcmedian")
+  hypothesis3b_emm <- emmeans::emmeans(object = hypothesis3b_model, "level")
   
   # calculate pairwise comparisons on estimated marginal means
   
@@ -1463,9 +1484,32 @@
   # get Bayes factors
   
   hypothesis3b_BF <- anovaBF(formula = ntlx ~ level * nfcmedian, data = h3b_data, progress = FALSE)
-  hypothesis3b_contrasts$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "high"],
-                                                                             y = h3b_data$ntlx[h3b_data$nfcmedian == "low"],
-                                                                             progress = FALSE, paired = FALSE))$bf
+  hypothesis3b_contrasts$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 1], y = h3b_data$ntlx[h3b_data$level == 2],
+                                                                               progress = FALSE, paired = FALSE))$bf,
+                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 1], y = h3b_data$ntlx[h3b_data$level == 3],
+                                                                               progress = FALSE, paired = FALSE))$bf,
+                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 1], y = h3b_data$ntlx[h3b_data$level == 4],
+                                                                               progress = FALSE, paired = FALSE))$bf,
+                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 2], y = h3b_data$ntlx[h3b_data$level == 3],
+                                                                               progress = FALSE, paired = FALSE))$bf,
+                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 2], y = h3b_data$ntlx[h3b_data$level == 4],
+                                                                               progress = FALSE, paired = FALSE))$bf,
+                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 3], y = h3b_data$ntlx[h3b_data$level == 4],
+                                                                               progress = FALSE, paired = FALSE))$bf)
+  
+  # get effect size
+  
+  hypothesis3b_contrasts <- cbind(hypothesis3b_contrasts,
+                                  format(effectsize::t_to_eta2(t = hypothesis3b_contrasts$t.ratio,
+                                                               df_error = hypothesis3b_contrasts$df, ci = 0.95), digits = 2))
+  
+  # rename columns and contrasts, round to two decimals
+  
+  colnames(hypothesis3b_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+  hypothesis3b_contrasts$Contrast <- gsub("X", "", hypothesis3b_contrasts$Contrast)
+  hypothesis3b_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(round(hypothesis3b_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 2), nsmall = 2)
+  hypothesis3b_contrasts$`$p$` <- format(round(hypothesis3b_contrasts$`$p$`, digits = 3), nsmall = 2)
+  hypothesis3b_contrasts$`$p$`[hypothesis3b_contrasts$`$p$` == "0.000"] <- "<.001"
   
   # delete temporary data frame
   
