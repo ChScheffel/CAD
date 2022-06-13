@@ -396,18 +396,6 @@ ANOVA:
 
 `r apa_print(hypothesis1a_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1a_rmanova$anova_table[1,"F"], df = hypothesis1a_rmanova$anova_table[1,"num Df"], df_error = hypothesis1a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1a_rmanova$anova_table[1,"F"], df = hypothesis1a_rmanova$anova_table[1,"num Df"], df_error = hypothesis1a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1a_BF)$bf, digits = 2)`
 
-Paired contrasts:
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-apa_table(
-  hypothesis1a_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing $d'$ between n-back levels",
-  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
-  escape = FALSE,
-  placement = "H"
-)
-```
-
 \newpage
 
 ## Hypothesis 1b: Reaction time increases with increasing n-back level.
@@ -608,15 +596,15 @@ ANOVA:
 
 Main effect of the NFC group:
 
-`r apa_print(hypothesis3b_model)$full_result$nfcmedian`, §BF10=$ `r format(extractBF(hypothesis3b_BF["nfcmedian"])$bf, digits = 2)`
+`r apa_print(hypothesis3b_model)$full_result$nfcmedian`, $BF10=$ `r format(extractBF(hypothesis3b_BF["nfcmedian"])$bf, digits = 2)`
 
 Main effect of the n-back level:
 
-`r apa_print(hypothesis3b_model)$full_result$level`, §BF10=$ `r format(extractBF(hypothesis3b_BF["level"])$bf, digits = 2)`
+`r apa_print(hypothesis3b_model)$full_result$level`, $BF10=$ `r format(extractBF(hypothesis3b_BF["level"])$bf, digits = 2)`
 
 Interaction effect of NFC group and n-back level:
 
-`r apa_print(hypothesis3b_model)$full_result$nfcmedian_level`, §BF10=$ `r format(extractBF(hypothesis3b_BF["level + nfcmedian"])$bf, digits = 2)`
+`r apa_print(hypothesis3b_model)$full_result$nfcmedian_level`, $BF10=$ `r format(extractBF(hypothesis3b_BF["level + nfcmedian"])$bf, digits = 2)`
 
 Paired contrasts for the main effect of n-back level:
 
