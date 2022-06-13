@@ -28,7 +28,7 @@
   
   
   # the required packages are:
-  # "bibtex", "here", "tidyverse", "bayestestR", "papaja", "lmerTest", "afex", "emmeans", "sjPlot", "purrr",
+  # "bibtex", "here", "tidyverse", "bayestestR", "papaja", "lmerTest", "afex", "emmeans", "sjPlot", "purrr", "broom",
   # "kableExtra", "interactions", "glmmTMB", "BayesFactor", "ggplot2", "egg", "knitr", "effectsize", "pracma", and "MuMIn"
   
   # sets orthogonal contrasts for mixed-effects model and rmANOVA globally in order to get meaningful Type-III tests
@@ -1380,14 +1380,19 @@
   
   hypothesis3a_rmanova <- afex::aov_ez("subject", "svdiff", h3a_data,
                                        between = c("nfcmedian"), within = c("nlevels"))
+  
+  # format S3 class into data frame
+  
   hypothesis3a_rmanova <- summary(hypothesis3a_rmanova)
   hypothesis3a_rmanova <- hypothesis3a_rmanova[["univariate.tests"]]
+  hypothesis3a_rmanova <- as.data.frame(matrix(hypothesis3a_rmanova, nrow = 4, ncol = 6))
+  
   
   # get effect size
   
-  hypothesis3a_rmanova <- c(hypothesis3a_rmanova,
-                            format(effectsize::F_to_eta2(f = hypothesis3a_rmanova[,"F value"], df = hypothesis3a_rmanova[,"num Df"],
-                                                         df_error = hypothesis3a_rmanova[,"den Df"], ci = 0.95), digits = 2))
+  hypothesis3a_rmanova <- cbind(hypothesis3a_rmanova,
+                            format(effectsize::F_to_eta2(f = hypothesis3a_rmanova[,5], df = hypothesis3a_rmanova[,2],
+                                                         df_error = hypothesis3a_rmanova[,4], ci = 0.95), digits = 2))
   
   # formatting
   
