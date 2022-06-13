@@ -211,7 +211,7 @@ Therefore, an SV of 1 indicates that this level is preferred over all others, wh
 
 ```{r figure1, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="An example for subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a hypothetical participant with the true preference 2-back > 3-back > 1-back. The grey boxes are the choice options shown to the participant. The participant's final reward value of the flexible level is displayed after the first arrow. The resulting subjective value of each level is displayed after the second arrow, in the notation \"SV 3-back(1-back)\" for the subjective value of 3-back when 1-back is the other choice. The Solution and Additional Benefit panel follow the same logic, but are preceded by a choice between equal rewards, and the participant's first choice indicated by an exclamation mark.", fig.pos="H"} 
   
-  include_graphics(here("99_Thinktank", "Other", "Paradigm_Scheme.png"))
+  include_graphics(here("06_Paper", "Inkscape Figures", "Paradigm_Scheme.png"))
 
 ```
 
@@ -253,11 +253,13 @@ The performance measure *d'* will be computed as the difference of the *z*-trans
 Reaction time (RT) data will be trimmed by excluding all trials with responses faster than 100\ ms, as the relevant cognitive processes cannot have been completed before[@Whelan2008; @Berger2021].
 Aggregated RT values will be described using the median and the median of absolute deviation ($MAD$) as robust estimates of center and variability, respectively[@Lachaud2011].
 Error- and post-error trials will be excluded in repeated measures analyses of variance (rmANOVA) and controlled for in an MLM, because RT on the latter is longer due to more cautious behavior[@Dutilh2012; @Houtman2012].
-To test our hypotheses, we will perform a series of rmANOVAs and an MLM with orthogonal sum-to-zero contrasts in order to meaningfully interpret results[@Singmann2019].<br>
+To test our hypotheses, we will perform a series of rmANOVAs and an MLM with orthogonal sum-to-zero contrasts in order to meaningfully interpret results[@Singmann2019].
+
 *Manipulation check.*
 Declining performance will be investigated by calculating an rmANOVA with six paired contrasts comparing *d'* between two levels of 1- to 4-back at a time.
 Another rmANOVA with six paired contrasts will be computed to compare the median RT between two levels of 1- to 4-back at a time.
-To investigate changes in NASA-TLX ratings, six rmANOVAs will be computed, one for each NASA-TLX subscale, and each with six paired contrasts comparing the ratings between two levels of 1- to 4-back at a time.<br>
+To investigate changes in NASA-TLX ratings, six rmANOVAs will be computed, one for each NASA-TLX subscale, and each with six paired contrasts comparing the ratings between two levels of 1- to 4-back at a time.
+
 *Subjective values.*
 For each effort discounting round, the SV of the fixed level will be calculated by adding or subtracting the last adjustment of 0.02\ € from the last monetary value of the flexible level, depending on the participant's last choice, and dividing this value by 2\ €.
 This yields an SV between 0 and 1 for the fixed compared with the flexible level, while the SV of the flexible level is 1.
@@ -307,7 +309,7 @@ The sample of the pilot study consisted of $N=`r length(setindex)-1`$ participan
 One participant's data was removed because they misunderstood the instruction.
 Due to a technical error the subjective task load data of one participant was incomplete, so the hypotheses involving the NASA Task Load Index were analyzed with $n=`r length(setindex)-2`$ data sets.
 The results showed increases in subjective and objective task load measures with higher *n*-back level.
-Importantly, SVs were lower for higher *n*-back levels, but not different between 1- and 2-back, which can be considered preliminary proof-of-concept, as this phenomenon can only emerge in this version of the paradigm.
+Importantly, SVs were lower for higher *n*-back levels, but not different between 1- and 2-back, which shows that the easiest level is not universally preferred.
 The LMM revealed *n*-back level as a reliable predictor of SV, even after controlling for declining task performance (*d’* and median RT).
 The specification curve analysis showed that this pattern was true for all 63 pipelines.
 Finally, while the $AxAUC$ value did not predict any amount of variance in individual NFC scores, the $AUC$ of NASA-TLX scores did.
@@ -363,7 +365,7 @@ The authors declare no competing interests.
 
 ```{r figure1appendix, echo=FALSE, message=FALSE, warning=FALSE}
 
-  include_graphics(here("99_Thinktank", "Other", "Paradigm_Scheme.png"))
+  include_graphics(here("06_Paper", "Inkscape Figures", "Paradigm_Scheme.png"))
 
 ```
 
@@ -584,7 +586,8 @@ apa_table(
   caption = "Main effects and interaction of NFC group and n-back level on subjective values",
   note = "NFC = Need for Cognition, Sum Sq = sum of squares, $df$ = degrees of freedom, $F$ = $F$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
-  placement = "H"
+  placement = "H",
+  font_size = "footnotesize"
 )
 ```
 
@@ -614,7 +617,7 @@ apa_table(
   caption = "Main effects and interaction of NFC group and n-back level on NASA-TLX scores",
   note = "NFC = Need for Cognition, Sum Sq = sum of squares, $df$ = degrees of freedom, $F$ = $F$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
-  placement = "H"
-)
+  placement = "H",
+  font_size = "footnotesize")
 ```
 
