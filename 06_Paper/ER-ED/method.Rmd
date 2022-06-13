@@ -198,7 +198,9 @@ First, ER strategies will be recoded and centered for each subject according to 
 Restricted maximum likelihood (REML) will be applied to fit the model.
 A random slopes model of SVs including subjective effort (effort ratings), subjective arousal (arousal ratings), and physiological responses (*corrugator* and *levator* activity) as level-1-predictors will be specified.
 $$
-SV \sim strategy\ + \text{effort rating} + \text{arousal rating} + \text{utility} + corrugator \text{ activity} + levator \text{ activity} + (strategy|subject)
+\begin{split}
+SV \sim strategy\ + \text{effort rating} + \text{arousal rating} + \text{utility rating} + corrugator \text{ activity} \\\ + levator \text{ activity} + (strategy|subject)
+\end{split}
 $$ 
 Level-1-predictors will be centered within cluster[@Enders2007].
 Residuals of the final model will be inspected visually.
