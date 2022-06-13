@@ -269,7 +269,7 @@ Depending on whether the linear or one of the other three contrasts fits the cur
 To determine the influence of task performance on the association of SVs and *n*-back level, we will perform MLM. 
 We will apply restricted maximum likelihood (REML) to fit the model.
 As an effect size measure for random effects we will firstly calculate the intraclass correlation (ICC), which displays the proportion of variance that is explained by differences between persons.
-Second, we will estimate a random slopes model of n-back level (level 1, fixed and random factor: 0-back, 1-back, 2-back, 3-back) predicting SV nested within subjects.
+Second, we will estimate a random slopes model of n-back level (level 1, fixed and random factor: 1-back, 2-back, 3-back, 4-back) predicting SV nested within subjects.
 As Mussel et al.[-@Mussel2016] could show, participants with high versus low NFC not only have a more shallow decline in performance with higher n-back levels, but show a demand-specific increase in EEG theta oscillations, which has been associated with mental effort.
 We control for performance, i.e., *d'* (level 1, fixed factor, continuous), median RT (level 1, fixed factor, continuous) in order to eliminate a possible influence of declining performance on SV ratings.
 $$
