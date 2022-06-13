@@ -602,27 +602,31 @@ apa_table(
 
 \newpage
 
-## Hypothesis 3b: NASA-TLX scores negatively predict individual NFC scores.
+## Hypothesis 3b: Participants with high NFC scores have lower NASA-TLX scores in every n-back level than participants with low NFC scores.
 
-Intercept:
-`r apa_print(hypothesis3b)$estimate$Intercept`
+ANOVA:
 
-Predictor $AxAUC$:
-`r apa_print(hypothesis3b)$estimate$h3_data_axauc`
+Main effect of the NFC group:
 
-Predictor $AUC$ NASA-TLX:
-`r apa_print(hypothesis3b)$estimate$h3_data_auc_ntlx`
+`r apa_print(hypothesis3b_model)$full_result$nfcmedian`, §BF10=$ `r format(extractBF(hypothesis3b_BF["nfcmedian"])$bf, digits = 2)`
 
-Fit:
-`r apa_print(hypothesis3b)$estimate$modelfit$r2`
+Main effect of the n-back level:
 
-Effect size and confidence interval:
+`r apa_print(hypothesis3b_model)$full_result$level`, §BF10=$ `r format(extractBF(hypothesis3b_BF["level"])$bf, digits = 2)`
 
-$\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis3b$fstatistic[1], df = hypothesis3b$fstatistic[2], df_error = hypothesis3b$fstatistic[3], ci = 0.95), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis3b$fstatistic[1], df = hypothesis3b$fstatistic[2], df_error = hypothesis3b$fstatistic[3], ci = 0.95), digits = 2)[1,2]`
+Interaction effect of NFC group and n-back level:
 
-Bayes factors:
+`r apa_print(hypothesis3b_model)$full_result$nfcmedian_level`, §BF10=$ `r format(extractBF(hypothesis3b_BF["level + nfcmedian"])$bf, digits = 2)`
 
-$BF10=$ `r extractBF(hypothesis3b_BF)$bf[1]` for predictor $AxAUC$
+Paired contrasts for the main effect of n-back level:
 
-$BF10=$ `r extractBF(hypothesis3b_BF)$bf[2]` for predictor $AUC$ NASA-TLX
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis3b_rmanova,
+  caption = "Main effects and interaction of NFC group and n-back level on NASA-TLX scores",
+  note = "NFC = Need for Cognition, Sum Sq = sum of squares, $df$ = degrees of freedom, $F$ = $F$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
 
