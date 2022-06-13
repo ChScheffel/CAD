@@ -1380,6 +1380,22 @@
   
   hypothesis3a_rmanova <- afex::aov_ez("subject", "svdiff", h3a_data,
                                        between = c("nfcmedian"), within = c("nlevels"))
+  hypothesis3a_rmanova <- summary(hypothesis3a_rmanova)
+  hypothesis3a_rmanova <- hypothesis3a_rmanova[["univariate.tests"]]
+  
+  # get effect size
+  
+  hypothesis3a_rmanova <- c(hypothesis3a_rmanova,
+                            format(effectsize::F_to_eta2(f = hypothesis3a_rmanova[,"F value"], df = hypothesis3a_rmanova[,"num Df"],
+                                                         df_error = hypothesis3a_rmanova[,"den Df"], ci = 0.95), digits = 2))
+  
+  # formatting
+  
+  colnames(hypothesis3a_rmanova) <- c("Sum Sq", "$df$", "error Sum Sq", "error $df$", "$F$", "$p$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+  rownames(hypothesis3a_rmanova) <- c("Intercept", "NFC group", "n-back level", "NFC group x n-back level")
+  hypothesis3a_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")] <- format(round(hypothesis3a_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")], digits = 2), nsmall = 2)
+  hypothesis3a_rmanova$`$p$` <- format(round(hypothesis3a_rmanova$`$p$`, digits = 3), nsmall = 2)
+  hypothesis3a_rmanova$`$p$`[hypothesis3a_rmanova$`$p$` == 0.000] <- "<.001"
   
   # obtain estimated marginal means for ANOVA model
   
