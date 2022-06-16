@@ -1418,10 +1418,20 @@
   #                                                                           y = h3a_data$svdiff[h3a_data$nfcmedian == "low"],
   #                                                                           progress = FALSE, paired = FALSE))$bf
   
+  
+  # plot these results
+  
+  plot_h3a <- ggplot(h3a_data, aes(x = nlevels, y = svdiff, fill = nfcmedian)) +
+    geom_violin() +
+    scale_fill_manual(values = met.brewer("Hiroshige", 2)) +
+    labs(x = "n-back levels", y = "Difference in subjective values") +
+    geom_boxplot(width = 0.1, position = position_dodge(0.9)) +
+    theme_prism(base_size = 10) +
+    scale_x_discrete(guide = "prism_bracket")
+  
   # remove temporary variables
   
   base::remove(diffscores, mediannfc, h3a_data)
-
   
 ##### Hypothesis 3b ############################################################
   
@@ -1511,6 +1521,25 @@
   hypothesis3b_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(round(hypothesis3b_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 2), nsmall = 2)
   hypothesis3b_contrasts$`$p$` <- format(round(hypothesis3b_contrasts$`$p$`, digits = 3), nsmall = 2)
   hypothesis3b_contrasts$`$p$`[hypothesis3b_contrasts$`$p$` == "0.000"] <- "<.001"
+  
+  # plot these results
+  
+  plot_h3b_pvalue <- data.frame(
+    group1 = c(1,1,1,2,2,3),
+    group2 = c(2,3,4,3,4,4),
+    p.adj = c("<.001","<.001","<.001","0.001","<.001","<.001"),
+    y.position = c(16,17,18,16.5,17.5,18.5),
+    nfcmedian = c("high","high","high","high","high","high")
+  )
+    
+  plot_h3b <- ggplot(h3b_data, aes(x = level, y = ntlx, fill = nfcmedian)) +
+    geom_violin() +
+    scale_fill_manual(values = met.brewer("Hiroshige", 2)) +
+    labs(x = "n-back levels", y = "NASA-TLX sum score") +
+    geom_boxplot(width = 0.1, position = position_dodge(0.9)) +
+    theme_prism(base_size = 10) +
+    scale_x_discrete(guide = "prism_bracket") +
+    add_pvalue(plot_h3b_pvalue, tip.length = 0)
   
   # delete temporary data frame
   
