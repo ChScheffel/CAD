@@ -29,7 +29,8 @@
   
   # the required packages are:
   # "bibtex", "here", "tidyverse", "bayestestR", "papaja", "lmerTest", "afex", "emmeans", "sjPlot", "purrr", "broom",
-  # "kableExtra", "interactions", "glmmTMB", "BayesFactor", "ggplot2", "egg", "knitr", "effectsize", "pracma", and "MuMIn"
+  # "kableExtra", "interactions", "glmmTMB", "BayesFactor", "ggplot2", "egg", "knitr", "effectsize", "pracma", "MuMIn",
+  # "MetBrewer" and "ggprism"
   
   # sets orthogonal contrasts for mixed-effects model and rmANOVA globally in order to get meaningful Type-III tests
   
