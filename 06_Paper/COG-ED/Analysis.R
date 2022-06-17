@@ -1553,62 +1553,90 @@
   
 ##### Specification Curve Analysis #############################################
   
-  # # Repeat the analysis of hypothesis 3a will all pipelines
-  # 
-  # # prepare empty data frame for the loop to feed into
-  # 
-  # sca_results <- data.frame(pipeline = character(), effect = double(), pvalue = double(), f = character(), BF10 = double())
-  # 
-  # # loop through the pipelines
-  # 
-  # for (i in 1:length(pipelines_data)) {
-  #   
-  #   # make a temporary copy of the data frame
-  #   
-  #   mydata <- pipelines_data[[i]][ ,c("subject","level","sv","nfc")]
-  #   
-  #   # create a data frame with the difference scores per subject (2-1,3-2,4-3)
-  #   
-  #   diffscores <- diff(mydata$sv)
-  #   sca_data <- data.frame(subject = mydata$subject[-c(seq(from = 4, to = nrow(mydata), by = 4))],
-  #                          nlevels = as.factor(rep(c("1-2","2-3","3-4"), nrow(mydata)/4)),
-  #                          svdiff = diffscores[-c(seq(from = 4, to = nrow(mydata)-4, by = 4))],
-  #                          nfc = mydata$nfc[-c(seq(from = 4, to = nrow(mydata), by = 4))])
-  #   
-  #   # add column indicating NFC score above or below median
-  #   
-  #   mediannfc <- median(sca_data$nfc)
-  #   sca_data$nfcmedian <- ifelse(sca_data$nfc < mediannfc, "low", "high")
-  #   sca_data$nfcmedian <- as.factor(sca_data$nfcmedian)
-  #   
-  #   # compute two-way ANOVA
-  #   
-  #   sca_rmanova <- afex::aov_ez("subject", "svdiff", sca_data,
-  #                                        between = c("nfcmedian"), within = c("nlevels"))
-  #   
-  #   # obtain estimated marginal means for ANOVA model
-  #   
-  #   sca_emm <- emmeans::emmeans(object = sca_rmanova, c("nfcmedian","nlevels"))
-  #   
-  #   # calculate pairwise comparisons on estimated marginal means
-  #   
-  #   sca_contrasts <- as.data.frame(pairs(sca_emm))
-  #   
-  #   # get Bayes factors
-  #   
-  #   sca_BF <- anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = sca_data, progress = FALSE)
-  #   sca_contrasts$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = sca_data$svdiff[sca_data$nfcmedian == "high"],
-  #                                                                              y = sca_data$svdiff[sca_data$nfcmedian == "low"],
-  #                                                                              progress = FALSE, paired = FALSE))$bf
-  #   
-  #   # combine current results and the bigger data frame
-  #   # (still has to be coded)
-  #   
-  # }
-  # 
-  # # remove temporary variables
-  # 
-  # base::remove(diffscores, mediannfc, sca_data, sca_rmanova, sca_contrasts, sca_BF, sca_emm)
+  # here we repeat the analysis of hypothesis 3a with our 63 pipelines
+  
+  # prepare empty data frame for the loop to feed into
+  
+  sca_results <- data.frame(pipeline = double(), nfc_f = double(), nfc_p = double(), nfc_BF10 = double(),
+                            level_f = double(), level_p = double(), level_BF10 = double(),
+                            interaction_f = double(), interaction_p = double(), interaction_BF10 = double())
+  
+  for (i in 1:length(pipelines_data)) {
+    
+    # make a temporary copy of the data frame
+    
+    sca_base <- pipelines_data[[i]][ ,c("subject","level","sv","nfc")]
+    
+    # create a data frame with the difference scores per subject (2-1,3-2,4-3)
+    
+    diffscores <- diff(sca_base$sv)
+    sca_data <- data.frame(subject = sca_base$subject[-c(seq(from = 4, to = nrow(sca_base), by = 4))],
+                           nlevels = as.factor(rep(c("1-2","2-3","3-4"), nrow(sca_base)/4)),
+                           svdiff = diffscores[-c(seq(from = 4, to = nrow(sca_base)-4, by = 4))],
+                           nfc = sca_base$nfc[-c(seq(from = 4, to = nrow(sca_base), by = 4))])
+    
+    # add column indicating NFC score above or below median
+    
+    mediannfc <- median(sca_data$nfc)
+    sca_data$nfcmedian <- ifelse(sca_data$nfc < mediannfc, "low", "high")
+    sca_data$nfcmedian <- as.factor(sca_data$nfcmedian)
+    
+    # compute two-way ANOVA
+    
+    sca_rmanova <- afex::aov_ez("subject", "svdiff", sca_data,
+                                between = c("nfcmedian"), within = c("nlevels"))
+    
+    # format S3 class into data frame
+    
+    sca_rmanova <- summary(sca_rmanova)
+    sca_rmanova <- sca_rmanova[["univariate.tests"]]
+
+    # pull relevant results from data frame and add Bayes Factors
+    
+    sca_rmanova <- data.frame(pipeline = i,
+                              nfc_f = sca_rmanova["nfcmedian","F value"], nfc_p = sca_rmanova["nfcmedian","Pr(>F)"],
+                              nfc_BF10 = extractBF(anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = sca_data, progress = FALSE))["nfcmedian","bf"],
+                              level_f = sca_rmanova["nlevels","F value"], level_p = sca_rmanova["nlevels","Pr(>F)"],
+                              level_BF10 = extractBF(anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = sca_data, progress = FALSE))["nlevels","bf"],
+                              interaction_f = sca_rmanova["nfcmedian:nlevels","F value"], interaction_p = sca_rmanova["nfcmedian:nlevels","Pr(>F)"],
+                              interaction_BF10 = extractBF(anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = sca_data, progress = FALSE))["nlevels + nfcmedian + nlevels:nfcmedian","bf"]/
+                                extractBF(anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = sca_data, progress = FALSE))["nlevels + nfcmedian","bf"])
+    
+    # bind results to main results data frame
+    
+    sca_results <- rbind(sca_results, sca_rmanova)
+    
+  }
+    
+  # sort the data frame by the F value of the predictor 'NFC'
+  
+  #sca_results <- sca_results[order(sca_results$nfc_f, decreasing = TRUE), ]
+  
+  # lock it in place by turning it into a factor
+  
+  #sca_results$num <- factor(sca_results$num, levels = sca_results$num[sca_results$predictor == "NFC"])
+  
+  # add a column to plot only points that are significant
+  
+  #sca_results$sign <- ifelse(sca_results$pvalue < .05, sca_results$beta, NA)
+  
+  # add columns to the data frame that describe the pipeline
+  
+  # sca_results$Dim <- ifelse(substr(sca_results$pipeline,1,2) == "AA", 2,
+  #                           ifelse(substr(sca_results$pipeline,1,2) == "AW", 3,
+  #                                  ifelse(substr(sca_results$pipeline,1,2) == "WW", 4,
+  #                                         ifelse(substr(sca_results$pipeline,1,2) == "WA", 5, NA))))
+  # sca_results$Trans <- ifelse(substr(sca_results$pipeline,3,3) == "R", 7,
+  #                             ifelse(substr(sca_results$pipeline,3,3) == "L", 8,
+  #                                    ifelse(substr(sca_results$pipeline,3,3) == "L", 8,
+  #                                           ifelse(substr(sca_results$pipeline,3,3) == "I", 9,
+  #                                                  ifelse(substr(sca_results$pipeline,3,3) == "S", 10, NA)))))
+  # sca_results$Excl <- ifelse(substr(sca_results$pipeline,4,4) == "N", 12,
+  #                            ifelse(substr(sca_results$pipeline,4,4) == "2", 13,
+  #                                   ifelse(substr(sca_results$pipeline,4,4) == "5", 14,
+  #                                          ifelse(substr(sca_results$pipeline,4,4) == "3", 15,
+  #                                                 ifelse(substr(sca_results$pipeline,4,4) == "O", 16, 
+  #                                                        ifelse(substr(sca_results$pipeline,4,4) == "T", 17, NA))))))
   
 ##### Save variables ###########################################################
   
