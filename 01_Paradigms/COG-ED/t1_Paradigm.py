@@ -62,25 +62,25 @@ filename4 = _thisDir + os.sep + u'data/%s_%s' % (expInfo['Participant'], expName
 # For n-back
 thisExp1 = data.ExperimentHandler(name=expName1, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
+    originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename1)
 # For the 1 vs 1 questions
 thisExp2 = data.ExperimentHandler(name=expName2, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
+    originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename2)
 # For Effort Discounting
 thisExp3 = data.ExperimentHandler(name=expName3, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
+    originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename3)
 # For the final n-back level at the end that is randomly chosen
 thisExp4 = data.ExperimentHandler(name=expName4, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
+    originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename4)
 
@@ -115,18 +115,18 @@ defaultKeyboard = keyboard.Keyboard()
 levelinwordsList = ['direkt', 'zwei', 'drei', 'vier'] # will be used in the instructions
 levelcolorList = ['black', 'darkred', 'darkblue', 'darkgreen'] # will be used to change the colors of the stimuli
 levelcolorinwordsList = ['Schwarz', 'Rot', 'Blau', 'Grün'] # will be used in the instructions
-stimuliList = ['C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\Stimuli\\1back_run1.xlsx',
-'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\Stimuli\\1back_run2.xlsx',
-'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\Stimuli\\2back_run1.xlsx',
-'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\Stimuli\\2back_run2.xlsx',
-'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\Stimuli\\3back_run1.xlsx',
-'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\Stimuli\\3back_run2.xlsx',
-'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\Stimuli\\4back_run1.xlsx',
-'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\Stimuli\\4back_run2.xlsx'] # will be used to import the excel files with the n-back stimuli
-finaln_stimuliList = ['C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\Stimuli\\1back.xlsx',
-'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\Stimuli\\2back.xlsx',
-'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\Stimuli\\3back.xlsx',
-'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\Stimuli\\4back.xlsx'] # for import of the stimuli for the final round after the ED part
+stimuliList = ['C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\1back_run1.xlsx',
+'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\1back_run2.xlsx',
+'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\2back_run1.xlsx',
+'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\2back_run2.xlsx',
+'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\3back_run1.xlsx',
+'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\3back_run2.xlsx',
+'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\4back_run1.xlsx',
+'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\4back_run2.xlsx'] # will be used to import the excel files with the n-back stimuli
+finaln_stimuliList = ['C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\1back.xlsx',
+'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\2back.xlsx',
+'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\3back.xlsx',
+'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\4back.xlsx'] # for import of the stimuli for the final round after the ED part
 EDlevcompList = ['schwarze', 'rote',
 'rote', 'blaue',
 'blaue', 'grüne',
@@ -154,7 +154,7 @@ nruns = list(range(2))
 nref = [0,2,4,6]
 
 # The steps in which the monetary values will be adapted in the ED part
-EDsteps = [1.00,1.00,0.50,0.25,0.125,0.0625,0.03125,0.015625]
+EDsteps = [1.00,1.00,0.50,0.25,0.13,0.06,0.03,0.02]
 # The constant monetary value that will be assigned to the option that was not chosen in the 1€ vs 1€ comparison
 EDfix = [2.00]
 # Create array corresponding to rounds of effort discounting aka the list elements
@@ -162,6 +162,27 @@ EDrounds = list(range(6))
 # Create array corresponding to every second element in the list of comparisons, which will be randomized for every participant
 EDcomps = [0,2,4,6,8,10]
 random.shuffle(EDcomps)
+
+# Create the 18 comparisons of 1 vs 1, with randomized left-right-assignment
+leftright = [0,1]
+VS1levcompList = []
+VS1levcolorList = []
+VS1levList = []
+for j in [0,1,2]: # three times because each pair will be presented three times
+    for i in [0,1,2,3,4,5]: # to refer to the elements of EDcomps
+        random.shuffle(leftright)
+        VS1levcompList.append(EDlevcompList[EDcomps[i] + leftright[0]])
+        VS1levcompList.append(EDlevcompList[EDcomps[i] + leftright[1]])
+        VS1levcolorList.append(EDlevcolorList[EDcomps[i] + leftright[0]])
+        VS1levcolorList.append(EDlevcolorList[EDcomps[i] + leftright[1]])
+        VS1levList.append(EDlevList[EDcomps[i] + leftright[0]])
+        VS1levList.append(EDlevList[EDcomps[i] + leftright[1]])
+
+# Create array corresponding to rounds of 1 vs 1 comparisons aka the list elements
+VS1rounds = list(range(18))
+# Create array corresponding to every second element in the list of comparisons, which will be randomized for every participant
+VS1comps = [0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34]
+random.shuffle(VS1comps)
 
 # ------------------------------
 # n-back task components
@@ -326,6 +347,7 @@ EDbufferscreen = visual.TextStim(win=win, name='EDbufferscreen',
     depth=0.0);
 bufferscreenkey = keyboard.Keyboard()
 EDstorebutton = []
+VS1storebutton = []
 
 # Initialize components for the goodbye routine
 GoodbyeClock = core.Clock()
@@ -1059,6 +1081,295 @@ rightbutton_1vs1_level = [] # a variable to store the levels of the right button
 leftbutton_1vs1_clicked = [] # whether it was clicked or not
 rightbutton_1vs1_clicked = [] # whether it was clicked or not
 
+# -----------------------------
+# Loop for the 18 comparisons
+# -----------------------------
+
+for vsx in VS1rounds:
+
+    # ------Prepare to start Routine "bufferscreen"-------
+    continueRoutine = True
+    routineTimer.add(1.000000)
+    # update component parameters for each repeat
+    bufferscreenkey.keys = []
+    bufferscreenkey.rt = []
+    _bufferscreenkey_allKeys = []
+    # make mouse cursor visible
+    win.mouseVisible = True
+    # keep track of which components have finished
+    VS1bufferscreenComponents = [EDbufferscreen, bufferscreenkey]
+    for thisComponent in VS1bufferscreenComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    EDbufferscreenClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    frameN = -1
+
+    # -------Run Routine "bufferscreen"-------
+    while continueRoutine and routineTimer.getTime() > 0:
+        # get current time
+        t = EDbufferscreenClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=EDbufferscreenClock)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+
+        # *bufferscreen* updates
+        if EDbufferscreen.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            EDbufferscreen.frameNStart = frameN  # exact frame index
+            EDbufferscreen.tStart = t  # local t and not account for scr refresh
+            EDbufferscreen.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(EDbufferscreen, 'tStartRefresh')  # time at next scr refresh
+            EDbufferscreen.setAutoDraw(True)
+        if EDbufferscreen.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > EDbufferscreen.tStartRefresh + 2.0-frameTolerance:
+                # keep track of stop time/frame for later
+                EDbufferscreen.tStop = t  # not accounting for scr refresh
+                EDbufferscreen.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(EDbufferscreen, 'tStopRefresh')  # time at next scr refresh
+                EDbufferscreen.setAutoDraw(False)
+
+        # *bufferscreenkey* updates
+        waitOnFlip = False
+        if bufferscreenkey.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            bufferscreenkey.frameNStart = frameN  # exact frame index
+            bufferscreenkey.tStart = t  # local t and not account for scr refresh
+            bufferscreenkey.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(bufferscreenkey, 'tStartRefresh')  # time at next scr refresh
+            bufferscreenkey.status = STARTED
+            # keyboard checking is just starting
+            waitOnFlip = True
+            win.callOnFlip(bufferscreenkey.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(bufferscreenkey.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if bufferscreenkey.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > bufferscreenkey.tStartRefresh + 2.0-frameTolerance:
+                # keep track of stop time/frame for later
+                bufferscreenkey.tStop = t  # not accounting for scr refresh
+                bufferscreenkey.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(bufferscreenkey, 'tStopRefresh')  # time at next scr refresh
+                bufferscreenkey.status = FINISHED
+        if bufferscreenkey.status == STARTED and not waitOnFlip:
+            theseKeys = bufferscreenkey.getKeys(keyList=['left', 'right', 'space'], waitRelease=False)
+            _bufferscreenkey_allKeys.extend(theseKeys)
+            if len(_bufferscreenkey_allKeys):
+                bufferscreenkey.keys = _bufferscreenkey_allKeys[-1].name  # just the last key pressed
+                bufferscreenkey.rt = _bufferscreenkey_allKeys[-1].rt
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in VS1bufferscreenComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+
+    # -------Ending Routine "Bufferscreen"-------
+    for thisComponent in VS1bufferscreenComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    # hide mouse cursor
+    win.mouseVisible = False
+    # check responses
+    if bufferscreenkey.keys in ['', [], None]:  # No response was made
+        bufferscreenkey.keys = None
+        
+    # ------Prepare to start Routine -------
+    continueRoutine = True
+    # update component parameters for each repeat
+    LB = '1 € für das ' + str(VS1levcompList[VS1comps[vsx]]) + ' Level'
+    RB = '1 € für das ' + str(VS1levcompList[VS1comps[vsx]+1]) + ' Level'
+    
+    EDleftbutton.setText(LB)
+    EDrightbutton.setText(RB)
+    # setup some python lists for storing info about the response click
+    EDclick.clicked_name = []
+    gotValidClick = False  # until a click is received
+    # make mouse cursor visible
+    win.mouseVisible = True
+    # keep track of which components have finished
+    VS1roundComponents = [question, EDclick, EDleftbutton, EDrightbutton]
+    for thisComponent in VS1roundComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    VS1roundClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    frameN = -1
+        
+    # -------Run Routine -------
+    while continueRoutine:
+        # get current time
+        t = VS1roundClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=VS1roundClock)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+            
+        # *question* updates
+        if question.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            question.frameNStart = frameN  # exact frame index
+            question.tStart = t  # local t and not account for scr refresh
+            question.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(question, 'tStartRefresh')  # time at next scr refresh
+            question.setAutoDraw(True)
+        # *response click* updates
+        if EDclick.status == NOT_STARTED and t >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            EDclick.frameNStart = frameN  # exact frame index
+            EDclick.tStart = t  # local t and not account for scr refresh
+            EDclick.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(EDclick, 'tStartRefresh')  # time at next scr refresh
+            EDclick.status = STARTED
+            EDclick.mouseClock.reset()
+            EDclick.clickReset()
+            prevButtonState = EDclick.getPressed()  # if button is down already this ISN'T a new click
+        if EDclick.status == STARTED:  # only update if started and not finished!
+            buttons = EDclick.getPressed()
+            if buttons != prevButtonState:  # button state changed?
+                prevButtonState = buttons
+                if sum(buttons) > 0:  # state changed to a new click
+                    # check if the mouse was inside our 'clickable' objects
+                    gotValidClick = False
+                    for obj in [EDleftbutton,EDrightbutton]:
+                        if obj.contains(EDclick):
+                            gotValidClick = True
+                            EDclick.clicked_name.append(obj.name)
+                    if gotValidClick:  # abort routine on response
+                        continueRoutine = False
+            
+        # *LeftButton* updates
+        if EDleftbutton.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            EDleftbutton.frameNStart = frameN  # exact frame index
+            EDleftbutton.tStart = t  # local t and not account for scr refresh
+            EDleftbutton.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(EDleftbutton, 'tStartRefresh')  # time at next scr refresh
+            EDleftbutton.setAutoDraw(True)
+            EDleftbutton.setColor(VS1levcolorList[VS1comps[vsx]])
+        if EDleftbutton.status == STARTED:
+            # check whether LeftButton has been pressed
+            if EDleftbutton.isClicked:
+                if not EDleftbutton.wasClicked:
+                    EDleftbutton.timesOn.append(EDleftbutton.buttonClock.getTime()) # store time of first click
+                    EDleftbutton.timesOff.append(EDleftbutton.buttonClock.getTime()) # store time clicked until
+                else:
+                    EDleftbutton.timesOff[-1] = EDleftbutton.buttonClock.getTime() # update time clicked until
+                if not EDleftbutton.wasClicked:
+                    continueRoutine = False  # end routine when LeftButton is clicked
+                    None
+                EDleftbutton.wasClicked = True  # if LeftButton is still clicked next frame, it is not a new click
+            else:
+                EDleftbutton.wasClicked = False  # if LeftButton is clicked next frame, it is a new click
+        else:
+            EDleftbutton.buttonClock.reset() # keep clock at 0 if button hasn't started / has finished
+            EDleftbutton.wasClicked = False  # if LeftButton is clicked next frame, it is a new click
+        
+        # *RightButton* updates
+        if EDrightbutton.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            EDrightbutton.frameNStart = frameN  # exact frame index
+            EDrightbutton.tStart = t  # local t and not account for scr refresh
+            EDrightbutton.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(EDrightbutton, 'tStartRefresh')  # time at next scr refresh
+            EDrightbutton.setAutoDraw(True)
+            EDrightbutton.setColor(VS1levcolorList[VS1comps[vsx]+1])
+        if EDrightbutton.status == STARTED:
+            # check whether RightButton has been pressed
+            if EDrightbutton.isClicked:
+                if not EDrightbutton.wasClicked:
+                    EDrightbutton.timesOn.append(EDrightbutton.buttonClock.getTime()) # store time of first click
+                    EDrightbutton.timesOff.append(EDrightbutton.buttonClock.getTime()) # store time clicked until
+                else:
+                    EDrightbutton.timesOff[-1] = EDrightbutton.buttonClock.getTime() # update time clicked until
+                if not EDrightbutton.wasClicked:
+                    continueRoutine = False  # end routine when RightButton is clicked
+                    None
+                EDrightbutton.wasClicked = True  # if RightButton is still clicked next frame, it is not a new click
+            else:
+                EDrightbutton.wasClicked = False  # if RightButton is clicked next frame, it is a new click
+        else:
+            EDrightbutton.buttonClock.reset() # keep clock at 0 if button hasn't started / has finished
+            EDrightbutton.wasClicked = False  # if RightButton is clicked next frame, it is a new click
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+            
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in VS1roundComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+        
+    # -------Ending Routine-------
+    for thisComponent in VS1roundComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    VS1round.addData('question.started', question.tStartRefresh)
+    # store data for rounds (TrialHandler)
+    x, y = EDclick.getPos()
+    buttons = EDclick.getPressed()
+    if sum(buttons):
+        # check if the mouse was inside our 'clickable' objects
+        gotValidClick = False
+        for obj in [EDleftbutton,EDrightbutton]:
+            if obj.contains(EDclick):
+                gotValidClick = True
+                EDclick.clicked_name.append(obj.name)
+    if len(EDclick.clicked_name):
+        VS1round.addData('EDclick.clicked_name', EDclick.clicked_name[0])
+    # which button was clicked (1 = yes, 0 = no)
+    if EDclick.clicked_name[0] == 'EDleftbutton':
+        VS1round.addData('VS1leftbutton.wasclicked', 1)
+        VS1round.addData('VS1rightbutton.wasclicked', 0)
+    else:
+        VS1round.addData('VS1leftbutton.wasclicked', 0)
+        VS1round.addData('VS1rightbutton.wasclicked', 1)
+    # what levelcolor each button had
+    VS1round.addData('VS1leftbutton.nback', VS1levList[VS1comps[vsx]])
+    VS1round.addData('VS1rightbutton.nback', VS1levList[VS1comps[vsx]+1])
+    # store the necessary variables to be able to use it in the iteration process and for the random pick of the last n-back
+    VS1storebutton.append(EDclick.clicked_name[0])
+        
+    # open up the next row for more data
+    thisExp2.nextEntry()
+    
+    # the Routine was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset() 
+
+
 # ------Prepare to start Routine "InstructionED"-------
 continueRoutine = True
 # update component parameters for each repeat
@@ -1165,7 +1476,7 @@ for edx in EDrounds:
     # set up handler to look after randomisation of conditions etc
     EDround = data.TrialHandler(nReps=1.0, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions('C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\Stimuli\\Moneyvalues.xlsx'),
+        trialList=data.importConditions('C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\ED_Steps.xlsx'),
         seed=None, name='EDround')
     thisExp3.addLoop(EDround)  # add the loop to the experiment
     thisEDround = EDround.trialList[0]  # so we can initialise stimuli with some values
