@@ -230,7 +230,7 @@ fb_key = keyboard.Keyboard()
 # 1 vs 1 components
 # ------------------------------
 
-# Initialize components for ED instruction routine
+# Initialize components for 1 vs 1 instruction routine
 Instruction1vs1Clock = core.Clock()
 text = visual.TextStim(win=win, name='text',
     text='Nun beginnt der zweite Teil.\n\nDie unterschiedlichen Level, die Sie gerade absolviert haben, werden nun nacheinander gegenübergestellt.\n'\
@@ -961,6 +961,103 @@ for nx in nlevel:
         win.mouseVisible = True
         # the Routine "feedback_nx-back_run1/2/3" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
+
+# ------Prepare to start Routine "Instruction 1vs 1"-------
+continueRoutine = True
+# update component parameters for each repeat
+key_resp.keys = []
+key_resp.rt = []
+_key_resp_allKeys = []
+# make mouse cursor visible
+win.mouseVisible = True
+# keep track of which components have finished
+Instruction1vs1Components = [text, key_resp]
+for thisComponent in Instruction1vs1Components:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+Instruction1vs1Clock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+# -------Run Routine "Instruction 1vs 1"-------
+while continueRoutine:
+    # get current time
+    t = Instruction1vs1Clock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=Instruction1vs1Clock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *text* updates
+    if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        text.frameNStart = frameN  # exact frame index
+        text.tStart = t  # local t and not account for scr refresh
+        text.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
+        text.setAutoDraw(True)
+    
+    # *key_resp* updates
+    waitOnFlip = False
+    if key_resp.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        key_resp.frameNStart = frameN  # exact frame index
+        key_resp.tStart = t  # local t and not account for scr refresh
+        key_resp.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(key_resp, 'tStartRefresh')  # time at next scr refresh
+        key_resp.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(key_resp.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(key_resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if key_resp.status == STARTED and not waitOnFlip:
+        theseKeys = key_resp.getKeys(keyList=['space'], waitRelease=False)
+        _key_resp_allKeys.extend(theseKeys)
+        if len(_key_resp_allKeys):
+            key_resp.keys = _key_resp_allKeys[-1].name  # just the last key pressed
+            key_resp.rt = _key_resp_allKeys[-1].rt
+            # a response ends the routine
+            continueRoutine = False
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in Instruction1vs1Components:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "Instruction 1 vs 1"-------
+for thisComponent in Instruction1vs1Components:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+# check responses
+if key_resp.keys in ['', [], None]:  # No response was made
+    key_resp.keys = None
+thisExp2.nextEntry()
+# the Routine "Instruction1 vs 1" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
+# Some variables to grow within the loop
+leftbutton_1vs1_level = [] # a variable to store the levels of the left button
+rightbutton_1vs1_level = [] # a variable to store the levels of the right button
+leftbutton_1vs1_clicked = [] # whether it was clicked or not
+rightbutton_1vs1_clicked = [] # whether it was clicked or not
 
 # ------Prepare to start Routine "InstructionED"-------
 continueRoutine = True
