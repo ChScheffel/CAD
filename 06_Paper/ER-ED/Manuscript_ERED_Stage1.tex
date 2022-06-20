@@ -155,7 +155,7 @@
     {}{\InnerPatchFailed}%
   }
 {}{\PatchFailed}
-\keywords{emotion regulation, regulatory effort, effort discounting, registered report, specification curve analysis\newline\indent Word count: 6233}
+\keywords{emotion regulation, regulatory effort, effort discounting, registered report, specification curve analysis\newline\indent Word count: 6289}
 \usepackage{lineno}
 
 \linenumbers
@@ -368,7 +368,7 @@ Regarding self-reported arousal, results showed significant higher subjective ar
 However, ER strategies did not lead to a reduction of subjective arousal compared to active viewing of negative pictures.
 Regarding physiological responses, ER strategies were associated with reduced facial muscle activity of the \emph{corrugator} and \emph{levator} compared to active viewing of negative pictures.
 In accordance with our previous study\textsuperscript{22}, we found that the use of ER strategies compared to active viewing was associated with increased subjective effort.
-All results are detailed in the \protect\hyperlink{SupplementaryMaterial}{Supplementary Material}
+All results are detailed in the \protect\hyperlink{SupplementaryMaterial}{Supplementary Material}, figures S1 to S7 and table S2 to S8.
 
 \hypertarget{design}{%
 \subsection{2.3 Design}\label{design}}
@@ -462,7 +462,7 @@ Pictures that will be used in the paradigm are selected from the Emotional Pictu
 The 20 neutral pictures (Valence (V): \emph{M} \(\pm\) \emph{SD} = 4.81 \(\pm\) 0.51; Arousal (A): \emph{M} \(\pm\) \emph{SD} = 3 \(\pm\) 0.65) depicted content related to the categories persons, objects, and scenes.
 Further, 100 negative pictures, featuring categories animals, body, disaster, disgust, injury, suffering, violence, and weapons, will be used.
 An evolutionary algorithm\textsuperscript{62} is used to cluster these pictures into five sets with comparable valence and arousal values (set one: V: \emph{M} \(\pm\) \emph{SD} = 2.84 \(\pm\) 0.57, A: \emph{M} \(\pm\) \emph{SD} = 5.62 \(\pm\) 0.34; set two: V: \emph{M} \(\pm\) \emph{SD} = 2.64 \(\pm\) 0.46, A: \emph{M} \(\pm\) \emph{SD} = 5.58 \(\pm\) 0.35; set three: V: \emph{M} \(\pm\) \emph{SD} = 2.82 \(\pm\) 0.62, A: \emph{M} \(\pm\) \emph{SD} = 5.60 \(\pm\) 0.39; set four: V: \emph{M} \(\pm\) \emph{SD} = 2.65 \(\pm\) 0.75, A: \emph{M} \(\pm\) \emph{SD} = 5.61 \(\pm\) 0.41; set five: V: \emph{M} \(\pm\) \emph{SD} = 2.74 \(\pm\) 0.70, A: \emph{M} \(\pm\) \emph{SD} = 5.63 \(\pm\) 0.37).
-A complete list of all pictures and their classification into sets can be found in supplementary material 1.
+A complete list of all pictures and their classification into sets can be found in supplementary material table S1.
 The five sets of negative pictures will be assigned randomly to the blocks.
 
 \hypertarget{facial-electromyography}{%
@@ -523,10 +523,10 @@ The final SV per strategy for each participant will be computed by averaging the
 To explore the association between subjective effort (H5a), subjective arousal (H5b), subjective utility (H5c), and physiological responding (H5d,e) on SVs, a multilevel model (MLM) will be specified using the \(lmerTest\) package\textsuperscript{67}.
 First, ER strategies will be recoded and centered for each subject according to their individual SVs: The strategy with the highest SV will be coded as -1, the strategy with the second highest SV 0, and the strategy with the lowest SV will be coded as 1.
 Restricted maximum likelihood (REML) will be applied to fit the model.
-A random slopes model of SVs including subjective effort (effort ratings), subjective arousal (arousal ratings), and physiological responses (\emph{corrugator} and \emph{levator} activity) as level-1-predictors will be specified.
+A random slopes model of SVs including subjective effort (effort ratings), subjective arousal (arousal ratings), utility (utility ratings), and physiological responses (\emph{corrugator} and \emph{levator} activity) as level-1-predictors will be specified.
 \[
 \begin{split}
-SV \sim strategy\ + \text{effort rating} + \text{arousal rating} + \text{utility} + corrugator \text{ activity} \\\ + levator \text{ activity} + (strategy|subject)
+SV \sim strategy\ + \text{effort rating} + \text{arousal rating} + \text{utility rating} + corrugator \text{ activity} \\\ + levator \text{ activity} + (strategy|subject)
 \end{split}
 \]
 Level-1-predictors will be centered within cluster\textsuperscript{68}.
@@ -912,6 +912,11 @@ Subjective arousal and effort ratings are assessed after each block using a slid
 \section{Supplementary Material}\label{SupplementaryMaterial}}
 
 \includepdf[pages={-}, landscape=true]{Supplement/StimList_Suppl.pdf}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\setcounter{section}{19}
+\setcounter{figure}{0}
+\setcounter{table}{1}
 
 \newpage
 

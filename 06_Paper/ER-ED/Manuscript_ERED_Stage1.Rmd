@@ -66,7 +66,7 @@ abstract          : |
  Using a multilevel modelling approach, it will be investigated whether individual SVs can be explained by effectiveness (subjective arousal, facial muscle activity) and subjective effort. 
  Relations of SVs to personality traits will be explored.
 keywords          : "emotion regulation, regulatory effort, effort discounting, registered report, specification curve analysis"
-wordcount         : "6233"
+wordcount         : "6289"
 bibliography      : ["ER_ED.bib"]
 floatsintext      : yes
 figsintext        : yes
@@ -202,6 +202,11 @@ Subjective arousal and effort ratings are assessed after each block using a slid
 # Supplementary Material {#SupplementaryMaterial}
 
 \includepdf[pages={-}, landscape=true]{Supplement/StimList_Suppl.pdf}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\setcounter{section}{19}
+\setcounter{figure}{0}
+\setcounter{table}{1}
 
 \newpage
 

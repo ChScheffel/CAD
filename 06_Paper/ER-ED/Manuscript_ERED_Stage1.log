@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.13)  13 JUN 2022 14:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.20)  20 JUN 2022 09:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Manuscript_ERED_Stage1.tex
 (./Manuscript_ERED_Stage1.tex
-LaTeX2e <2022-06-01> pre-release-0 (develop 2022-6-13 branch)
-L3 programming layer <2022-06-02> (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/apa6/apa6.cls
+LaTeX2e <2022-06-01> patch level 1
+L3 programming layer <2022-06-16> (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/apa6/apa6.cls
 Document Class: apa6 2020/01/13 v2.34 APA formatting (6th edition)
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -392,7 +392,7 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 Failed to patch abstract.
 Failed to patch title.
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xpatch/xpatch.sty (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2022-06-02 L3 programming layer (loader) 
+Package: expl3 2022-06-16 L3 programming layer (loader) 
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-04-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count300
@@ -400,7 +400,7 @@ File: l3backend-pdftex.def 2022-04-20 L3 backend support: PDF output (pdfTeX)
 ))
 Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2022-06-07 L3 Experimental document command parser
+Package: xparse 2022-06-16 L3 Experimental document command parser
 )) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lineno/lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
 \linenopenalty=\count301
@@ -524,7 +524,7 @@ Package: chngcntr 2018/04/09 v1.1a change counter resetting
 Package chngcntr Info: \counterwithout already defined.
 (chngcntr)             Quitting chngcntr on input line 21.
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2022-05-17 v7.00q Hypertext links for LaTeX
+Package: hyperref 2022-06-13 v7.00r Hypertext links for LaTeX
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
@@ -554,7 +554,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
-Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
 \c@section@level=\count327
 )
@@ -562,7 +562,7 @@ Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 \Hy@linkcounter=\count328
 \Hy@pagecounter=\count329
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2022-05-17 v7.00q Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2022-06-13 v7.00r Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
@@ -572,7 +572,7 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count330
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2022-05-17 v7.00q Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2022-06-13 v7.00r Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
@@ -616,7 +616,7 @@ package with kernel methods
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2022-05-17 v7.00q Hyperref driver for pdfTeX
+File: hpdftex.def 2022-06-13 v7.00r Hyperref driver for pdfTeX
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
@@ -1367,20 +1367,20 @@ File: Supplement/StimList_Suppl.pdf Graphic file (type pdf)
 Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 914.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [44 <./Supplement/StimList_Suppl.pdf>] [45] [46]
-Overfull \hbox (23.2881pt too wide) in paragraph at lines 978--995
+Overfull \hbox (23.2881pt too wide) in paragraph at lines 983--1000
  [] 
  []
 
 <Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalViewPilot-1.pdf, id=621, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalViewPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalViewPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalViewPilot-1.pdf  used on input line 1002.
+Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalViewPilot-1.pdf  used on input line 1007.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [47]
-Overfull \hbox (52.68124pt too wide) in paragraph at lines 1026--1048
+Overfull \hbox (52.68124pt too wide) in paragraph at lines 1031--1053
  [] 
  []
 
@@ -1391,18 +1391,18 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalRegPilot-1.pdf, id=641, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalRegPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalRegPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalRegPilot-1.pdf  used on input line 1055.
+Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalRegPilot-1.pdf  used on input line 1060.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [49 <./Manuscript_ERED_Stage1_files/figure-latex/FigSubjArousalRegPilot-1.pdf>]
-Overfull \hbox (47.44104pt too wide) in paragraph at lines 1079--1096
+Overfull \hbox (47.44104pt too wide) in paragraph at lines 1084--1101
  [] 
  []
 
 
-Overfull \hbox (15.29416pt too wide) in paragraph at lines 1118--1135
+Overfull \hbox (15.29416pt too wide) in paragraph at lines 1123--1140
  [] 
  []
 
@@ -1410,20 +1410,20 @@ Overfull \hbox (15.29416pt too wide) in paragraph at lines 1118--1135
 <Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrViewPilot-1.pdf, id=665, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrViewPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrViewPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrViewPilot-1.pdf  used on input line 1142.
+Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrViewPilot-1.pdf  used on input line 1147.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
 <Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevViewPilot-1.pdf, id=666, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevViewPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevViewPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevViewPilot-1.pdf  used on input line 1146.
+Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevViewPilot-1.pdf  used on input line 1151.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
 [51 <./Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrViewPilot-1.pdf> <./Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevViewPilot-1.pdf>]
-Overfull \hbox (63.93918pt too wide) in paragraph at lines 1170--1192
+Overfull \hbox (63.93918pt too wide) in paragraph at lines 1175--1197
  [] 
  []
 
 
-Overfull \hbox (54.14752pt too wide) in paragraph at lines 1214--1236
+Overfull \hbox (54.14752pt too wide) in paragraph at lines 1219--1241
  [] 
  []
 
@@ -1434,18 +1434,18 @@ Underfull \vbox (badness 1400) has occurred while \output is active []
 <Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrRegPilot-1.pdf, id=690, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrRegPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrRegPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrRegPilot-1.pdf  used on input line 1243.
+Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrRegPilot-1.pdf  used on input line 1248.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
 <Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevRegPilot-1.pdf, id=691, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevRegPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevRegPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevRegPilot-1.pdf  used on input line 1247.
+Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigEMGLevRegPilot-1.pdf  used on input line 1252.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [53 <./Manuscript_ERED_Stage1_files/figure-latex/FigEMGCorrRegPilot-1.pdf>]
-Overfull \hbox (52.68124pt too wide) in paragraph at lines 1271--1293
+Overfull \hbox (52.68124pt too wide) in paragraph at lines 1276--1298
  [] 
  []
 
@@ -1456,17 +1456,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <Manuscript_ERED_Stage1_files/figure-latex/FigSubjEffortPilot-1.pdf, id=715, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage1_files/figure-latex/FigSubjEffortPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage1_files/figure-latex/FigSubjEffortPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigSubjEffortPilot-1.pdf  used on input line 1300.
+Package pdftex.def Info: Manuscript_ERED_Stage1_files/figure-latex/FigSubjEffortPilot-1.pdf  used on input line 1305.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
 AED endfloat: Processing end Figures and Tables [55 <./Manuscript_ERED_Stage1_files/figure-latex/FigSubjEffortPilot-1.pdf>] (./Manuscript_ERED_Stage1.aux)
 Package rerunfilecheck Info: File `Manuscript_ERED_Stage1.out' has not changed.
 (rerunfilecheck)             Checksum: AB9E80A224614429C1C678969BD8ADC2;7624.
  ) 
 Here is how much of TeX's memory you used:
- 18267 strings out of 480000
- 308994 string characters out of 5886598
- 634280 words of memory out of 5000000
- 35875 multiletter control sequences out of 15000+600000
+ 18271 strings out of 479998
+ 309062 string characters out of 5886548
+ 634340 words of memory out of 5000000
+ 35881 multiletter control sequences out of 15000+600000
  529362 words of font info for 76 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  72i,17n,77p,1033b,654s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1474,7 +1474,7 @@ Here is how much of TeX's memory you used:
 pdfTeX warning (dest): name{ux5cux23stimuli} has been referenced but does not exist, replaced by a fixed one
 
 {c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri8.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on Manuscript_ERED_Stage1.pdf (55 pages, 1265270 bytes).
+Output written on Manuscript_ERED_Stage1.pdf (55 pages, 1264893 bytes).
 PDF statistics:
  835 PDF objects out of 1000 (max. 8388607)
  706 compressed objects within 8 object streams
