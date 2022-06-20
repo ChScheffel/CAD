@@ -37,8 +37,9 @@ os.chdir(_thisDir)
 # Store info about the experiment session
 psychopyVersion = '2021.1.4'
 expName1 = 't1_nback'
-expName2 = 't1_ED'
-expName3 = 't1_randomchoice'
+expName2 = 't1_1vs1'
+expName3 = 't1_ED'
+expName4 = 't1_randomchoice'
 expInfo = {'Participant': ''}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title='t1_Paradigm')
 if dlg.OK == False:
@@ -50,10 +51,12 @@ expInfo['psychopyVersion'] = psychopyVersion
 # Data file name stem = absolute path + name; later add .psyexp, .csv, .log, etc
 # For n-back
 filename1 = _thisDir + os.sep + u'data/%s_%s' % (expInfo['Participant'], expName1)
-# For Effort Discounting
+# For the 1 vs 1 questions
 filename2 = _thisDir + os.sep + u'data/%s_%s' % (expInfo['Participant'], expName2)
-# For the final n-back level at the end that is randomly chosen
+# For Effort Discounting
 filename3 = _thisDir + os.sep + u'data/%s_%s' % (expInfo['Participant'], expName3)
+# For the final n-back level at the end that is randomly chosen
+filename4 = _thisDir + os.sep + u'data/%s_%s' % (expInfo['Participant'], expName4)
 
 # An ExperimentHandler isn't essential but helps with data saving
 # For n-back
@@ -62,18 +65,24 @@ thisExp1 = data.ExperimentHandler(name=expName1, version='',
     originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename1)
-# For Effort Discounting
+# For the 1 vs 1 questions
 thisExp2 = data.ExperimentHandler(name=expName2, version='',
     extraInfo=expInfo, runtimeInfo=None,
     originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename2)
-# For the final n-back level at the end that is randomly chosen
+# For Effort Discounting
 thisExp3 = data.ExperimentHandler(name=expName3, version='',
     extraInfo=expInfo, runtimeInfo=None,
     originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename3)
+# For the final n-back level at the end that is randomly chosen
+thisExp4 = data.ExperimentHandler(name=expName4, version='',
+    extraInfo=expInfo, runtimeInfo=None,
+    originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
+    savePickle=True, saveWideText=True,
+    dataFileName=filename4)
 
 # save a log file for detail verbose info
 logFile = logging.LogFile(filename1+'.log', level=logging.EXP)
@@ -1017,7 +1026,7 @@ for thisComponent in InstructionEDComponents:
 # check responses
 if key_resp.keys in ['', [], None]:  # No response was made
     key_resp.keys = None
-thisExp2.nextEntry()
+thisExp3.nextEntry()
 # the Routine "InstructionED" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -1038,7 +1047,7 @@ for edx in EDrounds:
         extraInfo=expInfo, originPath=-1,
         trialList=data.importConditions('C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\Stimuli\\Moneyvalues.xlsx'),
         seed=None, name='EDround')
-    thisExp2.addLoop(EDround)  # add the loop to the experiment
+    thisExp3.addLoop(EDround)  # add the loop to the experiment
     thisEDround = EDround.trialList[0]  # so we can initialise stimuli with some values
     # abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
     if thisEDround != None:
@@ -1381,7 +1390,7 @@ for edx in EDrounds:
             finaln_rightbutton_value.append(RB[0:4])
         
         # open up the next row for more data
-        thisExp2.nextEntry()
+        thisExp3.nextEntry()
         
         # the Routine was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()    
@@ -1516,7 +1525,7 @@ finaln_nback_run = data.TrialHandler(nReps=1.0, method='sequential',
     extraInfo=expInfo, originPath=-1,
     trialList=data.importConditions(finaln_stimuliList[finaln_tasklevel]),
     seed=None, name='finaln_nback_run')
-thisExp3.addLoop(finaln_nback_run)  # add the loop to the experiment
+thisExp4.addLoop(finaln_nback_run)  # add the loop to the experiment
 this_finaln_nback_run = finaln_nback_run.trialList[0]  # so we can initialise stimuli with some values
 # abbreviate parameter names if possible (e.g. rgb = thisOneback_run1.rgb)
 if this_finaln_nback_run != None:
@@ -1755,7 +1764,7 @@ for this_finaln_nback_run in finaln_nback_run:
         finaln_nback_run.addData('finaln_trial_resp.rt', finaln_trial_resp.rt)
     finaln_nback_run.addData('finaln_level', finaln_tasklevel) # the n-back level
     finaln_nback_run.addData('finaln_money', finaln_taskvalue+1) # the additional money that the participant receives (for the experimenter to look it up in case they missed it during the paradigm)
-    thisExp3.nextEntry()
+    thisExp4.nextEntry()
 
 
 # ------Prepare to start Routine "Goodbye"-------
@@ -1834,10 +1843,13 @@ thisExp2.saveAsWideText(filename2+'.csv', delim='auto')
 thisExp2.saveAsPickle(filename2)
 thisExp3.saveAsWideText(filename3+'.csv', delim='auto')
 thisExp3.saveAsPickle(filename3)
+thisExp4.saveAsWideText(filename4+'.csv', delim='auto')
+thisExp4.saveAsPickle(filename4)
 logging.flush()
 # make sure everything is closed down
 thisExp1.abort()  # or data files will save again on exit
 thisExp2.abort()
 thisExp3.abort()
+thisExp4.abort()
 win.close()
 core.quit()
