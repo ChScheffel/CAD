@@ -1557,9 +1557,7 @@
   
   # prepare empty data frame for the loop to feed into
   
-  sca_results <- data.frame(pipeline = double(), nfc_f = double(), nfc_p = double(), nfc_BF10 = double(),
-                            level_f = double(), level_p = double(), level_BF10 = double(),
-                            interaction_f = double(), interaction_p = double(), interaction_BF10 = double())
+  sca_results <- data.frame(pipeline = double(), effect = character(), fvalue = double(), pvalue = double(), BF10 = double())
   
   for (i in 1:length(pipelines_data)) {
     
@@ -1593,14 +1591,14 @@
 
     # pull relevant results from data frame and add Bayes Factors
     
-    sca_rmanova <- data.frame(pipeline = i,
-                              nfc_f = sca_rmanova["nfcmedian","F value"], nfc_p = sca_rmanova["nfcmedian","Pr(>F)"],
-                              nfc_BF10 = extractBF(anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = sca_data, progress = FALSE))["nfcmedian","bf"],
-                              level_f = sca_rmanova["nlevels","F value"], level_p = sca_rmanova["nlevels","Pr(>F)"],
-                              level_BF10 = extractBF(anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = sca_data, progress = FALSE))["nlevels","bf"],
-                              interaction_f = sca_rmanova["nfcmedian:nlevels","F value"], interaction_p = sca_rmanova["nfcmedian:nlevels","Pr(>F)"],
-                              interaction_BF10 = extractBF(anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = sca_data, progress = FALSE))["nlevels + nfcmedian + nlevels:nfcmedian","bf"]/
-                                extractBF(anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = sca_data, progress = FALSE))["nlevels + nfcmedian","bf"])
+    sca_rmanova <- data.frame(pipeline = rep(names(pipelines_data)[i],3),
+                              effect = c("NFC", "Level", "Interaction"),
+                              fvalue = c(sca_rmanova["nfcmedian","F value"], sca_rmanova["nlevels","F value"], sca_rmanova["nfcmedian:nlevels","F value"]),
+                              pvalue = c(sca_rmanova["nfcmedian","Pr(>F)"], sca_rmanova["nlevels","Pr(>F)"], interaction_p = sca_rmanova["nfcmedian:nlevels","Pr(>F)"]),
+                              BF10 = c(extractBF(anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = sca_data, progress = FALSE))["nfcmedian","bf"],
+                                       extractBF(anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = sca_data, progress = FALSE))["nlevels","bf"],
+                                       extractBF(anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = sca_data, progress = FALSE))["nlevels + nfcmedian + nlevels:nfcmedian","bf"]/
+                                         extractBF(anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = sca_data, progress = FALSE))["nlevels + nfcmedian","bf"]))
     
     # bind results to main results data frame
     
@@ -1610,34 +1608,75 @@
     
   # sort the data frame by the F value of the predictor 'NFC'
   
-  #sca_results <- sca_results[order(sca_results$nfc_f, decreasing = TRUE), ]
+  sca_results <- cbind(sca_results, num = rep(c(1:(nrow(sca_results)/3)), each = 3))
+  sca_results <- sca_results[order(sca_results$effect, sca_results$fvalue, decreasing = TRUE), ]
+  #sca_results[sca_results$effect == "NFC", ] <- sca_results[match(sca_results$num[sca_results$effect == "Level"],
+                                                                     #sca_results$num[sca_results$effect == "NFC"]),]
   
   # lock it in place by turning it into a factor
   
-  #sca_results$num <- factor(sca_results$num, levels = sca_results$num[sca_results$predictor == "NFC"])
+  sca_results$num <- factor(sca_results$num, levels = sca_results$num[sca_results$effect == "NFC"])
   
   # add a column to plot only points that are significant
   
-  #sca_results$sign <- ifelse(sca_results$pvalue < .05, sca_results$beta, NA)
+  sca_results$sign <- ifelse(sca_results$pvalue < .05, sca_results$fvalue, NA)
+  
   
   # add columns to the data frame that describe the pipeline
   
-  # sca_results$Dim <- ifelse(substr(sca_results$pipeline,1,2) == "AA", 2,
-  #                           ifelse(substr(sca_results$pipeline,1,2) == "AW", 3,
-  #                                  ifelse(substr(sca_results$pipeline,1,2) == "WW", 4,
-  #                                         ifelse(substr(sca_results$pipeline,1,2) == "WA", 5, NA))))
-  # sca_results$Trans <- ifelse(substr(sca_results$pipeline,3,3) == "R", 7,
-  #                             ifelse(substr(sca_results$pipeline,3,3) == "L", 8,
-  #                                    ifelse(substr(sca_results$pipeline,3,3) == "L", 8,
-  #                                           ifelse(substr(sca_results$pipeline,3,3) == "I", 9,
-  #                                                  ifelse(substr(sca_results$pipeline,3,3) == "S", 10, NA)))))
-  # sca_results$Excl <- ifelse(substr(sca_results$pipeline,4,4) == "N", 12,
-  #                            ifelse(substr(sca_results$pipeline,4,4) == "2", 13,
-  #                                   ifelse(substr(sca_results$pipeline,4,4) == "5", 14,
-  #                                          ifelse(substr(sca_results$pipeline,4,4) == "3", 15,
-  #                                                 ifelse(substr(sca_results$pipeline,4,4) == "O", 16, 
-  #                                                        ifelse(substr(sca_results$pipeline,4,4) == "T", 17, NA))))))
+  sca_results$Dim <- ifelse(substr(sca_results$pipeline,1,2) == "AA", 2,
+                            ifelse(substr(sca_results$pipeline,1,2) == "AW", 3,
+                                   ifelse(substr(sca_results$pipeline,1,2) == "WW", 4,
+                                          ifelse(substr(sca_results$pipeline,1,2) == "WA", 5, NA))))
+  sca_results$Trans <- ifelse(substr(sca_results$pipeline,3,3) == "R", 7,
+                              ifelse(substr(sca_results$pipeline,3,3) == "L", 8,
+                                     ifelse(substr(sca_results$pipeline,3,3) == "L", 8,
+                                            ifelse(substr(sca_results$pipeline,3,3) == "I", 9,
+                                                   ifelse(substr(sca_results$pipeline,3,3) == "S", 10, NA)))))
+  sca_results$Excl <- ifelse(substr(sca_results$pipeline,4,4) == "N", 12,
+                             ifelse(substr(sca_results$pipeline,4,4) == "2", 13,
+                                    ifelse(substr(sca_results$pipeline,4,4) == "5", 14,
+                                           ifelse(substr(sca_results$pipeline,4,4) == "3", 15,
+                                                  ifelse(substr(sca_results$pipeline,4,4) == "O", 16,
+                                                         ifelse(substr(sca_results$pipeline,4,4) == "T", 17, NA))))))
   
+##### Plot Specification Curve Analysis ########################################
+  
+  # upper plot with the lines for F statistic and BF10
+  
+  ggplot(data = sca_results, aes(x = num, color = effect)) +
+    geom_line(aes(y = fvalue, group = effect), size = 1) +
+    geom_line(aes(y = BF10, group = effect), size = 1, linetype = "dotted") +
+    scale_y_continuous(name = "F value",
+                       sec.axis = sec_axis(~.*2, name = "Bayes Factor BF10")) +
+    #geom_point(data = sca_results, aes(x = num, y = sign)) +
+    labs(x = NULL) +
+    theme_prism(base_size = 10) +
+    theme(axis.text.x = element_blank()) +
+    scale_colour_manual(values = met.brewer("Hiroshige", 3))
+  
+  # lower plot with the dots for the pipelines
+  
+  ggplot(data = sca_results) +
+    geom_hline(yintercept = c(1,6,11), color = "grey", size = 0.5) +
+    geom_hline(yintercept = c(2:5,7:10,12:17), color = "grey", linetype = "dashed", size = 0.2) +
+    geom_point(aes(x = num, y = Dim)) +
+    geom_point(aes(x = num, y = Trans)) +
+    geom_point(aes(x = num, y = Excl)) +
+    theme_classic() +
+    labs(x = "Analysis pipeline", y = NULL) +
+    scale_y_reverse(breaks = c(1:17), lim = c(17,0.5), labels = c(expression(bold("Dimension")),
+                                                                  "Across S, across C", "Across S, within C",
+                                                                  "Within S, within C", "Within S, across C",
+                                                                  expression(bold("Transformation")),
+                                                                  "Raw/None", "Log", "Inverse", "Square-root",
+                                                                  expression(bold("Exclusion")),
+                                                                  "None", "2 MAD from median", " 2.5 MAD from median",
+                                                                  "3 MAD from median", "100ms after onset", "200ms after onset")) +
+    theme_prism(base_size = 10) +
+    theme(axis.text.x = element_blank(), axis.title.x = element_text(margin = margin(t = 10)),
+          axis.line.y = element_line(size = 1, color = "black"),
+          legend.position = "none")
 ##### Save variables ###########################################################
   
   save.image(file = "Workspace.RData")
