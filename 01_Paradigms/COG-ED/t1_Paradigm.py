@@ -1353,13 +1353,19 @@ for vsx in VS1rounds:
     # which button was clicked (1 = yes, 0 = no)
     if EDclick.clicked_name[0] == 'EDleftbutton':
         VS1round.addData('VS1leftbutton.wasclicked', 1)
+        leftbutton_1vs1_clicked.append(1)
         VS1round.addData('VS1rightbutton.wasclicked', 0)
+        rightbutton_1vs1_clicked.append(0)
     else:
         VS1round.addData('VS1leftbutton.wasclicked', 0)
+        leftbutton_1vs1_clicked.append(0)
         VS1round.addData('VS1rightbutton.wasclicked', 1)
-    # what levelcolor each button had
+        rightbutton_1vs1_clicked.append(1)
+    # what level each button was
     VS1round.addData('VS1leftbutton.nback', VS1levList[VS1comps[vsx]])
     VS1round.addData('VS1rightbutton.nback', VS1levList[VS1comps[vsx]+1])
+    leftbutton_1vs1_level.append(VS1levList[VS1comps[vsx]])
+    rightbutton_1vs1_level.append(VS1levList[VS1comps[vsx]+1])
     # store the necessary variables to be able to use it in the iteration process and for the random pick of the last n-back
     VS1storebutton.append(EDclick.clicked_name[0])
         
@@ -1367,7 +1373,11 @@ for vsx in VS1rounds:
     thisExp2.nextEntry()
     
     # the Routine was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset() 
+    routineTimer.reset()
+
+# Calculate which levels are fixed and which are flexible in each pair
+
+
 
 
 # ------Prepare to start Routine "InstructionED"-------
