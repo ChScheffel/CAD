@@ -225,6 +225,29 @@ feedback = visual.TextStim(win=win, name='feedback',
     depth=-1.0);
 fb_key = keyboard.Keyboard()
 
+
+# ------------------------------
+# 1 vs 1 components
+# ------------------------------
+
+# Initialize components for ED instruction routine
+Instruction1vs1Clock = core.Clock()
+text = visual.TextStim(win=win, name='text',
+    text='Nun beginnt der zweite Teil.\n\nDie unterschiedlichen Level, die Sie gerade absolviert haben, werden nun nacheinander gegenübergestellt.\n'\
+        'Auf dem Bildschirm erscheint die Frage "Welche Bezahlung würden Sie eher für welches Level annehmen?". Darunter befinden sich zwei Textfelder, '\
+        'zum Beispiel "1,00€ für das rote Level" und "1,00€ für das schwarze Level". Sie können die Frage beantworten, indem Sie mit der Maus '\
+        '(mit einem einfachen Klick) auf eins der beiden Felder klicken. Dabei geht es nicht um Schnelligkeit. Nachdem Sie geklickt haben, '\
+        'werden sich die Level verändern und Sie können sich erneut entscheiden. Auf diese Weise werden alle Level mehrmals miteinander verglichen.\n'\
+        'Zur Erinnerung:\n'\
+        'Erstes Level = schwarz, zweites Level = rot, drittes Level = blau, viertes Level = grün.\n\n'\
+        'Drücken Sie die Leertaste, um zu beginnen.',
+    font='Open Sans',
+    pos=(0, 0), height=0.025, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+key_resp = keyboard.Keyboard()
+
 # ------------------------------
 # Effort Discounting components
 # ------------------------------
