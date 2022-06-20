@@ -39,7 +39,6 @@ psychopyVersion = '2021.1.4'
 expName1 = 't1_nback'
 expName2 = 't1_ED'
 expName3 = 't1_randomchoice'
-expName4 = 't1_compliance'
 expInfo = {'Participant': ''}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title='t1_Paradigm')
 if dlg.OK == False:
@@ -55,8 +54,6 @@ filename1 = _thisDir + os.sep + u'data/%s_%s' % (expInfo['Participant'], expName
 filename2 = _thisDir + os.sep + u'data/%s_%s' % (expInfo['Participant'], expName2)
 # For the final n-back level at the end that is randomly chosen
 filename3 = _thisDir + os.sep + u'data/%s_%s' % (expInfo['Participant'], expName3)
-# For the final question about compliance
-filename4 = _thisDir + os.sep + u'data/%s_%s' % (expInfo['Participant'], expName4)
 
 # An ExperimentHandler isn't essential but helps with data saving
 # For n-back
@@ -77,12 +74,6 @@ thisExp3 = data.ExperimentHandler(name=expName3, version='',
     originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename3)
-# For the final question about compliance
-thisExp4 = data.ExperimentHandler(name=expName4, version='',
-    extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CERED\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
-    savePickle=True, saveWideText=True,
-    dataFileName=filename4)
 
 # save a log file for detail verbose info
 logFile = logging.LogFile(filename1+'.log', level=logging.EXP)
@@ -154,7 +145,7 @@ nruns = list(range(2))
 nref = [0,2,4,6]
 
 # The steps in which the monetary values will be adapted in the ED part
-EDsteps = [1.00,1.00,0.50,0.25,0.13,0.06,0.03,0.02]
+EDsteps = [1.00,1.00,0.50,0.25,0.125,0.0625,0.03125,0.015625]
 # The constant monetary value that will be assigned to the option that was not chosen in the 1€ vs 1€ comparison
 EDfix = [2.00]
 # Create array corresponding to rounds of effort discounting aka the list elements
@@ -350,67 +341,6 @@ finaln_nback_trial = visual.TextStim(win=win, name='finaln_trial',
     languageStyle='LTR',
     depth=0.0);
 finaln_trial_resp = keyboard.Keyboard()
-
-# --------------------------------
-# Final question
-# --------------------------------
-
-# Initialize final question routine
-QUESTClock = core.Clock()
-question = visual.TextStim(win=win, name='question',
-    text='Eine letzte Frage:\n\nHaben Sie sich bei den Aufgaben an die Instruktion gehalten?',
-    font='Open Sans',
-    pos=[0,0.1], height=0.03, wrapWidth=None, ori=0.0, 
-    color='black', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=0.0);
-
-# Initialize QUEST mouse click routine
-QUESTclick = event.Mouse(win=win)
-x, y = [None, None]
-QUESTclick.mouseClock = core.Clock()
-
-# Initialize QUEST left button
-QUESTleftbutton = visual.ButtonStim(win, 
-    text= 'Ja, habe ich', font='Open Sans',
-    pos=[-0.3,-0.15],units='height',
-    letterHeight=0.03,
-    size=[0.5,0.1], borderWidth=0.0,
-    fillColor='darkgrey', borderColor=None,
-    color='black', colorSpace='rgb',
-    opacity=None,
-    bold=True, italic=False,
-    padding=0.03,
-    anchor='center',
-    name='QUESTyes')
-QUESTleftbutton.buttonClock = core.Clock()
-
-# Initialize QUEST right button
-QUESTrightbutton = visual.ButtonStim(win, 
-   text= 'Nein, habe ich nicht', font='Open Sans',
-   pos=[0.3,-0.15],units='height',
-   letterHeight=0.03,
-   size=[0.5,0.1], borderWidth=0.0,
-   fillColor='darkgrey', borderColor=None,
-   color='black', colorSpace='rgb',
-   opacity=None,
-   bold=True, italic=False,
-   padding=0.03,
-   anchor='center',
-   name='QUESTno')
-QUESTrightbutton.buttonClock = core.Clock()
-
-# Initialize buffer screen for before final question
-QUESTbufferscreenClock = core.Clock()
-QUESTbufferscreen = visual.TextStim(win=win, name='QUESTbufferscreen',
-    text='',
-    font='Open Sans',
-    pos=[0,0.1], height=0.03, wrapWidth=None, ori=0.0, 
-    color='black', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=0.0);
-bufferscreenkey = keyboard.Keyboard()
-QUESTstorebutton = []
 
 # Create some handy timers
 globalClock = core.Clock()  # to track the time since experiment started
@@ -1828,275 +1758,6 @@ for this_finaln_nback_run in finaln_nback_run:
     thisExp3.nextEntry()
 
 
-# ------Prepare to start Routine "bufferscreen"-------
-continueRoutine = True
-routineTimer.add(1.000000)
-# update component parameters for each repeat
-bufferscreenkey.keys = []
-bufferscreenkey.rt = []
-_bufferscreenkey_allKeys = []
-# make mouse cursor visible
-win.mouseVisible = True
-# keep track of which components have finished
-QUESTbufferscreenComponents = [QUESTbufferscreen, bufferscreenkey]
-for thisComponent in QUESTbufferscreenComponents:
-    thisComponent.tStart = None
-    thisComponent.tStop = None
-    thisComponent.tStartRefresh = None
-    thisComponent.tStopRefresh = None
-    if hasattr(thisComponent, 'status'):
-        thisComponent.status = NOT_STARTED
-# reset timers
-t = 0
-_timeToFirstFrame = win.getFutureFlipTime(clock="now")
-QUESTbufferscreenClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
-frameN = -1
-
-# -------Run Routine "bufferscreen"-------
-while continueRoutine and routineTimer.getTime() > 0:
-    # get current time
-    t = QUESTbufferscreenClock.getTime()
-    tThisFlip = win.getFutureFlipTime(clock=QUESTbufferscreenClock)
-    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-    # update/draw components on each frame
-
-    # *bufferscreen* updates
-    if QUESTbufferscreen.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        QUESTbufferscreen.frameNStart = frameN  # exact frame index
-        QUESTbufferscreen.tStart = t  # local t and not account for scr refresh
-        QUESTbufferscreen.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(QUESTbufferscreen, 'tStartRefresh')  # time at next scr refresh
-        QUESTbufferscreen.setAutoDraw(True)
-    if QUESTbufferscreen.status == STARTED:
-        # is it time to stop? (based on global clock, using actual start)
-        if tThisFlipGlobal > QUESTbufferscreen.tStartRefresh + 2.0-frameTolerance:
-            # keep track of stop time/frame for later
-            QUESTbufferscreen.tStop = t  # not accounting for scr refresh
-            QUESTbufferscreen.frameNStop = frameN  # exact frame index
-            win.timeOnFlip(QUESTbufferscreen, 'tStopRefresh')  # time at next scr refresh
-            QUESTbufferscreen.setAutoDraw(False)
-
-    # *bufferscreenkey* updates
-    waitOnFlip = False
-    if bufferscreenkey.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        bufferscreenkey.frameNStart = frameN  # exact frame index
-        bufferscreenkey.tStart = t  # local t and not account for scr refresh
-        bufferscreenkey.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(bufferscreenkey, 'tStartRefresh')  # time at next scr refresh
-        bufferscreenkey.status = STARTED
-        # keyboard checking is just starting
-        waitOnFlip = True
-        win.callOnFlip(bufferscreenkey.clock.reset)  # t=0 on next screen flip
-        win.callOnFlip(bufferscreenkey.clearEvents, eventType='keyboard')  # clear events on next screen flip
-    if bufferscreenkey.status == STARTED:
-        # is it time to stop? (based on global clock, using actual start)
-        if tThisFlipGlobal > bufferscreenkey.tStartRefresh + 2.0-frameTolerance:
-            # keep track of stop time/frame for later
-            bufferscreenkey.tStop = t  # not accounting for scr refresh
-            bufferscreenkey.frameNStop = frameN  # exact frame index
-            win.timeOnFlip(bufferscreenkey, 'tStopRefresh')  # time at next scr refresh
-            bufferscreenkey.status = FINISHED
-    if bufferscreenkey.status == STARTED and not waitOnFlip:
-        theseKeys = bufferscreenkey.getKeys(keyList=['left', 'right', 'space'], waitRelease=False)
-        _bufferscreenkey_allKeys.extend(theseKeys)
-        if len(_bufferscreenkey_allKeys):
-            bufferscreenkey.keys = _bufferscreenkey_allKeys[-1].name  # just the last key pressed
-            bufferscreenkey.rt = _bufferscreenkey_allKeys[-1].rt
-    
-    # check for quit (typically the Esc key)
-    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-        core.quit()
-
-    # check if all components have finished
-    if not continueRoutine:  # a component has requested a forced-end of Routine
-        break
-    continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in QUESTbufferscreenComponents:
-        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-            continueRoutine = True
-            break  # at least one component has not yet finished
-
-    # refresh the screen
-    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-        win.flip()
-
-# -------Ending Routine "Bufferscreen"-------
-for thisComponent in QUESTbufferscreenComponents:
-    if hasattr(thisComponent, "setAutoDraw"):
-        thisComponent.setAutoDraw(False)
-# hide mouse cursor
-win.mouseVisible = False
-# check responses
-if bufferscreenkey.keys in ['', [], None]:  # No response was made
-    bufferscreenkey.keys = None
-
-# ------Prepare to start Routine -------
-continueRoutine = True
-# setup some python lists for storing info about the response click
-QUESTclick.clicked_name = []
-gotValidClick = False  # until a click is received
-# make mouse cursor visible
-win.mouseVisible = True
-# keep track of which components have finished
-QUESTroundComponents = [question, QUESTclick, QUESTleftbutton, QUESTrightbutton]
-for thisComponent in QUESTroundComponents:
-    thisComponent.tStart = None
-    thisComponent.tStop = None
-    thisComponent.tStartRefresh = None
-    thisComponent.tStopRefresh = None
-    if hasattr(thisComponent, 'status'):
-        thisComponent.status = NOT_STARTED
-# reset timers
-t = 0
-_timeToFirstFrame = win.getFutureFlipTime(clock="now")
-QUESTClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
-frameN = -1
-
-# -------Run Routine -------
-while continueRoutine:
-    # get current time
-    t = QUESTClock.getTime()
-    tThisFlip = win.getFutureFlipTime(clock=QUESTClock)
-    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-    # update/draw components on each frame
-    
-    # *question* updates
-    if question.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        question.frameNStart = frameN  # exact frame index
-        question.tStart = t  # local t and not account for scr refresh
-        question.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(question, 'tStartRefresh')  # time at next scr refresh
-        question.setAutoDraw(True)
-    # *response click* updates
-    if QUESTclick.status == NOT_STARTED and t >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        QUESTclick.frameNStart = frameN  # exact frame index
-        QUESTclick.tStart = t  # local t and not account for scr refresh
-        QUESTclick.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(QUESTclick, 'tStartRefresh')  # time at next scr refresh
-        QUESTclick.status = STARTED
-        QUESTclick.mouseClock.reset()
-        QUESTclick.clickReset()
-        prevButtonState = QUESTclick.getPressed()  # if button is down already this ISN'T a new click
-    if QUESTclick.status == STARTED:  # only update if started and not finished!
-        buttons = QUESTclick.getPressed()
-        if buttons != prevButtonState:  # button state changed?
-            prevButtonState = buttons
-            if sum(buttons) > 0:  # state changed to a new click
-                # check if the mouse was inside our 'clickable' objects
-                gotValidClick = False
-                for obj in [QUESTleftbutton,QUESTrightbutton]:
-                    if obj.contains(QUESTclick):
-                        gotValidClick = True
-                        QUESTclick.clicked_name.append(obj.name)
-                if gotValidClick:  # abort routine on response
-                    continueRoutine = False
-    
-    # *LeftButton* updates
-    if QUESTleftbutton.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        QUESTleftbutton.frameNStart = frameN  # exact frame index
-        QUESTleftbutton.tStart = t  # local t and not account for scr refresh
-        QUESTleftbutton.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(QUESTleftbutton, 'tStartRefresh')  # time at next scr refresh
-        QUESTleftbutton.setAutoDraw(True)
-    if QUESTleftbutton.status == STARTED:
-        # check whether LeftButton has been pressed
-        if QUESTleftbutton.isClicked:
-            if not QUESTleftbutton.wasClicked:
-                QUESTleftbutton.timesOn.append(QUESTleftbutton.buttonClock.getTime()) # store time of first click
-                QUESTleftbutton.timesOff.append(QUESTleftbutton.buttonClock.getTime()) # store time clicked until
-            else:
-                QUESTleftbutton.timesOff[-1] = QUESTleftbutton.buttonClock.getTime() # update time clicked until
-            if not QUESTleftbutton.wasClicked:
-                continueRoutine = False  # end routine when LeftButton is clicked
-                None
-            QUESTleftbutton.wasClicked = True  # if LeftButton is still clicked next frame, it is not a new click
-        else:
-            QUESTleftbutton.wasClicked = False  # if LeftButton is clicked next frame, it is a new click
-    else:
-        QUESTleftbutton.buttonClock.reset() # keep clock at 0 if button hasn't started / has finished
-        QUESTleftbutton.wasClicked = False  # if LeftButton is clicked next frame, it is a new click
-    
-    # *RightButton* updates
-    if QUESTrightbutton.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        QUESTrightbutton.frameNStart = frameN  # exact frame index
-        QUESTrightbutton.tStart = t  # local t and not account for scr refresh
-        QUESTrightbutton.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(QUESTrightbutton, 'tStartRefresh')  # time at next scr refresh
-        QUESTrightbutton.setAutoDraw(True)
-    if QUESTrightbutton.status == STARTED:
-        # check whether RightButton has been pressed
-        if QUESTrightbutton.isClicked:
-            if not QUESTrightbutton.wasClicked:
-                QUESTrightbutton.timesOn.append(QUESTrightbutton.buttonClock.getTime()) # store time of first click
-                QUESTrightbutton.timesOff.append(QUESTrightbutton.buttonClock.getTime()) # store time clicked until
-            else:
-                QUESTrightbutton.timesOff[-1] = QUESTrightbutton.buttonClock.getTime() # update time clicked until
-            if not QUESTrightbutton.wasClicked:
-                continueRoutine = False  # end routine when RightButton is clicked
-                None
-            QUESTrightbutton.wasClicked = True  # if RightButton is still clicked next frame, it is not a new click
-        else:
-            QUESTrightbutton.wasClicked = False  # if RightButton is clicked next frame, it is a new click
-    else:
-        QUESTrightbutton.buttonClock.reset() # keep clock at 0 if button hasn't started / has finished
-        QUESTrightbutton.wasClicked = False  # if RightButton is clicked next frame, it is a new click
-    
-    # check for quit (typically the Esc key)
-    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-        core.quit()
-    
-    # check if all components have finished
-    if not continueRoutine:  # a component has requested a forced-end of Routine
-        break
-    continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in QUESTroundComponents:
-        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-            continueRoutine = True
-            break  # at least one component has not yet finished
-    
-    # refresh the screen
-    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-        win.flip()
-
-# -------Ending Routine-------
-for thisComponent in QUESTroundComponents:
-    if hasattr(thisComponent, "setAutoDraw"):
-        thisComponent.setAutoDraw(False)
-# store data for rounds (TrialHandler)
-x, y = QUESTclick.getPos()
-buttons = QUESTclick.getPressed()
-if sum(buttons):
-    # check if the mouse was inside our 'clickable' objects
-    gotValidClick = False
-    for obj in [QUESTleftbutton,QUESTrightbutton]:
-        if obj.contains(QUESTclick):
-            gotValidClick = True
-            QUESTclick.clicked_name.append(obj.name)
-if len(QUESTclick.clicked_name):
-    QUESTround.addData('QUESTclick.clicked_name', QUESTclick.clicked_name[0])
-# which button was clicked (1 = yes, 0 = no)
-if QUESTclick.clicked_name[0] == 'QUESTyes':
-    QUESTround.addData('QUESTyes.wasclicked', 1)
-    QUESTround.addData('QUESTno.wasclicked', 0)
-else:
-    QUESTround.addData('QUESTyes.wasclicked', 0)
-    QUESTround.addData('QUESTno.wasclicked', 1)
-
-# open up the next row for more data
-thisExp4.nextEntry()
-
-# the Routine was not non-slip safe, so reset the non-slip timer
-routineTimer.reset()  
-
-
 # ------Prepare to start Routine "Goodbye"-------
 continueRoutine = True
 # hide mouse cursor
@@ -2173,13 +1834,10 @@ thisExp2.saveAsWideText(filename2+'.csv', delim='auto')
 thisExp2.saveAsPickle(filename2)
 thisExp3.saveAsWideText(filename3+'.csv', delim='auto')
 thisExp3.saveAsPickle(filename3)
-thisExp4.saveAsWideText(filename4+'.csv', delim='auto')
-thisExp4.saveAsPickle(filename4)
 logging.flush()
 # make sure everything is closed down
 thisExp1.abort()  # or data files will save again on exit
 thisExp2.abort()
 thisExp3.abort()
-thisExp4.abort()
 win.close()
 core.quit()
