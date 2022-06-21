@@ -1390,7 +1390,7 @@ choices23 = []
 choices24 = []
 choices34 = []
 
-for i in leftbutton_1vs1_level:
+for i in VS1rounds:
     # create variables containing the levels on and choices of both buttons
     currentbuttons = [leftbutton_1vs1_level[i], rightbutton_1vs1_level[i]]
     currentchoices = [leftbutton_1vs1_clicked[i], rightbutton_1vs1_clicked[i]]
@@ -1399,22 +1399,22 @@ for i in leftbutton_1vs1_level:
         # this command retains only the level that was chosen
         currentclick = list(compress(currentbuttons, currentchoices))
         # append chosen level to the variable
-        choices12.append(currentclick)
+        choices12.append(currentclick[0])
     elif all(x in currentbuttons for x in [1,3]):
         currentclick = list(compress(currentbuttons, currentchoices))
-        choices13.append(currentclick)
+        choices13.append(currentclick[0])
     elif all(x in currentbuttons for x in [1,4]):
         currentclick = list(compress(currentbuttons, currentchoices))
-        choices14.append(currentclick)
+        choices14.append(currentclick[0])
     elif all(x in currentbuttons for x in [2,3]):
         currentclick = list(compress(currentbuttons, currentchoices))
-        choices23.append(currentclick)
+        choices23.append(currentclick[0])
     elif all(x in currentbuttons for x in [2,4]):
         currentclick = list(compress(currentbuttons, currentchoices))
-        choices24.append(currentclick)
+        choices24.append(currentclick[0])
     else:
         currentclick = list(compress(currentbuttons, currentchoices))
-        choices34.append(currentclick)
+        choices34.append(currentclick[0])
 
 # now reduce all 'choices' variables to the level that was chosen at least 2 out of 3 times
 flexible12 = most_frequent(choices12)
