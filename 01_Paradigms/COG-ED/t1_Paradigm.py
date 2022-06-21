@@ -1424,6 +1424,44 @@ flexible23 = most_frequent(choices23)
 flexible24 = most_frequent(choices24)
 flexible34 = most_frequent(choices34)
 
+# put the information of fixed and flexible in the same format as the other ED variables
+EDfixflexList = []
+if flexible12 == 1:
+    EDfixflexList.append('flexible')
+    EDfixflexList.append('fixed')
+else:
+    EDfixflexList.append('fixed')
+    EDfixflexList.append('flexible')
+if flexible23 == 2:
+    EDfixflexList.append('flexible')
+    EDfixflexList.append('fixed')
+else:
+    EDfixflexList.append('fixed')
+    EDfixflexList.append('flexible')
+if flexible34 == 3:
+    EDfixflexList.append('flexible')
+    EDfixflexList.append('fixed')
+else:
+    EDfixflexList.append('fixed')
+    EDfixflexList.append('flexible')
+if flexible14 == 1:
+    EDfixflexList.append('flexible')
+    EDfixflexList.append('fixed')
+else:
+    EDfixflexList.append('fixed')
+    EDfixflexList.append('flexible')
+if flexible24 == 2:
+    EDfixflexList.append('flexible')
+    EDfixflexList.append('fixed')
+else:
+    EDfixflexList.append('fixed')
+    EDfixflexList.append('flexible')
+if flexible13 == 1:
+    EDfixflexList.append('flexible')
+    EDfixflexList.append('fixed')
+else:
+    EDfixflexList.append('fixed')
+    EDfixflexList.append('flexible')
 
 # ------Prepare to start Routine "InstructionED"-------
 continueRoutine = True
