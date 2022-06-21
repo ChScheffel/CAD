@@ -163,7 +163,7 @@ EDsteps = [1.00,0.50,0.25,0.13,0.06,0.03,0.02]
 # The constant monetary value that will be assigned to the option that was not chosen in the 1€ vs 1€ comparison
 EDfix = [2.00]
 # Create array corresponding to rounds of effort discounting aka the list elements
-EDrounds = list(range(5))
+EDrounds = list(range(6))
 # Create array corresponding to every second element in the list of comparisons, which will be randomized for every participant
 EDcomps = [0,2,4,6,8,10]
 random.shuffle(EDcomps)
@@ -281,12 +281,11 @@ key_resp = keyboard.Keyboard()
 # Initialize components for ED instruction routine
 InstructionEDClock = core.Clock()
 text = visual.TextStim(win=win, name='text',
-    text='Nun beginnt der zweite Teil.\n\nDie unterschiedlichen Level, die Sie gerade absolviert haben, werden nun nacheinander gegenübergestellt.\n'\
-        'Auf dem Bildschirm erscheint die Frage "Welche Bezahlung würden Sie eher für welches Level annehmen?". Darunter befinden sich zwei Textfelder, '\
-        'zum Beispiel "1,00€ für das rote Level" und "1,00€ für das schwarze Level". Sie können die Frage beantworten, indem Sie mit der Maus '\
-        '(mit einem einfachen Klick) auf eins der beiden Felder klicken. Dabei geht es nicht um Schnelligkeit. Nachdem Sie geklickt haben, '\
-        'werden sich die Geldbeträge verändern und Sie können sich erneut entscheiden. Auf diese Weise werden alle Level miteinander verglichen werden.\n'\
-        'Bitte entscheiden Sie sich so, dass Sie mit dem Verhältnis der Optionen wirklich zufrieden sind.\n'\
+    text='Nun ändert sich der Ablauf ein wenig.\nEs verändern sich jetzt nicht vorrangig die Level, sondern die Geldbeträge, die Ihnen angeboten werden.\n'\
+        'Bitte entscheiden Sie sich wieder für eine der Optionen, es geht dabei nicht um Schnelligkeit.\n'\
+        'Die Geldbeträge werden Ihnen NICHT zusätzlich zu Ihrer Teilnahme-Vergütung ausgezahlt. Es handelt sich um hypothetische Beträge. '\
+        'Versuchen Sie deshalb bitte nicht, die Beträge künstlich in die Höhe zu treiben, sondern entscheiden Sie sich so, '\
+        'dass Sie mit dem Verhältnis der Optionen wirklich zufrieden sind.\n'\
         'Eine Ihrer Entscheidungen wird anschließend zufällig für einen erneuten Durchgang ausgewählt.\n\n'\
         'Drücken Sie die Leertaste, um zu beginnen.',
     font='Open Sans',
@@ -1695,49 +1694,42 @@ for edx in EDrounds:
         # ------Prepare to start Routine -------
         continueRoutine = True
         # update component parameters for each repeat
-        if Currentstep == 0:
-            # in the beginning, both buttons offer 1€ for both levels
-            LB = str(format(EDsteps[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]]) + ' Level'
-            RB = str(format(EDsteps[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]+1]) + ' Level'
-        else:
-            if EDstorebutton[0] == 'EDleftbutton':
-            # if the participant chose the left button in the beginning, proceed as follows
-            # the right button value is fixed to 2€
-                RB = str(format(EDfix[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]+1]) + ' Level'
-                # now adapt the value of the left button depending on the previous choice
-                if Currentstep == 1:
-                    # set the left button to 1€ (because this does not fit in with the iteration process yet)
-                    LB = str(format(EDsteps[1],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]]) + ' Level' 
-                    oldvalue = EDsteps[1]
-                # iteration process
-                else:
-                    # if the cheaper option was chosen, lower that options value by the current EDsteps value
-                    if EDstorebutton[Currentstep-1] == 'EDleftbutton':
-                        newvalue = oldvalue - EDsteps[Currentstep]
-                    # if the pricier option was chosen, raise the other options value by the current EDsteps value
-                    else:
-                        newvalue = oldvalue + EDsteps[Currentstep]
-                    LB = str(format(newvalue,'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]]) + ' Level'
-                    oldvalue = newvalue
+        if EDfixflexList[EDcomps[edx]] == 'flexible':
+            # set the right button to display 2€
+            RB = str(format(EDfix[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]+1]) + ' Level'
+            # display the flexible value on the left button
+            if Currentstep == 0:
+                # for the first 1-vs-2-comparison, we don't need to refer to the last buttonclick
+                LB = str(format(EDsteps[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]]) + ' Level'
+                # set the 'old' value of the flexible button to 1€ (to be used in the next iteration)
+                oldvalue = EDsteps[0]
             else:
-            # if the participant chose the right button in the beginning, proceed as follows
-            # the left button value is fixed to 2€
-                LB = str(format(EDfix[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]]) + ' Level'
-                # now adapt the value of the right button depending on the previous choice
-                if Currentstep == 1:
-                    # set the right button to 1€ (because this does not fit in with the iteration process yet)
-                    RB = str(format(EDsteps[1],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]+1]) + ' Level' 
-                    oldvalue = EDsteps[1]
-                # iteration process
+                # adapt the value of the left button depending on the previous choice
+                if EDstorebutton[Currentstep-1] == 'EDleftbutton':
+                    newvalue = oldvalue - EDsteps[Currentstep]
+                # if the pricier option was chosen, raise the other options' value by the current EDsteps value
                 else:
-                    # if the cheaper option was chosen, lower that options value by the current EDsteps value
-                    if EDstorebutton[Currentstep-1] == 'EDrightbutton':
-                        newvalue = oldvalue - EDsteps[Currentstep]
-                    # if the pricier option was chosen, raise the other options value by the current EDsteps value
-                    else:
-                        newvalue = oldvalue + EDsteps[Currentstep]
-                    RB = str(format(newvalue,'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]+1]) + ' Level'
-                    oldvalue = newvalue
+                    newvalue = oldvalue + EDsteps[Currentstep]
+                LB = str(format(newvalue,'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]]) + ' Level'
+                oldvalue = newvalue
+        else:
+            # set the left button to display 2€
+            LB = str(format(EDfix[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]]) + ' Level'
+            # display the flexible value on the left button
+            if Currentstep == 0:
+                # for the first 1-vs-2-comparison, we don't need to refer to the last buttonclick
+                RB = str(format(EDsteps[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]+1]) + ' Level'
+                # set the 'old' value of the flexible button to 1€ (to be used in the next iteration)
+                oldvalue = EDsteps[0]
+            else:
+                # adapt the value of the right button depending on the previous choice
+                if EDstorebutton[Currentstep-1] == 'EDrightbutton':
+                    newvalue = oldvalue - EDsteps[Currentstep]
+                # if the pricier option was chosen, raise the other options' value by the current EDsteps value
+                else:
+                    newvalue = oldvalue + EDsteps[Currentstep]
+                RB = str(format(newvalue,'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]+1]) + ' Level'
+                oldvalue = newvalue
         
         EDleftbutton.setText(LB)
         EDrightbutton.setText(RB)
