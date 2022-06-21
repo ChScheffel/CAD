@@ -258,7 +258,7 @@ fb_key = keyboard.Keyboard()
 
 # Initialize components for 1 vs 1 instruction routine
 Instruction1vs1Clock = core.Clock()
-text = visual.TextStim(win=win, name='text',
+VS1text = visual.TextStim(win=win, name='VS1text',
     text='Nun beginnt der zweite Teil.\n\nDie unterschiedlichen Level, die Sie gerade absolviert haben, werden nun nacheinander gegenübergestellt.\n'\
         'Auf dem Bildschirm erscheint die Frage "Welche Bezahlung würden Sie eher für welches Level annehmen?". Darunter befinden sich zwei Textfelder, '\
         'zum Beispiel "1,00€ für das rote Level" und "1,00€ für das schwarze Level". Sie können die Frage beantworten, indem Sie mit der Maus '\
@@ -273,6 +273,51 @@ text = visual.TextStim(win=win, name='text',
     languageStyle='LTR',
     depth=0.0);
 key_resp = keyboard.Keyboard()
+
+# Initialize 1vs1 question routine
+VS1roundClock = core.Clock()
+question = visual.TextStim(win=win, name='question',
+    text='Welche Bezahlung würden Sie eher für welches Level annehmen?',
+    font='Open Sans',
+    pos=[0,0.1], height=0.03, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+
+# Initialize 1vs1 mouse click routine
+VS1click = event.Mouse(win=win)
+x, y = [None, None]
+VS1click.mouseClock = core.Clock()
+
+# Initialize 1vs1 left button
+VS1leftbutton = visual.ButtonStim(win, 
+    text= '', font='Open Sans',
+    pos=[-0.3,-0.15],units='height',
+    letterHeight=0.03,
+    size=[0.5,0.1], borderWidth=0.0,
+    fillColor='darkgrey', borderColor=None,
+    color='', colorSpace='rgb',
+    opacity=None,
+    bold=True, italic=False,
+    padding=0.03,
+    anchor='center',
+    name='VS1leftbutton')
+VS1leftbutton.buttonClock = core.Clock()
+
+# Initialize 1vs1 right button
+VS1rightbutton = visual.ButtonStim(win, 
+   text= '', font='Open Sans',
+   pos=[0.3,-0.15],units='height',
+   letterHeight=0.03,
+   size=[0.5,0.1], borderWidth=0.0,
+   fillColor='darkgrey', borderColor=None,
+   color='', colorSpace='rgb',
+   opacity=None,
+   bold=True, italic=False,
+   padding=0.03,
+   anchor='center',
+   name='VS1rightbutton')
+VS1rightbutton.buttonClock = core.Clock()
 
 # ------------------------------
 # Effort Discounting components
@@ -997,7 +1042,7 @@ _key_resp_allKeys = []
 # make mouse cursor visible
 win.mouseVisible = True
 # keep track of which components have finished
-Instruction1vs1Components = [text, key_resp]
+Instruction1vs1Components = [VS1text, key_resp]
 for thisComponent in Instruction1vs1Components:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -1021,13 +1066,13 @@ while continueRoutine:
     # update/draw components on each frame
     
     # *text* updates
-    if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+    if VS1text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
         # keep track of start time/frame for later
-        text.frameNStart = frameN  # exact frame index
-        text.tStart = t  # local t and not account for scr refresh
-        text.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
-        text.setAutoDraw(True)
+        VS1text.frameNStart = frameN  # exact frame index
+        VS1text.tStart = t  # local t and not account for scr refresh
+        VS1text.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(VS1text, 'tStartRefresh')  # time at next scr refresh
+        VS1text.setAutoDraw(True)
     
     # *key_resp* updates
     waitOnFlip = False
@@ -1089,7 +1134,24 @@ rightbutton_1vs1_clicked = [] # whether it was clicked or not
 # Loop for the 18 comparisons
 # -----------------------------
 
-for vsx in VS1rounds:
+# set up handler to look after randomisation of conditions etc
+VS1round = data.TrialHandler(nReps=1.0, method='sequential', 
+    extraInfo=expInfo, originPath=-1,
+    trialList=data.importConditions('C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\VS1_Rounds.xlsx'),
+    seed=None, name='EDround')
+thisExp2.addLoop(VS1round)  # add the loop to the experiment
+thisVS1round = VS1round.trialList[0]  # so we can initialise stimuli with some values
+# abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
+if thisVS1round != None:
+    for paramName in thisVS1round:
+        exec('{} = thisVS1round[paramName]'.format(paramName))
+
+for thisVS1round in VS1round:
+    currentLoop = VS1round
+    # abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
+    if thisVS1round != None:
+        for paramName in thisVS1round:
+            exec('{} = thisVS1round[paramName]'.format(paramName))
 
     # ------Prepare to start Routine "bufferscreen"-------
     continueRoutine = True
@@ -1202,15 +1264,15 @@ for vsx in VS1rounds:
     LB = '1 € für das ' + str(VS1levcompList[VS1comps[vsx]]) + ' Level'
     RB = '1 € für das ' + str(VS1levcompList[VS1comps[vsx]+1]) + ' Level'
     
-    EDleftbutton.setText(LB)
-    EDrightbutton.setText(RB)
+    VS1leftbutton.setText(LB)
+    VS1rightbutton.setText(RB)
     # setup some python lists for storing info about the response click
-    EDclick.clicked_name = []
+    VS1click.clicked_name = []
     gotValidClick = False  # until a click is received
     # make mouse cursor visible
     win.mouseVisible = True
     # keep track of which components have finished
-    VS1roundComponents = [question, EDclick, EDleftbutton, EDrightbutton]
+    VS1roundComponents = [question, VS1click, VS1leftbutton, VS1rightbutton]
     for thisComponent in VS1roundComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -1242,83 +1304,83 @@ for vsx in VS1rounds:
             win.timeOnFlip(question, 'tStartRefresh')  # time at next scr refresh
             question.setAutoDraw(True)
         # *response click* updates
-        if EDclick.status == NOT_STARTED and t >= 0.0-frameTolerance:
+        if VS1click.status == NOT_STARTED and t >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            EDclick.frameNStart = frameN  # exact frame index
-            EDclick.tStart = t  # local t and not account for scr refresh
-            EDclick.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(EDclick, 'tStartRefresh')  # time at next scr refresh
-            EDclick.status = STARTED
-            EDclick.mouseClock.reset()
-            EDclick.clickReset()
-            prevButtonState = EDclick.getPressed()  # if button is down already this ISN'T a new click
-        if EDclick.status == STARTED:  # only update if started and not finished!
-            buttons = EDclick.getPressed()
+            VS1click.frameNStart = frameN  # exact frame index
+            VS1click.tStart = t  # local t and not account for scr refresh
+            VS1click.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(VS1click, 'tStartRefresh')  # time at next scr refresh
+            VS1click.status = STARTED
+            VS1click.mouseClock.reset()
+            VS1click.clickReset()
+            prevButtonState = VS1click.getPressed()  # if button is down already this ISN'T a new click
+        if VS1click.status == STARTED:  # only update if started and not finished!
+            buttons = VS1click.getPressed()
             if buttons != prevButtonState:  # button state changed?
                 prevButtonState = buttons
                 if sum(buttons) > 0:  # state changed to a new click
                     # check if the mouse was inside our 'clickable' objects
                     gotValidClick = False
-                    for obj in [EDleftbutton,EDrightbutton]:
-                        if obj.contains(EDclick):
+                    for obj in [VS1leftbutton,VS1rightbutton]:
+                        if obj.contains(VS1click):
                             gotValidClick = True
-                            EDclick.clicked_name.append(obj.name)
+                            VS1click.clicked_name.append(obj.name)
                     if gotValidClick:  # abort routine on response
                         continueRoutine = False
             
         # *LeftButton* updates
-        if EDleftbutton.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        if VS1leftbutton.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            EDleftbutton.frameNStart = frameN  # exact frame index
-            EDleftbutton.tStart = t  # local t and not account for scr refresh
-            EDleftbutton.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(EDleftbutton, 'tStartRefresh')  # time at next scr refresh
-            EDleftbutton.setAutoDraw(True)
-            EDleftbutton.setColor(VS1levcolorList[VS1comps[vsx]])
-        if EDleftbutton.status == STARTED:
+            VS1leftbutton.frameNStart = frameN  # exact frame index
+            VS1leftbutton.tStart = t  # local t and not account for scr refresh
+            VS1leftbutton.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(VS1leftbutton, 'tStartRefresh')  # time at next scr refresh
+            VS1leftbutton.setAutoDraw(True)
+            VS1leftbutton.setColor(VS1levcolorList[VS1comps[vsx]])
+        if VS1leftbutton.status == STARTED:
             # check whether LeftButton has been pressed
-            if EDleftbutton.isClicked:
-                if not EDleftbutton.wasClicked:
-                    EDleftbutton.timesOn.append(EDleftbutton.buttonClock.getTime()) # store time of first click
-                    EDleftbutton.timesOff.append(EDleftbutton.buttonClock.getTime()) # store time clicked until
+            if VS1leftbutton.isClicked:
+                if not VS1leftbutton.wasClicked:
+                    VS1leftbutton.timesOn.append(VS1leftbutton.buttonClock.getTime()) # store time of first click
+                    VS1leftbutton.timesOff.append(VS1leftbutton.buttonClock.getTime()) # store time clicked until
                 else:
-                    EDleftbutton.timesOff[-1] = EDleftbutton.buttonClock.getTime() # update time clicked until
-                if not EDleftbutton.wasClicked:
+                    VS1leftbutton.timesOff[-1] = VS1leftbutton.buttonClock.getTime() # update time clicked until
+                if not VS1leftbutton.wasClicked:
                     continueRoutine = False  # end routine when LeftButton is clicked
                     None
-                EDleftbutton.wasClicked = True  # if LeftButton is still clicked next frame, it is not a new click
+                VS1leftbutton.wasClicked = True  # if LeftButton is still clicked next frame, it is not a new click
             else:
-                EDleftbutton.wasClicked = False  # if LeftButton is clicked next frame, it is a new click
+                VS1leftbutton.wasClicked = False  # if LeftButton is clicked next frame, it is a new click
         else:
-            EDleftbutton.buttonClock.reset() # keep clock at 0 if button hasn't started / has finished
-            EDleftbutton.wasClicked = False  # if LeftButton is clicked next frame, it is a new click
+            VS1leftbutton.buttonClock.reset() # keep clock at 0 if button hasn't started / has finished
+            VS1leftbutton.wasClicked = False  # if LeftButton is clicked next frame, it is a new click
         
         # *RightButton* updates
-        if EDrightbutton.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        if VS1rightbutton.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            EDrightbutton.frameNStart = frameN  # exact frame index
-            EDrightbutton.tStart = t  # local t and not account for scr refresh
-            EDrightbutton.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(EDrightbutton, 'tStartRefresh')  # time at next scr refresh
-            EDrightbutton.setAutoDraw(True)
-            EDrightbutton.setColor(VS1levcolorList[VS1comps[vsx]+1])
-        if EDrightbutton.status == STARTED:
+            VS1rightbutton.frameNStart = frameN  # exact frame index
+            VS1rightbutton.tStart = t  # local t and not account for scr refresh
+            VS1rightbutton.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(VS1rightbutton, 'tStartRefresh')  # time at next scr refresh
+            VS1rightbutton.setAutoDraw(True)
+            VS1rightbutton.setColor(VS1levcolorList[VS1comps[vsx]+1])
+        if VS1rightbutton.status == STARTED:
             # check whether RightButton has been pressed
-            if EDrightbutton.isClicked:
-                if not EDrightbutton.wasClicked:
-                    EDrightbutton.timesOn.append(EDrightbutton.buttonClock.getTime()) # store time of first click
-                    EDrightbutton.timesOff.append(EDrightbutton.buttonClock.getTime()) # store time clicked until
+            if VS1rightbutton.isClicked:
+                if not VS1rightbutton.wasClicked:
+                    VS1rightbutton.timesOn.append(VS1rightbutton.buttonClock.getTime()) # store time of first click
+                    VS1rightbutton.timesOff.append(VS1rightbutton.buttonClock.getTime()) # store time clicked until
                 else:
-                    EDrightbutton.timesOff[-1] = EDrightbutton.buttonClock.getTime() # update time clicked until
-                if not EDrightbutton.wasClicked:
+                    VS1rightbutton.timesOff[-1] = VS1rightbutton.buttonClock.getTime() # update time clicked until
+                if not VS1rightbutton.wasClicked:
                     continueRoutine = False  # end routine when RightButton is clicked
                     None
-                EDrightbutton.wasClicked = True  # if RightButton is still clicked next frame, it is not a new click
+                VS1rightbutton.wasClicked = True  # if RightButton is still clicked next frame, it is not a new click
             else:
-                EDrightbutton.wasClicked = False  # if RightButton is clicked next frame, it is a new click
+                VS1rightbutton.wasClicked = False  # if RightButton is clicked next frame, it is a new click
         else:
-            EDrightbutton.buttonClock.reset() # keep clock at 0 if button hasn't started / has finished
-            EDrightbutton.wasClicked = False  # if RightButton is clicked next frame, it is a new click
+            VS1rightbutton.buttonClock.reset() # keep clock at 0 if button hasn't started / has finished
+            VS1rightbutton.wasClicked = False  # if RightButton is clicked next frame, it is a new click
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1343,19 +1405,19 @@ for vsx in VS1rounds:
             thisComponent.setAutoDraw(False)
     VS1round.addData('question.started', question.tStartRefresh)
     # store data for rounds (TrialHandler)
-    x, y = EDclick.getPos()
-    buttons = EDclick.getPressed()
+    x, y = VS1click.getPos()
+    buttons = VS1click.getPressed()
     if sum(buttons):
         # check if the mouse was inside our 'clickable' objects
         gotValidClick = False
-        for obj in [EDleftbutton,EDrightbutton]:
-            if obj.contains(EDclick):
+        for obj in [VS1leftbutton,VS1rightbutton]:
+            if obj.contains(VS1click):
                 gotValidClick = True
-                EDclick.clicked_name.append(obj.name)
-    if len(EDclick.clicked_name):
-        VS1round.addData('EDclick.clicked_name', EDclick.clicked_name[0])
+                VS1click.clicked_name.append(obj.name)
+    if len(VS1click.clicked_name):
+        VS1round.addData('VS1click.clicked_name', VS1click.clicked_name[0])
     # which button was clicked (1 = yes, 0 = no)
-    if EDclick.clicked_name[0] == 'EDleftbutton':
+    if VS1click.clicked_name[0] == 'VS1leftbutton':
         VS1round.addData('VS1leftbutton.wasclicked', 1)
         leftbutton_1vs1_clicked.append(True)
         VS1round.addData('VS1rightbutton.wasclicked', 0)
@@ -1371,7 +1433,7 @@ for vsx in VS1rounds:
     leftbutton_1vs1_level.append(VS1levList[VS1comps[vsx]])
     rightbutton_1vs1_level.append(VS1levList[VS1comps[vsx]+1])
     # store the necessary variables to be able to use it in the iteration process and for the random pick of the last n-back
-    VS1storebutton.append(EDclick.clicked_name[0])
+    VS1storebutton.append(VS1click.clicked_name[0])
         
     # open up the next row for more data
     thisExp2.nextEntry()
@@ -1901,7 +1963,7 @@ for edx in EDrounds:
         if Currentstep == 0:
             finaln_leftbutton_level.append(EDlevList[EDcomps[edx]])
             finaln_rightbutton_level.append(EDlevList[EDcomps[edx]+1])
-        elif Currentstep == 6:
+        elif Currentstep == 5:
             finaln_leftbutton_value.append(LB[0:4])
             finaln_rightbutton_value.append(RB[0:4])
         
