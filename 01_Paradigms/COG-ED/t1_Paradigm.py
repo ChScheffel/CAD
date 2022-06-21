@@ -24,6 +24,11 @@ from numpy.random import random, randint, normal, shuffle, choice as randchoice
 import os  # handy system and path functions
 import sys  # to get file system encoding
 import random # for randomization of comparison order
+from itertools import compress # for logical indexing
+from collections import Counter # for counting occurrences within a list
+def most_frequent(List):
+    occurence_count = Counter(List)
+    return occurence_count.most_common(1)[0][0]
 
 
 from psychopy.hardware import keyboard
@@ -1353,14 +1358,14 @@ for vsx in VS1rounds:
     # which button was clicked (1 = yes, 0 = no)
     if EDclick.clicked_name[0] == 'EDleftbutton':
         VS1round.addData('VS1leftbutton.wasclicked', 1)
-        leftbutton_1vs1_clicked.append(1)
+        leftbutton_1vs1_clicked.append(True)
         VS1round.addData('VS1rightbutton.wasclicked', 0)
-        rightbutton_1vs1_clicked.append(0)
+        rightbutton_1vs1_clicked.append(False)
     else:
         VS1round.addData('VS1leftbutton.wasclicked', 0)
-        leftbutton_1vs1_clicked.append(0)
+        leftbutton_1vs1_clicked.append(False)
         VS1round.addData('VS1rightbutton.wasclicked', 1)
-        rightbutton_1vs1_clicked.append(1)
+        rightbutton_1vs1_clicked.append(True)
     # what level each button was
     VS1round.addData('VS1leftbutton.nback', VS1levList[VS1comps[vsx]])
     VS1round.addData('VS1rightbutton.nback', VS1levList[VS1comps[vsx]+1])
@@ -1375,9 +1380,49 @@ for vsx in VS1rounds:
     # the Routine was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
 
-# Calculate which levels are fixed and which are flexible in each pair
+# ------- Calculate which levels are fixed and which are flexible in each pair ------------
 
+# create empty variables to store the information of fixed and flexible
+choices12 = []
+choices13 = []
+choices14 = []
+choices23 = []
+choices24 = []
+choices34 = []
 
+for i in leftbutton_1vs1_level:
+    # create variables containing the levels on and choices of both buttons
+    currentbuttons = [leftbutton_1vs1_level[i], rightbutton_1vs1_level[i]]
+    currentchoices = [leftbutton_1vs1_clicked[i], rightbutton_1vs1_clicked[i]]
+    # now check for levels to put them in the respective 'choices' variable
+    if all(x in currentbuttons for x in [1,2]):
+        # this command retains only the level that was chosen
+        currentclick = list(compress(currentbuttons, currentchoices))
+        # append chosen level to the variable
+        choices12.append(currentclick)
+    elif all(x in currentbuttons for x in [1,3]):
+        currentclick = list(compress(currentbuttons, currentchoices))
+        choices13.append(currentclick)
+    elif all(x in currentbuttons for x in [1,4]):
+        currentclick = list(compress(currentbuttons, currentchoices))
+        choices14.append(currentclick)
+    elif all(x in currentbuttons for x in [2,3]):
+        currentclick = list(compress(currentbuttons, currentchoices))
+        choices23.append(currentclick)
+    elif all(x in currentbuttons for x in [2,4]):
+        currentclick = list(compress(currentbuttons, currentchoices))
+        choices24.append(currentclick)
+    else:
+        currentclick = list(compress(currentbuttons, currentchoices))
+        choices34.append(currentclick)
+
+# now reduce all 'choices' variables to the level that was chosen at least 2 out of 3 times
+flexible12 = most_frequent(choices12)
+flexible13 = most_frequent(choices13)
+flexible14 = most_frequent(choices14)
+flexible23 = most_frequent(choices23)
+flexible24 = most_frequent(choices24)
+flexible34 = most_frequent(choices34)
 
 
 # ------Prepare to start Routine "InstructionED"-------
