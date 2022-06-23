@@ -44,34 +44,45 @@ os.chdir(_thisDir)
 # Store info about the experiment session
 psychopyVersion = '2021.1.4'
 # two separate files for ER paradigm and ER discounting
-expName1 = 'ER'  
-expName2 = 'ED'
+expName1 = 't2_ER'
+expName2 = 't2_1vs1'  
+expName3 = 't2_ED'
+
 expInfo = {'participant': ''}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName1)
 if dlg.OK == False:
     core.quit()  # user pressed cancel
 expInfo['date'] = data.getDateStr()  # add a simple timestamp
-expInfo['expName'] = expName1
+expInfo['expName'] = 't2_paradigm'
 expInfo['psychopyVersion'] = psychopyVersion
 
 # Data file name stem = absolute path + name; later add .psyexp, .csv, .log, etc
-# For ER paradigm
+# For emotion regulation paradigm
 filename1 = _thisDir + os.sep + u'data/%s_%s' % (expInfo['participant'], expName1)
+# for 1 vs 1 comparisons
 filename2 = _thisDir + os.sep + u'data/%s_%s' % (expInfo['participant'], expName2)
+# for effort discounting
+filename3 = _thisDir + os.sep + u'data/%s_%s' % (expInfo['participant'], expName3)
 
 # An ExperimentHandler isn't essential but helps with data saving
-# For ER paradigm
+# For emotion regulation paradigm
 thisExp1 = data.ExperimentHandler(name=expName1, version='',
     extraInfo=expInfo, runtimeInfo=None,
     originPath='C:\\Users\\scheffel\\Scheffel\\Forschung\\A_Projects\\2021_COG-ER-ED\\COG-ER-ED\\01_Paradigms\\ER-ED\\ER_ED\\ER_paradigm.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename1)
-# For ER paradigm
+# For 1 vs 1 comparisons
 thisExp2 = data.ExperimentHandler(name=expName2, version='',
     extraInfo=expInfo, runtimeInfo=None,
     originPath='C:\\Users\\scheffel\\Scheffel\\Forschung\\A_Projects\\2021_COG-ER-ED\\COG-ER-ED\\01_Paradigms\\ER-ED\\ER_ED\\ER_paradigm.py',
     savePickle=True, saveWideText=True,
-    dataFileName=filename1)
+    dataFileName=filename2)
+# For effort discounting
+thisExp3 = data.ExperimentHandler(name=expNamee, version='',
+    extraInfo=expInfo, runtimeInfo=None,
+    originPath='C:\\Users\\scheffel\\Scheffel\\Forschung\\A_Projects\\2021_COG-ER-ED\\COG-ER-ED\\01_Paradigms\\ER-ED\\ER_ED\\ER_paradigm.py',
+    savePickle=True, saveWideText=True,
+    dataFileName=filename3)
 
 # save a log file for detail verbose info
 logFile = logging.LogFile(filename1 +'.log', level=logging.EXP)
@@ -146,6 +157,20 @@ trigger_space = 4
 trigger_1 = 1
 trigger_2 = 2
 trigger_3 = 3
+
+# 1 vs 1 comparisons:
+# define 9 comparisons, with randomized left-right-assignment
+leftright = [0,1]
+VS1levcompList = []
+VS1levList = []
+
+for i in [0,1,2]: # each pair will be presented three times
+    for j in [0,1,2]: # referring to elements in ED comp
+        random.shuffle(leftright)
+        VS1levcompList.append(EDstratcompList[EDcomps[j] + leftright[0]])
+        VS1levcompList.append(EDstratcompList[EDcomps[j] + leftright[1]])
+        VS1levList.append(EDstratList[EDcomps[j] + leftright[0]])
+        VS1levList.append(EDstratList[EDcomps[j] + leftright[1]])
 
 ############################
 # INITIALIZE ALL COMPONENTS
