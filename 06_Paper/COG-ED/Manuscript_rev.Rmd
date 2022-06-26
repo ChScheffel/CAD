@@ -1,0 +1,626 @@
+---
+title             : "When easy is not preferred: A discounting paradigm to assess load-independent task preference"
+shorttitle        : "The CAD paradigm to assess task preference"
+author: 
+  - name          : "Josephine Zerna"
+    orcid         : "0000-0003-2892-884X"
+    affiliation   : "1"
+    corresponding : yes
+    address       : "Zellescher Weg 17, 01069 Dresden, Germany"
+    email         : "josephine.zerna@tu-dresden.de"
+    equal_contrib : yes
+    role:         # Contributorship roles (e.g., CRediT, https://casrai.org/credit/)
+      - Conceptualization
+      - Methodology
+      - Funding acquisition
+      - Formal analysis
+      - Investigation
+      - Project administration
+      - Software
+      - Visualization
+      - Writing - original draft preparation
+      - Writing - review & editing
+  - name          : "Christoph Scheffel"
+    orcid         : "0000-0001-5963-9229"
+    affiliation   : "1"
+    equal_contrib : yes
+    role:
+      - Conceptualization
+      - Methodology
+      - Funding acquisition
+      - Investigation
+      - Project administration
+      - Software
+      - Writing - review & editing
+  - name          : "Corinna Kührt"
+    orcid         : "0000-0002-6418-6479"
+    affiliation   : "1"
+    role:
+      - Formal analysis
+      - Writing - review & editing
+      - Visualization
+  - name          : "Alexander Strobel"
+    orcid         : "0000-0002-9426-5397"
+    affiliation   : "1"
+    role: 
+      - Conceptualization
+      - Funding acquistion
+      - Writing - review & editing
+affiliation:
+  - id            : "1"
+    institution   : "Faculty of Psychology, Technische Universität Dresden, 01069 Dresden, Germany"
+authornote: |
+abstract: |
+  When individuals set goals, they consider the subjective value (SV) of the anticipated reward and the required effort, a trade-off that is of great interest to psychological research.
+  One approach to quantify the SVs of levels of a cognitive task is the Cognitive Effort Discounting Paradigm by Westbrook and colleagues (2013).
+  However, it fails to acknowledge the highly subjective nature of effort, as it assumes a unidirectional, inverse relationship between task load and SVs.
+  Therefore, it cannot map differences in effort perception that arise from traits like Need for Cognition, since individuals who enjoy effortful cognitive activities likely do not prefer the easiest level.
+  We aim to replicate the analysis of Westbrook and colleagues with our adaptation, the Cognitive and Affective Discounting (CAD) Paradigm, which quantifies SVs without assuming that the easiest level is preferred, thereby enabling the quantification of SVs for tasks without objective order of task load.
+  
+keywords          : "effort discounting, registered report, specification curve analysis, need for cognition, n-back"
+wordcount         : "~ 4,300"
+bibliography      : CAD.bib
+floatsintext      : yes
+figsintext        : yes
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+csl               : nature.csl
+always_allow_html : true
+header-includes   :
+    - \usepackage{booktabs}
+    - \usepackage{longtable}
+    - \usepackage{array}
+    - \usepackage{multirow}
+    - \usepackage{wrapfig}
+    - \usepackage{float}
+    - \usepackage{colortbl}
+    - \usepackage{pdflscape}
+    - \usepackage{tabu}
+    - \usepackage{threeparttable}
+    - \usepackage{threeparttablex}
+    - \usepackage[normalem]{ulem}
+    - \usepackage{makecell}
+    - \usepackage{xcolor}
+    - \usepackage{setspace}\doublespacing
+    - \usepackage[final]{pdfpages}
+    - \usepackage{chngcntr}
+
+---
+\renewcommand\thesection{\Alph{section}}
+\counterwithout{figure}{section}
+\setcounter{figure}{0}
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+
+  # set the output for figures and tables to the width of the text throughout the entire script
+
+  knitr::opts_chunk$set(out.width = "\\textwidth")
+
+  # load libraries
+
+  library(bibtex)       # for referencing, "bibtex" package
+  library(here)         # for path independent file referencing, "here" package
+  library(papaja)       # APA conform output, "papaja" package
+  library(kableExtra)   # for great tables in R Markdown, "kableExtra" package
+  library(interactions) # for simple slopes plots, "interactions" package
+  library(BayesFactor)  # computing Bayes factors, "BayesFactor" package
+  library(ggplot2)      # for plotting, "ggplot2" package
+  library(egg)          # for paneling plots, "egg" package
+  library(knitr)        # for including plots and such, "knitr" package
+  library(effectsize)   # for effect sizes and CIs, "effectsize" package
+  
+  # set top level directory to source file
+
+  here::i_am("flag_project_root_CAD.txt")
+  
+  # load the workspace variables that have been computed with the Analysis.R script
+  
+  load(here("06_Paper","COG-ED","Workspace.RData"))
+
+```
+
+# Introduction
+
+In everyday life, effort and reward are closely intertwined[@Botvinick2009].
+With each decision a person makes, they have to evaluate whether the effort required to reach a goal is worth being exerted, given the reward they receive when reaching the goal.
+A reward is subjectively more valuable if it is obtained with less effort, so the required effort is used as a reference point for estimating the reward value[@Botvinick2009].
+However, the cost of the effort itself is also subjective, and research has not yet established which function best describes the relationship between effort and cost[@Kool2018].
+Investigating effort and cost is challenging because "effort is not a property of the target task alone, but also a function of the individual's cognitive capacities, as well as the degree of effort voluntarily mobilized for the task, which in turn is a function of the individual's reward sensitivity" (p. 209)[@Kool2018].
+
+One task that is often used to investigate effort is the *n*-back task, a working memory task in which a continuous stream of stimuli, e.g. letters, is presented on screen.
+Participants indicate via button press whether the current stimulus is the same as *n* stimuli before, with *n* being the level of difficulty between one and six[@Mackworth1959].
+The *n*-back task is well suited to investigate effort because it is an almost continuous manipulation of task load as has been shown by monotonic increases in error rates, reaction times[@Jaeggi2010], and brain activity in areas associated with working memory[@Jonides1997; @Owen2005].
+However, its reliability measures are mixed, and associations of *n*-back performance and measures such as executive functioning and fluid intelligence are often inconsistent[@Jaeggi2010].
+
+A way to quantify the subjective cost of each *n*-back level has been developed by Westbrook, Kester, and Braver[-@Westbrook2013], called the Cognitive Effort Discounting Paradigm (COG-ED).
+First, the participants complete the *n*-back levels to familiarize themselves with the task.
+Then, 1-back is compared with each more difficult level by asking the participants to decide between receiving a fixed 2\$ for the more difficult level or the flexible starting value of 1\$ for 1-back.
+If they choose the more difficult level, the reward for 1-back increases by 0.50\$, if they choose 1-back, it decreases by 0.50\$.
+This is repeated five more times, with each adjustment of the 1-back reward being half of the previous step, while the reward for the more difficult level remains fixed at 2\$.
+The idea is to estimate the point of subjective equivalence, i.e., the monetary ratio at which both offers are equally preferred[@Westbrook2013].
+The subjective value (SV) of each more difficult level is then calculated by dividing the final reward value of 1-back by the fixed 2\$ reward.
+Westbrook et al.[-@Westbrook2013] used these SVs to investigate inter-individual differences in effort discounting.
+Younger participants showed lower effort discounting, i.e., they needed a lower monetary incentive for choosing the more difficult levels over 1-back.
+
+The individual degree of effort discounting in the study by Westbrook et al.[-@Westbrook2013] was also associated with the participants' scores in Need for Cognition (NFC), a personality trait describing an individual's tendency to actively seek out and enjoy effortful cognitive activities[@Cacioppo1982].
+Westbrook et al.[-@Westbrook2013] conceptualized NFC as a trait measure of effortful task engagement, providing a subjective self-report of effort discounting for each participant which could then be related to the SVs as an objective measure of effort discounting.
+On the surface, this association stands to reason, as individuals with higher NFC are more motivated to mobilize cognitive effort because they perceive it as intrinsically rewarding.
+Additionally, it has been shown that individuals avoid cognitive effort only to a certain degree, possibly to retain a sense of self-control[@Wu2021], a trait more prominent in individuals with high NFC[@Bertrams2012; @Nishiguchi2016; @Xu2021].
+However, the relation of NFC and SVs might be confounded, since other studies utilizing the COG-ED paradigm found the association of NFC and SVs to disappear after correcting for performance[@Kramer2021] or found no association of NFC and SVs at all[@Crawford2021].
+On the other hand, task load has been shown to be a better predictor of SVs than task performance[@Culbreth2016; @Westbrook2013; @Westbrook2019], so more research is needed to shed light on this issue.
+
+With the present study, we alter one fundamental assumption of the original COG-ED paradigm: That the easiest *n*-back level has the highest SV.
+We therefore adapted the COG-ED paradigm in a way that allows the computation of SVs for different *n*-back levels without presuming that all individuals inherently prefer the easiest level.
+Since we also aim to establish this paradigm for the assessment of tasks with no objective task load, e.g., emotion regulation tasks[@ScheffelZerna2022], we call it the Cognitive and Affective Discounting Paradigm (CAD).
+In the present study, we will validate the CAD paradigm by conceptually replicating the findings of Westbrook et al.[-@Westbrook2013].
+Additionally, we will compare the effort discounting behavior of participants regarding the *n*-back task and an emotion regulation task.
+The full results of the latter will be published in a second Registered Report[@ScheffelZerna2022].
+The COG-ED paradigm has been applied to tasks in different domains before, showing that SVs across task domains correlate [@Crawford2021], but these tasks had an objective order of task load, which is not the case for the choice of emotion regulation strategies or other paradigms where there is no objective order of task load.
+
+Our hypotheses were derived from the results of Westbrook et al.[-@Westbrook2013].
+As a manipulation check, we hypothesize that with increasing *n*-back level the (1a) the signal detection parameter *d'* declines, while (1b) reaction time and (1c) perceived task load increase.
+Regarding the associations of task load and effort discounting we hypothesize that (2a) SVs decline with increasing *n*-back level, and (2b) they do so even after controlling for declining task performance.
+And finally, we hypothesize that the CAD paradigm can show interindividual differences in effort discounting, such that participants with higher NFC have (3a) lower SVs for 1-back but higher SVs for 2- and 3-back, (3b) lower perceived task load across all levels, and (3c) higher aversion against 1-back but lower aversion against 2- and 3-back.
+Each hypothesis is detailed in the [Design Table](#DesignTableSection) in the Appendix.
+
+# Methods
+
+We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study[cf. @Simmons2012].
+The paradigm was written and presented using *Psychopy*[@Peirce2019].
+We used *R* with *R Studio*[@RCT2020; @RStudioTeam2020] with the main packages *afex*[@Singmann2021] and *BayesFactor*[@Morey2021] for all our analyses.
+
+## Ethics information
+
+The study protocol complies with all relevant ethical regulations and was approved by the ethics committee of the Technische Universität Dresden (reference number SR-EK-50012022).
+Prior to testing, written informed consent will be obtained.
+Participants will receive 30€ in total or course credit for participation.
+
+## Design
+
+### CAD Paradigm
+Figure\ 1 illustrates how different modifications of the COG-ED paradigm [@Westbrook2013] return SVs that do or do not reflect the true preference of a hypothetical participant, who likes 2-back most, 3-back less, and 1-back least (for reasons of clarity there are only three levels in the example).
+The COG-ED paradigm, which compares every more difficult level with 1-back sets the SV of 1-back to 1, regardless of the response pattern.
+Adding a comparison of the more difficult levels with each other allows the SVs of those two levels to be more differentiated, but leaves the SV of 1-back unchanged.
+Adding those same pairs again, but with the opposite assignment of fixed and flexible level, does approach the true preference, but has two disadvantages.
+First, the SVs are still quite alike across levels due to the fact that every more difficult level has only been compared with the easiest level, and second, having more task levels than just three would lead to an exponential increase in comparisons.
+Therefore, the solution lies in reducing the number of necessary comparisons by presenting only one effort discounting round for each possible pair of levels after determining for each pair which level should be fixed and which should be flexible.
+This will be determined by presenting each possible pair of levels on screen with the question "Would you prefer 1\ € for level A or 1\ € for level B?".
+Participants respond by clicking the respective on-screen button.
+Each pair will be presented three times, resulting in 18 presented pairs, which are fully randomized in order and in the assignment of which level is on the left or right of the screen.
+For each pair, the level that was chosen by the participant at least two out of three times will be used as the level with a flexible value, which starts at 1\ € and is changed in every iteration.
+The other level in the pair will be set to a fixed value of 2\ €.
+Then, the effort discounting sensu Westbrook et al.[-@Westbrook2013] begins, but with all possible pairs and with the individually determined assignment of fixed and flexible level.
+The order in which the pairs are presented will be fully randomized, and each pair will go through all iteration steps of adding/subtracting 0.50\ €, 0.25\ €, 0.13\ €, 0.06\ €, 0.03\ €, 0.02\ € to/from the flexible level's reward (each adjustment half of the previous one, rounded to two decimals) before moving on to the next one.
+This procedure allows to compute SVs based on actual individual preference instead of objective task load.
+For each pair, the SV of the flexible level is 1, as it was preferred when faced with equal rewards, and the SV of the fixed level is the final reward of the flexible level divided by 2\ €.
+Each level's "global" SV is calculated as the mean of this level's SVs from all pairs in which it appeared.
+If the participant has a clear preference for one level, this level's SV will be 1.
+If not, then no level's SV will be 1, but each level's SV can still be interpreted as an absolute and relative value, so each participant's effort discounting behaviour can still be quantified.
+The interpretation of SVs in Westbrook et al.[-@Westbrook2013] was "The minimum relative reward required for me to choose 1-back over this level".
+So if the SV of 3-back was 0.6, the participant would need to be rewarded with at least 60\ % of what they are being offered for doing 3-back to do 1-back instead, forgoing the higher reward for 3-back.
+In this study, the SV can be interpreted as "The minimum relative reward required for me to choose any other level over this level".
+Therefore, an SV of 1 indicates that this level is preferred over all others, while SVs lower than 1 indicate that in at least one pair, a different level was preferred over this one.
+
+INSERT FIGURE 1 HERE
+<!--
+```{r figure1, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="An example for subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a hypothetical participant with the true preference 2-back > 3-back > 1-back. The grey boxes are the choice options shown to the participant. The participant's final reward value of the flexible level is displayed after the first arrow. The resulting subjective value of each level is displayed after the second arrow, in the notation \"SV 3-back(1-back)\" for the subjective value of 3-back when 1-back is the other choice. The Solution and Additional Benefit panel follow the same logic, but are preceded by a choice between equal rewards, and the participant's first choice indicated by an exclamation mark.", fig.pos="H"} 
+  
+  include_graphics(here("06_Paper", "Inkscape Figures", "Paradigm_Scheme.png"))
+
+```
+-->
+
+### Study procedure
+Healthy participants aged 18 to 30\ years will be recruited using the software *ORSEE*[@Greiner2015].
+Participants will complete the personality questionnaires online and then visit the lab for two sessions one week apart.
+NFC will be assessed using the 16-item short form of the Need for Cognition Scale [@Cacioppo1984; @Bless1994].
+Responses to each item (e.g., "Thinking is not my idea of fun", recoded) will be recorded on a 7-point Likert scale.
+The NFC scale shows comparably high internal consistency (Cronbach's $\alpha>.80$) [@Bless1994; @Fleischhauer2010].
+Several other personality questionnaires will be used in this study but are the topic of the Registered Report for the second lab session[@ScheffelZerna2022].
+A full list of measures can be found in our [Github repository](https://github.com/ChScheffel/CAD).
+In the first session, participants provide informed consent and demographic data before completing the computer-based paradigm.
+The paradigm starts with the *n*-back levels one to four, presented sequentially with two runs per level, consisting of 64 consonants (16 targets, 48 non-targets) per run.
+The levels are referred to by color (1-back black, 2-back red, 3-back blue, 4-back green) to avoid anchor effects in the effort discounting procedure.
+To assess perceived task load, we will use the 6-item NASA Task Load Index (NASA-TLX)[@Hart1988], where participants evaluate their subjective perception of mental load, physical load, effort, frustration, performance, and time pressure during the task on a 20-point scale.
+At the end of each level, participants fill out the NASA-TLX on a tablet, plus an item with the same response scale, asking them how aversive they found this *n*-back level.
+After the *n*-back task, participants complete the CAD paradigm on screen and are instructed to do so as realistically as possible, even though the displayed rewards will not be paid out on top of their compensation.
+They are told that one of their choices will be randomly picked for the final run of *n*-back, the data of which will not be analyzed as it only serves to incentivise truthful behavior and stay close to the design of Westbrook et al.[-@Westbrook2013].
+After the CAD paradigm, participants will fill out a short questionnaire on the tablet, indicating whether they have adhered to the instructions (yes/no) and what the primary motivation for their decisions during the effort discounting procedure was (avoid boredom/relax/avoid effort/seek challenge/other).  
+The second session consists of an emotion regulation task with negative pictures and the instruction to suppress facial reactions, detach cognitively from the picture content, and distract oneself, respectively.
+The paradigm follows the same structure of task and effort discounting procedure, but participants can decide which strategy they want to reapply in the last block.
+Study data will be collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden[@Harris2009; @Harris2019].
+
+## Sampling plan
+
+Sample size determination was mainly based on the results of the analyses of Westbrook et al.[-@Westbrook2013] (see [Design Table](#DesignTableSection)).
+The hypothesis that yielded the largest necessary sample size was a repeated measures ANOVA with within-between interaction of NFC and *n*-back level influencing SVs.
+Sample size analysis with *G\*Power*[@Faul2007; @Faul2009] indicated that we should collect data from at least 72 participants, assuming $\alpha=.05$ and $\beta=.95$.
+However, the sample size analysis for the hypotheses of the second lab session revealed a larger necessary sample size of 85 participants to find an effect of $d=-0.32$ of emotion regulation on facial muscle activity with $\alpha=.05$ and $\beta=.95$.
+To account for technical errors, noisy physiological data, or participants who indicate that they did not follow the instructions, we aim to collect about $50\%$ more data sets than necessary, $N=120$ in total.
+
+## Analysis plan
+
+Data collection and analysis will not be performed blind to the conditions of the experiments.
+We will exclude the data of a participant from all analyses, if the participant states that they did not follow the instructions, if the investigator notes that the participant misunderstood the instructions, or if the participant withdraws their consent.
+No data will be replaced.
+The performance measure *d'* will be computed as the difference of the *z*-transformed hit rate and the *z*-transformed false alarm rate[@Macmillan1990].
+Reaction time (RT) data will be trimmed by excluding all trials with responses faster than 100\ ms, as the relevant cognitive processes cannot have been completed before[@Whelan2008; @Berger2021].
+Aggregated RT values will be described using the median and the median of absolute deviation ($MAD$) as robust estimates of center and variability, respectively[@Lachaud2011].
+Error- and post-error trials will be excluded, because RT in the latter is longer due to more cautious behavior[@Dutilh2012; @Houtman2012].
+To test our hypotheses, we will perform a series of rmANOVAs and an MLM with orthogonal sum-to-zero contrasts in order to meaningfully interpret results[@Singmann2019].
+
+*Manipulation check.*
+Declining performance will be investigated by calculating an rmANOVA with six paired contrasts comparing *d'* between two levels of 1- to 4-back at a time.
+Another rmANOVA with six paired contrasts will be computed to compare the median RT between two levels of 1- to 4-back at a time.
+To investigate changes in NASA-TLX ratings, six rmANOVAs will be computed, one for each NASA-TLX subscale, and each with six paired contrasts comparing the ratings between two levels of 1- to 4-back at a time.
+
+*Subjective values.*
+For each effort discounting round, the SV of the fixed level will be calculated by adding or subtracting the last adjustment of 0.02\ € from the last monetary value of the flexible level, depending on the participant's last choice, and dividing this value by 2\ €.
+This yields an SV between 0 and 1 for the fixed compared with the flexible level, while the SV of the flexible level is 1.
+The closer the SV of the fixed level is to 0, the stronger the preference for the flexible level.
+All SVs of each level will be averaged to compute one "global" SV for each level.
+An rmANOVA with four different contrasts will be computed to investigate the association of SVs and the *n*-back levels: Declining linear (3,1,-1,-3), ascending quadratic (-1,1,1,-1), declining logistic (3,2,-2,-3), and positively skewed normal (1,2,-1,-2).
+Depending on whether the linear or one of the other three contrasts fits the curve best, we will apply a linear or nonlinear multi-level model in the next step, respectively.
+
+To determine the influence of task performance on the association of SVs and *n*-back level, we will perform MLM. 
+We will apply restricted maximum likelihood (REML) to fit the model.
+As an effect size measure for random effects we will firstly calculate the intraclass correlation (ICC), which displays the proportion of variance that is explained by differences between persons.
+Second, we will estimate a random slopes model of n-back level (level 1, fixed and random factor: 0-back, 1-back, 2-back, 3-back) predicting SV nested within subjects.
+As Mussel et al.[-@Mussel2016] could show, participants with high versus low NFC not only have a more shallow decline in performance with higher n-back levels, but show a demand-specific increase in EEG theta oscillations, which has been associated with mental effort.
+We control for performance, i.e., *d'* (level 1, fixed factor, continuous), median RT (level 1, fixed factor, continuous) in order to eliminate a possible influence of declining performance on SV ratings.
+$$
+SV \sim level\ + d' + median RT + (level|subject)
+$$
+Level-1-predictors will be centered within cluster as recommended by Enders & Tofighi[-@Enders2007]. 
+By this, the model yields interpretable parameter estimates. 
+If necessary, we will adjusted the optimization algorithm to improve model fit. 
+We will visually inspect the residuals of the model for evidence to perform model criticism. 
+This will be done by excluding all data points with absolute standardized residuals above 3 SD. 
+As effect size measures, we will calculate pseudo *R²* for our model and *f²* to estimate the effect of n-back level according to Lorah[-@Lorah2018].
+
+The association of SVs and NFC will be examined with an rmANOVA.
+We will subtract the SV of 1- from 2-back, 2- from 3-back, and 3- from 4-back per participant, yielding three SV difference scores per participant.
+The sample will be divided into participants with low and high NFC using a median split.
+We will then compute an rmANOVA with the within-factor n-back level and the between-factor NFC group to determine whether there is a main effect of level and/or group, and/or an interaction between level and group on the SV difference scores.
+Post-hoc tests will be computed depending on which effect reaches significance at $p<.01$.
+To ensure the validity of this association, we will conduct a specification curve analysis[@Simonsohn2020], which will include 63 possible preprocessing pipelines of the RT data.
+These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, 2, 2.5, or 3\ $MAD$ from the median, RTs below 100\ or\ 200\ ms), and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within *n*-back levels).
+The rmANOVA will be run with each of the 63\ pipelines, which will also include our main pipeline (untransformed data, exclusion of RTs below 100\ ms).
+The ratio of pipelines that lead to significant versus non-significant effects will provide an indication of how robust the effect actually is.
+
+The association of subjective task load with NFC will be examined similarly.
+We will calculate NASA-TLX sum scores per participant per level and compute an rmANOVA with the within-factor n-back level and the between-factor NFC group, and apply post-hoc tests based on which effect reaches significance at $p<.01$.
+And the association of subjective aversiveness of the task with NFC will be examined with difference scores as well, since we expect this curve to mirror the SV curve, i.e. as the SV rises, the aversiveness declines, and vice versa.
+We will subtract the aversiveness ratings of 1- from 2-back, 2- from 3-back, and 3- from 4-back per participant, yielding three aversiveness difference scores per participant.
+Then, we will compute an rmANOVA with the within-factor n-back level and the between-factor NFC group, and apply post-hoc tests based on which effect reaches significance at $p<.01$.
+
+The results of each analysis will be assessed on the basis of both $p$-value and the Bayes factor $BF10$, calculated with the *BayesFactor* package[@Morey2021] using the default prior widths of the functions *anovaBF*, *lmBF* and *ttestBF*.
+We will consider a $BF10$ close to or above 3/10 as moderate/strong evidence for the alternative hypothesis, and a $BF10$ close to or below .33/.10 as moderate/strong evidence for the null hypothesis [@Wetzels2015].
+
+## Pilot data
+
+The sample of the pilot study consisted of $N=`r length(setindex)-1`$ participants (`r round((table(data_quest$gender)[2]/(length(setindex)-1))*100, digits = 1)`% female, $M=`r printnum(mean(data_quest[,"age"], na.rm = TRUE))`$ ($SD=`r printnum(sd(data_quest[,"age"], na.rm = TRUE))`$)\ years old).
+One participant's data was removed because they misunderstood the instruction.
+Due to a technical error the subjective task load data of one participant was incomplete, so the hypotheses involving the NASA Task Load Index were analyzed with $n=`r length(setindex)-2`$ data sets.
+The results showed increases in subjective and objective task load measures with higher *n*-back level.
+Importantly, SVs were lower for higher *n*-back levels, but not different between 1- and 2-back, which shows that the easiest level is not universally preferred.
+The LMM revealed *n*-back level as a reliable predictor of SV, even after controlling for declining task performance (*d’* and median RT).
+NASA-TLX scores were higher with higher *n*, and lower for the group with lower NFC scores, but NFC and *n*-back level did not interact.
+All results are detailed in the Supplementary Material.
+
+## Data availability
+
+The data of this study can be downloaded from [osf.io/vnj8x/](https://osf.io/vnj8x/).
+
+## Code availability
+
+The paradigm code as well as the R Markdown file used to analyze the data and write this document is available at [github.com/ChScheffel/CAD](https://github.com/ChScheffel/CAD).
+
+\newpage
+
+# References
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id="refs" custom-style="Bibliography"></div>
+\endgroup
+
+\newpage
+
+# Acknowledgements
+
+This research is partly funded by the German Research Foundation (DFG) as part of the Collaborative Research Center (CRC) 940, and partly funded by centralized funds of the Faculty of Psychology at Technische Universität Dresden.
+The funders have/had no role in study design, data collection and analysis, decision to publish or preparation of the manuscript.
+
+
+# Author Contributions
+
+JZ, CS, and AS conceptualized the study and acquired funding.
+JZ and CS developed the methodology, investigated, administered the project, and wrote the software.
+JZ and CK did the formal analysis, visualized the results, and prepared the original draft.
+All authors reviewed, edited, and approved the final version of the manuscript.
+
+
+# Competing Interests
+
+The authors declare no competing interests.
+
+\newpage
+\setcounter{figure}{0}
+
+# Figures and figure Captions
+
+INSERT FIGURE 1 HERE
+<!--
+```{r figure1appendix, echo=FALSE, message=FALSE, warning=FALSE}
+
+  include_graphics(here("06_Paper", "Inkscape Figures", "Paradigm_Scheme.png"))
+
+```
+-->
+
+*Figure 1.* An example for subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a hypothetical participant with the true preference 2-back > 3-back > 1-back. The grey boxes are the choice options shown to the participant. The participant's final reward value of the flexible level is displayed after the first arrow. The resulting subjective value of each level is displayed after the second arrow, in the notation "SV 3-back(1-back)" for the subjective value of 3-back when 1-back is the other choice. The Solution and Additional Benefit panel follow the same logic, but are preceded by a choice between equal rewards, and the participant's first choice indicated by an exclamation mark.
+
+\newpage
+
+# Design Table {#DesignTableSection}
+
+(Starts on next page)
+
+INSERT DESIGN TABLE HERE
+<!--
+\includepdf[pages={-},landscape=true]{Design_Table_T1.pdf}
+-->
+\newpage
+
+# Supplement
+
+INSERT SUPPLEMENT HERE
+<!--
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\setcounter{section}{19}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+## Results of the pilot study
+
+
+## Hypothesis 1a: The signal detection measure d' declines with increasing n-back level.
+
+ANOVA:
+
+`r apa_print(hypothesis1a_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1a_rmanova$anova_table[1,"F"], df = hypothesis1a_rmanova$anova_table[1,"num Df"], df_error = hypothesis1a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1a_rmanova$anova_table[1,"F"], df = hypothesis1a_rmanova$anova_table[1,"num Df"], df_error = hypothesis1a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1a_BF)$bf, digits = 2)`
+
+\newpage
+
+## Hypothesis 1b: Reaction time increases with increasing n-back level.
+
+ANOVA:
+
+`r apa_print(hypothesis1b_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1b_rmanova$anova_table[1,"F"], df = hypothesis1b_rmanova$anova_table[1,"num Df"], df_error = hypothesis1b_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1b_rmanova$anova_table[1,"F"], df = hypothesis1b_rmanova$anova_table[1,"num Df"], df_error = hypothesis1b_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1b_BF)$bf, digits = 2)`
+
+Paired contrasts:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+apa_table(
+  hypothesis1b_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing reaction time between n-back levels",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
+
+## Hypothesis 1c: Ratings on all NASA-TLX dimensions increase with increasing n-back level.
+
+Mental subscale ANOVA:
+
+`r apa_print(hypothesis1c_mental_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_mental_rmanova$anova_table[1,"F"], df = hypothesis1c_mental_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_mental_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_mental_rmanova$anova_table[1,"F"], df = hypothesis1c_mental_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_mental_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_mental_BF)$bf, digits = 2)`
+
+Mental subscale paired contrasts:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis1c_mental_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Mental subscale between n-back levels",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
+
+Physical subscale ANOVA:
+
+`r apa_print(hypothesis1c_physical_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_physical_rmanova$anova_table[1,"F"], df = hypothesis1c_physical_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_physical_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_physical_rmanova$anova_table[1,"F"], df = hypothesis1c_physical_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_physical_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_physical_BF)$bf, digits = 2)`
+
+Physical subscale paired contrasts:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis1c_physical_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Physical subscale between n-back levels",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
+
+Time subscale ANOVA:
+
+`r apa_print(hypothesis1c_time_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_time_rmanova$anova_table[1,"F"], df = hypothesis1c_time_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_time_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_time_rmanova$anova_table[1,"F"], df = hypothesis1c_time_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_time_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_time_BF)$bf, digits = 2)`
+
+Time subscale paired contrasts:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis1c_time_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Time subscale between n-back levels",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
+
+Performance subscale ANOVA:
+
+`r apa_print(hypothesis1c_performance_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_performance_rmanova$anova_table[1,"F"], df = hypothesis1c_performance_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_performance_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_performance_rmanova$anova_table[1,"F"], df = hypothesis1c_performance_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_performance_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_performance_BF)$bf, digits = 2)`
+
+Performance subscale paired contrasts:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis1c_performance_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Performance subscale between n-back levels",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
+
+Effort subscale ANOVA:
+
+`r apa_print(hypothesis1c_effort_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_effort_rmanova$anova_table[1,"F"], df = hypothesis1c_effort_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_effort_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_effort_rmanova$anova_table[1,"F"], df = hypothesis1c_effort_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_effort_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_effort_BF)$bf, digits = 2)`
+
+Effort subscale paired contrasts:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis1c_effort_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Effort subscale between n-back levels",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
+
+Frustration subscale ANOVA:
+
+`r apa_print(hypothesis1c_frustration_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_frustration_rmanova$anova_table[1,"F"], df = hypothesis1c_frustration_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_frustration_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_frustration_rmanova$anova_table[1,"F"], df = hypothesis1c_frustration_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_frustration_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_frustration_BF)$bf, digits = 2)`
+
+Frustration subscale paired contrasts:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis1c_frustration_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Frustration subscale between n-back levels",
+  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
+
+## Hypothesis 2a: Subjective values decline with increasing n-back level.
+
+ANOVA:
+
+`r apa_print(hypothesis2a_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis2a_rmanova$anova_table[1,"F"], df = hypothesis2a_rmanova$anova_table[1,"num Df"], df_error = hypothesis2a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis2a_rmanova$anova_table[1,"F"], df = hypothesis2a_rmanova$anova_table[1,"num Df"], df_error = hypothesis2a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`
+
+Contrasts:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis2a_contrasts,
+  caption = "Different contrasts for the rmANOVA comparing subjective values between n-back levels",
+  note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
+
+## Hypothesis 2b: Subjective values decline with increasing n-back level, even after controlling for declining task performance measured by signal detection d’ and reaction time.
+
+Multi level model:
+
+```{r,echo=FALSE, message=FALSE, warning=FALSE}
+kable(h2b_result.table,
+        caption = "Effects of n-back load level on subjective value controlled 
+    for task performance (d' and reaction time).",
+        booktabs = T,                          # no vertical lines
+        escape = F,                            # correctly print special characters)
+        align = c("l",rep("r",7))) %>%         # right aligns the text in every numerical column
+    kable_styling(latex_options = c("striped")) %>%
+    footnote(general = "NFC = Need for Cognition, SE = standard error. ***$p$ < .001, **$p$ < .01, *$p$ < 0.5.",
+             escape = F,                    # correctly print special characters
+             threeparttable = T)            # line breaks in the footnote
+```
+The intraclass correlation equals `r format(icc_h2b, digits = 2)`. 
+
+The Bayes Factor $BF10$ of the multi level model approached infinity.
+
+The conditional $R^2$ of the model describes the proportion of variance explained by both fixed and random effects, and is $R^2=$ `r format(h2b_total_r2[1,2], digits = 2)`.
+
+The effect size is $f^2=$ `r format(h2b_f2, digits = 2)`.
+
+\newpage
+
+## Hypothesis 3a: Participants with high NFC scores have higher subjective values for 2- and 3-back but lower subjective values for 1-back than participants with low NFC scores.
+
+ANOVA:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis3a_rmanova,
+  caption = "Main effects and interaction of NFC group and n-back level on subjective values",
+  note = "NFC = Need for Cognition, Sum Sq = sum of squares, $df$ = degrees of freedom, $F$ = $F$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H",
+  font_size = "footnotesize"
+)
+```
+
+\newpage
+
+## Hypothesis 3b: Participants with high NFC scores have lower NASA-TLX scores in every n-back level than participants with low NFC scores.
+
+ANOVA:
+
+Main effect of the NFC group:
+
+`r apa_print(hypothesis3b_model)$full_result$nfcmedian`, $BF10=$ `r format(extractBF(hypothesis3b_BF["nfcmedian"])$bf, digits = 2)`
+
+Main effect of the n-back level:
+
+`r apa_print(hypothesis3b_model)$full_result$level`, $BF10=$ `r format(extractBF(hypothesis3b_BF["level"])$bf, digits = 2)`
+
+Interaction effect of NFC group and n-back level:
+
+`r apa_print(hypothesis3b_model)$full_result$nfcmedian_level`, $BF10=$ `r format(extractBF(hypothesis3b_BF["level + nfcmedian"])$bf, digits = 2)`
+
+Paired contrasts for the main effect of n-back level:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis3b_rmanova,
+  caption = "Main effects and interaction of NFC group and n-back level on NASA-TLX scores",
+  note = "NFC = Need for Cognition, Sum Sq = sum of squares, $df$ = degrees of freedom, $F$ = $F$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H",
+  font_size = "footnotesize")
+```
+-->
