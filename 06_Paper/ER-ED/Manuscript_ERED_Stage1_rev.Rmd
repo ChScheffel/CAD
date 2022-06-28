@@ -193,6 +193,10 @@ Subjective arousal and effort ratings are assessed after each block using a slid
 
 INSERT DESIGN TABLE HERE
 
+\includepdf[pages={-}, landscape=true]{Supplement/Design_Table_T2.pdf}
+
+\newpage
+
 <!--
 \newpage
 

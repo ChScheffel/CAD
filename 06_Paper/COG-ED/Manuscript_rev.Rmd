@@ -360,6 +360,7 @@ The authors declare no competing interests.
 # Figures and figure Captions
 
 INSERT FIGURE 1 HERE
+
 <!--
 ```{r figure1appendix, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -373,8 +374,6 @@ INSERT FIGURE 1 HERE
 \newpage
 
 # Design Table {#DesignTableSection}
-
-(Starts on next page)
 
 INSERT DESIGN TABLE HERE
 <!--
