@@ -73,7 +73,7 @@ figsintext        : yes
 figurelist        : no
 tablelist         : no
 footnotelist      : no
-linenumbers       : yes
+linenumbers       : no
 mask              : no
 draft             : no
 documentclass     : "apa6"
@@ -191,24 +191,21 @@ Subjective arousal and effort ratings are assessed after each block using a slid
 
 # Design Table {#DesignTable}
 
-INSERT DESIGN TABLE HERE
-
 \includepdf[pages={-}, landscape=true]{Supplement/Design_Table_T2.pdf}
 
 \newpage
 
-<!--
-\newpage
-
 # Supplementary Material {#SupplementaryMaterial}
 
+INCLUDE SUPPLEMENT HERE
+
+<!--
 \includepdf[pages={-}, landscape=true]{Supplement/StimList_Suppl.pdf}
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
 \setcounter{section}{19}
 \setcounter{figure}{0}
 \setcounter{table}{1}
-
 \newpage
 
 ## Detailed information on psychometric measures {#SupplementQuestionnaires}
