@@ -172,6 +172,12 @@ for i in [0,1,2]: # each pair will be presented three times
         VS1levList.append(EDstratList[EDcomps[j] + leftright[0]])
         VS1levList.append(EDstratList[EDcomps[j] + leftright[1]])
 
+# create array corresponding to rounds of 1 vs 1 comparisons
+VS1rounds = list(range(9))
+# Create array corresponding to every second element in the list of comparisons, which will be randomized for every participant
+VS1comps = [0,2,4,6,8,10,12,14,16]
+random.shuffle(VS1comps)
+         
 ############################
 # INITIALIZE ALL COMPONENTS
 ############################
