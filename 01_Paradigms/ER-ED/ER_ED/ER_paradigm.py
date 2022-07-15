@@ -78,7 +78,7 @@ thisExp2 = data.ExperimentHandler(name=expName2, version='',
     savePickle=True, saveWideText=True,
     dataFileName=filename2)
 # For effort discounting
-thisExp3 = data.ExperimentHandler(name=expNamee, version='',
+thisExp3 = data.ExperimentHandler(name=expName3, version='',
     extraInfo=expInfo, runtimeInfo=None,
     originPath='C:\\Users\\scheffel\\Scheffel\\Forschung\\A_Projects\\2021_COG-ER-ED\\COG-ER-ED\\01_Paradigms\\ER-ED\\ER_ED\\ER_paradigm.py',
     savePickle=True, saveWideText=True,
