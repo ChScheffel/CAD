@@ -1926,7 +1926,7 @@ for thisVS1round in VS1round:
     # update component parameters for each repeat
     # update component parameters for each repeat
     LB = '1 € für Strategie ' + str(VS1stratcompList[VS1comps[vsx]])
-    RB = '1 € für Strategie ' + str(VS1levcompList[VS1comps[vsx]+1])
+    RB = '1 € für Strategie ' + str(VS1stratcompList[VS1comps[vsx]+1])
     
     VS1leftbutton.setText(LB)
     VS1rightbutton.setText(RB)
