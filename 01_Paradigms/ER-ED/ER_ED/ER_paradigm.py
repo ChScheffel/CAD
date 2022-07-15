@@ -406,7 +406,7 @@ EDclick.mouseClock = core.Clock()
 # Initialize ED left button
 EDleftbutton = visual.ButtonStim(win, 
     text= '', font='Open Sans',
-    pos=[-0.2,-0.25],units='height',
+    pos=[-0.3,-0.15],units='height',
     letterHeight=0.03,
     size=[0.5,0.1], borderWidth=0.0,
     fillColor='darkgrey', borderColor=None,
@@ -421,7 +421,7 @@ EDleftbutton.buttonClock = core.Clock()
 # Initialize ED right button
 EDrightbutton = visual.ButtonStim(win, 
    text= '', font='Open Sans',
-   pos=[0.2,-0.25],units='height',
+   pos=[0.3,-0.15],units='height',
    letterHeight=0.03,
    size=[0.5,0.1], borderWidth=0.0,
    fillColor='darkgrey', borderColor=None,
