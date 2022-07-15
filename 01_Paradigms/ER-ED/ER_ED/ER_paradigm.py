@@ -321,7 +321,7 @@ key_resp = keyboard.Keyboard()
 # Initialize 1vs1 question routine
 VS1roundClock = core.Clock()
 question = visual.TextStim(win=win, name='question',
-    text='Welche Bezahlung würden Sie eher für welches Level annehmen?',
+    text='Welche Bezahlung würden Sie eher für welche Strategie annehmen?',
     font='Open Sans',
     pos=[0,0.1], height=0.03, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
