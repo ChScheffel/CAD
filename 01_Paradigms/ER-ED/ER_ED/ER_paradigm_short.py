@@ -2249,11 +2249,6 @@ thisExp3.nextEntry()
 # the Routine "InstructionED" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
-# Some variables to grow within the loop
-finals_leftbutton_strat = [] # a variable to store the strategy of the left button
-finals_rightbutton_strat = [] # a variable to store the strategy of the right button
-finals_leftbutton_value = [] # the last value displayed on the left button
-finals_rightbutton_value = [] # the last value displayed on the right button
 
 # -----------------------------
 # Loop for the 3 comparisons
@@ -2587,12 +2582,6 @@ for edx in EDrounds:
         EDround.addData('EDrightbutton.strat', EDstratList[EDcomps[edx]+1])
                 # store the necessary variables to be able to use it in the iteration process and for the random pick of the last n-back
         EDstorebutton.append(EDclick.clicked_name[0])
-        if Currentstep == 0:
-            finals_leftbutton_strat.append(EDstratList[EDcomps[edx]])
-            finals_rightbutton_strat.append(EDstratList[EDcomps[edx]+1])
-        elif Currentstep == 5:
-            finals_leftbutton_value.append(LB[0:4])
-            finals_rightbutton_value.append(RB[0:4])
         
         # open up the next row for more data
         thisExp3.nextEntry()
