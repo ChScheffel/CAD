@@ -2245,7 +2245,7 @@ for thisComponent in InstructionEDComponents:
 # check responses
 if key_resp.keys in ['', [], None]:  # No response was made
     key_resp.keys = None
-thisExp2.nextEntry()
+thisExp3.nextEntry()
 # the Routine "InstructionED" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -2264,7 +2264,7 @@ for edx in EDrounds:
     # set up handler to look after randomisation of conditions etc
     EDround = data.TrialHandler(nReps=1.0, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions('Moneyvalues.xlsx'),
+        trialList=data.importConditions('ED_Steps.xlsx'),
         seed=None, name='EDround')
     thisExp3.addLoop(EDround)  # add the loop to the experiment
     thisEDround = EDround.trialList[0]  # so we can initialise stimuli with some values
@@ -2590,7 +2590,7 @@ for edx in EDrounds:
         if Currentstep == 0:
             finals_leftbutton_strat.append(EDstratList[EDcomps[edx]])
             finals_rightbutton_strat.append(EDstratList[EDcomps[edx]+1])
-        elif Currentstep == 6:
+        elif Currentstep == 5:
             finals_leftbutton_value.append(LB[0:4])
             finals_rightbutton_value.append(RB[0:4])
         

@@ -2259,7 +2259,7 @@ for edx in EDrounds:
     # set up handler to look after randomisation of conditions etc
     EDround = data.TrialHandler(nReps=1.0, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions('Moneyvalues.xlsx'),
+        trialList=data.importConditions('ED_Steps.xlsx'),
         seed=None, name='EDround')
     thisExp3.addLoop(EDround)  # add the loop to the experiment
     thisEDround = EDround.trialList[0]  # so we can initialise stimuli with some values
