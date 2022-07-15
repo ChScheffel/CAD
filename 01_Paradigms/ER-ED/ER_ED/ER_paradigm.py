@@ -306,7 +306,7 @@ Instruction1vs1Clock = core.Clock()
 VS1text = visual.TextStim(win=win, name='VS1text',
     text='Nun beginnt der zweite Teil.\n\nDie unterschiedlichen Strategien, die Sie gerade absolviert haben, werden nun nacheinander gegenübergestellt.\n'\
         'Auf dem Bildschirm erscheint die Frage "Welche Bezahlung würden Sie eher für welche Strategie annehmen?". Darunter befinden sich zwei Textfelder, '\
-        'zum Beispiel "1,00€ für Ablenkung" und "1,00€ für Distanzierung". Sie können die Frage beantworten, indem Sie mit der Maus '\
+        'zum Beispiel "1,00€ für Ablenken" und "1,00€ für Distanzieren". Sie können die Frage beantworten, indem Sie mit der Maus '\
         '(mit einem einfachen Klick) auf eins der beiden Felder klicken. Dabei geht es nicht um Schnelligkeit! Nachdem Sie geklickt haben, '\
         'werden sich die Strategien verändern und Sie können sich erneut entscheiden. Auf diese Weise werden alle Strategien mehrmals miteinander verglichen.\n'\
         '\n\n'\
