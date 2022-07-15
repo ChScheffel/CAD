@@ -2145,18 +2145,19 @@ if flexible12 == 1:
 else:
     EDfixflexList.append('fixed')
     EDfixflexList.append('flexible')
-if flexible23 == 2:
-    EDfixflexList.append('flexible')
-    EDfixflexList.append('fixed')
-else:
-    EDfixflexList.append('fixed')
-    EDfixflexList.append('flexible')
 if flexible13 == 1:
     EDfixflexList.append('flexible')
     EDfixflexList.append('fixed')
 else:
     EDfixflexList.append('fixed')
     EDfixflexList.append('flexible')
+if flexible23 == 2:
+    EDfixflexList.append('flexible')
+    EDfixflexList.append('fixed')
+else:
+    EDfixflexList.append('fixed')
+    EDfixflexList.append('flexible')
+
 
 # ------Prepare to start Routine "InstructionED"-------
 continueRoutine = True
