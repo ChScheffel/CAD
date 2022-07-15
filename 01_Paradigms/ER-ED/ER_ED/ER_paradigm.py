@@ -1924,25 +1924,9 @@ for thisVS1round in VS1round:
     # ------Prepare to start Routine -------
     continueRoutine = True
     # update component parameters for each repeat
-    if EDfixflexList[EDcomps[edx]] == 'flexible':
-        #right button is set to display 2 EUR
-        RB = str(format(EDfix[0],'.2f')) + '€ für Strategie ' +str(EDstratcompList[EDcomps[edx]+1])
-        # display flexible value on left button
-        if Currentstep == 0:
-            # for the first 1-vs-2 comparison, no reference to last buttonclick is necessary
-            LB = str(format(EDsteps[0], '.2f')) + '€ für Strategie ' +str(EDstratcompList[EDcomps[edx]])
-            # set 'old' value of the flexible button to 1€ 
-            oldvalue = EDsteps[0]
-        else:
-            # value on left button is changed according to previous choice
-            if EDstorebutton[Currentstep-1] == 'EDleftbutton':
-                newvalue = oldvalue - EDsteps[Currentstep]
-            # if the pricier option was chosen, raise the other options' value by the current EDsteps value
-            else:
-                newvalue = oldvalue + EDsteps[Currentstep]
-            LB = str(format(newvalue,'.2f')) + '€ für Strategie ' + str(EDstratcompList[EDcomps[edx]])
-            oldvalue = newvalue
-
+    # update component parameters for each repeat
+    LB = '1 € für Strategie ' + str(VS1stratcompList[VS1comps[vsx]])
+    RB = '1 € für Strategie ' + str(VS1levcompList[VS1comps[vsx]+1])
     
     VS1leftbutton.setText(LB)
     VS1rightbutton.setText(RB)
@@ -2278,7 +2262,7 @@ for edx in EDrounds:
         extraInfo=expInfo, originPath=-1,
         trialList=data.importConditions('Moneyvalues.xlsx'),
         seed=None, name='EDround')
-    thisExp2.addLoop(EDround)  # add the loop to the experiment
+    thisExp3.addLoop(EDround)  # add the loop to the experiment
     thisEDround = EDround.trialList[0]  # so we can initialise stimuli with some values
     # abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
     if thisEDround != None:
@@ -2398,49 +2382,43 @@ for edx in EDrounds:
         # ------Prepare to start Routine -------
         continueRoutine = True
         # update component parameters for each repeat
-        if Currentstep == 0:
-            # in the beginning, both buttons offer 1€ for both levels
-            LB = str(format(EDsteps[0],'.2f')) + ' € \n\nfür Strategie \n\n' + str(EDstratcompList[EDcomps[edx]])
-            RB = str(format(EDsteps[0],'.2f')) + ' € \n\nfür Strategie \n\n' + str(EDstratcompList[EDcomps[edx]+1])
-        else:
-            if EDstorebutton[0] == 'EDleftbutton':
-            # if the participant chose the left button in the beginning, proceed as follows
-            # the right button value is fixed to 2€
-                RB = str(format(EDfix[0],'.2f')) + ' € \n\nfür Strategie \n\n' + str(EDstratcompList[EDcomps[edx]+1])
-                # now adapt the value of the left button depending on the previous choice
-                if Currentstep == 1:
-                    # set the left button to 1€ (because this does not fit in with the iteration process yet)
-                    LB = str(format(EDsteps[1],'.2f')) + ' € \n\nfür Strategie \n\n' + str(EDstratcompList[EDcomps[edx]])
-                    oldvalue = EDsteps[1]
-                # iteration process
-                else:
-                    # if the cheaper option was chosen, lower that options value by the current EDsteps value
-                    if EDstorebutton[Currentstep-1] == 'EDleftbutton':
-                        newvalue = oldvalue - EDsteps[Currentstep]
-                    # if the pricier option was chosen, raise the other options value by the current EDsteps value
-                    else:
-                        newvalue = oldvalue + EDsteps[Currentstep]
-                    LB = str(format(newvalue,'.2f')) + ' € \n\nfür Strategie \n\n' + str(EDstratcompList[EDcomps[edx]])
-                    oldvalue = newvalue
+        if EDfixflexList[EDcomps[edx]] == 'flexible':
+            #right button is set to display 2 EUR
+            RB = str(format(EDfix[0],'.2f')) + '€ für Strategie ' +str(EDstratcompList[EDcomps[edx]+1])
+            # display flexible value on left button
+            if Currentstep == 0:
+                # for the first 1-vs-2 comparison, no reference to last buttonclick is necessary
+                LB = str(format(EDsteps[0], '.2f')) + '€ für Strategie ' +str(EDstratcompList[EDcomps[edx]])
+                # set 'old' value of the flexible button to 1€ 
+                oldvalue = EDsteps[0]
             else:
-            # if the participant chose the right button in the beginning, proceed as follows
-            # the left button value is fixed to 2€
-                LB = str(format(EDfix[0],'.2f')) + ' € \n\nfür Strategie \n\n' + str(EDstratcompList[EDcomps[edx]])
-                # now adapt the value of the right button depending on the previous choice
-                if Currentstep == 1:
-                    # set the right button to 1€ (because this does not fit in with the iteration process yet)
-                    RB = str(format(EDsteps[1],'.2f')) + ' € \n\nfür Strategie \n\n' + str(EDstratcompList[EDcomps[edx]+1])
-                    oldvalue = EDsteps[1]
-                # iteration process
+                # value on left button is changed according to previous choice
+                if EDstorebutton[Currentstep-1] == 'EDleftbutton':
+                    newvalue = oldvalue - EDsteps[Currentstep]
+                # if the pricier option was chosen, raise the other options' value by the current EDsteps value
                 else:
-                    # if the cheaper option was chosen, lower that options value by the current EDsteps value
-                    if EDstorebutton[Currentstep-1] == 'EDrightbutton':
-                        newvalue = oldvalue - EDsteps[Currentstep]
-                    # if the pricier option was chosen, raise the other options value by the current EDsteps value
-                    else:
-                        newvalue = oldvalue + EDsteps[Currentstep]
-                    RB = str(format(newvalue,'.2f')) + ' € \n\nfür Strategie \n\n' + str(EDstratcompList[EDcomps[edx]+1])
-                    oldvalue = newvalue
+                    newvalue = oldvalue + EDsteps[Currentstep]
+                LB = str(format(newvalue,'.2f')) + '€ für Strategie ' + str(EDstratcompList[EDcomps[edx]])
+                oldvalue = newvalue
+        
+        else:
+            # set left button to display 2€
+            LB = str(format(EDfix[0],'.2f')) + '€ für Strategie ' + str(EDstratcompList[EDcomps[edx]])
+            # display flexible value on right button
+            if Currentstep == 0:
+                # for the first 1-vs-2 comparison, no reference to last buttonclick is necessary
+                RB = str(format(EDsteps[0], '.2f')) + '€ für Strategie ' +str(EDstratcompList[EDcomps[edx]+1])
+                # set 'old' value of the flexible button to 1€ 
+                oldvalue = EDsteps[0]
+            else:
+                # value on right button is changed according to previous choice
+                if EDstorebutton[Currentstep-1] == 'EDrightbutton':
+                    newvalue = oldvalue - EDsteps[Currentstep]
+                # if the pricier option was chosen, raise the other options' value by the current EDsteps value
+                else:
+                    newvalue = oldvalue + EDsteps[Currentstep]
+                RB = str(format(newvalue,'.2f')) + '€ für Strategie ' + str(EDstratcompList[EDcomps[edx]+1])
+                oldvalue = newvalue
         
         EDleftbutton.setText(LB)
         EDrightbutton.setText(RB)
@@ -2613,7 +2591,7 @@ for edx in EDrounds:
             finals_rightbutton_value.append(RB[0:4])
         
         # open up the next row for more data
-        thisExp2.nextEntry()
+        thisExp3.nextEntry()
         
         # the Routine was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
