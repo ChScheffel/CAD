@@ -2128,7 +2128,7 @@ for i in VS1rounds:
     elif all(x in currentbuttons for x in [1,3]):
         currentclick = list(compress(currentbuttons, currentchoices))
         choices13.append(currentclick[0])
-    elif all(x in currentbuttons for x in [2,3]):
+    else:
         currentclick = list(compress(currentbuttons, currentchoices))
         choices23.append(currentclick[0])
 
