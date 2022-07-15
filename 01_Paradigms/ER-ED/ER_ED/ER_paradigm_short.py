@@ -408,7 +408,7 @@ EDleftbutton = visual.ButtonStim(win,
     text= '', font='Open Sans',
     pos=[-0.3,-0.15],units='height',
     letterHeight=0.03,
-    size=[0.5,0.1], borderWidth=0.0,
+    size=[0.55,0.1], borderWidth=0.0,
     fillColor='darkgrey', borderColor=None,
     color='black', colorSpace='rgb',
     opacity=None,
@@ -423,7 +423,7 @@ EDrightbutton = visual.ButtonStim(win,
    text= '', font='Open Sans',
    pos=[0.3,-0.15],units='height',
    letterHeight=0.03,
-   size=[0.5,0.1], borderWidth=0.0,
+   size=[0.55,0.1], borderWidth=0.0,
    fillColor='darkgrey', borderColor=None,
    color='black', colorSpace='rgb',
    opacity=None,
@@ -2121,9 +2121,9 @@ for i in VS1rounds:
     currentchoices = [leftbutton_1vs1_clicked[i], rightbutton_1vs1_clicked[i]]
     # now check for levels to put them in the respective 'choices' variable
     if all(x in currentbuttons for x in [1,2]):
-        # this command retains only the level that was chosen
+        # this command retains only the strategy that was chosen
         currentclick = list(compress(currentbuttons, currentchoices))
-        # append chosen level to the variable
+        # append chosen strategy to the variable
         choices12.append(currentclick[0])
     elif all(x in currentbuttons for x in [1,3]):
         currentclick = list(compress(currentbuttons, currentchoices))
