@@ -1777,7 +1777,7 @@ for edx in EDrounds:
         else:
             # set the left button to display 2€
             LB = str(format(EDfix[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]]) + ' Level'
-            # display the flexible value on the left button
+            # display the flexible value on the right button
             if Currentstep == 0:
                 # for the first 1-vs-2-comparison, we don't need to refer to the last buttonclick
                 RB = str(format(EDsteps[0],'.2f')) + '€ für das ' + str(EDlevcompList[EDcomps[edx]+1]) + ' Level'
