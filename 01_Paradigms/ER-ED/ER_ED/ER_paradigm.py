@@ -304,7 +304,7 @@ RATINGstorebutton = []
 # Initialize components for 1 vs 1 instruction routine
 Instruction1vs1Clock = core.Clock()
 VS1text = visual.TextStim(win=win, name='VS1text',
-    text='Nun beginnt der zweite Teil.\n\nDie unterschiedlichen Strategien, die Sie gerade absolviert haben, werden nun nacheinander gegenübergestellt.\n'\
+    text='Nun beginnt der nächste Teil.\n\nDie unterschiedlichen Strategien, die Sie gerade absolviert haben, werden nun nacheinander gegenübergestellt.\n'\
         'Auf dem Bildschirm erscheint die Frage "Welche Bezahlung würden Sie eher für welche Strategie annehmen?". Darunter befinden sich zwei Textfelder, '\
         'zum Beispiel "1,00€ für Ablenken" und "1,00€ für Distanzieren". Sie können die Frage beantworten, indem Sie mit der Maus '\
         '(mit einem einfachen Klick) auf eins der beiden Felder klicken. Dabei geht es nicht um Schnelligkeit! Nachdem Sie geklickt haben, '\
@@ -370,12 +370,12 @@ VS1rightbutton.buttonClock = core.Clock()
 # Initialize components for ED instruction routine
 InstructionEDClock = core.Clock()
 text_EDinstruction = visual.TextStim(win=win, name='text_EDinstruction',
-    text='Nun beginnt der nächste Teil.\n\nDie unterschiedlichen Strategien, die Sie gerade genutzt haben, werden nun nacheinander gegenübergestellt.\n'\
-         'Auf dem Bildschirm erscheint die Frage "Welche Bezahlung würden Sie eher für welche Strategie annehmen?". Darunter befinden sich zwei Textfelder, '\
-        'zum Beispiel "1,00€ für Strategie Ablenken" und "1,00€ für Strategie Distanzieren". Sie können die Frage beantworten, indem Sie mit der Maus '\
-        '(mit einem einfachen Klick) auf eins der beiden Felder klicken. Dabei geht es nicht um Schnelligkeit. Nachdem Sie geklickt haben, '\
-        'werden sich die Geldbeträge verändern und Sie können sich erneut entscheiden. Auf diese Weise werden alle Strategien miteinander verglichen werden.\n'\
-        'Bitte entscheiden Sie sich so, dass Sie mit dem Verhältnis der Optionen wirklich zufrieden sind. \n\n'\
+    text='Nun ändert sich der Ablauf.\n\nEs verändern sich jetzt nicht mehr vorrangig die Strategien, sondern die Geldbeträge, die Ihnen geboten werden.\n'\
+        'Bitte entscheiden Sie sich wieder für eine der Optionen, es geht dabei nicht um Schnelligkeit! \n'\
+        'Die Geldbeträge werden Ihnen NICHT zusätzlich zu Ihrer Teilnahme-Vergütung ausgezahlt. Es handelt sich um fiktive Beträge.'\
+        'Versuchen Sie deshalb bitte nicht, die Beträge künstlich in die Höhe zu treiben, sondern entscheiden Sie sich so, '\
+        'dass Sie mit dem Verhältnis der Optionen wirklich zufrieden sind.\n'\
+        '\n\n'\
         'Drücken Sie die Leertaste, um zu beginnen.',
     font='Open Sans',
     pos=(0, 0), height=0.03, wrapWidth=None, ori=0.0, 
