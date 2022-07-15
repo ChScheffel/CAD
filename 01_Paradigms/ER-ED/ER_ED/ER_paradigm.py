@@ -1800,7 +1800,7 @@ rightbutton_1vs1_clicked = [] # whether it was clicked or not
 # set up handler to look after randomisation of conditions etc
 VS1round = data.TrialHandler(nReps=1.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\VS1_Rounds.xlsx'),
+    trialList=data.importConditions('C:\\Users\\scheffel\\Scheffel\\Forschung\\A_Projects\\2021_CERED\\CAD\\\\01_Paradigms\\ER-ED\\ER_ED\\VS1_Rounds.xlsx'),
     seed=None, name='EDround')
 thisExp2.addLoop(VS1round)  # add the loop to the experiment
 thisVS1round = VS1round.trialList[0]  # so we can initialise stimuli with some values
