@@ -129,7 +129,7 @@ EDstratList = [1, 2,
 2, 3]
 
 # The steps in which the monetary values will be adapted in the ED part
-EDsteps = [1.00,1.00,0.50,0.25,0.13,0.06,0.03,0.02]
+EDsteps = [1.00,0.50,0.25,0.13,0.06,0.03,0.02]
 # The constant monetary value that will be assigned to the option that was not chosen in the 1€ vs 1€ comparison
 EDfix = [2.00]
 # Create array corresponding to rounds of effort discounting aka the list elements
