@@ -2090,8 +2090,8 @@ for thisVS1round in VS1round:
         VS1round.addData('VS1rightbutton.wasclicked', 1)
         rightbutton_1vs1_clicked.append(True)
     # what strategy each button was
-    VS1round.addData('VS1leftbutton.nback', VS1levList[VS1comps[vsx]])
-    VS1round.addData('VS1rightbutton.nback', VS1levList[VS1comps[vsx]+1])
+    VS1round.addData('VS1leftbutton.nback', VS1stratList[VS1comps[vsx]])
+    VS1round.addData('VS1rightbutton.nback', VS1stratList[VS1comps[vsx]+1])
     leftbutton_1vs1_strat.append(VS1stratList[VS1comps[vsx]])
     rightbutton_1vs1_strat.append(VS1stratList[VS1comps[vsx]+1])
     # store the necessary variables to be able to use it in the iteration process and for the random pick of the last n-back
