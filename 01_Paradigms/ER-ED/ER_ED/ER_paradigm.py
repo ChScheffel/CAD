@@ -298,6 +298,72 @@ bufferscreenkey = keyboard.Keyboard()
 RATINGstorebutton = []
 
 # ------------------------------
+# 1 vs 1 components
+# ------------------------------
+
+# Initialize components for 1 vs 1 instruction routine
+Instruction1vs1Clock = core.Clock()
+VS1text = visual.TextStim(win=win, name='VS1text',
+    text='Nun beginnt der zweite Teil.\n\nDie unterschiedlichen Strategien, die Sie gerade absolviert haben, werden nun nacheinander gegenübergestellt.\n'\
+        'Auf dem Bildschirm erscheint die Frage "Welche Bezahlung würden Sie eher für welche Strategie annehmen?". Darunter befinden sich zwei Textfelder, '\
+        'zum Beispiel "1,00€ für Ablenkung" und "1,00€ für Distanzierung". Sie können die Frage beantworten, indem Sie mit der Maus '\
+        '(mit einem einfachen Klick) auf eins der beiden Felder klicken. Dabei geht es nicht um Schnelligkeit! Nachdem Sie geklickt haben, '\
+        'werden sich die Strategien verändern und Sie können sich erneut entscheiden. Auf diese Weise werden alle Strategien mehrmals miteinander verglichen.\n'\
+        '\n\n'\
+        'Drücken Sie die Leertaste, um zu beginnen.',
+    font='Open Sans',
+    pos=(0, 0), height=0.025, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+key_resp = keyboard.Keyboard()
+
+# Initialize 1vs1 question routine
+VS1roundClock = core.Clock()
+question = visual.TextStim(win=win, name='question',
+    text='Welche Bezahlung würden Sie eher für welches Level annehmen?',
+    font='Open Sans',
+    pos=[0,0.1], height=0.03, wrapWidth=None, ori=0.0, 
+    color='black', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+
+# Initialize 1vs1 mouse click routine
+VS1click = event.Mouse(win=win)
+x, y = [None, None]
+VS1click.mouseClock = core.Clock()
+
+# Initialize 1vs1 left button
+VS1leftbutton = visual.ButtonStim(win, 
+    text= '', font='Open Sans',
+    pos=[-0.3,-0.15],units='height',
+    letterHeight=0.03,
+    size=[0.5,0.1], borderWidth=0.0,
+    fillColor='darkgrey', borderColor=None,
+    color='', colorSpace='rgb',
+    opacity=None,
+    bold=True, italic=False,
+    padding=0.03,
+    anchor='center',
+    name='VS1leftbutton')
+VS1leftbutton.buttonClock = core.Clock()
+
+# Initialize 1vs1 right button
+VS1rightbutton = visual.ButtonStim(win, 
+   text= '', font='Open Sans',
+   pos=[0.3,-0.15],units='height',
+   letterHeight=0.03,
+   size=[0.5,0.1], borderWidth=0.0,
+   fillColor='darkgrey', borderColor=None,
+   color='', colorSpace='rgb',
+   opacity=None,
+   bold=True, italic=False,
+   padding=0.03,
+   anchor='center',
+   name='VS1rightbutton')
+VS1rightbutton.buttonClock = core.Clock()
+
+# ------------------------------
 # Effort Discounting components
 # ------------------------------
 
