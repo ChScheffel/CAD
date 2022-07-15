@@ -31,7 +31,11 @@ from numpy.random import random, randint, normal, shuffle, choice as randchoice
 import os  # handy system and path functions
 import sys  # to get file system encoding
 import random # for randomization of comparison order
-
+from itertools import compress # for logical indexing
+from collections import Counter # for counting occurrences within a list
+def most_frequent(List):
+    occurence_count = Counter(List)
+    return occurence_count.most_common(1)[0][0]
 
 from psychopy.hardware import keyboard
 
