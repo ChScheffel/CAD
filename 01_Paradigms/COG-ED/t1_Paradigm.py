@@ -67,25 +67,25 @@ filename4 = _thisDir + os.sep + u'data/%s_%s' % (expInfo['Participant'], expName
 # For n-back
 thisExp1 = data.ExperimentHandler(name=expName1, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
+    originPath='t1_Paradigm.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename1)
 # For the 1 vs 1 questions
 thisExp2 = data.ExperimentHandler(name=expName2, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
+    originPath='t1_Paradigm.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename2)
 # For Effort Discounting
 thisExp3 = data.ExperimentHandler(name=expName3, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
+    originPath='t1_Paradigm.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename3)
 # For the final n-back level at the end that is randomly chosen
 thisExp4 = data.ExperimentHandler(name=expName4, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\t1_Paradigm.py',
+    originPath='t1_Paradigm.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename4)
 
@@ -120,18 +120,12 @@ defaultKeyboard = keyboard.Keyboard()
 levelinwordsList = ['direkt', 'zwei', 'drei', 'vier'] # will be used in the instructions
 levelcolorList = ['black', 'darkred', 'darkblue', 'darkgreen'] # will be used to change the colors of the stimuli
 levelcolorinwordsList = ['Schwarz', 'Rot', 'Blau', 'Grün'] # will be used in the instructions
-stimuliList = ['C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\1back_run1.xlsx',
-'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\1back_run2.xlsx',
-'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\2back_run1.xlsx',
-'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\2back_run2.xlsx',
-'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\3back_run1.xlsx',
-'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\3back_run2.xlsx',
-'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\4back_run1.xlsx',
-'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\4back_run2.xlsx'] # will be used to import the excel files with the n-back stimuli
-finaln_stimuliList = ['C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\1back.xlsx',
-'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\2back.xlsx',
-'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\3back.xlsx',
-'C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\4back.xlsx'] # for import of the stimuli for the final round after the ED part
+stimuliList = ['Stimuli\\1back_run1.xlsx', 'Stimuli\\1back_run2.xlsx',
+'Stimuli\\2back_run1.xlsx', 'Stimuli\\2back_run2.xlsx',
+'Stimuli\\3back_run1.xlsx', 'Stimuli\\3back_run2.xlsx',
+'Stimuli\\4back_run1.xlsx', 'Stimuli\\4back_run2.xlsx'] # will be used to import the excel files with the n-back stimuli
+finaln_stimuliList = ['Stimuli\\1back.xlsx', 'Stimuli\\2back.xlsx',
+'Stimuli\\3back.xlsx', 'Stimuli\\4back.xlsx'] # for import of the stimuli for the final round after the ED part
 EDlevcompList = ['schwarze', 'rote',
 'rote', 'blaue',
 'blaue', 'grüne',
@@ -1137,7 +1131,7 @@ rightbutton_1vs1_clicked = [] # whether it was clicked or not
 # set up handler to look after randomisation of conditions etc
 VS1round = data.TrialHandler(nReps=1.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\VS1_Rounds.xlsx'),
+    trialList=data.importConditions('Stimuli\\VS1_Rounds.xlsx'),
     seed=None, name='EDround')
 thisExp2.addLoop(VS1round)  # add the loop to the experiment
 thisVS1round = VS1round.trialList[0]  # so we can initialise stimuli with some values
@@ -1630,7 +1624,7 @@ for edx in EDrounds:
     # set up handler to look after randomisation of conditions etc
     EDround = data.TrialHandler(nReps=1.0, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions('C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\ED_Steps.xlsx'),
+        trialList=data.importConditions('Stimuli\\ED_Steps.xlsx'),
         seed=None, name='EDround')
     thisExp3.addLoop(EDround)  # add the loop to the experiment
     thisEDround = EDround.trialList[0]  # so we can initialise stimuli with some values
