@@ -1800,7 +1800,7 @@ rightbutton_1vs1_clicked = [] # whether it was clicked or not
 # set up handler to look after randomisation of conditions etc
 VS1round = data.TrialHandler(nReps=1.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('C:\\Users\\scheffel\\Scheffel\\Forschung\\A_Projects\\2021_CERED\\CAD\\\\01_Paradigms\\ER-ED\\ER_ED\\VS1_Rounds.xlsx'),
+    trialList=data.importConditions('VS1_Rounds.xlsx'),
     seed=None, name='EDround')
 thisExp2.addLoop(VS1round)  # add the loop to the experiment
 thisVS1round = VS1round.trialList[0]  # so we can initialise stimuli with some values
@@ -1924,8 +1924,11 @@ for thisVS1round in VS1round:
     # ------Prepare to start Routine -------
     continueRoutine = True
     # update component parameters for each repeat
-    LB = '1 € für Strategie ' + str(VS1stratcompList[VS1comps[vsx]]) 
-    RB = '1 € für Strategie ' + str(VS1stratcompList[VS1comps[vsx]+1]) 
+    if EDfixflexList[EDcomps[edx]] == 'flexible':
+        #right button is set to display 2 EUR
+        RB = str(format(EDfix[0],'.2f')) + '€ für Strategie ' +str(EDstratcompList[EDcomps[edx]+1])
+        
+
     
     VS1leftbutton.setText(LB)
     VS1rightbutton.setText(RB)
