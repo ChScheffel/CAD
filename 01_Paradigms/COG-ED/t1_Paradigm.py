@@ -328,7 +328,7 @@ InstructionEDClock = core.Clock()
 text = visual.TextStim(win=win, name='text',
     text='Nun ändert sich der Ablauf ein wenig.\nEs verändern sich jetzt nicht vorrangig die Level, sondern die Geldbeträge, die Ihnen angeboten werden.\n'\
         'Bitte entscheiden Sie sich wieder für eine der Optionen, es geht dabei nicht um Schnelligkeit.\n'\
-        'Die Geldbeträge werden Ihnen NICHT zusätzlich zu Ihrer Teilnahme-Vergütung ausgezahlt. Es handelt sich um hypothetische Beträge. '\
+        'Die Geldbeträge werden Ihnen NICHT zusätzlich zu Ihrer Teilnahme-Vergütung ausgezahlt. Es handelt sich um fiktive Beträge. '\
         'Versuchen Sie deshalb bitte nicht, die Beträge künstlich in die Höhe zu treiben, sondern entscheiden Sie sich so, '\
         'dass Sie mit dem Verhältnis der Optionen wirklich zufrieden sind.\n'\
         'Eine Ihrer Entscheidungen wird anschließend zufällig für einen erneuten Durchgang ausgewählt.\n\n'\
