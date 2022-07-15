@@ -1927,7 +1927,21 @@ for thisVS1round in VS1round:
     if EDfixflexList[EDcomps[edx]] == 'flexible':
         #right button is set to display 2 EUR
         RB = str(format(EDfix[0],'.2f')) + '€ für Strategie ' +str(EDstratcompList[EDcomps[edx]+1])
-        
+        # display flexible value on left button
+        if Currentstep == 0:
+            # for the first 1-vs-2 comparison, no reference to last buttonclick is necessary
+            LB = str(format(EDsteps[0], '.2f')) + '€ für Strategie ' +str(EDstratcompList[EDcomps[edx]])
+            # set 'old' value of the flexible button to 1€ 
+            oldvalue = EDsteps[0]
+        else:
+            # value on left button is changed according to previous choice
+            if EDstorebutton[Currentstep-1] == 'EDleftbutton':
+                newvalue = oldvalue - EDsteps[Currentstep]
+            # if the pricier option was chosen, raise the other options' value by the current EDsteps value
+            else:
+                newvalue = oldvalue + EDsteps[Currentstep]
+            LB = str(format(newvalue,'.2f')) + '€ für Strategie ' + str(EDstratcompList[EDcomps[edx]])
+            oldvalue = newvalue
 
     
     VS1leftbutton.setText(LB)
