@@ -440,7 +440,7 @@ EDbufferscreen = visual.TextStim(win=win, name='EDbufferscreen',
     depth=0.0);
 bufferscreenkey = keyboard.Keyboard()
 EDstorebutton = []
-
+VS1storebutton = []
 
 # Initialize components for Routine "Choice_reapply"
 Choice_reapplyClock = core.Clock()
@@ -1924,8 +1924,8 @@ for thisVS1round in VS1round:
     # ------Prepare to start Routine -------
     continueRoutine = True
     # update component parameters for each repeat
-    LB = '1 € für das ' + str(VS1levcompList[VS1comps[vsx]]) + ' Level'
-    RB = '1 € für das ' + str(VS1levcompList[VS1comps[vsx]+1]) + ' Level'
+    LB = '1 € für Strategie ' + str(VS1stratcompList[VS1comps[vsx]]) 
+    RB = '1 € für Strategie ' + str(VS1stratcompList[VS1comps[vsx]+1]) 
     
     VS1leftbutton.setText(LB)
     VS1rightbutton.setText(RB)
@@ -1998,8 +1998,7 @@ for thisVS1round in VS1round:
             VS1leftbutton.tStart = t  # local t and not account for scr refresh
             VS1leftbutton.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(VS1leftbutton, 'tStartRefresh')  # time at next scr refresh
-            VS1leftbutton.setAutoDraw(True)
-            VS1leftbutton.setColor(VS1levcolorList[VS1comps[vsx]])
+            VS1leftbutton.setAutoDraw(True)            
         if VS1leftbutton.status == STARTED:
             # check whether LeftButton has been pressed
             if VS1leftbutton.isClicked:
@@ -2026,7 +2025,6 @@ for thisVS1round in VS1round:
             VS1rightbutton.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(VS1rightbutton, 'tStartRefresh')  # time at next scr refresh
             VS1rightbutton.setAutoDraw(True)
-            VS1rightbutton.setColor(VS1levcolorList[VS1comps[vsx]+1])
         if VS1rightbutton.status == STARTED:
             # check whether RightButton has been pressed
             if VS1rightbutton.isClicked:
@@ -2090,11 +2088,11 @@ for thisVS1round in VS1round:
         leftbutton_1vs1_clicked.append(False)
         VS1round.addData('VS1rightbutton.wasclicked', 1)
         rightbutton_1vs1_clicked.append(True)
-    # what level each button was
+    # what strategy each button was
     VS1round.addData('VS1leftbutton.nback', VS1levList[VS1comps[vsx]])
     VS1round.addData('VS1rightbutton.nback', VS1levList[VS1comps[vsx]+1])
-    leftbutton_1vs1_level.append(VS1levList[VS1comps[vsx]])
-    rightbutton_1vs1_level.append(VS1levList[VS1comps[vsx]+1])
+    leftbutton_1vs1_strat.append(VS1stratList[VS1comps[vsx]])
+    rightbutton_1vs1_strat.append(VS1stratList[VS1comps[vsx]+1])
     # store the necessary variables to be able to use it in the iteration process and for the random pick of the last n-back
     VS1storebutton.append(VS1click.clicked_name[0])
         
@@ -2104,6 +2102,89 @@ for thisVS1round in VS1round:
     # the Routine was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
 
+# ------- Calculate which levels are fixed and which are flexible in each pair ------------
+
+# create empty variables to store the information of fixed and flexible
+choices12 = []
+choices13 = []
+choices14 = []
+choices23 = []
+choices24 = []
+choices34 = []
+
+for i in VS1rounds:
+    # create variables containing the levels on and choices of both buttons
+    currentbuttons = [leftbutton_1vs1_level[i], rightbutton_1vs1_level[i]]
+    currentchoices = [leftbutton_1vs1_clicked[i], rightbutton_1vs1_clicked[i]]
+    # now check for levels to put them in the respective 'choices' variable
+    if all(x in currentbuttons for x in [1,2]):
+        # this command retains only the level that was chosen
+        currentclick = list(compress(currentbuttons, currentchoices))
+        # append chosen level to the variable
+        choices12.append(currentclick[0])
+    elif all(x in currentbuttons for x in [1,3]):
+        currentclick = list(compress(currentbuttons, currentchoices))
+        choices13.append(currentclick[0])
+    elif all(x in currentbuttons for x in [1,4]):
+        currentclick = list(compress(currentbuttons, currentchoices))
+        choices14.append(currentclick[0])
+    elif all(x in currentbuttons for x in [2,3]):
+        currentclick = list(compress(currentbuttons, currentchoices))
+        choices23.append(currentclick[0])
+    elif all(x in currentbuttons for x in [2,4]):
+        currentclick = list(compress(currentbuttons, currentchoices))
+        choices24.append(currentclick[0])
+    else:
+        currentclick = list(compress(currentbuttons, currentchoices))
+        choices34.append(currentclick[0])
+
+# now reduce all 'choices' variables to the level that was chosen at least 2 out of 3 times
+flexible12 = most_frequent(choices12)
+flexible13 = most_frequent(choices13)
+flexible14 = most_frequent(choices14)
+flexible23 = most_frequent(choices23)
+flexible24 = most_frequent(choices24)
+flexible34 = most_frequent(choices34)
+
+# put the information of fixed and flexible in the same format as the other ED variables
+EDfixflexList = []
+if flexible12 == 1:
+    EDfixflexList.append('flexible')
+    EDfixflexList.append('fixed')
+else:
+    EDfixflexList.append('fixed')
+    EDfixflexList.append('flexible')
+if flexible23 == 2:
+    EDfixflexList.append('flexible')
+    EDfixflexList.append('fixed')
+else:
+    EDfixflexList.append('fixed')
+    EDfixflexList.append('flexible')
+if flexible34 == 3:
+    EDfixflexList.append('flexible')
+    EDfixflexList.append('fixed')
+else:
+    EDfixflexList.append('fixed')
+    EDfixflexList.append('flexible')
+if flexible14 == 1:
+    EDfixflexList.append('flexible')
+    EDfixflexList.append('fixed')
+else:
+    EDfixflexList.append('fixed')
+    EDfixflexList.append('flexible')
+if flexible24 == 2:
+    EDfixflexList.append('flexible')
+    EDfixflexList.append('fixed')
+else:
+    EDfixflexList.append('fixed')
+    EDfixflexList.append('flexible')
+if flexible13 == 1:
+    EDfixflexList.append('flexible')
+    EDfixflexList.append('fixed')
+else:
+    EDfixflexList.append('fixed')
+    EDfixflexList.append('flexible')
+    
 # ------Prepare to start Routine "InstructionED"-------
 continueRoutine = True
 # update component parameters for each repeat
