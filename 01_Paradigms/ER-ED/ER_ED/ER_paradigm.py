@@ -1696,6 +1696,30 @@ for thisBlocks_reg in blocks_reg:
     thisExp1.nextEntry()
 # completed 1.0 repeats of 'blocks_reg'
 
+# ------Prepare to start Routine "Instruction 1vs 1"-------
+continueRoutine = True
+# update component parameters for each repeat
+key_resp.keys = []
+key_resp.rt = []
+_key_resp_allKeys = []
+# make mouse cursor visible
+win.mouseVisible = True
+# keep track of which components have finished
+Instruction1vs1Components = [VS1text, key_resp]
+for thisComponent in Instruction1vs1Components:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+Instruction1vs1Clock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+
 # ------Prepare to start Routine "InstructionED"-------
 continueRoutine = True
 # update component parameters for each repeat
