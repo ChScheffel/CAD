@@ -2102,19 +2102,17 @@ for thisVS1round in VS1round:
     # the Routine was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
 
-# ------- Calculate which levels are fixed and which are flexible in each pair ------------
+# ------- Calculate which strategies are fixed and which are flexible in each pair ------------
 
 # create empty variables to store the information of fixed and flexible
 choices12 = []
 choices13 = []
-choices14 = []
 choices23 = []
-choices24 = []
-choices34 = []
+
 
 for i in VS1rounds:
-    # create variables containing the levels on and choices of both buttons
-    currentbuttons = [leftbutton_1vs1_level[i], rightbutton_1vs1_level[i]]
+    # create variables containing the strategies on and choices of both buttons
+    currentbuttons = [leftbutton_1vs1_strat[i], rightbutton_1vs1_strat[i]]
     currentchoices = [leftbutton_1vs1_clicked[i], rightbutton_1vs1_clicked[i]]
     # now check for levels to put them in the respective 'choices' variable
     if all(x in currentbuttons for x in [1,2]):
@@ -2125,26 +2123,14 @@ for i in VS1rounds:
     elif all(x in currentbuttons for x in [1,3]):
         currentclick = list(compress(currentbuttons, currentchoices))
         choices13.append(currentclick[0])
-    elif all(x in currentbuttons for x in [1,4]):
-        currentclick = list(compress(currentbuttons, currentchoices))
-        choices14.append(currentclick[0])
     elif all(x in currentbuttons for x in [2,3]):
         currentclick = list(compress(currentbuttons, currentchoices))
         choices23.append(currentclick[0])
-    elif all(x in currentbuttons for x in [2,4]):
-        currentclick = list(compress(currentbuttons, currentchoices))
-        choices24.append(currentclick[0])
-    else:
-        currentclick = list(compress(currentbuttons, currentchoices))
-        choices34.append(currentclick[0])
 
 # now reduce all 'choices' variables to the level that was chosen at least 2 out of 3 times
 flexible12 = most_frequent(choices12)
 flexible13 = most_frequent(choices13)
-flexible14 = most_frequent(choices14)
 flexible23 = most_frequent(choices23)
-flexible24 = most_frequent(choices24)
-flexible34 = most_frequent(choices34)
 
 # put the information of fixed and flexible in the same format as the other ED variables
 EDfixflexList = []
@@ -2160,31 +2146,13 @@ if flexible23 == 2:
 else:
     EDfixflexList.append('fixed')
     EDfixflexList.append('flexible')
-if flexible34 == 3:
-    EDfixflexList.append('flexible')
-    EDfixflexList.append('fixed')
-else:
-    EDfixflexList.append('fixed')
-    EDfixflexList.append('flexible')
-if flexible14 == 1:
-    EDfixflexList.append('flexible')
-    EDfixflexList.append('fixed')
-else:
-    EDfixflexList.append('fixed')
-    EDfixflexList.append('flexible')
-if flexible24 == 2:
-    EDfixflexList.append('flexible')
-    EDfixflexList.append('fixed')
-else:
-    EDfixflexList.append('fixed')
-    EDfixflexList.append('flexible')
 if flexible13 == 1:
     EDfixflexList.append('flexible')
     EDfixflexList.append('fixed')
 else:
     EDfixflexList.append('fixed')
     EDfixflexList.append('flexible')
-    
+
 # ------Prepare to start Routine "InstructionED"-------
 continueRoutine = True
 # update component parameters for each repeat
