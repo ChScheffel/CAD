@@ -161,16 +161,16 @@ trigger_3 = 3
 # 1 vs 1 comparisons:
 # define 9 comparisons, with randomized left-right-assignment
 leftright = [0,1]
-VS1levcompList = []
-VS1levList = []
+VS1stratcompList = []
+VS1stratList = []
 
 for i in [0,1,2]: # each pair will be presented three times
     for j in [0,1,2]: # referring to elements in ED comp
         random.shuffle(leftright)
-        VS1levcompList.append(EDstratcompList[EDcomps[j] + leftright[0]])
-        VS1levcompList.append(EDstratcompList[EDcomps[j] + leftright[1]])
-        VS1levList.append(EDstratList[EDcomps[j] + leftright[0]])
-        VS1levList.append(EDstratList[EDcomps[j] + leftright[1]])
+        VS1stratcompList.append(EDstratcompList[EDcomps[j] + leftright[0]])
+        VS1stratcompList.append(EDstratcompList[EDcomps[j] + leftright[1]])
+        VS1stratList.append(EDstratList[EDcomps[j] + leftright[0]])
+        VS1stratList.append(EDstratList[EDcomps[j] + leftright[1]])
 
 # create array corresponding to rounds of 1 vs 1 comparisons
 VS1rounds = list(range(9))
@@ -1792,6 +1792,317 @@ leftbutton_1vs1_strat = [] # a variable to store the strategies of the left butt
 rightbutton_1vs1_strat = [] # a variable to store the strategies of the right button
 leftbutton_1vs1_clicked = [] # whether it was clicked or not
 rightbutton_1vs1_clicked = [] # whether it was clicked or not
+
+# -----------------------------
+# Loop for the 9 comparisons
+# -----------------------------
+
+# set up handler to look after randomisation of conditions etc
+VS1round = data.TrialHandler(nReps=1.0, method='sequential', 
+    extraInfo=expInfo, originPath=-1,
+    trialList=data.importConditions('C:\\Users\\josep\\Documents\\04_Projekte\\01_COG-ED_Revision\\CAD\\01_Paradigms\\COG-ED\\Stimuli\\VS1_Rounds.xlsx'),
+    seed=None, name='EDround')
+thisExp2.addLoop(VS1round)  # add the loop to the experiment
+thisVS1round = VS1round.trialList[0]  # so we can initialise stimuli with some values
+# abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
+if thisVS1round != None:
+    for paramName in thisVS1round:
+        exec('{} = thisVS1round[paramName]'.format(paramName))
+
+for thisVS1round in VS1round:
+    currentLoop = VS1round
+    # abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
+    if thisVS1round != None:
+        for paramName in thisVS1round:
+            exec('{} = thisVS1round[paramName]'.format(paramName))
+
+    # ------Prepare to start Routine "bufferscreen"-------
+    continueRoutine = True
+    routineTimer.add(1.000000)
+    # update component parameters for each repeat
+    bufferscreenkey.keys = []
+    bufferscreenkey.rt = []
+    _bufferscreenkey_allKeys = []
+    # make mouse cursor visible
+    win.mouseVisible = True
+    # keep track of which components have finished
+    VS1bufferscreenComponents = [EDbufferscreen, bufferscreenkey]
+    for thisComponent in VS1bufferscreenComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    EDbufferscreenClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    frameN = -1
+
+    # -------Run Routine "bufferscreen"-------
+    while continueRoutine and routineTimer.getTime() > 0:
+        # get current time
+        t = EDbufferscreenClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=EDbufferscreenClock)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+
+        # *bufferscreen* updates
+        if EDbufferscreen.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            EDbufferscreen.frameNStart = frameN  # exact frame index
+            EDbufferscreen.tStart = t  # local t and not account for scr refresh
+            EDbufferscreen.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(EDbufferscreen, 'tStartRefresh')  # time at next scr refresh
+            EDbufferscreen.setAutoDraw(True)
+        if EDbufferscreen.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > EDbufferscreen.tStartRefresh + 2.0-frameTolerance:
+                # keep track of stop time/frame for later
+                EDbufferscreen.tStop = t  # not accounting for scr refresh
+                EDbufferscreen.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(EDbufferscreen, 'tStopRefresh')  # time at next scr refresh
+                EDbufferscreen.setAutoDraw(False)
+
+        # *bufferscreenkey* updates
+        waitOnFlip = False
+        if bufferscreenkey.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            bufferscreenkey.frameNStart = frameN  # exact frame index
+            bufferscreenkey.tStart = t  # local t and not account for scr refresh
+            bufferscreenkey.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(bufferscreenkey, 'tStartRefresh')  # time at next scr refresh
+            bufferscreenkey.status = STARTED
+            # keyboard checking is just starting
+            waitOnFlip = True
+            win.callOnFlip(bufferscreenkey.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(bufferscreenkey.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if bufferscreenkey.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > bufferscreenkey.tStartRefresh + 2.0-frameTolerance:
+                # keep track of stop time/frame for later
+                bufferscreenkey.tStop = t  # not accounting for scr refresh
+                bufferscreenkey.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(bufferscreenkey, 'tStopRefresh')  # time at next scr refresh
+                bufferscreenkey.status = FINISHED
+        if bufferscreenkey.status == STARTED and not waitOnFlip:
+            theseKeys = bufferscreenkey.getKeys(keyList=['left', 'right', 'space'], waitRelease=False)
+            _bufferscreenkey_allKeys.extend(theseKeys)
+            if len(_bufferscreenkey_allKeys):
+                bufferscreenkey.keys = _bufferscreenkey_allKeys[-1].name  # just the last key pressed
+                bufferscreenkey.rt = _bufferscreenkey_allKeys[-1].rt
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in VS1bufferscreenComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+
+    # -------Ending Routine "Bufferscreen"-------
+    for thisComponent in VS1bufferscreenComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    # hide mouse cursor
+    win.mouseVisible = False
+    # check responses
+    if bufferscreenkey.keys in ['', [], None]:  # No response was made
+        bufferscreenkey.keys = None
+        
+    # ------Prepare to start Routine -------
+    continueRoutine = True
+    # update component parameters for each repeat
+    LB = '1 € für das ' + str(VS1levcompList[VS1comps[vsx]]) + ' Level'
+    RB = '1 € für das ' + str(VS1levcompList[VS1comps[vsx]+1]) + ' Level'
+    
+    VS1leftbutton.setText(LB)
+    VS1rightbutton.setText(RB)
+    # setup some python lists for storing info about the response click
+    VS1click.clicked_name = []
+    gotValidClick = False  # until a click is received
+    # make mouse cursor visible
+    win.mouseVisible = True
+    # keep track of which components have finished
+    VS1roundComponents = [question, VS1click, VS1leftbutton, VS1rightbutton]
+    for thisComponent in VS1roundComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    VS1roundClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    frameN = -1
+        
+    # -------Run Routine -------
+    while continueRoutine:
+        # get current time
+        t = VS1roundClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=VS1roundClock)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+            
+        # *question* updates
+        if question.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            question.frameNStart = frameN  # exact frame index
+            question.tStart = t  # local t and not account for scr refresh
+            question.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(question, 'tStartRefresh')  # time at next scr refresh
+            question.setAutoDraw(True)
+        # *response click* updates
+        if VS1click.status == NOT_STARTED and t >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            VS1click.frameNStart = frameN  # exact frame index
+            VS1click.tStart = t  # local t and not account for scr refresh
+            VS1click.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(VS1click, 'tStartRefresh')  # time at next scr refresh
+            VS1click.status = STARTED
+            VS1click.mouseClock.reset()
+            VS1click.clickReset()
+            prevButtonState = VS1click.getPressed()  # if button is down already this ISN'T a new click
+        if VS1click.status == STARTED:  # only update if started and not finished!
+            buttons = VS1click.getPressed()
+            if buttons != prevButtonState:  # button state changed?
+                prevButtonState = buttons
+                if sum(buttons) > 0:  # state changed to a new click
+                    # check if the mouse was inside our 'clickable' objects
+                    gotValidClick = False
+                    for obj in [VS1leftbutton,VS1rightbutton]:
+                        if obj.contains(VS1click):
+                            gotValidClick = True
+                            VS1click.clicked_name.append(obj.name)
+                    if gotValidClick:  # abort routine on response
+                        continueRoutine = False
+            
+        # *LeftButton* updates
+        if VS1leftbutton.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            VS1leftbutton.frameNStart = frameN  # exact frame index
+            VS1leftbutton.tStart = t  # local t and not account for scr refresh
+            VS1leftbutton.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(VS1leftbutton, 'tStartRefresh')  # time at next scr refresh
+            VS1leftbutton.setAutoDraw(True)
+            VS1leftbutton.setColor(VS1levcolorList[VS1comps[vsx]])
+        if VS1leftbutton.status == STARTED:
+            # check whether LeftButton has been pressed
+            if VS1leftbutton.isClicked:
+                if not VS1leftbutton.wasClicked:
+                    VS1leftbutton.timesOn.append(VS1leftbutton.buttonClock.getTime()) # store time of first click
+                    VS1leftbutton.timesOff.append(VS1leftbutton.buttonClock.getTime()) # store time clicked until
+                else:
+                    VS1leftbutton.timesOff[-1] = VS1leftbutton.buttonClock.getTime() # update time clicked until
+                if not VS1leftbutton.wasClicked:
+                    continueRoutine = False  # end routine when LeftButton is clicked
+                    None
+                VS1leftbutton.wasClicked = True  # if LeftButton is still clicked next frame, it is not a new click
+            else:
+                VS1leftbutton.wasClicked = False  # if LeftButton is clicked next frame, it is a new click
+        else:
+            VS1leftbutton.buttonClock.reset() # keep clock at 0 if button hasn't started / has finished
+            VS1leftbutton.wasClicked = False  # if LeftButton is clicked next frame, it is a new click
+        
+        # *RightButton* updates
+        if VS1rightbutton.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            VS1rightbutton.frameNStart = frameN  # exact frame index
+            VS1rightbutton.tStart = t  # local t and not account for scr refresh
+            VS1rightbutton.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(VS1rightbutton, 'tStartRefresh')  # time at next scr refresh
+            VS1rightbutton.setAutoDraw(True)
+            VS1rightbutton.setColor(VS1levcolorList[VS1comps[vsx]+1])
+        if VS1rightbutton.status == STARTED:
+            # check whether RightButton has been pressed
+            if VS1rightbutton.isClicked:
+                if not VS1rightbutton.wasClicked:
+                    VS1rightbutton.timesOn.append(VS1rightbutton.buttonClock.getTime()) # store time of first click
+                    VS1rightbutton.timesOff.append(VS1rightbutton.buttonClock.getTime()) # store time clicked until
+                else:
+                    VS1rightbutton.timesOff[-1] = VS1rightbutton.buttonClock.getTime() # update time clicked until
+                if not VS1rightbutton.wasClicked:
+                    continueRoutine = False  # end routine when RightButton is clicked
+                    None
+                VS1rightbutton.wasClicked = True  # if RightButton is still clicked next frame, it is not a new click
+            else:
+                VS1rightbutton.wasClicked = False  # if RightButton is clicked next frame, it is a new click
+        else:
+            VS1rightbutton.buttonClock.reset() # keep clock at 0 if button hasn't started / has finished
+            VS1rightbutton.wasClicked = False  # if RightButton is clicked next frame, it is a new click
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+            
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in VS1roundComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+        
+    # -------Ending Routine-------
+    for thisComponent in VS1roundComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    VS1round.addData('question.started', question.tStartRefresh)
+    # store data for rounds (TrialHandler)
+    x, y = VS1click.getPos()
+    buttons = VS1click.getPressed()
+    if sum(buttons):
+        # check if the mouse was inside our 'clickable' objects
+        gotValidClick = False
+        for obj in [VS1leftbutton,VS1rightbutton]:
+            if obj.contains(VS1click):
+                gotValidClick = True
+                VS1click.clicked_name.append(obj.name)
+    if len(VS1click.clicked_name):
+        VS1round.addData('VS1click.clicked_name', VS1click.clicked_name[0])
+    # which button was clicked (1 = yes, 0 = no)
+    if VS1click.clicked_name[0] == 'VS1leftbutton':
+        VS1round.addData('VS1leftbutton.wasclicked', 1)
+        leftbutton_1vs1_clicked.append(True)
+        VS1round.addData('VS1rightbutton.wasclicked', 0)
+        rightbutton_1vs1_clicked.append(False)
+    else:
+        VS1round.addData('VS1leftbutton.wasclicked', 0)
+        leftbutton_1vs1_clicked.append(False)
+        VS1round.addData('VS1rightbutton.wasclicked', 1)
+        rightbutton_1vs1_clicked.append(True)
+    # what level each button was
+    VS1round.addData('VS1leftbutton.nback', VS1levList[VS1comps[vsx]])
+    VS1round.addData('VS1rightbutton.nback', VS1levList[VS1comps[vsx]+1])
+    leftbutton_1vs1_level.append(VS1levList[VS1comps[vsx]])
+    rightbutton_1vs1_level.append(VS1levList[VS1comps[vsx]+1])
+    # store the necessary variables to be able to use it in the iteration process and for the random pick of the last n-back
+    VS1storebutton.append(VS1click.clicked_name[0])
+        
+    # open up the next row for more data
+    thisExp2.nextEntry()
+    
+    # the Routine was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
 
 # ------Prepare to start Routine "InstructionED"-------
 continueRoutine = True
