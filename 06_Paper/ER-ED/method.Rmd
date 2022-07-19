@@ -205,6 +205,7 @@ $$
 Level-1-predictors will be centered within cluster[@Enders2007].
 Residuals of the final model will be inspected visually.
 Intraclass correlation coefficient (ICC), $\rho$, will be reported for each model (null model, as well as full model).
+The presented MLM follows the conceptualization of Zerna, Scheffel, et al.[@ZernaScheffel2022]
 
 To investigate whether individual SVs predict ER choice (H7a), a Chi-squared test with predicted choice (highest SV of each participant) and actual choice will be computed.
 Furthermore, an ordinal logistic regression with the dependent variable choice and independent variables SVs of each strategy will be computed.
