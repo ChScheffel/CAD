@@ -72,19 +72,19 @@ filename3 = _thisDir + os.sep + u'data/%s_%s' % (expInfo['participant'], expName
 # For emotion regulation paradigm
 thisExp1 = data.ExperimentHandler(name=expName1, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\scheffel\\Scheffel\\Forschung\\A_Projects\\2021_COG-ER-ED\\COG-ER-ED\\01_Paradigms\\ER-ED\\ER_ED\\ER_paradigm.py',
+    originPath='',
     savePickle=True, saveWideText=True,
     dataFileName=filename1)
 # For 1 vs 1 comparisons
 thisExp2 = data.ExperimentHandler(name=expName2, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\scheffel\\Scheffel\\Forschung\\A_Projects\\2021_COG-ER-ED\\COG-ER-ED\\01_Paradigms\\ER-ED\\ER_ED\\ER_paradigm.py',
+    originPath='',
     savePickle=True, saveWideText=True,
     dataFileName=filename2)
 # For effort discounting
 thisExp3 = data.ExperimentHandler(name=expName3, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\scheffel\\Scheffel\\Forschung\\A_Projects\\2021_COG-ER-ED\\COG-ER-ED\\01_Paradigms\\ER-ED\\ER_ED\\ER_paradigm.py',
+    originPath='',
     savePickle=True, saveWideText=True,
     dataFileName=filename3)
 
@@ -478,7 +478,7 @@ image = visual.ImageStim(
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=0.0)
-Stimuli_Choice = 'StimuliNegative_{}.xlsx'.format(Stimuli_Order[4])
+Stimuli_Choice = 'Trials\\StimuliNegative_{}.xlsx'.format(Stimuli_Order[4])
 
 
 
@@ -597,7 +597,7 @@ routineTimer.reset()
 # set up handler to look after randomisation of conditions etc
 blocks_view = data.TrialHandler(nReps=1.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('blocks_view.xlsx'),
+    trialList=data.importConditions('Trials\\blocks_view.xlsx'),
     seed=None, name='blocks_view')
 thisExp1.addLoop(blocks_view)  # add the loop to the experiment
 thisBlocks_view = blocks_view.trialList[0]  # so we can initialise stimuli with some values
@@ -622,7 +622,7 @@ for thisBlocks_view in blocks_view:
     # hide mouse cursor
     win.mouseVisible = False
     if blocks_view.thisN  == 1: # only second block
-        conds_view_File = 'StimuliNegative_{}.xlsx'.format(Stimuli_Order[0])
+        conds_view_File = 'Trials\\StimuliNegative_{}.xlsx'.format(Stimuli_Order[0])
     
     # keep track of which components have finished
     Instruction_ViewComponents = [text_ActiveViewing, instr_view_resp]
@@ -1147,7 +1147,7 @@ for thisBlocks_view in blocks_view:
 # set up handler to look after randomisation of conditions etc
 blocks_reg = data.TrialHandler(nReps=1.0, method='random', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('blocks_reg.xlsx'),
+    trialList=data.importConditions('Trials\\blocks_reg.xlsx'),
     seed=None, name='blocks_reg')
 thisExp1.addLoop(blocks_reg)  # add the loop to the experiment
 thisBlocks_reg = blocks_reg.trialList[0]  # so we can initialise stimuli with some values
@@ -1175,13 +1175,13 @@ for thisBlocks_reg in blocks_reg:
     win.mouseVisible = False
 
     if blocks_reg.thisN  == 0: # first regulation block
-        conds_reg_File = 'StimuliNegative_{}.xlsx'.format(Stimuli_Order[1])
+        conds_reg_File = 'Trials\\StimuliNegative_{}.xlsx'.format(Stimuli_Order[1])
         
     elif blocks_reg.thisN  == 1: # second block
-        conds_reg_File = 'StimuliNegative_{}.xlsx'.format(Stimuli_Order[2])
+        conds_reg_File = 'Trials\\StimuliNegative_{}.xlsx'.format(Stimuli_Order[2])
     
     elif blocks_reg.thisN  == 2: # third block
-        conds_reg_File = 'StimuliNegative_{}.xlsx'.format(Stimuli_Order[3])
+        conds_reg_File = 'Trials\\StimuliNegative_{}.xlsx'.format(Stimuli_Order[3])
     # keep track of which components have finished
     Instruction_RegComponents = [text_Instruction, instr_reg_resp]
     for thisComponent in Instruction_RegComponents:
@@ -1804,7 +1804,7 @@ rightbutton_1vs1_clicked = [] # whether it was clicked or not
 # set up handler to look after randomisation of conditions etc
 VS1round = data.TrialHandler(nReps=1.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('VS1_Rounds.xlsx'),
+    trialList=data.importConditions('Trials\\VS1_Rounds.xlsx'),
     seed=None, name='EDround')
 thisExp2.addLoop(VS1round)  # add the loop to the experiment
 thisVS1round = VS1round.trialList[0]  # so we can initialise stimuli with some values
@@ -2259,7 +2259,7 @@ for edx in EDrounds:
     # set up handler to look after randomisation of conditions etc
     EDround = data.TrialHandler(nReps=1.0, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions('ED_Steps.xlsx'),
+        trialList=data.importConditions('Trials\\ED_Steps.xlsx'),
         seed=None, name='EDround')
     thisExp3.addLoop(EDround)  # add the loop to the experiment
     thisEDround = EDround.trialList[0]  # so we can initialise stimuli with some values
