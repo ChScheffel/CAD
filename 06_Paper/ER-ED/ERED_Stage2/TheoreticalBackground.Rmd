@@ -116,7 +116,7 @@ Then no SV will be 1, but still, the SVs of all strategies can be interpreted as
 In a separate study, we will test our adapted paradigm together with a *n*-back task and explore whether this paradigm can describe individuals that do not prefer the easiest *n*-back option (see Zerna, Scheffel et al.[@ZernaScheffel2022]).
 
 ```{r ResponsePatterns, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Exemplary visualization of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can be represented by our paradigm."}
-include_graphics(here("06_Paper", "ER-ED", "figures", "Paradigm_Scheme_T2.png" ))
+include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "Paradigm_Scheme_T2.png" ))
 ```
 
 The aim of the present study is to evaluate whether this paradigm is suitable for determining SVs of ER strategies. 
