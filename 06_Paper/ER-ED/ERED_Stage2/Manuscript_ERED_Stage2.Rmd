@@ -66,7 +66,7 @@ abstract          : |
  Using a multilevel modelling approach, it will be investigated whether individual SVs can be explained by effectiveness (subjective arousal, facial muscle activity) and subjective effort. 
  Relations of SVs to personality traits will be explored.
 keywords          : "emotion regulation, regulatory effort, effort discounting, registered report, specification curve analysis"
-wordcount         : "6303"
+wordcount         : "XXXXX"
 bibliography      : ["ER_ED.bib"]
 floatsintext      : yes
 figsintext        : yes
@@ -127,7 +127,7 @@ library(kableExtra) # for tables in R Markdown
 library(BayesFactor) # for bayes factors
 
 # load workspace variables from analyses_ERED.R script
-load(here("06_Paper","ER-ED","Workspace_ERED_pilot.RData"))
+load(here("06_Paper","ER-ED","Workspace_ERED.RData"))
 
 ```
 
@@ -173,7 +173,7 @@ The authors declare no competing interests.
 \newpage
 
 ```{r ResponsePatternsAppendix, echo = FALSE, message = FALSE, warning = FALSE}
-include_graphics(here("06_Paper","ER-ED", "figures", "Paradigm_Scheme_T2.png" ))
+include_graphics(here("06_Paper","ER-ED", "ERED_Stage2", "figures", "Paradigm_Scheme_T2.png" ))
 ```
 
 *Figure 1.* Exemplary visualization of two response patterns.
@@ -182,7 +182,7 @@ In the lower half, they have no clear preference and therefore show an inconsist
 This pattern can also be represented by our paradigm.
 
 ```{r DesignEREDappendix, echo=FALSE, message=FALSE, warning=FALSE, fig.pos="H"}
-include_graphics(here("06_Paper", "ER-ED", "figures", "Design_ER-ED.png"))
+include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "Design_ER-ED.png"))
 ```
 
 *Figure 2.* Block design of the paradigm.
