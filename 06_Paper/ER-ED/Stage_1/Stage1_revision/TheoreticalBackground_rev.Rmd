@@ -18,7 +18,7 @@ here::i_am("flag_project_root_CAD.txt")
 
 # 1. Introduction
 
-The ability to modify emotional experiences, expressions, and physiological reactions [@Gross1998antecedent] to regulate emotions is an important cognitive skill. 
+The ability to modify emotional experiences, expressions, and physiological reactions [@Gross1998antecedent] is an important cognitive skill. 
 It is therefore not surprising that emotion regulation (ER) has substantial implications for well-being and adaptive functioning[@Gross1998emerging].
 Different strategies can be used to regulate emotions, namely situation selection, situation modification, attentional deployment, cognitive change, and response modification[@Gross1998antecedent], and, following the taxonomy of Powers and LaBar[-@Powers2019], individuals can implement ER strategies by means of different tactics.
 So called antecedent-focused strategies, e.g., attentional deployment and cognitive change, take effect early in the emotion generation process[@Gross1998antecedent].
@@ -32,7 +32,7 @@ Compared to cardiovascular, electrodermal, and pupillometric autonomic responses
 For example, studies have shown that reappraisal of negative emotion is associated with reduced activity of the corrugator supercilii (associated with anger, sadness, and fear) with _d~-~_ = 0.32[@Zaehringer2020].
 In addition, the levator labii superioris (associated with disgust) has also been associated with reduced activity during reappraisal[@Burr2021]. 
 Similar effects have been reported for suppression[@Burr2021], distancing[@Gaertner2021], and distraction[@Schoenfelder2014].
-Importantly, results on electromyographic measures  seem to be more consistent compared to other autonomic measures, likely because they are specific to emotional valence and its changes.
+Importantly, results on electromyographic measures seem to be more consistent compared to other autonomic measures, likely because they are specific to emotional valence and its changes.
 
 Similarly to the differences in short term effectiveness, these tactics from three different strategies are also related to different medium and long-term consequences. 
 In particular, strategies that do not change the emotional content of the situation, for instance by taking a neutral perspective (i.e., distraction and suppression) are presumed to be disadvantageous in the longer term.
