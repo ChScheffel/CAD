@@ -14,8 +14,8 @@ library(here)       # to set directories without defined paths
 # set top level directory to source file
 here::i_am("flag_project_root_CAD.txt")
 
-library(papaja)     # APA conform output
-library(readxl)     # import excel files
+#library(papaja)     # APA conform output
+#library(readxl)     # import excel files
 ```
 
 ```{r stimvalues, echo = FALSE}
@@ -39,8 +39,8 @@ A complete list of all measures assessed in the study can be found at OSF (<http
 ## 2.1 Ethics information
 
 The study protocol complies with all relevant ethical regulations and was approved by the ethics committee of the Technische Universität Dresden (reference number EK50012022). 
-Prior to testing, written informed consent will be obtained.
-Participants will receive 30 € in total or course credit for participation.
+Prior to testing, written informed consent was obtained.
+Participants received 24 € in total or course credit for participation.
 
 ## 2.2 Pilot data
 
@@ -53,40 +53,40 @@ All results are detailed in the [Supplementary Material](#SupplementaryMaterial)
 
 ## 2.3 Design
 
-Young healthy participants (aged 18 to 30 years) will be recruited using the software *ORSEE*[@Greiner2015] at the Technische Universität Dresden.
-Participants will be excluded from participation if they do not fluently speak German, have current or a history of psychological disorders or neurological trauma, or report to take medication.
-Participants will be invited to complete an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
-The study consists of two lab sessions, which will take place in a shielded cabin with constant lighting.
-Before each session, participants will receive information about the respective experimental procedure and provide informed consent.
-In the first session participants will fill out a demographic questionnaire and complete an n-back task with the levels one to four.
-Then, they will complete an effort discounting (ED) procedure regarding the n-back levels on screen, followed by a random repetition of one n-back level.
-The second session will take place exactly one week after session one.
-Participants will provide informed consent and receive written instructions on the ER paradigm and ER strategies that they should apply.
-A brief training will ensure that all participants are able to implement the ER strategies.
-Next, electrodes to measure facial EMG will be attached and the ER task will be conducted, followed by an ED procedure regarding the ER strategies.
-After that, participants will choose one ER strategy to repeat one more time.
-Study data will be collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden[@Harris2009; @Harris2019].
+Young healthy participants (aged 18 to 30 years) were recruited using the software *ORSEE*[@Greiner2015] at the Technische Universität Dresden.
+Participants were excluded from participation if they do not fluently speak German, had current or a history of psychological disorders or neurological trauma, or reported to take medication.
+Participants were invited to complete an online survey containing different questionnaires to assess broad and narrow personality traits and measures of well-being.
+The study consisted of two lab sessions, which took place in a shielded cabin with constant lighting.
+Before each session, participants received information about the respective experimental procedure and provided informed consent.
+In the first session participants filled out a demographic questionnaire and completed an *n*-back task with the levels one to four.
+Then, they completed an effort discounting (ED) procedure regarding the *n*-back levels on screen, followed by a random repetition of one *n*-back level [@ZernaScheffel2022].
+The second session took place exactly one week after session one.
+Participants provided informed consent and received written instructions on the ER paradigm and ER strategies that they should apply.
+A brief training ensured that all participants were able to implement the ER strategies.
+Next, electrodes to measure facial EMG were attached and the ER task was conducted, followed by an ED procedure regarding the ER strategies.
+After that, participants chose one ER strategy to repeat one more time.
+Study data were collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden[@Harris2009; @Harris2019].
 
 ### 2.3.1 Psychometric measures
 
-The online survey will contain a number of questionnaires. 
-In the focus of the current project is the Flexible Emotion Regulation Scale (FlexER)[@Doerfel2019].  
+The online survey contained a number of questionnaires. 
+In the focus of the current project was the Flexible Emotion Regulation Scale (FlexER)[@Doerfel2019].  
 It assesses flexible use of ER strategies with items such as "If I want to feel less negative emotions, I have several strategies to achieve this.", which we define as ER flexibility. 
-The items are rated on a 4-point scale ranging from "strongly agree" to "strongly disagree".
+The items were rated on a 4-point scale ranging from "strongly agree" to "strongly disagree".
 
-Further psychological constructs will be assessed but have no clear hypotheses in the present work and are therefore investigated only exploratory:
-General psychological well-being will be assessed using the German version of the WHO-5 scale[@Bech2004; @Braehler2007].
-To measure resilience, the German version 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; @Sarubin2015] will be used.
-Habitual use of ER will be assessed using the German version of the Emotion Regulation Questionnaire (ERQ)[@GrossJohn2003; @Abler2009].
-Implicit theories of willpower in emotion control will be assessed using the implicit theories questionnaire from Bernecker and Job[@Bernecker2017].
-To assess Need for Cognition, the German version short form of the Need for Cognition Scale[@Cacioppo1982; @Bless1994] will be used.
-To assess self-control [@Paschke2016], sum scores of the German versions of the following questionnaires will be used: the Self-Regulation Scale (SRS)[@Schwarzer1999], the Brief Self-Control Scale (BSCS)[@Tangney2004; @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11)[@Patton1995; @Hartmann2011].
-Attentional control will be assessed using the Attentional Control Scale (ACS)[@Derryberry2002].
+Further psychological constructs were assessed but had no clear hypotheses in the present work and are therefore investigated only exploratory:
+General psychological well-being was assessed using the German version of the WHO-5 scale[@Bech2004; @Braehler2007].
+To measure resilience, the German version 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003,@Campbell-Sills2007; @Sarubin2015] was used.
+Habitual use of ER will was assessed using the German version of the Emotion Regulation Questionnaire (ERQ)[@GrossJohn2003; @Abler2009].
+Implicit theories of willpower in emotion control was assessed using the implicit theories questionnaire from Bernecker and Job[@Bernecker2017].
+To assess Need for Cognition, the German version short form of the Need for Cognition Scale[@Cacioppo1982; @Bless1994] was used.
+To assess self-control [@Paschke2016], sum scores of the German versions of the following questionnaires were used: the Self-Regulation Scale (SRS)[@Schwarzer1999], the Brief Self-Control Scale (BSCS)[@Tangney2004; @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11)[@Patton1995; @Hartmann2011].
+Attentional control were assessed using the Attentional Control Scale (ACS)[@Derryberry2002].
 For more detailed information on psychometric properties of the questionnaires, please see [supplementary material](#SupplementQuestionnaires). 
 
 ### 2.3.2 Emotion regulation paradigm
 
-The ER paradigm will consist of three parts that will be described in the following.
+The ER paradigm consisted of three parts that will be described in the following.
 
 *Part one: ER task.* <br> Part one will be a standard ER task in a block design (see Figure \@ref(fig:DesignERED)), similar to paradigms previously used by our group[@Scheffel2021].
 Participants will be told to actively view neutral and negative pictures (see [2.3.3](##stimuli)) or to regulate all upcoming emotions by means of distraction, distancing, and expressive suppression, respectively.
