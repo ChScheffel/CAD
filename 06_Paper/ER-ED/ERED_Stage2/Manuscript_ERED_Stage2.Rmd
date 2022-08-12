@@ -268,7 +268,7 @@ apa_table(
 
 Figure:
 
-```{r FigSubjArousalViewPilot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective arousal ratings for the conditions \"Active viewing - neutral\" and \"Active viewing - negative\" visualized as boxplots. Each dot represents the effort rating of a single subject. Bold dots represent outliers.", fig.pos="H", out.width="75%"}
+```{r FigSubjArousalViewPilot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective arousal ratings for the conditions \"Active viewing - neutral\" and \"Active viewing - negative\" visualized as boxplots. Each dot represents the arousal rating of a single subject. Bold dots represent outliers.", fig.pos="H", out.width="75%"}
 
 print(FigSubjArousalViewPilot)
 ```
@@ -291,7 +291,7 @@ apa_table(
 
 Figure:
 
-```{r FigSubjArousalRegPilot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective arousal ratings for the conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\" visualized as boxplots. Each dot represents the effort rating of a single subject. Bold dots represent outliers.", fig.pos="H", out.width="75%"}
+```{r FigSubjArousalRegPilot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective arousal ratings for the conditions \"Active viewing - negative\", \"Distraction\", \"Distancing\", and \"Suppression\" visualized as boxplots. Each dot represents the arousal rating of a single subject. Bold dots represent outliers.", fig.pos="H", out.width="75%"}
 
 print(FigSubjArousalRegPilot)
 ```
