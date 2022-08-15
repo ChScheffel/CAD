@@ -21,9 +21,9 @@ here::i_am("flag_project_root_CAD.txt")
 ```{r stimvalues, echo = FALSE}
 # import excel list with neutral and negative pictures
 # lists contain arousal and valence values of each picture
-stim_negative <- readxl::read_xlsx(file.path(here("01_Paradigms", "ER-ED", "ER_ED", "Stimuli", "negative.xlsx")), range = cell_cols("A:D"))
+stim_negative <- readxl::read_xlsx(file.path(here("01_Paradigms", "ER-ED", "ER_ED", "Trials", "negative.xlsx")), range = cellranger::cell_cols("A:D"))
 
-stim_neutral <- readxl::read_xlsx(file.path(here("01_Paradigms", "ER-ED", "ER_ED", "Stimuli", "neutral.xlsx")), range = cell_rows(1:21))
+stim_neutral <- readxl::read_xlsx(file.path(here("01_Paradigms", "ER-ED", "ER_ED", "Trials", "neutral.xlsx")), range = cellranger::cell_rows(1:21))
 ```
 
 
