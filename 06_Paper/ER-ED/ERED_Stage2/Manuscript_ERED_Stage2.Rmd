@@ -50,6 +50,7 @@ author:
     affiliation   : "1"
     role          :
       - Conceptualization
+      - Methodology
       - Writing - review & editing 
 affiliation       :
   - id            : "1"
