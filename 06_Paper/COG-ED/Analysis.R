@@ -1366,10 +1366,10 @@
   # create a data frame with the difference scores per subject (2-1,3-2,4-3)
   
   diffscores <- diff(data_SV$sv)
-  h3a_data <- data.frame(subject = data_SV$subject[-c(seq(from = 4, to = nrow(data_SV), by = 4))],
-                        nlevels = as.factor(rep(c("1-2","2-3","3-4"), nrow(data_SV)/4)),
-                        svdiff = diffscores[-c(seq(from = 4, to = nrow(data_SV)-4, by = 4))],
-                        nfc = data_SV$nfc[-c(seq(from = 4, to = nrow(data_SV), by = 4))])
+  h3a_data <- data.frame(subject = data_SV$subject[c(seq(from = 1, to = nrow(data_SV), length.out = nrow(data_SV)/2))],
+                        nlevels = as.factor(rep(c("1-2","2-3"), nrow(data_SV)/4)),
+                        svdiff = c(rbind(diffscores[c(seq(from = 1, to = nrow(data_SV), by = 4))],diffscores[c(seq(from = 2, to = nrow(data_SV), by = 4))])),
+                        nfc = data_SV$nfc[c(seq(from = 1, to = nrow(data_SV), length.out = nrow(data_SV)/2))])
   
   # add column indicating NFC score above or below median
   
@@ -1422,10 +1422,9 @@
   # plot these results
   
   plot_h3a <- ggplot(h3a_data, aes(x = nlevels, y = svdiff, fill = nfcmedian)) +
-    geom_violin() +
-    scale_fill_manual(values = met.brewer("Hiroshige", 2)) +
     labs(x = "n-back levels", y = "Difference in subjective values") +
-    geom_boxplot(width = 0.1, position = position_dodge(0.9)) +
+    geom_point() +
+    geom_smooth(aes(as.numeric(nlevels), svdiff), method = "lm") +
     theme_prism(base_size = 10) +
     scale_x_discrete(guide = "prism_bracket")
   
