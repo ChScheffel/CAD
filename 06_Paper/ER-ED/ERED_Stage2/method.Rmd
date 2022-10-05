@@ -21,9 +21,9 @@ here::i_am("flag_project_root_CAD.txt")
 ```{r stimvalues, echo = FALSE}
 # import excel list with neutral and negative pictures
 # lists contain arousal and valence values of each picture
-stim_negative <- readxl::read_xlsx(file.path(here("01_Paradigms", "ER-ED", "ER_ED", "Stimuli", "negative.xlsx")), range = cell_cols("A:D"))
+stim_negative <- readxl::read_xlsx(file.path(here("01_Paradigms", "ER-ED", "ER_ED", "Trials", "negative.xlsx")), range = cellranger::cell_cols("A:D"))
 
-stim_neutral <- readxl::read_xlsx(file.path(here("01_Paradigms", "ER-ED", "ER_ED", "Stimuli", "neutral.xlsx")), range = cell_rows(1:21))
+stim_neutral <- readxl::read_xlsx(file.path(here("01_Paradigms", "ER-ED", "ER_ED", "Trials", "neutral.xlsx")), range = cellranger::cell_rows(1:21))
 ```
 
 
@@ -182,7 +182,7 @@ Proportion of explained variance $\eta_{p}^{2}$ was reported as a measure of eff
 To examine the impact of valence of emotional pictures on subjective arousal ratings (H1a), a rmANOVA with the factor valence (neutral and negative) for the strategy active viewing was conducted.
 To examine the impact of valence on physiolocigal responding (H1b and H1c), a rmANOVA with the factor valence (neutral and negative) for the strategy active viewing was conducted for EMG *corrugator* and *levator* activity.
 
-*Effects of emotion regulation on arousal, facial EMG and effort.* <br> 
+*Effects of emotion regulation on arousal, facial EMG, and effort.* <br> 
 To investigate the effects of the three ER strategies on subjective arousal (H2a), another rmANOVA  with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for subjective arousal ratings was conducted.
 To examine the effects of the three ER strategies on physiological responding (H3a and H3b), another rmANOVA with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for EMG *corrugator* and *levator* activity was conducted.
 To examine the effect of ER strategies on subjective effort (H4a), a rmANOVA with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for subjective effort ratings was conducted.
