@@ -1579,17 +1579,18 @@
     
   plot_h3b <- ggplot(h3b_data, aes(x = level, y = ntlx, fill = nfcmedian)) +
     geom_violin(color = NA) +
-    scale_fill_manual(values = met.brewer("Hiroshige", 2)) +
+    scale_fill_manual(values = met.brewer("Archambault", 2)) +
     labs(x = "n-back levels", y = "NASA-TLX sum score") +
+    scale_discrete_manual(labels = c("NFC above median", "NFC below median")) +
     geom_boxplot(width = 0.1, position = position_dodge(0.9)) +
-    theme_prism(base_size = 10) +
+    theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "Arial") +
     scale_x_discrete(guide = "prism_bracket") +
     add_pvalue(plot_h3b_pvalue, tip.length = 0)
   
   # save the plot as an eps file with high resolution
   
   ggsave(filename = "Figure_4.eps", plot = plot_h3b, device = "eps",
-         path = here("06 Paper","COG-ED","Figures"),
+         path = here("06_Paper","COG-ED","Figures"),
          dpi = "retina", bg = NULL)
   
   # delete temporary data frame
