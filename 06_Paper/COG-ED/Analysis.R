@@ -1579,11 +1579,10 @@
     
   plot_h3b <- ggplot(h3b_data, aes(x = level, y = ntlx, fill = nfcmedian)) +
     geom_violin(color = NA) +
-    scale_fill_manual(values = met.brewer("Archambault", 2)) +
+    scale_fill_manual(values = met.brewer("Signac", 2), labels = c("NFC above median", "NFC below median")) +
     labs(x = "n-back levels", y = "NASA-TLX sum score") +
-    scale_discrete_manual(labels = c("NFC above median", "NFC below median")) +
     geom_boxplot(width = 0.1, position = position_dodge(0.9)) +
-    theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "Arial") +
+    theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
     scale_x_discrete(guide = "prism_bracket") +
     add_pvalue(plot_h3b_pvalue, tip.length = 0)
   
