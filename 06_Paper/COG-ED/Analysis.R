@@ -1357,7 +1357,9 @@
 
 ##### Hypothesis 3a ############################################################
   
-  # H3a: Subjective values positively predict individual NFC scores.
+  # H3a: Participants with higher NFC scores have higher subjective values for
+  # 2- and 3-back but lower subjective values for 1-back than participants with
+  # lower NFC scores.
   
   # make a temporary copy of the data frame
 
@@ -1448,7 +1450,7 @@
   
 ##### Hypothesis 3b ############################################################
   
-  # H3b: NASA-TLX scores negatively predict individual NCS scores.
+  # H3b: NASA-TLX scores are lower in every n-back level for participants with high NFC.
   
   # make a temporary copy of the data frame
   
