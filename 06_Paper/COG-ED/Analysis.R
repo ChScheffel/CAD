@@ -1439,9 +1439,10 @@
   
   plot_h3a <- ggplot(h3a_data, aes(x = nlevels, y = svdiff, fill = nfcmedian)) +
     labs(x = "n-back levels", y = "Difference in subjective values") +
-    geom_point() +
-    geom_smooth(aes(as.numeric(nlevels), svdiff), method = "lm") +
-    theme_prism(base_size = 10) +
+    geom_point(shape = 21, size = 3) +
+    scale_fill_manual(values = met.brewer("Hiroshige", 2), labels = c("NFC above median", "NFC below median")) +
+    geom_smooth(aes(as.numeric(nlevels), svdiff), method = "lm", size = 0.8, color = "black") +
+    theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
     scale_x_discrete(guide = "prism_bracket")
   
   # remove temporary variables
@@ -1581,10 +1582,10 @@
     
   plot_h3b <- ggplot(h3b_data, aes(x = level, y = ntlx, fill = nfcmedian)) +
     geom_violin(color = NA) +
-    scale_fill_manual(values = met.brewer("Signac", 2), labels = c("NFC above median", "NFC below median")) +
+    scale_fill_manual(values = met.brewer("Homer2", 2), labels = c("NFC above median", "NFC below median")) +
     labs(x = "n-back levels", y = "NASA-TLX sum score") +
     geom_boxplot(width = 0.1, position = position_dodge(0.9)) +
-    theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+    theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
     scale_x_discrete(guide = "prism_bracket") +
     add_pvalue(plot_h3b_pvalue, tip.length = 0)
   
