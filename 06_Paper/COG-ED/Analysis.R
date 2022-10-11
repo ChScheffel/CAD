@@ -1724,6 +1724,14 @@
     guides(fill = guide_colourbar(barwidth = 0.5,
                                   barheight = 15, title = "BF10"))
   
+  # create the middle panel with the p-values
+  
+  ggplot(sca_results, aes(x = xaxis, y = pvalue)) +
+    geom_line() +
+    theme_prism(base_size = 10, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+    labs(x = NULL, y = "p-value") +
+    scale_x_continuous(labels = NULL)
+  
 ##### Save variables ###########################################################
   
   save.image(file = "Workspace.RData")
