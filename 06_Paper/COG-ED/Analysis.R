@@ -1708,19 +1708,21 @@
   # create the lower panel with the pipeline specifications
   
   ggplot(sca_lower, aes(x = xaxis, y = value)) +
-    geom_tile(aes(fill = BF10)) +
-    scale_color_met_c("Hokusai2", direction = 1) +
+    geom_tile(aes(fill = BF10), color = "white") +
+    scale_fill_gradientn(colors = met.brewer("Cross")) +
     geom_hline(yintercept = c(6,11)) +
-    theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+    theme_prism(base_size = 10, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
     labs(x = "Analysis pipeline", y = NULL) +
-    scale_y_reverse(breaks = c(1:17), lim = c(18.5,0.5), labels = c(expression(bold("Dimension")),
+    scale_y_reverse(breaks = c(1:17), lim = c(18,0), labels = c(expression(bold("Dimension")),
                                                                   "Across S, across C", "Across S, within C",
                                                                   "Within S, within C", "Within S, across C",
                                                                   expression(bold("Transformation")),
                                                                   "Raw/None", "Log", "Inverse", "Square-root",
                                                                   expression(bold("Exclusion")),
                                                                   "None", "2 MAD from median", " 2.5 MAD from median",
-                                                                  "3 MAD from median", "100ms after onset", "200ms after onset"))
+                                                                  "3 MAD from median", "100ms after onset", "200ms after onset")) +
+    guides(fill = guide_colourbar(barwidth = 0.5,
+                                  barheight = 15, title = "BF10"))
   
 ##### Save variables ###########################################################
   
