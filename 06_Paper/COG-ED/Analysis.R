@@ -1736,8 +1736,8 @@
   
   ggplot(sca_results, aes(x = xaxis, y = beta))+ 
     geom_errorbar(aes(ymin = beta-SE,ymax = beta+SE, col = BF10), 
-                  width = 0, size = 2, alpha = .9) +
-    scale_color_manual(colors = met.brewer("Cross")) +
+                  width = 0, size = 2, alpha = .9, show.legend = FALSE) +
+    scale_color_gradientn(colors = met.brewer("Cross")) +
     geom_line(col = "black", size = 0.25) +
     theme_prism(base_size = 10, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
     labs(x = NULL, y = "Fixed effects beta of the predictor n-back level") +
