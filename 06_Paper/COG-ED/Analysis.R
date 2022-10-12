@@ -1357,7 +1357,9 @@
 
 ##### Hypothesis 3a ############################################################
   
-  # H3a: Subjective values positively predict individual NFC scores.
+  # H3a: Participants with higher NFC scores have higher subjective values for
+  # 2- and 3-back but lower subjective values for 1-back than participants with
+  # lower NFC scores.
   
   # make a temporary copy of the data frame
 
@@ -1366,10 +1368,10 @@
   # create a data frame with the difference scores per subject (2-1,3-2,4-3)
   
   diffscores <- diff(data_SV$sv)
-  h3a_data <- data.frame(subject = data_SV$subject[-c(seq(from = 4, to = nrow(data_SV), by = 4))],
-                        nlevels = as.factor(rep(c("1-2","2-3","3-4"), nrow(data_SV)/4)),
-                        svdiff = diffscores[-c(seq(from = 4, to = nrow(data_SV)-4, by = 4))],
-                        nfc = data_SV$nfc[-c(seq(from = 4, to = nrow(data_SV), by = 4))])
+  h3a_data <- data.frame(subject = data_SV$subject[c(seq(from = 1, to = nrow(data_SV), length.out = nrow(data_SV)/2))],
+                        nlevels = as.factor(rep(c("1-2","2-3"), nrow(data_SV)/4)),
+                        svdiff = c(rbind(diffscores[c(seq(from = 1, to = nrow(data_SV), by = 4))],diffscores[c(seq(from = 2, to = nrow(data_SV), by = 4))])),
+                        nfc = data_SV$nfc[c(seq(from = 1, to = nrow(data_SV), length.out = nrow(data_SV)/2))])
   
   # add column indicating NFC score above or below median
   
@@ -1379,12 +1381,12 @@
   
   # compute two-way ANOVA
   
-  hypothesis3a_rmanova <- afex::aov_ez("subject", "svdiff", h3a_data,
+  hypothesis3a_model <- afex::aov_ez("subject", "svdiff", h3a_data,
                                        between = c("nfcmedian"), within = c("nlevels"))
   
   # format S3 class into data frame
   
-  hypothesis3a_rmanova <- summary(hypothesis3a_rmanova)
+  hypothesis3a_rmanova <- summary(hypothesis3a_model)
   hypothesis3a_rmanova <- hypothesis3a_rmanova[["univariate.tests"]]
   hypothesis3a_rmanova <- as.data.frame(matrix(hypothesis3a_rmanova, nrow = 4, ncol = 6))
   
@@ -1403,30 +1405,44 @@
   hypothesis3a_rmanova$`$p$` <- format(round(hypothesis3a_rmanova$`$p$`, digits = 3), nsmall = 2)
   hypothesis3a_rmanova$`$p$`[hypothesis3a_rmanova$`$p$` == "0.000"] <- "<.001"
   
-  # obtain estimated marginal means for ANOVA model
+  ## post-hoc tests for the NFC groups
   
-  #hypothesis3a_emm <- emmeans::emmeans(object = hypothesis3a_rmanova, c("nfcmedian","nlevels"))
-  
-  # calculate pairwise comparisons on estimated marginal means
-  
-  #hypothesis3a_contrasts <- as.data.frame(pairs(hypothesis3a_emm))
-  
-  # get Bayes factors
-  
-  #hypothesis3a_BF <- anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = h3a_data, progress = FALSE)
-  #hypothesis3a_contrasts$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = h3a_data$svdiff[h3a_data$nfcmedian == "high"],
-  #                                                                           y = h3a_data$svdiff[h3a_data$nfcmedian == "low"],
-  #                                                                           progress = FALSE, paired = FALSE))$bf
-  
+    # obtain estimated marginal means for ANOVA model
+    
+    hypothesis3a_emm_nfc <- emmeans::emmeans(object = hypothesis3a_model, "nfcmedian")
+    
+    # calculate pairwise comparisons on estimated marginal means
+    
+    hypothesis3a_contrasts_nfc <- as.data.frame(pairs(hypothesis3a_emm_nfc))
+    
+    # get Bayes factors
+    
+    hypothesis3a_BF_nfc <- anovaBF(formula = svdiff ~ level * nfcmedian, data = h3a_data, progress = FALSE)
+    hypothesis3a_contrasts_nfc$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h3a_data$svdiff[h3a_data$nfcmedian == "high"], y = h3a_data$svdiff[h3a_data$nfcmedian == "low"],
+                                                                                     progress = FALSE, paired = FALSE))$bf)
+    
+    # get effect size
+    
+    hypothesis3a_contrasts_nfc <- cbind(hypothesis3a_contrasts_nfc,
+                                        format(effectsize::t_to_eta2(t = hypothesis3a_contrasts_nfc$t.ratio,
+                                                                     df_error = hypothesis3a_contrasts_nfc$df, ci = 0.95), digits = 2))
+    
+    # rename columns and contrasts, round to two decimals
+    
+    colnames(hypothesis3a_contrasts_nfc) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+    hypothesis3a_contrasts_nfc$Contrast <- c("High NFC - Low NFC")
+    hypothesis3a_contrasts_nfc[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(round(hypothesis3a_contrasts_nfc[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 2), nsmall = 2)
+    hypothesis3a_contrasts_nfc$`$p$` <- format(round(hypothesis3a_contrasts_nfc$`$p$`, digits = 3), nsmall = 2)
+    hypothesis3a_contrasts_nfc$`$p$`[hypothesis3a_contrasts_nfc$`$p$` == "0.000"] <- "<.001"
   
   # plot these results
   
   plot_h3a <- ggplot(h3a_data, aes(x = nlevels, y = svdiff, fill = nfcmedian)) +
-    geom_violin() +
-    scale_fill_manual(values = met.brewer("Hiroshige", 2)) +
     labs(x = "n-back levels", y = "Difference in subjective values") +
-    geom_boxplot(width = 0.1, position = position_dodge(0.9)) +
-    theme_prism(base_size = 10) +
+    geom_point(shape = 21, size = 3) +
+    scale_fill_manual(values = met.brewer("Hiroshige", 2), labels = c("NFC above median", "NFC below median")) +
+    geom_smooth(aes(as.numeric(nlevels), svdiff), method = "lm", size = 0.8, color = "black") +
+    theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
     scale_x_discrete(guide = "prism_bracket")
   
   # remove temporary variables
@@ -1435,7 +1451,7 @@
   
 ##### Hypothesis 3b ############################################################
   
-  # H3b: NASA-TLX scores negatively predict individual NCS scores.
+  # H3b: NASA-TLX scores are lower in every n-back level for participants with high NFC.
   
   # make a temporary copy of the data frame
   
@@ -1484,45 +1500,77 @@
   hypothesis3b_rmanova$`$p$` <- format(round(hypothesis3b_rmanova$`$p$`, digits = 3), nsmall = 2)
   hypothesis3b_rmanova$`$p$`[hypothesis3b_rmanova$`$p$` == "0.000"] <- "<.001"
   
-  # obtain estimated marginal means for ANOVA model
+  ## post-hoc tests for the n-back levels
   
-  hypothesis3b_emm <- emmeans::emmeans(object = hypothesis3b_model, "level")
+    # obtain estimated marginal means for ANOVA model
+    
+    hypothesis3b_emm_levels <- emmeans::emmeans(object = hypothesis3b_model, "level")
+    
+    # calculate pairwise comparisons on estimated marginal means
+    
+    hypothesis3b_contrasts_levels <- as.data.frame(pairs(hypothesis3b_emm_levels))
+    
+    # get Bayes factors
+    
+    hypothesis3b_BF_levels <- anovaBF(formula = ntlx ~ level * nfcmedian, data = h3b_data, progress = FALSE)
+    hypothesis3b_contrasts_levels$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 1], y = h3b_data$ntlx[h3b_data$level == 2],
+                                                                                 progress = FALSE, paired = FALSE))$bf,
+                                     BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 1], y = h3b_data$ntlx[h3b_data$level == 3],
+                                                                                 progress = FALSE, paired = FALSE))$bf,
+                                     BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 1], y = h3b_data$ntlx[h3b_data$level == 4],
+                                                                                 progress = FALSE, paired = FALSE))$bf,
+                                     BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 2], y = h3b_data$ntlx[h3b_data$level == 3],
+                                                                                 progress = FALSE, paired = FALSE))$bf,
+                                     BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 2], y = h3b_data$ntlx[h3b_data$level == 4],
+                                                                                 progress = FALSE, paired = FALSE))$bf,
+                                     BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 3], y = h3b_data$ntlx[h3b_data$level == 4],
+                                                                                 progress = FALSE, paired = FALSE))$bf)
   
-  # calculate pairwise comparisons on estimated marginal means
+    # get effect size
+    
+    hypothesis3b_contrasts_levels <- cbind(hypothesis3b_contrasts_levels,
+                                    format(effectsize::t_to_eta2(t = hypothesis3b_contrasts_levels$t.ratio,
+                                                                 df_error = hypothesis3b_contrasts_levels$df, ci = 0.95), digits = 2))
+    
+    # rename columns and contrasts, round to two decimals
+    
+    colnames(hypothesis3b_contrasts_levels) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+    hypothesis3b_contrasts_levels$Contrast <- gsub("X", "", hypothesis3b_contrasts_levels$Contrast)
+    hypothesis3b_contrasts_levels[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(round(hypothesis3b_contrasts_levels[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 2), nsmall = 2)
+    hypothesis3b_contrasts_levels$`$p$` <- format(round(hypothesis3b_contrasts_levels$`$p$`, digits = 3), nsmall = 2)
+    hypothesis3b_contrasts_levels$`$p$`[hypothesis3b_contrasts_levels$`$p$` == "0.000"] <- "<.001"
   
-  hypothesis3b_contrasts <- as.data.frame(pairs(hypothesis3b_emm))
-  
-  # get Bayes factors
-  
-  hypothesis3b_BF <- anovaBF(formula = ntlx ~ level * nfcmedian, data = h3b_data, progress = FALSE)
-  hypothesis3b_contrasts$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 1], y = h3b_data$ntlx[h3b_data$level == 2],
-                                                                               progress = FALSE, paired = FALSE))$bf,
-                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 1], y = h3b_data$ntlx[h3b_data$level == 3],
-                                                                               progress = FALSE, paired = FALSE))$bf,
-                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 1], y = h3b_data$ntlx[h3b_data$level == 4],
-                                                                               progress = FALSE, paired = FALSE))$bf,
-                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 2], y = h3b_data$ntlx[h3b_data$level == 3],
-                                                                               progress = FALSE, paired = FALSE))$bf,
-                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 2], y = h3b_data$ntlx[h3b_data$level == 4],
-                                                                               progress = FALSE, paired = FALSE))$bf,
-                                   BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 3], y = h3b_data$ntlx[h3b_data$level == 4],
-                                                                               progress = FALSE, paired = FALSE))$bf)
-  
-  # get effect size
-  
-  hypothesis3b_contrasts <- cbind(hypothesis3b_contrasts,
-                                  format(effectsize::t_to_eta2(t = hypothesis3b_contrasts$t.ratio,
-                                                               df_error = hypothesis3b_contrasts$df, ci = 0.95), digits = 2))
-  
-  # rename columns and contrasts, round to two decimals
-  
-  colnames(hypothesis3b_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
-  hypothesis3b_contrasts$Contrast <- gsub("X", "", hypothesis3b_contrasts$Contrast)
-  hypothesis3b_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(round(hypothesis3b_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 2), nsmall = 2)
-  hypothesis3b_contrasts$`$p$` <- format(round(hypothesis3b_contrasts$`$p$`, digits = 3), nsmall = 2)
-  hypothesis3b_contrasts$`$p$`[hypothesis3b_contrasts$`$p$` == "0.000"] <- "<.001"
-  
-  # plot these results
+  ## post-hoc tests for the NFC groups
+    
+    # obtain estimated marginal means for ANOVA model
+    
+    hypothesis3b_emm_nfc <- emmeans::emmeans(object = hypothesis3b_model, "nfcmedian")
+    
+    # calculate pairwise comparisons on estimated marginal means
+    
+    hypothesis3b_contrasts_nfc <- as.data.frame(pairs(hypothesis3b_emm_nfc))
+    
+    # get Bayes factors
+    
+    hypothesis3b_BF_nfc <- anovaBF(formula = ntlx ~ level * nfcmedian, data = h3b_data, progress = FALSE)
+    hypothesis3b_contrasts_nfc$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "high"], y = h3b_data$ntlx[h3b_data$nfcmedian == "low"],
+                                                                                 progress = FALSE, paired = FALSE))$bf)
+    
+    # get effect size
+    
+    hypothesis3b_contrasts_nfc <- cbind(hypothesis3b_contrasts_nfc,
+                                    format(effectsize::t_to_eta2(t = hypothesis3b_contrasts_nfc$t.ratio,
+                                                                 df_error = hypothesis3b_contrasts_nfc$df, ci = 0.95), digits = 2))
+    
+    # rename columns and contrasts, round to two decimals
+    
+    colnames(hypothesis3b_contrasts_nfc) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+    hypothesis3b_contrasts_nfc$Contrast <- c("High NFC - Low NFC")
+    hypothesis3b_contrasts_nfc[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(round(hypothesis3b_contrasts_nfc[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 2), nsmall = 2)
+    hypothesis3b_contrasts_nfc$`$p$` <- format(round(hypothesis3b_contrasts_nfc$`$p$`, digits = 3), nsmall = 2)
+    hypothesis3b_contrasts_nfc$`$p$`[hypothesis3b_contrasts_nfc$`$p$` == "0.000"] <- "<.001"
+    
+  # plot these results (with manually created p-value matrix, this one is for the level main effect)
   
   plot_h3b_pvalue <- data.frame(
     group1 = c(1,1,1,2,2,3),
@@ -1533,13 +1581,19 @@
   )
     
   plot_h3b <- ggplot(h3b_data, aes(x = level, y = ntlx, fill = nfcmedian)) +
-    geom_violin() +
-    scale_fill_manual(values = met.brewer("Hiroshige", 2)) +
+    geom_violin(color = NA) +
+    scale_fill_manual(values = met.brewer("Homer2", 2), labels = c("NFC above median", "NFC below median")) +
     labs(x = "n-back levels", y = "NASA-TLX sum score") +
     geom_boxplot(width = 0.1, position = position_dodge(0.9)) +
-    theme_prism(base_size = 10) +
+    theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
     scale_x_discrete(guide = "prism_bracket") +
     add_pvalue(plot_h3b_pvalue, tip.length = 0)
+  
+  # save the plot as an eps file with high resolution
+  
+  ggsave(filename = "Figure_4.eps", plot = plot_h3b, device = "eps",
+         path = here("06_Paper","COG-ED","Figures"),
+         dpi = "retina", bg = NULL)
   
   # delete temporary data frame
   
@@ -1551,76 +1605,81 @@
   # in place of the SV scores. Since we did not assess those in the pilot study, we
   # do not have the data to analyze it at the moment.
   
+
 ##### Specification Curve Analysis #############################################
   
-  # here we repeat the analysis of hypothesis 3a with our 63 pipelines
+  # here we repeat the multi level model of H2b with all analysis pipelines
   
   # prepare empty data frame for the loop to feed into
   
-  sca_results <- data.frame(pipeline = double(), effect = character(), fvalue = double(), pvalue = double(), BF10 = double())
+  sca_results <- data.frame(pipeline = character(), beta = double(), SE = double(), pvalue = double(), BF10 = double())
+  
+  # loop through the pipelines
   
   for (i in 1:length(pipelines_data)) {
     
     # make a temporary copy of the data frame
     
-    sca_base <- pipelines_data[[i]][ ,c("subject","level","sv","nfc")]
+    sca_data <- pipelines_data[[i]]
     
-    # create a data frame with the difference scores per subject (2-1,3-2,4-3)
+    # get a subset without RT = NA
     
-    diffscores <- diff(sca_base$sv)
-    sca_data <- data.frame(subject = sca_base$subject[-c(seq(from = 4, to = nrow(sca_base), by = 4))],
-                           nlevels = as.factor(rep(c("1-2","2-3","3-4"), nrow(sca_base)/4)),
-                           svdiff = diffscores[-c(seq(from = 4, to = nrow(sca_base)-4, by = 4))],
-                           nfc = sca_base$nfc[-c(seq(from = 4, to = nrow(sca_base), by = 4))])
+    sca_data <- droplevels(subset(sca_data[ ,c("subject", "level", "sv", "dprime", "medianRT")], subset = !is.na(rt)))
     
-    # add column indicating NFC score above or below median
+    # centering the level 1 predictors (d', medianRT, level) within cluster
     
-    mediannfc <- median(sca_data$nfc)
-    sca_data$nfcmedian <- ifelse(sca_data$nfc < mediannfc, "low", "high")
-    sca_data$nfcmedian <- as.factor(sca_data$nfcmedian)
+    sca_data$dprime.cwc       <- sca_data$dprime - (ave(sca_data$dprime, sca_data$subject, FUN = function(x) mean(x, na.rm = T)))
+    sca_data$medianRT.cwc     <- sca_data$medianRT - (ave(sca_data$medianRT, sca_data$subject, FUN = function(x) mean(x, na.rm = T)))
+    sca_data$level.cwc        <- sca_data$level - (ave(sca_data$level, sca_data$subject, FUN = function(x) mean(x, na.rm = T)))
     
-    # compute two-way ANOVA
+    # assuming that we have a linear model:
     
-    sca_rmanova <- afex::aov_ez("subject", "svdiff", sca_data,
-                                between = c("nfcmedian"), within = c("nlevels"))
+    # define the null model
     
-    # format S3 class into data frame
+    m0_sca <- lmerTest::lmer(sv ~ 1 + (1|subject), data = sca_data, REML = T)
     
-    sca_rmanova <- summary(sca_rmanova)
-    sca_rmanova <- sca_rmanova[["univariate.tests"]]
-
-    # pull relevant results from data frame and add Bayes Factors
+    # random slopes model
     
-    sca_rmanova <- data.frame(pipeline = rep(names(pipelines_data)[i],3),
-                              effect = c("NFC", "Level", "Interaction"),
-                              fvalue = c(sca_rmanova["nfcmedian","F value"], sca_rmanova["nlevels","F value"], sca_rmanova["nfcmedian:nlevels","F value"]),
-                              pvalue = c(sca_rmanova["nfcmedian","Pr(>F)"], sca_rmanova["nlevels","Pr(>F)"], interaction_p = sca_rmanova["nfcmedian:nlevels","Pr(>F)"]),
-                              BF10 = c(extractBF(anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = sca_data, progress = FALSE))["nfcmedian","bf"],
-                                       extractBF(anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = sca_data, progress = FALSE))["nlevels","bf"],
-                                       extractBF(anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = sca_data, progress = FALSE))["nlevels + nfcmedian + nlevels:nfcmedian","bf"]/
-                                         extractBF(anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = sca_data, progress = FALSE))["nlevels + nfcmedian","bf"]))
+    m1_sca <- lmerTest::lmer(sv ~ level.cwc * dprime.cwc + medianRT.cwc + (level.cwc|subject),
+                             data = sca_data, REML = T)
     
-    # bind results to main results data frame
+    # convert random factor to type factor
     
-    sca_results <- rbind(sca_results, sca_rmanova)
+    sca_data$subject <- factor(sca_data$subject)
+    
+    # compute Bayes factor
+    
+    sca_full_BF <- lmBF(sv ~ level.cwc + dprime.cwc + medianRT.cwc + subject,
+                        data = sca_data, whichRandom = 'subject', progress = FALSE)
+    sca_null_BF <- lmBF(sv ~ 1 + dprime.cwc + medianRT.cwc + subject,
+                        data = sca_data, whichRandom = 'subject', progress = FALSE)
+    sca_BF <- sca_full_BF / sca_null_BF
+    
+    # combine current results and the bigger data frame
+    
+    newdata <- data.frame(pipeline = c(names(pipelines_data[i])),
+                          beta = c(base::summary(m1_sca)$coefficients[2,1]),
+                          SE = c(base::summary(m1_sca)$coefficients[3,1]),
+                          pvalue = c(base::summary(m1_sca)$coefficients[2,5]),
+                          BF10 = c(extractBF(sca_BF)$bf))
+    sca_results <- rbind(sca_results, newdata)
     
   }
-    
-  # sort the data frame by the F value of the predictor 'NFC'
   
-  sca_results <- cbind(sca_results, num = rep(c(1:(nrow(sca_results)/3)), each = 3))
-  sca_results <- sca_results[order(sca_results$effect, sca_results$fvalue, decreasing = TRUE), ]
-  #sca_results[sca_results$effect == "NFC", ] <- sca_results[match(sca_results$num[sca_results$effect == "Level"],
-                                                                     #sca_results$num[sca_results$effect == "NFC"]),]
+##### SCA plot preparation #####################################################
   
+  # add a row number and sort the data frame by the fixed effects estimate of the predictor 'level'
+  
+  sca_results <- cbind(sca_results, num = c(1:nrow(sca_results)))
+  sca_results <- sca_results[order(sca_results$beta, decreasing = TRUE), ]
+
   # lock it in place by turning it into a factor
   
-  sca_results$num <- factor(sca_results$num, levels = sca_results$num[sca_results$effect == "NFC"])
+  sca_results$num <- factor(sca_results$num)
   
-  # add a column to plot only points that are significant
+  # add new column with consecutive numbers
   
-  sca_results$sign <- ifelse(sca_results$pvalue < .05, sca_results$fvalue, NA)
-  
+  sca_results$xaxis <- c(1:nrow(sca_results))
   
   # add columns to the data frame that describe the pipeline
   
@@ -1637,35 +1696,27 @@
                              ifelse(substr(sca_results$pipeline,4,4) == "2", 13,
                                     ifelse(substr(sca_results$pipeline,4,4) == "5", 14,
                                            ifelse(substr(sca_results$pipeline,4,4) == "3", 15,
-                                                  ifelse(substr(sca_results$pipeline,4,4) == "O", 16,
+                                                  ifelse(substr(sca_results$pipeline,4,4) == "O", 16, 
                                                          ifelse(substr(sca_results$pipeline,4,4) == "T", 17, NA))))))
+
+##### SCA plot #################################################################
   
-##### Plot Specification Curve Analysis ########################################
+  # based on the SCA plot by Michael Kossmeier at https://osf.io/e4bs8
   
-  # upper plot with the lines for F statistic and BF10
+  # melt pipelines specifications into useful format
   
-  ggplot(data = sca_results, aes(x = num, color = effect)) +
-    geom_line(aes(y = fvalue, group = effect), size = 1) +
-    geom_line(aes(y = BF10, group = effect), size = 1, linetype = "dotted") +
-    scale_y_continuous(name = "F value",
-                       sec.axis = sec_axis(~.*2, name = "Bayes Factor BF10")) +
-    #geom_point(data = sca_results, aes(x = num, y = sign)) +
-    labs(x = NULL) +
-    theme_prism(base_size = 10) +
-    theme(axis.text.x = element_blank()) +
-    scale_colour_manual(values = met.brewer("Hiroshige", 3))
+  sca_lower <- melt(sca_results[c("xaxis","BF10","Dim","Trans","Excl")], id = c("xaxis","BF10"))
+  sca_lower <- sca_lower[,c("xaxis","BF10","value")]
   
-  # lower plot with the dots for the pipelines
+  # create the lower panel with the pipeline specifications
   
-  ggplot(data = sca_results) +
-    geom_hline(yintercept = c(1,6,11), color = "grey", size = 0.5) +
-    geom_hline(yintercept = c(2:5,7:10,12:17), color = "grey", linetype = "dashed", size = 0.2) +
-    geom_point(aes(x = num, y = Dim)) +
-    geom_point(aes(x = num, y = Trans)) +
-    geom_point(aes(x = num, y = Excl)) +
-    theme_classic() +
+  ggplot(sca_lower, aes(x = xaxis, y = value)) +
+    geom_tile(aes(fill = BF10), color = "white") +
+    scale_fill_gradientn(colors = met.brewer("Homer2")) +
+    geom_hline(yintercept = c(6,11)) +
+    theme_prism(base_size = 10, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
     labs(x = "Analysis pipeline", y = NULL) +
-    scale_y_reverse(breaks = c(1:17), lim = c(17,0.5), labels = c(expression(bold("Dimension")),
+    scale_y_reverse(breaks = c(1:17), lim = c(18,0), labels = c(expression(bold("Dimension")),
                                                                   "Across S, across C", "Across S, within C",
                                                                   "Within S, within C", "Within S, across C",
                                                                   expression(bold("Transformation")),
@@ -1673,10 +1724,28 @@
                                                                   expression(bold("Exclusion")),
                                                                   "None", "2 MAD from median", " 2.5 MAD from median",
                                                                   "3 MAD from median", "100ms after onset", "200ms after onset")) +
-    theme_prism(base_size = 10) +
-    theme(axis.text.x = element_blank(), axis.title.x = element_text(margin = margin(t = 10)),
-          axis.line.y = element_line(size = 1, color = "black"),
-          legend.position = "none")
+    guides(fill = guide_colourbar(barwidth = 0.5,
+                                  barheight = 15, title = "BF10"))
+  
+  # create the middle panel with the p-values
+  
+  ggplot(sca_results, aes(x = xaxis, y = pvalue)) +
+    geom_line() +
+    theme_prism(base_size = 10, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+    labs(x = NULL, y = "p-value") +
+    scale_x_continuous(labels = NULL)
+  
+  # create upper panel with beta weights
+  
+  ggplot(sca_results, aes(x = xaxis, y = beta))+ 
+    geom_errorbar(aes(ymin = beta-SE,ymax = beta+SE, col = BF10), 
+                  width = 0, size = 2, alpha = .9, show.legend = FALSE) +
+    scale_color_gradientn(colors = met.brewer("Homer2")) +
+    geom_line(col = "black", size = 0.25) +
+    theme_prism(base_size = 10, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+    labs(x = NULL, y = "Fixed effects beta of the predictor n-back level") +
+    scale_x_continuous(labels = NULL)
+  
 ##### Save variables ###########################################################
   
   save.image(file = "Workspace.RData")
