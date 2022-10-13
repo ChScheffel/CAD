@@ -1713,6 +1713,28 @@ for thisBlocks_reg in blocks_reg:
     blocks_reg.addData('slider_effort.rt', slider_effort.getRT())
     # the Routine "Slider_Effort" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
+
+    # ------Prepare to start Routine "bufferscreen"-------
+    continueRoutine = True
+    routineTimer.add(0.500000)
+    # update component parameters for each repeat
+    bufferscreenkey.keys = []
+    bufferscreenkey.rt = []
+    _bufferscreenkey_allKeys = []
+    # keep track of which components have finished
+    RATINGbufferscreenComponents = [RATINGbufferscreen, bufferscreenkey]
+    for thisComponent in RATINGbufferscreenComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    RATINGbufferscreenClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    frameN = -1
     
     # -------Run Routine "bufferscreen"-------
     while continueRoutine and routineTimer.getTime() > 0:
@@ -3412,6 +3434,28 @@ thisExp1.addData('slider_effort.rt', slider_effort.getRT())
 
 # the Routine "Slider_Effort" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
+
+# ------Prepare to start Routine "bufferscreen"-------
+continueRoutine = True
+routineTimer.add(0.500000)
+# update component parameters for each repeat
+bufferscreenkey.keys = []
+bufferscreenkey.rt = []
+_bufferscreenkey_allKeys = []
+# keep track of which components have finished
+RATINGbufferscreenComponents = [RATINGbufferscreen, bufferscreenkey]
+for thisComponent in RATINGbufferscreenComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+RATINGbufferscreenClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
 
 # -------Run Routine "bufferscreen"-------
 while continueRoutine and routineTimer.getTime() > 0:
