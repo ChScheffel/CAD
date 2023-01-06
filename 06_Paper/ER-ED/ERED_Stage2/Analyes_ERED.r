@@ -180,7 +180,7 @@ data_quest_raw_pilot <- data_redcap_pilot %>%
 data_quest_pilot <- data_redcap_pilot %>%
     subset(!is.na(subject), select = c(subject, age, gender, edu))
 
-##################### EFFECTS OF ER ON SUBJECTIVE AND PHYSIOLOGICAL MARKERS #######################
+#################### EFFECTS OF ER ON SUBJECTIVE AND PHYSIOLOGICAL MARKERS #######################
 
 ## Subjective arousal
 
@@ -638,88 +638,86 @@ rownames(data_ER) <- seq_len(nrow(data_ER))
 
 # loop to store trigger in one column
 
-for (i in seq_len(nrow(data_ER_pilot))) {
-  if (is.na(data_ER_pilot$trigger[i])) {
-    data_ER_pilot$trigger[i] <- data_ER_pilot$trigger_reg[i]
+for (i in seq_len(nrow(data_ER))) {
+  if (is.na(data_ER$trigger[i])) {
+    data_ER$trigger[i] <- data_ER$trigger_reg[i]
   }
   
-  if (is.na(data_ER_pilot$trigger[i])) {
-    data_ER_pilot$trigger[i] <- 26
+  if (is.na(data_ER$trigger[i])) {
+    data_ER$trigger[i] <- 26
   }
 }
 
 # delete old column
 
-data_ER_pilot$trigger_reg <- NULL
+data_ER$trigger_reg <- NULL
 
 # loop to correct block indicator
 
-data_ER_pilot$block[data_ER_pilot$trigger == 21] <- "1_view_neu"
-data_ER_pilot$block[data_ER_pilot$trigger == 22] <- "2_view_neg"
-data_ER_pilot$block[data_ER_pilot$trigger == 23] <- "3_distraction"
-data_ER_pilot$block[data_ER_pilot$trigger == 24] <- "4_distancing"
-data_ER_pilot$block[data_ER_pilot$trigger == 25] <- "5_suppression"
-data_ER_pilot$block[data_ER_pilot$trigger == 26] <- "6_choice"
+data_ER$block[data_ER$trigger == 21] <- "1_view_neu"
+data_ER$block[data_ER$trigger == 22] <- "2_view_neg"
+data_ER$block[data_ER$trigger == 23] <- "3_distraction"
+data_ER$block[data_ER$trigger == 24] <- "4_distancing"
+data_ER$block[data_ER$trigger == 25] <- "5_suppression"
+data_ER$block[data_ER$trigger == 26] <- "6_choice"
 
 # store ER choice in data_choice frame
 
-for (i in seq_len(length(datalist_ER_pilot))) {
-  tmp <- data.frame(datalist_ER_pilot[[i]][["participant"]],
-                    datalist_ER_pilot[[i]][["resp_choice.keys"]])
-  colnames(tmp) <- names(data_choice_pilot)
+for (i in seq_len(length(datalist_ER))) {
+  tmp <- data.frame(datalist_ER[[i]][["participant"]],
+                    datalist_ER[[i]][["resp_choice.keys"]])
+  colnames(tmp) <- names(data_choice)
   tmp <- tmp[(!is.na(tmp$choice)), ]
   
-  data_choice_pilot <- rbind(tmp, data_choice_pilot)
+  data_choice <- rbind(tmp, data_choice)
 }
 
 # store ED data in data_ED frame
-#for (i in 1:length(datalist_ED)) {
-
-#  tmp = data.frame(datalist_ED[[i]][["participant"]][2:length(datalist_ED[[i]][["participant"]])],
-#                   datalist_ED[[i]][["EDround.thisN"]][2:length(datalist_ED[[i]][["EDround.thisN"]])],
-#                   datalist_ED[[i]][["EDclick.clicked_name"]][2:length(datalist_ED[[i]][["EDclick.clicked_name"]])],
-#                   datalist_ED[[i]][["EDleftbutton.value"]][2:length(datalist_ED[[i]][["EDleftbutton.value"]])],
-#                   datalist_ED[[i]][["EDleftbutton.nback"]][2:length(datalist_ED[[i]][["EDleftbutton.nback"]])],
-#                   datalist_ED[[i]][["EDrightbutton.value"]][2:length(datalist_ED[[i]][["EDrightbutton.value"]])],
-#                   datalist_ED[[i]][["EDrightbutton.nback"]][2:length(datalist_ED[[i]][["EDrightbutton.nback"]])])
-
-#  colnames(tmp) = names(data_ED)
-#  data_ED = rbind(data_ED, tmp)
-#}
+for (i in seq_len(length(datalist_ED))) {
+  tmp <- data.frame(datalist_ED[[i]][["participant"]][2:length(datalist_ED[[i]][["participant"]])],
+                   datalist_ED[[i]][["EDround.thisN"]][2:length(datalist_ED[[i]][["EDround.thisN"]])],
+                   datalist_ED[[i]][["EDclick.clicked_name"]][2:length(datalist_ED[[i]][["EDclick.clicked_name"]])],
+                   datalist_ED[[i]][["EDleftbutton.value"]][2:length(datalist_ED[[i]][["EDleftbutton.value"]])],
+                   datalist_ED[[i]][["EDleftbutton.strat"]][2:length(datalist_ED[[i]][["EDleftbutton.strat"]])],
+                   datalist_ED[[i]][["EDrightbutton.value"]][2:length(datalist_ED[[i]][["EDrightbutton.value"]])],
+                   datalist_ED[[i]][["EDrightbutton.strat"]][2:length(datalist_ED[[i]][["EDrightbutton.strat"]])])
+  colnames(tmp) <- names(data_ED)
+  data_ED <- rbind(data_ED, tmp)
+}
 
 # import EMG data
 
-datalist_EMG_pilot <- lapply(list.files(here("04_RawData", "pilot", "ER-ED", "EMG", "analysis"),
-                                        pattern = "*_Peaks.txt", full.names = TRUE),
-                             read.table, stringsAsFactors = FALSE, header = TRUE)
-datalist_EMG_Marker_pilot <- lapply(list.files(here("04_RawData", "pilot", "ER-ED", "EMG", "analysis"),
-                                               pattern = "*.Markers", full.names = TRUE),
-                                    read.table, stringsAsFactors = FALSE, header = TRUE,
-                                    skip = 1, row.names = NULL, sep = ",")
-
-# new empty frame to store files into
-data_EMG_pilot <- data.frame(ID = character(), trigger = double(), Corr = double(),
-                             Lev = double())
-
-# store EMG data in data_EMG frame
-for (i in seq_len(length(datalist_EMG_pilot))) {
-  tmp <- data.frame(datalist_EMG_pilot[[i]][["Filename"]],
-                    datalist_EMG_Marker_pilot[[i]][["Description"]],
-                    datalist_EMG_pilot[[i]][["T0T6000Corr.ASNM"]],
-                    datalist_EMG_pilot[[i]][["T0T6000Lev.ASNM"]])
-  colnames(tmp) <- names(data_EMG_pilot)
-  
-  data_EMG_pilot <- rbind(tmp, data_EMG_pilot)
-}
-
-# create variable "block"
-
-data_EMG_pilot$block[data_EMG_pilot$trigger == " S 21"] <- "1_view_neu"
-data_EMG_pilot$block[data_EMG_pilot$trigger == " S 22"] <- "2_view_neg"
-data_EMG_pilot$block[data_EMG_pilot$trigger == " S 23"] <- "3_distraction"
-data_EMG_pilot$block[data_EMG_pilot$trigger == " S 24"] <- "4_distancing"
-data_EMG_pilot$block[data_EMG_pilot$trigger == " S 25"] <- "5_suppression"
-data_EMG_pilot$block[data_EMG_pilot$trigger == " S 26"] <- "6_choice"
+# datalist_EMG <- lapply(list.files(here("04_RawData", "main", "ER-ED", "EMG", "analysis"),
+#                                         pattern = "*_Peaks.txt", full.names = TRUE),
+#                              read.table, stringsAsFactors = FALSE, header = TRUE)
+# datalist_EMG_Marker <- lapply(list.files(here("04_RawData", "main", "ER-ED", "EMG", "analysis"),
+#                                                pattern = "*.Markers", full.names = TRUE),
+#                                     read.table, stringsAsFactors = FALSE, header = TRUE,
+#                                     skip = 1, row.names = NULL, sep = ",")
+# 
+# # new empty frame to store files into
+# data_EMG <- data.frame(ID = character(), trigger = double(), Corr = double(),
+#                              Lev = double())
+# 
+# # store EMG data in data_EMG frame
+# for (i in seq_len(length(datalist_EMG))) {
+#   tmp <- data.frame(datalist_EMG[[i]][["Filename"]],
+#                     datalist_EMG_Marker[[i]][["Description"]],
+#                     datalist_EMG[[i]][["T0T6000Corr.ASNM"]],
+#                     datalist_EMG[[i]][["T0T6000Lev.ASNM"]])
+#   colnames(tmp) <- names(data_EMG)
+#   
+#   data_EMG <- rbind(tmp, data_EMG)
+# }
+# 
+# # create variable "block"
+# 
+# data_EMG$block[data_EMG$trigger == " S 21"] <- "1_view_neu"
+# data_EMG$block[data_EMG$trigger == " S 22"] <- "2_view_neg"
+# data_EMG$block[data_EMG$trigger == " S 23"] <- "3_distraction"
+# data_EMG$block[data_EMG$trigger == " S 24"] <- "4_distancing"
+# data_EMG$block[data_EMG$trigger == " S 25"] <- "5_suppression"
+# data_EMG$block[data_EMG$trigger == " S 26"] <- "6_choice"
 
 
 # import questionnaire data from RedCap
