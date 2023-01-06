@@ -153,33 +153,6 @@ data_EMG_pilot$block[data_EMG_pilot$trigger == " S 25"] <- "5_suppression"
 data_EMG_pilot$block[data_EMG_pilot$trigger == " S 26"] <- "6_choice"
 
 
-# import questionnaire data from RedCap
-  
-data_redcap_pilot <- read.csv(here("04_RawData", "pilot", "CERED_DATA.csv"),
-                              stringsAsFactors = FALSE, header = TRUE,
-                              na.strings = c("", "NA"))
-colnames(data_redcap_pilot)[1] <- "set" # rename the first column
-
-# remove unnecessary variables from questionnaire data frame
-  
-data_quest_raw_pilot <- data_redcap_pilot %>%
-    subset(select = c(set, subject, age, gender, edu,
-    nfc_01, nfc_02, nfc_03, nfc_04, nfc_05, nfc_06, nfc_07, nfc_08, nfc_09, nfc_10, nfc_11, nfc_12, nfc_13, nfc_14, nfc_15, nfc_16,
-    bis11_01, bis11_02, bis11_03, bis11_04, bis11_05, bis11_06, bis11_07, bis11_08, bis11_09, bis11_10, bis11_11, bis11_12, bis11_13, bis11_14, bis11_15, bis11_16, bis11_17, bis11_18, bis11_19, bis11_20, bis11_21, bis11_22, bis11_23, bis11_24, bis11_25, bis11_26, bis11_27, bis11_28, bis11_29, bis11_30,
-    bscs_1, bscs_2, bscs_3, bscs_4, bscs_5, bscs_6, bscs_7, bscs_8, bscs_9, bscs_10, bscs_11, bscs_12, bscs_13,
-    srs_01, srs_02, srs_03, srs_04, srs_05, srs_06, srs_07, srs_08, srs_09, srs_10,
-    erq_01, erq_02, erq_03, erq_04, erq_05, erq_06, erq_07, erq_08, erq_10,
-    who5_1, who5_2, who5_3, who5_4, who5_5,
-    acs_01, acs_02, acs_03, acs_04, acs_05, acs_06, acs_07, acs_08, acs_09, acs_10, acs_11, acs_12, acs_13, acs_14, acs_15, acs_16, acs_17, acs_18, acs_19, acs_20,
-    risc_01, risc_04, risc_06, risc_07, risc_08, risc_11, risc_14, risc_16, risc_17, risc_19,
-    flexer_01, flexer_02, flexer_03, flexer_04, flexer_05, flexer_06, flexer_07, flexer_08, flexer_09, flexer_10,
-    layb_01, layb_02, layb_03, layb_04))
-
-# built new data frame without empty rows
-
-data_quest_pilot <- data_redcap_pilot %>%
-    subset(!is.na(subject), select = c(subject, age, gender, edu))
-
 #################### EFFECTS OF ER ON SUBJECTIVE AND PHYSIOLOGICAL MARKERS #######################
 
 ## Subjective arousal
@@ -722,30 +695,60 @@ for (i in seq_len(length(datalist_ED))) {
 
 # import questionnaire data from RedCap
 
-data_redcap_pilot <- read.csv(here("04_RawData", "pilot", "CERED_DATA.csv"),
+data_survey <- read.csv(here("04_RawData", "main", "CAD_DATA.csv"),
                               stringsAsFactors = FALSE, header = TRUE,
                               na.strings = c("", "NA"))
-colnames(data_redcap_pilot)[1] <- "set" # rename the first column
+colnames(data_survey)[1] <- "set" # rename the first column
+
+# tidy up data frame:
+# fill subject id in each row and collapse arms into one row per participant
+
+data_survey <- data_survey %>% 
+  data.table::as.data.table() %>% 
+  replace(is.na(data_survey), "")
+
+data_survey <- data_survey[, lapply(.SD, paste0 , collapse=""), by=set]
 
 # remove unnecessary variables from questionnaire data frame
 
-data_quest_raw_pilot <- data_redcap_pilot %>%
-  subset(select = c(set, subject, age, gender, edu,
-                    nfc_01, nfc_02, nfc_03, nfc_04, nfc_05, nfc_06, nfc_07, nfc_08, nfc_09, nfc_10, nfc_11, nfc_12, nfc_13, nfc_14, nfc_15, nfc_16,
-                    bis11_01, bis11_02, bis11_03, bis11_04, bis11_05, bis11_06, bis11_07, bis11_08, bis11_09, bis11_10, bis11_11, bis11_12, bis11_13, bis11_14, bis11_15, bis11_16, bis11_17, bis11_18, bis11_19, bis11_20, bis11_21, bis11_22, bis11_23, bis11_24, bis11_25, bis11_26, bis11_27, bis11_28, bis11_29, bis11_30,
-                    bscs_1, bscs_2, bscs_3, bscs_4, bscs_5, bscs_6, bscs_7, bscs_8, bscs_9, bscs_10, bscs_11, bscs_12, bscs_13,
-                    srs_01, srs_02, srs_03, srs_04, srs_05, srs_06, srs_07, srs_08, srs_09, srs_10,
-                    erq_01, erq_02, erq_03, erq_04, erq_05, erq_06, erq_07, erq_08, erq_10,
-                    who5_1, who5_2, who5_3, who5_4, who5_5,
-                    acs_01, acs_02, acs_03, acs_04, acs_05, acs_06, acs_07, acs_08, acs_09, acs_10, acs_11, acs_12, acs_13, acs_14, acs_15, acs_16, acs_17, acs_18, acs_19, acs_20,
-                    risc_01, risc_04, risc_06, risc_07, risc_08, risc_11, risc_14, risc_16, risc_17, risc_19,
-                    flexer_01, flexer_02, flexer_03, flexer_04, flexer_05, flexer_06, flexer_07, flexer_08, flexer_09, flexer_10,
-                    layb_01, layb_02, layb_03, layb_04))
+# data_quest_raw <- data_survey %>%
+#   subset(select = c(set, subject_id_quest, age, gender, edu,
+#                     nfc_01, nfc_02, nfc_03, nfc_04, nfc_05, nfc_06, nfc_07, nfc_08, nfc_09, nfc_10, nfc_11, nfc_12, nfc_13, nfc_14, nfc_15, nfc_16,
+#                     bis11_01, bis11_02, bis11_03, bis11_04, bis11_05, bis11_06, bis11_07, bis11_08, bis11_09, bis11_10, bis11_11, bis11_12, bis11_13, bis11_14, bis11_15, bis11_16, bis11_17, bis11_18, bis11_19, bis11_20, bis11_21, bis11_22, bis11_23, bis11_24, bis11_25, bis11_26, bis11_27, bis11_28, bis11_29, bis11_30,
+#                     bscs_1, bscs_2, bscs_3, bscs_4, bscs_5, bscs_6, bscs_7, bscs_8, bscs_9, bscs_10, bscs_11, bscs_12, bscs_13,
+#                     srs_01, srs_02, srs_03, srs_04, srs_05, srs_06, srs_07, srs_08, srs_09, srs_10,
+#                     erq_01, erq_02, erq_03, erq_04, erq_05, erq_06, erq_07, erq_08, erq_10,
+#                     who5_1, who5_2, who5_3, who5_4, who5_5,
+#                     acs_01, acs_02, acs_03, acs_04, acs_05, acs_06, acs_07, acs_08, acs_09, acs_10, acs_11, acs_12, acs_13, acs_14, acs_15, acs_16, acs_17, acs_18, acs_19, acs_20,
+#                     risc_01, risc_04, risc_06, risc_07, risc_08, risc_11, risc_14, risc_16, risc_17, risc_19,
+#                     flexer_01, flexer_02, flexer_03, flexer_04, flexer_05, flexer_06, flexer_07, flexer_08, flexer_09, flexer_10,
+#                     layb_01, layb_02, layb_03, layb_04))
 
-# built new data frame without empty rows
+# built new data frame with every participant that started the online survey
 
-data_quest_pilot <- data_redcap_pilot %>%
-  subset(!is.na(subject), select = c(subject, age, gender, edu))
+data_quest <- data_survey %>%
+  subset(!is.na(subject_id_quest), select = c(subject_id_quest, subject_id_lab, age, gender, edu))
+
+#### NFC
+
+# store nfc items in separate df
+# only keep rows with complete nfc questionnaire
+
+nfc.items <- data_survey %>% 
+  subset(select = c(subject_id_quest,
+                    grep("nfc",colnames(data_survey)))) %>% 
+  dplyr::filter((nfc_complete == 2) & (is.na(subject_id_quest) == FALSE))
+
+# recode nfc items
+nfc.invert <- c("nfc_04","nfc_06","nfc_07","nfc_08","nfc_09","nfc_10","nfc_11","nfc_12","nfc_15","nfc_16")
+nfc.items[,nfc.invert] <- nfc.items[,nfc.invert] * -1
+
+# summary score 
+nfc.items$nfc_sum <- rowSums(nfc.items %>% dplyr::select("nfc_01":"nfc_16"))
+
+# fit nfc sum score in df data_quest
+
+
 
 ##################### SAVE WORKSPACE IMAGE #######################
 
