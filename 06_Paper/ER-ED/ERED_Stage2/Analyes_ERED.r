@@ -21,7 +21,11 @@ library(renv)
 renv::activate(here("06_Paper", "ER-ED", "ERED_Stage2"))
 renv::restore(here("06_Paper", "ER-ED", "ERED_Stage2"))
 
-##################### DATA IMPORT #######################
+######################################################
+
+#################### PILOT ###########################
+
+#################### DATA IMPORT #####################
 
 # import ER ratings and ER discounting data into lists
 
@@ -584,6 +588,165 @@ FigEMGLevRegPilot <- ggplot2::ggplot(EMG_reg_pilot, aes(x = block, y = Lev)) +
                    labels = c("View", "Distraction", "Distancing", "Suppression")) +
   geom_jitter(size = 0.4) +
   labs(y = "Levator activity")
+
+######################################################
+
+#################### MAIN ############################
+
+#################### DATA IMPORT #####################
+
+# import ER ratings and ER discounting data into lists
+
+datalist_ER <- lapply(list.files(here("04_RawData", "pilot", "ER-ED/logfiles"),
+                                       pattern = "*_ER.*csv", full.names = TRUE),
+                            read.csv, stringsAsFactors = FALSE,
+                            header = TRUE)
+
+datalist_ED <- lapply(list.files(here("04_RawData", "pilot", "ER-ED/logfiles"),
+                                       pattern = "*_ED.*csv", full.names = TRUE),
+                            read.csv, stringsAsFactors = FALSE,
+                            header = TRUE)
+
+# new empty frame to store files into
+data_ER_pilot <- data.frame(ID = character(), block = character(),
+                            arousal = double(), effort = double(),
+                            trigger = double(), trigger_reg = double())
+
+data_ED_pilot <- data.frame(ID = character(), step = double(),
+                            choice = character(), LBvalue = double(),
+                            LBlevel = double(), RBvalue = double(),
+                            RBlevel = double())
+
+data_choice_pilot <- data.frame(ID = character(), choice = double())
+
+# store arousal and effort ratings in data_ER frame
+for (i in seq_len(length(datalist_ER_pilot))) {
+  tmp <- data.frame(datalist_ER_pilot[[i]][["participant"]],
+                    datalist_ER_pilot[[i]][["instr_1"]],
+                    datalist_ER_pilot[[i]][["slider_arousal.response"]],
+                    datalist_ER_pilot[[i]][["slider_effort.response"]],
+                    datalist_ER_pilot[[i]][["TriggerBlockView"]],
+                    datalist_ER_pilot[[i]][["TriggerBlockReg"]])
+  colnames(tmp) <- names(data_ER_pilot)
+  tmp <- tmp[(!is.na(tmp$arousal)), ]
+  
+  data_ER_pilot <- rbind(tmp, data_ER_pilot)
+}
+
+rownames(data_ER_pilot) <- seq_len(nrow(data_ER_pilot))
+
+# loop to store trigger in one column
+
+for (i in seq_len(nrow(data_ER_pilot))) {
+  if (is.na(data_ER_pilot$trigger[i])) {
+    data_ER_pilot$trigger[i] <- data_ER_pilot$trigger_reg[i]
+  }
+  
+  if (is.na(data_ER_pilot$trigger[i])) {
+    data_ER_pilot$trigger[i] <- 26
+  }
+}
+
+# delete old column
+
+data_ER_pilot$trigger_reg <- NULL
+
+# loop to correct block indicator
+
+data_ER_pilot$block[data_ER_pilot$trigger == 21] <- "1_view_neu"
+data_ER_pilot$block[data_ER_pilot$trigger == 22] <- "2_view_neg"
+data_ER_pilot$block[data_ER_pilot$trigger == 23] <- "3_distraction"
+data_ER_pilot$block[data_ER_pilot$trigger == 24] <- "4_distancing"
+data_ER_pilot$block[data_ER_pilot$trigger == 25] <- "5_suppression"
+data_ER_pilot$block[data_ER_pilot$trigger == 26] <- "6_choice"
+
+# store ER choice in data_choice frame
+
+for (i in seq_len(length(datalist_ER_pilot))) {
+  tmp <- data.frame(datalist_ER_pilot[[i]][["participant"]],
+                    datalist_ER_pilot[[i]][["resp_choice.keys"]])
+  colnames(tmp) <- names(data_choice_pilot)
+  tmp <- tmp[(!is.na(tmp$choice)), ]
+  
+  data_choice_pilot <- rbind(tmp, data_choice_pilot)
+}
+
+# store ED data in data_ED frame
+#for (i in 1:length(datalist_ED)) {
+
+#  tmp = data.frame(datalist_ED[[i]][["participant"]][2:length(datalist_ED[[i]][["participant"]])],
+#                   datalist_ED[[i]][["EDround.thisN"]][2:length(datalist_ED[[i]][["EDround.thisN"]])],
+#                   datalist_ED[[i]][["EDclick.clicked_name"]][2:length(datalist_ED[[i]][["EDclick.clicked_name"]])],
+#                   datalist_ED[[i]][["EDleftbutton.value"]][2:length(datalist_ED[[i]][["EDleftbutton.value"]])],
+#                   datalist_ED[[i]][["EDleftbutton.nback"]][2:length(datalist_ED[[i]][["EDleftbutton.nback"]])],
+#                   datalist_ED[[i]][["EDrightbutton.value"]][2:length(datalist_ED[[i]][["EDrightbutton.value"]])],
+#                   datalist_ED[[i]][["EDrightbutton.nback"]][2:length(datalist_ED[[i]][["EDrightbutton.nback"]])])
+
+#  colnames(tmp) = names(data_ED)
+#  data_ED = rbind(data_ED, tmp)
+#}
+
+# import EMG data
+
+datalist_EMG_pilot <- lapply(list.files(here("04_RawData", "pilot", "ER-ED", "EMG", "analysis"),
+                                        pattern = "*_Peaks.txt", full.names = TRUE),
+                             read.table, stringsAsFactors = FALSE, header = TRUE)
+datalist_EMG_Marker_pilot <- lapply(list.files(here("04_RawData", "pilot", "ER-ED", "EMG", "analysis"),
+                                               pattern = "*.Markers", full.names = TRUE),
+                                    read.table, stringsAsFactors = FALSE, header = TRUE,
+                                    skip = 1, row.names = NULL, sep = ",")
+
+# new empty frame to store files into
+data_EMG_pilot <- data.frame(ID = character(), trigger = double(), Corr = double(),
+                             Lev = double())
+
+# store EMG data in data_EMG frame
+for (i in seq_len(length(datalist_EMG_pilot))) {
+  tmp <- data.frame(datalist_EMG_pilot[[i]][["Filename"]],
+                    datalist_EMG_Marker_pilot[[i]][["Description"]],
+                    datalist_EMG_pilot[[i]][["T0T6000Corr.ASNM"]],
+                    datalist_EMG_pilot[[i]][["T0T6000Lev.ASNM"]])
+  colnames(tmp) <- names(data_EMG_pilot)
+  
+  data_EMG_pilot <- rbind(tmp, data_EMG_pilot)
+}
+
+# create variable "block"
+
+data_EMG_pilot$block[data_EMG_pilot$trigger == " S 21"] <- "1_view_neu"
+data_EMG_pilot$block[data_EMG_pilot$trigger == " S 22"] <- "2_view_neg"
+data_EMG_pilot$block[data_EMG_pilot$trigger == " S 23"] <- "3_distraction"
+data_EMG_pilot$block[data_EMG_pilot$trigger == " S 24"] <- "4_distancing"
+data_EMG_pilot$block[data_EMG_pilot$trigger == " S 25"] <- "5_suppression"
+data_EMG_pilot$block[data_EMG_pilot$trigger == " S 26"] <- "6_choice"
+
+
+# import questionnaire data from RedCap
+
+data_redcap_pilot <- read.csv(here("04_RawData", "pilot", "CERED_DATA.csv"),
+                              stringsAsFactors = FALSE, header = TRUE,
+                              na.strings = c("", "NA"))
+colnames(data_redcap_pilot)[1] <- "set" # rename the first column
+
+# remove unnecessary variables from questionnaire data frame
+
+data_quest_raw_pilot <- data_redcap_pilot %>%
+  subset(select = c(set, subject, age, gender, edu,
+                    nfc_01, nfc_02, nfc_03, nfc_04, nfc_05, nfc_06, nfc_07, nfc_08, nfc_09, nfc_10, nfc_11, nfc_12, nfc_13, nfc_14, nfc_15, nfc_16,
+                    bis11_01, bis11_02, bis11_03, bis11_04, bis11_05, bis11_06, bis11_07, bis11_08, bis11_09, bis11_10, bis11_11, bis11_12, bis11_13, bis11_14, bis11_15, bis11_16, bis11_17, bis11_18, bis11_19, bis11_20, bis11_21, bis11_22, bis11_23, bis11_24, bis11_25, bis11_26, bis11_27, bis11_28, bis11_29, bis11_30,
+                    bscs_1, bscs_2, bscs_3, bscs_4, bscs_5, bscs_6, bscs_7, bscs_8, bscs_9, bscs_10, bscs_11, bscs_12, bscs_13,
+                    srs_01, srs_02, srs_03, srs_04, srs_05, srs_06, srs_07, srs_08, srs_09, srs_10,
+                    erq_01, erq_02, erq_03, erq_04, erq_05, erq_06, erq_07, erq_08, erq_10,
+                    who5_1, who5_2, who5_3, who5_4, who5_5,
+                    acs_01, acs_02, acs_03, acs_04, acs_05, acs_06, acs_07, acs_08, acs_09, acs_10, acs_11, acs_12, acs_13, acs_14, acs_15, acs_16, acs_17, acs_18, acs_19, acs_20,
+                    risc_01, risc_04, risc_06, risc_07, risc_08, risc_11, risc_14, risc_16, risc_17, risc_19,
+                    flexer_01, flexer_02, flexer_03, flexer_04, flexer_05, flexer_06, flexer_07, flexer_08, flexer_09, flexer_10,
+                    layb_01, layb_02, layb_03, layb_04))
+
+# built new data frame without empty rows
+
+data_quest_pilot <- data_redcap_pilot %>%
+  subset(!is.na(subject), select = c(subject, age, gender, edu))
 
 ##################### SAVE WORKSPACE IMAGE #######################
 
