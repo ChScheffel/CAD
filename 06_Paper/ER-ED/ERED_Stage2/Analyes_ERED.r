@@ -714,35 +714,60 @@ data_survey <- data_survey[, lapply(.SD, paste0 , collapse=""), by=set]
 
 data_survey <- as.data.frame(data_survey)
 
+#################### PREPROCESSING: QUESTIONNAIRES #####################
+
 # built new data frame with every participant that started the online survey
 
 data_quest <- data_survey %>%
-  subset(!is.na(subject_id_quest), select = c(subject_id_quest, subject_id_lab, age, gender, edu))
+  subset(!is.na(subject_id_quest), select = c(set, subject_id_quest, subject_id_lab, record_id_2, age, gender, edu))
 
-data_quest[, c(3:5)] <- sapply(data_quest[, c(3:5)], as.numeric)
+data_quest[, c(5:7)] <- sapply(data_quest[, c(5:7)], as.numeric)
 
 #### NFC
 
 # store nfc items in separate df
 # only keep rows with complete nfc questionnaire
-
 nfc_items <- data_survey %>% 
-  subset(select = c(subject_id_quest,
-                    grep("nfc",colnames(data_survey)))) %>% 
-  dplyr::filter((nfc_complete == 2) & (is.na(subject_id_quest) == FALSE))
+  subset(select = c(set,
+                    grep("nfc", colnames(data_survey)))) %>% 
+  dplyr::filter((nfc_complete == 2) )
 
-nfc_items[,grep("nfc")] <- sapply(nfc_items[,grep("nfc")], as.numeric)
+# delete column "nfc_timestamp"
+nfc_items$nfc_timestamp <- NULL
+
+# change columns to numeric
+nfc_items <- dplyr::mutate_all(nfc_items, function(x) as.numeric(as.character(x)))
 
 # recode nfc items
-nfc.invert <- c("nfc_04","nfc_06","nfc_07","nfc_08","nfc_09","nfc_10","nfc_11","nfc_12","nfc_15","nfc_16")
-nfc.items[,nfc.invert] <- nfc.items[,nfc.invert]*-1
+nfc_items[,c("nfc_04","nfc_06","nfc_07","nfc_08","nfc_09","nfc_10","nfc_11","nfc_12","nfc_15","nfc_16")] <- nfc_items[,c("nfc_04","nfc_06","nfc_07","nfc_08","nfc_09","nfc_10","nfc_11","nfc_12","nfc_15","nfc_16")]*-1
 
 # summary score 
-nfc.items$nfc_sum <- rowSums(nfc.items %>% dplyr::select("nfc_01":"nfc_16"))
+nfc_items$nfc_sum <- rowSums(nfc_items %>% dplyr::select("nfc_01":"nfc_16"))
 
 # fit nfc sum score in df data_quest
 
+data_quest <- merge(data_quest, nfc_items[,c("set","nfc_sum")], by = "set")
 
+#### FlexER Scale
+
+# store nfc items in separate df
+# only keep rows with complete nfc questionnaire
+flexer_items <- data_survey %>% 
+  subset(select = c(set,
+                    grep("flexer", colnames(data_survey)))) %>% 
+  dplyr::filter((flexer_complete == 2))
+
+# delete column "flexer_timestamp"
+flexer_items$flexer_timestamp <- NULL
+
+# change all columns to numeric
+flexer_items <- dplyr::mutate_all(flexer_items, function(x) as.numeric(as.character(x)))
+
+# recode item 7
+flexer_items[,"flexer_07"] <- 5 - flexer_items[,"flexer_07"]
+
+# mean score
+flexer_items$flexer_mean <- rowMeans(flexer_items %>% dplyr::select("flexer_01":"flexer_10"))
 
 ##################### SAVE WORKSPACE IMAGE #######################
 
