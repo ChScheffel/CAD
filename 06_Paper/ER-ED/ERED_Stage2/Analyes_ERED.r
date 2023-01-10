@@ -723,7 +723,7 @@ data_quest <- data_survey %>%
 
 data_quest[, c(5:7)] <- sapply(data_quest[, c(5:7)], as.numeric)
 
-#### NFC
+#### Need For Cognition Scale - NFC
 
 # store nfc items in separate df
 # only keep rows with complete nfc questionnaire
@@ -745,13 +745,12 @@ nfc_items[,c("nfc_04","nfc_06","nfc_07","nfc_08","nfc_09","nfc_10","nfc_11","nfc
 nfc_items$nfc_sum <- rowSums(nfc_items %>% dplyr::select("nfc_01":"nfc_16"))
 
 # fit nfc sum score in df data_quest
-
 data_quest <- merge(data_quest, nfc_items[,c("set","nfc_sum")], by = "set")
 
-#### FlexER Scale
+#### Flexible Emotion Regulation Scale - FlexER
 
-# store nfc items in separate df
-# only keep rows with complete nfc questionnaire
+# store flexer items in separate df
+# only keep rows with complete flexer questionnaire
 flexer_items <- data_survey %>% 
   subset(select = c(set,
                     grep("flexer", colnames(data_survey)))) %>% 
@@ -768,6 +767,38 @@ flexer_items[,"flexer_07"] <- 5 - flexer_items[,"flexer_07"]
 
 # mean score
 flexer_items$flexer_mean <- rowMeans(flexer_items %>% dplyr::select("flexer_01":"flexer_10"))
+
+# fit flexer mean score in df data_quest
+data_quest <- merge(data_quest, flexer_items[,c("set","flexer_mean")], by = "set")
+
+#### Barratt Impulsiveness Scale - BIS-11
+
+# store bis11 items in separate df
+# only keep rows with complete bis11 questionnaire
+bis11_items <- data_survey %>% 
+  subset(select = c(set,
+                    grep("bis", colnames(data_survey)))) %>% 
+  dplyr::filter((bis_11_complete == 2))
+
+# delete column "bis_11_timestamp"
+bis11_items$bis_11_timestamp <- NULL
+
+# change all columns to numeric
+bis11_items <- dplyr::mutate_all(bis11_items, function(x) as.numeric(as.character(x)))
+
+# recode items
+bis11_items[,c("bis11_01","bis11_07","bis11_08","bis11_09","bis11_10","bis11_12","bis11_13","bis11_15","bis11_20","bis11_29","bis11_30")] <- 5 - bis11_items[,c("bis11_01","bis11_07","bis11_08","bis11_09","bis11_10","bis11_12","bis11_13","bis11_15","bis11_20","bis11_29","bis11_30")]
+
+# sum score
+bis11_items$bis11_sum <- rowSums(bis11_items %>% dplyr::select("bis11_01":"bis11_30"))
+
+# fit bis11 sum score in df data_quest
+data_quest <- merge(data_quest, bis11_items[,c("set","bis11_sum")], by = "set")
+
+#### Brief Self-Control Scale - BSCS
+#### Self-Regulation Scale - SRS
+
+
 
 ##################### SAVE WORKSPACE IMAGE #######################
 
