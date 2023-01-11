@@ -860,20 +860,32 @@ data_ED <- subset(data_ED, select = -c(step))
 
 for (i in 1:nrow(data_ED)) {
   
-  data_ED$fixedlevel[i] <- data_ED[i,grep("Bvalue", colnames(data_ED))[which(data_ED[i,grep("Bvalue", colnames(data_ED))] == 2.00)] + 1]
-  data_ED$flexlevel[i] <- data_ED[i,grep("Bvalue", colnames(data_ED))[which(data_ED[i,grep("Bvalue", colnames(data_ED))] != 2.00)] + 1]
+#  data_ED$fixedlevel[i] <- data_ED[i,grep("Bvalue", colnames(data_ED))[which(data_ED[i,grep("Bvalue", colnames(data_ED))] == 2.00)] + 1]
+#  data_ED$flexlevel[i] <- data_ED[i,grep("Bvalue", colnames(data_ED))[which(data_ED[i,grep("Bvalue", colnames(data_ED))] != 2.00)] + 1]
   
   if (data_ED$choice[i] == 1) {
     if (data_ED$LBvalue[i] == 2.00) {
-      data_ED$flexvalue[i] <- round(data_ED$RBvalue[i] + 0.02, digits = 2)
+      
+      data_ED$LBvalue[i] <- data_ED$LBvalue[i] + 1
+      data_ED$RBvalue[i] <- round(data_ED$RBvalue[i] + 0.02, digits = 2)
+      
+      } else {
+        
+        data_ED$LBvalue[i] <- round(data_ED$LBvalue[i] - 0.02, digits = 2)
+        data_ED$RBvalue[i] <- data_ED$RBvalue[i] + 1
+        
+        }
     } else {
-      data_ED$flexvalue[i] <- round(data_ED$LBvalue[i] - 0.02, digits = 2)
-    }
-  } else {
-    if (data_ED$RBvalue[i] == 2.00) {
-      data_ED$flexvalue[i] <- round(data_ED$LBvalue[i] + 0.02, digits = 2)
-    } else {
-      data_ED$flexvalue[i] <- round(data_ED$RBvalue[i] - 0.02, digits = 2)
+      
+      if (data_ED$LBvalue[i] == 2.00) {
+        
+        data_ED$LBvalue[i] <- data_ED$LBvalue[i] + 1
+        data_ED$RBvalue[i] <- round(data_ED$RBvalue[i] - 0.02, digits = 2)
+        
+        } else {
+          
+          data_ED$LBvalue[i] <- round(data_ED$LBvalue[i] + 0.02, digits = 2)
+          data_ED$RBvalue[i] <- data_ED$RBvalue[i] + 1
     }
   }
   
