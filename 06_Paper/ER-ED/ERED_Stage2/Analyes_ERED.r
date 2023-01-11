@@ -714,7 +714,7 @@ data_survey <- data_survey[, lapply(.SD, paste0 , collapse=""), by=set]
 
 data_survey <- as.data.frame(data_survey)
 
-#################### PREPROCESSING: QUESTIONNAIRES #####################
+#################### PREPARATION: QUESTIONNAIRES #####################
 
 # built new data frame with every participant that started the online survey
 
@@ -796,8 +796,88 @@ bis11_items$bis11_sum <- rowSums(bis11_items %>% dplyr::select("bis11_01":"bis11
 data_quest <- merge(data_quest, bis11_items[,c("set","bis11_sum")], by = "set")
 
 #### Brief Self-Control Scale - BSCS
+
+# store bscs items in separate df
+# only keep rows with complete bscs questionnaire
+bscs_items <- data_survey %>% 
+  subset(select = c(set,
+                    grep("bscs", colnames(data_survey)))) %>% 
+  dplyr::filter((bscs_complete == 2))
+
+# delete column "bscs_timestamp"
+bscs_items$bscs_timestamp <- NULL
+
+# change all columns to numeric
+bscs_items <- dplyr::mutate_all(bscs_items, function(x) as.numeric(as.character(x)))
+
+# recode items
+bscs_items[,c("bscs_2","bscs_4","bscs_5","bscs_7","bscs_10","bscs_12","bscs_13")] <- 6 - bscs_items[,c("bscs_2","bscs_4","bscs_5","bscs_7","bscs_10","bscs_12","bscs_13")]
+
+# sum score
+bscs_items$bscs_sum <- rowSums(bscs_items %>% dplyr::select("bscs_1":"bscs_13"))
+
+# fit bscs sum score in df data_quest
+data_quest <- merge(data_quest, bscs_items[,c("set","bscs_sum")], by = "set")
+
 #### Self-Regulation Scale - SRS
 
+# store srs items in separate df
+# only keep rows with complete bis11 questionnaire
+srs_items <- data_survey %>% 
+  subset(select = c(set,
+                    grep("srs", colnames(data_survey)))) %>% 
+  dplyr::filter((srs_complete == 2))
+
+# delete column "srs_timestamp"
+srs_items$srs_timestamp <- NULL
+
+# change all columns to numeric
+srs_items <- dplyr::mutate_all(srs_items, function(x) as.numeric(as.character(x)))
+
+# recode items
+srs_items[,c("srs_05","srs_07","srs_09")] <- 5 - srs_items[,c("srs_05","srs_07","srs_09")]
+
+# sum score
+srs_items$srs_sum <- rowSums(srs_items %>% dplyr::select("srs_01":"srs_10"))
+
+# fit bscs sum score in df data_quest
+data_quest <- merge(data_quest, srs_items[,c("set","srs_sum")], by = "set")
+
+#################### PREPARATION: SUBJECTIVE VALUES ############
+
+# the choice column in df data_ED will contain 1 for the left button and 2 for the right button
+
+data_ED[data_ED == "EDleftbutton"] <- 1
+data_ED[data_ED == "EDrightbutton"] <- 2
+data_ED$choice <- as.numeric(data_ED$choice)
+
+# since only the last choice of each comparison is relevant, we will keep only those rows
+
+data_ED <- data_ED[data_ED$step == 5,]
+data_ED <- subset(data_ED, select = -c(step))
+
+# apply the addition or subtraction of 0.02 to the last choices
+
+for (i in 1:nrow(data_ED)) {
+  
+  data_ED$fixedlevel[i] <- data_ED[i,grep("Bvalue", colnames(data_ED))[which(data_ED[i,grep("Bvalue", colnames(data_ED))] == 2.00)] + 1]
+  data_ED$flexlevel[i] <- data_ED[i,grep("Bvalue", colnames(data_ED))[which(data_ED[i,grep("Bvalue", colnames(data_ED))] != 2.00)] + 1]
+  
+  if (data_ED$choice[i] == 1) {
+    if (data_ED$LBvalue[i] == 2.00) {
+      data_ED$flexvalue[i] <- round(data_ED$RBvalue[i] + 0.02, digits = 2)
+    } else {
+      data_ED$flexvalue[i] <- round(data_ED$LBvalue[i] - 0.02, digits = 2)
+    }
+  } else {
+    if (data_ED$RBvalue[i] == 2.00) {
+      data_ED$flexvalue[i] <- round(data_ED$LBvalue[i] + 0.02, digits = 2)
+    } else {
+      data_ED$flexvalue[i] <- round(data_ED$RBvalue[i] - 0.02, digits = 2)
+    }
+  }
+  
+}
 
 
 ##################### SAVE WORKSPACE IMAGE #######################
