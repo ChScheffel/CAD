@@ -950,6 +950,61 @@ for (i in seq_len(length(subjectindex)-1)) {
 # remove temporary variables
 base::remove(tempone, temptwo, tempthree)
 
-##################### SAVE WORKSPACE IMAGE #######################
+#################### STATISTICAL ANALYSES: KONFIRMATORY ANALYSES ############
+
+#### HYPOTHESIS 1
+
+# Do negative pictures (compared to neutral pictures) evoke subjective arousal and physiological responding? (Manipulation Check)
+
+#### HYPOTHESIS 1a 
+
+# Subjective arousal (arousal rating) is lower after actively viewing neutral pictures compared to actively viewing negative pictures.
+
+Ratings_view <- data_ER %>%
+  subset(data_ER$block == "1_view_neu" | data_ER$block == "2_view_neg")
+Ratings_view$block <- as.factor(Ratings_view$block)
+
+SubjArousalView_aov <- afex::aov_ez(data = Ratings_view,
+                                    id = "ID",
+                                    dv = "arousal",
+                                    within = "block",
+                                    fun_aggregate = mean,
+                                    include_aov = TRUE)
+
+# compute posthoc tests for within measures
+SubjArousalView_emm <- emmeans::emmeans(SubjArousalView_aov$aov, specs = "block")
+
+SubjArousalView_con <- as.data.frame(pairs(SubjArousalView_emm, adjust = "bonferroni"))
+
+# Bayes Factors
+SubjArousalView_BF <- BayesFactor::anovaBF(formula = arousal ~ block,
+                                           data = Ratings_view_pilot,
+                                           progress = FALSE)
+SubjArousalView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_view$arousal[Ratings_view$block == "1_view_neu"],
+                                                                        y = Ratings_view$arousal[Ratings_view$block == "2_view_neg"],
+                                                                        progress = FALSE, paired = TRUE))$bf
+
+SubjArousalView_con <- cbind(SubjArousalView_con,
+                             format(effectsize::t_to_eta2(t = SubjArousalView_con$t.ratio,
+                                                          df_error = SubjArousalView_con$df,
+                                                          ci = 0.95),
+                                    digits = 2))
+
+colnames(SubjArousalView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+# rename contrast for table
+SubjArousalView_con[1, 1] <- "$View_{neutral} - View_{negative}$"
+
+# Figure to visualize arousal ratings
+
+# figure
+FigSubjArousalView <- ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal)) +
+  geom_boxplot(width = 0.7, position = position_dodge(0.8)) +
+  scale_x_discrete(name = "Active viewing",
+                   limits = c("1_view_neu", "2_view_neg"),
+                   labels = c("Neutral", "Negative")) +
+  geom_jitter(size = 0.4) +
+  labs(y = "Arousal Rating")
+
+#################### SAVE WORKSPACE IMAGE #######################
 
 save.image(file = "Workspace_ERED.RData")
