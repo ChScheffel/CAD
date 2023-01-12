@@ -645,7 +645,7 @@ for (i in seq_len(length(datalist_ER))) {
   colnames(tmp) <- names(data_choice)
   tmp <- tmp[(!is.na(tmp$choice)), ]
   
-  data_choice <- rbind(tmp, data_choice)
+  data_choice <- rbind(data_choice, tmp)
 }
 
 # store ED data in data_ED frame
@@ -871,31 +871,121 @@ for (i in 1:nrow(data_ED)) {
   if (data_ED$choice[i] == 1) {
     if (data_ED$LBvalue[i] == 2.00) {
       
-      data_ED$LBvalue[i] <- data_ED$LBvalue[i] + 1
       data_ED$RBvalue[i] <- round(data_ED$RBvalue[i] + 0.02, digits = 2)
       
       } else {
         
         data_ED$LBvalue[i] <- round(data_ED$LBvalue[i] - 0.02, digits = 2)
-        data_ED$RBvalue[i] <- data_ED$RBvalue[i] + 1
-        
+
         }
     } else {
       
       if (data_ED$LBvalue[i] == 2.00) {
         
-        data_ED$LBvalue[i] <- data_ED$LBvalue[i] + 1
         data_ED$RBvalue[i] <- round(data_ED$RBvalue[i] - 0.02, digits = 2)
         
         } else {
           
           data_ED$LBvalue[i] <- round(data_ED$LBvalue[i] + 0.02, digits = 2)
-          data_ED$RBvalue[i] <- data_ED$RBvalue[i] + 1
     }
   }
   
 }
 
+# create vector indicating in which rows the data of a new subject begins
+
+subjectindex <- c(1,which(data_ED$ID != dplyr::lag(data_ED$ID)),nrow(data_ED))
+
+# create empty data frame for the loop to feed into
+
+data_SV <- data.frame(ID = character(), level = double(), sv = double())
+# compute subjective values per strategy and feed into df data_SV
+
+for (i in seq_len(nrow(subjectindex)-1)) {
+  
+  # initialize empty vectors
+  
+  tempone <- double()
+  temptwo <- double()
+  tempthree <- double()
+  tempfour <- double()
+  
+  # check for every number, whether it appears in the fixedlevel and flexlevel columns
+  # divide flexvalue by 2 if it appears in the fixedlevel columns
+  # append 1 if it appears in the flexlevel column
+  
+  # for 1-back
+  
+  if (rlang::is_empty(which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 1)) == FALSE) {
+    tempone <- append(tempone, data_ED$flexvalue[subjectindex[i]-1 +
+                                                   which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 1)]/2)
+  } else {
+    # do nothing
+  }
+  
+  if (rlang::is_empty(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 1)) == FALSE) {
+    tempone <- append(tempone, rep(1, length(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 1))))
+  } else {
+    # do nothing
+  }
+  
+  # for 2-back
+  
+  if (rlang::is_empty(which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 2)) == FALSE) {
+    temptwo <- append(temptwo, data_ED$flexvalue[subjectindex[i]-1 +
+                                                   which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 2)]/2)
+  } else {
+    # do nothing
+  }
+  
+  if (rlang::is_empty(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 2)) == FALSE) {
+    temptwo <- append(temptwo, rep(1, length(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 2))))
+  } else {
+    # do nothing
+  }
+  
+  # for 3-back
+  
+  if (rlang::is_empty(which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 3)) == FALSE) {
+    tempthree <- append(tempthree, data_ED$flexvalue[subjectindex[i]-1 +
+                                                       which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 3)]/2)
+  } else {
+    # do nothing
+  }
+  
+  if (rlang::is_empty(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 3)) == FALSE) {
+    tempthree <- append(tempthree, rep(1, length(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 3))))
+  } else {
+    # do nothing
+  }
+  
+  # for 4-back
+  
+  if (rlang::is_empty(which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 4)) == FALSE) {
+    tempfour <- append(tempfour, data_ED$flexvalue[subjectindex[i]-1 +
+                                                     which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 4)]/2)
+  } else {
+    # do nothing
+  }
+  
+  if (rlang::is_empty(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 4)) == FALSE) {
+    tempfour <- append(tempfour, rep(1, length(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 4))))
+  } else {
+    # do nothing
+  }
+  
+  # put the mean subjective value of the three values per n-back level in the respective column and add to data frame
+  
+  newdata <- data.frame(subject = rep(data_ED$subject[subjectindex[i]],4),
+                        level = c(1:4),
+                        sv = c(mean(tempone), mean(temptwo), mean(tempthree), mean(tempfour)))
+  data_SV <- rbind(data_SV, newdata)
+  
+}
+
+# remove temporary variables
+
+base::remove(tempone, temptwo, tempthree, tempfour)
 
 ##################### SAVE WORKSPACE IMAGE #######################
 
