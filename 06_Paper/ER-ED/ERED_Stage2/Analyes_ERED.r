@@ -333,8 +333,8 @@ SubjEffort_pilot_con <- cbind(SubjEffort_pilot_con,
 
 colnames(SubjEffort_pilot_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 
-SubjEffort_pilot_con[1, 1] <- "$View_{negative} - Distancing$"
-SubjEffort_pilot_con[2, 1] <- "$View_{negative} - Distraction$"
+SubjEffort_pilot_con[1, 1] <- "$View_{negative} - Distraction$"
+SubjEffort_pilot_con[2, 1] <- "$View_{negative} - Distancing$"
 SubjEffort_pilot_con[3, 1] <- "$View_{negative} - Suppression$"
 SubjEffort_pilot_con[4, 1] <- "$Distraction - Distancing$"
 SubjEffort_pilot_con[5, 1] <- "$Distraction - Suppression$"
@@ -1045,13 +1045,15 @@ FigSubjArousalView <- ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal, 
 
 # Physiological responding (EMG corrugator activity) is lower while actively viewing neutral pictures compared to actively viewing negative pictures.
 
-
+#
+#
 
 #### HYPOTHESIS 1c 
 
 # Physiological responding (EMG levator activity) is lower while actively viewing neutral pictures compared to actively viewing negative pictures.
 
-
+#
+#
 
 ######## HYPOTHESIS 2
 
@@ -1136,6 +1138,95 @@ FigSubjArousalReg <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal, fi
 ######## HYPOTHESIS 3
 
 # Do ER strategies reduce physiological responding? (Manipulation check)
+
+#### HYPOTHESIS 3a 
+
+# Physiological responding (EMG corrugator activity) is lower after using an emotion regulation strategy (distraction, distancing, suppression) compared to active viewing.
+
+#
+#
+
+#### HYPOTHESIS 3b
+
+# Physiological responding (EMG levator activity) is lower after using an emotion regulation strategy (distraction, distancing, suppression) compared to active viewing.
+
+#
+#
+
+######## HYPOTHESIS 4
+
+#### HYPOTHESIS 4a 
+
+# Subjective effort (effort rating) is greater after using an emotion regulation strategy (distraction, distancing, suppression) compared to active viewing.
+
+## Subjective effort
+
+SubjEffort_aov <- afex::aov_ez(data = Ratings_reg,
+                               id = "ID",
+                               dv = "effort",
+                               within = "block",
+                               fun_aggregate = mean,
+                               include_aov = TRUE)
+
+# compute posthoc tests for within measure
+SubjEffort_emm <- emmeans::emmeans(SubjEffort_aov$aov, specs = "block")
+
+SubjEffort_con <- as.data.frame(pairs(SubjEffort_emm, adjust = "bonferroni"))
+
+# Bayes Factors
+SubjEffort_BF <- BayesFactor::anovaBF(formula = effort ~ block,
+                                      data = Ratings_reg,
+                                      progress = FALSE)
+
+SubjEffort_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"],
+                                                                     y = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],
+                                                                     progress = FALSE, paired = TRUE))$bf,
+                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"],
+                                                                     y = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],
+                                                                     progress = FALSE, paired = TRUE))$bf,
+                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"],
+                                                                     y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],
+                                                                     progress = FALSE, paired = TRUE))$bf,
+                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],
+                                                                     y = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],
+                                                                     progress = FALSE, paired = TRUE))$bf,
+                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],
+                                                                     y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],
+                                                                     progress = FALSE, paired = TRUE))$bf,
+                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],
+                                                                     y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],
+                                                                     progress = FALSE, paired = TRUE))$bf)
+ 
+SubjEffort_con <- cbind(SubjEffort_con,
+                        format(effectsize::t_to_eta2(t = SubjEffort_con$t.ratio,
+                                                     df_error = SubjEffort_con$df,
+                                                     ci = 0.95),
+                               digits = 2))
+
+colnames(SubjEffort_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+
+SubjEffort_con[1, 1] <- "$View_{negative} - Distraction$"
+SubjEffort_con[2, 1] <- "$View_{negative} - Distancing$"
+SubjEffort_con[3, 1] <- "$View_{negative} - Suppression$"
+SubjEffort_con[4, 1] <- "$Distraction - Distancing$"
+SubjEffort_con[5, 1] <- "$Distraction - Suppression$"
+SubjEffort_con[6, 1] <- "$Distancing - Suppression$"
+
+# Figure to visualize effort ratings
+# figure
+FigSubjEffort <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort, fill = block)) +
+  geom_boxplot(width = 0.2, alpha = .95) +
+  geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
+  see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
+  ylim(c(0,400))+
+  scale_x_discrete(name = "Strategy",
+                   limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
+                   labels = c("View", "Distraction", "Distancing", "Suppression")) +
+  viridis::scale_color_viridis(discrete = TRUE) +
+  labs(y = "Effort Rating") +
+  theme_minimal()+
+  theme(legend.position = "none")
+
 
 #################### SAVE WORKSPACE IMAGE #######################
 
