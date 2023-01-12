@@ -18,7 +18,7 @@ library(here)       # to set directories without defined paths
 here::i_am("flag_project_root_CAD.txt")
 
 library(renv)
-# renv::activate(here("06_Paper", "ER-ED", "ERED_Stage2"))
+renv::activate(here("06_Paper", "ER-ED", "ERED_Stage2"))
 renv::restore(here("06_Paper", "ER-ED", "ERED_Stage2"))
 
 ######################################################
@@ -661,6 +661,8 @@ for (i in seq_len(length(datalist_ED))) {
   data_ED <- rbind(data_ED, tmp)
 }
 
+base::remove(tmp)
+
 # import EMG data
 
 # datalist_EMG <- lapply(list.files(here("04_RawData", "main", "ER-ED", "EMG", "analysis"),
@@ -843,6 +845,9 @@ srs_items$srs_sum <- rowSums(srs_items %>% dplyr::select("srs_01":"srs_10"))
 # fit bscs sum score in df data_quest
 data_quest <- merge(data_quest, srs_items[,c("set","srs_sum")], by = "set")
 
+# remove temporary dfs
+
+base::remove(nfc_items, flexer_items, bis11_items, bscs_items, srs_items)
 #################### PREPARATION: SUBJECTIVE VALUES ############
 
 # the choice column in df data_ED will contain 1 for the left button and 2 for the right button
