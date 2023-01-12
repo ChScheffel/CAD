@@ -200,13 +200,18 @@ SubjArousalView_pilot_con[1, 1] <- "$View_{neutral} - View_{negative}$"
 # Figure to visualize arousal ratings
 
 # figure
-FigSubjArousalViewPilot <- ggplot2::ggplot(Ratings_view_pilot, aes(x = block, y = arousal)) +
-  geom_boxplot(width = 0.7, position = position_dodge(0.8)) +
+FigSubjArousalViewPilot <- ggplot2::ggplot(Ratings_view_pilot, aes(x = block, y = arousal, fill = block)) +
+  geom_boxplot(width = .2, alpha = .95) +
+  geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
+  see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
+  ylim(c(0,400))+
   scale_x_discrete(name = "Active viewing",
                    limits = c("1_view_neu", "2_view_neg"),
                    labels = c("Neutral", "Negative")) +
-  geom_jitter(size = 0.4) +
-  labs(y = "Arousal Rating")
+  viridis::scale_color_viridis() +
+  labs(y = "Arousal Rating") +
+  theme_minimal()+
+  theme(legend.position = "none")
 
 # View neg and regulate conditions
 
@@ -269,13 +274,18 @@ SubjArousalReg_pilot_con[6, 1] <- "$Distancing - Suppression$"
 # Figure to visualize arousal ratings
 
 # figure
-FigSubjArousalRegPilot <- ggplot2::ggplot(Ratings_reg_pilot, aes(x = block, y = arousal)) +
-  geom_boxplot(width = 0.7, position = position_dodge(0.8)) +
+FigSubjArousalRegPilot <- ggplot2::ggplot(Ratings_reg_pilot, aes(x = block, y = arousal, fill = block)) +
+  geom_boxplot(width = 0.2, alpha = .95) +
+  geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
+  see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
+  ylim(c(0,400))+
   scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
                    labels = c("View", "Distraction", "Distancing", "Suppression")) +
-  geom_jitter(size = 0.4) +
-  labs(y = "Arousal Rating")
+  viridis::scale_color_viridis(discrete = TRUE) +
+  labs(y = "Arousal Rating") +
+  theme_minimal()+
+  theme(legend.position = "none")
 
 ## Subjective effort
 
@@ -332,13 +342,18 @@ SubjEffort_pilot_con[6, 1] <- "$Distancing - Suppression$"
 
 # Figure to visualize effort ratings
 # figure
-FigSubjEffortPilot <- ggplot2::ggplot(Ratings_reg_pilot, aes(x = block, y = effort)) +
-  geom_boxplot(width = 0.7, position = position_dodge(0.8)) +
+FigSubjEffortPilot <- ggplot2::ggplot(Ratings_reg_pilot, aes(x = block, y = effort, fill = block)) +
+  geom_boxplot(width = 0.2, alpha = .95) +
+  geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
+  see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
+  ylim(c(0,400))+
   scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
                    labels = c("View", "Distraction", "Distancing", "Suppression")) +
-  geom_jitter(size = 0.4) +
-  labs(y = "Effort Rating")
+  viridis::scale_color_viridis(discrete = TRUE) +
+  labs(y = "Effort Rating") +
+  theme_minimal()+
+  theme(legend.position = "none")
 
 
 ### EMG
@@ -383,13 +398,17 @@ EMGCorrView_pilot_con[1, 1] <- "$View_{neutral} - View_{negative}$"
 # Figure to visualize arousal ratings
 
 # figure
-FigEMGCorrViewPilot <- ggplot2::ggplot(EMG_view_pilot, aes(x = block, y = Corr)) +
-  geom_boxplot(width = 0.7, position = position_dodge(0.8)) +
+FigEMGCorrViewPilot <- ggplot2::ggplot(EMG_view_pilot, aes(x = block, y = Corr, fill = block)) +
+  geom_boxplot(width = 0.2, alpha = .95) +
+  geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
+  see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
   scale_x_discrete(name = "Active viewing",
                    limits = c("1_view_neu", "2_view_neg"),
                    labels = c("Neutral", "Negative")) +
-  geom_jitter(size = 0.4) +
-  labs(y = "Corrugator activity")
+  viridis::scale_color_viridis(discrete = TRUE) +
+  labs(y = "Corrugator activity") +
+  theme_minimal() +
+  theme(legend.position = "none")
 
 # levator
 
@@ -426,13 +445,17 @@ EMGLevView_pilot_con[1, 1] <- "$View_{neutral} - View_{negative}$"
 # Figure to visualize arousal ratings
 
 # figure
-FigEMGLevViewPilot=ggplot2::ggplot(EMG_view_pilot, aes(x = block, y = Lev))+
-  geom_boxplot(width = 0.7, position = position_dodge(0.8))+
-  scale_x_discrete(name = "Active viewing", 
+FigEMGLevViewPilot=ggplot2::ggplot(EMG_view_pilot, aes(x = block, y = Lev, fill = block)) +
+  geom_boxplot(width = 0.2, alpha = .95) +
+  geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
+  see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
+  scale_x_discrete(name = "Active viewing",
                    limits = c("1_view_neu", "2_view_neg"),
-                   labels = c("Neutral", "Negative"))+
-  geom_jitter(size = 0.4)+
-  labs(y = "Levator activity")
+                   labels = c("Neutral", "Negative")) +
+  viridis::scale_color_viridis(discrete = TRUE) +
+  labs(y = "Levator activity") +
+  theme_minimal() +
+  theme(legend.position = "none")
 
 # effect of strategy on EMG
 
@@ -494,13 +517,17 @@ EMGCorrReg_pilot_con[6, 1] <- "$Distancing - Suppression$"
 # Figure to visualize arousal ratings
 
 # figure
-FigEMGCorrRegPilot <- ggplot2::ggplot(EMG_reg_pilot, aes(x = block, y = Corr)) +
-  geom_boxplot(width = 0.7, position = position_dodge(0.8)) +
+FigEMGCorrRegPilot <- ggplot2::ggplot(EMG_reg_pilot, aes(x = block, y = Corr, fill = block)) +
+  geom_boxplot(width = 0.2, alpha = .95) +
+  geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
+  see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
   scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
                    labels = c("View", "Distraction", "Distancing", "Suppression")) +
-  geom_jitter(size = 0.4) +
-  labs(y = "Corrugator activity")
+  viridis::scale_color_viridis(discrete = TRUE) +
+  labs(y = "Corrugator activity") +
+  theme_minimal() +
+  theme(legend.position = "none")
 
 # levator
 
@@ -557,13 +584,17 @@ EMGLevReg_pilot_con[6, 1] <- "$Distancing - Suppression$"
 # Figure to visualize arousal ratings
 
 # figure
-FigEMGLevRegPilot <- ggplot2::ggplot(EMG_reg_pilot, aes(x = block, y = Lev)) +
-  geom_boxplot(width = 0.7, position = position_dodge(0.8)) +
+FigEMGLevRegPilot <- ggplot2::ggplot(EMG_reg_pilot, aes(x = block, y = Lev, fill = block)) +
+  geom_boxplot(width = 0.2, alpha = .95) +
+  geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
+  see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
   scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
                    labels = c("View", "Distraction", "Distancing", "Suppression")) +
-  geom_jitter(size = 0.4) +
-  labs(y = "Levator activity")
+  viridis::scale_color_viridis(discrete = TRUE) +
+  labs(y = "Levator activity") +
+  theme_minimal() +
+  theme(legend.position = "none")
 
 ######################################################
 
@@ -948,11 +979,11 @@ for (i in seq_len(length(subjectindex)-1)) {
 }
 
 # remove temporary variables
-base::remove(tempone, temptwo, tempthree)
+base::remove(tempone, temptwo, tempthree, newdata)
 
 #################### STATISTICAL ANALYSES: KONFIRMATORY ANALYSES ############
 
-#### HYPOTHESIS 1
+######## HYPOTHESIS 1
 
 # Do negative pictures (compared to neutral pictures) evoke subjective arousal and physiological responding? (Manipulation Check)
 
@@ -978,7 +1009,7 @@ SubjArousalView_con <- as.data.frame(pairs(SubjArousalView_emm, adjust = "bonfer
 
 # Bayes Factors
 SubjArousalView_BF <- BayesFactor::anovaBF(formula = arousal ~ block,
-                                           data = Ratings_view_pilot,
+                                           data = Ratings_view,
                                            progress = FALSE)
 SubjArousalView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_view$arousal[Ratings_view$block == "1_view_neu"],
                                                                         y = Ratings_view$arousal[Ratings_view$block == "2_view_neg"],
@@ -997,13 +1028,114 @@ SubjArousalView_con[1, 1] <- "$View_{neutral} - View_{negative}$"
 # Figure to visualize arousal ratings
 
 # figure
-FigSubjArousalView <- ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal)) +
-  geom_boxplot(width = 0.7, position = position_dodge(0.8)) +
+FigSubjArousalView <- ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal, fill = block)) +
+  geom_boxplot(width = .2, alpha = .95) +
+  geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
+  see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
+  ylim(c(0,400))+
   scale_x_discrete(name = "Active viewing",
                    limits = c("1_view_neu", "2_view_neg"),
                    labels = c("Neutral", "Negative")) +
-  geom_jitter(size = 0.4) +
-  labs(y = "Arousal Rating")
+  viridis::scale_color_viridis() +
+  labs(y = "Arousal Rating") +
+  theme_minimal()+
+  theme(legend.position = "none")
+
+#### HYPOTHESIS 1b 
+
+# Physiological responding (EMG corrugator activity) is lower while actively viewing neutral pictures compared to actively viewing negative pictures.
+
+
+
+#### HYPOTHESIS 1c 
+
+# Physiological responding (EMG levator activity) is lower while actively viewing neutral pictures compared to actively viewing negative pictures.
+
+
+
+######## HYPOTHESIS 2
+
+# Do ER strategies reduce emotional arousal? (Manipulation check)
+
+#### HYPOTHESIS 2a 
+
+# Subjective arousal (arousal rating) is lower after using an emotion regulation strategy (distraction, distancing, suppression) compared to active viewing.
+
+Ratings_reg <- data_ER %>%
+  subset(data_ER$block != "1_view_neu" & data_ER$block != "6_choice")
+Ratings_reg$block <- as.factor(Ratings_reg$block)
+
+
+SubjArousalReg_aov <- afex::aov_ez(data = Ratings_reg,
+                                   id = "ID",
+                                   dv = "arousal",
+                                   within = "block",
+                                   fun_aggregate = mean,
+                                   include_aov = TRUE)
+
+# compute posthoc tests for within measures
+SubjArousalReg_emm <- emmeans::emmeans(SubjArousalReg_aov$aov, specs = "block")
+
+SubjArousalReg_con <- as.data.frame(pairs(SubjArousalReg_emm, adjust = "bonferroni"))
+
+# Bayes Factors
+SubjArousalReg_BF <- BayesFactor::anovaBF(formula = arousal ~ block,
+                                          data = Ratings_reg,
+                                          progress = FALSE)
+
+SubjArousalReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "2_view_neg"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "3_distraction"],
+                                                                         progress = FALSE, paired = TRUE))$bf,
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "2_view_neg"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "4_distancing"],
+                                                                         progress = FALSE, paired = TRUE))$bf,
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "2_view_neg"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "5_suppression"],
+                                                                         progress = FALSE, paired = TRUE))$bf,
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "3_distraction"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "4_distancing"],
+                                                                         progress = FALSE, paired = TRUE))$bf,
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "3_distraction"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "5_suppression"],
+                                                                         progress = FALSE, paired = TRUE))$bf,
+                             BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "4_distancing"],
+                                                                         y = Ratings_reg$arousal[Ratings_reg$block == "5_suppression"],
+                                                                         progress = FALSE, paired = TRUE))$bf)
+
+SubjArousalReg_con <- cbind(SubjArousalReg_con,
+                            format(effectsize::t_to_eta2(t = SubjArousalReg_con$t.ratio,
+                                                         df_error = SubjArousalReg_con$df,
+                                                         ci = 0.95),
+                                   digits = 2))
+
+colnames(SubjArousalReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+
+SubjArousalReg_con[1, 1] <- "$View_{negative} - Distraction$"
+SubjArousalReg_con[2, 1] <- "$View_{negative} - Distancing$"
+SubjArousalReg_con[3, 1] <- "$View_{negative} - Suppression$"
+SubjArousalReg_con[4, 1] <- "$Distraction - Distancing$"
+SubjArousalReg_con[5, 1] <- "$Distraction - Suppression$"
+SubjArousalReg_con[6, 1] <- "$Distancing - Suppression$"
+
+# Figure to visualize arousal ratings
+
+# figure
+FigSubjArousalReg <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal, fill = block)) +
+  geom_boxplot(width = 0.2, alpha = .95) +
+  geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
+  see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
+  ylim(c(0,400))+
+  scale_x_discrete(name = "Strategy",
+                   limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
+                   labels = c("View", "Distraction", "Distancing", "Suppression")) +
+  viridis::scale_color_viridis(discrete = TRUE) +
+  labs(y = "Arousal Rating") +
+  theme_minimal()+
+  theme(legend.position = "none")
+
+######## HYPOTHESIS 3
+
+# Do ER strategies reduce physiological responding? (Manipulation check)
 
 #################### SAVE WORKSPACE IMAGE #######################
 
