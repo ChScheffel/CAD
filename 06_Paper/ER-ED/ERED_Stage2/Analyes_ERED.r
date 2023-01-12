@@ -864,10 +864,7 @@ data_ED <- subset(data_ED, select = -c(step))
 # apply the addition or subtraction of 0.02 to the last choices
 
 for (i in 1:nrow(data_ED)) {
-  
-#  data_ED$fixedlevel[i] <- data_ED[i,grep("Bvalue", colnames(data_ED))[which(data_ED[i,grep("Bvalue", colnames(data_ED))] == 2.00)] + 1]
-#  data_ED$flexlevel[i] <- data_ED[i,grep("Bvalue", colnames(data_ED))[which(data_ED[i,grep("Bvalue", colnames(data_ED))] != 2.00)] + 1]
-  
+
   if (data_ED$choice[i] == 1) {
     if (data_ED$LBvalue[i] == 2.00) {
       
@@ -892,100 +889,66 @@ for (i in 1:nrow(data_ED)) {
   
 }
 
+# devide final values in columns LBvalue and RBvalue by 2
+
+data_ED <- data_ED %>% 
+  dplyr::mutate(LBvalue = LBvalue/2) %>% 
+  dplyr::mutate(RBvalue = RBvalue/2)
+
 # create vector indicating in which rows the data of a new subject begins
 
 subjectindex <- c(1,which(data_ED$ID != dplyr::lag(data_ED$ID)),nrow(data_ED))
 
 # create empty data frame for the loop to feed into
 
-data_SV <- data.frame(ID = character(), level = double(), sv = double())
+data_SV <- data.frame(ID = character(), strategy= double(), sv = double())
+
 # compute subjective values per strategy and feed into df data_SV
 
-for (i in seq_len(nrow(subjectindex)-1)) {
-  
-  # initialize empty vectors
+for (i in seq_len(length(subjectindex)-1)) {
   
   tempone <- double()
   temptwo <- double()
   tempthree <- double()
-  tempfour <- double()
   
-  # check for every number, whether it appears in the fixedlevel and flexlevel columns
-  # divide flexvalue by 2 if it appears in the fixedlevel columns
-  # append 1 if it appears in the flexlevel column
+  # initialize empty vectors
   
-  # for 1-back
-  
-  if (rlang::is_empty(which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 1)) == FALSE) {
-    tempone <- append(tempone, data_ED$flexvalue[subjectindex[i]-1 +
-                                                   which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 1)]/2)
-  } else {
-    # do nothing
+  # check for every strategy if its on the right or left button
+  # devide the respective value by 2 and save the variable in new tmporary df
+
+  for (j in seq_len(nrow(data_ED))) {
+    
+    # strategy distraction
+    if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$LBstrat[j] == 1)) {
+      tempone <- append(tempone, data_ED$LBvalue[j])
+    } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$RBstrat[j] == 1)) {
+      tempone <- append(tempone, data_ED$RBvalue[j])
+    }
+    
+    # strategy distancing
+    if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$LBstrat[j] == 2)) {
+      temptwo <- append(temptwo, data_ED$LBvalue[j])
+    } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$RBstrat[j] == 2)) {
+      temptwo <- append(temptwo, data_ED$RBvalue[j])
+    } 
+    
+    # strategy suppression
+    if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$LBstrat[j] == 3)) {
+      tempthree <- append(tempthree, data_ED$LBvalue[j])
+    } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$RBstrat[j] == 3)) {
+      tempthree <- append(tempthree, data_ED$RBvalue[j])
+    } 
   }
-  
-  if (rlang::is_empty(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 1)) == FALSE) {
-    tempone <- append(tempone, rep(1, length(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 1))))
-  } else {
-    # do nothing
-  }
-  
-  # for 2-back
-  
-  if (rlang::is_empty(which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 2)) == FALSE) {
-    temptwo <- append(temptwo, data_ED$flexvalue[subjectindex[i]-1 +
-                                                   which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 2)]/2)
-  } else {
-    # do nothing
-  }
-  
-  if (rlang::is_empty(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 2)) == FALSE) {
-    temptwo <- append(temptwo, rep(1, length(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 2))))
-  } else {
-    # do nothing
-  }
-  
-  # for 3-back
-  
-  if (rlang::is_empty(which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 3)) == FALSE) {
-    tempthree <- append(tempthree, data_ED$flexvalue[subjectindex[i]-1 +
-                                                       which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 3)]/2)
-  } else {
-    # do nothing
-  }
-  
-  if (rlang::is_empty(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 3)) == FALSE) {
-    tempthree <- append(tempthree, rep(1, length(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 3))))
-  } else {
-    # do nothing
-  }
-  
-  # for 4-back
-  
-  if (rlang::is_empty(which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 4)) == FALSE) {
-    tempfour <- append(tempfour, data_ED$flexvalue[subjectindex[i]-1 +
-                                                     which(data_ED$fixedlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 4)]/2)
-  } else {
-    # do nothing
-  }
-  
-  if (rlang::is_empty(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 4)) == FALSE) {
-    tempfour <- append(tempfour, rep(1, length(which(data_ED$flexlevel[c(subjectindex[i]:(subjectindex[i+1]-1))] == 4))))
-  } else {
-    # do nothing
-  }
-  
-  # put the mean subjective value of the three values per n-back level in the respective column and add to data frame
-  
-  newdata <- data.frame(subject = rep(data_ED$subject[subjectindex[i]],4),
-                        level = c(1:4),
-                        sv = c(mean(tempone), mean(temptwo), mean(tempthree), mean(tempfour)))
+
+  newdata <- data.frame(ID = rep(data_ED$ID[subjectindex[i]],3),
+                        strategy = c("distraction","distancing","suppression"),
+                        sv = c(mean(tempone), mean(temptwo), mean(tempthree)))
   data_SV <- rbind(data_SV, newdata)
   
 }
 
 # remove temporary variables
-
-base::remove(tempone, temptwo, tempthree, tempfour)
+base::remove(tempone, temptwo, tempthree)
 
 ##################### SAVE WORKSPACE IMAGE #######################
 
