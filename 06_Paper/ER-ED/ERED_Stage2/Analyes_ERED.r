@@ -989,4 +989,4 @@ base::remove(tempone, temptwo, tempthree, tempfour)
 
 ##################### SAVE WORKSPACE IMAGE #######################
 
-save.image(file = "Workspace_ERED_pilot.RData")
+save.image(file = "Workspace_ERED.RData")
