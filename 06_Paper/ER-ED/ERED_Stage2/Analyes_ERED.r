@@ -661,8 +661,75 @@ FigSubjArousalReg <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal, fi
 
 # Physiological responding (EMG corrugator activity) is lower after using an emotion regulation strategy (distraction, distancing, suppression) compared to active viewing.
 
-#
-#
+
+EMG_reg <- data_EMG %>%
+  subset(data_EMG$block != "1_view_neu" & data_EMG$block != "6_choice")
+EMG_reg$block <- as.factor(EMG_reg$block)
+
+EMGCorrReg_aov <- afex::aov_ez(data = EMG_reg,
+                               id = "ID",
+                               dv = "Corr",
+                               within = "block",
+                               fun_aggregate = mean,
+                               include_aov = TRUE)
+
+# compute posthoc tests for within measures
+EMGCorrReg_emm <- emmeans::emmeans(EMGCorrReg_aov$aov, specs = "block")
+
+EMGCorrReg_con <- as.data.frame(pairs(EMGCorrReg_emm, adjust = "bonferroni"))
+
+# Bayes Factors
+EMGCorrReg_BF <- BayesFactor::anovaBF(formula = Corr ~ block,
+                                       data = EMG_reg,
+                                       progress = FALSE)
+
+EMGCorrReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
+                                                                     y = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
+                                                                     progress = FALSE, paired = TRUE))$bf,
+                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
+                                                                     y = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
+                                                                     progress = FALSE, paired = TRUE))$bf,
+                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
+                                                                     y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
+                                                                     progress = FALSE, paired = TRUE))$bf,
+                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
+                                                                     y = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
+                                                                     progress = FALSE, paired = TRUE))$bf,
+                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
+                                                                     y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
+                                                                     progress = FALSE, paired = TRUE))$bf,
+                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
+                                                                     y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
+                                                                     progress = FALSE, paired = TRUE))$bf)
+
+EMGCorrReg_con <- cbind(EMGCorrReg_con,
+                        format(effectsize::t_to_eta2(t = EMGCorrReg_con$t.ratio,
+                                                     df_error = EMGCorrReg_con$df,
+                                                     ci = 0.95),digits = 2))
+
+colnames(EMGCorrReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+
+EMGCorrReg_con[1, 1] <- "$View_{negative} - Distraction$"
+EMGCorrReg_con[2, 1] <- "$View_{negative} - Distancing$"
+EMGCorrReg_con[3, 1] <- "$View_{negative} - Suppression$"
+EMGCorrReg_con[4, 1] <- "$Distraction - Distancing$"
+EMGCorrReg_con[5, 1] <- "$Distraction - Suppression$"
+EMGCorrReg_con[6, 1] <- "$Distancing - Suppression$"
+
+# Figure to visualize arousal ratings
+
+# figure
+FigEMGCorrReg <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Corr, fill = block)) +
+  geom_boxplot(width = 0.2, alpha = .95) +
+  geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
+  see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
+  scale_x_discrete(name = "Strategy",
+                   limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
+                   labels = c("View", "Distraction", "Distancing", "Suppression")) +
+  viridis::scale_color_viridis(discrete = TRUE) +
+  labs(y = "Corrugator activity") +
+  theme_minimal() +
+  theme(legend.position = "none")
 
 #### HYPOTHESIS 3b
 
