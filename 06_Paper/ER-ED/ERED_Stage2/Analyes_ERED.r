@@ -456,7 +456,6 @@ SubjArousalView_con[1, 1] <- "$View_{neutral} - View_{negative}$"
 
 # Figure to visualize arousal ratings
 
-# figure
 FigSubjArousalView <- ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal, fill = block)) +
   geom_boxplot(width = .2, alpha = .95) +
   geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
@@ -508,9 +507,8 @@ colnames(EMGCorrView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$
 # rename contrast for table
 EMGCorrView_con[1, 1] <- "$View_{neutral} - View_{negative}$"
 
-# Figure to visualize arousal ratings
+# Figure to visualize corrugator activity across view conditions
 
-# figure
 FigEMGCorrView <- ggplot2::ggplot(EMG_view, aes(x = block, y = Corr, fill = block)) +
   geom_boxplot(width = 0.2, alpha = .95) +
   geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
@@ -558,9 +556,8 @@ colnames(EMGLevView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p
 # rename contrast for table
 EMGLevView_con[1, 1] <- "$View_{neutral} - View_{negative}$"
 
-# Figure to visualize arousal ratings
+# Figure to visualize levator activity across view conditions
 
-# figure
 FigEMGLevView <- ggplot2::ggplot(EMG_view, aes(x = block, y = Lev, fill = block)) +
   geom_boxplot(width = 0.2, alpha = .95) +
   geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
@@ -716,9 +713,8 @@ EMGCorrReg_con[4, 1] <- "$Distraction - Distancing$"
 EMGCorrReg_con[5, 1] <- "$Distraction - Suppression$"
 EMGCorrReg_con[6, 1] <- "$Distancing - Suppression$"
 
-# Figure to visualize arousal ratings
+# Figure to visualize corrugator activity across blocks
 
-# figure
 FigEMGCorrReg <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Corr, fill = block)) +
   geom_boxplot(width = 0.2, alpha = .95) +
   geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
@@ -735,8 +731,70 @@ FigEMGCorrReg <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Corr, fill = block)
 
 # Physiological responding (EMG levator activity) is lower after using an emotion regulation strategy (distraction, distancing, suppression) compared to active viewing.
 
-#
-#
+EMGLevReg_aov <- afex::aov_ez(data = EMG_reg,
+                              id = "ID",
+                              dv = "Lev",
+                              within = "block",
+                              fun_aggregate = mean,
+                              include_aov = TRUE)
+
+# compute posthoc tests for within measures
+EMGLevReg_emm <- emmeans::emmeans(EMGLevReg_aov$aov, specs = "block")
+
+EMGLevReg_con <- as.data.frame(pairs(EMGLevReg_emm, adjust = "bonferroni"))
+
+# Bayes Factors
+EMGLevReg_BF <- BayesFactor::anovaBF(formula = Lev ~ block,
+                                     data = EMG_reg,
+                                     progress = FALSE)
+
+EMGLevReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
+                                                                    y = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
+                                                                    progress = FALSE, paired = TRUE))$bf,
+                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
+                                                                    y = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
+                                                                    progress = FALSE, paired = TRUE))$bf,
+                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
+                                                                    y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
+                                                                    progress = FALSE, paired = TRUE))$bf,
+                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
+                                                                    y = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
+                                                                    progress = FALSE, paired = TRUE))$bf,
+                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
+                                                                    y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
+                                                                    progress = FALSE, paired = TRUE))$bf,
+                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
+                                                                    y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
+                                                                    progress = FALSE, paired = TRUE))$bf)
+
+EMGLevReg_con <- cbind(EMGLevReg_con,
+                       format(effectsize::t_to_eta2(t = EMGLevReg_con$t.ratio,
+                                                    df_error = EMGLevReg_con$df,
+                                                    ci = 0.95),digits = 2))
+
+colnames(EMGLevReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+
+EMGLevReg_con[1, 1] <- "$View_{negative} - Distraction$"
+EMGLevReg_con[2, 1] <- "$View_{negative} - Distancing$"
+EMGLevReg_con[3, 1] <- "$View_{negative} - Suppression$"
+EMGLevReg_con[4, 1] <- "$Distraction - Distancing$"
+EMGLevReg_con[5, 1] <- "$Distraction - Suppression$"
+EMGLevReg_con[6, 1] <- "$Distancing - Suppression$"
+
+# Figure to visualize levator activity across regulation blocks
+
+# figure
+FigEMGLevReg <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Lev, fill = block)) +
+  geom_boxplot(width = 0.2, alpha = .95) +
+  geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
+  see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
+  scale_x_discrete(name = "Strategy",
+                   limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
+                   labels = c("View", "Distraction", "Distancing", "Suppression")) +
+  viridis::scale_color_viridis(discrete = TRUE) +
+  labs(y = "Levator activity") +
+  theme_minimal() +
+  theme(legend.position = "none")
 
 ######## HYPOTHESIS 4
 
@@ -797,8 +855,8 @@ SubjEffort_con[4, 1] <- "$Distraction - Distancing$"
 SubjEffort_con[5, 1] <- "$Distraction - Suppression$"
 SubjEffort_con[6, 1] <- "$Distancing - Suppression$"
 
-# Figure to visualize effort ratings
-# figure
+# Figure to visualize effort ratings across blocks
+
 FigSubjEffort <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort, fill = block)) +
   geom_boxplot(width = 0.2, alpha = .95) +
   geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
