@@ -124,37 +124,38 @@ base::remove(tmp)
 
 # import EMG data
 
-# datalist_EMG <- lapply(list.files(here("04_RawData", "main", "ER-ED", "EMG", "analysis"),
-#                                         pattern = "*_Peaks.txt", full.names = TRUE),
-#                              read.table, stringsAsFactors = FALSE, header = TRUE)
-# datalist_EMG_Marker <- lapply(list.files(here("04_RawData", "main", "ER-ED", "EMG", "analysis"),
-#                                                pattern = "*.Markers", full.names = TRUE),
-#                                     read.table, stringsAsFactors = FALSE, header = TRUE,
-#                                     skip = 1, row.names = NULL, sep = ",")
-# 
-# # new empty frame to store files into
-# data_EMG <- data.frame(ID = character(), trigger = double(), Corr = double(),
-#                              Lev = double())
-# 
-# # store EMG data in data_EMG frame
-# for (i in seq_len(length(datalist_EMG))) {
-#   tmp <- data.frame(datalist_EMG[[i]][["Filename"]],
-#                     datalist_EMG_Marker[[i]][["Description"]],
-#                     datalist_EMG[[i]][["T0T6000Corr.ASNM"]],
-#                     datalist_EMG[[i]][["T0T6000Lev.ASNM"]])
-#   colnames(tmp) <- names(data_EMG)
-#   
-#   data_EMG <- rbind(tmp, data_EMG)
-# }
-# 
-# # create variable "block"
-# 
-# data_EMG$block[data_EMG$trigger == " S 21"] <- "1_view_neu"
-# data_EMG$block[data_EMG$trigger == " S 22"] <- "2_view_neg"
-# data_EMG$block[data_EMG$trigger == " S 23"] <- "3_distraction"
-# data_EMG$block[data_EMG$trigger == " S 24"] <- "4_distancing"
-# data_EMG$block[data_EMG$trigger == " S 25"] <- "5_suppression"
-# data_EMG$block[data_EMG$trigger == " S 26"] <- "6_choice"
+datalist_EMG <- lapply(list.files(here("04_RawData", "main", "ER-ED", "EMG", "export"),
+                                        pattern = "*_Peaks.txt", full.names = TRUE),
+                            read.table, stringsAsFactors = FALSE, header = TRUE)
+datalist_EMG_Marker <- lapply(list.files(here("04_RawData", "main", "ER-ED", "EMG", "export"),
+                                              pattern = "*.Markers", full.names = TRUE),
+                                   read.table, stringsAsFactors = FALSE, header = TRUE,
+                                   skip = 1, row.names = NULL, sep = ",")
+
+# new empty frame to store files into
+data_EMG <- data.frame(ID = character(), trigger = double(), Corr = double(), Lev = double())
+
+# store EMG data in data_EMG frame
+for (i in seq_len(length(datalist_EMG))) {
+ tmp <- data.frame(datalist_EMG[[i]][["Filename"]],
+                   datalist_EMG_Marker[[i]][["Description"]],
+                   datalist_EMG[[i]][["T0T6000Corr.ASNM"]],
+                   datalist_EMG[[i]][["T0T6000Lev.ASNM"]])
+ colnames(tmp) <- names(data_EMG)
+ 
+ data_EMG <- rbind(tmp, data_EMG)
+}
+
+base::remove(tmp)
+
+# create variable "block"
+
+data_EMG$block[data_EMG$trigger == " S 21"] <- "1_view_neu"
+data_EMG$block[data_EMG$trigger == " S 22"] <- "2_view_neg"
+data_EMG$block[data_EMG$trigger == " S 23"] <- "3_distraction"
+data_EMG$block[data_EMG$trigger == " S 24"] <- "4_distancing"
+data_EMG$block[data_EMG$trigger == " S 25"] <- "5_suppression"
+data_EMG$block[data_EMG$trigger == " S 26"] <- "6_choice"
 
 
 # import questionnaire data from RedCap
@@ -473,8 +474,55 @@ FigSubjArousalView <- ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal, 
 
 # Physiological responding (EMG corrugator activity) is lower while actively viewing neutral pictures compared to actively viewing negative pictures.
 
-#
-#
+EMG_view <- data_EMG %>%
+  subset(data_EMG$block == "1_view_neu" | data_EMG$block == "2_view_neg")
+EMG_view$block <- as.factor(EMG_view$block)
+
+EMGCorrView_aov <- afex::aov_ez(data = EMG_view,
+                                id = "ID",
+                                dv = "Corr",
+                                within = "block",
+                                fun_aggregate = mean,
+                                include_aov = TRUE)
+
+# compute posthoc tests for within measures
+EMGCorrView_emm <- emmeans::emmeans(EMGCorrView_aov$aov, specs = "block")
+
+EMGCorrView_con <- as.data.frame(pairs(EMGCorrView_emm, adjust = "bonferroni"))
+
+# Bayes Factors
+EMGCorrView_BF <- BayesFactor::anovaBF(formula = Corr ~ block,
+                                       data = EMG_view,
+                                       progress = FALSE)
+EMGCorrView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_view$Corr[EMG_view$block == "1_view_neu"],
+                                                                    y = EMG_view$Corr[EMG_view$block == "2_view_neg"],
+                                                                    progress = FALSE, paired = TRUE))$bf
+
+EMGCorrView_con <- cbind(EMGCorrView_con,
+                         format(effectsize::t_to_eta2(t = EMGCorrView_con$t.ratio,
+                                                      df_error = EMGCorrView_con$df,
+                                                      ci = 0.95),
+                                digits = 2))
+
+colnames(EMGCorrView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+# rename contrast for table
+EMGCorrView_con[1, 1] <- "$View_{neutral} - View_{negative}$"
+
+# Figure to visualize arousal ratings
+
+# figure
+FigEMGCorrView <- ggplot2::ggplot(EMG_view, aes(x = block, y = Corr, fill = block)) +
+  geom_boxplot(width = 0.2, alpha = .95) +
+  geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
+  see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
+  scale_x_discrete(name = "Active viewing",
+                   limits = c("1_view_neu", "2_view_neg"),
+                   labels = c("Neutral", "Negative")) +
+  viridis::scale_color_viridis(discrete = TRUE) +
+  labs(y = "Corrugator activity") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
 
 #### HYPOTHESIS 1c 
 
