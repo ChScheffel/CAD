@@ -143,7 +143,7 @@ for (i in seq_len(length(datalist_EMG))) {
                    datalist_EMG[[i]][["T0T6000Lev.ASNM"]])
  colnames(tmp) <- names(data_EMG)
  
- data_EMG <- rbind(tmp, data_EMG)
+ data_EMG <- rbind(data_EMG, tmp)
 }
 
 base::remove(tmp)
@@ -406,6 +406,7 @@ for (i in seq_len(length(subjectindex)-1)) {
   data_SV <- rbind(data_SV, newdata)
   
 }
+
 
 # remove temporary variables
 base::remove(tempone, temptwo, tempthree, newdata)
@@ -874,15 +875,33 @@ FigSubjEffort <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort, fill = 
 
 # Which variables can predict individual subjective values of ER strategies?
 
-# mainly oriented on: https://rpubs.com/favstats/multilevel
+# mainly oriented on: 
+#   https://rpubs.com/favstats/multilevel
+#   https://ademos.people.uic.edu/Chapter16.html#5_random_effects_model
+
 # build new df for MLM
-
 data_MLM <- data_EMG %>%
-  subset(data_EMG$block != "2_view_neg")
+  subset(data_EMG$block != "2_view_neg" & data_EMG$block != "1_view_neu" & data_EMG$block != "6_choice")
 
-# drop unnecessary coulmns
-
+# drop unnecessary columns
 data_MLM$trigger <- NULL
+
+# rename column block
+data_MLM <- data_MLM %>% 
+  rename("strategy" = "block")
+
+data_MLM[data_MLM == "3_distraction"] <- "distraction"
+data_MLM[data_MLM == "4_distancing"] <- "distancing"
+data_MLM[data_MLM == "5_suppression"] <- "suppression"
+
+# fit SVs from df data_SV in df data_MLM
+for (i in 1:nrow(data_MLM)) {
+  
+  data_MLM$sv[i] <- data_SV$sv[data_SV$ID == data_MLM$ID[i] & data_SV$strategy == data_MLM$strategy[i]]
+  
+}
+
+# fit subjective arousal, effort, and utility ratings in df data_MLM
 
 
 
