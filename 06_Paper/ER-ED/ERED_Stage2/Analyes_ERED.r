@@ -528,8 +528,50 @@ FigEMGCorrView <- ggplot2::ggplot(EMG_view, aes(x = block, y = Corr, fill = bloc
 
 # Physiological responding (EMG levator activity) is lower while actively viewing neutral pictures compared to actively viewing negative pictures.
 
-#
-#
+EMGLevView_aov <- afex::aov_ez(data = EMG_view,
+                               id = "ID",
+                               dv = "Lev",
+                               within = "block",
+                               fun_aggregate = mean,
+                               include_aov = TRUE)
+
+# compute posthoc tests for within measures
+EMGLevView_emm <- emmeans::emmeans(EMGLevView_aov$aov, specs = "block")
+
+EMGLevView_con <- as.data.frame(pairs(EMGLevView_emm, adjust = "bonferroni"))
+
+# Bayes Factors
+EMGLevView_BF <- BayesFactor::anovaBF(formula = Lev ~ block,
+                                      data = EMG_view,
+                                      progress = FALSE)
+EMGLevView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_view$Lev[EMG_view$block == "1_view_neu"],
+                                                                   y = EMG_view$Lev[EMG_view$block == "2_view_neg"],
+                                                                   progress = FALSE, paired = TRUE))$bf
+
+EMGLevView_con <- cbind(EMGLevView_con,
+                        format(effectsize::t_to_eta2(t = EMGLevView_con$t.ratio,
+                                                     df_error = EMGLevView_con$df,
+                                                     ci = 0.95),
+                               digits = 2))
+
+colnames(EMGLevView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+# rename contrast for table
+EMGLevView_con[1, 1] <- "$View_{neutral} - View_{negative}$"
+
+# Figure to visualize arousal ratings
+
+# figure
+FigEMGLevView <- ggplot2::ggplot(EMG_view, aes(x = block, y = Lev, fill = block)) +
+  geom_boxplot(width = 0.2, alpha = .95) +
+  geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
+  see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
+  scale_x_discrete(name = "Active viewing",
+                   limits = c("1_view_neu", "2_view_neg"),
+                   labels = c("Neutral", "Negative")) +
+  viridis::scale_color_viridis(discrete = TRUE) +
+  labs(y = "Levator activity") +
+  theme_minimal() +
+  theme(legend.position = "none")
 
 ######## HYPOTHESIS 2
 
