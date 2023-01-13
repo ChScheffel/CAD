@@ -870,6 +870,21 @@ FigSubjEffort <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort, fill = 
   theme_minimal()+
   theme(legend.position = "none")
 
+######## HYPOTHESIS 5
+
+# Which variables can predict individual subjective values of ER strategies?
+
+# mainly oriented on: https://rpubs.com/favstats/multilevel
+# build new df for MLM
+
+data_MLM <- data_EMG %>%
+  subset(data_EMG$block != "2_view_neg")
+
+# drop unnecessary coulmns
+
+data_MLM$trigger <- NULL
+
+
 
 #################### SAVE WORKSPACE IMAGE #######################
 
