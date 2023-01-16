@@ -134,24 +134,40 @@ data_ED <- subset(data_ED, select = -c(step))
 
 # import questionnaire data from RedCap
 
-data_quest <- read.csv(here("04_RawData", "main", "CAD_DATA.csv"), stringsAsFactors = FALSE, header = TRUE)
-colnames(data_quest)[1] <- "set" # rename the first column
+all_quest <- read.csv(here("04_RawData", "main", "CAD_DATA.csv"), stringsAsFactors = FALSE, header = TRUE)
+colnames(all_quest)[1] <- "set" # rename the first column
 
 # remove the subject who misunderstood the instruction
 
 #data_quest <- data_quest[data_quest$set != "M28B11", ]
 
-# remove most of the unnecessary variables from questionnaire data frame
-
-data_quest <- subset(data_quest, select = -c(grep("vl|consent|bis11|bscs|srs|erq|who5|risc|acs|flexer|layb|
-                                                  csv|log|complete|redcap_survey_identifier|nfc_timestamp|
-                                                  11_timestamp|lay_beliefs_timestamp|appointment_timestamp|
-                                                  inclusion|nasatlx_aversion|followup_coged_timestamp|
-                                                  id_2|emg|t2_session_notes|followup_ered_timestamp|nachb|psychopy", colnames(data_quest))))
-
 # compute index of rows in which the data sets change
 
-setindex <- c(1,which(data_quest$set != dplyr::lag(data_quest$set)),nrow(data_quest))
+setindex <- c(1,which(all_quest$set != dplyr::lag(all_quest$set)),nrow(all_quest))
+
+# reshape the data frame for better handling (currently three rows per subject, lots of NAs)
+
+data_quest <- data.frame(subject_quest = all_quest$subject_id_quest[setindex],
+                         time_quest = all_quest$information_timestamp[setindex])
+data_quest <- cbind(data_quest, all_quest[setindex,] %>% select(nfc_01:nfc_16))
+data_quest <- cbind(data_quest, subject_lab = all_quest$subject_id_lab[setindex+1],
+                    time_lab = all_quest$preparatory_coged_complete[setindex+1],
+                    age = all_quest$age[setindex+1], gender = all_quest$gender[setindex+1],
+                    edu = all_quest$edu[setindex+1])
+data_quest <- cbind(data_quest, all_quest[setindex+1,] %>% select(nasa_tlx_1:avers,nasa_tlx_1b:aversb,nasa_tlx_1c:aversc,nasa_tlx_1d:aversd))
+data_quest <- cbind(data_quest, adherence = all_quest$followup_adherence[setindex+1],
+                    motivation = all_quest$followup_motivation[setindex+1],
+                    motivation_other = all_quest$followup_motivation_other[setindex+1])
+
+# remove temporary data frame
+
+remove(all_quest)
+
+# keep only the data from participants who have both questionnaire and behavioural data
+
+# a vector of subject codes from the n-back data
+
+#behav_subj <- unique(data_nback$subject)
 
 ##### Descriptive data #########################################################
 
