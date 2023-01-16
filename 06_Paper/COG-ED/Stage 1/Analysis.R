@@ -24,7 +24,7 @@
   # install renv by calling install.packages("renv") if necessary
   
   library(renv)
-  source(here("06_Paper","COG-ED", "renv", "activate.R"))
+  source(here("06_Paper","COG-ED", "Stage 1", "renv", "activate.R"))
   
   
   # the required packages are:
@@ -1592,7 +1592,7 @@
   # save the plot as an eps file with high resolution
   
   ggsave(filename = "Figure_4.eps", plot = plot_h3b, device = "eps",
-         path = here("06_Paper","COG-ED","Figures"),
+         path = here("06_Paper","COG-ED","Stage 1","Figures"),
          dpi = "retina", bg = NULL)
   
   # delete temporary data frame

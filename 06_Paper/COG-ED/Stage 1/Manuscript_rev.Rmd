@@ -122,7 +122,7 @@ header-includes   :
   
   # load the workspace variables that have been computed with the Analysis.R script
   
-  load(here("06_Paper","COG-ED","Workspace.RData"))
+  load(here("06_Paper","COG-ED","Stage 1","Workspace.RData"))
 
 ```
 
