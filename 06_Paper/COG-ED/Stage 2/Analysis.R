@@ -30,7 +30,7 @@ source(here("06_Paper","COG-ED", "Stage 2", "renv", "activate.R"))
 # the required packages are:
 # "bibtex", "here", "tidyverse", "bayestestR", "papaja", "lmerTest", "afex", "emmeans", "sjPlot", "purrr", "broom",
 # "kableExtra", "interactions", "glmmTMB", "BayesFactor", "ggplot2", "egg", "knitr", "effectsize", "pracma", "MuMIn",
-# "MetBrewer" and "ggprism"
+# "MetBrewer", "lubridate" and "ggprism"
 
 # sets orthogonal contrasts for mixed-effects model and rmANOVA globally in order to get meaningful Type-III tests
 
@@ -141,25 +141,26 @@ colnames(data_quest)[1] <- "set" # rename the first column
 
 #data_quest <- data_quest[data_quest$set != "M28B11", ]
 
-# remove unnecessary variables from questionnaire data frame
+# remove most of the unnecessary variables from questionnaire data frame
 
-data_quest <- subset(data_quest, select = -c(vl, date, preparatory_coged_complete, general_questions_timestamp, state,
-                                             general_questions_complete, inclusion, inclusion_0___1, inclusion_0___2, inclusion_0_2,
-                                             researcher_questions_complete, nasatlx_aversion_timestamp, nasatlx_aversion2_timestamp,
-                                             nasatlx_aversion3_timestamp, nasatlx_aversion4_timestamp, t1_psychopy_ed_csv,
-                                             t1_psychopy_nback_csv, files_coged_complete, record_id_2, vl_er,
-                                             preparatory_ered_complete, emg_eeg, emg_vhdr, emg_vmrk,
-                                             files_ered_complete, followup_ered_timestamp,
-                                             nachb_01, nachb_01_inhalt, nachb_02, nachb_02_inhalt, nachb_03, nachb_07, nachb_07_inhalt,
-                                             nachb_08, nachb_08_inhalt, nachb_08_haeufig, nachb_08_zurueck, followup_ered_complete,
-                                             nfc_timestamp, nfc_complete, bis_11_timestamp, bis_11_complete, bscs_timestamp,
-                                             bscs_complete, srs_timestamp, srs_complete,
-                                             who5_timestamp, who5_complete, acs_timestamp, acs_complete, cdrisc_timestamp,
-                                             cdrisc_complete, flexer_timestamp, flexer_complete))
+data_quest <- subset(data_quest, select = -c(grep("vl|consent|bis11|bscs|srs|erq|who5|risc|acs|flexer|layb|
+                                                  csv|log|complete|redcap_survey_identifier|nfc_timestamp|
+                                                  11_timestamp|lay_beliefs_timestamp|appointment_timestamp|
+                                                  inclusion|nasatlx_aversion|followup_coged_timestamp|
+                                                  id_2|emg|t2_session_notes|followup_ered_timestamp|nachb|psychopy", colnames(data_quest))))
 
 # compute index of rows in which the data sets change
 
 setindex <- c(1,which(data_quest$set != dplyr::lag(data_quest$set)),nrow(data_quest))
+
+##### Descriptive data #########################################################
+
+# describe when data acquisition took place
+
+acqui_time <- data.frame(dates = c(t(data_quest[,grep("timestamp", colnames(data_quest))])), stringsAsFactors = FALSE)
+acqui_time <- data.frame(dates = acqui_time[!apply(is.na(acqui_time) | acqui_time == "", 1, all),])
+acqui_time <- as.Date(acqui_time$dates, format = "%d.%m.%Y %H:%M")
+acqui_time <- range(acqui_time, na.rm = TRUE)
 
 ##### Subjective value computation #############################################
 
