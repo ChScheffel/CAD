@@ -1610,9 +1610,101 @@ base::remove(ntlx, h3b_data, mediannfc)
 
 ##### Hypothesis 3c ############################################################
 
-# Here we will repeat the same method of hypothesis 3a, but with the aversiveness-scores
-# in place of the SV scores. Since we did not assess those in the pilot study, we
-# do not have the data to analyze it at the moment.
+# H3c: Participants with higher NFC scores have lower aversiveness scores for
+# 2- and 3-back but higher aversiveness scores for 1-back than participants with
+# lower NFC scores.
+
+# make a temporary copy of the data frame
+
+data_avers <- data_ntlx[ ,c("subject","level","aversion")]
+
+# attach NFC scores
+
+data_avers <- left_join(data_avers, unique(data_nback[,c("subject","nfc")]), by = "subject")
+
+# create a data frame with the difference scores per subject (2-1,3-2,4-3)
+
+diffscores <- diff(data_avers$aversion)
+h3c_data <- data.frame(subject = data_avers$subject[c(seq(from = 1, to = nrow(data_avers), length.out = nrow(data_avers)/2))],
+                       nlevels = as.factor(rep(c("1-2","2-3"), nrow(data_avers)/4)),
+                       aversdiff = c(rbind(diffscores[c(seq(from = 1, to = nrow(data_avers), by = 4))],diffscores[c(seq(from = 2, to = nrow(data_avers), by = 4))])),
+                       nfc = data_avers$nfc[c(seq(from = 1, to = nrow(data_avers), length.out = nrow(data_avers)/2))])
+
+# add column indicating NFC score above or below median
+
+mediannfc <- median(h3c_data$nfc)
+h3c_data$nfcmedian <- ifelse(h3c_data$nfc < mediannfc, "low", "high")
+h3c_data$nfcmedian <- as.factor(h3c_data$nfcmedian)
+
+# compute two-way ANOVA
+
+hypothesis3c_model <- afex::aov_ez("subject", "aversdiff", h3c_data,
+                                   between = c("nfcmedian"), within = c("nlevels"))
+
+# format S3 class into data frame
+
+hypothesis3c_rmanova <- summary(hypothesis3c_model)
+hypothesis3c_rmanova <- hypothesis3c_rmanova[["univariate.tests"]]
+hypothesis3c_rmanova <- as.data.frame(matrix(hypothesis3c_rmanova, nrow = 4, ncol = 6))
+
+
+# get effect size
+
+hypothesis3c_rmanova <- cbind(hypothesis3c_rmanova,
+                              format(effectsize::F_to_eta2(f = hypothesis3c_rmanova[,5], df = hypothesis3c_rmanova[,2],
+                                                           df_error = hypothesis3c_rmanova[,4], ci = 0.95), digits = 2))
+
+# formatting
+
+colnames(hypothesis3c_rmanova) <- c("Sum Sq", "$df$", "error Sum Sq", "error $df$", "$F$", "$p$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+rownames(hypothesis3c_rmanova) <- c("Intercept", "NFC group", "n-back level", "NFC group x n-back level")
+hypothesis3c_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")] <- signif(hypothesis3c_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")], digits = 3)
+hypothesis3c_rmanova$`$p$` <- format(round(hypothesis3c_rmanova$`$p$`, digits = 3), nsmall = 2)
+hypothesis3c_rmanova$`$p$`[hypothesis3c_rmanova$`$p$` == "0.000"] <- "<.001"
+
+## post-hoc tests for the NFC groups
+
+# obtain estimated marginal means for ANOVA model
+
+hypothesis3c_emm_nfc <- emmeans::emmeans(object = hypothesis3c_model, "nfcmedian")
+
+# calculate pairwise comparisons on estimated marginal means
+
+hypothesis3c_contrasts_nfc <- as.data.frame(pairs(hypothesis3c_emm_nfc))
+
+# get Bayes factors
+
+hypothesis3c_BF_nfc <- anovaBF(formula = aversdiff ~ nlevels * nfcmedian, data = h3c_data, progress = FALSE)
+hypothesis3c_contrasts_nfc$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h3c_data$aversdiff[h3c_data$nfcmedian == "high"], y = h3c_data$aversdiff[h3c_data$nfcmedian == "low"],
+                                                                                 progress = FALSE, paired = FALSE))$bf)
+
+# get effect size
+
+hypothesis3c_contrasts_nfc <- cbind(hypothesis3c_contrasts_nfc,
+                                    format(effectsize::t_to_eta2(t = hypothesis3c_contrasts_nfc$t.ratio,
+                                                                 df_error = hypothesis3c_contrasts_nfc$df, ci = 0.95), digits = 2))
+
+# rename columns and contrasts, round to two decimals
+
+colnames(hypothesis3c_contrasts_nfc) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+hypothesis3c_contrasts_nfc$Contrast <- c("High NFC - Low NFC")
+hypothesis3c_contrasts_nfc[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(round(hypothesis3c_contrasts_nfc[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 2), nsmall = 2)
+hypothesis3c_contrasts_nfc$`$p$` <- format(round(hypothesis3c_contrasts_nfc$`$p$`, digits = 3), nsmall = 2)
+hypothesis3c_contrasts_nfc$`$p$`[hypothesis3c_contrasts_nfc$`$p$` == "0.000"] <- "<.001"
+
+# plot these results
+
+plot_h3c <- ggplot(h3c_data, aes(x = nlevels, y = aversdiff, fill = nfcmedian)) +
+  labs(x = "n-back levels", y = "Difference in aversiveness scores") +
+  geom_point(shape = 21, size = 3) +
+  scale_fill_manual(values = met.brewer("Hiroshige", 2), labels = c("NFC above median", "NFC below median")) +
+  geom_smooth(aes(as.numeric(nlevels), aversdiff), method = "lm", size = 0.8, color = "black") +
+  theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
+  scale_x_discrete(guide = "prism_bracket")
+
+# remove temporary variables
+
+base::remove(diffscores, mediannfc, h3c_data)
 
 
 ##### Specification Curve Analysis #############################################
