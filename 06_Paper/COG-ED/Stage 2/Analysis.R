@@ -920,24 +920,22 @@ base::remove(h1b_data)
 
 data_ntlx <- data.frame(subject = character(), level = double(),
                         mental = double(), physical = double(), time = double(),
-                        performance = double(), effort = double(), frustration = double())
+                        performance = double(), effort = double(), frustration = double(), aversion = double())
 
 # feed NASA-TLX data per participant per level into data frame
 
-for (i in c(1:5,7:(length(setindex)-1))) { # we exclude the sixth subject (ID F30T02) here, because their NTLX data for n = 1 is missing
+for (i in 1:nrow(data_quest)) {
   
-  for (j in 1:4) {
-    
-    newdata <- data.frame(subject = data_quest$subject[setindex[i]],
-                          level = j,
-                          mental = data_quest$nasa_tlx_01[setindex[i]+j+2],
-                          physical = data_quest$nasa_tlx_02[setindex[i]+j+2],
-                          time = data_quest$nasa_tlx_03[setindex[i]+j+2],
-                          performance = data_quest$nasa_tlx_04[setindex[i]+j+2],
-                          effort = data_quest$nasa_tlx_05[setindex[i]+j+2],
-                          frustration = data_quest$nasa_tlx_06[setindex[i]+j+2])
-    data_ntlx <- rbind(data_ntlx, newdata)
-  }
+  newdata <- data.frame(subject = rep(data_quest$subject[i],4),
+                        level = c(1:4),
+                        mental = t(data_quest[i,grep("nasa_tlx_1", colnames(data_quest))])[1:4],
+                        physical = t(data_quest[i,grep("nasa_tlx_2", colnames(data_quest))])[1:4],
+                        time = t(data_quest[i,grep("nasa_tlx_3", colnames(data_quest))])[1:4],
+                        performance = t(data_quest[i,grep("nasa_tlx_4", colnames(data_quest))])[1:4],
+                        effort = t(data_quest[i,grep("nasa_tlx_5", colnames(data_quest))])[1:4],
+                        frustration = t(data_quest[i,grep("nasa_tlx_6", colnames(data_quest))])[1:4],
+                        aversion = t(data_quest[i,grep("avers", colnames(data_quest))])[1:4])
+  data_ntlx <- rbind(data_ntlx, newdata)
 }
 
 # six ANOVAs with six linear contrasts, contrasting the subscale scores of two n-back levels (1,2,3,4) at a time
