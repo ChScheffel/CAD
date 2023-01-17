@@ -147,11 +147,10 @@ setindex <- c(1,which(all_quest$set != dplyr::lag(all_quest$set)),nrow(all_quest
 
 # reshape the data frame for better handling (currently three rows per subject, lots of NAs)
 
-data_quest <- data.frame(subject_quest = all_quest$subject_id_quest[setindex],
+data_quest <- data.frame(subject = all_quest$subject_id_quest[setindex],
                          time_quest = all_quest$information_timestamp[setindex])
 data_quest <- cbind(data_quest, all_quest[setindex,] %>% select(nfc_01:nfc_16))
-data_quest <- cbind(data_quest, subject_lab = all_quest$subject_id_lab[setindex+1],
-                    time_lab = all_quest$preparatory_coged_complete[setindex+1],
+data_quest <- cbind(data_quest, time_lab = all_quest$general_questions_timestamp[setindex+1],
                     age = all_quest$age[setindex+1], gender = all_quest$gender[setindex+1],
                     edu = all_quest$edu[setindex+1])
 data_quest <- cbind(data_quest, all_quest[setindex+1,] %>% select(nasa_tlx_1:avers,nasa_tlx_1b:aversb,nasa_tlx_1c:aversc,nasa_tlx_1d:aversd))
@@ -159,22 +158,24 @@ data_quest <- cbind(data_quest, adherence = all_quest$followup_adherence[setinde
                     motivation = all_quest$followup_motivation[setindex+1],
                     motivation_other = all_quest$followup_motivation_other[setindex+1])
 
-# remove temporary data frame
-
-remove(all_quest)
-
 # keep only the data from participants who have both questionnaire and behavioural data
 
-# a vector of subject codes from the n-back data
+showups <- intersect(data_quest$subject, data_nback$subject)
+data_quest <- data_quest[data_quest$subject %in% showups, ]
 
-#behav_subj <- unique(data_nback$subject)
+# some participants started filling out the questionnaires two times, so their code appears twice
+
+data_quest <- data_quest %>% filter(complete.cases(.))
+
+# remove temporary variables
+
+remove(all_quest,showups)
 
 ##### Descriptive data #########################################################
 
 # describe when data acquisition took place
 
-acqui_time <- data.frame(dates = c(t(data_quest[,grep("timestamp", colnames(data_quest))])), stringsAsFactors = FALSE)
-acqui_time <- data.frame(dates = acqui_time[!apply(is.na(acqui_time) | acqui_time == "", 1, all),])
+acqui_time <- data.frame(dates = c(t(data_quest[,grep("time", colnames(data_quest))])), stringsAsFactors = FALSE)
 acqui_time <- as.Date(acqui_time$dates, format = "%d.%m.%Y %H:%M")
 acqui_time <- range(acqui_time, na.rm = TRUE)
 
