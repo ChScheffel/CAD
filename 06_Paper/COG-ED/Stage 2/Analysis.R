@@ -310,35 +310,27 @@ for (i in 1:nrow(data_nback)) {
 
 ##### Need for Cognition Score computation #####################################
 
-# prepare temporary data frame for loop to feed into
+# prepare data frame for loop to feed into
 
 data_nfc <- data.frame(subject = character(), nfc = double())
 
-# compute index of rows in which the data sets change
-
-setindex <- c(1,which(data_quest$set != dplyr::lag(data_quest$set)),nrow(data_quest))
-
 # calculate NFC scores for every subject
 
-for (i in 1:(length(setindex)-1)) {
+for (i in 1:nrow(data_quest)) {
   
-  nfc <- data_quest[setindex[i] + 2, grep("nfc", colnames(data_quest))]
+  nfc <- data_quest[i, grep("nfc", colnames(data_quest))]
   
   # define and invert items to be recoded
   
   nfc[ ,c(4,6,7,8,9,10,11,12,15,16)] <-  nfc[ ,c(4,6,7,8,9,10,11,12,15,16)] * -1
   
-  data_nfc <- rbind(data_nfc, data.frame(subject = data_quest$subject[setindex[i]],
+  data_nfc <- rbind(data_nfc, data.frame(subject = data_quest$subject[i],
                                          nfc = sum(nfc)))
 }
 
 # add the NFC scores trial-wise to the nback-data-frame for the multi-level-model
 
-for (i in 1:nrow(data_nback)) {
-  
-  data_nback$nfc[i] <- data_nfc$nfc[data_nfc$subject == data_nback$subject[i]]
-  
-}
+data_nback <- left_join(data_nback, data_nfc, by = "subject")
 
 # remove the temporary variables
 
