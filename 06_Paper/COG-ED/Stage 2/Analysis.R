@@ -1384,7 +1384,7 @@ h3a_data <- data.frame(subject = data_SV$subject[c(seq(from = 1, to = nrow(data_
 
 # add column indicating NFC score above or below median
 
-mediannfc <- median(h3a_data$nfc)
+mediannfc <- median(h3a_data$nfc, na.rm = TRUE)
 h3a_data$nfcmedian <- ifelse(h3a_data$nfc < mediannfc, "low", "high")
 h3a_data$nfcmedian <- as.factor(h3a_data$nfcmedian)
 
@@ -1426,7 +1426,7 @@ hypothesis3a_contrasts_nfc <- as.data.frame(pairs(hypothesis3a_emm_nfc))
 
 # get Bayes factors
 
-hypothesis3a_BF_nfc <- anovaBF(formula = svdiff ~ level * nfcmedian, data = h3a_data, progress = FALSE)
+hypothesis3a_BF_nfc <- anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = h3a_data, progress = FALSE)
 hypothesis3a_contrasts_nfc$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h3a_data$svdiff[h3a_data$nfcmedian == "high"], y = h3a_data$svdiff[h3a_data$nfcmedian == "low"],
                                                                                  progress = FALSE, paired = FALSE))$bf)
 
