@@ -1374,7 +1374,7 @@ h2b_result.table$ `Random Effects (SD)`[3:4] <- paste0("")
 
 data_SV <- pipelines_data[["AARO"]][ ,c("subject","level","sv","nfc")]
 
-# create a data frame with the difference scores per subject (2-1,3-2,4-3)
+# create a data frame with the difference scores per subject (2-1,3-2)
 
 diffscores <- diff(data_SV$sv)
 h3a_data <- data.frame(subject = data_SV$subject[c(seq(from = 1, to = nrow(data_SV), length.out = nrow(data_SV)/2))],
@@ -1622,7 +1622,7 @@ data_avers <- data_ntlx[ ,c("subject","level","aversion")]
 
 data_avers <- left_join(data_avers, unique(data_nback[,c("subject","nfc")]), by = "subject")
 
-# create a data frame with the difference scores per subject (2-1,3-2,4-3)
+# create a data frame with the difference scores per subject (2-1,3-2)
 
 diffscores <- diff(data_avers$aversion)
 h3c_data <- data.frame(subject = data_avers$subject[c(seq(from = 1, to = nrow(data_avers), length.out = nrow(data_avers)/2))],
