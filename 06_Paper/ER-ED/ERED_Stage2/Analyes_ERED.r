@@ -927,6 +927,17 @@ for (i in seq_len(nrow(data_MLM))) {
 }
 
 
+# Centering of Level 1 Predictors
+# credits to Philipp Masur:
+# https://philippmasur.de/2018/05/23/how-to-center-in-multilevel-models/
+
+data_MLM <- data_MLM %>% 
+  dplyr::group_by(ID) %>% 
+  dplyr::mutate(arousal.cwc = arousal - mean(arousal)) %>% 
+  dplyr::mutate(effort.cwc = effort - mean(effort)) %>% 
+  dplyr::mutate(utility.cwc = utility - mean(utility)) %>% 
+  dplyr::mutate(Corr.cwc = Corr - mean(Corr)) %>% 
+  dplyr::mutate(Lev.cwc = Lev - mean(Lev))
 
 #################### SAVE WORKSPACE IMAGE #######################
 
