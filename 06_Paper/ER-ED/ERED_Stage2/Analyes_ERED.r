@@ -892,6 +892,7 @@ FigSubjEffort <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort, fill = 
 # mainly oriented on: 
 #   https://rpubs.com/favstats/multilevel
 #   https://ademos.people.uic.edu/Chapter16.html#5_random_effects_model
+#   https://quantdev.ssri.psu.edu/tutorials/r-bootcamp-introduction-multilevel-model-and-interactions
 
 # build new df for MLM
 data_MLM <- data_EMG %>%
@@ -938,6 +939,22 @@ data_MLM <- data_MLM %>%
   dplyr::mutate(utility.cwc = utility - mean(utility)) %>% 
   dplyr::mutate(Corr.cwc = Corr - mean(Corr)) %>% 
   dplyr::mutate(Lev.cwc = Lev - mean(Lev))
+
+#### MLM - NULL MODEL
+
+MLM_0 <- lme4::lmer(formula = sv ~ 1 + (1 | ID),
+                    data = data_MLM,
+                    REML = FALSE)
+
+## Intra-class correlation (ICC)
+
+# random effect variances
+RandomEffects_MLM_0 <- as.data.frame(lme4::VarCorr(MLM_0))
+
+# compute ICC
+ICC_between_MLM_0 <- RandomEffects_MLM_0[1,4] / (RandomEffects_MLM_0[1,4]+RandomEffects_MLM_0[2,4])
+
+#### MLM - 
 
 #################### SAVE WORKSPACE IMAGE #######################
 
