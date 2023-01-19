@@ -66,7 +66,7 @@ for (i in seq_len(length(datalist_ER))) {
   colnames(tmp) <- names(data_ER)
   tmp <- tmp[(!is.na(tmp$arousal)), ]
   
-  data_ER <- rbind(tmp, data_ER)
+  data_ER <- rbind(data_ER, tmp)
 }
 
 rownames(data_ER) <- seq_len(nrow(data_ER))
@@ -95,6 +95,14 @@ data_ER$block[data_ER$trigger == 23] <- "3_distraction"
 data_ER$block[data_ER$trigger == 24] <- "4_distancing"
 data_ER$block[data_ER$trigger == 25] <- "5_suppression"
 data_ER$block[data_ER$trigger == 26] <- "6_choice"
+
+# create new variable with correct wording for strategy
+data_ER$strategy[data_ER$block == "1_view_neu"] <- "view_neutral"
+data_ER$strategy[data_ER$block == "2_view_neg"] <- "view_negative"
+data_ER$strategy[data_ER$block == "3_distraction"] <- "distraction"
+data_ER$strategy[data_ER$block == "4_distancing"] <- "distancing"
+data_ER$strategy[data_ER$block == "5_suppression"] <- "suppression"
+data_ER$strategy[data_ER$block == "6_choice"] <- "choice"
 
 # store ER choice in data_choice frame
 
@@ -404,6 +412,11 @@ for (i in seq_len(length(subjectindex)-1)) {
   newdata <- data.frame(ID = rep(data_ED$ID[subjectindex[i]],3),
                         strategy = c("distraction","distancing","suppression"),
                         sv = c(mean(tempone), mean(temptwo), mean(tempthree)))
+
+  # add new variable strat_r:
+  # strategy with highest value gets -1, and with lowes value 1
+  newdata <- dplyr::mutate(newdata, strat_r = ifelse(newdata$sv == max(sv),- 1, (ifelse(newdata$sv == min(sv), 1, 0))))
+  
   data_SV <- rbind(data_SV, newdata)
   
 }
@@ -895,14 +908,23 @@ data_MLM[data_MLM == "3_distraction"] <- "distraction"
 data_MLM[data_MLM == "4_distancing"] <- "distancing"
 data_MLM[data_MLM == "5_suppression"] <- "suppression"
 
-# fit SVs from df data_SV in df data_MLM
-for (i in 1:nrow(data_MLM)) {
+# fit SVs and recoded strats from df data_SV in df data_MLM
+for (i in seq_len(nrow(data_MLM))) {
   
   data_MLM$sv[i] <- data_SV$sv[data_SV$ID == data_MLM$ID[i] & data_SV$strategy == data_MLM$strategy[i]]
-  
+  data_MLM$strat_r[i] <- data_SV$strat_r[data_SV$ID == data_MLM$ID[i] & data_SV$strategy == data_MLM$strategy[i]]
 }
 
 # fit subjective arousal, effort, and utility ratings in df data_MLM
+
+
+for (i in seq_len(nrow(data_MLM))) {
+  
+  data_MLM$arousal[i] <- data_ER$arousal[data_ER$ID == data_MLM$ID[i] & data_ER$strategy == data_MLM$strategy[i]]
+  data_MLM$effort[i] <- data_ER$effort[data_ER$ID == data_MLM$ID[i] & data_ER$strategy == data_MLM$strategy[i]]
+  data_MLM$utility[i] <- data_ER$utility[data_ER$ID == data_MLM$ID[i] & data_ER$strategy == data_MLM$strategy[i]]
+  
+}
 
 
 
