@@ -373,6 +373,8 @@ subjectindex <- c(1,which(data_ED$ID != dplyr::lag(data_ED$ID)),nrow(data_ED))
 data_SV <- data.frame(ID = character(), strategy= double(), sv = double())
 
 # compute subjective values per strategy and feed into df data_SV
+# SV of the flexible strategy is always 1
+# SV of the fixed strategy is value of flexible strategy devided by 2
 
 for (i in seq_len(length(subjectindex)-1)) {
   
@@ -388,25 +390,45 @@ for (i in seq_len(length(subjectindex)-1)) {
   for (j in seq_len(nrow(data_ED))) {
     
     # strategy distraction
-    if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$LBstrat[j] == 1)) {
-      tempone <- append(tempone, data_ED$LBvalue[j])
-    } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$RBstrat[j] == 1)) {
-      tempone <- append(tempone, data_ED$RBvalue[j])
+    # if LB strat == distraction and LB value == 1
+    if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$LBstrat[j] == 1) & (data_ED$LBvalue[j] == 1)) {
+      # SV would be RB value devided by 2
+      tempone <- append(tempone, data_ED$RBvalue[j]/2)
+    # else if LB strat == distraction and LB value != 1  
+    } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$LBstrat[j] == 1) & (data_ED$LBvalue[j] != 1)) {
+      # SV would be 1 
+      tempone <- append(tempone, 1)
+    # else if RB strat == distraction and RB value == 1  
+    } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$RBstrat[j] == 1) & (data_ED$RBvalue[j] == 1)) {
+      # SV would be LB value devided by 2
+      tempone <- append(tempone, data_ED$LBvalue[j]/2)
+    # else if RB strat == distraction and RB value != 1  
+    } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$RBstrat[j] == 1) & (data_ED$RBvalue[j] != 1)) {
+      # SV would be 1
+      tempone <- append(tempone, 1)
     }
     
     # strategy distancing
-    if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$LBstrat[j] == 2)) {
-      temptwo <- append(temptwo, data_ED$LBvalue[j])
-    } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$RBstrat[j] == 2)) {
-      temptwo <- append(temptwo, data_ED$RBvalue[j])
-    } 
+    if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$LBstrat[j] == 2) & (data_ED$LBvalue[j] == 1)) {
+      temptwo <- append(temptwo, data_ED$RBvalue[j]/2)
+    } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$LBstrat[j] == 2) & (data_ED$LBvalue[j] != 1)) {
+      temptwo <- append(temptwo, 1)
+    } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$RBstrat[j] == 2) & (data_ED$RBvalue[j] == 1)) {
+      temptwo <- append(temptwo, data_ED$LBvalue[j]/2)
+    } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$RBstrat[j] == 2) & (data_ED$RBvalue[j] != 1)) {
+      temptwo <- append(temptwo, 1)
+    }
     
     # strategy suppression
-    if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$LBstrat[j] == 3)) {
-      tempthree <- append(tempthree, data_ED$LBvalue[j])
-    } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$RBstrat[j] == 3)) {
-      tempthree <- append(tempthree, data_ED$RBvalue[j])
-    } 
+    if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$LBstrat[j] == 3) & (data_ED$LBvalue[j] == 1)) {
+      tempthree <- append(tempthree, data_ED$RBvalue[j]/2)
+    } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$LBstrat[j] == 3) & (data_ED$LBvalue[j] != 1)) {
+      tempthree <- append(tempthree, 1)
+    } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$RBstrat[j] == 3) & (data_ED$RBvalue[j] == 1)) {
+      tempthree <- append(tempthree, data_ED$LBvalue[j]/2)
+    } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$RBstrat[j] == 3) & (data_ED$RBvalue[j] != 1)) {
+      tempthree <- append(tempthree, 1)
+    }
   }
 
   newdata <- data.frame(ID = rep(data_ED$ID[subjectindex[i]],3),
@@ -813,6 +835,8 @@ FigEMGLevReg <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Lev, fill = block)) 
 
 ######## HYPOTHESIS 4
 
+# Do ER strategies require cognitive effort?
+
 #### HYPOTHESIS 4a 
 
 # Subjective effort (effort rating) is greater after using an emotion regulation strategy (distraction, distancing, suppression) compared to active viewing.
@@ -942,19 +966,38 @@ data_MLM <- data_MLM %>%
 
 #### MLM - NULL MODEL
 
-MLM_0 <- lme4::lmer(formula = sv ~ 1 + (1 | ID),
-                    data = data_MLM,
-                    REML = FALSE)
+MLM_0_fit <- lme4::lmer(formula = sv ~ 1 + (1 | ID),
+                        data = data_MLM,
+                        REML = FALSE)
 
 ## Intra-class correlation (ICC)
 
 # random effect variances
-RandomEffects_MLM_0 <- as.data.frame(lme4::VarCorr(MLM_0))
+RandomEffects_MLM_0 <- as.data.frame(lme4::VarCorr(MLM_0_fit))
 
 # compute ICC
 ICC_between_MLM_0 <- RandomEffects_MLM_0[1,4] / (RandomEffects_MLM_0[1,4]+RandomEffects_MLM_0[2,4])
 
-#### MLM - 
+#### MLM - random effects
+
+MLM_1_fit <- lme4::lmer(formula = sv ~ strat_r + effort.cwc + arousal.cwc + utility.cwc + Corr.cwc + Lev.cwc + (strat_r | ID),
+                        data = data_MLM,
+                        REML = TRUE)
+
+######## HYPOTHESIS 6
+
+# 
+#
+
+######## HYPOTHESIS 7
+
+# Are subjective values related to flexible emotion regulation?
+
+#### HYPOTHESIS 7a
+
+# The higher the subjective value, the more likely the respective strategy is chosen
+
+# 
 
 #################### SAVE WORKSPACE IMAGE #######################
 
