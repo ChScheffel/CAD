@@ -308,6 +308,7 @@ data_quest <- merge(data_quest, srs_items[,c("set","srs_sum")], by = "set")
 # remove temporary dfs
 
 base::remove(nfc_items, flexer_items, bis11_items, bscs_items, srs_items)
+
 #################### PREPARATION: SUBJECTIVE VALUES ############
 
 # the choice column in df data_ED will contain 1 for the left button and 2 for the right button
