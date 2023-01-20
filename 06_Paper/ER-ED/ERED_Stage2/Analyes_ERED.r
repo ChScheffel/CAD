@@ -970,21 +970,21 @@ data_MLM <- data_MLM %>%
 
 #### MLM - NULL MODEL
 
-MLM_0_fit <- lme4::lmer(formula = sv ~ 1 + (1 | ID),
+MLM_0 <- lme4::lmer(formula = sv ~ 1 + (1 | ID),
                         data = data_MLM,
                         REML = FALSE)
 
 ## Intra-class correlation (ICC)
 
 # random effect variances
-RandomEffects_MLM_0 <- as.data.frame(lme4::VarCorr(MLM_0_fit))
+RandomEffects_MLM_0 <- as.data.frame(lme4::VarCorr(MLM_0))
 
 # compute ICC
 ICC_between_MLM_0 <- RandomEffects_MLM_0[1,4] / (RandomEffects_MLM_0[1,4]+RandomEffects_MLM_0[2,4])
 
 #### MLM - random effects
 
-MLM_1_fit <- lme4::lmer(formula = sv ~ strat_r + effort.cwc + arousal.cwc + utility.cwc + Corr.cwc + Lev.cwc + (strat_r | ID),
+MLM_1 <- lme4::lmer(formula = sv ~ strat_r + effort.cwc + arousal.cwc + utility.cwc + Corr.cwc + Lev.cwc + (strat_r | ID),
                         data = data_MLM,
                         REML = TRUE)
 
@@ -997,11 +997,32 @@ MLM_1_fit <- lme4::lmer(formula = sv ~ strat_r + effort.cwc + arousal.cwc + util
 
 # Are subjective values related to flexible emotion regulation?
 
+# fit predicted choice (strategy with highest SV per participant) in df data_choice
+
+for (i in seq_len(nrow(data_choice))) {
+  data_choice$pred_choice[i] <- data_SV$strategy[data_SV$ID == data_choice$ID[i] & data_SV$strat_r == -1]
+}
+
+# change variable pred_choice to values
+# distraction -> 1
+# distancing -> 2
+# suppression -> 3
+
+data_choice$pred_choice[data_choice$pred_choice == "distraction"] <- 1
+data_choice$pred_choice[data_choice$pred_choice == "distancing"] <- 2
+data_choice$pred_choice[data_choice$pred_choice == "suppression"] <- 3
+
+data_choice <- transform(data_choice, pred_choice = as.numeric(pred_choice))
+
 #### HYPOTHESIS 7a
 
 # The higher the subjective value, the more likely the respective strategy is chosen
 
-# 
+# Chi-Squared test with variables choice and predicted choice
+
+choice_chisq <- stats::chisq.test(data_choice$choice, data_choice$pred_choice)
+
+choice_chisq_BF <- BayesFactor::contingencyTableBF()
 
 #################### SAVE WORKSPACE IMAGE #######################
 
