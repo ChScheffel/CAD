@@ -1014,6 +1014,12 @@ data_choice$pred_choice[data_choice$pred_choice == "suppression"] <- 3
 
 data_choice <- transform(data_choice, pred_choice = as.numeric(pred_choice))
 
+# fit individual SVs in df data_choice
+for (i in seq_len(nrow(data_choice))) {
+  data_choice$distraction.sv[i] <- data_SV$sv[data_SV$ID == data_choice$ID[i] & data_SV$strategy == "distraction"]
+  data_choice$distancing.sv[i] <- data_SV$sv[data_SV$ID == data_choice$ID[i] & data_SV$strategy == "distancing"]
+  data_choice$suppression.sv[i] <- data_SV$sv[data_SV$ID == data_choice$ID[i] & data_SV$strategy == "suppression"]
+}
 #### HYPOTHESIS 7a
 
 # The higher the subjective value, the more likely the respective strategy is chosen
@@ -1022,7 +1028,7 @@ data_choice <- transform(data_choice, pred_choice = as.numeric(pred_choice))
 
 choice_chisq <- stats::chisq.test(data_choice$choice, data_choice$pred_choice)
 
-choice_chisq_BF <- BayesFactor::contingencyTableBF()
+# choice_chisq_BF <- BayesFactor::contingencyTableBF()
 
 #################### SAVE WORKSPACE IMAGE #######################
 
