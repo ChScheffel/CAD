@@ -60,7 +60,11 @@ for (i in seq_len(length(datalist_ER))) {
                     datalist_ER[[i]][["instr_1"]],
                     datalist_ER[[i]][["slider_arousal.response"]],
                     datalist_ER[[i]][["slider_effort.response"]],
-                    datalist_ER[[i]][["slider_utility.response"]],
+                    if (is.null(datalist_ER[[i]][["slider_utility.response"]])) {
+                      NA
+                    } else {
+                      datalist_ER[[i]][["slider_utility.response"]]
+                    },
                     datalist_ER[[i]][["TriggerBlockView"]],
                     datalist_ER[[i]][["TriggerBlockReg"]])
   colnames(tmp) <- names(data_ER)
@@ -393,7 +397,7 @@ for (i in seq_len(length(subjectindex)-1)) {
     # if LB strat == distraction and LB value == 1
     if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$LBstrat[j] == 1) & (data_ED$LBvalue[j] == 1)) {
       # SV would be RB value devided by 2
-      tempone <- append(tempone, data_ED$RBvalue[j]/2)
+      tempone <- append(tempone, data_ED$RBvalue[j])
     # else if LB strat == distraction and LB value != 1  
     } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$LBstrat[j] == 1) & (data_ED$LBvalue[j] != 1)) {
       # SV would be 1 
@@ -401,7 +405,7 @@ for (i in seq_len(length(subjectindex)-1)) {
     # else if RB strat == distraction and RB value == 1  
     } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$RBstrat[j] == 1) & (data_ED$RBvalue[j] == 1)) {
       # SV would be LB value devided by 2
-      tempone <- append(tempone, data_ED$LBvalue[j]/2)
+      tempone <- append(tempone, data_ED$LBvalue[j])
     # else if RB strat == distraction and RB value != 1  
     } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$RBstrat[j] == 1) & (data_ED$RBvalue[j] != 1)) {
       # SV would be 1
@@ -410,22 +414,22 @@ for (i in seq_len(length(subjectindex)-1)) {
     
     # strategy distancing
     if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$LBstrat[j] == 2) & (data_ED$LBvalue[j] == 1)) {
-      temptwo <- append(temptwo, data_ED$RBvalue[j]/2)
+      temptwo <- append(temptwo, data_ED$RBvalue[j])
     } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$LBstrat[j] == 2) & (data_ED$LBvalue[j] != 1)) {
       temptwo <- append(temptwo, 1)
     } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$RBstrat[j] == 2) & (data_ED$RBvalue[j] == 1)) {
-      temptwo <- append(temptwo, data_ED$LBvalue[j]/2)
+      temptwo <- append(temptwo, data_ED$LBvalue[j])
     } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$RBstrat[j] == 2) & (data_ED$RBvalue[j] != 1)) {
       temptwo <- append(temptwo, 1)
     }
     
     # strategy suppression
     if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$LBstrat[j] == 3) & (data_ED$LBvalue[j] == 1)) {
-      tempthree <- append(tempthree, data_ED$RBvalue[j]/2)
+      tempthree <- append(tempthree, data_ED$RBvalue[j])
     } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$LBstrat[j] == 3) & (data_ED$LBvalue[j] != 1)) {
       tempthree <- append(tempthree, 1)
     } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$RBstrat[j] == 3) & (data_ED$RBvalue[j] == 1)) {
-      tempthree <- append(tempthree, data_ED$LBvalue[j]/2)
+      tempthree <- append(tempthree, data_ED$LBvalue[j])
     } else if ((data_ED$ID[j] == data_ED$ID[subjectindex[i]]) & (data_ED$RBstrat[j] == 3) & (data_ED$RBvalue[j] != 1)) {
       tempthree <- append(tempthree, 1)
     }
@@ -532,7 +536,7 @@ EMGCorrView_BF <- BayesFactor::anovaBF(formula = Corr ~ block,
                                        progress = FALSE)
 EMGCorrView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_view$Corr[EMG_view$block == "1_view_neu"],
                                                                     y = EMG_view$Corr[EMG_view$block == "2_view_neg"],
-                                                                    progress = FALSE, paired = TRUE))$bf
+                                                                    progress = FALSE, paired = FALSE))$bf
 
 EMGCorrView_con <- cbind(EMGCorrView_con,
                          format(effectsize::t_to_eta2(t = EMGCorrView_con$t.ratio,
@@ -581,7 +585,7 @@ EMGLevView_BF <- BayesFactor::anovaBF(formula = Lev ~ block,
                                       progress = FALSE)
 EMGLevView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_view$Lev[EMG_view$block == "1_view_neu"],
                                                                    y = EMG_view$Lev[EMG_view$block == "2_view_neg"],
-                                                                   progress = FALSE, paired = TRUE))$bf
+                                                                   progress = FALSE, paired = FALSE))$bf
 
 EMGLevView_con <- cbind(EMGLevView_con,
                         format(effectsize::t_to_eta2(t = EMGLevView_con$t.ratio,
