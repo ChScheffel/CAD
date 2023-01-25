@@ -57,7 +57,7 @@ abstract: |
   Therefore, it cannot map differences in effort perception that arise from traits like Need for Cognition, since individuals who enjoy effortful cognitive activities likely do not prefer the easiest level.
   We replicated the analysis of Westbrook and colleagues with our adaptation, the Cognitive and Affective Discounting (CAD) Paradigm, which quantifies SVs without assuming that the easiest level is preferred, thereby enabling the quantification of SVs for tasks without objective order of task load.
   
-keywords          : "effort discounting, registered report, specification curve analysis, need for cognition, n-back"
+keywords          : "effort discounting, registered report, specification curve analysis, need for cognition, *n*-back"
 wordcount         : "~ 4,300"
 bibliography      : CAD.bib
 floatsintext      : yes
@@ -210,7 +210,7 @@ Therefore, an SV of 1 indicates that this level is preferred over all others, wh
 
 INSERT FIGURE 1 HERE
 <!--
-```{r figure1, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="An example for subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a hypothetical participant with the true preference 2-back > 3-back > 1-back. The grey boxes are the choice options shown to the participant. The participant's final reward value of the flexible level is displayed after the first arrow. The resulting subjective value of each level is displayed after the second arrow, in the notation \"SV 3-back(1-back)\" for the subjective value of 3-back when 1-back is the other choice. The Solution and Additional Benefit panel follow the same logic, but are preceded by a choice between equal rewards, and the participant's first choice indicated by an exclamation mark.", fig.pos="H"} 
+```{r figure1, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="An example for subjective values for an *n*-back task with three levels, returned by different modifications of the COG-ED paradigm for a hypothetical participant with the true preference 2-back > 3-back > 1-back. The grey boxes are the choice options shown to the participant. The participant's final reward value of the flexible level is displayed after the first arrow. The resulting subjective value of each level is displayed after the second arrow, in the notation \"SV 3-back(1-back)\" for the subjective value of 3-back when 1-back is the other choice. The Solution and Additional Benefit panel follow the same logic, but are preceded by a choice between equal rewards, and the participant's first choice indicated by an exclamation mark.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "Inkscape Figures", "Paradigm_Scheme.png"))
 
@@ -272,8 +272,8 @@ Depending on whether the linear or one of the other three contrasts fit the curv
 To determine the influence of task performance on the association of SVs and *n*-back level, we performed MLM. 
 We applied restricted maximum likelihood (REML) to fit the model.
 As an effect size measure for random effects we first calculated the intraclass correlation (ICC), which displays the proportion of variance that is explained by differences between persons.
-Second, we estimated a random slopes model of n-back level (level 1, fixed, and random factor: 0-back, 1-back, 2-back, 3-back) predicting SV nested within subjects.
-As Mussel et al.[-@Mussel2016] could show, participants with high versus low NFC not only have a more shallow decline in performance with higher n-back levels, but show a demand-specific increase in EEG theta oscillations, which has been associated with mental effort.
+Second, we estimated a random slopes model of *n*-back level (level 1, fixed, and random factor: 0-back, 1-back, 2-back, 3-back) predicting SV nested within subjects.
+As Mussel et al.[-@Mussel2016] could show, participants with high versus low NFC not only have a more shallow decline in performance with higher *n*-back levels, but show a demand-specific increase in EEG theta oscillations, which has been associated with mental effort.
 We controlled for performance, i.e., *d'* (level 1, fixed factor, continuous), median RT (level 1, fixed factor, continuous) in order to eliminate a possible influence of declining performance on SV ratings.
 $$
 SV \sim level\ + d' + median RT + (level|subject)
@@ -283,7 +283,7 @@ By this, the model yields interpretable parameter estimates.
 If necessary, we will adjusted the optimization algorithm to improve model fit. 
 We visually inspected the residuals of the model for evidence to perform model criticism. 
 This was done by excluding all data points with absolute standardized residuals above 3 SD. 
-As effect size measures, we calculated pseudo *R²* for our model and *f²* to estimate the effect of n-back level according to Lorah[-@Lorah2018].
+As effect size measures, we calculated pseudo *R²* for our model and *f²* to estimate the effect of *n*-back level according to Lorah[-@Lorah2018].
 To ensure the validity of the association of SVs and *n*-back level, we conducted a specification curve analysis[@Simonsohn2020], which includes 63 possible preprocessing pipelines of the RT data.
 These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, 2, 2.5, or 3\ $MAD$ from the median, RTs below 100\ or\ 200\ ms), and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within *n*-back levels).
 The rmANOVA was run with each of the 63\ pipelines, which will also include our main pipeline (untransformed data, exclusion of RTs below 100\ ms).
@@ -294,14 +294,14 @@ Afterwards, we noticed that 3a does not contain any RT data, so the specificatio
 The association of SVs and NFC was examined with an rmANOVA.
 We subtracted the SV of 1- from 2-back and 2- from 3-back, yielding two SV difference scores per participant.
 The sample was divided into participants with low and high NFC using a median split.
-We then computed an rmANOVA with the within-factor n-back level and the between-factor NFC group to determine whether there is a main effect of level and/or group, and/or an interaction between level and group on the SV difference scores.
+We then computed an rmANOVA with the within-factor *n*-back level and the between-factor NFC group to determine whether there is a main effect of level and/or group, and/or an interaction between level and group on the SV difference scores.
 Post-hoc tests were computed depending on which effect reached significance at $p<.01$.
 
 The association of subjective task load with NFC was examined similarly.
-We calculated NASA-TLX sum scores per participant per level, computed an rmANOVA with the within-factor n-back level and the between-factor NFC group, and applied post-hoc tests based on which effect reached significance at $p<.01$.
+We calculated NASA-TLX sum scores per participant per level, computed an rmANOVA with the within-factor *n*-back level and the between-factor NFC group, and applied post-hoc tests based on which effect reached significance at $p<.01$.
 And the association of subjective aversiveness of the task with NFC was examined with difference scores as well, since we expected this curve to mirror the SV curve, i.e. as the SV rises, the aversiveness declines, and vice versa.
 We subtracted the aversiveness ratings of 1- from 2-back and 2- from 3-back, yielding two aversiveness difference scores per participant.
-Then, we computed an rmANOVA with the within-factor n-back level and the between-factor NFC group, and applied post-hoc tests based on which effect reached significance at $p<.01$.
+Then, we computed an rmANOVA with the within-factor *n*-back level and the between-factor NFC group, and applied post-hoc tests based on which effect reached significance at $p<.01$.
 
 The results of each analysis was assessed on the basis of both $p$-value and the Bayes factor $BF10$, calculated with the *BayesFactor* package[@Morey2021] using the default prior widths of the functions *anovaBF*, *lmBF* and *ttestBF*.
 We considered a $BF10$ close to or above 3/10 as moderate/strong evidence for the alternative hypothesis, and a $BF10$ close to or below .33/.10 as moderate/strong evidence for the null hypothesis [@Wetzels2015].
@@ -371,7 +371,7 @@ INSERT FIGURE 1 HERE
 ```
 -->
 
-*Figure 1.* An example for subjective values for an n-back task with three levels, returned by different modifications of the COG-ED paradigm for a hypothetical participant with the true preference 2-back > 3-back > 1-back. The grey boxes are the choice options shown to the participant. The participant's final reward value of the flexible level is displayed after the first arrow. The resulting subjective value of each level is displayed after the second arrow, in the notation "SV 3-back(1-back)" for the subjective value of 3-back when 1-back is the other choice. The Solution and Additional Benefit panel follow the same logic, but are preceded by a choice between equal rewards, and the participant's first choice indicated by an exclamation mark.
+*Figure 1.* An example for subjective values for an *n*-back task with three levels, returned by different modifications of the COG-ED paradigm for a hypothetical participant with the true preference 2-back > 3-back > 1-back. The grey boxes are the choice options shown to the participant. The participant's final reward value of the flexible level is displayed after the first arrow. The resulting subjective value of each level is displayed after the second arrow, in the notation "SV 3-back(1-back)" for the subjective value of 3-back when 1-back is the other choice. The Solution and Additional Benefit panel follow the same logic, but are preceded by a choice between equal rewards, and the participant's first choice indicated by an exclamation mark.
 
 \newpage
 
@@ -396,7 +396,7 @@ INSERT SUPPLEMENT HERE
 ## Results of the pilot study
 
 
-## Hypothesis 1a: The signal detection measure d' declines with increasing n-back level.
+## Hypothesis 1a: The signal detection measure d' declines with increasing *n*-back level.
 
 ANOVA:
 
@@ -404,7 +404,7 @@ ANOVA:
 
 \newpage
 
-## Hypothesis 1b: Reaction time increases with increasing n-back level.
+## Hypothesis 1b: Reaction time increases with increasing *n*-back level.
 
 ANOVA:
 
@@ -415,8 +415,8 @@ Paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
   hypothesis1b_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing reaction time between n-back levels",
-  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  caption = "Paired contrasts for the rmANOVA comparing reaction time between *n*-back levels",
+  note = "The column Contrast contains the $n$ of the *n*-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
 )
@@ -424,7 +424,7 @@ apa_table(
 
 \newpage
 
-## Hypothesis 1c: Ratings on all NASA-TLX dimensions increase with increasing n-back level.
+## Hypothesis 1c: Ratings on all NASA-TLX dimensions increase with increasing *n*-back level.
 
 Mental subscale ANOVA:
 
@@ -435,8 +435,8 @@ Mental subscale paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis1c_mental_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Mental subscale between n-back levels",
-  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Mental subscale between *n*-back levels",
+  note = "The column Contrast contains the $n$ of the *n*-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
 )
@@ -453,8 +453,8 @@ Physical subscale paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis1c_physical_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Physical subscale between n-back levels",
-  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Physical subscale between *n*-back levels",
+  note = "The column Contrast contains the $n$ of the *n*-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
 )
@@ -471,8 +471,8 @@ Time subscale paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis1c_time_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Time subscale between n-back levels",
-  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Time subscale between *n*-back levels",
+  note = "The column Contrast contains the $n$ of the *n*-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
 )
@@ -489,8 +489,8 @@ Performance subscale paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis1c_performance_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Performance subscale between n-back levels",
-  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Performance subscale between *n*-back levels",
+  note = "The column Contrast contains the $n$ of the *n*-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
 )
@@ -507,8 +507,8 @@ Effort subscale paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis1c_effort_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Effort subscale between n-back levels",
-  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Effort subscale between *n*-back levels",
+  note = "The column Contrast contains the $n$ of the *n*-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
 )
@@ -525,8 +525,8 @@ Frustration subscale paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis1c_frustration_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Frustration subscale between n-back levels",
-  note = "The column Contrast contains the $n$ of the n-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Frustration subscale between *n*-back levels",
+  note = "The column Contrast contains the $n$ of the *n*-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
 )
@@ -534,7 +534,7 @@ apa_table(
 
 \newpage
 
-## Hypothesis 2a: Subjective values decline with increasing n-back level.
+## Hypothesis 2a: Subjective values decline with increasing *n*-back level.
 
 ANOVA:
 
@@ -545,7 +545,7 @@ Contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis2a_contrasts,
-  caption = "Different contrasts for the rmANOVA comparing subjective values between n-back levels",
+  caption = "Different contrasts for the rmANOVA comparing subjective values between *n*-back levels",
   note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
@@ -554,13 +554,13 @@ apa_table(
 
 \newpage
 
-## Hypothesis 2b: Subjective values decline with increasing n-back level, even after controlling for declining task performance measured by signal detection d’ and reaction time.
+## Hypothesis 2b: Subjective values decline with increasing *n*-back level, even after controlling for declining task performance measured by signal detection d’ and reaction time.
 
 Multi level model:
 
 ```{r,echo=FALSE, message=FALSE, warning=FALSE}
 kable(h2b_result.table,
-        caption = "Effects of n-back load level on subjective value controlled 
+        caption = "Effects of *n*-back load level on subjective value controlled 
     for task performance (d' and reaction time).",
         booktabs = T,                          # no vertical lines
         escape = F,                            # correctly print special characters)
@@ -587,7 +587,7 @@ ANOVA:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis3a_rmanova,
-  caption = "Main effects and interaction of NFC group and n-back level on subjective values",
+  caption = "Main effects and interaction of NFC group and *n*-back level on subjective values",
   note = "NFC = Need for Cognition, Sum Sq = sum of squares, $df$ = degrees of freedom, $F$ = $F$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H",
@@ -597,7 +597,7 @@ apa_table(
 
 \newpage
 
-## Hypothesis 3b: Participants with high NFC scores have lower NASA-TLX scores in every n-back level than participants with low NFC scores.
+## Hypothesis 3b: Participants with high NFC scores have lower NASA-TLX scores in every *n*-back level than participants with low NFC scores.
 
 ANOVA:
 
@@ -605,20 +605,20 @@ Main effect of the NFC group:
 
 `r apa_print(hypothesis3b_model)$full_result$nfcmedian`, $BF10=$ `r format(extractBF(hypothesis3b_BF["nfcmedian"])$bf, digits = 2)`
 
-Main effect of the n-back level:
+Main effect of the *n*-back level:
 
 `r apa_print(hypothesis3b_model)$full_result$level`, $BF10=$ `r format(extractBF(hypothesis3b_BF["level"])$bf, digits = 2)`
 
-Interaction effect of NFC group and n-back level:
+Interaction effect of NFC group and *n*-back level:
 
 `r apa_print(hypothesis3b_model)$full_result$nfcmedian_level`, $BF10=$ `r format(extractBF(hypothesis3b_BF["level + nfcmedian"])$bf, digits = 2)`
 
-Paired contrasts for the main effect of n-back level:
+Paired contrasts for the main effect of *n*-back level:
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis3b_rmanova,
-  caption = "Main effects and interaction of NFC group and n-back level on NASA-TLX scores",
+  caption = "Main effects and interaction of NFC group and *n*-back level on NASA-TLX scores",
   note = "NFC = Need for Cognition, Sum Sq = sum of squares, $df$ = degrees of freedom, $F$ = $F$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H",
