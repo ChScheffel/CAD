@@ -1020,6 +1020,7 @@ for (i in seq_len(nrow(data_choice))) {
   data_choice$distancing.sv[i] <- data_SV$sv[data_SV$ID == data_choice$ID[i] & data_SV$strategy == "distancing"]
   data_choice$suppression.sv[i] <- data_SV$sv[data_SV$ID == data_choice$ID[i] & data_SV$strategy == "suppression"]
 }
+
 #### HYPOTHESIS 7a
 
 # The higher the subjective value, the more likely the respective strategy is chosen
@@ -1030,6 +1031,15 @@ choice_chisq <- stats::chisq.test(data_choice$choice, data_choice$pred_choice)
 
 choice_chisq_BF <- BayesFactor::contingencyTableBF(x = choice_chisq[["observed"]],
                                                    sampleType = "jointMulti")
+# ordinal regression
+
+
+
+#### HYPOTHESIS 7b
+
+# Subjective values are lower and decline stronger when ER flexibility is lower.
+
+
 
 #################### SAVE WORKSPACE IMAGE #######################
 
