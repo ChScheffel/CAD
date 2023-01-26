@@ -1033,7 +1033,7 @@ choice_chisq_BF <- BayesFactor::contingencyTableBF(x = choice_chisq[["observed"]
                                                    sampleType = "jointMulti")
 # ordinal regression
 
-
+test <- MASS::polr(as.factor(choice) ~ distraction.sv + distancing.sv + suppression.sv, data = data_choice, method = "logistic")
 
 #### HYPOTHESIS 7b
 
