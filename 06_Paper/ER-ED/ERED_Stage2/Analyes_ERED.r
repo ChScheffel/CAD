@@ -1028,7 +1028,8 @@ for (i in seq_len(nrow(data_choice))) {
 
 choice_chisq <- stats::chisq.test(data_choice$choice, data_choice$pred_choice)
 
-# choice_chisq_BF <- BayesFactor::contingencyTableBF()
+choice_chisq_BF <- BayesFactor::contingencyTableBF(x = choice_chisq[["observed"]],
+                                                   sampleType = "jointMulti")
 
 #################### SAVE WORKSPACE IMAGE #######################
 
