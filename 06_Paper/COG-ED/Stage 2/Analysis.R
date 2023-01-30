@@ -1444,19 +1444,31 @@ hypothesis3a_contrasts_nfc[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(roun
 hypothesis3a_contrasts_nfc$`$p$` <- format(round(hypothesis3a_contrasts_nfc$`$p$`, digits = 3), nsmall = 2)
 hypothesis3a_contrasts_nfc$`$p$`[hypothesis3a_contrasts_nfc$`$p$` == "0.000"] <- "<.001"
 
-# plot these results
+# prepare raincloud plot
+# remove NAs for trying out the plot right now
+h3a_data <- h3a_data[complete.cases(h3a_data),]
 
-plot_h3a <- ggplot(h3a_data, aes(x = nlevels, y = svdiff, fill = nfcmedian)) +
-  labs(x = "n-back levels", y = "Difference in subjective values") +
-  geom_point(shape = 21, size = 3) +
+plot_h3a_data <- data_2x2(array_1 = h3a_data$svdiff[h3a_data$nlevels == "1-2" & h3a_data$nfcmedian == "low"],
+                          array_2 = h3a_data$svdiff[h3a_data$nlevels == "2-3" & h3a_data$nfcmedian == "low"],
+                          array_3 = h3a_data$svdiff[h3a_data$nlevels == "1-2" & h3a_data$nfcmedian == "high"],
+                          array_4 = h3a_data$svdiff[h3a_data$nlevels == "2-3" & h3a_data$nfcmedian == "high"],
+                          labels = (c("NFC below median","NFC above median")),
+                          jit_distance = .09,
+                          jit_seed = 73,
+                          spread_x_ticks = FALSE)
+plot_h3a <- raincloud_2x2_repmes(data_2x2 = plot_h3a_data,
+                                 size = 1,
+                                 alpha = .6,
+                                 spread_x_ticks = FALSE) +
+  xlab("n-back levels") + 
+  ylab("Difference in subjective values") +
   scale_fill_manual(values = met.brewer("Hiroshige", 2), labels = c("NFC above median", "NFC below median")) +
-  geom_smooth(aes(as.numeric(nlevels), svdiff), method = "lm", size = 0.8, color = "black") +
   theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-  scale_x_discrete(guide = "prism_bracket")
+  scale_x_continuous(breaks=c(1,2), labels=c("1-2", "2-3"), limits=c(0, 3))
 
 # remove temporary variables
 
-base::remove(diffscores, mediannfc, h3a_data)
+base::remove(diffscores, mediannfc, h3a_data, plot_h3a_data)
 
 ##### Hypothesis 3b ############################################################
 
@@ -1691,6 +1703,30 @@ hypothesis3c_contrasts_nfc$Contrast <- c("High NFC - Low NFC")
 hypothesis3c_contrasts_nfc[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(round(hypothesis3c_contrasts_nfc[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 2), nsmall = 2)
 hypothesis3c_contrasts_nfc$`$p$` <- format(round(hypothesis3c_contrasts_nfc$`$p$`, digits = 3), nsmall = 2)
 hypothesis3c_contrasts_nfc$`$p$`[hypothesis3c_contrasts_nfc$`$p$` == "0.000"] <- "<.001"
+
+# prepare raincloud plot
+# remove NAs for trying out the plot right now
+h3c_data <- h3c_data[complete.cases(h3c_data),]
+
+plot_h3c_data <- data_2x2(array_1 = h3c_data$aversdiff[h3c_data$nlevels == "1-2" & h3c_data$nfcmedian == "low"],
+                          array_2 = h3c_data$aversdiff[h3c_data$nlevels == "2-3" & h3c_data$nfcmedian == "low"],
+                          array_3 = h3c_data$aversdiff[h3c_data$nlevels == "1-2" & h3c_data$nfcmedian == "high"],
+                          array_4 = h3c_data$aversdiff[h3c_data$nlevels == "2-3" & h3c_data$nfcmedian == "high"],
+                          labels = (c("NFC below median","NFC above median")),
+                          jit_distance = .09,
+                          jit_seed = 73,
+                          spread_x_ticks = FALSE)
+plot_h3c <- raincloud_2x2_repmes(data_2x2 = plot_h3c_data,
+                                 size = 1,
+                                 alpha = .6,
+                                 spread_x_ticks = FALSE) +
+  xlab("n-back levels") + 
+  ylab("Aversiveness ratings") +
+  scale_fill_manual(values = met.brewer("Hiroshige", 2), name = "Need for Cognition",
+                    breaks = c("low","high"), labels = c("NFC below median", "NFC above median")) +
+  theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
+  scale_x_continuous(breaks=c(1,2), labels=c("1-2", "2-3"), limits=c(0, 3))
+
 
 # plot these results
 
