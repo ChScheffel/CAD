@@ -439,9 +439,9 @@ for (i in seq_len(length(subjectindex)-1)) {
                         strategy = c("distraction","distancing","suppression"),
                         sv = c(mean(tempone), mean(temptwo), mean(tempthree)))
 
-  # add new variable strat_r:
+  # add new variable strat_c:
   # strategy with highest value gets -1, and with lowes value 1
-  newdata <- dplyr::mutate(newdata, strat_r = ifelse(newdata$sv == max(sv),- 1, (ifelse(newdata$sv == min(sv), 1, 0))))
+  newdata <- dplyr::mutate(newdata, strat_c = ifelse(newdata$sv == max(sv),- 1, (ifelse(newdata$sv == min(sv), 1, 0))))
   
   data_SV <- rbind(data_SV, newdata)
   
@@ -941,7 +941,7 @@ data_MLM[data_MLM == "5_suppression"] <- "suppression"
 for (i in seq_len(nrow(data_MLM))) {
   
   data_MLM$sv[i] <- data_SV$sv[data_SV$ID == data_MLM$ID[i] & data_SV$strategy == data_MLM$strategy[i]]
-  data_MLM$strat_r[i] <- data_SV$strat_r[data_SV$ID == data_MLM$ID[i] & data_SV$strategy == data_MLM$strategy[i]]
+  data_MLM$strat_c[i] <- data_SV$strat_c[data_SV$ID == data_MLM$ID[i] & data_SV$strategy == data_MLM$strategy[i]]
 }
 
 # fit subjective arousal, effort, and utility ratings in df data_MLM
@@ -984,7 +984,7 @@ ICC_between_MLM_0 <- RandomEffects_MLM_0[1,4] / (RandomEffects_MLM_0[1,4]+Random
 
 #### MLM - random effects
 
-MLM_1 <- lme4::lmer(formula = sv ~ strat_r + effort.cwc + arousal.cwc + utility.cwc + Corr.cwc + Lev.cwc + (strat_r | ID),
+MLM_1 <- lme4::lmer(formula = sv ~ strat_c + effort.cwc + arousal.cwc + utility.cwc + Corr.cwc + Lev.cwc + (strat_c | ID),
                         data = data_MLM,
                         REML = TRUE)
 
@@ -1000,7 +1000,7 @@ MLM_1 <- lme4::lmer(formula = sv ~ strat_r + effort.cwc + arousal.cwc + utility.
 # fit predicted choice (strategy with highest SV per participant) in df data_choice
 
 for (i in seq_len(nrow(data_choice))) {
-  data_choice$pred_choice[i] <- data_SV$strategy[data_SV$ID == data_choice$ID[i] & data_SV$strat_r == -1]
+  data_choice$pred_choice[i] <- data_SV$strategy[data_SV$ID == data_choice$ID[i] & data_SV$strat_c == -1]
 }
 
 # change variable pred_choice to values
@@ -1039,10 +1039,17 @@ choice_chisq_BF <- BayesFactor::contingencyTableBF(x = choice_chisq[["observed"]
 
 # Subjective values are lower and decline stronger when ER flexibility is lower.
 
+# add new variable strat_r (0,1,2) to df data_SV
+
+data_SV$strat_r[data_SV$strat_c == -1] <- 0
+data_SV$strat_r[data_SV$strat_c == 0] <- 1
+data_SV$strat_r[data_SV$strat_c == 1] <- 2
+
 # create empty df to store slope, intercept, and FlexER value for each person
 
 data_flex <- data.frame(ID = character(), intercept = double(),
                         slope = double(), FlexER = double())
+
 
 # create variable for IDs
 subjectindex <- unique(data_SV$ID)
@@ -1062,8 +1069,11 @@ for (i in seq_len(length(unique(data_SV$ID)))) {
   data_flex <- rbind(data_flex, tmp)
 }
 
-test <- data_SV[subjectindex[1],]
 
+#plot(data_SV$sv[data_SV$ID == subjectindex[10]] ~ data_SV$strat_r[data_SV$ID == subjectindex[10]])
+#abline(lm(data_SV$sv[data_SV$ID == subjectindex[10]] ~ data_SV$strat_r[data_SV$ID == subjectindex[10]]))
+
+# variable strat_r in strat_c umbenennen und dann vorher noch strat_r bilden --> 0 - 1 - 2
 #################### SAVE WORKSPACE IMAGE #######################
 
 save.image(file = "Workspace_ERED.RData")
