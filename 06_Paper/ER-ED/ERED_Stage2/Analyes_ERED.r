@@ -1039,7 +1039,30 @@ choice_chisq_BF <- BayesFactor::contingencyTableBF(x = choice_chisq[["observed"]
 
 # Subjective values are lower and decline stronger when ER flexibility is lower.
 
+# create empty df to store slope, intercept, and FlexER value for each person
 
+data_flex <- data.frame(ID = character(), intercept = double(),
+                        slope = double(), FlexER = double())
+
+# create variable for IDs
+subjectindex <- unique(data_SV$ID)
+
+# get SVs for each individual participant 
+# SVs are ordered descending by magnitude
+
+for (i in seq_len(length(unique(data_SV$ID)))) {
+  
+  tmp_glm <- stats::glm(data_SV$sv[data_SV$ID == subjectindex[i]] ~ data_SV$strat_r[data_SV$ID == subjectindex[i]])
+  
+  tmp <- data.frame(ID = subjectindex[i],
+                    intercept = tmp_glm$coefficients[1],
+                    slope = tmp_glm$coefficients[2],
+                    FlexER = data_quest$flexer_mean[data_quest$record_id_2 == subjectindex[i]])
+  
+  data_flex <- rbind(data_flex, tmp)
+}
+
+test <- data_SV[subjectindex[1],]
 
 #################### SAVE WORKSPACE IMAGE #######################
 
