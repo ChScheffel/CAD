@@ -997,7 +997,6 @@ MLM_1 <- lmerTest::lmer(formula = sv ~ strat_c + effort.cwc + arousal.cwc + util
 
 MLM_1_r2 <- r2mlm::r2mlm(MLM_1)
 
-
 ### Bayes Factors
 
 # https://rstudio-pubs-static.s3.amazonaws.com/358672_09291d0b37ce43f08cf001cfd25c16c2.html
@@ -1037,6 +1036,7 @@ H5_table[c(2,3,5)] <- round(H5_table[c(2,3,5)], digits = 2)
 H5_table[4] <- round(H5_table[4], digits = 3)
 
 H5_table$ `Random Effects (SD)`[3:7] <- paste0("")
+
 ######## HYPOTHESIS 6
 
 # 
