@@ -973,7 +973,7 @@ data_MLM <- stats::na.omit(data_MLM)
 
 #### MLM - NULL MODEL
 
-MLM_0 <- lme4::lmer(formula = sv ~ 1 + (1 | ID),
+MLM_0 <- lmerTest::lmer(formula = sv ~ 1 + (1 | ID),
                         data = data_MLM,
                         REML = FALSE)
 
@@ -987,7 +987,7 @@ ICC_between_MLM_0 <- RandomEffects_MLM_0[1,4] / (RandomEffects_MLM_0[1,4]+Random
 
 #### MLM - random effects
 
-MLM_1 <- lme4::lmer(formula = sv ~ strat_c + effort.cwc + arousal.cwc + utility.cwc + Corr.cwc + Lev.cwc + (strat_c | ID),
+MLM_1 <- lmerTest::lmer(formula = sv ~ strat_c + effort.cwc + arousal.cwc + utility.cwc + Corr.cwc + Lev.cwc + (strat_c | ID),
                         data = data_MLM,
                         REML = TRUE)
 
@@ -1014,6 +1014,29 @@ MLM_1_BF <- MLM_1_full_BF / MLM_1_null_BF
 
 # a little bit of preparation for proper reporting of MLM results
 
+M_H5.ranef <- as.data.frame(base::summary(MLM_1)$varcor)
+M_H5.fixef <- base::summary(MLM_1)$coefficients
+
+H5_table <- as.data.frame(cbind(rownames(M_H5.fixef),
+                                M_H5.fixef[,c(1,2,5)]))
+
+H5_table$ranef.sd <- NA
+H5_table$ranef.sd[c(1,2)] <- M_H5.ranef$sdcor[c(1,2)]
+
+colnames(H5_table)[1] <- "Parameter"
+colnames(H5_table)[2] <- "Beta"
+colnames(H5_table)[3] <- "$SE$"
+colnames(H5_table)[4] <- "$p$-value"
+colnames(H5_table)[5] <- "Random Effects (SD)"
+
+row.names(H5_table) <- NULL
+H5_table$Parameter[1:7] <- c("Intercept", "Strategy", "Effort", "Arousal", "Utility", "Corrugator activity", "Levator activity")
+
+H5_table[2:5] <- lapply(H5_table[2:5], as.numeric)
+H5_table[c(2,3,5)] <- round(H5_table[c(2,3,5)], digits = 2)
+H5_table[4] <- round(H5_table[4], digits = 3)
+
+H5_table$ `Random Effects (SD)`[3:7] <- paste0("")
 ######## HYPOTHESIS 6
 
 # 
