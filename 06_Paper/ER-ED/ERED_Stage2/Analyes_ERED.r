@@ -1069,11 +1069,21 @@ for (i in seq_len(length(unique(data_SV$ID)))) {
   data_flex <- rbind(data_flex, tmp)
 }
 
+base::remove(tmp_glm, tmp)
 
-#plot(data_SV$sv[data_SV$ID == subjectindex[10]] ~ data_SV$strat_r[data_SV$ID == subjectindex[10]])
-#abline(lm(data_SV$sv[data_SV$ID == subjectindex[10]] ~ data_SV$strat_r[data_SV$ID == subjectindex[10]]))
+# linear regression with individual slopes and intercepts as predictors and FlexER Score as outcome
 
-# variable strat_r in strat_c umbenennen und dann vorher noch strat_r bilden --> 0 - 1 - 2
+Flex_LM <- stats::lm(formula = FlexER ~ intercept + slope, data = data_flex)
+
+Flex_LM_BF <- BayesFactor::regressionBF(formula = FlexER ~ intercept + slope, data = data_flex)
+
+
+# ggplot2::ggplot(data_SV, aes(x = strat_r, y = sv, color  = ID))+
+#   geom_point() +
+#   geom_smooth(method = "lm", fill = NA)+
+#   ylim(0,1.5)
+
+
 #################### SAVE WORKSPACE IMAGE #######################
 
 save.image(file = "Workspace_ERED.RData")
