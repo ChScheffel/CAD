@@ -988,6 +988,18 @@ MLM_1 <- lme4::lmer(formula = sv ~ strat_c + effort.cwc + arousal.cwc + utility.
                         data = data_MLM,
                         REML = TRUE)
 
+### Effect size R-squared for MLM
+
+# credits to: https://www.learn-mlms.com/11-module-11.html
+
+MLM_1_r2 <- r2mlm::r2mlm(MLM_1)
+
+
+### Bayes Factors
+
+MLM_1_BF <- BayesFactor::lmBF()
+
+
 ######## HYPOTHESIS 6
 
 # 
