@@ -968,6 +968,9 @@ data_MLM <- data_MLM %>%
   dplyr::mutate(Corr.cwc = Corr - mean(Corr)) %>% 
   dplyr::mutate(Lev.cwc = Lev - mean(Lev))
 
+# only keep complete cases
+data_MLM <- stats::na.omit(data_MLM)
+
 #### MLM - NULL MODEL
 
 MLM_0 <- lme4::lmer(formula = sv ~ 1 + (1 | ID),
@@ -997,8 +1000,19 @@ MLM_1_r2 <- r2mlm::r2mlm(MLM_1)
 
 ### Bayes Factors
 
-MLM_1_BF <- BayesFactor::lmBF()
+# https://rstudio-pubs-static.s3.amazonaws.com/358672_09291d0b37ce43f08cf001cfd25c16c2.html
 
+data_MLM$ID <- factor(data_MLM$ID)
+
+MLM_1_full_BF <- BayesFactor::lmBF(sv ~ strat_c + effort.cwc + arousal.cwc + utility.cwc + Corr.cwc + Lev.cwc + ID,
+                              data = data_MLM, whichRandom = "ID", progress = FALSE)
+
+MLM_1_null_BF <- BayesFactor::lmBF(sv ~ 1 + effort.cwc + arousal.cwc + utility.cwc + Corr.cwc + Lev.cwc + ID,
+                                   data = data_MLM, whichRandom = "ID", progress = FALSE)
+
+MLM_1_BF <- MLM_1_full_BF / MLM_1_null_BF
+
+# a little bit of preparation for proper reporting of MLM results
 
 ######## HYPOTHESIS 6
 
