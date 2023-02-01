@@ -79,6 +79,14 @@
       "Hash": "45f0398006e83a5b10b72a90663d8d8c",
       "Requirements": []
     },
+    "RUnit": {
+      "Package": "RUnit",
+      "Version": "0.4.32",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "11af2a900964b790c6d775e0c9e8025f",
+      "Requirements": []
+    },
     "Rcpp": {
       "Package": "Rcpp",
       "Version": "1.0.9",
@@ -342,13 +350,11 @@
     },
     "cli": {
       "Package": "cli",
-      "Version": "3.3.0",
+      "Version": "3.6.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "23abf173c2b783dcc43379ab9bba00ee",
-      "Requirements": [
-        "glue"
-      ]
+      "Hash": "3177a5a16c243adc199ba33117bd9657",
+      "Requirements": []
     },
     "clipr": {
       "Package": "clipr",
@@ -970,6 +976,20 @@
         "yaml"
       ]
     },
+    "kutils": {
+      "Package": "kutils",
+      "Version": "1.70",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "32d0f7568fac85e7dfec288ea10a0433",
+      "Requirements": [
+        "RUnit",
+        "foreign",
+        "openxlsx",
+        "plyr",
+        "xtable"
+      ]
+    },
     "labeling": {
       "Package": "labeling",
       "Version": "0.4.2",
@@ -1196,6 +1216,18 @@
         "askpass"
       ]
     },
+    "openxlsx": {
+      "Package": "openxlsx",
+      "Version": "4.2.5.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "e398ce13682a7409d16e13df09f65875",
+      "Requirements": [
+        "Rcpp",
+        "stringi",
+        "zip"
+      ]
+    },
     "papaja": {
       "Package": "papaja",
       "Version": "0.1.1",
@@ -1387,6 +1419,23 @@
         "survival"
       ]
     },
+    "r2mlm": {
+      "Package": "r2mlm",
+      "Version": "0.3.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "a18070e052bd47eaf5ee8ccdc0293a2a",
+      "Requirements": [
+        "dplyr",
+        "lme4",
+        "magrittr",
+        "nlme",
+        "rlang",
+        "rockchalk",
+        "stringr",
+        "tidyselect"
+      ]
+    },
     "rappdirs": {
       "Package": "rappdirs",
       "Version": "0.3.3",
@@ -1521,6 +1570,19 @@
       "Requirements": [
         "assertthat",
         "rmarkdown"
+      ]
+    },
+    "rockchalk": {
+      "Package": "rockchalk",
+      "Version": "1.8.157",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "367292a743bf9a0965e8da3abacd80a1",
+      "Requirements": [
+        "MASS",
+        "carData",
+        "kutils",
+        "lme4"
       ]
     },
     "rprojroot": {
