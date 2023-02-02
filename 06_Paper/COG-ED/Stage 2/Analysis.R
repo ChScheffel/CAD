@@ -176,7 +176,7 @@ remove(all_quest,showups)
 # describe when data acquisition took place
 
 acqui_time <- data.frame(dates = c(t(data_quest[,grep("time", colnames(data_quest))])), stringsAsFactors = FALSE)
-acqui_time <- as.Date(acqui_time$dates, format = "%d.%m.%Y %H:%M")
+acqui_time <- as.Date(acqui_time$dates, format = "%Y-%m-%d %H:%M:%S")
 acqui_time <- range(acqui_time, na.rm = TRUE)
 
 ##### Subjective value computation #############################################
@@ -1448,7 +1448,7 @@ hypothesis3a_contrasts_nfc$`$p$`[hypothesis3a_contrasts_nfc$`$p$` == "0.000"] <-
 # remove NAs for trying out the plot right now
 h3a_data <- h3a_data[complete.cases(h3a_data),]
 
-plot_h3a_data <- data_2x2(array_1 = h3a_data$svdiff[h3a_data$nlevels == "1-2" & h3a_data$nfcmedian == "low"],
+plot_h3a_data <- raincloudplots::data_2x2(array_1 = h3a_data$svdiff[h3a_data$nlevels == "1-2" & h3a_data$nfcmedian == "low"],
                           array_2 = h3a_data$svdiff[h3a_data$nlevels == "2-3" & h3a_data$nfcmedian == "low"],
                           array_3 = h3a_data$svdiff[h3a_data$nlevels == "1-2" & h3a_data$nfcmedian == "high"],
                           array_4 = h3a_data$svdiff[h3a_data$nlevels == "2-3" & h3a_data$nfcmedian == "high"],
@@ -1456,14 +1456,15 @@ plot_h3a_data <- data_2x2(array_1 = h3a_data$svdiff[h3a_data$nlevels == "1-2" & 
                           jit_distance = .09,
                           jit_seed = 73,
                           spread_x_ticks = FALSE)
-plot_h3a <- raincloud_2x2_repmes(data_2x2 = plot_h3a_data,
+
+raincloudplots::raincloud_2x2_repmes(data_2x2 = plot_h3a_data,
                                  size = 1,
                                  alpha = .6,
                                  spread_x_ticks = FALSE) +
   xlab("n-back levels") + 
   ylab("Difference in subjective values") +
   scale_fill_manual(values = met.brewer("Hiroshige", 2), labels = c("NFC above median", "NFC below median")) +
-  theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
+  ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
   scale_x_continuous(breaks=c(1,2), labels=c("1-2", "2-3"), limits=c(0, 3))
 
 # remove temporary variables
@@ -1606,7 +1607,7 @@ plot_h3b <- ggplot(h3b_data, aes(x = level, y = ntlx, fill = nfcmedian)) +
   scale_fill_manual(values = met.brewer("Homer2", 2), labels = c("NFC above median", "NFC below median")) +
   labs(x = "n-back levels", y = "NASA-TLX sum score") +
   geom_boxplot(width = 0.1, position = position_dodge(0.9)) +
-  theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
+  ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
   scale_x_discrete(guide = "prism_bracket") +
   add_pvalue(plot_h3b_pvalue, tip.length = 0)
 
@@ -1708,35 +1709,25 @@ hypothesis3c_contrasts_nfc$`$p$`[hypothesis3c_contrasts_nfc$`$p$` == "0.000"] <-
 # remove NAs for trying out the plot right now
 h3c_data <- h3c_data[complete.cases(h3c_data),]
 
-plot_h3c_data <- data_2x2(array_1 = h3c_data$aversdiff[h3c_data$nlevels == "1-2" & h3c_data$nfcmedian == "low"],
+plot_h3c_data <- raincloudplots::data_2x2(array_1 = h3c_data$aversdiff[h3c_data$nlevels == "1-2" & h3c_data$nfcmedian == "low"],
                           array_2 = h3c_data$aversdiff[h3c_data$nlevels == "2-3" & h3c_data$nfcmedian == "low"],
                           array_3 = h3c_data$aversdiff[h3c_data$nlevels == "1-2" & h3c_data$nfcmedian == "high"],
                           array_4 = h3c_data$aversdiff[h3c_data$nlevels == "2-3" & h3c_data$nfcmedian == "high"],
                           labels = (c("NFC below median","NFC above median")),
-                          jit_distance = .09,
+                          jit_distance = .04,
                           jit_seed = 73,
                           spread_x_ticks = FALSE)
-plot_h3c <- raincloud_2x2_repmes(data_2x2 = plot_h3c_data,
-                                 size = 1,
+
+raincloudplots::raincloud_2x2_repmes(data_2x2 = plot_h3c_data,
+                                 size = 2,
                                  alpha = .6,
                                  spread_x_ticks = FALSE) +
   xlab("n-back levels") + 
   ylab("Aversiveness ratings") +
   scale_fill_manual(values = met.brewer("Hiroshige", 2), name = "Need for Cognition",
                     breaks = c("low","high"), labels = c("NFC below median", "NFC above median")) +
-  theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
+  ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
   scale_x_continuous(breaks=c(1,2), labels=c("1-2", "2-3"), limits=c(0, 3))
-
-
-# plot these results
-
-plot_h3c <- ggplot(h3c_data, aes(x = nlevels, y = aversdiff, fill = nfcmedian)) +
-  labs(x = "n-back levels", y = "Difference in aversiveness scores") +
-  geom_point(shape = 21, size = 3) +
-  scale_fill_manual(values = met.brewer("Hiroshige", 2), labels = c("NFC above median", "NFC below median")) +
-  geom_smooth(aes(as.numeric(nlevels), aversdiff), method = "lm", size = 0.8, color = "black") +
-  theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-  scale_x_discrete(guide = "prism_bracket")
 
 # remove temporary variables
 
@@ -1847,11 +1838,11 @@ sca_lower <- sca_lower[,c("xaxis","BF10","value")]
 
 # create the lower panel with the pipeline specifications
 
-ggplot(sca_lower, aes(x = xaxis, y = value)) +
+ggplot(sca_lower, aes(x = xaxis, y = value, fill = BF10)) +
+  geom_vline(xintercept = c(0,10,20,30,40,50,60), colour = "grey", linetype = 3) +
   geom_tile(aes(fill = BF10), color = "white") +
-  scale_fill_gradientn(colors = met.brewer("Homer2")) +
   geom_hline(yintercept = c(6,11)) +
-  theme_prism(base_size = 10, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+  ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
   labs(x = "Analysis pipeline", y = NULL) +
   scale_y_reverse(breaks = c(1:17), lim = c(18,0), labels = c(expression(bold("Dimension")),
                                                               "Across S, across C", "Across S, within C",
@@ -1861,25 +1852,27 @@ ggplot(sca_lower, aes(x = xaxis, y = value)) +
                                                               expression(bold("Exclusion")),
                                                               "None", "2 MAD from median", " 2.5 MAD from median",
                                                               "3 MAD from median", "100ms after onset", "200ms after onset")) +
-  guides(fill = guide_colourbar(barwidth = 0.5,
-                                barheight = 15, title = "BF10"))
+  scale_fill_gradientn(colors = MetBrewer::met.brewer("Homer2")) +
+  guides(fill = guide_colourbar(barwidth = 1, barheight = 15, title = "BF10"))
 
 # create the middle panel with the p-values
 
 ggplot(sca_results, aes(x = xaxis, y = pvalue)) +
+  geom_vline(xintercept = c(0,10,20,30,40,50,60), colour = "grey", linetype = 3) +
   geom_line() +
-  theme_prism(base_size = 10, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+  ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
   labs(x = NULL, y = "p-value") +
   scale_x_continuous(labels = NULL)
 
 # create upper panel with beta weights
 
-ggplot(sca_results, aes(x = xaxis, y = beta))+ 
+ggplot(sca_results, aes(x = xaxis, y = beta)) +
+  geom_vline(xintercept = c(0,10,20,30,40,50,60), colour = "grey", linetype = 3) +
   geom_errorbar(aes(ymin = beta-SE,ymax = beta+SE, col = BF10), 
                 width = 0, size = 2, alpha = .9, show.legend = FALSE) +
   scale_color_gradientn(colors = met.brewer("Homer2")) +
   geom_line(col = "black", size = 0.25) +
-  theme_prism(base_size = 10, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+  ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
   labs(x = NULL, y = "Fixed effects beta of the predictor n-back level") +
   scale_x_continuous(labels = NULL)
 
