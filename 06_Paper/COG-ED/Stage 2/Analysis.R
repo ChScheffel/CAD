@@ -1847,10 +1847,9 @@ sca_lower <- sca_lower[,c("xaxis","BF10","value")]
 
 # create the lower panel with the pipeline specifications
 
-ggplot(sca_lower, aes(x = xaxis, y = value)) +
+ggplot(sca_lower, aes(x = xaxis, y = value, colour = BF10)) +
   geom_vline(xintercept = c(0,10,20,30,40,50,60), colour = "grey", linetype = 3) +
   geom_tile(aes(fill = BF10), color = "white") +
-  scale_fill_gradientn(colors = MetBrewer::met.brewer("Homer2")) +
   geom_hline(yintercept = c(6,11)) +
   ggprism::theme_prism(base_size = 10, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
   labs(x = "Analysis pipeline", y = NULL) +
@@ -1862,8 +1861,8 @@ ggplot(sca_lower, aes(x = xaxis, y = value)) +
                                                               expression(bold("Exclusion")),
                                                               "None", "2 MAD from median", " 2.5 MAD from median",
                                                               "3 MAD from median", "100ms after onset", "200ms after onset")) +
-  guides(fill = guide_colourbar(barwidth = 0.5,
-                                barheight = 15, title = "BF10"))
+  guides(fill = guide_colourbar(barwidth = 0.5, barheight = 15)) +
+  scale_fill_gradientn(name = "BF10", colors = MetBrewer::met.brewer("Homer2"))
 
 # create the middle panel with the p-values
 
