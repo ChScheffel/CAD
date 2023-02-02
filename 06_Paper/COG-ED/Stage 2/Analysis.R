@@ -1848,10 +1848,11 @@ sca_lower <- sca_lower[,c("xaxis","BF10","value")]
 # create the lower panel with the pipeline specifications
 
 ggplot(sca_lower, aes(x = xaxis, y = value)) +
+  geom_vline(xintercept = c(0,10,20,30,40,50,60), colour = "grey", linetype = 3) +
   geom_tile(aes(fill = BF10), color = "white") +
-  scale_fill_gradientn(colors = met.brewer("Homer2")) +
+  scale_fill_gradientn(colors = MetBrewer::met.brewer("Homer2")) +
   geom_hline(yintercept = c(6,11)) +
-  theme_prism(base_size = 10, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+  ggprism::theme_prism(base_size = 10, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
   labs(x = "Analysis pipeline", y = NULL) +
   scale_y_reverse(breaks = c(1:17), lim = c(18,0), labels = c(expression(bold("Dimension")),
                                                               "Across S, across C", "Across S, within C",
@@ -1867,19 +1868,21 @@ ggplot(sca_lower, aes(x = xaxis, y = value)) +
 # create the middle panel with the p-values
 
 ggplot(sca_results, aes(x = xaxis, y = pvalue)) +
+  geom_vline(xintercept = c(0,10,20,30,40,50,60), colour = "grey", linetype = 3) +
   geom_line() +
-  theme_prism(base_size = 10, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+  ggprism::theme_prism(base_size = 10, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
   labs(x = NULL, y = "p-value") +
   scale_x_continuous(labels = NULL)
 
 # create upper panel with beta weights
 
-ggplot(sca_results, aes(x = xaxis, y = beta))+ 
+ggplot(sca_results, aes(x = xaxis, y = beta)) +
+  geom_vline(xintercept = c(0,10,20,30,40,50,60), colour = "grey", linetype = 3) +
   geom_errorbar(aes(ymin = beta-SE,ymax = beta+SE, col = BF10), 
                 width = 0, size = 2, alpha = .9, show.legend = FALSE) +
   scale_color_gradientn(colors = met.brewer("Homer2")) +
   geom_line(col = "black", size = 0.25) +
-  theme_prism(base_size = 10, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+  ggprism::theme_prism(base_size = 10, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
   labs(x = NULL, y = "Fixed effects beta of the predictor n-back level") +
   scale_x_continuous(labels = NULL)
 
