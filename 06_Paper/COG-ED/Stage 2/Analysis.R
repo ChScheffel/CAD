@@ -176,7 +176,7 @@ remove(all_quest,showups)
 # describe when data acquisition took place
 
 acqui_time <- data.frame(dates = c(t(data_quest[,grep("time", colnames(data_quest))])), stringsAsFactors = FALSE)
-acqui_time <- as.Date(acqui_time$dates, format = "%d.%m.%Y %H:%M")
+acqui_time <- as.Date(acqui_time$dates, format = "%Y-%m-%d %H:%M:%S")
 acqui_time <- range(acqui_time, na.rm = TRUE)
 
 ##### Subjective value computation #############################################
