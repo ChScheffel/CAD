@@ -1132,6 +1132,14 @@ Flex_LM_BF <- BayesFactor::regressionBF(formula = FlexER ~ intercept + slope, da
 #   geom_smooth(method = "lm", fill = NA)+
 #   ylim(0,1.5)
 
+#################### STATISTICAL ANALYSES: EXPLORATORY ANALYSES ############
+
+# Are individuel subjective values of ER strategies related to personality traits?
+
+# preparation: compute self control index from three questionnaires (BIS-11, BSCS, SRS) for each participant
+
+PCA.SC <- psych::principal(data_quest[,c("bscs_sum","srs_sum","bis11_sum")], rotate="none")
+
 
 #################### SAVE WORKSPACE IMAGE #######################
 
