@@ -81,12 +81,9 @@ for (i in 1:length(datalist_ED)) {
   data_ED <- rbind(data_ED, newdata)
 }
 
-# change the name of a subject (it has the suffix "_neu" because the paradigm didn't start properly the first time)
-
-#data_nback$subject[data_nback$subject == "E12K08_neu"] <- "E12K08"
-#data_ED$subject[data_ED$subject == "E12K08_neu"] <- "E12K08"
-
-# remove one subject who did not understand the instructions of the n-back task and reacted only to every n-th stimulus
+# remove the following subjects for misunderstanding the instruction: E17T12, Z15R03, C18D18, H25N04, D24A05, T14G09, D29N05 (only during first half of 1-back)
+# remove the following subject for not remembering the level colours correctly during effort discounting: W16C01
+# sets 2, 6, and 7 were dummy sets to test the NASA TLX iterations
 
 #data_nback <- data_nback[data_nback$subject != "M28B11", ]
 #data_ED <- data_ED[data_ED$subject != "M28B11", ]
