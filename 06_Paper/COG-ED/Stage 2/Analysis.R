@@ -81,12 +81,14 @@ for (i in 1:length(datalist_ED)) {
   data_ED <- rbind(data_ED, newdata)
 }
 
-# remove the following subjects for misunderstanding the instruction: E17T12, Z15R03, C18D18, H25N04, D24A05, T14G09, D29N05 (only during first half of 1-back)
+# remove the following subjects for misunderstanding the instruction: E17T12, Z15R03, C18D18, H25N04, D24A05, T14G09, D29N05
 # remove the following subject for not remembering the level colours correctly during effort discounting: W16C01
 # sets 2, 6, and 7 were dummy sets to test the NASA TLX iterations
 
-#data_nback <- data_nback[data_nback$subject != "M28B11", ]
-#data_ED <- data_ED[data_ED$subject != "M28B11", ]
+data_nback <- data_nback[!(data_nback$subject == "E17T12" | data_nback$subject == "Z15R03" | data_nback$subject == "C18D18" | data_nback$subject == "H25N04" |
+                           data_nback$subject == "D24A05" | data_nback$subject == "T14G09" | data_nback$subject == "D29N05" | data_nback$subject == "W16C01"), ]
+data_ED <- data_ED[!(data_ED$subject == "E17T12" | data_ED$subject == "Z15R03" | data_ED$subject == "C18D18" | data_ED$subject == "H25N04" |
+                     data_ED$subject == "D24A05" | data_ED$subject == "T14G09" | data_ED$subject == "D29N05" | data_ED$subject == "W16C01"), ]
 
 # replace some columns with 'easy to work with' values
 
@@ -112,11 +114,6 @@ data_nback$postcorrect = c(1,data_nback$correct[1:(length(data_nback$correct)-1)
 # make sure to avoid transfer from the previous block by marking the first trial of each block as correct
 
 data_nback$postcorrect[c(1,seq(64,length(data_nback$postcorrect),64))] <- 1
-
-# correct subject code
-#data_nback$subject[which(data_nback$subject == "E12K08_neu")] <- "E12K08"
-#data_ED$subject[which(data_ED$subject == "E12K08_neu")] <- "E12K08"
-
 
 # the choice column will contain 1 for the left button and 2 for the right button
 
