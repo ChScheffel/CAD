@@ -172,7 +172,7 @@ data_EMG$block[data_EMG$trigger == " S 26"] <- "6_choice"
 
 # import questionnaire data from RedCap
 
-data_survey <- read.csv(here("04_RawData", "main", "CAD_DATA.csv"),
+data_survey <- read.csv(here("04_RawData", "main", "Questionnaire_Data_Edits.csv"),
                               stringsAsFactors = FALSE, header = TRUE,
                               na.strings = c("", "NA"))
 colnames(data_survey)[1] <- "set" # rename the first column
