@@ -172,7 +172,7 @@ data_EMG$block[data_EMG$trigger == " S 26"] <- "6_choice"
 
 # import questionnaire data from RedCap
 
-data_survey <- read.csv(here("04_RawData", "main", "Questionnaire_Data_Edits.csv"),
+data_survey <- read.csv(here("04_RawData", "main", "Questionnaire_Data_Full_Version.csv"),
                               stringsAsFactors = FALSE, header = TRUE,
                               na.strings = c("", "NA"))
 colnames(data_survey)[1] <- "set" # rename the first column
@@ -200,6 +200,25 @@ data_ER <- data_ER[!data_ER$ID == "T14G09",]
 data_ED <- data_ED[!data_ED$ID == "T14G09",]
 
 data_EMG <- data_EMG[!data_EMG$ID == "T14G09",]
+
+# sets 2, 6, and 7 were dummy sets to test NASA TLX iterations (T1)
+
+data_survey <- data_survey[!(data_survey$set == "2_final" | data_survey$set == "6_final" | data_survey$set == "7_final" | data_survey$set == "2" | data_survey$set == "6" | data_survey$set == "7"), ]
+
+#################### DESCRIBE DATA ################################# 
+# describe when data acquisition took place
+
+acqui_time <- data.frame(dates = c(t(data_survey[,grep("time", colnames(data_survey))])), stringsAsFactors = FALSE)
+acqui_time <- data.frame(dates = acqui_time[!(acqui_time$dates == ""),])
+acqui_time <- as.Date(acqui_time$dates, format = "%d.%m.%Y %H:%M")
+acqui_time <- range(acqui_time, na.rm = TRUE)
+
+# now remove the original data sets (which we needed for the time stamps) and keep only the edited sets
+
+data_survey <- data_survey[grep("_final", data_survey$set), ]
+
+# remove the "_final" in set name
+data_survey$set <- gsub("_final", "", data_survey$set)
 
 #################### PREPARATION: QUESTIONNAIRES #####################
 
