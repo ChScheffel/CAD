@@ -31,6 +31,7 @@ source(here("06_Paper","COG-ED", "Stage 2", "renv", "activate.R"))
 # "bibtex", "here", "tidyverse", "bayestestR", "papaja", "lmerTest", "afex", "emmeans", "sjPlot", "purrr", "broom",
 # "kableExtra", "interactions", "glmmTMB", "BayesFactor", "ggplot2", "egg", "knitr", "effectsize", "pracma", "MuMIn",
 # "MetBrewer", "lubridate" and "ggprism"
+library(tidyverse) # as an explicit call because renv somehow refuses to remember it
 
 # sets orthogonal contrasts for mixed-effects model and rmANOVA globally in order to get meaningful Type-III tests
 
