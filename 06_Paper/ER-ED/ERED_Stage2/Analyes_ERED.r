@@ -108,9 +108,6 @@ data_ER$strategy[data_ER$block == "4_distancing"] <- "distancing"
 data_ER$strategy[data_ER$block == "5_suppression"] <- "suppression"
 data_ER$strategy[data_ER$block == "6_choice"] <- "choice"
 
-# correct typo in participant L29R08
-data_ER$ID[data_ER$ID == "L29R08"] <- "L29R12"
-
 # store ER choice in data_choice frame
 
 for (i in seq_len(length(datalist_ER))) {
