@@ -323,7 +323,14 @@ The data of this study can be downloaded from [osf.io/vnj8x/](https://osf.io/vnj
 
 ## Code availability
 
-The paradigm code as well as the R Markdown file used to analyze the data and write this document is available at [github.com/ChScheffel/CAD](https://github.com/ChScheffel/CAD).
+The paradigm code as well as the R Markdown file used to analyze the data and write this document are available at [github.com/ChScheffel/CAD](https://github.com/ChScheffel/CAD).
+
+# Results
+
+Data was collected between the 16th of August 2022 and the 3rd of February 2023.
+Of the $N=$ participants who filled out the online questionnaires, $n=$ came to the first lab session.
+Based on the experimenters' notes, we excluded the data of seven participants from analysis for misunderstanding the instruction of the *n*-back task, and the data of one participant who reported that they confused the colours of the levels during effort discounting.
+Our final data set therefore included $N=$ participants.
 
 \newpage
 
