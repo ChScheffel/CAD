@@ -1468,7 +1468,7 @@ raincloudplots::raincloud_2x2_repmes(data_2x2 = plot_h3a_data,
                                  spread_x_ticks = FALSE) +
   xlab("n-back levels") + 
   ylab("Difference in subjective values") +
-  scale_fill_manual(values = met.brewer("Hiroshige", 2), labels = c("NFC above median", "NFC below median")) +
+  scale_fill_manual(values = MetBrewer::met.brewer("Hiroshige", 2), labels = c("NFC above median", "NFC below median")) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
   scale_x_continuous(breaks=c(1,2), labels=c("1-2", "2-3"), limits=c(0, 3))
 
@@ -1609,12 +1609,12 @@ plot_h3b_pvalue <- data.frame(
 
 plot_h3b <- ggplot(h3b_data, aes(x = level, y = ntlx, fill = nfcmedian)) +
   geom_violin(color = NA) +
-  scale_fill_manual(values = met.brewer("Homer2", 2), labels = c("NFC above median", "NFC below median")) +
+  scale_fill_manual(values = MetBrewer::met.brewer("Homer2", 2), labels = c("NFC above median", "NFC below median")) +
   labs(x = "n-back levels", y = "NASA-TLX sum score") +
   geom_boxplot(width = 0.1, position = position_dodge(0.9)) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
   scale_x_discrete(guide = "prism_bracket") +
-  add_pvalue(plot_h3b_pvalue, tip.length = 0)
+  ggprism::add_pvalue(plot_h3b_pvalue, tip.length = 0)
 
 # save the plot as an eps file with high resolution
 
