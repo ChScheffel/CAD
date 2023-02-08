@@ -128,12 +128,8 @@ data_ED <- subset(data_ED, select = -c(step))
 
 # import questionnaire data from RedCap
 
-all_quest <- read.csv(here("04_RawData", "main", "CAD_DATA.csv"), stringsAsFactors = FALSE, header = TRUE)
+all_quest <- read.csv(here("04_RawData", "main", "Questionnaire_Data_Full_Version.csv"), stringsAsFactors = FALSE, header = TRUE)
 colnames(all_quest)[1] <- "set" # rename the first column
-
-# remove the subject who misunderstood the instruction
-
-#data_quest <- data_quest[data_quest$set != "M28B11", ]
 
 # compute index of rows in which the data sets change
 
@@ -141,7 +137,8 @@ setindex <- c(1,which(all_quest$set != dplyr::lag(all_quest$set)),nrow(all_quest
 
 # reshape the data frame for better handling (currently three rows per subject, lots of NAs)
 
-data_quest <- data.frame(subject = all_quest$subject_id_quest[setindex],
+data_quest <- data.frame(set = all_quest$set[setindex],
+                         subject = all_quest$subject_id_quest[setindex],
                          time_quest = all_quest$information_timestamp[setindex])
 data_quest <- cbind(data_quest, all_quest[setindex,] %>% select(nfc_01:nfc_16))
 data_quest <- cbind(data_quest, time_lab = all_quest$general_questions_timestamp[setindex+1],
@@ -151,6 +148,13 @@ data_quest <- cbind(data_quest, all_quest[setindex+1,] %>% select(nasa_tlx_1:ave
 data_quest <- cbind(data_quest, adherence = all_quest$followup_adherence[setindex+1],
                     motivation = all_quest$followup_motivation[setindex+1],
                     motivation_other = all_quest$followup_motivation_other[setindex+1])
+
+# remove the following subjects for misunderstanding the instruction: E17T12, Z15R03, C18D18, H25N04, D24A05, T14G09, D29N05
+# remove the following subject for not remembering the level colours correctly during effort discounting: W16C01
+# sets 2, 6, and 7 were dummy sets to test the NASA TLX iterations
+
+data_quest <- data_quest[!(data_quest$subject == "E17T12" | data_quest$subject == "Z15R03" | data_quest$subject == "C18D18" | data_quest$subject == "H25N04" |
+                             data_quest$subject == "D24A05" | data_quest$subject == "T14G09" | data_quest$subject == "D29N05" | data_quest$subject == "W16C01"), ]
 
 # keep only the data from participants who have both questionnaire and behavioural data
 
@@ -170,8 +174,14 @@ remove(all_quest,showups)
 # describe when data acquisition took place
 
 acqui_time <- data.frame(dates = c(t(data_quest[,grep("time", colnames(data_quest))])), stringsAsFactors = FALSE)
-acqui_time <- as.Date(acqui_time$dates, format = "%Y-%m-%d %H:%M:%S")
+acqui_time <- data.frame(dates = acqui_time[!(acqui_time$dates == ""),])
+acqui_time <- as.Date(acqui_time$dates, format = "%d.%m.%Y %H:%M")
 acqui_time <- range(acqui_time, na.rm = TRUE)
+
+# now remove the original data sets (which we needed for the time stamps) and keep only the edited sets
+
+data_quest <- data_quest[grep("_final", data_quest$set), ]
+data_quest <- subset(data_quest, select = -c(set, time_quest))
 
 ##### Subjective value computation #############################################
 
