@@ -55,6 +55,16 @@
         "Matrix"
       ]
     },
+    "MetBrewer": {
+      "Package": "MetBrewer",
+      "Version": "0.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "9dda8af6359c4b3932426430c38fa1b1",
+      "Requirements": [
+        "ggplot2"
+      ]
+    },
     "MuMIn": {
       "Package": "MuMIn",
       "Version": "1.47.1",
@@ -490,6 +500,17 @@
         "insight"
       ]
     },
+    "gghalves": {
+      "Package": "gghalves",
+      "Version": "0.1.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "141e061a5a68d463f11a4b5819ef0357",
+      "Requirements": [
+        "ggplot2",
+        "gtable"
+      ]
+    },
     "ggplot2": {
       "Package": "ggplot2",
       "Version": "3.4.0",
@@ -509,6 +530,22 @@
         "tibble",
         "vctrs",
         "withr"
+      ]
+    },
+    "ggprism": {
+      "Package": "ggprism",
+      "Version": "1.0.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "3fa30e841fe2c609b346eb2d7ceaf098",
+      "Requirements": [
+        "digest",
+        "ggplot2",
+        "glue",
+        "gtable",
+        "rlang",
+        "scales",
+        "tibble"
       ]
     },
     "glue": {
@@ -949,6 +986,24 @@
         "MatrixModels",
         "SparseM",
         "survival"
+      ]
+    },
+    "raincloudplots": {
+      "Package": "raincloudplots",
+      "Version": "0.2.0",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "raincloudplots",
+      "RemoteUsername": "jorvlan",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "e5530fcba2e4b8d6d43633d90320d6a86d1fbcb4",
+      "Hash": "5abbe1c5a7a05195fd026f4b359c8db0",
+      "Requirements": [
+        "dplyr",
+        "gghalves",
+        "ggplot2",
+        "magrittr"
       ]
     },
     "rappdirs": {
