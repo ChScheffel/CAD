@@ -11,6 +11,10 @@
 # ER-ED
 **/01_Paradigms/ER-ED/ER_ED/data/
 
+### Files T2 ####
+
+**/04_RawData/main/ER-ED
+
 # Bib
 *.sav.tmp
 
