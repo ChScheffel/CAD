@@ -181,7 +181,7 @@ acqui_time <- range(acqui_time, na.rm = TRUE)
 # now remove the original data sets (which we needed for the time stamps) and keep only the edited sets
 
 data_quest <- data_quest[grep("_final", data_quest$set), ]
-data_quest <- subset(data_quest, select = -c(set, time_quest))
+data_quest <- subset(data_quest, select = -c(set, time_quest, time_lab))
 
 ##### Subjective value computation #############################################
 
