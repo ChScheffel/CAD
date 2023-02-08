@@ -192,14 +192,15 @@ data_survey <- as.data.frame(data_survey)
 
 # remove participants that misunderstood instructions
 # none
-# remove participants that talked during EMG recording
-# T14G09
+# remove participants with distorted EMG recordings
+# T14G09 F14A01
 
 data_ER <- data_ER[!data_ER$ID == "T14G09",]
 
 data_ED <- data_ED[!data_ED$ID == "T14G09",]
 
-data_EMG <- data_EMG[!data_EMG$ID == "T14G09",]
+data_EMG <- data_EMG[!(data_EMG$ID == "T14G09" | data_EMG$ID == "F14A01"),]
+
 
 # sets 2, 6, and 7 were dummy sets to test NASA TLX iterations (T1)
 
@@ -582,7 +583,11 @@ EMGCorrView_con[1, 1] <- "$View_{neutral} - View_{negative}$"
 
 # Figure to visualize corrugator activity across view conditions
 
-FigEMGCorrView <- ggplot2::ggplot(EMG_view, aes(x = block, y = Corr, fill = block)) +
+# create DF with mean value of each participant
+
+EMG_view_plot <- EMG_view %>% group_by(ID, block) %>% summarise_at(vars("Corr","Lev"), list(mean)) 
+
+FigEMGCorrView <- ggplot2::ggplot(EMG_view_plot, aes(x = block, y = Corr, fill = block)) +
   geom_boxplot(width = 0.2, alpha = .95) +
   geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
   see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
@@ -631,7 +636,7 @@ EMGLevView_con[1, 1] <- "$View_{neutral} - View_{negative}$"
 
 # Figure to visualize levator activity across view conditions
 
-FigEMGLevView <- ggplot2::ggplot(EMG_view, aes(x = block, y = Lev, fill = block)) +
+FigEMGLevView <- ggplot2::ggplot(EMG_view_plot, aes(x = block, y = Lev, fill = block)) +
   geom_boxplot(width = 0.2, alpha = .95) +
   geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
   see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
@@ -788,7 +793,10 @@ EMGCorrReg_con[6, 1] <- "$Distancing - Suppression$"
 
 # Figure to visualize corrugator activity across blocks
 
-FigEMGCorrReg <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Corr, fill = block)) +
+# 
+EMG_reg_plot <- EMG_reg %>% group_by(ID, block) %>% summarise_at(vars("Corr","Lev"), list(mean))
+
+FigEMGCorrReg <- ggplot2::ggplot(EMG_reg_plot, aes(x = block, y = Corr, fill = block)) +
   geom_boxplot(width = 0.2, alpha = .95) +
   geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
   see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
@@ -857,7 +865,7 @@ EMGLevReg_con[6, 1] <- "$Distancing - Suppression$"
 # Figure to visualize levator activity across regulation blocks
 
 # figure
-FigEMGLevReg <- ggplot2::ggplot(EMG_reg, aes(x = block, y = Lev, fill = block)) +
+FigEMGLevReg <- ggplot2::ggplot(EMG_reg_plot, aes(x = block, y = Lev, fill = block)) +
   geom_boxplot(width = 0.2, alpha = .95) +
   geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
   see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
