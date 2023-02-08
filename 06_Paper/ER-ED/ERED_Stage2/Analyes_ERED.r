@@ -188,6 +188,19 @@ data_survey <- data_survey[, lapply(.SD, paste0 , collapse=""), by=set]
 
 data_survey <- as.data.frame(data_survey)
 
+#################### QUALITY CONTROL #################################
+
+# remove participants that misunderstood instructions
+# none
+# remove participants that talked during EMG recording
+# T14G09
+
+data_ER <- data_ER[!data_ER$ID == "T14G09",]
+
+data_ED <- data_ED[!data_ED$ID == "T14G09",]
+
+data_EMG <- data_EMG[!data_EMG$ID == "T14G09",]
+
 #################### PREPARATION: QUESTIONNAIRES #####################
 
 # built new data frame with every participant that started the online survey
