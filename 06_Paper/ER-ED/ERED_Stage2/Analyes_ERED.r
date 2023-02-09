@@ -199,7 +199,7 @@ data_ER <- data_ER[!data_ER$ID == "T14G09",]
 
 data_ED <- data_ED[!data_ED$ID == "T14G09",]
 
-data_EMG <- data_EMG[!(data_EMG$ID == "T14G09" | data_EMG$ID == "F14A01"),]
+data_EMG <- data_EMG[!data_EMG$ID == "T14G09",]
 
 
 # sets 2, 6, and 7 were dummy sets to test NASA TLX iterations (T1)
