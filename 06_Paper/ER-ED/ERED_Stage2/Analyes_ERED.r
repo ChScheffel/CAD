@@ -206,6 +206,36 @@ data_EMG <- data_EMG[!data_EMG$ID == "T14G09",]
 
 data_survey <- data_survey[!(data_survey$set == "2_final" | data_survey$set == "6_final" | data_survey$set == "7_final" | data_survey$set == "2" | data_survey$set == "6" | data_survey$set == "7"), ]
 
+#### EMG DATA: EXCLUDE OUTLIER
+# within participants but across conditions
+# Exclude trials that are above 1.5 inter-quartile ranges above the third quartile of the mean
+
+data_EMG %>% group_by(ID) %>% summarize(stats::IQR(Corr))
+
+
+# old code
+# # "Outliers [in the neutral] condition were identified if the mean subjective or physiological response to neutral pictures was higher than
+# # 1.5 interquartile rangres above the third qartile of the group mean (Meir Drexler et al., 2015)
+# 
+# ### gradient 
+# # IQR neutral
+# iqr.gradient.neu = IQR(dt$gradient[dt$cond == "Neutral NaN"], na.rm = TRUE)
+# # 3rd quantil
+# quantile.3rd.gradient.neu = quantile(dt$gradient[dt$cond == "Neutral NaN"], probs = 0.75, na.rm = TRUE)
+# # outliers
+# outlier.gradient = dt$vp[dt$cond == "Neutral NaN"][which(dt$gradient[dt$cond == "Neutral NaN"] > (quantile.3rd.gradient.neu + 1.5 * iqr.gradient.neu))]
+# 
+# ### AUCi
+# # IQR neutral
+# iqr.auci.neu = IQR(dt$auci[dt$cond == "Neutral NaN"], na.rm = TRUE)
+# # 3rd quantil
+# quantile.3rd.auci.neu = quantile(dt$auci[dt$cond == "Neutral NaN"], probs = 0.75, na.rm = TRUE)
+# # outliers
+# outlier.auci = dt$vp[dt$cond == "Neutral NaN"][which(dt$auci[dt$cond == "Neutral NaN"] > (quantile.3rd.auci.neu + 1.5 * iqr.auci.neu))]
+# 
+# outliers.neutral = c(outlier.gradient,outlier.auci)
+
+
 #################### DESCRIBE DATA ################################# 
 # describe when data acquisition took place
 
