@@ -166,12 +166,6 @@ data_quest <- data_quest[data_quest$subject %in% showups, ]
 
 data_quest <- data_quest %>% filter(complete.cases(.))
 
-# remove temporary variables
-
-remove(all_quest,showups)
-
-##### Descriptive data #########################################################
-
 # describe when data acquisition took place
 
 acqui_time <- data.frame(dates = c(t(data_quest[,grep("time", colnames(data_quest))])), stringsAsFactors = FALSE)
@@ -183,6 +177,10 @@ acqui_time <- range(acqui_time, na.rm = TRUE)
 
 data_quest <- data_quest[grep("_final", data_quest$set), ]
 data_quest <- subset(data_quest, select = -c(set, time_quest, time_lab))
+
+# remove temporary variables
+
+remove(all_quest,showups)
 
 ##### Subjective value computation #############################################
 
