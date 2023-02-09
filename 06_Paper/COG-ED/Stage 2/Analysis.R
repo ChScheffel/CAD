@@ -1417,39 +1417,37 @@ hypothesis3a_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")] <- signif(hypothesis3a_
 hypothesis3a_rmanova$`$p$` <- format(round(hypothesis3a_rmanova$`$p$`, digits = 3), nsmall = 2)
 hypothesis3a_rmanova$`$p$`[hypothesis3a_rmanova$`$p$` == "0.000"] <- "<.001"
 
-## post-hoc tests for the NFC groups
+## post-hoc tests for the n-back levels
 
 # obtain estimated marginal means for ANOVA model
 
-hypothesis3a_emm_nfc <- emmeans::emmeans(object = hypothesis3a_model, "nfcmedian")
+hypothesis3a_emm_nlevel <- emmeans::emmeans(object = hypothesis3a_model, "nlevels")
 
 # calculate pairwise comparisons on estimated marginal means
 
-hypothesis3a_contrasts_nfc <- as.data.frame(pairs(hypothesis3a_emm_nfc))
+hypothesis3a_contrasts_nlevel <- as.data.frame(pairs(hypothesis3a_emm_nlevel))
 
 # get Bayes factors
 
-hypothesis3a_BF_nfc <- BayesFactor::anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = h3a_data, progress = FALSE)
-hypothesis3a_contrasts_nfc$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h3a_data$svdiff[h3a_data$nfcmedian == "high"], y = h3a_data$svdiff[h3a_data$nfcmedian == "low"],
-                                                                                 progress = FALSE, paired = FALSE))$bf)
+hypothesis3a_BF_nlevel <- BayesFactor::anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = h3a_data, progress = FALSE)
+#hypothesis3a_contrasts_nlevel$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h3a_data$svdiff[h3a_data$nlevels == "1-2"], y = h3a_data$svdiff[h3a_data$nlevels == "2-3"],
+#                                                                                    progress = FALSE, paired = TRUE))$bf)
 
 # get effect size
 
-hypothesis3a_contrasts_nfc <- cbind(hypothesis3a_contrasts_nfc,
-                                    format(effectsize::t_to_eta2(t = hypothesis3a_contrasts_nfc$t.ratio,
-                                                                 df_error = hypothesis3a_contrasts_nfc$df, ci = 0.95), digits = 2))
+#hypothesis3a_contrasts_nlevel <- cbind(hypothesis3a_contrasts_nlevel,
+#                                    format(effectsize::t_to_eta2(t = hypothesis3a_contrasts_nlevel$t.ratio,
+#                                                                 df_error = hypothesis3a_contrasts_nlevel$df, ci = 0.95), digits = 2))
 
 # rename columns and contrasts, round to two decimals
 
-colnames(hypothesis3a_contrasts_nfc) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
-hypothesis3a_contrasts_nfc$Contrast <- c("High NFC - Low NFC")
-hypothesis3a_contrasts_nfc[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(round(hypothesis3a_contrasts_nfc[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 2), nsmall = 2)
-hypothesis3a_contrasts_nfc$`$p$` <- format(round(hypothesis3a_contrasts_nfc$`$p$`, digits = 3), nsmall = 2)
-hypothesis3a_contrasts_nfc$`$p$`[hypothesis3a_contrasts_nfc$`$p$` == "0.000"] <- "<.001"
+colnames(hypothesis3a_contrasts_nlevel) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+hypothesis3a_contrasts_nlevel$Contrast <- gsub("X", "", hypothesis3a_contrasts$Contrast)
+hypothesis3a_contrasts_nlevel[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(round(hypothesis3a_contrasts_nlevel[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 2), nsmall = 2)
+hypothesis3a_contrasts_nlevel$`$p$` <- format(round(hypothesis3a_contrasts_nlevel$`$p$`, digits = 3), nsmall = 2)
+hypothesis3a_contrasts_nlevel$`$p$`[hypothesis3a_contrasts_nlevel$`$p$` == "0.000"] <- "<.001"
 
 # prepare raincloud plot
-# remove NAs for trying out the plot right now
-h3a_data <- h3a_data[complete.cases(h3a_data),]
 
 plot_h3a_data <- raincloudplots::data_2x2(array_1 = h3a_data$svdiff[h3a_data$nlevels == "1-2" & h3a_data$nfcmedian == "low"],
                           array_2 = h3a_data$svdiff[h3a_data$nlevels == "2-3" & h3a_data$nfcmedian == "low"],
@@ -1461,12 +1459,11 @@ plot_h3a_data <- raincloudplots::data_2x2(array_1 = h3a_data$svdiff[h3a_data$nle
                           spread_x_ticks = FALSE)
 
 raincloudplots::raincloud_2x2_repmes(data_2x2 = plot_h3a_data,
-                                 size = 1,
+                                 size = 2,
                                  alpha = .6,
                                  spread_x_ticks = FALSE) +
   xlab("n-back levels") + 
   ylab("Difference in subjective values") +
-  scale_fill_manual(values = MetBrewer::met.brewer("Hiroshige", 2), labels = c("NFC above median", "NFC below median")) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
   scale_x_continuous(breaks=c(1,2), labels=c("1-2", "2-3"), limits=c(0, 3))
 
