@@ -1720,9 +1720,36 @@ hypothesis3c_contrasts_nfc[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(roun
 hypothesis3c_contrasts_nfc$`$p$` <- format(round(hypothesis3c_contrasts_nfc$`$p$`, digits = 3), nsmall = 2)
 hypothesis3c_contrasts_nfc$`$p$`[hypothesis3c_contrasts_nfc$`$p$` == "0.000"] <- "<.001"
 
+## post-hoc tests for the n-back levels
+
+# obtain estimated marginal means for ANOVA model
+
+hypothesis3c_emm_levels <- emmeans::emmeans(object = hypothesis3c_model, "nlevels")
+
+# calculate pairwise comparisons on estimated marginal means
+
+hypothesis3c_contrasts_levels <- as.data.frame(pairs(hypothesis3c_emm_levels))
+
+# get Bayes factors
+
+hypothesis3c_BF_levels <- anovaBF(formula = aversdiff ~ nlevels * nfcmedian, data = h3c_data, progress = FALSE)
+hypothesis3c_contrasts_levels$BF10 <- extractBF(hypothesis3c_BF_levels[1])$bf
+
+# get effect size
+
+hypothesis3c_contrasts_levels <- cbind(hypothesis3c_contrasts_levels,
+                                    format(effectsize::t_to_eta2(t = hypothesis3c_contrasts_levels$t.ratio,
+                                                                 df_error = hypothesis3c_contrasts_levels$df, ci = 0.95), digits = 2))
+
+# rename columns and contrasts, round to two decimals
+
+colnames(hypothesis3c_contrasts_levels) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+hypothesis3c_contrasts_levels$Contrast <- c("1-2 - 2-3")
+hypothesis3c_contrasts_levels[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(round(hypothesis3c_contrasts_levels[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 2), nsmall = 2)
+hypothesis3c_contrasts_levels$`$p$` <- format(round(hypothesis3c_contrasts_levels$`$p$`, digits = 3), nsmall = 2)
+hypothesis3c_contrasts_levels$`$p$`[hypothesis3c_contrasts_levels$`$p$` == "0.000"] <- "<.001"
+
 # prepare raincloud plot
-# remove NAs for trying out the plot right now
-h3c_data <- h3c_data[complete.cases(h3c_data),]
 
 plot_h3c_data <- raincloudplots::data_2x2(array_1 = h3c_data$aversdiff[h3c_data$nlevels == "1-2" & h3c_data$nfcmedian == "low"],
                           array_2 = h3c_data$aversdiff[h3c_data$nlevels == "2-3" & h3c_data$nfcmedian == "low"],
