@@ -139,6 +139,9 @@ base::load(here("06_Paper","ER-ED","ERED_Stage2","Workspace_ERED.RData"))
 ```{r child = "Method.Rmd"}
 ```
 
+```{r child = "Results.Rmd"}
+```
+
 # References
 
 ```{=tex}

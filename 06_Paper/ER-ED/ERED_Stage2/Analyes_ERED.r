@@ -37,10 +37,17 @@ datalist_ER <- lapply(list.files(here("04_RawData", "main", "ER-ED/logfiles"),
                             read.csv, stringsAsFactors = FALSE,
                             header = TRUE)
 
+# rename participants with wrong codes
+datalist_ER[[90]][["participant"]] <- "O27K03"
+datalist_ER[[75]][["participant"]] <- "L29R12"
+
 datalist_ED <- lapply(list.files(here("04_RawData", "main", "ER-ED/logfiles"),
                                        pattern = "*_ED.*csv", full.names = TRUE),
                             read.csv, stringsAsFactors = FALSE,
                             header = TRUE)
+
+datalist_ED[[90]][["participant"]] <- "O27K03"
+datalist_ED[[75]][["participant"]] <- "L29R12"
 
 # new empty frame to store files into
 data_ER <- data.frame(ID = character(), block = character(),
@@ -196,6 +203,7 @@ data_survey <- as.data.frame(data_survey)
 # T14G09 F14A01
 
 data_ER <- data_ER[!data_ER$ID == "T14G09",]
+data_choice <- data_choice[!data_choice$ID == "T14G09",]
 
 data_ED <- data_ED[!data_ED$ID == "T14G09",]
 
@@ -217,46 +225,33 @@ EMG.stats <- as.data.frame(EMG.stats)
 colnames(EMG.stats) <- c("ID", "IQR.Corr", "FirstQ.Corr", "ThirdQ.Corr", "IQR.Lev", "FirstQ.Lev", "ThirdQ.Lev")
 
 # compute upper and lower boundary
-EMG.stats$outlier.Corr.ab <- EMG.stats$ThirdQ.Corr + 1.5 * EMG.stats$IQR.Corr
-EMG.stats$outlier.Corr.bel <- EMG.stats$FirstQ.Corr - 1.5 * EMG.stats$IQR.Corr
-EMG.stats$outlier.Lev.ab <- EMG.stats$ThirdQ.Lev + 1.5 * EMG.stats$IQR.Lev
-EMG.stats$outlier.Lev.bel <- EMG.stats$FirstQ.Lev - 1.5 * EMG.stats$IQR.Lev
+EMG.stats$Corr.ab <- EMG.stats$ThirdQ.Corr + 1.5 * EMG.stats$IQR.Corr
+EMG.stats$Corr.bel <- EMG.stats$FirstQ.Corr - 1.5 * EMG.stats$IQR.Corr
+EMG.stats$Lev.ab <- EMG.stats$ThirdQ.Lev + 1.5 * EMG.stats$IQR.Lev
+EMG.stats$Lev.bel <- EMG.stats$FirstQ.Lev - 1.5 * EMG.stats$IQR.Lev
 
 EMG.outlier <- data.frame(outlier = double())
+
+# create new data frame
+data_EMG.new <- data.frame()
 
 # loop for each participant
 
 for (i in seq_len(length(EMG.stats$ID))) {
   
-  tmp.outlier <- which(data_EMG$Corr[data_EMG$ID == EMG.stats$ID[i]] > EMG.stats$outlier.Corr.ab[i] | data_EMG$Corr[data_EMG$ID == EMG.stats$ID[i]] < EMG.stats$outlier.Corr.bel[i])
+  tmp.Corr <- which(data_EMG$Corr[data_EMG$ID == EMG.stats$ID[i]] > EMG.stats$Corr.ab[i] | data_EMG$Corr[data_EMG$ID == EMG.stats$ID[i]] < EMG.stats$Corr.bel[i])
+  tmp.Lev <- which(data_EMG$Lev[data_EMG$ID == EMG.stats$ID[i]] > EMG.stats$Lev.ab[i] | data_EMG$Lev[data_EMG$ID == EMG.stats$ID[i]] < EMG.stats$Lev.bel[i])
   
-  EMG.outlier <- rbind(EMG.outlier, tmp.outlier)
+  tmp.unique <- unique(tmp.Corr,tmp.Lev)
+  
+  tmp.new <- data_EMG[data_EMG$ID == EMG.stats$ID[i],]
+  tmp.new <- tmp.new[-tmp.unique,]
+  
+  data_EMG.new <- rbind(data_EMG.new, tmp.new)
+  
 }
 
-base::remove(tmp.outlier)
-
-tmp.Corr <- which(data_EMG$Corr[data_EMG$ID == EMG.stats$ID[1]] > EMG.stats$outlier.Corr.ab[1] | data_EMG$Corr[data_EMG$ID == EMG.stats$ID[1]] < EMG.stats$outlier.Corr.bel[1])
-# old code
-# # "Outliers [in the neutral] condition were identified if the mean subjective or physiological response to neutral pictures was higher than
-# # 1.5 interquartile rangres above the third qartile of the group mean (Meir Drexler et al., 2015)
-# 
-# ### gradient 
-# # IQR neutral
-# iqr.gradient.neu = IQR(dt$gradient[dt$cond == "Neutral NaN"], na.rm = TRUE)
-# # 3rd quantil
-# quantile.3rd.gradient.neu = quantile(dt$gradient[dt$cond == "Neutral NaN"], probs = 0.75, na.rm = TRUE)
-# # outliers
-# outlier.gradient = dt$vp[dt$cond == "Neutral NaN"][which(dt$gradient[dt$cond == "Neutral NaN"] > (quantile.3rd.gradient.neu + 1.5 * iqr.gradient.neu))]
-# 
-# ### AUCi
-# # IQR neutral
-# iqr.auci.neu = IQR(dt$auci[dt$cond == "Neutral NaN"], na.rm = TRUE)
-# # 3rd quantil
-# quantile.3rd.auci.neu = quantile(dt$auci[dt$cond == "Neutral NaN"], probs = 0.75, na.rm = TRUE)
-# # outliers
-# outlier.auci = dt$vp[dt$cond == "Neutral NaN"][which(dt$auci[dt$cond == "Neutral NaN"] > (quantile.3rd.auci.neu + 1.5 * iqr.auci.neu))]
-# 
-# outliers.neutral = c(outlier.gradient,outlier.auci)
+base::remove(tmp.Corr, tmp.Lev, tmp.unique, tmp.new)
 
 
 #################### DESCRIBE DATA ################################# 
@@ -600,8 +595,8 @@ FigSubjArousalView <- ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal, 
 
 # Physiological responding (EMG corrugator activity) is lower while actively viewing neutral pictures compared to actively viewing negative pictures.
 
-EMG_view <- data_EMG %>%
-  subset(data_EMG$block == "1_view_neu" | data_EMG$block == "2_view_neg")
+EMG_view <- data_EMG.new %>%
+  subset(data_EMG.new$block == "1_view_neu" | data_EMG.new$block == "2_view_neg")
 EMG_view$block <- as.factor(EMG_view$block)
 
 EMGCorrView_aov <- afex::aov_ez(data = EMG_view,
@@ -790,8 +785,8 @@ FigSubjArousalReg <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal, fi
 # Physiological responding (EMG corrugator activity) is lower after using an emotion regulation strategy (distraction, distancing, suppression) compared to active viewing.
 
 
-EMG_reg <- data_EMG %>%
-  subset(data_EMG$block != "1_view_neu" & data_EMG$block != "6_choice")
+EMG_reg <- data_EMG.new %>%
+  subset(data_EMG.new$block != "1_view_neu" & data_EMG.new$block != "6_choice")
 EMG_reg$block <- as.factor(EMG_reg$block)
 
 EMGCorrReg_aov <- afex::aov_ez(data = EMG_reg,
@@ -813,22 +808,22 @@ EMGCorrReg_BF <- BayesFactor::anovaBF(formula = Corr ~ block,
 
 EMGCorrReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
                                                                      y = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
+                                                                     progress = FALSE, paired = FALSE))$bf,
                          BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
                                                                      y = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
+                                                                     progress = FALSE, paired = FALSE))$bf,
                          BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
                                                                      y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
+                                                                     progress = FALSE, paired = FALSE))$bf,
                          BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
                                                                      y = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
+                                                                     progress = FALSE, paired = FALSE))$bf,
                          BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
                                                                      y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
+                                                                     progress = FALSE, paired = FALSE))$bf,
                          BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
                                                                      y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = TRUE))$bf)
+                                                                     progress = FALSE, paired = FALSE))$bf)
 
 EMGCorrReg_con <- cbind(EMGCorrReg_con,
                         format(effectsize::t_to_eta2(t = EMGCorrReg_con$t.ratio,
@@ -884,22 +879,22 @@ EMGLevReg_BF <- BayesFactor::anovaBF(formula = Lev ~ block,
 
 EMGLevReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
                                                                     y = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
-                                                                    progress = FALSE, paired = TRUE))$bf,
+                                                                    progress = FALSE, paired = FALSE))$bf,
                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
                                                                     y = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
-                                                                    progress = FALSE, paired = TRUE))$bf,
+                                                                    progress = FALSE, paired = FALSE))$bf,
                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
                                                                     y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
-                                                                    progress = FALSE, paired = TRUE))$bf,
+                                                                    progress = FALSE, paired = FALSE))$bf,
                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
                                                                     y = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
-                                                                    progress = FALSE, paired = TRUE))$bf,
+                                                                    progress = FALSE, paired = FALSE))$bf,
                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
                                                                     y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
-                                                                    progress = FALSE, paired = TRUE))$bf,
+                                                                    progress = FALSE, paired = FALSE))$bf,
                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
                                                                     y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
-                                                                    progress = FALSE, paired = TRUE))$bf)
+                                                                    progress = FALSE, paired = FALSE))$bf)
 
 EMGLevReg_con <- cbind(EMGLevReg_con,
                        format(effectsize::t_to_eta2(t = EMGLevReg_con$t.ratio,
@@ -1016,8 +1011,8 @@ FigSubjEffort <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort, fill = 
 #   https://quantdev.ssri.psu.edu/tutorials/r-bootcamp-introduction-multilevel-model-and-interactions
 
 # build new df for MLM
-data_MLM <- data_EMG %>%
-  subset(data_EMG$block != "2_view_neg" & data_EMG$block != "1_view_neu" & data_EMG$block != "6_choice")
+data_MLM <- data_EMG.new %>%
+  subset(data_EMG.new$block != "2_view_neg" & data_EMG.new$block != "1_view_neu" & data_EMG.new$block != "6_choice")
 
 # drop unnecessary columns
 data_MLM$trigger <- NULL
