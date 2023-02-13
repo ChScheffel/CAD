@@ -18,5 +18,12 @@ here::i_am("flag_project_root_CAD.txt")
 #library(readxl)     # import excel files
 ```
 
-# 3. Method
+# 3. Results
 
+## 3.1 Participants and descriptive statistics
+
+Data collection took place between `r acqui_time[1]` and `r acqui_time[2]`.
+
+## 3.2. Confirmatory analyses
+
+## 3.3. Exploratory analyses
