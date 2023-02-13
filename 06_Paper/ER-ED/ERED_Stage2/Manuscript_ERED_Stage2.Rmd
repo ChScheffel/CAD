@@ -125,7 +125,7 @@ here::i_am("flag_project_root_CAD.txt")
 
 library(papaja) # APA conform output
 library(kableExtra) # for tables in R Markdown
-library(BayesFactor) # for bayes factors
+#library(BayesFactor) # for bayes factors
 
 # load workspace variables from analyses_ERED.R script
 base::load(here("06_Paper","ER-ED","ERED_Stage2","Workspace_ERED_pilot.RData"))
@@ -257,7 +257,7 @@ An internal consistency of Cronbach's $\alpha=.88$ was reported [@Derryberry2002
 
 ANOVA:
 
-`r afex::nice(SubjArousalView_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(extractBF(SubjArousalView_pilot_BF)$bf, digits = 2)`
+`r afex::nice(SubjArousalView_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(BayesFactor::extractBF(SubjArousalView_pilot_BF)$bf, digits = 2)`
 
 Paired contrasts:
 
@@ -280,7 +280,7 @@ print(FigSubjArousalViewPilot)
 
 ## Pilot study: Subjective arousal in the conditions "Active viewing - negative", "Distraction", "Distancing", and "Suppression"
 
-ANOVA: `r afex::nice(SubjArousalReg_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(extractBF(SubjArousalReg_pilot_BF)$bf, digits = 2)`
+ANOVA: `r afex::nice(SubjArousalReg_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(BayesFactor::extractBF(SubjArousalReg_pilot_BF)$bf, digits = 2)`
 
 Paired contrasts:
 
@@ -303,7 +303,7 @@ print(FigSubjArousalRegPilot)
 
 ## Pilot study: Physiological responding (*Corrugator* and *Levator* activity) in the conditions "Active viewing - neutral" and "Active viewing - negative"
 
-*Corrugator*: ANOVA: `r afex::nice(EMGCorrView_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(extractBF(EMGCorrView_pilot_BF)$bf, digits = 2)`
+*Corrugator*: ANOVA: `r afex::nice(EMGCorrView_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(BayesFactor::extractBF(EMGCorrView_pilot_BF)$bf, digits = 2)`
 
 Paired contrasts:
 
@@ -317,7 +317,7 @@ apa_table(
 )
 ```
 
-*Levator*: ANOVA: `r afex::nice(EMGLevView_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(extractBF(EMGLevView_pilot_BF)$bf, digits = 2)`
+*Levator*: ANOVA: `r afex::nice(EMGLevView_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(BayesFactor::extractBF(EMGLevView_pilot_BF)$bf, digits = 2)`
 
 Paired contrasts:
 
@@ -345,7 +345,7 @@ print(FigEMGLevViewPilot)
 
 ## Pilot study: Physiological responding (*Corrugator* and *Levator* activity) in the conditions"Active viewing - negative", "Distraction", "Distancing", and "Suppression"
 
-*Corrugator*: ANOVA: `r afex::nice(EMGCorrReg_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(extractBF(EMGCorrReg_pilot_BF)$bf, digits = 2)`
+*Corrugator*: ANOVA: `r afex::nice(EMGCorrReg_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(BayesFactor::extractBF(EMGCorrReg_pilot_BF)$bf, digits = 2)`
 
 Paired contrasts:
 
@@ -359,7 +359,7 @@ apa_table(
 )
 ```
 
-*Levator*: ANOVA: `r afex::nice(EMGLevReg_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(extractBF(EMGLevReg_pilot_BF)$bf, digits = 2)`
+*Levator*: ANOVA: `r afex::nice(EMGLevReg_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(BayesFactor::extractBF(EMGLevReg_pilot_BF)$bf, digits = 2)`
 
 Paired contrasts:
 
@@ -387,7 +387,7 @@ print(FigEMGLevRegPilot)
 
 ## Pilot study: Subjective effort in the conditions "Active viewing - negative", "Distraction", "Distancing", and "Suppression"
 
-ANOVA: `r afex::nice(SubjEffort_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(extractBF(SubjEffort_pilot_BF)$bf, digits = 2)`
+ANOVA: `r afex::nice(SubjEffort_pilot_aov) %>% knitr::kable(x = .)` $BF10=$ `r round(BayesFactor::extractBF(SubjEffort_pilot_BF)$bf, digits = 2)`
 
 Paired contrasts:
 
