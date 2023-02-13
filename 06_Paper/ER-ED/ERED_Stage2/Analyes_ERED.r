@@ -210,16 +210,17 @@ data_survey <- data_survey[!(data_survey$set == "2_final" | data_survey$set == "
 # within participants but across conditions
 # Exclude trials that are above 1.5 inter-quartile ranges above the third quartile of the mean
 
-EMG.stats <- data_EMG %>% group_by(ID) %>% summarize(stats::IQR(Corr), stats::quantile(Corr, probs = 0.75, na.rm = TRUE), stats::IQR(Lev), stats::quantile(Lev, probs = 0.75, na.rm = TRUE))
+EMG.stats <- data_EMG %>% group_by(ID) %>% summarize(stats::IQR(Corr), stats::quantile(Corr, probs = 0.25, na.rm = TRUE), stats::quantile(Corr, probs = 0.75, na.rm = TRUE),
+                                                     stats::IQR(Lev), stats::quantile(Lev, probs = 0.25, na.rm = TRUE), stats::quantile(Lev, probs = 0.75, na.rm = TRUE))
 
 EMG.stats <- as.data.frame(EMG.stats)
-colnames(EMG.stats) <- c("ID", "IQR.Corr", "quantile.Corr", "IQR.Lev", "quantile.Lev")
+colnames(EMG.stats) <- c("ID", "IQR.Corr", "FirstQ.Corr", "ThirdQ.Corr", "IQR.Lev", "FirstQ.Lev", "ThirdQ.Lev")
 
 # compute upper and lower boundary
-EMG.stats$outlier.Corr.ab <- EMG.stats$quantile.Corr + 1.5 * EMG.stats$IQR.Corr
-EMG.stats$outlier.Corr.bel <- EMG.stats$quantile.Corr - 1.5 * EMG.stats$IQR.Corr
-EMG.stats$outlier.Lev.ab <- EMG.stats$quantile.Lev + 1.5 * EMG.stats$IQR.Lev
-EMG.stats$outlier.Lev.bel <- EMG.stats$quantile.Lev + 1.5 * EMG.stats$IQR.Lev
+EMG.stats$outlier.Corr.ab <- EMG.stats$ThirdQ.Corr + 1.5 * EMG.stats$IQR.Corr
+EMG.stats$outlier.Corr.bel <- EMG.stats$FirstQ.Corr - 1.5 * EMG.stats$IQR.Corr
+EMG.stats$outlier.Lev.ab <- EMG.stats$ThirdQ.Lev + 1.5 * EMG.stats$IQR.Lev
+EMG.stats$outlier.Lev.bel <- EMG.stats$FirstQ.Lev - 1.5 * EMG.stats$IQR.Lev
 
 EMG.outlier <- data.frame(outlier = double())
 
@@ -233,6 +234,8 @@ for (i in seq_len(length(EMG.stats$ID))) {
 }
 
 base::remove(tmp.outlier)
+
+tmp.Corr <- which(data_EMG$Corr[data_EMG$ID == EMG.stats$ID[1]] > EMG.stats$outlier.Corr.ab[1] | data_EMG$Corr[data_EMG$ID == EMG.stats$ID[1]] < EMG.stats$outlier.Corr.bel[1])
 # old code
 # # "Outliers [in the neutral] condition were identified if the mean subjective or physiological response to neutral pictures was higher than
 # # 1.5 interquartile rangres above the third qartile of the group mean (Meir Drexler et al., 2015)
