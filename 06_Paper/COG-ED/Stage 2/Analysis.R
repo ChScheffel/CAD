@@ -1576,45 +1576,47 @@ hypothesis3b_contrasts_levels[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(r
 hypothesis3b_contrasts_levels$`$p$` <- format(round(hypothesis3b_contrasts_levels$`$p$`, digits = 3), nsmall = 2)
 hypothesis3b_contrasts_levels$`$p$`[hypothesis3b_contrasts_levels$`$p$` == "0.000"] <- "<.001"
 
-## post-hoc tests for the NFC groups
+## post-hoc tests for the interaction
 
 # obtain estimated marginal means for ANOVA model
 
-hypothesis3b_emm_nfc <- emmeans::emmeans(object = hypothesis3b_model, "nfcmedian")
+hypothesis3b_emm_interact <- emmeans::emmeans(hypothesis3b_model, ~ nfcmedian|level)
 
 # calculate pairwise comparisons on estimated marginal means
 
-hypothesis3b_contrasts_nfc <- as.data.frame(pairs(hypothesis3b_emm_nfc))
+hypothesis3b_contrasts_interact <- as.data.frame(pairs(hypothesis3b_emm_interact))
 
 # get Bayes factors
 
-hypothesis3b_BF_nfc <- anovaBF(formula = ntlx ~ level * nfcmedian, data = h3b_data, progress = FALSE)
-hypothesis3b_contrasts_nfc$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "high"], y = h3b_data$ntlx[h3b_data$nfcmedian == "low"],
-                                                                                 progress = FALSE, paired = FALSE))$bf)
+hypothesis3b_BF_interact <- anovaBF(formula = ntlx ~ level * nfcmedian, data = h3b_data, progress = FALSE)
+hypothesis3b_contrasts_interact$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 1 & h3b_data$nfcmedian == "high"],
+                                                                                      y = h3b_data$ntlx[h3b_data$level == 1 & h3b_data$nfcmedian == "low"],
+                                                                                      progress = FALSE, paired = FALSE))$bf,
+                                          BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 2 & h3b_data$nfcmedian == "high"],
+                                                                                      y = h3b_data$ntlx[h3b_data$level == 2 & h3b_data$nfcmedian == "low"],
+                                                                                      progress = FALSE, paired = FALSE))$bf,
+                                          BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 3 & h3b_data$nfcmedian == "high"],
+                                                                                      y = h3b_data$ntlx[h3b_data$level == 3 & h3b_data$nfcmedian == "low"],
+                                                                                      progress = FALSE, paired = FALSE))$bf,
+                                          BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 4 & h3b_data$nfcmedian == "high"],
+                                                                                      y = h3b_data$ntlx[h3b_data$level == 4 & h3b_data$nfcmedian == "low"],
+                                                                                      progress = FALSE, paired = FALSE))$bf)
 
 # get effect size
 
-hypothesis3b_contrasts_nfc <- cbind(hypothesis3b_contrasts_nfc,
-                                    format(effectsize::t_to_eta2(t = hypothesis3b_contrasts_nfc$t.ratio,
-                                                                 df_error = hypothesis3b_contrasts_nfc$df, ci = 0.95), digits = 2))
+hypothesis3b_contrasts_interact <- cbind(hypothesis3b_contrasts_interact,
+                                         format(effectsize::t_to_eta2(t = hypothesis3b_contrasts_interact$t.ratio,
+                                                                      df_error = hypothesis3b_contrasts_interact$df, ci = 0.95), digits = 2))
 
 # rename columns and contrasts, round to two decimals
 
-colnames(hypothesis3b_contrasts_nfc) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
-hypothesis3b_contrasts_nfc$Contrast <- c("High NFC - Low NFC")
-hypothesis3b_contrasts_nfc[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(round(hypothesis3b_contrasts_nfc[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 2), nsmall = 2)
-hypothesis3b_contrasts_nfc$`$p$` <- format(round(hypothesis3b_contrasts_nfc$`$p$`, digits = 3), nsmall = 2)
-hypothesis3b_contrasts_nfc$`$p$`[hypothesis3b_contrasts_nfc$`$p$` == "0.000"] <- "<.001"
+colnames(hypothesis3b_contrasts_interact) <- c("Contrast", "Level", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+hypothesis3b_contrasts_interact$Level <- gsub("X", "", hypothesis3b_contrasts_interact$Level)
+hypothesis3b_contrasts_interact[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(round(hypothesis3b_contrasts_interact[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 2), nsmall = 2)
+hypothesis3b_contrasts_interact$`$p$` <- format(round(hypothesis3b_contrasts_interact$`$p$`, digits = 3), nsmall = 2)
+hypothesis3b_contrasts_interact$`$p$`[hypothesis3b_contrasts_interact$`$p$` == "0.000"] <- "<.001"
 
-# plot these results (with manually created p-value matrix, this one is for the level main effect)
-
-plot_h3b_pvalue <- data.frame(
-  group1 = c(1,1,1,2,2,3),
-  group2 = c(2,3,4,3,4,4),
-  p.adj = c("<.001","<.001","<.001","0.001","<.001","<.001"),
-  y.position = c(16,17,18,16.5,17.5,18.5),
-  nfcmedian = c("high","high","high","high","high","high")
-)
+# plot these results
 
 plot_h3b <- ggplot(h3b_data, aes(x = level, y = ntlx, fill = nfcmedian)) +
   geom_violin(color = NA) +
@@ -1622,8 +1624,7 @@ plot_h3b <- ggplot(h3b_data, aes(x = level, y = ntlx, fill = nfcmedian)) +
   labs(x = "n-back levels", y = "NASA-TLX sum score") +
   geom_boxplot(width = 0.1, position = position_dodge(0.9)) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-  scale_x_discrete(guide = "prism_bracket") +
-  ggprism::add_pvalue(plot_h3b_pvalue, tip.length = 0)
+  scale_x_discrete(guide = "prism_bracket")
 
 # save the plot as an eps file with high resolution
 
