@@ -212,14 +212,27 @@ data_survey <- data_survey[!(data_survey$set == "2_final" | data_survey$set == "
 
 EMG.stats <- data_EMG %>% group_by(ID) %>% summarize(stats::IQR(Corr), stats::quantile(Corr, probs = 0.75, na.rm = TRUE), stats::IQR(Lev), stats::quantile(Lev, probs = 0.75, na.rm = TRUE))
 
-#EMG.stats <- as.data.frame(EMG.stats)
+EMG.stats <- as.data.frame(EMG.stats)
 colnames(EMG.stats) <- c("ID", "IQR.Corr", "quantile.Corr", "IQR.Lev", "quantile.Lev")
 
-EMG.stats$outlier.Corr <- EMG.stats$quantile.Corr + 1.5 * EMG.stats$IQR.Corr
-EMG.stats$outlier.Lev <- EMG.stats$quantile.Lev + 1.5 * EMG.stats$IQR.Lev
+# compute upper and lower boundary
+EMG.stats$outlier.Corr.ab <- EMG.stats$quantile.Corr + 1.5 * EMG.stats$IQR.Corr
+EMG.stats$outlier.Corr.bel <- EMG.stats$quantile.Corr - 1.5 * EMG.stats$IQR.Corr
+EMG.stats$outlier.Lev.ab <- EMG.stats$quantile.Lev + 1.5 * EMG.stats$IQR.Lev
+EMG.stats$outlier.Lev.bel <- EMG.stats$quantile.Lev + 1.5 * EMG.stats$IQR.Lev
 
+EMG.outlier <- data.frame(outlier = double())
 
+# loop for each participant
 
+for (i in seq_len(length(EMG.stats$ID))) {
+  
+  tmp.outlier <- which(data_EMG$Corr[data_EMG$ID == EMG.stats$ID[i]] > EMG.stats$outlier.Corr.ab[i] | data_EMG$Corr[data_EMG$ID == EMG.stats$ID[i]] < EMG.stats$outlier.Corr.bel[i])
+  
+  EMG.outlier <- rbind(EMG.outlier, tmp.outlier)
+}
+
+base::remove(tmp.outlier)
 # old code
 # # "Outliers [in the neutral] condition were identified if the mean subjective or physiological response to neutral pictures was higher than
 # # 1.5 interquartile rangres above the third qartile of the group mean (Meir Drexler et al., 2015)
