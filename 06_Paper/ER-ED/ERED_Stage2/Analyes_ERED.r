@@ -210,7 +210,14 @@ data_survey <- data_survey[!(data_survey$set == "2_final" | data_survey$set == "
 # within participants but across conditions
 # Exclude trials that are above 1.5 inter-quartile ranges above the third quartile of the mean
 
-data_EMG %>% group_by(ID) %>% summarize(stats::IQR(Corr))
+EMG.stats <- data_EMG %>% group_by(ID) %>% summarize(stats::IQR(Corr), stats::quantile(Corr, probs = 0.75, na.rm = TRUE), stats::IQR(Lev), stats::quantile(Lev, probs = 0.75, na.rm = TRUE))
+
+#EMG.stats <- as.data.frame(EMG.stats)
+colnames(EMG.stats) <- c("ID", "IQR.Corr", "quantile.Corr", "IQR.Lev", "quantile.Lev")
+
+EMG.stats$outlier.Corr <- EMG.stats$quantile.Corr + 1.5 * EMG.stats$IQR.Corr
+EMG.stats$outlier.Lev <- EMG.stats$quantile.Lev + 1.5 * EMG.stats$IQR.Lev
+
 
 
 # old code
