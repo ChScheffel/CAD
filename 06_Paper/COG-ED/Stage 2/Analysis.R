@@ -1430,38 +1430,52 @@ hypothesis3a_contrasts_nlevel <- as.data.frame(pairs(hypothesis3a_emm_nlevel))
 # get Bayes factors
 
 hypothesis3a_BF_nlevel <- BayesFactor::anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = h3a_data, progress = FALSE)
-#hypothesis3a_contrasts_nlevel$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h3a_data$svdiff[h3a_data$nlevels == "1-2"], y = h3a_data$svdiff[h3a_data$nlevels == "2-3"],
-#                                                                                    progress = FALSE, paired = TRUE))$bf)
+hypothesis3a_contrasts_nlevel$BF10 <- extractBF(hypothesis3a_BF_nlevel[1])$bf
 
 # get effect size
 
-#hypothesis3a_contrasts_nlevel <- cbind(hypothesis3a_contrasts_nlevel,
-#                                    format(effectsize::t_to_eta2(t = hypothesis3a_contrasts_nlevel$t.ratio,
-#                                                                 df_error = hypothesis3a_contrasts_nlevel$df, ci = 0.95), digits = 2))
+hypothesis3a_contrasts_nlevel <- cbind(hypothesis3a_contrasts_nlevel,
+                                    format(effectsize::t_to_eta2(t = hypothesis3a_contrasts_nlevel$t.ratio,
+                                                                 df_error = hypothesis3a_contrasts_nlevel$df, ci = 0.95), digits = 2))
 
 # rename columns and contrasts, round to two decimals
 
 colnames(hypothesis3a_contrasts_nlevel) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
-hypothesis3a_contrasts_nlevel$Contrast <- gsub("X", "", hypothesis3a_contrasts$Contrast)
+hypothesis3a_contrasts_nlevel$Contrast <- c("1-2 - 2-3")
 hypothesis3a_contrasts_nlevel[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(round(hypothesis3a_contrasts_nlevel[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 2), nsmall = 2)
 hypothesis3a_contrasts_nlevel$`$p$` <- format(round(hypothesis3a_contrasts_nlevel$`$p$`, digits = 3), nsmall = 2)
 hypothesis3a_contrasts_nlevel$`$p$`[hypothesis3a_contrasts_nlevel$`$p$` == "0.000"] <- "<.001"
 
-# prepare raincloud plot
+# prepare raincloud plot for main effect of n-back levels
 
-plot_h3a_data <- raincloudplots::data_2x2(array_1 = h3a_data$svdiff[h3a_data$nlevels == "1-2" & h3a_data$nfcmedian == "low"],
-                          array_2 = h3a_data$svdiff[h3a_data$nlevels == "2-3" & h3a_data$nfcmedian == "low"],
-                          array_3 = h3a_data$svdiff[h3a_data$nlevels == "1-2" & h3a_data$nfcmedian == "high"],
-                          array_4 = h3a_data$svdiff[h3a_data$nlevels == "2-3" & h3a_data$nfcmedian == "high"],
-                          labels = (c("NFC below median","NFC above median")),
+plot_h3a_data_nlevel <- raincloudplots::data_1x1(array_1 = h3a_data$svdiff[h3a_data$nlevels == "1-2"],
+                          array_2 = h3a_data$svdiff[h3a_data$nlevels == "2-3"],
                           jit_distance = .09,
-                          jit_seed = 73,
-                          spread_x_ticks = FALSE)
+                          jit_seed = 73)
 
-raincloudplots::raincloud_2x2_repmes(data_2x2 = plot_h3a_data,
+raincloudplots::raincloud_1x1_repmes(data_1x1 = plot_h3a_data_nlevel,
                                  size = 2,
-                                 alpha = .6,
-                                 spread_x_ticks = FALSE) +
+                                 alpha = .6) +
+  xlab("n-back levels") + 
+  ylab("Difference in subjective values") +
+  ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
+  scale_x_continuous(breaks=c(1,2), labels=c("1-2", "2-3"), limits=c(0, 3))
+
+# prepare another raincloud plot to show the (non-significant) effect of NFC
+
+plot_h3a_data_nfc <- raincloudplots::data_2x2(array_1 = h3a_data$svdiff[h3a_data$nlevels == "1-2" & h3a_data$nfcmedian == "low"],
+                                          array_2 = h3a_data$svdiff[h3a_data$nlevels == "2-3" & h3a_data$nfcmedian == "low"],
+                                          array_3 = h3a_data$svdiff[h3a_data$nlevels == "1-2" & h3a_data$nfcmedian == "high"],
+                                          array_4 = h3a_data$svdiff[h3a_data$nlevels == "2-3" & h3a_data$nfcmedian == "high"],
+                                          labels = (c("NFC below median","NFC above median")), # blue is below, orange is above
+                                          jit_distance = .09,
+                                          jit_seed = 73,
+                                          spread_x_ticks = FALSE)
+
+raincloudplots::raincloud_2x2_repmes(data_2x2 = plot_h3a_data_nfc,
+                                     size = 2,
+                                     alpha = .6,
+                                     spread_x_ticks = FALSE) +
   xlab("n-back levels") + 
   ylab("Difference in subjective values") +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
