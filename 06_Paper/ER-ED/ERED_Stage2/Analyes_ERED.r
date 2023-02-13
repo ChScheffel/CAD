@@ -203,6 +203,7 @@ data_survey <- as.data.frame(data_survey)
 # T14G09 F14A01
 
 data_ER <- data_ER[!data_ER$ID == "T14G09",]
+data_choice <- data_choice[!data_choice$ID == "T14G09",]
 
 data_ED <- data_ED[!data_ED$ID == "T14G09",]
 
@@ -1010,8 +1011,8 @@ FigSubjEffort <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort, fill = 
 #   https://quantdev.ssri.psu.edu/tutorials/r-bootcamp-introduction-multilevel-model-and-interactions
 
 # build new df for MLM
-data_MLM <- data_EMG %>%
-  subset(data_EMG$block != "2_view_neg" & data_EMG$block != "1_view_neu" & data_EMG$block != "6_choice")
+data_MLM <- data_EMG.new %>%
+  subset(data_EMG.new$block != "2_view_neg" & data_EMG.new$block != "1_view_neu" & data_EMG.new$block != "6_choice")
 
 # drop unnecessary columns
 data_MLM$trigger <- NULL
