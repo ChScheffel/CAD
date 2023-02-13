@@ -1,13 +1,10 @@
 ---
+title: "results"
+author: "Christoph Scheffel"
 output: html_document
-bibliography: ER_ED.bib
-csl: apa7.csl
-editor_options: 
-  markdown: 
-    wrap: sentence
 ---
 
-```{r SetupMethod, include = FALSE}
+```{r SetupResults, include = FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 
 library(here)       # to set directories without defined paths
