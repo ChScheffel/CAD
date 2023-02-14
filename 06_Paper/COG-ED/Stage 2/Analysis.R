@@ -1364,6 +1364,72 @@ h2b_result.table$ `Random Effects (SD)`[3:4] <- paste0("")
 ## B - declining linear relation (nonlinear mixed model) ---------------------
 ## C - ascending quadratic relation (nonlinear mixed model) ------------------
 ## D - declining logistic relation (nonlinear mixed model) -------------------
+
+# H2b: Subjective values decline with increasing n-back level, even after controlling for declining task
+# performance measured by signal detection d’ and reaction time.
+
+# detach afex in order to use lmerTest
+
+detach_package <- function(pkg, character.only = FALSE){
+  if(!character.only){
+    pkg <- deparse(substitute(pkg))
+  }
+  search_item <- paste("package", pkg, sep = ":")
+  while(search_item %in% search()){
+    detach(search_item, unload = TRUE, character.only = TRUE)
+  }
+}
+
+detach_package(afex)
+
+# make a temporary copy of the data frame
+
+h2b_data <- pipelines_data[["AARO"]]
+
+# get a subset without NFC
+
+h2b_data <- droplevels(subset(h2b_data[ ,c("subject", "level", "sv", "dprime", "medianRT")]))
+
+# centering the level 1 predictors (d', medianRT, level) within cluster
+
+h2b_data$dprime.cwc       <- h2b_data$dprime - (ave(h2b_data$dprime, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
+h2b_data$medianRT.cwc     <- h2b_data$medianRT - (ave(h2b_data$medianRT, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
+h2b_data$level.cwc        <- h2b_data$level - (ave(h2b_data$level, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
+
+h2b_data$level.cwc <- as.factor(h2b_data$level.cwc)
+
+# define contrasts
+
+h2b_contrasts <- c(3,2,-2,-3)
+contrasts(h2b_data$level.cwc) <- cbind(h2b_contrasts)
+
+# define the null model
+
+m0_h2b <- lmerTest::lmer(sv ~ 1 + (1|subject), data = h2b_data, REML = T)
+
+# random slopes model
+
+m1_h2b <- lmerTest::lmer(sv ~ level.cwc * dprime.cwc + medianRT.cwc + (level.cwc|subject),
+                         data = h2b_data, REML = T)
+
+
+
+# convert random factor to type factor
+
+h2b_data$subject <- factor(h2b_data$subject)
+
+# compute Bayes factor
+
+h2b_full_BF <- lmBF(sv ~ level.cwc + dprime.cwc + medianRT.cwc + subject,
+                    data = h2b_data, whichRandom = 'subject', progress = FALSE)
+h2b_null_BF <- lmBF(sv ~ 1 + dprime.cwc + medianRT.cwc + subject,
+                    data = h2b_data, whichRandom = 'subject', progress = FALSE)
+h2b_BF <- h2b_full_BF / h2b_null_BF
+
+
+
+
+
 ## E - positively skewed normal (nonlinear mixed model) ----------------------
 
 
@@ -1755,7 +1821,7 @@ plot_h3c_data <- raincloudplots::data_2x2(array_1 = h3c_data$aversdiff[h3c_data$
                           array_2 = h3c_data$aversdiff[h3c_data$nlevels == "2-3" & h3c_data$nfcmedian == "low"],
                           array_3 = h3c_data$aversdiff[h3c_data$nlevels == "1-2" & h3c_data$nfcmedian == "high"],
                           array_4 = h3c_data$aversdiff[h3c_data$nlevels == "2-3" & h3c_data$nfcmedian == "high"],
-                          labels = (c("NFC below median","NFC above median")),
+                          labels = (c("NFC below median","NFC above median")), # below is blue, above is orange
                           jit_distance = .04,
                           jit_seed = 73,
                           spread_x_ticks = FALSE)
@@ -1766,8 +1832,6 @@ raincloudplots::raincloud_2x2_repmes(data_2x2 = plot_h3c_data,
                                  spread_x_ticks = FALSE) +
   xlab("n-back levels") + 
   ylab("Aversiveness ratings") +
-  scale_fill_manual(values = met.brewer("Hiroshige", 2), name = "Need for Cognition",
-                    breaks = c("low","high"), labels = c("NFC below median", "NFC above median")) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
   scale_x_continuous(breaks=c(1,2), labels=c("1-2", "2-3"), limits=c(0, 3))
 
@@ -1794,7 +1858,7 @@ for (i in 1:length(pipelines_data)) {
   
   # get a subset without RT = NA
   
-  sca_data <- droplevels(subset(sca_data[ ,c("subject", "level", "sv", "dprime", "medianRT")], subset = !is.na(rt)))
+  sca_data <- droplevels(subset(sca_data[ ,c("subject", "level", "sv", "dprime", "medianRT")]))
   
   # centering the level 1 predictors (d', medianRT, level) within cluster
   
@@ -1917,6 +1981,16 @@ ggplot(sca_results, aes(x = xaxis, y = beta)) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
   labs(x = NULL, y = "Fixed effects beta of the predictor n-back level") +
   scale_x_continuous(labels = NULL)
+
+##### Extra plots ##############################################################
+
+# plot showing SVs per subject, colors depend on NFC
+
+ggplot2::ggplot(pipelines_data[["AARO"]], aes(x = level, y = sv, group = subject, color = nfc)) +
+  geom_line(size = 1, alpha = 0.5, position = position_jitter(w = 0, h = 0.04)) +
+  scale_color_gradient2(midpoint = 0, low = "blue", mid = "grey", high = "red", space = "Lab" ) +
+  ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans")
+
 
 ##### Save variables ###########################################################
 
