@@ -1407,9 +1407,15 @@ contrasts(h2b_data$level.cwc) <- cbind(h2b_contrasts)
 
 m0_h2b <- lmerTest::lmer(sv ~ 1 + (1|subject), data = h2b_data, REML = T)
 
-# random slopes model
+# get intraclass correlation (ICC)
 
-m1_h2b <- lmerTest::lmer(sv ~ level.cwc * dprime.cwc + medianRT.cwc + (level.cwc|subject),
+var_m0_h2b <- as.data.frame(lme4::VarCorr(m0_h2b))
+icc_h2b <- var_m0_h2b$vcov[1] / (var_m0_h2b$vcov[1] + var_m0_h2b$vcov[2]) 
+
+# our model (this is not a random slopes model, because we have to replace (level.cwc|subject) with (1|subject), because
+# this model contains the level as a factor which does not allow repeated measures)
+
+m1_h2b <- lmerTest::lmer(sv ~ level.cwc * dprime.cwc + medianRT.cwc + (1|subject),
                          data = h2b_data, REML = T)
 
 
