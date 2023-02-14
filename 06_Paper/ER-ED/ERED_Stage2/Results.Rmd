@@ -11,6 +11,8 @@ library(here)       # to set directories without defined paths
 # set top level directory to source file
 here::i_am("flag_project_root_CAD.txt")
 
+library(tidyverse)
+
 # load workspace variables from analyses_ERED.R script
 base::load(here("06_Paper","ER-ED","ERED_Stage2","Workspace_ERED_pilot.RData"))
 base::load(here("06_Paper","ER-ED","ERED_Stage2","Workspace_ERED.RData"))
@@ -20,8 +22,23 @@ base::load(here("06_Paper","ER-ED","ERED_Stage2","Workspace_ERED.RData"))
 
 ## 3.1 Participants and descriptive statistics
 
-Data collection took place between `r format(as.Date(acqui_time[1]), "%Y-%m")` and `r format(as.Date(acqui_time[2]), "%Y-%m")`. A total of $N=`r sum(data_survey$lay_beliefs_complete == 2)`$ participants completed the online survey and were invited to participate in the two lab sessions. Of these, $N=`r sum(data_survey$files_coged_complete == 2)`$ participated in the first laboratory session and $N=`r sum(data_survey$followup_ered_complete == 2)`$ completed the second laboratory session. Of these, $n=1$ person had to be excluded from analyses because they did not follow the instructions.  
+Data collection took place between `r format(as.Date(acqui_time[1]), "%Y-%m")` and `r format(as.Date(acqui_time[2]), "%Y-%m")`.
+A total of $N=`r sum(data_survey[,"lay_beliefs_complete"] == 2)`$ participants completed the online survey and were invited to participate in the two lab sessions.
+Of these, $N=`r sum(data_survey[,"files_coged_complete"] == 2)`$ participated in the first laboratory session and $N=`r sum(data_survey[,"followup_ered_complete"] == 2)`$ completed the second laboratory session.
+Of these, $n=1$ person had to be excluded from analyses because they did not follow the instructions.
+The final sample consisted of $N=`r sum(data_survey[,"followup_ered_complete"] == 2)-1`$ participants (`r length(which(data_descr[which(data_descr[,"ID"] != dplyr::lag(data_descr[,"ID"])),"gender"] == 2))` female ; age: $M=`r papaja::printnum(mean(data_descr[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`\text{ }\pm\text{ }SD = `r papaja::printnum(sd(data_descr[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`$).
+Please note that sample size for individual calculations may be smaller due to failure of EMG recording ($n=1$) and failure to record utility ratings ($n=`r sum(is.na(data_ER[,"utility"][data_ER[,"block"] == "3_distraction"]))`$).
 
 ## 3.2. Confirmatory analyses
+
+### Manipulation checks
+
+To explore whether negative pictures evoke emotional arousal, we conducted an ANOVA for the active viewing condition. 
+We found a highly significant main effect of valence (`r papaja::apa_print(SubjArousalView_aov)$full_result`, `r papaja::apa_print(SubjArousalView_BF)$statistic`), indicating that negative pictures were perceived as more arousing than neutral pictures ($\eta_{p}^{2}=`r papaja::printnum(SubjArousalView_con[,8:9])`$, $BF_{10}=$`r papaja::printnum(SubjArousalView_con[,7], format = "e")`).
+To explore the effect of valence on facial muscle activity(*Corrugator* and *Levator*), we conducted two ANOVA for the active viewing condition.
+For *Corrugator* activity, we found a significant main effect of valence (`r papaja::apa_print(EMGCorrView_aov)$full_result`, `r papaja::apa_print(EMGCorrView_BF)$statistic`), indicating that negative pictures evoked greater *Corrugator* activity than neutral pictures ($\eta_{p}^{2}=`r papaja::printnum(EMGCorrView_con[,8:9])`$, $BF_{10}=$`r papaja::printnum(EMGCorrView_con[,7], format = "e")`).
+In line with previously reported results, there was a significant main effect of valence for *Levator* activity (`r papaja::apa_print(EMGLevView_aov)$full_result`´, `r papaja::apa_print(EMGLevView_BF)$statistic`), indicating that negative pictures evoked greater *Levator* activity than neutral pictures ($\eta_{p}^{2}=`r papaja::printnum(EMGLevView_con[,8:9])`$, $BF_{10}=$`r papaja::printnum(EMGLevView_con[,7], format = "e")`).
+
+To investigate whether ER strategies reduce emotional arousal, we conducted an rmANOVA comparing the subjective arousal ratings of four strategies (active viewing, distraction, distancing, suppression). 
 
 ## 3.3. Exploratory analyses
