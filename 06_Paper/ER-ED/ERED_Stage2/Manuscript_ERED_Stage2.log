@@ -1,16 +1,16 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.20)  15 AUG 2022 16:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.14)  14 FEB 2023 15:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Manuscript_ERED_Stage2.tex
 (./Manuscript_ERED_Stage2.tex
-LaTeX2e <2022-06-01> patch level 1
-L3 programming layer <2022-06-16> (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/apa6/apa6.cls
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-02-07> (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/apa6/apa6.cls
 Document Class: apa6 2020/01/13 v2.34 APA formatting (6th edition)
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+File: size12.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
 \c@section=\count186
@@ -20,9 +20,9 @@ File: size12.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 \c@subparagraph=\count190
 \c@figure=\count191
 \c@table=\count192
-\abovecaptionskip=\skip47
-\belowcaptionskip=\skip48
-\bibindent=\dimen138
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count193
@@ -80,14 +80,14 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \Gm@cnth=\count194
 \Gm@cntv=\count195
 \c@Gm@tempcnt=\count196
-\Gm@bindingoffset=\dimen139
-\Gm@wd@mp=\dimen140
-\Gm@odd@mp=\dimen141
-\Gm@even@mp=\dimen142
-\Gm@layoutwidth=\dimen143
-\Gm@layoutheight=\dimen144
-\Gm@layouthoffset=\dimen145
-\Gm@layoutvoffset=\dimen146
+\Gm@bindingoffset=\dimen141
+\Gm@wd@mp=\dimen142
+\Gm@odd@mp=\dimen143
+\Gm@even@mp=\dimen144
+\Gm@layoutwidth=\dimen145
+\Gm@layoutheight=\dimen146
+\Gm@layouthoffset=\dimen147
+\Gm@layoutvoffset=\dimen148
 \Gm@dimlist=\toks17
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
@@ -100,55 +100,55 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen147
-\Gin@req@width=\dimen148
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen149
-\lightrulewidth=\dimen150
-\cmidrulewidth=\dimen151
-\belowrulesep=\dimen152
-\belowbottomsep=\dimen153
-\aboverulesep=\dimen154
-\abovetopsep=\dimen155
-\cmidrulesep=\dimen156
-\cmidrulekern=\dimen157
-\defaultaddspace=\dimen158
+\heavyrulewidth=\dimen151
+\lightrulewidth=\dimen152
+\cmidrulewidth=\dimen153
+\belowrulesep=\dimen154
+\belowbottomsep=\dimen155
+\aboverulesep=\dimen156
+\abovetopsep=\dimen157
+\cmidrulesep=\dimen158
+\cmidrulekern=\dimen159
+\defaultaddspace=\dimen160
 \@cmidla=\count197
 \@cmidlb=\count198
-\@aboverulesep=\dimen159
-\@belowrulesep=\dimen160
+\@aboverulesep=\dimen161
+\@belowrulesep=\dimen162
 \@thisruleclass=\count199
 \@lastruleclass=\count266
-\@thisrulewidth=\dimen161
+\@thisrulewidth=\dimen163
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttable/threeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
 \@tempboxb=\box51
 )
-\b@level@one@skip=\skip49
-\e@level@one@skip=\skip50
-\b@level@two@skip=\skip51
-\e@level@two@skip=\skip52
-\b@level@three@skip=\skip53
-\e@level@three@skip=\skip54
-\b@level@four@skip=\skip55
-\e@level@four@skip=\skip56
-\b@level@five@skip=\skip57
-\e@level@five@skip=\skip58
+\b@level@one@skip=\skip50
+\e@level@one@skip=\skip51
+\b@level@two@skip=\skip52
+\e@level@two@skip=\skip53
+\b@level@three@skip=\skip54
+\e@level@three@skip=\skip55
+\b@level@four@skip=\skip56
+\e@level@four@skip=\skip57
+\b@level@five@skip=\skip58
+\e@level@five@skip=\skip59
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2022/03/01 v3.6b Customizing captions (AR)
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
-\caption@tempdima=\dimen162
-\captionmargin=\dimen163
-\caption@leftmargin=\dimen164
-\caption@rightmargin=\dimen165
-\caption@width=\dimen166
-\caption@indent=\dimen167
-\caption@parindent=\dimen168
-\caption@hangindent=\dimen169
+\caption@tempdima=\dimen164
+\captionmargin=\dimen165
+\caption@leftmargin=\dimen166
+\caption@rightmargin=\dimen167
+\caption@width=\dimen168
+\caption@indent=\dimen169
+\caption@parindent=\dimen170
+\caption@hangindent=\dimen171
 Package caption Info: Standard document class detected.
 )
 \c@caption@flags=\count267
@@ -156,10 +156,10 @@ Package caption Info: Standard document class detected.
 Package caption Info: threeparttable package is loaded.
 )
 \c@APAenum=\count269
-\@text@par@indent=\skip59
+\@text@par@indent=\skip60
 \gr@box=\box52
-\gr@boxwidth=\skip60
-\gr@boxheight=\skip61
+\gr@boxwidth=\skip61
+\gr@boxheight=\skip62
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2022/01/05 v1.2f Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup4
@@ -171,15 +171,15 @@ LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 \c@appendix=\count270
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2022/05/18 v4.0.3 Extensive control of page headers and footers
-\f@nch@headwidth=\skip62
-\f@nch@O@elh=\skip63
-\f@nch@O@erh=\skip64
-\f@nch@O@olh=\skip65
-\f@nch@O@orh=\skip66
-\f@nch@O@elf=\skip67
-\f@nch@O@erf=\skip68
-\f@nch@O@olf=\skip69
-\f@nch@O@orf=\skip70
+\f@nch@headwidth=\skip63
+\f@nch@O@elh=\skip64
+\f@nch@O@erh=\skip65
+\f@nch@O@olh=\skip66
+\f@nch@O@orh=\skip67
+\f@nch@O@elf=\skip68
+\f@nch@O@erf=\skip69
+\f@nch@O@olf=\skip70
+\f@nch@O@orf=\skip71
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/endfloat/endfloat.sty
 Package: endfloat 2019/04/15 v2.7 LaTeX2e package puts figures and tables at end (jdm)
 \c@posttable=\count271
@@ -197,18 +197,18 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@floatcapt=\box54
 )) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2022/04/08 v2.17n AMS math features
-\@mathmargin=\skip71
+\@mathmargin=\skip72
 For additional information on amsmath, use the `?' option.
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks20
-\ex@=\dimen170
+\ex@=\dimen172
 )) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 LaTeX Info: Redefining \boldsymbol on input line 28.
-\pmbraise@=\dimen171
+\pmbraise@=\dimen173
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
@@ -229,7 +229,7 @@ LaTeX Info: Redefining \big on input line 722.
 LaTeX Info: Redefining \Big on input line 723.
 LaTeX Info: Redefining \bigg on input line 724.
 LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen172
+\big@size=\dimen174
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \macc@depth=\count281
@@ -247,15 +247,15 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \column@=\count286
 \maxfields@=\count287
 \andhelp@=\toks22
-\eqnshift@=\dimen173
-\alignsep@=\dimen174
-\tagshift@=\dimen175
-\tagwidth@=\dimen176
-\totwidth@=\dimen177
-\lineht@=\dimen178
+\eqnshift@=\dimen175
+\alignsep@=\dimen176
+\tagshift@=\dimen177
+\tagwidth@=\dimen178
+\totwidth@=\dimen179
+\lineht@=\dimen180
 \@envbody=\toks23
-\multlinegap=\skip72
-\multlinetaggap=\skip73
+\multlinegap=\skip73
+\multlinetaggap=\skip74
 \mathdisplay@stack=\toks24
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
@@ -293,41 +293,39 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
 )
-\cslhangindent=\skip74
-\csllabelwidth=\skip75
-\cslentryspacingunit=\skip76
+\cslhangindent=\skip75
+\csllabelwidth=\skip76
+\cslentryspacingunit=\skip77
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count288
 \calc@Bcount=\count289
-\calc@Adimen=\dimen179
-\calc@Bdimen=\dimen180
-\calc@Askip=\skip77
-\calc@Bskip=\skip78
+\calc@Adimen=\dimen181
+\calc@Bdimen=\dimen182
+\calc@Askip=\skip78
+\calc@Bskip=\skip79
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count290
-\calc@Cskip=\skip79
+\calc@Cskip=\skip80
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2022/06/06 3.76 The Babel package
+Package: babel 2023/02/13 3.86 The Babel package
 \babel@savecnt=\count291
-\U@D=\dimen181
+\U@D=\dimen183
 \l@unhyphenated=\language3
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count292
-Package babel Info: You haven't specified a language. I'll use 'nil'
-(babel)             as the main language. Reported on input line 4376.
+Package babel Info: You haven't specified a language as a class or package
+(babel)             option. I'll load 'nil'. Reported on input line 4422.
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/nil.ldf
-Language: nil 2022/06/06 3.76 Nil language
+Language: nil 2023/02/13 3.86 Nil language
 \l@nil=\language4
 ))
 \everypar=\toks27
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/locale/en/babel-english.tex)
 Package babel Info: Importing data for english
 (babel)             from babel-en.ini. Reported on input line 90.
-Package babel Info: Hyphen rules for 'english' set to \l@english
-(babel)             (\language0). Reported on input line 90.
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/was/upgreek.sty
 Package: upgreek 2003/02/12 v2.0 (WaS)
 Package upgreek Info: Using Euler Roman for upright Greek on input line 31.
@@ -336,12 +334,12 @@ LaTeX Font Info:    Overwriting symbol font `ugrf@m' in version `bold'
 (Font)                  U/eur/m/n --> U/eur/b/n on input line 38.
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
-\LTleft=\skip80
-\LTright=\skip81
-\LTpre=\skip82
-\LTpost=\skip83
+\LTleft=\skip81
+\LTright=\skip82
+\LTpre=\skip83
+\LTpost=\skip84
 \LTchunksize=\count293
-\LTcapwidth=\dimen182
+\LTcapwidth=\dimen184
 \LT@head=\box57
 \LT@firsthead=\box58
 \LT@foot=\box59
@@ -356,27 +354,27 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
-\multirow@colwidth=\skip84
+\multirow@colwidth=\skip85
 \multirow@cntb=\count298
-\multirow@dima=\skip85
-\bigstrutjot=\dimen183
+\multirow@dima=\skip86
+\bigstrutjot=\dimen185
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
-Package: array 2022/03/10 v2.5f Tabular extension package (FMi)
-\col@sep=\dimen184
+Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen186
 \ar@mcellbox=\box62
-\extrarowheight=\dimen185
+\extrarowheight=\dimen187
 \NC@list=\toks29
-\extratabsurround=\skip86
-\backup@length=\skip87
+\extratabsurround=\skip87
+\backup@length=\skip88
 \ar@cellbox=\box63
 )
-\TX@col@width=\dimen186
-\TX@old@table=\dimen187
-\TX@old@col=\dimen188
-\TX@target=\dimen189
-\TX@delta=\dimen190
+\TX@col@width=\dimen188
+\TX@old@table=\dimen189
+\TX@old@col=\dimen190
+\TX@target=\dimen191
+\TX@delta=\dimen192
 \TX@cols=\count299
 \TX@ftn=\toks30
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttablex/threeparttablex.sty
@@ -386,36 +384,36 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\TPTL@width=\skip88
+\TPTL@width=\skip89
 )
-\longtablewidth=\skip89
+\longtablewidth=\skip90
 Failed to patch abstract.
 Failed to patch title.
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xpatch/xpatch.sty (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2022-06-16 L3 programming layer (loader) 
+Package: expl3 2023-02-07 L3 programming layer (loader) 
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-04-20 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count300
 \l__pdf_internal_box=\box64
 ))
 Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2022-06-16 L3 Experimental document command parser
+Package: xparse 2023-02-02 L3 Experimental document command parser
 )) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lineno/lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
 \linenopenalty=\count301
 \output=\toks31
 \linenoprevgraf=\count302
-\linenumbersep=\dimen191
-\linenumberwidth=\dimen192
+\linenumbersep=\dimen193
+\linenumberwidth=\dimen194
 \c@linenumber=\count303
 \c@pagewiselinenumber=\count304
 \c@LN@truepage=\count305
 \c@internallinenumber=\count306
 \c@internallinenumbers=\count307
-\quotelinenumbersep=\dimen193
-\bframerule=\dimen194
-\bframesep=\dimen195
+\quotelinenumbersep=\dimen195
+\bframerule=\dimen196
+\bframesep=\dimen197
 \bframebox=\box65
 LaTeX Info: Redefining \\ on input line 3056.
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/csquotes/csquotes.sty
@@ -435,8 +433,8 @@ Package csquotes Info: ... configuration file loaded successfully.
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/csquotes/csquotes.cfg
 File: csquotes.cfg 
 )) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen196
-\WF@size=\dimen197
+\wrapoverhang=\dimen198
+\WF@size=\dimen199
 \c@WF@wrappedlines=\count314
 \WF@box=\box66
 \WF@everypar=\toks33
@@ -444,7 +442,7 @@ Package: wrapfig 2003/01/31  v 3.6
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
 \everycr=\toks34
-\minrowclearance=\skip90
+\minrowclearance=\skip91
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
@@ -454,8 +452,8 @@ Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box67
 \sift@deathcycles=\count315
-\@vwid@loff=\dimen198
-\@vwid@roff=\dimen199
+\@vwid@loff=\dimen256
+\@vwid@roff=\dimen257
 )
 \c@taburow=\count316
 \tabu@nbcols=\count317
@@ -463,36 +461,36 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \tabu@Xcol=\count319
 \tabu@alloc=\count320
 \tabu@nested=\count321
-\tabu@target=\dimen256
-\tabu@spreadtarget=\dimen257
-\tabu@naturalX=\dimen258
-\tabucolX=\dimen259
-\tabu@Xsum=\dimen260
-\extrarowdepth=\dimen261
-\abovetabulinesep=\dimen262
-\belowtabulinesep=\dimen263
-\tabustrutrule=\dimen264
+\tabu@target=\dimen258
+\tabu@spreadtarget=\dimen259
+\tabu@naturalX=\dimen260
+\tabucolX=\dimen261
+\tabu@Xsum=\dimen262
+\extrarowdepth=\dimen263
+\abovetabulinesep=\dimen264
+\belowtabulinesep=\dimen265
+\tabustrutrule=\dimen266
 \tabu@thebody=\toks35
 \tabu@footnotes=\toks36
 \tabu@box=\box68
 \tabu@arstrutbox=\box69
 \tabu@hleads=\box70
 \tabu@vleads=\box71
-\tabu@cellskip=\skip91
+\tabu@cellskip=\skip92
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
 \UL@box=\box72
 \UL@hyphenbox=\box73
-\UL@skip=\skip92
+\UL@skip=\skip93
 \UL@hook=\toks37
-\UL@height=\dimen265
+\UL@height=\dimen267
 \UL@pe=\count322
-\UL@pixel=\dimen266
+\UL@pixel=\dimen268
 \ULC@box=\box74
 Package: ulem 2019/11/18
-\ULdepth=\dimen267
+\ULdepth=\dimen269
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
-\rotheadsize=\dimen268
+\rotheadsize=\dimen270
 \c@nlinenum=\count323
 \TeXr@lab=\toks38
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/setspace/setspace.sty
@@ -503,12 +501,12 @@ Package: pdfpages 2022/05/22 v0.5v Insert pages of external PDF documents (AM)
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
-\ESO@tempdima=\dimen269
-\ESO@tempdimb=\dimen270
+\ESO@tempdima=\dimen271
+\ESO@tempdimb=\dimen272
 )
-\AM@pagewidth=\dimen271
-\AM@pageheight=\dimen272
-\AM@fboxrule=\dimen273
+\AM@pagewidth=\dimen273
+\AM@pageheight=\dimen274
+\AM@fboxrule=\dimen275
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2022/05/22 v0.5v Pdfpages driver for pdfTeX (AM)
 )
@@ -524,7 +522,7 @@ Package: chngcntr 2018/04/09 v1.1a change counter resetting
 Package chngcntr Info: \counterwithout already defined.
 (chngcntr)             Quitting chngcntr on input line 21.
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2022-06-13 v7.00r Hypertext links for LaTeX
+Package: hyperref 2023-02-07 v7.00v Hypertext links for LaTeX
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
@@ -535,8 +533,8 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
-Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
@@ -558,11 +556,11 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
 \c@section@level=\count327
 )
-\@linkdim=\dimen274
+\@linkdim=\dimen276
 \Hy@linkcounter=\count328
 \Hy@pagecounter=\count329
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2022-06-13 v7.00r Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2023-02-07 v7.00v Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 ) (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
@@ -572,40 +570,40 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count330
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2022-06-13 v7.00r Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2023-02-07 v7.00v Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Option `unicode' set `true' on input line 4020.
-Package hyperref Info: Hyper figures OFF on input line 4139.
-Package hyperref Info: Link nesting OFF on input line 4144.
-Package hyperref Info: Hyper index ON on input line 4147.
-Package hyperref Info: Plain pages OFF on input line 4154.
-Package hyperref Info: Backreferencing OFF on input line 4159.
+Package hyperref Info: Option `unicode' set `true' on input line 4060.
+Package hyperref Info: Hyper figures OFF on input line 4177.
+Package hyperref Info: Link nesting OFF on input line 4182.
+Package hyperref Info: Hyper index ON on input line 4185.
+Package hyperref Info: Plain pages OFF on input line 4192.
+Package hyperref Info: Backreferencing OFF on input line 4197.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4385.
+Package hyperref Info: Bookmarks ON on input line 4425.
 \c@Hy@tempcnt=\count331
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4723.
-\XeTeXLinkMargin=\dimen275
+LaTeX Info: Redefining \url on input line 4763.
+\XeTeXLinkMargin=\dimen277
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
 \Fld@menulength=\count332
-\Field@Width=\dimen276
-\Fld@charsize=\dimen277
-Package hyperref Info: Hyper figures OFF on input line 6001.
-Package hyperref Info: Link nesting OFF on input line 6006.
-Package hyperref Info: Hyper index ON on input line 6009.
-Package hyperref Info: backreferencing OFF on input line 6016.
-Package hyperref Info: Link coloring OFF on input line 6021.
-Package hyperref Info: Link coloring with OCG OFF on input line 6026.
-Package hyperref Info: PDF/A mode OFF on input line 6031.
+\Field@Width=\dimen278
+\Fld@charsize=\dimen279
+Package hyperref Info: Hyper figures OFF on input line 6042.
+Package hyperref Info: Link nesting OFF on input line 6047.
+Package hyperref Info: Hyper index ON on input line 6050.
+Package hyperref Info: backreferencing OFF on input line 6057.
+Package hyperref Info: Link coloring OFF on input line 6062.
+Package hyperref Info: Link coloring with OCG OFF on input line 6067.
+Package hyperref Info: PDF/A mode OFF on input line 6072.
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
@@ -616,7 +614,7 @@ package with kernel methods
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2022-06-13 v7.00r Hyperref driver for pdfTeX
+File: hpdftex.def 2023-02-07 v7.00v Hyperref driver for pdfTeX
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
@@ -624,13 +622,13 @@ with kernel methods
 \Fld@listcount=\count336
 \c@bookmark@seq@number=\count337
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
-Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
 (c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
-\Hy@SectionHShift=\skip93
+\Hy@SectionHShift=\skip94
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
@@ -765,7 +763,7 @@ Underfull \vbox (badness 7649) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [7]
-<figures/Paradigm_Scheme_T2.png, id=152, 590.6868pt x 372.9132pt>
+<figures/Paradigm_Scheme_T2.png, id=172, 590.6868pt x 372.9132pt>
 File: figures/Paradigm_Scheme_T2.png Graphic file (type png)
 <use figures/Paradigm_Scheme_T2.png>
 Package pdftex.def Info: figures/Paradigm_Scheme_T2.png  used on input line 335.
@@ -777,7 +775,7 @@ Underfull \vbox (badness 7649) has occurred while \output is active []
 Underfull \vbox (badness 7649) has occurred while \output is active []
 
 [13]
-<figures/Design_ER-ED.png, id=205, 324.7332pt x 565.6332pt>
+<figures/Design_ER-ED.png, id=225, 324.7332pt x 565.6332pt>
 File: figures/Design_ER-ED.png Graphic file (type png)
 <use figures/Design_ER-ED.png>
 Package pdftex.def Info: figures/Design_ER-ED.png  used on input line 455.
@@ -785,57 +783,10 @@ Package pdftex.def Info: figures/Design_ER-ED.png  used on input line 455.
 
 LaTeX Warning: Float too large for page by 26.70178pt on input line 456.
 
-[14] [15 <./figures/Design_ER-ED.png>] [16] [17] [18] [19]
-Overfull \hbox (36.135pt too wide) in paragraph at lines 572--575
- [][][] 
- []
+[14] [15 <./figures/Design_ER-ED.png>] [16] [17] [18] [19] [20]
+Underfull \vbox (badness 7649) has occurred while \output is active []
 
-
-Overfull \hbox (36.135pt too wide) in paragraph at lines 576--579
- [][][] 
- []
-
-
-Overfull \hbox (36.135pt too wide) in paragraph at lines 580--583
- [][][] 
- []
-
-
-Overfull \hbox (36.135pt too wide) in paragraph at lines 584--587
- [][][] 
- []
-
-
-Overfull \hbox (36.135pt too wide) in paragraph at lines 588--591
- [][][] 
- []
-
-[20]
-Overfull \hbox (36.135pt too wide) in paragraph at lines 592--595
- [][][] 
- []
-
-
-Overfull \hbox (36.135pt too wide) in paragraph at lines 596--599
- [][][] 
- []
-
-
-Overfull \hbox (36.135pt too wide) in paragraph at lines 600--603
- [][][] 
- []
-
-
-Overfull \hbox (36.135pt too wide) in paragraph at lines 604--607
- [][][] 
- []
-
-
-Overfull \hbox (36.135pt too wide) in paragraph at lines 608--611
- [][][] 
- []
-
-
+[21]
 Overfull \hbox (36.135pt too wide) in paragraph at lines 612--615
  [][][] 
  []
@@ -856,9 +807,6 @@ Overfull \hbox (36.135pt too wide) in paragraph at lines 624--627
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[21]
 Overfull \hbox (36.135pt too wide) in paragraph at lines 628--631
  [][][] 
  []
@@ -873,7 +821,7 @@ Overfull \hbox (36.135pt too wide) in paragraph at lines 636--639
  [][][] 
  []
 
-
+[22]
 Overfull \hbox (36.135pt too wide) in paragraph at lines 640--643
  [][][] 
  []
@@ -909,9 +857,6 @@ Overfull \hbox (36.135pt too wide) in paragraph at lines 664--667
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[22]
 Overfull \hbox (36.135pt too wide) in paragraph at lines 668--671
  [][][] 
  []
@@ -922,6 +867,9 @@ Overfull \hbox (36.135pt too wide) in paragraph at lines 672--675
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[23]
 Overfull \hbox (36.135pt too wide) in paragraph at lines 676--679
  [][][] 
  []
@@ -967,9 +915,6 @@ Overfull \hbox (36.135pt too wide) in paragraph at lines 708--711
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[23]
 Overfull \hbox (36.135pt too wide) in paragraph at lines 712--715
  [][][] 
  []
@@ -980,6 +925,9 @@ Overfull \hbox (36.135pt too wide) in paragraph at lines 716--719
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[24]
 Overfull \hbox (36.135pt too wide) in paragraph at lines 720--723
  [][][] 
  []
@@ -1025,9 +973,6 @@ Overfull \hbox (36.135pt too wide) in paragraph at lines 752--755
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[24]
 Overfull \hbox (36.135pt too wide) in paragraph at lines 756--759
  [][][] 
  []
@@ -1038,6 +983,9 @@ Overfull \hbox (36.135pt too wide) in paragraph at lines 760--763
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[25]
 Overfull \hbox (36.135pt too wide) in paragraph at lines 764--767
  [][][] 
  []
@@ -1073,9 +1021,6 @@ Overfull \hbox (36.135pt too wide) in paragraph at lines 788--791
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[25]
 Overfull \hbox (36.135pt too wide) in paragraph at lines 792--795
  [][][] 
  []
@@ -1091,6 +1036,9 @@ Overfull \hbox (36.135pt too wide) in paragraph at lines 800--803
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[26]
 Overfull \hbox (36.135pt too wide) in paragraph at lines 804--807
  [][][] 
  []
@@ -1121,9 +1069,6 @@ Overfull \hbox (36.135pt too wide) in paragraph at lines 824--827
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[26]
 Overfull \hbox (36.135pt too wide) in paragraph at lines 828--831
  [][][] 
  []
@@ -1144,6 +1089,9 @@ Overfull \hbox (36.135pt too wide) in paragraph at lines 840--843
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[27]
 Overfull \hbox (36.135pt too wide) in paragraph at lines 844--847
  [][][] 
  []
@@ -1158,323 +1106,376 @@ Overfull \hbox (36.135pt too wide) in paragraph at lines 852--855
  [][][] 
  []
 
-[27] [28] [29]
+
+Overfull \hbox (36.135pt too wide) in paragraph at lines 856--859
+ [][][] 
+ []
+
+
+Overfull \hbox (36.135pt too wide) in paragraph at lines 860--863
+ [][][] 
+ []
+
+
+Overfull \hbox (36.135pt too wide) in paragraph at lines 864--867
+ [][][] 
+ []
+
+
+Overfull \hbox (36.135pt too wide) in paragraph at lines 868--871
+ [][][] 
+ []
+
+
+Overfull \hbox (36.135pt too wide) in paragraph at lines 872--875
+ [][][] 
+ []
+
+
+Overfull \hbox (36.135pt too wide) in paragraph at lines 876--879
+ [][][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[28]
+Overfull \hbox (36.135pt too wide) in paragraph at lines 880--883
+ [][][] 
+ []
+
+
+Overfull \hbox (36.135pt too wide) in paragraph at lines 884--887
+ [][][] 
+ []
+
+
+Overfull \hbox (36.135pt too wide) in paragraph at lines 888--891
+ [][][] 
+ []
+
+
+Overfull \hbox (36.135pt too wide) in paragraph at lines 892--895
+ [][][] 
+ []
+
+[29] [30] [31]
 File: figures/Paradigm_Scheme_T2.png Graphic file (type png)
 <use figures/Paradigm_Scheme_T2.png>
-Package pdftex.def Info: figures/Paradigm_Scheme_T2.png  used on input line 885.
+Package pdftex.def Info: figures/Paradigm_Scheme_T2.png  used on input line 925.
 (pdftex.def)             Requested size: 469.77403pt x 296.57837pt.
 File: figures/Design_ER-ED.png Graphic file (type png)
 <use figures/Design_ER-ED.png>
-Package pdftex.def Info: figures/Design_ER-ED.png  used on input line 894.
+Package pdftex.def Info: figures/Design_ER-ED.png  used on input line 934.
 (pdftex.def)             Requested size: 324.7324pt x 565.6318pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[30]
+[32]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[31]
-<Supplement/Design_Table_T2.pdf, id=493, 845.07718pt x 597.55246pt>
+[33]
+<Supplement/Design_Table_T2.pdf, id=530, 845.07718pt x 597.55246pt>
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf  used on input line 908.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf  used on input line 948.
 (pdftex.def)             Requested size: 469.75839pt x 332.16525pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf  used on input line 908.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf  used on input line 948.
 (pdftex.def)             Requested size: 469.75839pt x 332.16525pt.
-<Supplement/Design_Table_T2.pdf, id=496, page=1, 845.07718pt x 597.55246pt>
+<Supplement/Design_Table_T2.pdf, id=533, page=1, 845.07718pt x 597.55246pt>
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 1>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page1 used on input line 908.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page1 used on input line 948.
 (pdftex.def)             Requested size: 845.07512pt x 597.551pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 1>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page1 used on input line 908.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page1 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
-[32]
+[34]
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 1>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page1 used on input line 908.
-(pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
-File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 1>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page1 used on input line 908.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page1 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
 <use Supplement/Design_Table_T2.pdf, page 1>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page1 used on input line 908.
-(pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
-[33 <./Supplement/Design_Table_T2.pdf>]
-<Supplement/Design_Table_T2.pdf, id=527, page=2, 845.07718pt x 597.55246pt>
-File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 2>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page2 used on input line 908.
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page1 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 2>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page2 used on input line 908.
-(pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
-File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 2>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page2 used on input line 908.
-(pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
-[34 <./Supplement/Design_Table_T2.pdf>]
-<Supplement/Design_Table_T2.pdf, id=533, page=3, 845.07718pt x 597.55246pt>
-File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 3>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page3 used on input line 908.
-(pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
-File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 3>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page3 used on input line 908.
-(pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
-File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 3>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page3 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 1>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page1 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [35 <./Supplement/Design_Table_T2.pdf>]
-<Supplement/Design_Table_T2.pdf, id=539, page=4, 845.07718pt x 597.55246pt>
+<Supplement/Design_Table_T2.pdf, id=563, page=2, 845.07718pt x 597.55246pt>
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 4>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page4 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 2>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page2 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 4>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page4 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 2>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page2 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 4>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page4 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 2>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page2 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [36 <./Supplement/Design_Table_T2.pdf>]
-<Supplement/Design_Table_T2.pdf, id=545, page=5, 845.07718pt x 597.55246pt>
+<Supplement/Design_Table_T2.pdf, id=569, page=3, 845.07718pt x 597.55246pt>
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 5>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page5 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 3>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page3 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 5>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page5 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 3>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page3 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 5>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page5 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 3>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page3 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [37 <./Supplement/Design_Table_T2.pdf>]
-<Supplement/Design_Table_T2.pdf, id=552, page=6, 845.07718pt x 597.55246pt>
+<Supplement/Design_Table_T2.pdf, id=576, page=4, 845.07718pt x 597.55246pt>
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 6>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page6 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 4>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page4 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 6>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page6 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 4>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page4 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 6>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page6 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 4>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page4 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [38 <./Supplement/Design_Table_T2.pdf>]
-<Supplement/Design_Table_T2.pdf, id=558, page=7, 845.07718pt x 597.55246pt>
+<Supplement/Design_Table_T2.pdf, id=582, page=5, 845.07718pt x 597.55246pt>
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 7>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page7 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 5>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page5 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 7>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page7 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 5>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page5 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 7>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page7 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 5>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page5 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [39 <./Supplement/Design_Table_T2.pdf>]
-<Supplement/Design_Table_T2.pdf, id=564, page=8, 845.07718pt x 597.55246pt>
+<Supplement/Design_Table_T2.pdf, id=588, page=6, 845.07718pt x 597.55246pt>
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 8>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page8 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 6>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page6 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 8>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page8 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 6>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page6 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 8>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page8 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 6>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page6 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [40 <./Supplement/Design_Table_T2.pdf>]
-<Supplement/Design_Table_T2.pdf, id=570, page=9, 845.07718pt x 597.55246pt>
+<Supplement/Design_Table_T2.pdf, id=594, page=7, 845.07718pt x 597.55246pt>
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 9>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page9 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 7>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page7 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 9>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page9 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 7>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page7 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 9>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page9 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 7>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page7 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [41 <./Supplement/Design_Table_T2.pdf>]
-<Supplement/Design_Table_T2.pdf, id=576, page=10, 845.07718pt x 597.55246pt>
+<Supplement/Design_Table_T2.pdf, id=600, page=8, 845.07718pt x 597.55246pt>
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 10>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page10 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 8>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page8 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 10>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page10 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 8>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page8 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
-<use Supplement/Design_Table_T2.pdf, page 10>
-Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page10 used on input line 908.
+<use Supplement/Design_Table_T2.pdf, page 8>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page8 used on input line 948.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [42 <./Supplement/Design_Table_T2.pdf>]
-<Supplement/StimList_Suppl.pdf, id=582, 845.07718pt x 597.55246pt>
+<Supplement/Design_Table_T2.pdf, id=606, page=9, 845.07718pt x 597.55246pt>
+File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
+<use Supplement/Design_Table_T2.pdf, page 9>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page9 used on input line 948.
+(pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
+File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
+<use Supplement/Design_Table_T2.pdf, page 9>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page9 used on input line 948.
+(pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
+File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
+<use Supplement/Design_Table_T2.pdf, page 9>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page9 used on input line 948.
+(pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
+[43 <./Supplement/Design_Table_T2.pdf>]
+<Supplement/Design_Table_T2.pdf, id=613, page=10, 845.07718pt x 597.55246pt>
+File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
+<use Supplement/Design_Table_T2.pdf, page 10>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page10 used on input line 948.
+(pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
+File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
+<use Supplement/Design_Table_T2.pdf, page 10>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page10 used on input line 948.
+(pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
+File: Supplement/Design_Table_T2.pdf Graphic file (type pdf)
+<use Supplement/Design_Table_T2.pdf, page 10>
+Package pdftex.def Info: Supplement/Design_Table_T2.pdf , page10 used on input line 948.
+(pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
+[44 <./Supplement/Design_Table_T2.pdf>]
+<Supplement/StimList_Suppl.pdf, id=619, 845.07718pt x 597.55246pt>
 File: Supplement/StimList_Suppl.pdf Graphic file (type pdf)
 <use Supplement/StimList_Suppl.pdf>
-Package pdftex.def Info: Supplement/StimList_Suppl.pdf  used on input line 915.
+Package pdftex.def Info: Supplement/StimList_Suppl.pdf  used on input line 955.
 (pdftex.def)             Requested size: 469.75839pt x 332.16525pt.
 File: Supplement/StimList_Suppl.pdf Graphic file (type pdf)
 <use Supplement/StimList_Suppl.pdf>
-Package pdftex.def Info: Supplement/StimList_Suppl.pdf  used on input line 915.
+Package pdftex.def Info: Supplement/StimList_Suppl.pdf  used on input line 955.
 (pdftex.def)             Requested size: 469.75839pt x 332.16525pt.
-<Supplement/StimList_Suppl.pdf, id=585, page=1, 845.07718pt x 597.55246pt>
+<Supplement/StimList_Suppl.pdf, id=622, page=1, 845.07718pt x 597.55246pt>
 File: Supplement/StimList_Suppl.pdf Graphic file (type pdf)
 <use Supplement/StimList_Suppl.pdf, page 1>
-Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 915.
+Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 955.
 (pdftex.def)             Requested size: 845.07512pt x 597.551pt.
 File: Supplement/StimList_Suppl.pdf Graphic file (type pdf)
 <use Supplement/StimList_Suppl.pdf, page 1>
-Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 915.
+Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 955.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
-[43]
+[45]
 File: Supplement/StimList_Suppl.pdf Graphic file (type pdf)
 <use Supplement/StimList_Suppl.pdf, page 1>
-Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 915.
-(pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
-File: Supplement/StimList_Suppl.pdf Graphic file (type pdf)
-<use Supplement/StimList_Suppl.pdf, page 1>
-Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 915.
+Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 955.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 File: Supplement/StimList_Suppl.pdf Graphic file (type pdf)
 <use Supplement/StimList_Suppl.pdf, page 1>
-Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 915.
+Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 955.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
-[44 <./Supplement/StimList_Suppl.pdf>] [45] [46]
-Overfull \hbox (23.2881pt too wide) in paragraph at lines 984--1001
+File: Supplement/StimList_Suppl.pdf Graphic file (type pdf)
+<use Supplement/StimList_Suppl.pdf, page 1>
+Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 955.
+(pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
+[46 <./Supplement/StimList_Suppl.pdf>] [47] [48]
+Overfull \hbox (23.2881pt too wide) in paragraph at lines 1024--1041
  [] 
  []
 
-<Manuscript_ERED_Stage2_files/figure-latex/FigSubjArousalViewPilot-1.pdf, id=621, 469.755pt x 325.215pt>
+<Manuscript_ERED_Stage2_files/figure-latex/FigSubjArousalViewPilot-1.pdf, id=658, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage2_files/figure-latex/FigSubjArousalViewPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage2_files/figure-latex/FigSubjArousalViewPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage2_files/figure-latex/FigSubjArousalViewPilot-1.pdf  used on input line 1008.
+Package pdftex.def Info: Manuscript_ERED_Stage2_files/figure-latex/FigSubjArousalViewPilot-1.pdf  used on input line 1048.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[47]
-Overfull \hbox (52.68124pt too wide) in paragraph at lines 1032--1054
+[49]
+Overfull \hbox (52.68124pt too wide) in paragraph at lines 1072--1094
  [] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[48 <./Manuscript_ERED_Stage2_files/figure-latex/FigSubjArousalViewPilot-1.pdf>]
-<Manuscript_ERED_Stage2_files/figure-latex/FigSubjArousalRegPilot-1.pdf, id=647, 469.755pt x 325.215pt>
+[50 <./Manuscript_ERED_Stage2_files/figure-latex/FigSubjArousalViewPilot-1.pdf>]
+<Manuscript_ERED_Stage2_files/figure-latex/FigSubjArousalRegPilot-1.pdf, id=684, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage2_files/figure-latex/FigSubjArousalRegPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage2_files/figure-latex/FigSubjArousalRegPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage2_files/figure-latex/FigSubjArousalRegPilot-1.pdf  used on input line 1061.
+Package pdftex.def Info: Manuscript_ERED_Stage2_files/figure-latex/FigSubjArousalRegPilot-1.pdf  used on input line 1101.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[49 <./Manuscript_ERED_Stage2_files/figure-latex/FigSubjArousalRegPilot-1.pdf>]
-Overfull \hbox (47.44104pt too wide) in paragraph at lines 1085--1102
+[51 <./Manuscript_ERED_Stage2_files/figure-latex/FigSubjArousalRegPilot-1.pdf>]
+Overfull \hbox (47.44104pt too wide) in paragraph at lines 1125--1142
  [] 
  []
 
 
-Overfull \hbox (15.29416pt too wide) in paragraph at lines 1124--1141
+Overfull \hbox (15.29416pt too wide) in paragraph at lines 1164--1181
  [] 
  []
 
-[50]
-<Manuscript_ERED_Stage2_files/figure-latex/FigEMGCorrViewPilot-1.pdf, id=676, 469.755pt x 325.215pt>
+[52]
+<Manuscript_ERED_Stage2_files/figure-latex/FigEMGCorrViewPilot-1.pdf, id=711, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage2_files/figure-latex/FigEMGCorrViewPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage2_files/figure-latex/FigEMGCorrViewPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage2_files/figure-latex/FigEMGCorrViewPilot-1.pdf  used on input line 1148.
+Package pdftex.def Info: Manuscript_ERED_Stage2_files/figure-latex/FigEMGCorrViewPilot-1.pdf  used on input line 1188.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
-<Manuscript_ERED_Stage2_files/figure-latex/FigEMGLevViewPilot-1.pdf, id=677, 469.755pt x 325.215pt>
+<Manuscript_ERED_Stage2_files/figure-latex/FigEMGLevViewPilot-1.pdf, id=712, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage2_files/figure-latex/FigEMGLevViewPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage2_files/figure-latex/FigEMGLevViewPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage2_files/figure-latex/FigEMGLevViewPilot-1.pdf  used on input line 1152.
+Package pdftex.def Info: Manuscript_ERED_Stage2_files/figure-latex/FigEMGLevViewPilot-1.pdf  used on input line 1192.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
-[51 <./Manuscript_ERED_Stage2_files/figure-latex/FigEMGCorrViewPilot-1.pdf> <./Manuscript_ERED_Stage2_files/figure-latex/FigEMGLevViewPilot-1.pdf>]
-Overfull \hbox (63.93918pt too wide) in paragraph at lines 1176--1198
+[53 <./Manuscript_ERED_Stage2_files/figure-latex/FigEMGCorrViewPilot-1.pdf> <./Manuscript_ERED_Stage2_files/figure-latex/FigEMGLevViewPilot-1.pdf>]
+Overfull \hbox (63.93918pt too wide) in paragraph at lines 1216--1238
  [] 
  []
 
 
-Overfull \hbox (54.14752pt too wide) in paragraph at lines 1220--1242
+Overfull \hbox (54.14752pt too wide) in paragraph at lines 1260--1282
  [] 
  []
 
 
 Underfull \vbox (badness 1400) has occurred while \output is active []
 
-[52]
-<Manuscript_ERED_Stage2_files/figure-latex/FigEMGCorrRegPilot-1.pdf, id=713, 469.755pt x 325.215pt>
+[54]
+<Manuscript_ERED_Stage2_files/figure-latex/FigEMGCorrRegPilot-1.pdf, id=748, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage2_files/figure-latex/FigEMGCorrRegPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage2_files/figure-latex/FigEMGCorrRegPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage2_files/figure-latex/FigEMGCorrRegPilot-1.pdf  used on input line 1249.
+Package pdftex.def Info: Manuscript_ERED_Stage2_files/figure-latex/FigEMGCorrRegPilot-1.pdf  used on input line 1289.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
-<Manuscript_ERED_Stage2_files/figure-latex/FigEMGLevRegPilot-1.pdf, id=714, 469.755pt x 325.215pt>
+<Manuscript_ERED_Stage2_files/figure-latex/FigEMGLevRegPilot-1.pdf, id=749, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage2_files/figure-latex/FigEMGLevRegPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage2_files/figure-latex/FigEMGLevRegPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage2_files/figure-latex/FigEMGLevRegPilot-1.pdf  used on input line 1253.
+Package pdftex.def Info: Manuscript_ERED_Stage2_files/figure-latex/FigEMGLevRegPilot-1.pdf  used on input line 1293.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[53 <./Manuscript_ERED_Stage2_files/figure-latex/FigEMGCorrRegPilot-1.pdf>]
-Overfull \hbox (52.68124pt too wide) in paragraph at lines 1277--1299
+[55 <./Manuscript_ERED_Stage2_files/figure-latex/FigEMGCorrRegPilot-1.pdf>]
+Overfull \hbox (52.68124pt too wide) in paragraph at lines 1317--1339
  [] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[54 <./Manuscript_ERED_Stage2_files/figure-latex/FigEMGLevRegPilot-1.pdf>]
-<Manuscript_ERED_Stage2_files/figure-latex/FigSubjEffortPilot-1.pdf, id=751, 469.755pt x 325.215pt>
+[56 <./Manuscript_ERED_Stage2_files/figure-latex/FigEMGLevRegPilot-1.pdf>]
+<Manuscript_ERED_Stage2_files/figure-latex/FigSubjEffortPilot-1.pdf, id=787, 469.755pt x 325.215pt>
 File: Manuscript_ERED_Stage2_files/figure-latex/FigSubjEffortPilot-1.pdf Graphic file (type pdf)
 <use Manuscript_ERED_Stage2_files/figure-latex/FigSubjEffortPilot-1.pdf>
-Package pdftex.def Info: Manuscript_ERED_Stage2_files/figure-latex/FigSubjEffortPilot-1.pdf  used on input line 1306.
+Package pdftex.def Info: Manuscript_ERED_Stage2_files/figure-latex/FigSubjEffortPilot-1.pdf  used on input line 1346.
 (pdftex.def)             Requested size: 352.31538pt x 243.91064pt.
-AED endfloat: Processing end Figures and Tables [55 <./Manuscript_ERED_Stage2_files/figure-latex/FigSubjEffortPilot-1.pdf>] (./Manuscript_ERED_Stage2.aux)
+AED endfloat: Processing end Figures and Tables [57 <./Manuscript_ERED_Stage2_files/figure-latex/FigSubjEffortPilot-1.pdf>] (./Manuscript_ERED_Stage2.aux)
 Package rerunfilecheck Info: File `Manuscript_ERED_Stage2.out' has not changed.
-(rerunfilecheck)             Checksum: AB9E80A224614429C1C678969BD8ADC2;7624.
+(rerunfilecheck)             Checksum: E84C8FD7EE3B2F1E5313FBFCD9A10ECD;8543.
  ) 
 Here is how much of TeX's memory you used:
- 18271 strings out of 479998
- 307432 string characters out of 5886548
- 634487 words of memory out of 5000000
- 35881 multiletter control sequences out of 15000+600000
- 529362 words of font info for 76 fonts, out of 8000000 for 9000
+ 18320 strings out of 477989
+ 308363 string characters out of 5837643
+ 1872340 words of memory out of 5000000
+ 37922 multiletter control sequences out of 15000+600000
+ 572390 words of font info for 80 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 72i,17n,77p,1033b,654s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,17n,77p,1033b,654s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{ux5cux23stimuli} has been referenced but does not exist, replaced by a fixed one
 
 {c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri8.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on Manuscript_ERED_Stage2.pdf (55 pages, 1317227 bytes).
+Output written on Manuscript_ERED_Stage2.pdf (57 pages, 1330105 bytes).
 PDF statistics:
- 876 PDF objects out of 1000 (max. 8388607)
- 747 compressed objects within 8 object streams
- 206 named destinations out of 1000 (max. 500000)
- 347 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 916 PDF objects out of 1000 (max. 8388607)
+ 785 compressed objects within 8 object streams
+ 220 named destinations out of 1000 (max. 500000)
+ 387 words of extra memory for PDF output out of 10000 (max. 10000000)
 

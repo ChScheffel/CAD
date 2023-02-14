@@ -532,6 +532,20 @@ for (i in seq_len(length(subjectindex)-1)) {
 # remove temporary variables
 base::remove(tempone, temptwo, tempthree, newdata)
 
+#################### STATISTICS: DESCRIPTIVES ############
+
+data_descr <- data_ER[data_ER$block != "6_choice",]
+data_descr$trigger <- NULL
+data_descr$block <- NULL
+
+for (i in seq_len(nrow(data_descr))) {
+  
+  data_descr$age[i] <- data_quest$age[data_quest$record_id_2 == data_descr$ID[i]]
+  data_descr$gender[i] <- data_quest$gender[data_quest$record_id_2 == data_descr$ID[i]]
+}
+
+#data_descr <- reshape(data = data_descr, idvar = "ID", timevar = "strategy", direction = "wide")
+
 #################### STATISTICAL ANALYSES: KONFIRMATORY ANALYSES ############
 
 ######## HYPOTHESIS 1

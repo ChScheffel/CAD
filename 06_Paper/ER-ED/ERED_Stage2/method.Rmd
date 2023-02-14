@@ -1,7 +1,7 @@
 ---
 output: html_document
 bibliography: ER_ED.bib
-csl: apa7.csl
+csl: nature.csl
 editor_options: 
   markdown: 
     wrap: sentence
@@ -14,8 +14,9 @@ library(here)       # to set directories without defined paths
 # set top level directory to source file
 here::i_am("flag_project_root_CAD.txt")
 
-#library(papaja)     # APA conform output
-#library(readxl)     # import excel files
+# load workspace variables from analyses_ERED.R script
+base::load(here("06_Paper","ER-ED","ERED_Stage2","Workspace_ERED_pilot.RData"))
+base::load(here("06_Paper","ER-ED","ERED_Stage2","Workspace_ERED.RData"))
 ```
 
 ```{r stimvalues, echo = FALSE}
@@ -130,7 +131,7 @@ However, participants were asked to state the reasons for the decision afterward
 As soon as they have decided, they saw the respective instruction and the block with another 20 negative pictures started.
 
 ```{r DesignERED, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Block design of the paradigm. Every participant starts with two \"active viewing\" blocks continaing neutral (Block 1) and negative (Block 2) pictures. Order of the regulation blocks (Blocks 3, 4, and 5) was randomized between participants. After, the discounting procedure took place. All three regulation strategies were compared pairwise. Before the last block, participants could decide which regulation strategy they wanted to reapply. Subjective arousal and effort ratings were assessed after each block using a slider on screen with a continuous scale. Figure available at https://osf.io/vnj8x/, under a CC-BY4.0 license."}
-include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "Design_ER-ED.png"))
+knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "Design_ER-ED.png"))
 ```
 
 ### 2.3.3 Stimuli
