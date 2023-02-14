@@ -1,5 +1,5 @@
 ---
-title: "results"
+title: "Results"
 author: "Christoph Scheffel"
 output: html_document
 ---
@@ -11,15 +11,16 @@ library(here)       # to set directories without defined paths
 # set top level directory to source file
 here::i_am("flag_project_root_CAD.txt")
 
-#library(papaja)     # APA conform output
-#library(readxl)     # import excel files
+# load workspace variables from analyses_ERED.R script
+base::load(here("06_Paper","ER-ED","ERED_Stage2","Workspace_ERED_pilot.RData"))
+base::load(here("06_Paper","ER-ED","ERED_Stage2","Workspace_ERED.RData"))
 ```
 
 # 3. Results
 
 ## 3.1 Participants and descriptive statistics
 
-Data collection took place between `r acqui_time[1]` and `r acqui_time[2]`.
+Data collection took place between `r format(as.Date(acqui_time[1]), "%Y-%m")` and `r format(as.Date(acqui_time[2]), "%Y-%m")`. A total of $N=`r sum(data_survey$lay_beliefs_complete == 2)`$ participants completed the online survey and were invited to participate in the two lab sessions. Of these, $N=`r sum(data_survey$files_coged_complete == 2)`$ participated in the first laboratory session and $N=`r sum(data_survey$followup_ered_complete == 2)`$ completed the second laboratory session. Of these, $n=1$ person had to be excluded from analyses because they did not follow the instructions.  
 
 ## 3.2. Confirmatory analyses
 
