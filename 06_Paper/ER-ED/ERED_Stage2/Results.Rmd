@@ -34,6 +34,7 @@ Please note that sample size for individual calculations may be smaller due to f
 ### Manipulation checks
 
 #### Subjective arousal and physiological responding
+
 To explore whether negative pictures evoke emotional arousal, we conducted an ANOVA for the active viewing condition. 
 We found a highly significant main effect of valence (`r papaja::apa_print(SubjArousalView_aov)$full_result`, `r papaja::apa_print(SubjArousalView_BF)$statistic`), indicating that negative pictures were perceived as more arousing than neutral pictures ($\eta_{p}^{2}=`r papaja::printnum(SubjArousalView_con[,8:9])`$, $BF_{10}=$`r papaja::printnum(SubjArousalView_con[,7], format = "e")`).
 To explore the effect of valence on facial muscle activity(*Corrugator* and *Levator*), we conducted two ANOVA for the active viewing condition.
@@ -42,11 +43,18 @@ In line with previously reported results, there was a significant main effect of
 
 To investigate whether ER strategies reduce emotional arousal, we conducted an rmANOVA comparing the subjective arousal ratings of four strategies (active viewing, distraction, distancing, suppression). 
 We found a significant effect of strategy (`r papaja::apa_print(SubjArousalReg_aov)$full_result`, `r papaja::apa_print(SubjArousalReg_BF)$statistic`).
-Post-hoc test showed significantly reduced subjective arousal after use of distraction ($\eta_{p}^{2}=`r papaja::printnum(SubjArousalReg_con[1,8:9])`$, $BF_{10}=$`r papaja::printnum(SubjArousalReg_con[1,7], format = "e")`), distancing ($\eta_{p}^{2}=`r papaja::printnum(SubjArousalReg_con[2,8:9])`$, $BF_{10}=$`r papaja::printnum(SubjArousalReg_con[2,7], format = "e")`), and suppression ($\eta_{p}^{2}=`r papaja::printnum(SubjArousalReg_con[3,8:9])`$, $BF_{10}=$`r papaja::printnum(SubjArousalReg_con[3,7], format = "e")`) compared with active viewing.
+Post-hoc test showed significantly reduced subjective arousal after use of distraction ($\eta_{p}^{2}=`r papaja::printnum(SubjArousalReg_con[1,8:9])`$, $BF_{10}=$`r papaja::printnum(SubjArousalReg_con[1,7], format = "e")`), distancing ($\eta_{p}^{2}=`r papaja::printnum(SubjArousalReg_con[2,8:9])`$, $BF_{10}=$`r papaja::printnum(SubjArousalReg_con[2,7], format = "e")`), and suppression ($\eta_{p}^{2}=`r papaja::printnum(SubjArousalReg_con[3,8:9])`$, $BF_{10}=$`r papaja::printnum(SubjArousalReg_con[3,7], format = "e")`) compared to active viewing.
 However, there were no significant differences between strategies (all $p>.05$).
-To explore whether ER strategies reduce physiological responding, we conducted another two rmANOVAS comparing *Corrugator* activity and *Levator* activity of four the strategies.
+To explore whether ER strategies reduce physiological responding, we conducted another two rmANOVA comparing *Corrugator* activity and *Levator* activity of four the strategies.
 Regarding *Corrugator* activity, we found a significant main effect of factor strategy (`r papaja::apa_print(EMGCorrReg_aov)$full_result`, `r papaja::apa_print(EMGCorrReg_BF)$statistic`).
 Post-hoc test revealed reduced *Corrugator* activity during distraction ($\eta_{p}^{2}=`r papaja::printnum(EMGCorrReg_con[1,8:9])`$, $BF_{10}=$`r papaja::printnum(EMGCorrReg_con[1,7], format = "e")`), distancing ($\eta_{p}^{2}=`r papaja::printnum(EMGCorrReg_con[2,8:9])`$, $BF_{10}=$`r papaja::printnum(EMGCorrReg_con[2,7], format = "e")`), and suppression ($\eta_{p}^{2}=`r papaja::printnum(EMGCorrReg_con[3,8:9])`$, $BF_{10}=$`r papaja::printnum(EMGCorrReg_con[3,7], format = "e")`) compared to active viewing.
 There were no significant differences between regulation strategies (all $p>.05$).
+
+#### Subjective effort of ER strategies
+
+To investigate whether ER strategies require cognitive effort, we conducted an rmANOVA comparing the subjective effort ratings of four strategies (active viewing, distraction, distancing, suppression).
+We found a significant effect of strategy (`r papaja::apa_print(SubjEffort_aov)$full_result`, `r papaja::apa_print(SubjEffort_BF)$statistic`).
+Post-hoc test showed significant higher subjective effort for distraction ($\eta_{p}^{2}=`r papaja::printnum(SubjEffort_con[1,8:9])`$, $BF_{10}=$`r papaja::printnum(SubjEffort_con[1,7], format = "e")`), distancing ($\eta_{p}^{2}=`r papaja::printnum(SubjEffort_con[2,8:9])`$, $BF_{10}=$`r papaja::printnum(SubjEffort_con[2,7], format = "e")`), and suppression ($\eta_{p}^{2}=`r papaja::printnum(SubjEffort_con[3,8:9])`$, $BF_{10}=$`r papaja::printnum(SubjEffort_con[3,7], format = "e")`) compared to active viewing.
+Moreover, we found significantly lower effort during suppression compared with distraction ($\eta_{p}^{2}=`r papaja::printnum(SubjEffort_con[5,8:9])`$, $BF_{10}=$`r papaja::printnum(SubjEffort_con[5,7], format = "e")`) and distancing ($\eta_{p}^{2}=`r papaja::printnum(SubjEffort_con[6,8:9])`$, $BF_{10}=$`r papaja::printnum(SubjEffort_con[6,7], format = "e")`).
 
 ## 3.3. Exploratory analyses
