@@ -1144,15 +1144,12 @@ hypothesis1c_time_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")] <- signif(hyp
 hypothesis1c_time_contrasts$`$p$` <- format(round(hypothesis1c_time_contrasts$`$p$`, digits = 3), nsmall = 2)
 hypothesis1c_time_contrasts$`$p$`[hypothesis1c_time_contrasts$`$p$` == "0.000"] <- "<.001"
 
-# remove the temporary variable
-
-base::remove(h1c_data, hypothesis1c_emm)
 
 ##### Hypothesis 2a ############################################################
 
 # H2a: Subjective values decline with increasing n-back level.
 
-# ANOVA with six linear contrasts, contrasting the SVs of two n-back levels (1,2,3,4) at a time
+# ANOVA with six linear contrasts, contrasting the SVs of two n-back levels (1,2,3,4) at a time2
 
 # make a temporary copy of the data frame
 
@@ -1399,18 +1396,23 @@ h2b_data <- pipelines_data[["AARO"]]
 
 h2b_data <- droplevels(subset(h2b_data[ ,c("subject", "level", "sv", "dprime", "medianRT")]))
 
-# centering the level 1 predictors (d', medianRT, level) within cluster
+# turn n-back levels into contrasts
 
-h2b_data$dprime.cwc       <- h2b_data$dprime - (ave(h2b_data$dprime, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
-h2b_data$medianRT.cwc     <- h2b_data$medianRT - (ave(h2b_data$medianRT, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
-h2b_data$level.cwc        <- h2b_data$level - (ave(h2b_data$level, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
+h2b_data$levelcontrast <- rep(c(3,2,-2,-3),nrow(h2b_data)/4)
+
+# center the level 1 predictors within cluster
+
+h2b_data$dprime.cwc         <- h2b_data$dprime - (ave(h2b_data$dprime, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
+h2b_data$medianRT.cwc       <- h2b_data$medianRT - (ave(h2b_data$medianRT, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
+h2b_data$levelcontrast.cwc  <- h2b_data$levelcontrast - (ave(h2b_data$levelcontrast, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
+h2b_data$level.cwc          <- h2b_data$level - (ave(h2b_data$level, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
 
 h2b_data$level.cwc <- as.factor(h2b_data$level.cwc)
 
 # define contrasts
 
 h2b_contrasts <- c(3,2,-2,-3)
-contrasts(h2b_data$level.cwc) <- cbind(h2b_contrasts)
+contrasts(h2b_data$level.cwc) <- cbind(h2b_contrasts, c(-1,1,0,0), c(0,0,-1,1))
 
 # define the null model
 
@@ -1421,12 +1423,19 @@ m0_h2b <- lmerTest::lmer(sv ~ 1 + (1|subject), data = h2b_data, REML = T)
 var_m0_h2b <- as.data.frame(lme4::VarCorr(m0_h2b))
 icc_h2b <- var_m0_h2b$vcov[1] / (var_m0_h2b$vcov[1] + var_m0_h2b$vcov[2]) 
 
-# our model (this is not a random slopes model, because we have to replace (level.cwc|subject) with (1|subject), because
-# this model contains the level as a factor which does not allow repeated measures)
+# model 1 with the n-back levels as 'contrasts'
 
-m1_h2b <- lmerTest::lmer(sv ~ level.cwc * dprime.cwc + medianRT.cwc + (1|subject),
+m1_h2b <- lmerTest::lmer(sv ~ levelcontrast.cwc * dprime.cwc + medianRT.cwc + (levelcontrast.cwc|subject),
                          data = h2b_data, REML = T)
 
+# model 2 with an actual contrast matrix
+
+m2_h2b <- lmerTest::lmer(sv ~ level.cwc * dprime.cwc + medianRT.cwc + (level.cwc|subject),
+                         data = h2b_data, REML = T)
+
+# model 3 with nlmer
+
+m3_h2b <- lme4::nlmer(sv ~ level.cwc * dprime.cwc + medianRT.cwc + (level.cwc|subject))
 
 
 # convert random factor to type factor
