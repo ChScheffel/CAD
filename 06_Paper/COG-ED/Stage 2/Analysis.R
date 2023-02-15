@@ -150,6 +150,14 @@ data_quest <- cbind(data_quest, adherence = all_quest$followup_adherence[setinde
                     motivation = all_quest$followup_motivation[setindex+1],
                     motivation_other = all_quest$followup_motivation_other[setindex+1])
 
+# some participants started filling out the questionnaires two times, so their code appears twice
+
+data_quest <- data_quest %>% filter(complete.cases(.))
+
+# make a copy for counting the amount of participants who filled out the questionnaires
+
+n_quest <- data_quest
+
 # remove the following subjects for misunderstanding the instruction: E17T12, Z15R03, C18D18, H25N04, D24A05, T14G09, D29N05
 # remove the following subject for not remembering the level colours correctly during effort discounting: W16C01
 # sets 2, 6, and 7 were dummy sets to test the NASA TLX iterations
@@ -162,10 +170,6 @@ data_quest <- data_quest[!(data_quest$subject == "E17T12" | data_quest$subject =
 showups <- intersect(data_quest$subject, data_nback$subject)
 data_quest <- data_quest[data_quest$subject %in% showups, ]
 
-# some participants started filling out the questionnaires two times, so their code appears twice
-
-data_quest <- data_quest %>% filter(complete.cases(.))
-
 # describe when data acquisition took place
 
 acqui_time <- data.frame(dates = c(t(data_quest[,grep("time", colnames(data_quest))])), stringsAsFactors = FALSE)
@@ -177,6 +181,11 @@ acqui_time <- range(acqui_time, na.rm = TRUE)
 
 data_quest <- data_quest[grep("_final", data_quest$set), ]
 data_quest <- subset(data_quest, select = -c(set, time_quest, time_lab))
+
+# remove them from the counting variable as well
+
+n_quest <- n_quest[grep("_final", n_quest$set), ]
+n_quest <- nrow(n_quest)
 
 # remove temporary variables
 
@@ -1690,13 +1699,16 @@ hypothesis3b_contrasts_interact$`$p$`[hypothesis3b_contrasts_interact$`$p$` == "
 
 # plot these results
 
-plot_h3b <- ggplot(h3b_data, aes(x = level, y = ntlx, fill = nfcmedian)) +
-  geom_violin(color = NA) +
-  scale_fill_manual(values = MetBrewer::met.brewer("Homer2", 2), labels = c("NFC above median", "NFC below median")) +
-  labs(x = "n-back levels", y = "NASA-TLX sum score") +
-  geom_boxplot(width = 0.1, position = position_dodge(0.9)) +
-  ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-  scale_x_discrete(guide = "prism_bracket")
+plot_h3b <- ggplot(h3b_data, aes(level, ntlx, fill = nfcmedian, color = nfcmedian)) +
+            geom_rain(alpha = .5,
+                      violin.args = list(color = NA, alpha = .7), # removes the lines around the violins
+                      boxplot.args.pos = list(width = .1, position = ggpp::position_dodgenudge(
+                                                x = rep(-.13,8)))) +
+            ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
+            scale_fill_manual(values=c("#B30B0B", "#0941DB")) +
+            scale_color_manual(values=c("#B30B0B", "#0941DB")) +
+            labs(x = "n-back levels", y = "NASA-TLX sum score") +
+            guides(fill = 'none', color = 'none')
 
 # save the plot as an eps file with high resolution
 
