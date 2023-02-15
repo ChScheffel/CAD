@@ -981,23 +981,23 @@ hypothesis1c_frustration_rmanova <- afex::aov_ez(data = h1c_data,
 # obtain estimated marginal means for ANOVA model and
 # calculate pairwise comparisons on estimated marginal means
 
-hypothesis1c_emm <- emmeans::emmeans(object = hypothesis1c_mental_rmanova$aov, specs = "level")
-hypothesis1c_mental_contrasts <- as.data.frame(pairs(hypothesis1c_emm))
+hypothesis1c_mental_emm <- emmeans::emmeans(object = hypothesis1c_mental_rmanova$aov, specs = "level")
+hypothesis1c_mental_contrasts <- as.data.frame(pairs(hypothesis1c_mental_emm))
 
-hypothesis1c_emm <- emmeans::emmeans(object = hypothesis1c_physical_rmanova$aov, specs = "level")
-hypothesis1c_physical_contrasts <- as.data.frame(pairs(hypothesis1c_emm))
+hypothesis1c_physical_emm <- emmeans::emmeans(object = hypothesis1c_physical_rmanova$aov, specs = "level")
+hypothesis1c_physical_contrasts <- as.data.frame(pairs(hypothesis1c_physical_emm))
 
-hypothesis1c_emm <- emmeans::emmeans(object = hypothesis1c_time_rmanova$aov, specs = "level")
-hypothesis1c_time_contrasts <- as.data.frame(pairs(hypothesis1c_emm))
+hypothesis1c_time_emm <- emmeans::emmeans(object = hypothesis1c_time_rmanova$aov, specs = "level")
+hypothesis1c_time_contrasts <- as.data.frame(pairs(hypothesis1c_time_emm))
 
-hypothesis1c_emm <- emmeans::emmeans(object = hypothesis1c_performance_rmanova$aov, specs = "level")
-hypothesis1c_performance_contrasts <- as.data.frame(pairs(hypothesis1c_emm))
+hypothesis1c_performance_emm <- emmeans::emmeans(object = hypothesis1c_performance_rmanova$aov, specs = "level")
+hypothesis1c_performance_contrasts <- as.data.frame(pairs(hypothesis1c_performance_emm))
 
-hypothesis1c_emm <- emmeans::emmeans(object = hypothesis1c_effort_rmanova$aov, specs = "level")
-hypothesis1c_effort_contrasts <- as.data.frame(pairs(hypothesis1c_emm))
+hypothesis1c_effort_emm <- emmeans::emmeans(object = hypothesis1c_effort_rmanova$aov, specs = "level")
+hypothesis1c_effort_contrasts <- as.data.frame(pairs(hypothesis1c_effort_emm))
 
-hypothesis1c_emm <- emmeans::emmeans(object = hypothesis1c_frustration_rmanova$aov, specs = "level")
-hypothesis1c_frustration_contrasts <- as.data.frame(pairs(hypothesis1c_emm))
+hypothesis1c_frustration_emm <- emmeans::emmeans(object = hypothesis1c_frustration_rmanova$aov, specs = "level")
+hypothesis1c_frustration_contrasts <- as.data.frame(pairs(hypothesis1c_frustration_emm))
 
 # get Bayes factors
 
