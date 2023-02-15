@@ -67,5 +67,11 @@ To investigate the ecological validity of the subjective values of ER strategies
 Therefore, a $\chi^{2}$ test with predicted choice (i.e., the strategy with the highest SV of each participant) and actual choice was computed.
 There was a significant association between predicted choice and actual choice (`r papaja::apa_print(choice_chisq, n=120)$statistic[[1]]`, `r papaja::apa_print(choice_chisq_BF)$statistic`). 
 
+[ HIER FEHLT NOCH DIE ORDINALE REGRESSION ]
+
+Last, we investigated whether SVs are associated with ER flexibility.
+We conducted a logistic regression to inspect whether participants' individual $slopes$ and $intercepts$ of ordered SVs could predict their ER flexibility score.
+We found neither a significant associations between $slopes$ of SVs and FlexER score (`r papaja::apa_print(Flex_LM)$full_result$slope`, `r papaja::apa_print(Flex_LM_BF)$full_result$slope`), nor between $intercepts$ and FlexER score (`r papaja::apa_print(Flex_LM)$full_result$intercept`, `r papaja::apa_print(Flex_LM_BF)$full_result$intercept`).
+However, model fit was relatively low (`r papaja::apa_print(Flex_LM)$full_result$modelfit$r2`).
 
 ## 3.3. Exploratory analyses
