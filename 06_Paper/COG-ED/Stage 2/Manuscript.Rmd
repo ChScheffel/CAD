@@ -325,12 +325,37 @@ The data of this study can be downloaded from [osf.io/vnj8x/](https://osf.io/vnj
 
 The paradigm code as well as the R Markdown file used to analyze the data and write this document are available at [github.com/ChScheffel/CAD](https://github.com/ChScheffel/CAD).
 
+## Protocol registration
+
+The Stage 1 Registered Report protocol has been approved and is available at [osf.io/qa2bg/](https://osf.io/qa2bg/).
+
 # Results
 
 Data was collected between the 16th of August 2022 and the 3rd of February 2023.
 Of the $N=`r n_quest`$ participants who filled out the online questionnaires, $n=`r length(datalist_nback)`$ came to the first lab session.
 Based on the experimenters' notes, we excluded the data of seven participants from analysis for misunderstanding the instruction of the *n*-back task, and the data of one participant who reported that they confused the colours of the levels during effort discounting.
 Our final data set therefore included $N=`r nrow(data_quest)`$ participants.
+
+## Manipulation checks
+
+The performance measure *d’* did not change across *n*-back levels (`r apa_print(hypothesis1a_rmanova)$full_result$level`), but the median RT did (`r apa_print(hypothesis1b_rmanova)$full_result$level`).
+Specifically, the median RT was higher for the more difficult level in every contrast, with two exceptions:
+The median RT did not differ between 2-back and 4-back, and the median RT was higher for 3-back than for 4-back (Table\ \@ref(tab:H1b-contrasts)).
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+apa_table(
+  hypothesis1b_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing the median reaction time between *n*-back levels",
+  note = "The column Contrast contains the $n$ of the *n*-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+
+## Decline of subjective values
+
+## Differences between NFC groups
 
 \newpage
 
