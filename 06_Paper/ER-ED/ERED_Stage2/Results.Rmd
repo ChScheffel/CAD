@@ -57,4 +57,13 @@ We found a significant effect of strategy (`r papaja::apa_print(SubjEffort_aov)$
 Post-hoc test showed significant higher subjective effort for distraction ($\eta_{p}^{2}=`r papaja::printnum(SubjEffort_con[1,8:9])`$, $BF_{10}=$`r papaja::printnum(SubjEffort_con[1,7], format = "e")`), distancing ($\eta_{p}^{2}=`r papaja::printnum(SubjEffort_con[2,8:9])`$, $BF_{10}=$`r papaja::printnum(SubjEffort_con[2,7], format = "e")`), and suppression ($\eta_{p}^{2}=`r papaja::printnum(SubjEffort_con[3,8:9])`$, $BF_{10}=$`r papaja::printnum(SubjEffort_con[3,7], format = "e")`) compared to active viewing.
 Moreover, we found significantly lower effort during suppression compared with distraction ($\eta_{p}^{2}=`r papaja::printnum(SubjEffort_con[5,8:9])`$, $BF_{10}=$`r papaja::printnum(SubjEffort_con[5,7], format = "e")`) and distancing ($\eta_{p}^{2}=`r papaja::printnum(SubjEffort_con[6,8:9])`$, $BF_{10}=$`r papaja::printnum(SubjEffort_con[6,7], format = "e")`).
 
+#### Subjective values of ER strategies
+
+[to be filled]
+
+#### Associations between subjective values and flexible ER
+
+To investigate the ecological validity of the subjective values of ER strategies we calculated, we looked to see if SVs were associated with the actual choice of participants in the choice block.
+Therefore, a $\chi^{2}$ test 
+
 ## 3.3. Exploratory analyses
