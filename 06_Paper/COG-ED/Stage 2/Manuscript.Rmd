@@ -310,7 +310,7 @@ We considered a $BF10$ close to or above 3/10 as moderate/strong evidence for th
 
 The sample of the pilot study consisted of $N=15$ participants (53.3% female, $M=24.43$ ($SD=3.59$) years old).
 One participant's data was removed because they misunderstood the instruction.
-Due to a technical error the subjective task load data of one participant was incomplete, so the hypotheses involving the NASA Task Load Index were analyzed with $n=`r length(setindex)-2`$ data sets.
+Due to a technical error the subjective task load data of one participant was incomplete, so the hypotheses involving the NASA Task Load Index were analyzed with $n=14$ data sets.
 The results showed increases in subjective and objective task load measures with higher *n*-back level.
 Importantly, SVs were lower for higher *n*-back levels, but not different between 1- and 2-back, which shows that the easiest level is not universally preferred.
 The LMM revealed *n*-back level as a reliable predictor of SV, even after controlling for declining task performance (*d’* and median RT).
