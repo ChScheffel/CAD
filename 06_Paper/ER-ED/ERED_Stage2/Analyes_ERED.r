@@ -1182,10 +1182,10 @@ choice_chisq <- stats::chisq.test(data_choice$choice, data_choice$pred_choice)
 
 choice_chisq_BF <- BayesFactor::contingencyTableBF(x = choice_chisq[["observed"]],
                                                    sampleType = "jointMulti")
-# ordinal regression
-
-# test <- MASS::polr(as.factor(choice) ~ distraction.sv + distancing.sv + suppression.sv, data = data_choice, method = "logistic")
-
+# ORDINAL REGRESSION
+# https://stats.oarc.ucla.edu/r/dae/ordinal-logistic-regression/
+test <- MASS::polr(as.factor(choice) ~ distraction.sv + distancing.sv + suppression.sv, data = data_choice, method = "logistic")
+test1 <- glm(as.factor(choice) ~ distraction.sv + distancing.sv + suppression.sv, data = data_choice, family = "binomial")
 #### HYPOTHESIS 7b
 
 # Subjective values are lower and decline stronger when ER flexibility is lower.
@@ -1230,8 +1230,9 @@ Flex_LM_BF <- BayesFactor::regressionBF(formula = FlexER ~ intercept + slope, da
 
 
 # ggplot2::ggplot(data_SV, aes(x = strat_r, y = sv, color  = ID))+
-#   geom_point() +
+#   geom_point(color = "black") +
 #   geom_smooth(method = "lm", fill = NA)+
+#   theme(legend.position = "none")+
 #   ylim(0,1.5)
 
 #################### STATISTICAL ANALYSES: EXPLORATORY ANALYSES ############
