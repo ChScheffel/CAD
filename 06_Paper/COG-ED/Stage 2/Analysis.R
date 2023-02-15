@@ -150,6 +150,14 @@ data_quest <- cbind(data_quest, adherence = all_quest$followup_adherence[setinde
                     motivation = all_quest$followup_motivation[setindex+1],
                     motivation_other = all_quest$followup_motivation_other[setindex+1])
 
+# some participants started filling out the questionnaires two times, so their code appears twice
+
+data_quest <- data_quest %>% filter(complete.cases(.))
+
+# make a copy for counting the amount of participants who filled out the questionnaires
+
+n_quest <- data_quest
+
 # remove the following subjects for misunderstanding the instruction: E17T12, Z15R03, C18D18, H25N04, D24A05, T14G09, D29N05
 # remove the following subject for not remembering the level colours correctly during effort discounting: W16C01
 # sets 2, 6, and 7 were dummy sets to test the NASA TLX iterations
@@ -162,10 +170,6 @@ data_quest <- data_quest[!(data_quest$subject == "E17T12" | data_quest$subject =
 showups <- intersect(data_quest$subject, data_nback$subject)
 data_quest <- data_quest[data_quest$subject %in% showups, ]
 
-# some participants started filling out the questionnaires two times, so their code appears twice
-
-data_quest <- data_quest %>% filter(complete.cases(.))
-
 # describe when data acquisition took place
 
 acqui_time <- data.frame(dates = c(t(data_quest[,grep("time", colnames(data_quest))])), stringsAsFactors = FALSE)
@@ -177,6 +181,11 @@ acqui_time <- range(acqui_time, na.rm = TRUE)
 
 data_quest <- data_quest[grep("_final", data_quest$set), ]
 data_quest <- subset(data_quest, select = -c(set, time_quest, time_lab))
+
+# remove them from the counting variable as well
+
+n_quest <- n_quest[grep("_final", n_quest$set), ]
+n_quest <- nrow(n_quest)
 
 # remove temporary variables
 
