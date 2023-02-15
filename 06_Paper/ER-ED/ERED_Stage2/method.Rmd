@@ -208,7 +208,7 @@ Residuals of the final model were inspected visually.
 Intraclass correlation coefficient (ICC), $\rho$, was reported for each model (null model, as well as full model).
 The presented MLM followed the conceptualization of Zerna, Scheffel, et al.[@ZernaScheffel2022]
 
-To investigate whether individual SVs predict ER choice (H7a), a Chi-squared test with predicted choice (highest SV of each participant) and actual choice was computed.
+To investigate whether individual SVs predict ER choice (H7a), a $\chi{2}$ test with predicted choice (highest SV of each participant) and actual choice was computed.
 Furthermore, an ordinal logistic regression with the dependent variable choice and independent variables SVs of each strategy was computed.
 
 The association between flexible ER and SVs of ER strategies (H7b) was investigated with a linear regression using the individual $intercept$ and $slope$ of each participants' SVs to predict their FlexER score.
