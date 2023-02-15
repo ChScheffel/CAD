@@ -308,7 +308,7 @@ We considered a $BF10$ close to or above 3/10 as moderate/strong evidence for th
 
 ## Pilot data
 
-The sample of the pilot study consisted of $N=`r length(setindex)-1`$ participants (`r round((table(data_quest$gender)[2]/(length(setindex)-1))*100, digits = 1)`% female, $M=`r printnum(mean(data_quest[,"age"], na.rm = TRUE))`$ ($SD=`r printnum(sd(data_quest[,"age"], na.rm = TRUE))`$)\ years old).
+The sample of the pilot study consisted of $N=15$ participants (53.3% female, $M=24.43$ ($SD=3.59$) years old).
 One participant's data was removed because they misunderstood the instruction.
 Due to a technical error the subjective task load data of one participant was incomplete, so the hypotheses involving the NASA Task Load Index were analyzed with $n=`r length(setindex)-2`$ data sets.
 The results showed increases in subjective and objective task load measures with higher *n*-back level.
@@ -328,9 +328,9 @@ The paradigm code as well as the R Markdown file used to analyze the data and wr
 # Results
 
 Data was collected between the 16th of August 2022 and the 3rd of February 2023.
-Of the $N=$ participants who filled out the online questionnaires, $n=$ came to the first lab session.
+Of the $N=`r n_quest`$ participants who filled out the online questionnaires, $n=`r length(datalist_nback)`$ came to the first lab session.
 Based on the experimenters' notes, we excluded the data of seven participants from analysis for misunderstanding the instruction of the *n*-back task, and the data of one participant who reported that they confused the colours of the levels during effort discounting.
-Our final data set therefore included $N=$ participants.
+Our final data set therefore included $N=`r nrow(data_quest)`$ participants.
 
 \newpage
 
