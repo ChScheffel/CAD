@@ -354,6 +354,8 @@ apa_table(
 
 All NASA-TLX subscale scores increased across *n*-back levels.
 The effort subscale (`r apa_print(hypothesis1c_effort_rmanova)$full_result$level, apa_print(hypothesis1c_effort__BF)$statistic`) increased across all levels, but the magnitude of change decreased from 1- to 2-back (`r apa_print(pairs(hypothesis1c_effort_emm))$statistic$X1_X2, apa_print(BayesFactor::ttestBF(x = h1c_data$effort[h1c_data$level == 1], y = h1c_data$effort[h1c_data$level == 2], progress = FALSE, paired = TRUE))$statistic`) to 3- to 4-back (`r apa_print(pairs(hypothesis1c_effort_emm))$statistic$X3_X4, apa_print(BayesFactor::ttestBF(x = h1c_data$effort[h1c_data$level == 3], y = h1c_data$effort[h1c_data$level == 4], progress = FALSE, paired = TRUE))$statistic`).
+Three subscales had significant differences between all contrasts except for 3- versus 4-back:
+The frustration subscale 
 
 ## Decline of subjective values
 
