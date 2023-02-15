@@ -64,6 +64,6 @@ Moreover, we found significantly lower effort during suppression compared with d
 #### Associations between subjective values and flexible ER
 
 To investigate the ecological validity of the subjective values of ER strategies we calculated, we looked to see if SVs were associated with the actual choice of participants in the choice block.
-Therefore, a $Chi^{2}$ test 
+Therefore, a $\chi^{2}$ test 
 
 ## 3.3. Exploratory analyses
