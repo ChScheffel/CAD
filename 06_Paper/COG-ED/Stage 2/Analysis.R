@@ -1690,13 +1690,16 @@ hypothesis3b_contrasts_interact$`$p$`[hypothesis3b_contrasts_interact$`$p$` == "
 
 # plot these results
 
-plot_h3b <- ggplot(h3b_data, aes(x = level, y = ntlx, fill = nfcmedian)) +
-  geom_violin(color = NA) +
-  scale_fill_manual(values = MetBrewer::met.brewer("Homer2", 2), labels = c("NFC above median", "NFC below median")) +
-  labs(x = "n-back levels", y = "NASA-TLX sum score") +
-  geom_boxplot(width = 0.1, position = position_dodge(0.9)) +
-  ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-  scale_x_discrete(guide = "prism_bracket")
+plot_h3b <- ggplot(h3b_data, aes(level, ntlx, fill = nfcmedian, color = nfcmedian)) +
+            geom_rain(alpha = .5,
+                      violin.args = list(color = NA, alpha = .7), # removes the lines around the violins
+                      boxplot.args.pos = list(width = .1, position = ggpp::position_dodgenudge(
+                                                x = rep(-.13,8)))) +
+            ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
+            scale_fill_manual(values=c("#B30B0B", "#0941DB")) +
+            scale_color_manual(values=c("#B30B0B", "#0941DB")) +
+            labs(x = "n-back levels", y = "NASA-TLX sum score") +
+            guides(fill = 'none', color = 'none')
 
 # save the plot as an eps file with high resolution
 
