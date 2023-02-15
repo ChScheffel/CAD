@@ -342,7 +342,7 @@ The performance measure *d’* did not change across *n*-back levels (`r apa_pri
 Specifically, the median RT was higher for the more difficult level in every contrast, with two exceptions:
 The median RT did not differ between 2-back and 4-back, and the median RT was higher for 3-back than for 4-back (Table\ \@ref(tab:H1b-contrasts)).
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r H1b-contrasts, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
   hypothesis1b_contrasts,
   caption = "Paired contrasts for the rmANOVA comparing the median reaction time between *n*-back levels",
