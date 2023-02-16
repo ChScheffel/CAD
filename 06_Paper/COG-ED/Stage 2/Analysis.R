@@ -1398,57 +1398,81 @@ h2b_data <- droplevels(subset(h2b_data[ ,c("subject", "level", "sv", "dprime", "
 
 # turn n-back levels into contrasts
 
-h2b_data$levelcontrast <- rep(c(3,2,-2,-3),nrow(h2b_data)/4)
+#h2b_data$levelcontrast <- rep(c(3,2,-2,-3),nrow(h2b_data)/4)
 
 # center the level 1 predictors within cluster
 
 h2b_data$dprime.cwc         <- h2b_data$dprime - (ave(h2b_data$dprime, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
 h2b_data$medianRT.cwc       <- h2b_data$medianRT - (ave(h2b_data$medianRT, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
-h2b_data$levelcontrast.cwc  <- h2b_data$levelcontrast - (ave(h2b_data$levelcontrast, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
+#h2b_data$levelcontrast.cwc  <- h2b_data$levelcontrast - (ave(h2b_data$levelcontrast, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
 h2b_data$level.cwc          <- h2b_data$level - (ave(h2b_data$level, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
 
-h2b_data$level.cwc <- as.factor(h2b_data$level.cwc)
+#h2b_data$level.cwc <- as.factor(h2b_data$level.cwc)
 
 # define contrasts
 
-h2b_contrasts <- c(3,2,-2,-3)
-contrasts(h2b_data$level.cwc) <- cbind(h2b_contrasts, c(-1,1,0,0), c(0,0,-1,1))
+#h2b_contrasts <- c(3,2,-2,-3)
+#contrasts(h2b_data$level.cwc) <- cbind(h2b_contrasts, c(-1,1,0,0), c(0,0,-1,1))
 
 # define the null model
 
-m0_h2b <- lmerTest::lmer(sv ~ 1 + (1|subject), data = h2b_data, REML = T)
+#m0_h2b <- lmerTest::lmer(sv ~ 1 + (1|subject), data = h2b_data, REML = T)
 
 # get intraclass correlation (ICC)
 
-var_m0_h2b <- as.data.frame(lme4::VarCorr(m0_h2b))
-icc_h2b <- var_m0_h2b$vcov[1] / (var_m0_h2b$vcov[1] + var_m0_h2b$vcov[2]) 
+#var_m0_h2b <- as.data.frame(lme4::VarCorr(m0_h2b))
+#icc_h2b <- var_m0_h2b$vcov[1] / (var_m0_h2b$vcov[1] + var_m0_h2b$vcov[2]) 
 
 # model 1 with the n-back levels as 'contrasts'
 
-m1_h2b <- lmerTest::lmer(sv ~ levelcontrast.cwc * dprime.cwc + medianRT.cwc + (levelcontrast.cwc|subject),
-                         data = h2b_data, REML = T)
+#m1_h2b <- lmerTest::lmer(sv ~ levelcontrast.cwc + dprime.cwc + medianRT.cwc + (levelcontrast.cwc|subject),
+#                         data = h2b_data, REML = T)
 
 # model 2 with an actual contrast matrix
 
-m2_h2b <- lmerTest::lmer(sv ~ level.cwc * dprime.cwc + medianRT.cwc + (level.cwc|subject),
-                         data = h2b_data, REML = T)
+#m2_h2b <- lmerTest::lmer(sv ~ level.cwc + dprime.cwc + medianRT.cwc + (level.cwc|subject),
+#                         data = h2b_data, REML = T)
 
 # model 3 with nlmer
 
-m3_h2b <- lme4::nlmer(sv ~ level.cwc * dprime.cwc + medianRT.cwc + (level.cwc|subject))
+# A custom model structure (inspired by the answer to this post
+# https://stackoverflow.com/questions/15141952/nlmer-longitudinal-data):
+
+customlog <- function(level, asym, asym2, asym3, a2, xmid, scal, dprime, medianRT) 
+{
+  # taken from ?SSdlf:
+  # y = ((asym - a2) / (1 + exp((xmid - time)/scal))) + a2
+  # add dprime- and medianRT-specific terms to Asym2
+  (((asym - a2) + ((asym2*dprime)-a2) + ((asym3*medianRT)-a2)) / (1 + exp((xmid - level)/scal))) + a2
+  # evaluation of above form is returned by this function
+}
+
+# model gradient which includes all fixed effects but no covariates
+
+customlog_gradient <- deriv(
+  body(customlog)[[2]], 
+  namevec = c("asym", "asym2", "asym3", "a2", "xmid", "scal"), 
+  function.arg=customlog
+)
+
+# fit linear models to get starting values
+
+lm(sv ~ level, data = h2b_data)
+lm(sv ~ dprime, data = h2b_data)
+lm(sv ~ medianRT, data = h2b_data)
+
+m3_h2b <- lme4::nlmer(
+  # response
+  sv ~ 
+  # fixed effects
+  customlog_gradient(level = level, asym, asym2, asym3, a2, xmid, scal, dprime = dprime, medianRT = medianRT) ~ 
+  # random effects
+  (asym | subject) + (xmid | subject), 
+  # Data
+  data = h2b_data,
+  start = c(asym = 1.08, asym2 = 0.8, asym3 = 1.1, a2 = 0.3, xmid = 0, scal = 0.5))
 
 
-# convert random factor to type factor
-
-h2b_data$subject <- factor(h2b_data$subject)
-
-# compute Bayes factor
-
-h2b_full_BF <- lmBF(sv ~ level.cwc + dprime.cwc + medianRT.cwc + subject,
-                    data = h2b_data, whichRandom = 'subject', progress = FALSE)
-h2b_null_BF <- lmBF(sv ~ 1 + dprime.cwc + medianRT.cwc + subject,
-                    data = h2b_data, whichRandom = 'subject', progress = FALSE)
-h2b_BF <- h2b_full_BF / h2b_null_BF
 
 
 
