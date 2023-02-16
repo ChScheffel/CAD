@@ -75,12 +75,14 @@ An internal consistency of Cronbach's $\alpha=.88$ was reported [@Derryberry2002
 papaja::apa_table(
   df.NV.subj,
   caption = "Results of Shapiro-Wilk test for normal distribution of subjective arousal and effort ratings for all strategies.",
-  escape = FALSE) 
+  escape = FALSE,
+  placement = "H") 
 
 papaja::apa_table(
   df.NV.EMG,
-  caption = "Results of Shapiro-Wilk test for normal distribution of *Corrugator* and *Levator* activity for all strategies.",
-  escape = FALSE)
+  caption = "Results of Shapiro-Wilk test for normal distribution of Corrugator and Levator activity for all strategies.",
+  escape = FALSE,
+  placement = "H")
 
 ```
 
