@@ -1183,9 +1183,13 @@ choice_chisq <- stats::chisq.test(data_choice$choice, data_choice$pred_choice)
 choice_chisq_BF <- BayesFactor::contingencyTableBF(x = choice_chisq[["observed"]],
                                                    sampleType = "jointMulti")
 # ORDINAL REGRESSION
+
 # https://stats.oarc.ucla.edu/r/dae/ordinal-logistic-regression/
-test <- MASS::polr(as.factor(choice) ~ distraction.sv + distancing.sv + suppression.sv, data = data_choice, method = "logistic")
-test1 <- glm(as.factor(choice) ~ distraction.sv + distancing.sv + suppression.sv, data = data_choice, family = "binomial")
+Choice_OrdReg <- MASS::polr(as.factor(choice) ~ distraction.sv + distancing.sv + suppression.sv, data = data_choice, method = "logistic")
+
+
+
+#test1 <- glm(as.factor(choice) ~ distraction.sv + distancing.sv + suppression.sv, data = data_choice, family = "binomial")
 #### HYPOTHESIS 7b
 
 # Subjective values are lower and decline stronger when ER flexibility is lower.
