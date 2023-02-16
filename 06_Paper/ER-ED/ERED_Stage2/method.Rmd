@@ -50,7 +50,7 @@ Regarding self-reported arousal, results showed significant higher subjective ar
 However, ER strategies did not lead to a reduction of subjective arousal compared to active viewing of negative pictures.
 Regarding physiological responses, ER strategies were associated with reduced facial muscle activity of the *corrugator* and *levator* compared to active viewing of negative pictures.
 In accordance with our previous study[@Scheffel2021], we found that the use of ER strategies compared to active viewing was associated with increased subjective effort.
-All results are detailed in the [Supplementary Material](#SupplementaryMaterial), figures S1 to S7 and table S2 to S8.
+All results are detailed in the OSF repository (<https://osf.io/vnj8x/>).
 
 ## 2.3 Design
 

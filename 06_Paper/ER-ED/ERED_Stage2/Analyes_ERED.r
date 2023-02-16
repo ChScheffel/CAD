@@ -546,6 +546,77 @@ for (i in seq_len(nrow(data_descr))) {
 
 #data_descr <- reshape(data = data_descr, idvar = "ID", timevar = "strategy", direction = "wide")
 
+#################### STATISTICS: ASSUMPTIONS ############
+
+# test NV of predictors
+
+# wrapper for shapiro.test(), works with data.frames
+sw <- function(x) {
+  x = data.frame(x)                                             # make data.frame
+  n = colnames(x)                                               # get variable names
+  r = NULL                                                      # create container
+  for (i in 1:dim(x)[2]) {                                      # for every variable in data ...
+    y = shapiro.test(x[,i])                                     # perform Shapiro-Wilks test ...
+    v = cbind(y$statistic,y$p.value)                            # get statistic and p-value ...
+    colnames(v) = c("W","p")                                    # assign names for columns ...
+    rownames(v) = n[i]                                          # and rows, i.e., variable names ...
+    r = rbind(r,v)                                              # and add to container
+  }
+  return(round(r,3))
+}
+
+# prepare df for reporting results of shapiro wilk test
+df.NV.subj <- data.frame(M = double(), SD = double(), W = double(), p = double())
+
+# mean and sd of every variable without choice block
+# arousal
+for (i in seq_len(length(unique(data_ER$block))-1)) {
+  
+  df.NV.subj[i,1] <-mean(data_ER$arousal[data_ER$block == unique(data_ER$block)[i]])
+  df.NV.subj[i,2] <-sd(data_ER$arousal[data_ER$block == unique(data_ER$block)[i]])
+  df.NV.subj[i,3:4] <- sw(data_ER$arousal[data_ER$block == unique(data_ER$block)[i]])
+  
+}
+
+# arousal
+for (i in seq_len(length(unique(data_ER$block))-1)) {
+  
+  df.NV.subj[i+(length(unique(data_ER$block))-1),1] <-mean(data_ER$effort[data_ER$block == unique(data_ER$block)[i]])
+  df.NV.subj[i+(length(unique(data_ER$block))-1),2] <-sd(data_ER$effort[data_ER$block == unique(data_ER$block)[i]])
+  df.NV.subj[i+(length(unique(data_ER$block))-1),3:4] <- sw(data_ER$effort[data_ER$block == unique(data_ER$block)[i]])
+  
+}
+
+rownames(df.NV.subj) <- c("Arousal View Neu", "Arousal View Neg", "Arousal Distraction", "Arousal Distancing", "Arousal Suppression",
+                     "Effort View Neu", "Effort View Neg", "Effort Distraction", "Effort Distancing", "Effort Suppression")
+colnames(df.NV.subj) <- c("$M$", "$SD$", "$W$", "$p$")
+
+# EMG activity
+df.NV.EMG <- data.frame(M = double(), SD = double(), W = double(), p = double())
+
+# mean and sd of every variable without choice block
+# Corrugator
+for (i in seq_len(length(unique(data_EMG$block))-1)) {
+  
+  df.NV.EMG[i,1] <-mean(data_EMG$Corr[data_EMG$block == unique(data_EMG$block)[i]])
+  df.NV.EMG[i,2] <-sd(data_EMG$Corr[data_EMG$block == unique(data_EMG$block)[i]])
+  df.NV.EMG[i,3:4] <- sw(data_EMG$Corr[data_EMG$block == unique(data_EMG$block)[i]])
+  
+}
+
+# Levator
+for (i in seq_len(length(unique(data_EMG$block))-1)) {
+  
+  df.NV.EMG[i+(length(unique(data_EMG$block))-1),1] <-mean(data_EMG$Lev[data_EMG$block == unique(data_EMG$block)[i]])
+  df.NV.EMG[i+(length(unique(data_EMG$block))-1),2] <-sd(data_EMG$Lev[data_EMG$block == unique(data_EMG$block)[i]])
+  df.NV.EMG[i+(length(unique(data_EMG$block))-1),3:4] <- sw(data_EMG$Lev[data_EMG$block == unique(data_EMG$block)[i]])
+  
+}
+
+rownames(df.NV.EMG) <- c("Corrgator View Neu", "Corrgator View Neg", "Corrgator Distraction", "Corrgator Distancing", "Corrgator Suppression",
+                          "Levator View Neu", "Levator View Neg", "Levator Distraction", "Levator Distancing", "Levator Suppression")
+colnames(df.NV.EMG) <- c("$M$", "$SD$", "$W$", "$p$")
+
 #################### STATISTICAL ANALYSES: KONFIRMATORY ANALYSES ############
 
 ######## HYPOTHESIS 1
@@ -1183,9 +1254,11 @@ choice_chisq <- stats::chisq.test(data_choice$choice, data_choice$pred_choice)
 choice_chisq_BF <- BayesFactor::contingencyTableBF(x = choice_chisq[["observed"]],
                                                    sampleType = "jointMulti")
 # ORDINAL REGRESSION
-# https://stats.oarc.ucla.edu/r/dae/ordinal-logistic-regression/
-test <- MASS::polr(as.factor(choice) ~ distraction.sv + distancing.sv + suppression.sv, data = data_choice, method = "logistic")
-test1 <- glm(as.factor(choice) ~ distraction.sv + distancing.sv + suppression.sv, data = data_choice, family = "binomial")
+
+# https://marissabarlaz.github.io/portfolio/ols/
+Choice_OrdReg <- ordinal::clm(as.factor(choice) ~ distraction.sv + distancing.sv + suppression.sv, data = data_choice, link = "logit")
+
+
 #### HYPOTHESIS 7b
 
 # Subjective values are lower and decline stronger when ER flexibility is lower.
