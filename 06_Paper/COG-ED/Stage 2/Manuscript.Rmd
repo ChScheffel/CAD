@@ -338,7 +338,7 @@ Our final data set therefore included $N=`r nrow(data_quest)`$ participants.
 
 ## Manipulation checks
 
-The performance measure *d’* did not change across *n*-back levels (`r apa_print(hypothesis1a_rmanova)$full_result$level, apa_print(hypothesis1a_BF)$statistic`), but the median RT did (`r apa_print(hypothesis1b_rmanova)$full_result$level, apa_print(hypothesis1b_BF)$statistic`).
+The performance measure *d’* did not change across *n*-back levels (`r apa_print(hypothesis1a_rmanova)$full_result$level`, `r apa_print(hypothesis1a_BF)$statistic`), but the median RT did (`r apa_print(hypothesis1b_rmanova)$full_result$level`, `r apa_print(hypothesis1b_BF)$statistic`).
 Specifically, the median RT was higher for the more difficult level in every contrast, with two exceptions:
 The median RT did not differ between 2-back and 4-back, and the median RT was higher for 3-back than for 4-back (Table\ \@ref(tab:H1b-contrasts)).
 
@@ -353,7 +353,9 @@ apa_table(
 ```
 
 All NASA-TLX subscale scores increased across *n*-back levels.
-The effort subscale (`r apa_print(hypothesis1c_effort_rmanova)$full_result$level, apa_print(hypothesis1c_effort__BF)$statistic`) increased across all levels, but the magnitude of change decreased from 1- to 2-back (`r apa_print(pairs(hypothesis1c_effort_emm))$statistic$X1_X2, apa_print(BayesFactor::ttestBF(x = h1c_data$effort[h1c_data$level == 1], y = h1c_data$effort[h1c_data$level == 2], progress = FALSE, paired = TRUE))$statistic`) to 3- to 4-back (`r apa_print(pairs(hypothesis1c_effort_emm))$statistic$X3_X4, apa_print(BayesFactor::ttestBF(x = h1c_data$effort[h1c_data$level == 3], y = h1c_data$effort[h1c_data$level == 4], progress = FALSE, paired = TRUE))$statistic`).
+The effort subscale (`r apa_print(hypothesis1c_effort_rmanova)$full_result$level`, `r apa_print(hypothesis1c_effort__BF)$statistic`) increased across all levels, but the magnitude of change decreased from 1- to 2-back (`r apa_print(pairs(hypothesis1c_effort_emm))$statistic$X1_X2`, `r apa_print(BayesFactor::ttestBF(x = h1c_data$effort[h1c_data$level == 1], y = h1c_data$effort[h1c_data$level == 2], progress = FALSE, paired = TRUE))$statistic`) to 3- to 4-back (`r apa_print(pairs(hypothesis1c_effort_emm))$statistic$X3_X4`, `r apa_print(BayesFactor::ttestBF(x = h1c_data$effort[h1c_data$level == 3], y = h1c_data$effort[h1c_data$level == 4], progress = FALSE, paired = TRUE))$statistic`).
+Three subscales had significant differences between all contrasts except for 3- versus 4-back:
+The frustration subscale 
 
 ## Decline of subjective values
 
