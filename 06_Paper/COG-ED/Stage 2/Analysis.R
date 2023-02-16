@@ -1149,7 +1149,7 @@ hypothesis1c_time_contrasts$`$p$`[hypothesis1c_time_contrasts$`$p$` == "0.000"] 
 
 # H2a: Subjective values decline with increasing n-back level.
 
-# ANOVA with six linear contrasts, contrasting the SVs of two n-back levels (1,2,3,4) at a time2
+# ANOVA with six linear contrasts, contrasting the SVs of two n-back levels (1,2,3,4) at a time
 
 # make a temporary copy of the data frame
 
@@ -1396,6 +1396,7 @@ h2b_data <- pipelines_data[["AARO"]]
 
 h2b_data <- droplevels(subset(h2b_data[ ,c("subject", "level", "sv", "dprime", "medianRT")]))
 
+
 # turn n-back levels into contrasts
 
 #h2b_data$levelcontrast <- rep(c(3,2,-2,-3),nrow(h2b_data)/4)
@@ -1423,7 +1424,9 @@ h2b_data$level.cwc          <- h2b_data$level - (ave(h2b_data$level, h2b_data$su
 #var_m0_h2b <- as.data.frame(lme4::VarCorr(m0_h2b))
 #icc_h2b <- var_m0_h2b$vcov[1] / (var_m0_h2b$vcov[1] + var_m0_h2b$vcov[2]) 
 
-# model 1 with the n-back levels as 'contrasts'
+# our model (this is not a random slopes model, because we have to replace (level.cwc|subject) with (1|subject), because
+# this model contains the level as a factor which does not allow repeated measures)
+
 
 #m1_h2b <- lmerTest::lmer(sv ~ levelcontrast.cwc + dprime.cwc + medianRT.cwc + (levelcontrast.cwc|subject),
 #                         data = h2b_data, REML = T)
