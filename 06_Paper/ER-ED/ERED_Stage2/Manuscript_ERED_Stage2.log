@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.14)  16 FEB 2023 15:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.14)  16 FEB 2023 15:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1372,17 +1372,17 @@ File: Supplement/StimList_Suppl.pdf Graphic file (type pdf)
 Package pdftex.def Info: Supplement/StimList_Suppl.pdf , page1 used on input line 974.
 (pdftex.def)             Requested size: 795.0303pt x 562.1644pt.
 [46 <./Supplement/StimList_Suppl.pdf>] [47] [48] [49]
-Overfull \hbox (54.8002pt too wide) in paragraph at lines 1092--1109
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 1096.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 1096.
+
+Overfull \hbox (19.99242pt too wide) in paragraph at lines 1120--1141
  [] 
  []
 
 
-Overfull \hbox (86.78644pt too wide) in paragraph at lines 1117--1134
- [] 
- []
-
-
-Overfull \hbox (117.46704pt too wide) in paragraph at lines 1142--1159
+Overfull \hbox (46.1035pt too wide) in paragraph at lines 1149--1170
  [] 
  []
 
@@ -1394,21 +1394,21 @@ Package rerunfilecheck Info: File `Manuscript_ERED_Stage2.out' has not changed.
 (rerunfilecheck)             Checksum: B41D11CA499505AC83786FCCF73D42FC;5415.
  ) 
 Here is how much of TeX's memory you used:
- 18222 strings out of 477989
- 302458 string characters out of 5837643
+ 18251 strings out of 477989
+ 302797 string characters out of 5837643
  1878340 words of memory out of 5000000
- 37850 multiletter control sequences out of 15000+600000
- 572390 words of font info for 80 fonts, out of 8000000 for 9000
+ 37871 multiletter control sequences out of 15000+600000
+ 591181 words of font info for 99 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  75i,17n,77p,804b,654s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{ux5cux23stimuli} has been referenced but does not exist, replaced by a fixed one
 
-{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri8.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on Manuscript_ERED_Stage2.pdf (50 pages, 968716 bytes).
+{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri8.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/scheffel/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
+Output written on Manuscript_ERED_Stage2.pdf (50 pages, 1023153 bytes).
 PDF statistics:
- 778 PDF objects out of 1000 (max. 8388607)
- 669 compressed objects within 7 object streams
+ 801 PDF objects out of 1000 (max. 8388607)
+ 683 compressed objects within 7 object streams
  202 named destinations out of 1000 (max. 500000)
  328 words of extra memory for PDF output out of 10000 (max. 10000000)
 
