@@ -95,13 +95,15 @@ papaja::apa_table(
   SubjArousalReg_con,
   caption = "Post-hoc tests for effects of ER strategies on subjective arousal ratings.",
   escape = FALSE,
-  placement = "H") 
+  placement = "H",
+  format.args = list(format = "e")) 
 
 papaja::apa_table(
   EMGCorrReg_con,
   caption = "Post-hoc tests for effects of ER strategies on Corrugator activity",
   escape = FALSE,
-  placement = "H")
+  placement = "H",
+  )
 
 papaja::apa_table(
   EMGLevReg_con,
