@@ -589,7 +589,9 @@ for (i in seq_len(length(unique(data_ER$block))-1)) {
 
 rownames(df.NV.subj) <- c("Arousal View Neu", "Arousal View Neg", "Arousal Distraction", "Arousal Distancing", "Arousal Suppression",
                      "Effort View Neu", "Effort View Neg", "Effort Distraction", "Effort Distancing", "Effort Suppression")
+colnames(df.NV.subj) <- c("$M$", "$SD$", "$W$", "$p$")
 
+# EMG activity
 df.NV.EMG <- data.frame(M = double(), SD = double(), W = double(), p = double())
 
 # mean and sd of every variable without choice block
@@ -613,6 +615,7 @@ for (i in seq_len(length(unique(data_EMG$block))-1)) {
 
 rownames(df.NV.EMG) <- c("Corrgator View Neu", "Corrgator View Neg", "Corrgator Distraction", "Corrgator Distancing", "Corrgator Suppression",
                           "Levator View Neu", "Levator View Neg", "Levator Distraction", "Levator Distancing", "Levator Suppression")
+colnames(df.NV.EMG) <- c("$M$", "$SD$", "$W$", "$p$")
 
 #################### STATISTICAL ANALYSES: KONFIRMATORY ANALYSES ############
 
