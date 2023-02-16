@@ -1460,20 +1460,20 @@ customlog_gradient <- deriv(
 
 # fit linear models to get starting values
 
-lm(sv ~ level, data = h2b_data)
-lm(sv ~ dprime, data = h2b_data)
-lm(sv ~ medianRT, data = h2b_data)
+lm(sv ~ level.cwc, data = h2b_data)
+lm(sv ~ dprime.cwc, data = h2b_data)
+lm(sv ~ medianRT.cwc, data = h2b_data)
 
 m3_h2b <- lme4::nlmer(
   # response
   sv ~ 
   # fixed effects
-  customlog_gradient(level = level, asym, asym2, asym3, a2, xmid, scal, dprime = dprime, medianRT = medianRT) ~ 
+  customlog_gradient(level = level.cwc, asym, asym2, asym3, a2, xmid, scal, dprime = dprime.cwc, medianRT = medianRT.cwc) ~ 
   # random effects
   (asym | subject) + (xmid | subject), 
   # Data
   data = h2b_data,
-  start = c(asym = 1.08, asym2 = 0.8, asym3 = 1.1, a2 = 0.3, xmid = 0, scal = 0.5))
+  start = c(asym = 0.8, asym2 = 0.8, asym3 = 0.8, a2 = 0.3, xmid = 0, scal = 0.5))
 
 
 
