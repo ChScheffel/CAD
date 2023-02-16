@@ -838,9 +838,9 @@ SubjArousalReg_con <- cbind(SubjArousalReg_con,
 
 colnames(SubjArousalReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 
-SubjArousalReg_con[1, 1] <- "$View_{negative} - Distraction$"
-SubjArousalReg_con[2, 1] <- "$View_{negative} - Distancing$"
-SubjArousalReg_con[3, 1] <- "$View_{negative} - Suppression$"
+SubjArousalReg_con[1, 1] <- "$View_{neg} - Distraction$"
+SubjArousalReg_con[2, 1] <- "$View_{neg} - Distancing$"
+SubjArousalReg_con[3, 1] <- "$View_{neg} - Suppression$"
 SubjArousalReg_con[4, 1] <- "$Distraction - Distancing$"
 SubjArousalReg_con[5, 1] <- "$Distraction - Suppression$"
 SubjArousalReg_con[6, 1] <- "$Distancing - Suppression$"
@@ -917,9 +917,9 @@ EMGCorrReg_con <- cbind(EMGCorrReg_con,
 
 colnames(EMGCorrReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 
-EMGCorrReg_con[1, 1] <- "$View_{negative} - Distraction$"
-EMGCorrReg_con[2, 1] <- "$View_{negative} - Distancing$"
-EMGCorrReg_con[3, 1] <- "$View_{negative} - Suppression$"
+EMGCorrReg_con[1, 1] <- "$View_{neg} - Distraction$"
+EMGCorrReg_con[2, 1] <- "$View_{neg} - Distancing$"
+EMGCorrReg_con[3, 1] <- "$View_{neg} - Suppression$"
 EMGCorrReg_con[4, 1] <- "$Distraction - Distancing$"
 EMGCorrReg_con[5, 1] <- "$Distraction - Suppression$"
 EMGCorrReg_con[6, 1] <- "$Distancing - Suppression$"
@@ -988,9 +988,9 @@ EMGLevReg_con <- cbind(EMGLevReg_con,
 
 colnames(EMGLevReg_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 
-EMGLevReg_con[1, 1] <- "$View_{negative} - Distraction$"
-EMGLevReg_con[2, 1] <- "$View_{negative} - Distancing$"
-EMGLevReg_con[3, 1] <- "$View_{negative} - Suppression$"
+EMGLevReg_con[1, 1] <- "$View_{neg} - Distraction$"
+EMGLevReg_con[2, 1] <- "$View_{neg} - Distancing$"
+EMGLevReg_con[3, 1] <- "$View_{neg} - Suppression$"
 EMGLevReg_con[4, 1] <- "$Distraction - Distancing$"
 EMGLevReg_con[5, 1] <- "$Distraction - Suppression$"
 EMGLevReg_con[6, 1] <- "$Distancing - Suppression$"
