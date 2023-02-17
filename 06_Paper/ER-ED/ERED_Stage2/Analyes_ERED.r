@@ -848,18 +848,18 @@ SubjArousalReg_con[6, 1] <- "$Distancing - Suppression$"
 # Figure to visualize arousal ratings
 
 # figure
-FigSubjArousalReg <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal, fill = block)) +
-  geom_boxplot(width = 0.2, alpha = .95) +
-  geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
-  see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
-  ylim(c(0,400))+
+FigSubjArousalReg <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal, fill = factor(block))) +
+  ggdist::stat_halfeye(adjust = 0.5, justification = -0.2, .width = 0, point_colour = NA, limits = c(.05, .95)) +
+  geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.5)+
+  geom_point(size = 1, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), aes(col = factor(block)))+
+  scale_fill_tableau(palette = "Tableau 10")+
+  scale_color_tableau(palette = "Tableau 10")+
   scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
                    labels = c("View", "Distraction", "Distancing", "Suppression")) +
-  viridis::scale_color_viridis(discrete = TRUE) +
-  labs(y = "Arousal Rating") +
-  theme_minimal()+
+  theme_minimal() +
   theme(legend.position = "none")
+
 
 ######## HYPOTHESIS 3
 
