@@ -1366,9 +1366,6 @@ h2b_result.table$ `$p$-value`[which(h2b_result.table$ `$p$-value`<.001)] <-
 h2b_result.table$ `Random Effects (SD)`[3:4] <- paste0("")
 
 
-
-## B - declining linear relation (nonlinear mixed model) ---------------------
-## C - ascending quadratic relation (nonlinear mixed model) ------------------
 ## D - declining logistic relation (nonlinear mixed model) -------------------
 
 # H2b: Subjective values decline with increasing n-back level, even after controlling for declining task
@@ -1571,112 +1568,30 @@ for (i in 1:nrow(h2b_data_multi)) {
   
 }
 
-
-
-
-# make a temporary copy of the data frame
-#
-#h2b_data <- pipelines_data[["AARO"]]
-#
-# get a subset without NFC
-#
-#h2b_data <- droplevels(subset(h2b_data[ ,c("subject", "level", "sv", "dprime", "medianRT")]))
-#
-#
-# turn n-back levels into contrasts
-#
-#h2b_data$levelcontrast <- rep(c(3,2,-2,-3),nrow(h2b_data)/4)
-#
-# center the level 1 predictors within cluster
-#
-#h2b_data$dprime.cwc         <- h2b_data$dprime - (ave(h2b_data$dprime, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
-#h2b_data$medianRT.cwc       <- h2b_data$medianRT - (ave(h2b_data$medianRT, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
-#h2b_data$levelcontrast.cwc  <- h2b_data$levelcontrast - (ave(h2b_data$levelcontrast, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
-#h2b_data$level.cwc          <- h2b_data$level - (ave(h2b_data$level, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
-#
-#h2b_data$level.cwc <- as.factor(h2b_data$level.cwc)
-
 # turn into factor
 
-h2b_data$level <- as.factor(h2b_data$level)
+h2b_data_multi$level <- as.factor(h2b_data_multi$level)
 
 # define contrasts
 
 h2b_contrasts <- c(3,2,-2,-3)
-h2b_data$level <- as.factor(h2b_data$level)
-contrasts(h2b_data$level) <- cbind(h2b_contrasts, c(-1,1,0,0), c(0,0,-1,1))
+contrasts(h2b_data_multi$level) <- cbind(h2b_contrasts, c(-1,1,0,0), c(0,0,-1,1))
 
 # define the null model
 
-m0_h2b <- lmerTest::lmer(sv ~ 1 + (1|subject), data = h2b_data, REML = T)
+model0_h2b <- lmerTest::lmer(sv ~ 1 + (1|subject), data = h2b_data_multi, REML = T)
 
 # get intraclass correlation (ICC)
 
 var_m0_h2b <- as.data.frame(lme4::VarCorr(m0_h2b))
 icc_h2b <- var_m0_h2b$vcov[1] / (var_m0_h2b$vcov[1] + var_m0_h2b$vcov[2]) 
 
-# our model (this is not a random slopes model, because we have to replace (level.cwc|subject) with (1|subject), because
-# this model contains the level as a factor which does not allow repeated measures)
+# model 2 with the contrast matrix
 
-#m1_h2b <- lmerTest::lmer(sv ~ levelcontrast.cwc + dprime.cwc + medianRT.cwc + (levelcontrast.cwc|subject),
-#                         data = h2b_data, REML = T)
-
-# model 2 with an actual contrast matrix
-
-m2_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (level|subject),
-                         data = h2b_data, REML = T)
+model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
+                         data = h2b_data_multi, REML = T)
 
 
-
-# A custom model structure (inspired by the answer to this post
-# https://stackoverflow.com/questions/15141952/nlmer-longitudinal-data):
-# 
-# customlog <- function(level, asym, asym2, asym3, a2, xmid, scal, dprime, medianRT) 
-# {
-#   # taken from ?SSdlf:
-#   # y = ((asym - a2) / (1 + exp((xmid - time)/scal))) + a2
-#   # add dprime- and medianRT-specific terms to Asym2
-#   (((asym - a2) + ((asym2*dprime)-a2) + ((asym3*medianRT)-a2)) / (1 + exp((xmid - level)/scal))) + a2
-#   # evaluation of above form is returned by this function
-# }
-# 
-# model gradient which includes all fixed effects but no covariates
-# 
-# customlog_gradient <- deriv(
-#   body(customlog)[[2]], 
-#   namevec = c("asym", "asym2", "asym3", "a2", "xmid", "scal"), 
-#   function.arg=customlog
-# )
-# 
-# # fit nonlinear models to get starting values (the cwc-variables didn't work because log turned 0 to infinity)
-# 
-# fit1 <- nls(formula = sv ~ SSdlf(level, asym, a2, xmid, scal), data = h2b_data)
-# fit2 <- nls(formula = sv ~ SSdlf(dprime, asym, a2, xmid, scal), data = h2b_data)
-# fit3 <- nls(formula = sv ~ SSdlf(medianRT, asym, a2, xmid, scal), data = h2b_data) # this one gives a singular gradient error
-#
-# if you want to see how the predicted curve looks like
-# plot(sv ~ level.cwc, dat = h2b_data)
-# curve(predict(fit1, newdata = data.frame(level.cwc=x)), add=TRUE
-#
-# m3_h2b <- lme4::nlmer(
-#   # response
-#   sv ~ 
-#   # fixed effects
-#   customlog_gradient(level = level, asym, asym2, asym3, a2, xmid, scal, dprime = dprime, medianRT = medianRT) ~ 
-#   # random effects
-#   (asym | subject) + (xmid | subject), 
-#   # Data
-#   data = h2b_data,
-#   start = c(asym = summary(fit1)$parameters["asym","Estimate"],
-#             asym2 = summary(fit2)$parameters["asym","Estimate"],
-#             asym3 = summary(fit3)$parameters["asym","Estimate"],
-#             a2 = 0.5, xmid = 0, scal = -0.6))
-
-
-
-
-
-## E - positively skewed normal (nonlinear mixed model) ----------------------
 
 
 ##### Hypothesis 3a ############################################################
