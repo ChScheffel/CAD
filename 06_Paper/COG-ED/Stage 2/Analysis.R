@@ -1403,17 +1403,17 @@ h2b_data <- droplevels(subset(h2b_data[ ,c("subject", "level", "sv", "dprime", "
 
 # center the level 1 predictors within cluster
 
-h2b_data$dprime.cwc         <- h2b_data$dprime - (ave(h2b_data$dprime, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
-h2b_data$medianRT.cwc       <- h2b_data$medianRT - (ave(h2b_data$medianRT, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
+#h2b_data$dprime.cwc         <- h2b_data$dprime - (ave(h2b_data$dprime, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
+#h2b_data$medianRT.cwc       <- h2b_data$medianRT - (ave(h2b_data$medianRT, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
 #h2b_data$levelcontrast.cwc  <- h2b_data$levelcontrast - (ave(h2b_data$levelcontrast, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
-h2b_data$level.cwc          <- h2b_data$level - (ave(h2b_data$level, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
+#h2b_data$level.cwc          <- h2b_data$level - (ave(h2b_data$level, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
 
 #h2b_data$level.cwc <- as.factor(h2b_data$level.cwc)
 
 # define contrasts
 
 #h2b_contrasts <- c(3,2,-2,-3)
-#contrasts(h2b_data$level.cwc) <- cbind(h2b_contrasts, c(-1,1,0,0), c(0,0,-1,1))
+#contrasts(h2b_data$level) <- cbind(h2b_contrasts, c(-1,1,0,0), c(0,0,-1,1))
 
 # define the null model
 
@@ -1436,52 +1436,51 @@ h2b_data$level.cwc          <- h2b_data$level - (ave(h2b_data$level, h2b_data$su
 #m2_h2b <- lmerTest::lmer(sv ~ level.cwc + dprime.cwc + medianRT.cwc + (level.cwc|subject),
 #                         data = h2b_data, REML = T)
 
-# model 3 with nlmer
+
 
 # A custom model structure (inspired by the answer to this post
 # https://stackoverflow.com/questions/15141952/nlmer-longitudinal-data):
-
-customlog <- function(level, asym, asym2, asym3, a2, xmid, scal, dprime, medianRT) 
-{
-  # taken from ?SSdlf:
-  # y = ((asym - a2) / (1 + exp((xmid - time)/scal))) + a2
-  # add dprime- and medianRT-specific terms to Asym2
-  (((asym - a2) + ((asym2*dprime)-a2) + ((asym3*medianRT)-a2)) / (1 + exp((xmid - level)/scal))) + a2
-  # evaluation of above form is returned by this function
-}
-
+# 
+# customlog <- function(level, asym, asym2, asym3, a2, xmid, scal, dprime, medianRT) 
+# {
+#   # taken from ?SSdlf:
+#   # y = ((asym - a2) / (1 + exp((xmid - time)/scal))) + a2
+#   # add dprime- and medianRT-specific terms to Asym2
+#   (((asym - a2) + ((asym2*dprime)-a2) + ((asym3*medianRT)-a2)) / (1 + exp((xmid - level)/scal))) + a2
+#   # evaluation of above form is returned by this function
+# }
+# 
 # model gradient which includes all fixed effects but no covariates
-
-customlog_gradient <- deriv(
-  body(customlog)[[2]], 
-  namevec = c("asym", "asym2", "asym3", "a2", "xmid", "scal"), 
-  function.arg=customlog
-)
-
-# fit nonlinear models to get starting values (the cwc-variables didn't work because log turned 0 to infinity)
-
-fit1 <- nls(formula = sv ~ SSdlf(level, asym, a2, xmid, scal), data = h2b_data)
-fit2 <- nls(formula = sv ~ SSdlf(dprime, asym, a2, xmid, scal), data = h2b_data)
-fit3 <- nls(formula = sv ~ SSdlf(medianRT, asym, a2, xmid, scal), data = h2b_data)
-
+# 
+# customlog_gradient <- deriv(
+#   body(customlog)[[2]], 
+#   namevec = c("asym", "asym2", "asym3", "a2", "xmid", "scal"), 
+#   function.arg=customlog
+# )
+# 
+# # fit nonlinear models to get starting values (the cwc-variables didn't work because log turned 0 to infinity)
+# 
+# fit1 <- nls(formula = sv ~ SSdlf(level, asym, a2, xmid, scal), data = h2b_data)
+# fit2 <- nls(formula = sv ~ SSdlf(dprime, asym, a2, xmid, scal), data = h2b_data)
+# fit3 <- nls(formula = sv ~ SSdlf(medianRT, asym, a2, xmid, scal), data = h2b_data) # this one gives a singular gradient error
+#
 # if you want to see how the predicted curve looks like
 # plot(sv ~ level.cwc, dat = h2b_data)
 # curve(predict(fit1, newdata = data.frame(level.cwc=x)), add=TRUE
-
-m3_h2b <- lme4::nlmer(
-  # response
-  sv ~ 
-  # fixed effects
-  customlog_gradient(level = level, asym, asym2, asym3, a2, xmid, scal, dprime = dprime, medianRT = medianRT) ~ 
-  # random effects
-  (asym | subject) + (xmid | subject), 
-  # Data
-  data = h2b_data,
-  start = c(asym = summary(fit1)$parameters["asym","Estimate"],
-            asym2 = summary(fit2)$parameters["asym","Estimate"],
-            asym3 = summary(fit3)$parameters["asym","Estimate"], a2 = 0.5, xmid = 0, scal = -0.6))
-
-
+#
+# m3_h2b <- lme4::nlmer(
+#   # response
+#   sv ~ 
+#   # fixed effects
+#   customlog_gradient(level = level, asym, asym2, asym3, a2, xmid, scal, dprime = dprime, medianRT = medianRT) ~ 
+#   # random effects
+#   (asym | subject) + (xmid | subject), 
+#   # Data
+#   data = h2b_data,
+#   start = c(asym = summary(fit1)$parameters["asym","Estimate"],
+#             asym2 = summary(fit2)$parameters["asym","Estimate"],
+#             asym3 = summary(fit3)$parameters["asym","Estimate"],
+#             a2 = 0.5, xmid = 0, scal = -0.6))
 
 
 
