@@ -1576,6 +1576,8 @@ h2b_data_multi$level <- as.factor(h2b_data_multi$level)
 
 h2b_contrasts <- c(3,2,-2,-3)
 contrasts(h2b_data_multi$level) <- cbind(h2b_contrasts, c(-1,1,0,0), c(0,0,-1,1))
+rownames(contrasts(h2b_data_multi$level)) <- c("level1","level2","level3","level4")
+colnames(contrasts(h2b_data_multi$level)) <- c("declin_log","opp1","opp2")
 
 # define the null model
 
@@ -1630,27 +1632,30 @@ model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
   # get random and fixed effects
   
   model1_h2b_ranef <- as.data.frame(base::summary(model1_h2b)$varcor)
-  model1_h2b <- base::summary(model1_h2b)$coefficients
+  model1_h2b_fixef <- base::summary(model1_h2b)$coefficients
 
   # prepare table
   
-  h2b_result.table <- as.data.frame(cbind(row.names(model1_h2b.fixef), 
-                                          model1_h2b.fixef[,c(1, 2, 5)]))
+  h2b_result.table <- as.data.frame(cbind(row.names(model1_h2b_fixef), 
+                                          model1_h2b_fixef))
   h2b_result.table$ranef.sd <- NA
-  h2b_result.table$ranef.sd[c(1,2)] <- m4_h2b.ranef$sdcor[c(1,2)]
+  h2b_result.table$ranef.sd[c(1,2)] <- model1_h2b_ranef$sdcor
   
   colnames(h2b_result.table)[1] <- "Parameter"
   colnames(h2b_result.table)[2] <- "Beta"
   colnames(h2b_result.table)[3] <- "$SE$"
-  colnames(h2b_result.table)[4] <- "$p$-value"
-  colnames(h2b_result.table)[5] <- "Random Effects (SD)"
+  colnames(h2b_result.table)[4] <- "$df$"
+  colnames(h2b_result.table)[5] <- "$t$-value"
+  colnames(h2b_result.table)[6] <- "$p$-value"
+  colnames(h2b_result.table)[7] <- "Random Effects (SD)"
   
+  h2b_result.table <- h2b_result.table[c(1,2,5,6),]
   row.names(h2b_result.table) <- NULL
-  h2b_result.table$Parameter[1:4] <- c("Intercept", "$N$-back level", "d'", "median RT")
+  h2b_result.table$Parameter[1:4] <- c("Intercept", "Declining logistic contrast", "d'", "median RT")
   
-  h2b_result.table[2:5] <- lapply(h2b_result.table[2:5], as.numeric)
-  h2b_result.table[c(2,3,5)] <- round(h2b_result.table[c(2,3,5)], digits = 2)
-  h2b_result.table[4] <- round(h2b_result.table[4], digits = 3)
+  h2b_result.table[,2:7] <- lapply(h2b_result.table[,2:5], as.numeric)
+  h2b_result.table[,c(2:5,7)] <- round(h2b_result.table[,c(2:5,7)], digits = 2)
+  h2b_result.table[,6] <- round(h2b_result.table[,6], digits = 3)
   
   h2b_result.table$ `$p$-value`[which(h2b_result.table$ `$p$-value`<.01)] <- 
     paste0(h2b_result.table$ `$p$-value`[which(h2b_result.table$ `$p$-value`<.01)],"*")
