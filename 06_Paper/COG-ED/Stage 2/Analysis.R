@@ -1470,7 +1470,7 @@ model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
                                  df = as.numeric(model1_h2b_fixef[,3]),
                                  t = as.numeric(model1_h2b_fixef[,4]),
                                  p = as.numeric(model1_h2b_fixef[,5]),
-                                 Random = as.numeric(model1_h2b_ranef$sdcor,NA,NA))
+                                 Random = as.numeric(model1_h2b_ranef$sdcor[1],NA,NA,NA))
   
   colnames(h2b_result.table) <- c("Parameter","Beta","$SE$","$df$","$t$-value","$p$-value","Random Effects (SD)")
   
