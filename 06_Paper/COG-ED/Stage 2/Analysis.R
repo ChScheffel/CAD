@@ -1591,6 +1591,76 @@ icc_h2b <- var_m0_h2b$vcov[1] / (var_m0_h2b$vcov[1] + var_m0_h2b$vcov[2])
 model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
                          data = h2b_data_multi, REML = T)
 
+# to plot some fit indices if you like
+#sjPlot::plot_model(model1_h2b, type = "diag")
+
+# compute pseudo R²
+
+  h2b_total_r2 <- MuMIn::r.squaredGLMM(model1_h2b, pj2014 = T)
+  # the pj argument uses the formula of Johnson (2014)
+  # the marginal RGLMM2 represents the variance explained by the fixed effects
+  # the conditional RGLMM2 is interpreted as a variance explained by the entire model, including both fixed and random effects
+  
+  # model without effect of level
+  
+  model1_h2b_no_effect <- lmerTest::lmer(sv ~ 1 + dprime + medianRT + (1|subject),
+                                   data = h2b_data_multi, REML = T)
+  # compute R²
+  
+  h2b_no_effect_r2 <- MuMIn::r.squaredGLMM(model1_h2b_no_effect, pj2014 = T)
+  
+  # compute f² with conditional R²
+  
+  h2b_f2 <- (h2b_total_r2[1,2] - h2b_no_effect_r2[1,2]) / (1 - h2b_total_r2[1,2])
+
+
+# get Bayes Factors
+
+  h2b_data_multi$subject <- as.factor(h2b_data_multi$subject)
+  
+  h2b_full_BF <- BayesFactor::lmBF(sv ~ level + dprime + medianRT + subject,
+                                   data = h2b_data_multi, whichRandom = 'subject', progress = FALSE)
+  h2b_null_BF <- BayesFactor::lmBF(sv ~ 1 + dprime + medianRT + subject,
+                                   data = h2b_data_multi, whichRandom = 'subject', progress = FALSE)
+  h2b_BF <- h2b_full_BF / h2b_null_BF
+
+
+# prepare results for reporting
+
+  # get random and fixed effects
+  
+  model1_h2b_ranef <- as.data.frame(base::summary(model1_h2b)$varcor)
+  model1_h2b <- base::summary(model1_h2b)$coefficients
+
+  # prepare table
+  
+  h2b_result.table <- as.data.frame(cbind(row.names(model1_h2b.fixef), 
+                                          model1_h2b.fixef[,c(1, 2, 5)]))
+  h2b_result.table$ranef.sd <- NA
+  h2b_result.table$ranef.sd[c(1,2)] <- m4_h2b.ranef$sdcor[c(1,2)]
+  
+  colnames(h2b_result.table)[1] <- "Parameter"
+  colnames(h2b_result.table)[2] <- "Beta"
+  colnames(h2b_result.table)[3] <- "$SE$"
+  colnames(h2b_result.table)[4] <- "$p$-value"
+  colnames(h2b_result.table)[5] <- "Random Effects (SD)"
+  
+  row.names(h2b_result.table) <- NULL
+  h2b_result.table$Parameter[1:4] <- c("Intercept", "$N$-back level", "d'", "median RT")
+  
+  h2b_result.table[2:5] <- lapply(h2b_result.table[2:5], as.numeric)
+  h2b_result.table[c(2,3,5)] <- round(h2b_result.table[c(2,3,5)], digits = 2)
+  h2b_result.table[4] <- round(h2b_result.table[4], digits = 3)
+  
+  h2b_result.table$ `$p$-value`[which(h2b_result.table$ `$p$-value`<.01)] <- 
+    paste0(h2b_result.table$ `$p$-value`[which(h2b_result.table$ `$p$-value`<.01)],"*")
+  h2b_result.table$ `$p$-value`[which(h2b_result.table$ `$p$-value`<.05)] <- 
+    paste0(h2b_result.table$ `$p$-value`[which(h2b_result.table$ `$p$-value`<.05)],"*")
+  h2b_result.table$ `$p$-value`[which(h2b_result.table$ `$p$-value`<.001)] <- 
+    paste0("<.001***")
+  
+  h2b_result.table$ `Random Effects (SD)`[3:4] <- paste0("")
+
 
 
 
