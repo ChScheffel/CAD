@@ -114,7 +114,7 @@ data_nback$postcorrect = c(1,data_nback$correct[1:(length(data_nback$correct)-1)
 
 # make sure to avoid transfer from the previous block by marking the first trial of each block as correct
 
-data_nback$postcorrect[c(1,seq(64,length(data_nback$postcorrect),64))] <- 1
+data_nback$postcorrect[c(1,seq(65,length(data_nback$postcorrect),64))] <- 1
 
 # the choice column will contain 1 for the left button and 2 for the right button
 
@@ -1388,53 +1388,243 @@ detach_package <- function(pkg, character.only = FALSE){
 
 detach_package(afex)
 
+## repeat pre-processing to get data for the two rounds of each level, not just for each level ------------
+
+# create empty data frame for loops to feed into
+
+h2b_data_multi <- data.frame(subject = character(), level = double(), target = character(),
+                         response = character(), correct = double(), rt = double())
+
+# put relevant data into data frame
+
+for (i in 1:length(datalist_nback)) {
+  
+  newdata <- data.frame(datalist_nback[[i]][["Participant"]], datalist_nback[[i]][["currentlevel"]],
+                        datalist_nback[[i]][["Stimulus"]], datalist_nback[[i]][["trial_resp.keys"]],
+                        datalist_nback[[i]][["trial_resp.corr"]], datalist_nback[[i]][["trial_resp.rt"]])
+  colnames(newdata) <- names(h2b_data_multi)
+  h2b_data_multi <- rbind(h2b_data_multi, newdata)
+}
+
+# remove the following subjects for misunderstanding the instruction: E17T12, Z15R03, C18D18, H25N04, D24A05, T14G09, D29N05
+# remove the following subject for not remembering the level colours correctly during effort discounting: W16C01
+# sets 2, 6, and 7 were dummy sets to test the NASA TLX iterations
+
+h2b_data_multi <- h2b_data_multi[!(h2b_data_multi$subject == "E17T12" | h2b_data_multi$subject == "Z15R03" | h2b_data_multi$subject == "C18D18" | h2b_data_multi$subject == "H25N04" |
+                             h2b_data_multi$subject == "D24A05" | h2b_data_multi$subject == "T14G09" | h2b_data_multi$subject == "D29N05" | h2b_data_multi$subject == "W16C01"), ]
+
+# replace some columns with 'easy to work with' values
+
+# the target column will contain 1 for targets and 0 for all non-targets
+
+h2b_data_multi[h2b_data_multi == "Target"] <- 1
+h2b_data_multi[h2b_data_multi == "Pretarget"|h2b_data_multi == "Lure"|h2b_data_multi == "Distractor"] <- 0
+h2b_data_multi$target <- as.numeric(h2b_data_multi$target)
+
+# the response column will contain 1 for responses and 0 for all non-responses
+
+h2b_data_multi[h2b_data_multi == "left"|h2b_data_multi == "right"] <- 1
+h2b_data_multi[h2b_data_multi == "None"] <- 0
+h2b_data_multi$response <- as.numeric(h2b_data_multi$response)
+
+# for reaction time preprocessing we account for post-error trials, that we will exclude from aggregated reaction time
+# so the nback data frame will contain a column of ones and zeros
+
+# add the "correct" column, but shifted down by one row
+
+h2b_data_multi$postcorrect = c(1,h2b_data_multi$correct[1:(length(h2b_data_multi$correct)-1)])
+
+# make sure to avoid transfer from the previous block by marking the first trial of each block as correct
+
+h2b_data_multi$postcorrect[c(1,seq(from = 65, to = nrow(h2b_data_multi), by = 64))] <- 1
+
+# calculate d' 
+  
+  # compute index of rows in which the level rounds change (each round consists of 64 trials)
+  
+  roundindex <- c(1,seq(from = 65, to = nrow(h2b_data_multi)+1, by = 64))
+  
+  # set up empty data frame for the loop to feed into
+  
+  h2b_dprime <- data.frame(subject = character(), level = double(), round = double(), hitrate = double(), falsealarmrate = double())
+  
+  # calculate hits and false alarms per participant
+  
+  for (i in 1:(length(roundindex)-1)) {
+    
+    hits <- length(which(h2b_data_multi$target[c(roundindex[i]:(roundindex[i+1]-1))] == 1 &
+                           h2b_data_multi$correct[c(roundindex[i]:(roundindex[i+1]-1))] == 1) + (roundindex[i]-1))
+    falsealarms <- length(which(h2b_data_multi$response[c(roundindex[i]:(roundindex[i+1]-1))] == 1 &
+                                  h2b_data_multi$correct[c(roundindex[i]:(roundindex[i+1]-1))] == 0) + (roundindex[i]-1))
+    newdata <- data.frame(subject = h2b_data_multi$subject[roundindex[i]],
+                          level = h2b_data_multi$level[roundindex[i]],
+                          round = ifelse(i%%2 == 0, 2, 1), # if the current round is an even number put 1, if not put 2
+                          hitrate = hits/16,
+                          falsealarmrate = falsealarms/48)
+    h2b_dprime <- rbind(h2b_dprime, newdata)
+    
+  }
+  
+  # z-transform the hit rate and the false alarm rate
+  
+  h2b_dprime$hitrate.z = NA
+  h2b_dprime$falsealarmrate.z = NA
+  
+  for (i in 1:4) {
+    
+    h2b_dprime$hitrate.z[which(h2b_dprime$level == i)]        <- scale(h2b_dprime$hitrate[which(h2b_dprime$level == i)])
+    h2b_dprime$falsealarmrate.z[which(h2b_dprime$level == i)] <- scale(h2b_dprime$falsealarmrate[which(h2b_dprime$level == i)])
+    
+  }
+  
+  # calculate d'
+  
+  h2b_dprime$d <- h2b_dprime$hitrate.z - h2b_dprime$falsealarmrate.z
+  
+  # add round-column to data frame
+  
+  h2b_data_multi$round = NA
+
+  for (i in 1:(length(roundindex)-1)) {
+    
+    h2b_data_multi$round[roundindex[i]:(roundindex[i+1]-1)] <- ifelse(i%%2 == 0, 2, 1)
+
+  }
+  
+  # feed d' trialwise into the data frame
+  
+  for (i in 1:nrow(h2b_data_multi)) {
+    
+    h2b_data_multi$dprime[i] <- h2b_dprime$d[h2b_dprime$subject == h2b_data_multi$subject[i] &
+                                                   h2b_dprime$level == h2b_data_multi$level[i] &
+                                                   h2b_dprime$round == h2b_data_multi$round[i]]
+    
+  }
+
+# remove the temporary variables
+
+base::remove(falsealarms, hits)
+
+## calculate the median RT for correct and post-correct trials
+# per subject and per condition
+# the median RT will be another column in the data frame, and will be the same
+# within one subject, level, and round, just like the SVs and d prime
+
+  # compute index of rows in which the levels change
+  
+  roundindex <- c(1,which(h2b_data_multi$round != dplyr::lag(h2b_data_multi$round)),nrow(h2b_data_multi))
+  
+  # set up empty data frame for the loop to feed into
+  
+  h2b_medianRT <- data.frame(subject = character(), level = double(), round = double(), medianRT = double())
+  
+  # calculate median RT per subject and level (only for correct & post-correct trials)
+  
+  for (i in 1:(length(roundindex)-1)) {
+    
+    # current level, round, and subject
+    mylevel <- h2b_data_multi$level[roundindex[i]]
+    mysubject <- h2b_data_multi$subject[roundindex[i]]
+    myround <- h2b_data_multi$round[roundindex[i]]
+    
+    # compute median reaction time
+    mymedianRT <- median(h2b_data_multi$rt[h2b_data_multi$level == mylevel & h2b_data_multi$round == myround &
+                                             h2b_data_multi$response == 1 & h2b_data_multi$correct == 1 & h2b_data_multi$subject == mysubject], na.rm = TRUE)
+    
+    # bind data to data frame
+    newdata <- data.frame(subject = mysubject,
+                          level = mylevel,
+                          round = myround,
+                          medianRT = mymedianRT)
+    h2b_medianRT <- rbind(h2b_medianRT, newdata)
+    
+  }
+  
+  # feed the median RT trialwise into the data frame
+  
+  for (i in 1:nrow(h2b_data_multi)) {
+    
+    h2b_data_multi$medianRT[i] <- h2b_medianRT$medianRT[h2b_medianRT$subject == h2b_data_multi$subject[i] &
+                                                      h2b_medianRT$level == h2b_data_multi$level[i] &
+                                                      h2b_medianRT$round == h2b_data_multi$round[i]]
+    
+  }
+
+# remove the temporary variables
+
+base::remove(mylevel, myround, mysubject, mymedianRT, newdata, h2b_medianRT)
+
+# boil it down to levels and rounds per subject, not trials
+
+for (j in 1:length(h2b_data_multi)) {
+  
+  h2b_data_multi <- unique(h2b_data_multi[ ,c("subject","level","round","dprime","medianRT")])
+  
+}
+
+# add subjective values to data frame
+
+for (i in 1:nrow(h2b_data_multi)) {
+  
+  h2b_data_multi$sv[i] <- data_SV$sv[data_SV$subject == h2b_data_multi$subject[i] &
+                                       data_SV$level == h2b_data_multi$level[i]]
+  
+}
+
+
+
+
 # make a temporary copy of the data frame
-
-h2b_data <- pipelines_data[["AARO"]]
-
+#
+#h2b_data <- pipelines_data[["AARO"]]
+#
 # get a subset without NFC
-
-h2b_data <- droplevels(subset(h2b_data[ ,c("subject", "level", "sv", "dprime", "medianRT")]))
-
-
+#
+#h2b_data <- droplevels(subset(h2b_data[ ,c("subject", "level", "sv", "dprime", "medianRT")]))
+#
+#
 # turn n-back levels into contrasts
-
+#
 #h2b_data$levelcontrast <- rep(c(3,2,-2,-3),nrow(h2b_data)/4)
-
+#
 # center the level 1 predictors within cluster
-
+#
 #h2b_data$dprime.cwc         <- h2b_data$dprime - (ave(h2b_data$dprime, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
 #h2b_data$medianRT.cwc       <- h2b_data$medianRT - (ave(h2b_data$medianRT, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
 #h2b_data$levelcontrast.cwc  <- h2b_data$levelcontrast - (ave(h2b_data$levelcontrast, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
 #h2b_data$level.cwc          <- h2b_data$level - (ave(h2b_data$level, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
-
+#
 #h2b_data$level.cwc <- as.factor(h2b_data$level.cwc)
+
+# turn into factor
+
+h2b_data$level <- as.factor(h2b_data$level)
 
 # define contrasts
 
-#h2b_contrasts <- c(3,2,-2,-3)
-#contrasts(h2b_data$level) <- cbind(h2b_contrasts, c(-1,1,0,0), c(0,0,-1,1))
+h2b_contrasts <- c(3,2,-2,-3)
+h2b_data$level <- as.factor(h2b_data$level)
+contrasts(h2b_data$level) <- cbind(h2b_contrasts, c(-1,1,0,0), c(0,0,-1,1))
 
 # define the null model
 
-#m0_h2b <- lmerTest::lmer(sv ~ 1 + (1|subject), data = h2b_data, REML = T)
+m0_h2b <- lmerTest::lmer(sv ~ 1 + (1|subject), data = h2b_data, REML = T)
 
 # get intraclass correlation (ICC)
 
-#var_m0_h2b <- as.data.frame(lme4::VarCorr(m0_h2b))
-#icc_h2b <- var_m0_h2b$vcov[1] / (var_m0_h2b$vcov[1] + var_m0_h2b$vcov[2]) 
+var_m0_h2b <- as.data.frame(lme4::VarCorr(m0_h2b))
+icc_h2b <- var_m0_h2b$vcov[1] / (var_m0_h2b$vcov[1] + var_m0_h2b$vcov[2]) 
 
 # our model (this is not a random slopes model, because we have to replace (level.cwc|subject) with (1|subject), because
 # this model contains the level as a factor which does not allow repeated measures)
-
 
 #m1_h2b <- lmerTest::lmer(sv ~ levelcontrast.cwc + dprime.cwc + medianRT.cwc + (levelcontrast.cwc|subject),
 #                         data = h2b_data, REML = T)
 
 # model 2 with an actual contrast matrix
 
-#m2_h2b <- lmerTest::lmer(sv ~ level.cwc + dprime.cwc + medianRT.cwc + (level.cwc|subject),
-#                         data = h2b_data, REML = T)
+m2_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (level|subject),
+                         data = h2b_data, REML = T)
 
 
 
