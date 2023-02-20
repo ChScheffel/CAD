@@ -1636,33 +1636,23 @@ model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
 
   # prepare table
   
-  h2b_result.table <- as.data.frame(cbind(row.names(model1_h2b_fixef), 
-                                          model1_h2b_fixef))
-  h2b_result.table$ranef.sd <- NA
-  h2b_result.table$ranef.sd[c(1,2)] <- model1_h2b_ranef$sdcor
+  h2b_result.table <- data.frame(Parameter = as.character(row.names(model1_h2b_fixef)),
+                                 Beta = as.numeric(model1_h2b_fixef[,1]),
+                                 SE = as.numeric(model1_h2b_fixef[,2]),
+                                 df = as.numeric(model1_h2b_fixef[,3]),
+                                 t = as.numeric(model1_h2b_fixef[,4]),
+                                 p = as.numeric(model1_h2b_fixef[,5]),
+                                 Random = as.numeric(model1_h2b_ranef$sdcor,NA,NA))
   
-  colnames(h2b_result.table)[1] <- "Parameter"
-  colnames(h2b_result.table)[2] <- "Beta"
-  colnames(h2b_result.table)[3] <- "$SE$"
-  colnames(h2b_result.table)[4] <- "$df$"
-  colnames(h2b_result.table)[5] <- "$t$-value"
-  colnames(h2b_result.table)[6] <- "$p$-value"
-  colnames(h2b_result.table)[7] <- "Random Effects (SD)"
+  colnames(h2b_result.table) <- c("Parameter","Beta","$SE$","$df$","$t$-value","$p$-value","Random Effects (SD)")
   
   h2b_result.table <- h2b_result.table[c(1,2,5,6),]
-  row.names(h2b_result.table) <- NULL
   h2b_result.table$Parameter[1:4] <- c("Intercept", "Declining logistic contrast", "d'", "median RT")
   
-  h2b_result.table[,2:7] <- lapply(h2b_result.table[,2:5], as.numeric)
   h2b_result.table[,c(2:5,7)] <- round(h2b_result.table[,c(2:5,7)], digits = 2)
-  h2b_result.table[,6] <- round(h2b_result.table[,6], digits = 3)
+  h2b_result.table[,6] <- signif(h2b_result.table[,6], digits = 3)
   
-  h2b_result.table$ `$p$-value`[which(h2b_result.table$ `$p$-value`<.01)] <- 
-    paste0(h2b_result.table$ `$p$-value`[which(h2b_result.table$ `$p$-value`<.01)],"*")
-  h2b_result.table$ `$p$-value`[which(h2b_result.table$ `$p$-value`<.05)] <- 
-    paste0(h2b_result.table$ `$p$-value`[which(h2b_result.table$ `$p$-value`<.05)],"*")
-  h2b_result.table$ `$p$-value`[which(h2b_result.table$ `$p$-value`<.001)] <- 
-    paste0("<.001***")
+  h2b_result.table$ `$p$-value`[1:3] <- paste0("<.001***")
   
   h2b_result.table$ `Random Effects (SD)`[3:4] <- paste0("")
 
