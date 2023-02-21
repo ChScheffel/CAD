@@ -708,7 +708,7 @@ for (j in 1:length(pipelines_data)) {
   
   # compute index of rows in which the levels change
   
-  roundindex <- c(1,which(pipelines_data[[j]]$level != dplyr::lag(pipelines_data[[j]]$level)),nrow(pipelines_data[[j]]))
+  roundindex <- c(1,which(pipelines_data[[j]]$round != dplyr::lag(pipelines_data[[j]]$round)),nrow(pipelines_data[[j]]))
   
   # set up empty data frame for the loop to feed into
   
@@ -772,34 +772,37 @@ base::remove(falsealarms, hits)
 ##### median RT for every pipeline #############################################
 
 # calculate the median RT for correct and post-correct trials for every pipeline
-# per subject and per condition
+# per subject and per level/round
 # the median RT will be another column in the data frames, and will be the same
-# within one subject and level, just like the SVs and d prime
+# within one subject and level/round, just like the SVs and d prime
 
 for (j in 1:length(pipelines_data)) {
   
   # compute index of rows in which the levels change
   
-  levelindex <- c(1,which(pipelines_data[[j]]$level != dplyr::lag(pipelines_data[[j]]$level)),nrow(pipelines_data[[j]]))
+  roundindex <- c(1,which(pipelines_data[[j]]$round != dplyr::lag(pipelines_data[[j]]$round)),nrow(pipelines_data[[j]]))
   
   # set up empty data frame for the loop to feed into
   
-  medianRT <- data.frame(subject = character(), level = double(), medianRT = double())
+  medianRT <- data.frame(subject = character(), level = double(), round = double(), medianRT = double())
   
   # calculate median RT per subject and level (only for correct & post-correct trials)
   
-  for (i in 1:(length(levelindex)-1)) {
+  for (i in 1:(length(roundindex)-1)) {
     
     # current level and current subject
-    x <- pipelines_data[[j]]$level[levelindex[i]]
-    mysubject <- pipelines_data[[j]]$subject[levelindex[i]]
+    mylevel <- pipelines_data[[j]]$level[roundindex[i]]
+    mysubject <- pipelines_data[[j]]$subject[roundindex[i]]
+    myround <- pipelines_data[[j]]$round[roundindex[i]]
     
     # compute median reaction time
-    mymedianRT <- median(pipelines_data[[j]]$rt[pipelines_data[[j]]$level == x & pipelines_data[[j]]$response == 1 & pipelines_data[[j]]$correct == 1 & pipelines_data[[j]]$subject == mysubject], na.rm = TRUE)
+    mymedianRT <- median(pipelines_data[[j]]$rt[pipelines_data[[j]]$level == mylevel & pipelines_data[[j]]$round == myround &
+                                                  pipelines_data[[j]]$response == 1 & pipelines_data[[j]]$correct == 1 & pipelines_data[[j]]$subject == mysubject], na.rm = TRUE)
     
     # bind data to data frame
-    newdata <- data.frame(subject = pipelines_data[[j]]$subject[levelindex[i]],
-                          level = pipelines_data[[j]]$level[levelindex[i]],
+    newdata <- data.frame(subject = mysubject,
+                          level = mylevel,
+                          round = myround,
                           medianRT = mymedianRT)
     medianRT <- rbind(medianRT, newdata)
     
@@ -809,20 +812,22 @@ for (j in 1:length(pipelines_data)) {
   
   for (i in 1:nrow(pipelines_data[[j]])) {
     
-    pipelines_data[[j]]$medianRT[i] <- medianRT$medianRT[medianRT$subject == pipelines_data[[j]]$subject[i] & medianRT$level == pipelines_data[[j]]$level[i]]
+    pipelines_data[[j]]$medianRT[i] <- medianRT$medianRT[medianRT$subject == pipelines_data[[j]]$subject[i] &
+                                                           medianRT$level == pipelines_data[[j]]$level[i] &
+                                                           medianRT$round == pipelines_data[[j]]$round[i]]
     
   }
 }
 
 # remove the temporary variables
 
-base::remove(x, mysubject, mymedianRT, newdata, medianRT)
+base::remove(mylevel, myround, mysubject, mymedianRT, newdata, medianRT)
 
-##### Boil all pipelines down to levels per subject, not trials ################
+##### Boil all pipelines down to levels and rounds per subject, not trials ################
 
 for (j in 1:length(pipelines_data)) {
   
-  pipelines_data[[j]] <- unique(pipelines_data[[j]][ ,c("subject","level","sv","nfc","dprime","medianRT")])
+  pipelines_data[[j]] <- unique(pipelines_data[[j]][ ,c("subject","level","round","sv","nfc","dprime","medianRT")])
   
 }
 
