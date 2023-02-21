@@ -1770,45 +1770,43 @@ for (i in 1:length(pipelines_data)) {
   
   sca_data <- pipelines_data[[i]]
   
-  # get a subset without RT = NA
+  # get a subset of columns
   
-  sca_data <- droplevels(subset(sca_data[ ,c("subject", "level", "sv", "dprime", "medianRT")]))
+  sca_data <- droplevels(subset(sca_data[ ,c("subject", "level", "round", "sv", "dprime", "medianRT")]))
   
-  # centering the level 1 predictors (d', medianRT, level) within cluster
+  # turn into factor
   
-  sca_data$dprime.cwc       <- sca_data$dprime - (ave(sca_data$dprime, sca_data$subject, FUN = function(x) mean(x, na.rm = T)))
-  sca_data$medianRT.cwc     <- sca_data$medianRT - (ave(sca_data$medianRT, sca_data$subject, FUN = function(x) mean(x, na.rm = T)))
-  sca_data$level.cwc        <- sca_data$level - (ave(sca_data$level, sca_data$subject, FUN = function(x) mean(x, na.rm = T)))
+  sca_data$level <- as.factor(sca_data$level)
   
-  # assuming that we have a linear model:
+  # define contrasts
   
-  # define the null model
+  sca_contrasts <- c(3,2,-2,-3)
+  contrasts(sca_data$level) <- cbind(sca_contrasts, c(-1,1,0,0), c(0,0,-1,1))
+  rownames(contrasts(sca_data$level)) <- c("level1","level2","level3","level4")
+  colnames(contrasts(sca_data$level)) <- c("declin_log","opp1","opp2")
   
-  m0_sca <- lmerTest::lmer(sv ~ 1 + (1|subject), data = sca_data, REML = T)
+  # model with the contrast matrix
   
-  # random slopes model
+  model1_sca <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
+                               data = sca_data, REML = T)
   
-  m1_sca <- lmerTest::lmer(sv ~ level.cwc * dprime.cwc + medianRT.cwc + (level.cwc|subject),
-                           data = sca_data, REML = T)
+  # get Bayes Factors
   
-  # convert random factor to type factor
+  sca_data$subject <- as.factor(sca_data$subject)
   
-  sca_data$subject <- factor(sca_data$subject)
-  
-  # compute Bayes factor
-  
-  sca_full_BF <- lmBF(sv ~ level.cwc + dprime.cwc + medianRT.cwc + subject,
-                      data = sca_data, whichRandom = 'subject', progress = FALSE)
-  sca_null_BF <- lmBF(sv ~ 1 + dprime.cwc + medianRT.cwc + subject,
-                      data = sca_data, whichRandom = 'subject', progress = FALSE)
+  sca_full_BF <- BayesFactor::lmBF(sv ~ level + dprime + medianRT + subject,
+                                   data = sca_data, whichRandom = 'subject', progress = FALSE)
+  sca_null_BF <- BayesFactor::lmBF(sv ~ 1 + dprime + medianRT + subject,
+                                   data = sca_data, whichRandom = 'subject', progress = FALSE)
   sca_BF <- sca_full_BF / sca_null_BF
   
+            
   # combine current results and the bigger data frame
   
   newdata <- data.frame(pipeline = c(names(pipelines_data[i])),
-                        beta = c(base::summary(m1_sca)$coefficients[2,1]),
-                        SE = c(base::summary(m1_sca)$coefficients[3,1]),
-                        pvalue = c(base::summary(m1_sca)$coefficients[2,5]),
+                        beta = c(base::summary(model1_sca)$coefficients[2,1]),
+                        SE = c(base::summary(model1_sca)$coefficients[2,2]),
+                        pvalue = c(base::summary(model1_sca)$coefficients[2,5]),
                         BF10 = c(extractBF(sca_BF)$bf))
   sca_results <- rbind(sca_results, newdata)
   
@@ -1816,7 +1814,7 @@ for (i in 1:length(pipelines_data)) {
 
 ##### SCA plot preparation #####################################################
 
-# add a row number and sort the data frame by the fixed effects estimate of the predictor 'level'
+# add a row number and sort the data frame by the fixed effects estimate of the predictor 'declininglogisticlevel'
 
 sca_results <- cbind(sca_results, num = c(1:nrow(sca_results)))
 sca_results <- sca_results[order(sca_results$beta, decreasing = TRUE), ]
@@ -1853,48 +1851,59 @@ sca_results$Excl <- ifelse(substr(sca_results$pipeline,4,4) == "N", 12,
 
 # melt pipelines specifications into useful format
 
-sca_lower <- melt(sca_results[c("xaxis","BF10","Dim","Trans","Excl")], id = c("xaxis","BF10"))
+sca_lower <- reshape2::melt(sca_results[c("xaxis","BF10","Dim","Trans","Excl")], id = c("xaxis","BF10"))
 sca_lower <- sca_lower[,c("xaxis","BF10","value")]
 
 # create the lower panel with the pipeline specifications
 
-ggplot(sca_lower, aes(x = xaxis, y = value, fill = BF10)) +
-  geom_vline(xintercept = c(0,10,20,30,40,50,60), colour = "grey", linetype = 3) +
-  geom_tile(aes(fill = BF10), color = "white") +
-  geom_hline(yintercept = c(6,11)) +
-  ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
-  labs(x = "Analysis pipeline", y = NULL) +
-  scale_y_reverse(breaks = c(1:17), lim = c(18,0), labels = c(expression(bold("Dimension")),
-                                                              "Across S, across C", "Across S, within C",
-                                                              "Within S, within C", "Within S, across C",
-                                                              expression(bold("Transformation")),
-                                                              "Raw/None", "Log", "Inverse", "Square-root",
-                                                              expression(bold("Exclusion")),
-                                                              "None", "2 MAD from median", " 2.5 MAD from median",
-                                                              "3 MAD from median", "100ms after onset", "200ms after onset")) +
-  scale_fill_gradientn(colors = MetBrewer::met.brewer("Homer2")) +
-  guides(fill = guide_colourbar(barwidth = 1, barheight = 15, title = "BF10"))
+sca_plot_lower <-
+  ggplot(sca_lower, aes(x = xaxis, y = value, fill = BF10)) +
+    geom_vline(xintercept = c(0,10,20,30,40,50,60), colour = "grey", linetype = 3) +
+    geom_tile(aes(fill = BF10), color = "white") +
+    geom_hline(yintercept = c(6,11)) +
+    ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+    labs(x = "Analysis pipeline", y = NULL) +
+    scale_y_reverse(breaks = c(1:17), lim = c(18,0), labels = c(expression(bold("Dimension")),
+                                                                "Across S, across C", "Across S, within C",
+                                                                "Within S, within C", "Within S, across C",
+                                                                expression(bold("Transformation")),
+                                                                "Raw/None", "Log", "Inverse", "Square-root",
+                                                                expression(bold("Exclusion")),
+                                                                "None", "2 MAD from median", " 2.5 MAD from median",
+                                                                "3 MAD from median", "100ms after onset", "200ms after onset")) +
+    scale_fill_gradientn(colors = MetBrewer::met.brewer("Homer2")) +
+    guides(fill = guide_colourbar(barwidth = 1, barheight = 15, title = "BF10"))
 
 # create the middle panel with the p-values
 
-ggplot(sca_results, aes(x = xaxis, y = pvalue)) +
-  geom_vline(xintercept = c(0,10,20,30,40,50,60), colour = "grey", linetype = 3) +
-  geom_line() +
-  ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
-  labs(x = NULL, y = "p-value") +
-  scale_x_continuous(labels = NULL)
+sca_plot_middle <-
+  ggplot(sca_results, aes(x = xaxis, y = pvalue)) +
+    geom_vline(xintercept = c(0,10,20,30,40,50,60), colour = "grey", linetype = 3) +
+    geom_line() +
+    ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+    labs(x = NULL, y = "p") +
+    scale_x_continuous(labels = NULL) +
+    scale_y_continuous(breaks = c(0,3e-48), limits = c(-1e-48,3.2e-48))
 
 # create upper panel with beta weights
 
-ggplot(sca_results, aes(x = xaxis, y = beta)) +
-  geom_vline(xintercept = c(0,10,20,30,40,50,60), colour = "grey", linetype = 3) +
-  geom_errorbar(aes(ymin = beta-SE,ymax = beta+SE, col = BF10), 
-                width = 0, size = 2, alpha = .9, show.legend = FALSE) +
-  scale_color_gradientn(colors = met.brewer("Homer2")) +
-  geom_line(col = "black", size = 0.25) +
-  ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
-  labs(x = NULL, y = "Fixed effects beta of the predictor n-back level") +
-  scale_x_continuous(labels = NULL)
+sca_plot_upper <-
+  ggplot(sca_results, aes(x = xaxis, y = beta)) +
+    geom_vline(xintercept = c(0,10,20,30,40,50,60), colour = "grey", linetype = 3) +
+    geom_errorbar(aes(ymin = beta-SE,ymax = beta+SE, col = BF10), 
+                  width = 0, size = 2, alpha = .9, show.legend = FALSE) +
+    scale_color_gradientn(colors = MetBrewer::met.brewer("Homer2")) +
+    geom_line(col = "black", size = 0.25) +
+    ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+    labs(x = NULL, y = "beta") +
+    scale_x_continuous(labels = NULL) +
+    scale_y_continuous(breaks = c(0.042,0.046))
+
+# combine into panel
+
+egg::ggarrange(sca_plot_upper, sca_plot_middle, sca_plot_lower,
+               ncol = 1, nrow = 3,
+               heights = c(1, 1, 7))
 
 ##### Extra plots ##############################################################
 
