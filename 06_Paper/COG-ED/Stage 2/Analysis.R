@@ -1347,6 +1347,10 @@ model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
 # make a temporary copy of the data frame
 
 data_SV <- pipelines_data[["AARO"]][ ,c("subject","level","sv","nfc")]
+  
+# boil down to one line per subject and level
+
+data_SV <- unique(data_SV)
 
 # create a data frame with the difference scores per subject (2-1,3-2)
 
@@ -1484,7 +1488,8 @@ h3b_data$level <- as.factor(h3b_data$level)
 # compute two-way ANOVA
 
 hypothesis3b_model <- afex::aov_ez("subject", "ntlx", h3b_data,
-                                   between = c("nfcmedian"), within = c("level"))
+                                   between = c("nfcmedian"), within = c("level"),
+                                   fun_aggregate = mean)
 
 # format S3 class into data frame
 
@@ -1590,7 +1595,7 @@ hypothesis3b_contrasts_interact$`$p$`[hypothesis3b_contrasts_interact$`$p$` == "
 # plot these results
 
 plot_h3b <- ggplot(h3b_data, aes(level, ntlx, fill = nfcmedian, color = nfcmedian)) +
-            geom_rain(alpha = .5,
+            ggrain::geom_rain(alpha = .5,
                       violin.args = list(color = NA, alpha = .7), # removes the lines around the violins
                       boxplot.args.pos = list(width = .1, position = ggpp::position_dodgenudge(
                                                 x = rep(-.13,8)))) +
@@ -1641,7 +1646,8 @@ h3c_data$nfcmedian <- as.factor(h3c_data$nfcmedian)
 # compute two-way ANOVA
 
 hypothesis3c_model <- afex::aov_ez("subject", "aversdiff", h3c_data,
-                                   between = c("nfcmedian"), within = c("nlevels"))
+                                   between = c("nfcmedian"), within = c("nlevels"),
+                                   fun_aggregate = mean)
 
 # format S3 class into data frame
 
