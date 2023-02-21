@@ -552,6 +552,18 @@
         "performance"
       ]
     },
+    "egg": {
+      "Package": "egg",
+      "Version": "0.4.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "d958917f7b60c13089ab0c8d17114053",
+      "Requirements": [
+        "ggplot2",
+        "gridExtra",
+        "gtable"
+      ]
+    },
     "ellipsis": {
       "Package": "ellipsis",
       "Version": "0.3.2",
@@ -744,6 +756,21 @@
         "rlang",
         "scales",
         "tibble"
+      ]
+    },
+    "ggrain": {
+      "Package": "ggrain",
+      "Version": "0.0.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "239e36b2b081cb40b4fa81698cc4eeee",
+      "Requirements": [
+        "cli",
+        "gghalves",
+        "ggplot2",
+        "ggpp",
+        "rlang",
+        "vctrs"
       ]
     },
     "glue": {
