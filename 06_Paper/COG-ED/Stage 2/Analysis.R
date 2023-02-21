@@ -708,26 +708,27 @@ for (j in 1:length(pipelines_data)) {
   
   # compute index of rows in which the levels change
   
-  levelindex <- c(1,which(pipelines_data[[j]]$level != dplyr::lag(pipelines_data[[j]]$level)),nrow(pipelines_data[[j]]))
+  roundindex <- c(1,which(pipelines_data[[j]]$level != dplyr::lag(pipelines_data[[j]]$level)),nrow(pipelines_data[[j]]))
   
   # set up empty data frame for the loop to feed into
   
-  dprime <- data.frame(subject = character(), level = double(), hitrate = double(), falsealarmrate = double())
+  dprime <- data.frame(subject = character(), level = double(), round = double(), hitrate = double(), falsealarmrate = double())
   
   # calculate hits and false alarms per participant
   
-  for (i in 1:(length(levelindex)-1)) {
+  for (i in 1:(length(roundindex)-1)) {
     
     # set the number of targets and non-targets
-    num_targets <- length(which(pipelines_data[[j]]$target[c(levelindex[i]:(levelindex[i+1])-1)] == 1))
-    num_nontargets <- length(which(pipelines_data[[j]]$target[c(levelindex[i]:(levelindex[i+1])-1)] == 0))
+    num_targets <- length(which(pipelines_data[[j]]$target[c(roundindex[i]:(roundindex[i+1])-1)] == 1))
+    num_nontargets <- length(which(pipelines_data[[j]]$target[c(roundindex[i]:(roundindex[i+1])-1)] == 0))
     
-    hits <- length(which(pipelines_data[[j]]$target[c(levelindex[i]:(levelindex[i+1])-1)] == 1 &
-                           pipelines_data[[j]]$correct[c(levelindex[i]:(levelindex[i+1])-1)] == 1) + (levelindex[i]-1))
-    falsealarms <- length(which(pipelines_data[[j]]$response[c(levelindex[i]:(levelindex[i+1])-1)] == 1 &
-                                  pipelines_data[[j]]$correct[c(levelindex[i]:(levelindex[i+1])-1)] == 0) + (levelindex[i]-1))
-    newdata <- data.frame(subject = pipelines_data[[j]]$subject[levelindex[i]],
-                          level = pipelines_data[[j]]$level[levelindex[i]],
+    hits <- length(which(pipelines_data[[j]]$target[c(roundindex[i]:(roundindex[i+1])-1)] == 1 &
+                           pipelines_data[[j]]$correct[c(roundindex[i]:(roundindex[i+1])-1)] == 1) + (roundindex[i]-1))
+    falsealarms <- length(which(pipelines_data[[j]]$response[c(roundindex[i]:(roundindex[i+1])-1)] == 1 &
+                                  pipelines_data[[j]]$correct[c(roundindex[i]:(roundindex[i+1])-1)] == 0) + (roundindex[i]-1))
+    newdata <- data.frame(subject = pipelines_data[[j]]$subject[roundindex[i]],
+                          level = pipelines_data[[j]]$level[roundindex[i]],
+                          round = ifelse(i%%2 == 0, 2, 1), # if the current round is an even number put 2, if not put 1
                           hitrate = hits/num_targets,
                           falsealarmrate = falsealarms/num_nontargets)
     dprime <- rbind(dprime, newdata)
@@ -739,11 +740,14 @@ for (j in 1:length(pipelines_data)) {
   dprime$hitrate.z = NA
   dprime$falsealarmrate.z = NA
   
-  for (i in 1:4) {
+  for (i in 1:4) { # for each n-back level
     
-    dprime$hitrate.z[which(dprime$level == i)]        <- scale(dprime$hitrate[which(dprime$level == i)])
-    dprime$falsealarmrate.z[which(dprime$level == i)] <- scale(dprime$falsealarmrate[which(dprime$level == i)])
-    
+    for (j in 1:2) { # for each round
+      
+      dprime$hitrate.z[which(dprime$level == i & dprime$round == j)]        <- scale(dprime$hitrate[which(dprime$level == i & dprime$round == j)])
+      dprime$falsealarmrate.z[which(dprime$level == i & dprime$round == j)] <- scale(dprime$falsealarmrate[which(dprime$level == i & dprime$round == j)])
+      
+    }
   }
   
   # calculate d'
@@ -754,7 +758,9 @@ for (j in 1:length(pipelines_data)) {
   
   for (i in 1:nrow(pipelines_data[[j]])) {
     
-    pipelines_data[[j]]$dprime[i] <- dprime$d[dprime$subject == pipelines_data[[j]]$subject[i] & dprime$level == pipelines_data[[j]]$level[i]]
+    pipelines_data[[j]]$dprime[i] <- dprime$d[dprime$subject == pipelines_data[[j]]$subject[i] &
+                                                dprime$level == pipelines_data[[j]]$level[i] &
+                                                dprime$round == pipelines_data[[j]]$round[i]]
     
   }
 }
@@ -1302,7 +1308,7 @@ h2b_data_multi$postcorrect[c(1,seq(from = 65, to = nrow(h2b_data_multi), by = 64
                                   h2b_data_multi$correct[c(roundindex[i]:(roundindex[i+1]-1))] == 0) + (roundindex[i]-1))
     newdata <- data.frame(subject = h2b_data_multi$subject[roundindex[i]],
                           level = h2b_data_multi$level[roundindex[i]],
-                          round = ifelse(i%%2 == 0, 2, 1), # if the current round is an even number put 1, if not put 2
+                          round = ifelse(i%%2 == 0, 2, 1), # if the current round is an even number put 2, if not put 1
                           hitrate = hits/16,
                           falsealarmrate = falsealarms/48)
     h2b_dprime <- rbind(h2b_dprime, newdata)
