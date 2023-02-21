@@ -59,8 +59,9 @@ Moreover, we found significantly lower effort during suppression compared with d
 To investigate the ecological validity of the subjective values of ER strategies we calculated, we looked to see if SVs were associated with the actual choice of participants in the choice block.
 Therefore, a $\chi^{2}$ test with predicted choice (i.e., the strategy with the highest SV of each participant) and actual choice was computed.
 There was a significant association between predicted choice and actual choice (`r papaja::apa_print(choice_chisq, n=120)$statistic[[1]]`, `r papaja::apa_print(choice_chisq_BF)$statistic`). 
-
-[ HIER FEHLT NOCH DIE ORDINALE REGRESSION ]
+We then conducted a ordinal regression with the dependent variable "choice" and the individual SVs of all three strategies as independent variables.
+Overall model fit was fair with $R^{2}=$ `r papaja::printnum(Choice_OrdReg_R2)`.
+The predictor SV of strategy distraction was found to contribute to the model (`r papaja::apa_print(Choice_OrdReg)$estimate$distraction_sv`).
 
 Last, we investigated whether SVs are associated with ER flexibility.
 We conducted a logistic regression to inspect whether participants' individual $slopes$ and $intercepts$ of ordered SVs could predict their ER flexibility score.
