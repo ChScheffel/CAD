@@ -1192,7 +1192,7 @@ h2a_data$level <- as.factor(h2a_data$level)
 
 hypothesis2a_rmanova <- afex::aov_ez(data = h2a_data,
                                      dv = "sv", id = "subject", within = "level",
-                                     type = 3, include_aov = TRUE)
+                                     fun_aggregate = mean, type = 3, include_aov = TRUE)
 
 # obtain estimated marginal means for ANOVA model
 
