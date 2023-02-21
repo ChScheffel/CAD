@@ -675,16 +675,6 @@
       "Hash": "15e9634c0fcd294799e9b2e929ed1b86",
       "Requirements": []
     },
-    "ggeffects": {
-      "Package": "ggeffects",
-      "Version": "1.1.5",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "fde9b23ced5dcea02fea6d7f46f1eb87",
-      "Requirements": [
-        "insight"
-      ]
-    },
     "gghalves": {
       "Package": "gghalves",
       "Version": "0.1.4",
@@ -1608,87 +1598,6 @@
       "Requirements": [
         "R6",
         "stringr"
-      ]
-    },
-    "sjPlot": {
-      "Package": "sjPlot",
-      "Version": "2.8.12",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "4ded8e6f100e28a18c428abb7f0bd406",
-      "Requirements": [
-        "MASS",
-        "bayestestR",
-        "datawizard",
-        "dplyr",
-        "effectsize",
-        "ggeffects",
-        "ggplot2",
-        "insight",
-        "knitr",
-        "parameters",
-        "performance",
-        "purrr",
-        "rlang",
-        "scales",
-        "sjlabelled",
-        "sjmisc",
-        "sjstats",
-        "tidyr"
-      ]
-    },
-    "sjlabelled": {
-      "Package": "sjlabelled",
-      "Version": "1.2.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "4bd18166ef8ca74aeec74ad295dfe77f",
-      "Requirements": [
-        "datawizard",
-        "insight"
-      ]
-    },
-    "sjmisc": {
-      "Package": "sjmisc",
-      "Version": "2.8.9",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "86176cb3be04b2930649dce2bf56d3cb",
-      "Requirements": [
-        "dplyr",
-        "insight",
-        "magrittr",
-        "purrr",
-        "rlang",
-        "sjlabelled",
-        "tidyselect"
-      ]
-    },
-    "sjstats": {
-      "Package": "sjstats",
-      "Version": "0.18.2",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "9e17bcae16a0d18b5f4f126298bd6f45",
-      "Requirements": [
-        "MASS",
-        "bayestestR",
-        "broom",
-        "datawizard",
-        "dplyr",
-        "effectsize",
-        "emmeans",
-        "insight",
-        "lme4",
-        "magrittr",
-        "modelr",
-        "parameters",
-        "performance",
-        "purrr",
-        "rlang",
-        "sjlabelled",
-        "sjmisc",
-        "tidyr"
       ]
     },
     "stringi": {
