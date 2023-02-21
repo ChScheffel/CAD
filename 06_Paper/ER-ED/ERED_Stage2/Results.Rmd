@@ -61,7 +61,10 @@ Therefore, a $\chi^{2}$ test with predicted choice (i.e., the strategy with the 
 There was a significant association between predicted choice and actual choice (`r papaja::apa_print(choice_chisq, n=120)$statistic[[1]]`, `r papaja::apa_print(choice_chisq_BF)$statistic`). 
 We then conducted a ordinal regression with the dependent variable "choice" and the individual SVs of all three strategies as independent variables.
 Overall model fit was fair with $R^{2}=$ `r papaja::printnum(Choice_OrdReg_R2)`.
-The predictor SV of strategy distraction was found to contribute to the model (`r papaja::apa_print(Choice_OrdReg)$estimate$distraction_sv`).
+The predictor SV of strategy distraction was found to contribute to the model (`r papaja::apa_print(Choice_OrdReg)$full_result$distraction_sv`, $BF10=$ `r papaja::printnum(Choice_OrdReg_Posterior$BFtu_exploratory[2,2])`).
+The estimated odds ratio indicated a higher chance of choosing strategy distraction, when SV of that strategy is higher.
+Additionally, the predictor SV of strategy suppression was found to contribute to the model (`r papaja::apa_print(Choice_OrdReg)$full_result$suppression_sv`, $BF10=$ `r papaja::printnum(Choice_OrdReg_Posterior$BFtu_exploratory[4,3])`).
+The estimated odds ration indicated that is more likely to later choose suppression, when SV of strategy suppression is higher.
 
 Last, we investigated whether SVs are associated with ER flexibility.
 We conducted a logistic regression to inspect whether participants' individual $slopes$ and $intercepts$ of ordered SVs could predict their ER flexibility score.
