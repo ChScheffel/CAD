@@ -1314,11 +1314,14 @@ h2b_data_multi$postcorrect[c(1,seq(from = 65, to = nrow(h2b_data_multi), by = 64
   h2b_dprime$hitrate.z = NA
   h2b_dprime$falsealarmrate.z = NA
   
-  for (i in 1:4) {
+  for (i in 1:4) { # per n-back level
     
-    h2b_dprime$hitrate.z[which(h2b_dprime$level == i)]        <- scale(h2b_dprime$hitrate[which(h2b_dprime$level == i)])
-    h2b_dprime$falsealarmrate.z[which(h2b_dprime$level == i)] <- scale(h2b_dprime$falsealarmrate[which(h2b_dprime$level == i)])
+    for (j in 1:2) { # per round
+
+      h2b_dprime$hitrate.z[which(h2b_dprime$level == i & h2b_dprime$round == j)]        <- scale(h2b_dprime$hitrate[which(h2b_dprime$level == i & h2b_dprime$round == j)])
+      h2b_dprime$falsealarmrate.z[which(h2b_dprime$level == i & h2b_dprime$round == j)] <- scale(h2b_dprime$falsealarmrate[which(h2b_dprime$level == i & h2b_dprime$round == j)])
     
+    }
   }
   
   # calculate d'
