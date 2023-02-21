@@ -839,7 +839,7 @@ for (j in 1:length(pipelines_data)) {
 
 # make a temporary copy of the data frame without 1-back
 
-h1a_data <- pipelines_data[["AARN"]]
+h1a_data <- pipelines_data[["AARO"]]
 h1a_data$level <- as.factor(h1a_data$level)
 
 # calculate ANOVA
