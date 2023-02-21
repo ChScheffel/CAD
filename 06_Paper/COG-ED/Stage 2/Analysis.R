@@ -848,6 +848,7 @@ hypothesis1a_rmanova <- afex::aov_ez(data = h1a_data,
                                      dv = "dprime",
                                      id = "subject",
                                      within = "level",
+                                     fun_aggregate = mean,
                                      type = 3,
                                      include_aov = TRUE)
 
@@ -910,6 +911,7 @@ hypothesis1b_rmanova <- afex::aov_ez(data = h1b_data,
                                      dv = "medianRT",
                                      id = "subject",
                                      within = "level",
+                                     fun_aggregate = mean,
                                      type = 3,
                                      include_aov = TRUE)
 
