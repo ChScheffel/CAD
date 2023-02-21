@@ -112,9 +112,21 @@ data_nback$response <- as.numeric(data_nback$response)
 
 data_nback$postcorrect = c(1,data_nback$correct[1:(length(data_nback$correct)-1)])
 
-# make sure to avoid transfer from the previous block by marking the first trial of each block as correct
+# make sure to avoid transfer from the previous round by marking the first trial of each round as correct
 
 data_nback$postcorrect[c(1,seq(65,length(data_nback$postcorrect),64))] <- 1
+
+# add a column indicating whether it is the first (1) or second (2) round of that level for each subject
+
+roundindex <- c(1,seq(from = 65, to = nrow(data_nback)+1, by = 64))
+
+data_nback$round = NA
+
+for (i in 1:(length(roundindex)-1)) {
+  
+  data_nback$round[roundindex[i]:(roundindex[i+1]-1)] <- ifelse(i%%2 == 0, 2, 1)
+  
+}
 
 # the choice column will contain 1 for the left button and 2 for the right button
 
