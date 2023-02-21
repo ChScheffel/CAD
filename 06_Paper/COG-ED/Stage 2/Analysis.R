@@ -742,10 +742,10 @@ for (j in 1:length(pipelines_data)) {
   
   for (i in 1:4) { # for each n-back level
     
-    for (j in 1:2) { # for each round
+    for (z in 1:2) { # for each round
       
-      dprime$hitrate.z[which(dprime$level == i & dprime$round == j)]        <- scale(dprime$hitrate[which(dprime$level == i & dprime$round == j)])
-      dprime$falsealarmrate.z[which(dprime$level == i & dprime$round == j)] <- scale(dprime$falsealarmrate[which(dprime$level == i & dprime$round == j)])
+      dprime$hitrate.z[which(dprime$level == i & dprime$round == z)]        <- scale(dprime$hitrate[which(dprime$level == i & dprime$round == z)])
+      dprime$falsealarmrate.z[which(dprime$level == i & dprime$round == z)] <- scale(dprime$falsealarmrate[which(dprime$level == i & dprime$round == z)])
       
     }
   }
