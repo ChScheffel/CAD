@@ -1256,8 +1256,15 @@ choice_chisq_BF <- BayesFactor::contingencyTableBF(x = choice_chisq[["observed"]
 # ORDINAL REGRESSION
 
 # https://marissabarlaz.github.io/portfolio/ols/
-Choice_OrdReg <- ordinal::clm(as.factor(choice) ~ distraction.sv + distancing.sv + suppression.sv, data = data_choice, link = "logit")
 
+data_choice$choice <- as.factor(data_choice$choice)
+
+Choice_OrdReg <- glm(choice ~ distraction.sv + distancing.sv + suppression.sv, data = data_choice, family = "binomial")
+
+Choice_OrdReg_R2 <- with(summary(Choice_OrdReg), 1 - deviance/null.deviance)
+
+# Bayes Factors
+Choice_OrdReg_Posterior <- BFpack::BF(Choice_OrdReg)
 
 #### HYPOTHESIS 7b
 
