@@ -1305,17 +1305,25 @@ model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
   # the marginal RGLMM2 represents the variance explained by the fixed effects
   # the conditional RGLMM2 is interpreted as a variance explained by the entire model, including both fixed and random effects
   
-  # model without effect of level
+  # models without effects of each variable
   
-  model1_h2b_no_effect <- lmerTest::lmer(sv ~ 1 + dprime + medianRT + (1|subject),
-                                   data = h2b_data_excl, REML = T)
+  model1_h2b_no_effect_level <- lmerTest::lmer(sv ~ 1 + dprime + medianRT + (1|subject),
+                                               data = h2b_data_excl, REML = T)
+  model1_h2b_no_effect_dprime <- lmerTest::lmer(sv ~ level + 1 + medianRT + (1|subject),
+                                               data = h2b_data_excl, REML = T)
+  model1_h2b_no_effect_medianRT <- lmerTest::lmer(sv ~ level + dprime + 1 + (1|subject),
+                                               data = h2b_data_excl, REML = T)
   # compute R²
   
-  h2b_no_effect_r2 <- MuMIn::r.squaredGLMM(model1_h2b_no_effect, pj2014 = T)
+  h2b_no_effect_level_r2 <- MuMIn::r.squaredGLMM(model1_h2b_no_effect_level, pj2014 = T)
+  h2b_no_effect_dprime_r2 <- MuMIn::r.squaredGLMM(model1_h2b_no_effect_dprime, pj2014 = T)
+  h2b_no_effect_medianRT_r2 <- MuMIn::r.squaredGLMM(model1_h2b_no_effect_medianRT, pj2014 = T)
   
   # compute f² with conditional R²
   
-  h2b_f2 <- (h2b_total_r2[1,2] - h2b_no_effect_r2[1,2]) / (1 - h2b_total_r2[1,2])
+  h2b_level_f2 <- (h2b_total_r2[1,2] - h2b_no_effect_level_r2[1,2]) / (1 - h2b_total_r2[1,2])
+  h2b_dprime_f2 <- (h2b_total_r2[1,2] - h2b_no_effect_dprime_r2[1,2]) / (1 - h2b_total_r2[1,2])
+  h2b_medianRT_f2 <- (h2b_total_r2[1,2] - h2b_no_effect_medianRT_r2[1,2]) / (1 - h2b_total_r2[1,2])
 
 
 # get Bayes Factors
