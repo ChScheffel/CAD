@@ -1152,11 +1152,15 @@ MLM_0 <- lmerTest::lmer(formula = sv ~ 1 + (1 | ID),
 
 ## Intra-class correlation (ICC)
 
-# random effect variances
-RandomEffects_MLM_0 <- as.data.frame(lme4::VarCorr(MLM_0))
+ICC.Model<-function(Model.Name) {
+  tau.Null<-as.numeric(lapply(summary(Model.Name)$varcor, diag))
+  sigma.Null <- as.numeric(attr(summary(Model.Name)$varcor, "sc")^2)
+  ICC.Null <- tau.Null/(tau.Null+sigma.Null)
+  return(ICC.Null)
+}
 
 # compute ICC
-ICC_between_MLM_0 <- RandomEffects_MLM_0[1,4] / (RandomEffects_MLM_0[1,4]+RandomEffects_MLM_0[2,4])
+ICC_between_MLM_0 <- ICC.Model(MLM_0)
 
 #### MLM - random effects
 
