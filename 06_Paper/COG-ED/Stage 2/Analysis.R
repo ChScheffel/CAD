@@ -1222,7 +1222,7 @@ colnames(hypothesis2a_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$
 hypothesis2a_contrasts$Contrast <- gsub("X", "", hypothesis2a_contrasts$Contrast)
 hypothesis2a_contrasts[ ,c("Estimate","$SE$","$t$")] <- signif(hypothesis2a_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 3)
 hypothesis2a_contrasts$`$p$` <- format(round(hypothesis2a_contrasts$`$p$`, digits = 3), nsmall = 2)
-hypothesis2a_contrasts$`$p$`[hypothesis2a_contrasts$`$p$` == "0.000"] <- "<.001"
+hypothesis2a_contrasts$`$p$`[hypothesis2a_contrasts$`$p$` == "0.00"] <- "<.001"
 
 # remove the temporary variable
 
