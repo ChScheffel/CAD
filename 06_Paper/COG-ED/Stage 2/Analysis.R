@@ -1206,7 +1206,9 @@ hypothesis2a_contrasts <- emmeans::contrast(hypothesis2a_emm, method = list("Dec
                                                                             "Declining Logistic" = c(3,2,-2,-3),
                                                                             "Positively Skewed Normal" = c(1,2,-1,-2)))
 
-# we still have to get the Bayes Factors here, but we'll do that in the main study
+# get Bayes factors
+
+hypothesis2a_BF <- BayesFactor::anovaBF(formula = sv ~ level, data = h2a_data, progress = FALSE)
 
 # get effect size and confidence intervals
 
