@@ -1356,7 +1356,7 @@ model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
   
   h2b_result.table$ `$p$-value`[1:3] <- paste0("<.001***")
   
-  h2b_result.table$ `Random Effects (SD)`[3:4] <- paste0("")
+  h2b_result.table$ `Random Effects (SD)`[2:4] <- paste0("")
 
 
 ##### Hypothesis 3a ############################################################
