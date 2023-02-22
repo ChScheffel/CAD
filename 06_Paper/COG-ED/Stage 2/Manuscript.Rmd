@@ -353,11 +353,15 @@ apa_table(
 ```
 
 All NASA-TLX subscale scores increased across *n*-back levels.
-The effort subscale (`r apa_print(hypothesis1c_effort_rmanova)$full_result$level`, `r apa_print(hypothesis1c_effort__BF)$statistic`) increased across all levels, but the magnitude of change decreased from 1- to 2-back (`r apa_print(pairs(hypothesis1c_effort_emm))$statistic$X1_X2`, `r apa_print(BayesFactor::ttestBF(x = h1c_data$effort[h1c_data$level == 1], y = h1c_data$effort[h1c_data$level == 2], progress = FALSE, paired = TRUE))$statistic`) to 3- to 4-back (`r apa_print(pairs(hypothesis1c_effort_emm))$statistic$X3_X4`, `r apa_print(BayesFactor::ttestBF(x = h1c_data$effort[h1c_data$level == 3], y = h1c_data$effort[h1c_data$level == 4], progress = FALSE, paired = TRUE))$statistic`).
+The effort subscale (`r apa_print(hypothesis1c_effort_rmanova)$full_result$level`, `r apa_print(hypothesis1c_effort_BF)$statistic`) increased across all levels, but the magnitude of change decreased from 1- to 2-back (`r apa_print(pairs(hypothesis1c_effort_emm))$statistic$X1_X2`, `r apa_print(BayesFactor::ttestBF(x = h1c_data$effort[h1c_data$level == 1], y = h1c_data$effort[h1c_data$level == 2], progress = FALSE, paired = TRUE))$statistic`) to 3- to 4-back (`r apa_print(pairs(hypothesis1c_effort_emm))$statistic$X3_X4`, `r apa_print(BayesFactor::ttestBF(x = h1c_data$effort[h1c_data$level == 3], y = h1c_data$effort[h1c_data$level == 4], progress = FALSE, paired = TRUE))$statistic`).
 Three subscales had significant differences between all contrasts except for 3- versus 4-back:
-The frustration subscale 
+While ratings on the frustration and time subscales were higher for more difficult levels (`r apa_print(hypothesis1c_frustration_rmanova)$full_result$level`, `r apa_print(hypothesis1c_frustration_BF)$statistic`, and `r apa_print(hypothesis1c_time_rmanova)$full_result$level`, `r apa_print(hypothesis1c_time_BF)$statistic`, respectively), ratings on the performance subscale decreased with higher *n* (`r apa_print(hypothesis1c_performance_rmanova)$full_result$level`, `r apa_print(hypothesis1c_performance_BF)$statistic`).
+Ratings on the mental subscale consistently increased across all levels (`r apa_print(hypothesis1c_mental_rmanova)$full_result$level`, `r apa_print(hypothesis1c_mental_BF)$statistic`).
+Ratings on the physical subscale were higher for more difficult levels (`r apa_print(hypothesis1c_physical_rmanova)$full_result$level`, `r apa_print(hypothesis1c_physical_BF)$statistic`), apart from the contrasts 2- versus 3-back (`r apa_print(pairs(hypothesis1c_physical_emm))$statistic$X2_X3`, `r apa_print(BayesFactor::ttestBF(x = h1c_data$physical[h1c_data$level == 2], y = h1c_data$physical[h1c_data$level == 3], progress = FALSE, paired = TRUE))$statistic`) and 3- versus 4-back (`r apa_print(pairs(hypothesis1c_physical_emm))$statistic$X3_X4`, `r apa_print(BayesFactor::ttestBF(x = h1c_data$physical[h1c_data$level == 3], y = h1c_data$physical[h1c_data$level == 4], progress = FALSE, paired = TRUE))$statistic`).
 
 ## Decline of subjective values
+
+The rmANOVA showed a significant difference between the SVs across *n*-back levels (`r apa_print(hypothesis2a_rmanova)$full_result$level`, `r apa_print(hypothesis2a_BF)$statistic`).
 
 ## Differences between NFC groups
 
