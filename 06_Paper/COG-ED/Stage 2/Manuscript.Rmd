@@ -362,6 +362,20 @@ Ratings on the physical subscale were higher for more difficult levels (`r apa_p
 ## Decline of subjective values
 
 The rmANOVA showed a significant difference between the SVs across *n*-back levels (`r apa_print(hypothesis2a_rmanova)$full_result$level`, `r apa_print(hypothesis2a_BF)$statistic`).
+All four pre-defined contrasts reached significance (Table\ \@ref(tab:H2a-contrasts)), so a purely linear contrast can be rejected.
+
+```{r H2a-contrasts, echo=FALSE, message=FALSE, warning=FALSE}
+apa_table(
+  hypothesis2a_contrasts,
+  caption = "Contrasts for the rmANOVA comparing the subjective values between *n*-back levels",
+  note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+The declining logistic contrast had the highest effect estimate (`r apa_print(emmeans::contrast(hypothesis2a_emm, method = list("decl_log" =c(3,2,-2,-3))))$full_result`), suggesting a shallow decline of SVs between 1- and 2-back, and 3- and 4-back, respectively, and a steeper decline of SVs between 2- and 3-back.
+
 
 ## Differences between NFC groups
 
