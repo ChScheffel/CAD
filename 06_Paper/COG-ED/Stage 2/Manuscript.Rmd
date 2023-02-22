@@ -283,7 +283,7 @@ By this, the model yields interpretable parameter estimates.
 If necessary, we will adjusted the optimization algorithm to improve model fit. 
 We visually inspected the residuals of the model for evidence to perform model criticism. 
 This was done by excluding all data points with absolute standardized residuals above 3 SD. 
-As effect size measures, we calculated pseudo *R²* for our model and *f²* to estimate the effect of *n*-back level according to Lorah[-@Lorah2018].
+As effect size measures, we calculated pseudo $R^{2}$ for our model and $f^{2}$ to estimate the effect of *n*-back level according to Lorah[-@Lorah2018].
 To ensure the validity of the association of SVs and *n*-back level, we conducted a specification curve analysis[@Simonsohn2020], which includes 63 possible preprocessing pipelines of the RT data.
 These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, 2, 2.5, or 3\ $MAD$ from the median, RTs below 100\ or\ 200\ ms), and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within *n*-back levels).
 The rmANOVA was run with each of the 63\ pipelines, which will also include our main pipeline (untransformed data, exclusion of RTs below 100\ ms).
@@ -375,6 +375,20 @@ apa_table(
 ```
 
 The declining logistic contrast had the highest effect estimate (`r apa_print(emmeans::contrast(hypothesis2a_emm, method = list("decl_log" =c(3,2,-2,-3))))$full_result`), suggesting a shallow decline of SVs between 1- and 2-back, and 3- and 4-back, respectively, and a steeper decline of SVs between 2- and 3-back.
+
+Consequently, we had to adapt the multi level model to incorporate this non-linear trend.
+To apply the contrast to the *n*-back levels, we had to turn the variables into a factor, with two consequences:
+Centered variables cannot be turned into factors, so we entered the variables in their raw form, and factors cannot be used as random slopes, so the model is now defined as:
+$$
+SV \sim level\ + d' + median RT + (1|subject)
+$$
+This means that the intercept still varies between subjects, but there are no random slopes anymore.
+To provide more than one observation per factor level, we used the two rounds per level per subject, rather than levels per subject.
+The ICC of the null model indicated that there is a correlation of `r $r=round(model0_h2b_ICC, digits = 3)$` between the SVs of a subject, i.e. that `r paste0(formatC(model0_h2b_ICC * 100, format = "f", digits = 2), "%")` of variance in SVs can be explained by differences between participants.
+We did not use an optimization algorithm to improve the fit of the random intercept model.
+A total of `r nrow(excl_cases_h2b$subject)` data points from `r length(excl_cases_h2b)` were excluded, because the residuals exceeded 3 SD above the mean.
+The final model had an effect size of `r $f^{2} = round(h2b_level_f2, digits = 2)$` for the *n*-back levels and `r $f^{2} = round(h2b_dprime_f2, digits = 2)$` for *d'*, which are considered large and small, respectively [@Cohen1992].
+The effect size of the median RT was `r $f^{2} = format(round(h2b_medianRT_f2, digits = 2), nsmall = 2)$`.
 
 
 ## Differences between NFC groups

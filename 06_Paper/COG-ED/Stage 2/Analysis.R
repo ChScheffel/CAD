@@ -1268,13 +1268,32 @@ model0_h2b <- lmerTest::lmer(sv ~ 1 + (1|subject), data = h2b_data, REML = T)
 
 # get intraclass correlation (ICC)
 
-var_m0_h2b <- as.data.frame(lme4::VarCorr(m0_h2b))
-icc_h2b <- var_m0_h2b$vcov[1] / (var_m0_h2b$vcov[1] + var_m0_h2b$vcov[2]) 
+ICC.Model <- function(Model.Name) {
+  tau.Null <- as.numeric(lapply(summary(Model.Name)$varcor, diag))
+  sigma.Null <- as.numeric(attr(summary(Model.Name)$varcor, "sc")^2)
+  ICC.Null <- tau.Null/(tau.Null+sigma.Null)
+  return(ICC.Null)
+}
+
+model0_h2b_ICC <- ICC.Model(model0_h2b)
 
 # model 2 with the contrast matrix
 
-model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
+model1_h2b_raw <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
                          data = h2b_data, REML = T)
+
+# exclude cases with residuals three SDs above mean
+
+excl_cases_h2b <- as.data.frame(subset(h2b_data, abs(scale(resid(model1_h2b_raw))) > 3))
+
+# create data frame without those cases
+
+h2b_data_excl <- droplevels(subset(h2b_data, abs(scale(resid(model1_h2b_raw))) < 3))
+
+# recompute model 2
+
+model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
+                             data = h2b_data_excl, REML = T)
 
 # to plot some fit indices if you like
 #sjPlot::plot_model(model1_h2b, type = "diag")
@@ -1286,27 +1305,35 @@ model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
   # the marginal RGLMM2 represents the variance explained by the fixed effects
   # the conditional RGLMM2 is interpreted as a variance explained by the entire model, including both fixed and random effects
   
-  # model without effect of level
+  # models without effects of each variable
   
-  model1_h2b_no_effect <- lmerTest::lmer(sv ~ 1 + dprime + medianRT + (1|subject),
-                                   data = h2b_data, REML = T)
+  model1_h2b_no_effect_level <- lmerTest::lmer(sv ~ 1 + dprime + medianRT + (1|subject),
+                                               data = h2b_data_excl, REML = T)
+  model1_h2b_no_effect_dprime <- lmerTest::lmer(sv ~ level + 1 + medianRT + (1|subject),
+                                               data = h2b_data_excl, REML = T)
+  model1_h2b_no_effect_medianRT <- lmerTest::lmer(sv ~ level + dprime + 1 + (1|subject),
+                                               data = h2b_data_excl, REML = T)
   # compute R²
   
-  h2b_no_effect_r2 <- MuMIn::r.squaredGLMM(model1_h2b_no_effect, pj2014 = T)
+  h2b_no_effect_level_r2 <- MuMIn::r.squaredGLMM(model1_h2b_no_effect_level, pj2014 = T)
+  h2b_no_effect_dprime_r2 <- MuMIn::r.squaredGLMM(model1_h2b_no_effect_dprime, pj2014 = T)
+  h2b_no_effect_medianRT_r2 <- MuMIn::r.squaredGLMM(model1_h2b_no_effect_medianRT, pj2014 = T)
   
   # compute f² with conditional R²
   
-  h2b_f2 <- (h2b_total_r2[1,2] - h2b_no_effect_r2[1,2]) / (1 - h2b_total_r2[1,2])
+  h2b_level_f2 <- (h2b_total_r2[1,2] - h2b_no_effect_level_r2[1,2]) / (1 - h2b_total_r2[1,2])
+  h2b_dprime_f2 <- (h2b_total_r2[1,2] - h2b_no_effect_dprime_r2[1,2]) / (1 - h2b_total_r2[1,2])
+  h2b_medianRT_f2 <- (h2b_total_r2[1,2] - h2b_no_effect_medianRT_r2[1,2]) / (1 - h2b_total_r2[1,2])
 
 
 # get Bayes Factors
 
-  h2b_data$subject <- as.factor(h2b_data$subject)
+  h2b_data_excl$subject <- as.factor(h2b_data_excl$subject)
   
   h2b_full_BF <- BayesFactor::lmBF(sv ~ level + dprime + medianRT + subject,
-                                   data = h2b_data, whichRandom = 'subject', progress = FALSE)
+                                   data = h2b_data_excl, whichRandom = 'subject', progress = FALSE)
   h2b_null_BF <- BayesFactor::lmBF(sv ~ 1 + dprime + medianRT + subject,
-                                   data = h2b_data, whichRandom = 'subject', progress = FALSE)
+                                   data = h2b_data_excl, whichRandom = 'subject', progress = FALSE)
   h2b_BF <- h2b_full_BF / h2b_null_BF
 
 
@@ -1337,7 +1364,7 @@ model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
   
   h2b_result.table$ `$p$-value`[1:3] <- paste0("<.001***")
   
-  h2b_result.table$ `Random Effects (SD)`[3:4] <- paste0("")
+  h2b_result.table$ `Random Effects (SD)`[2:4] <- paste0("")
 
 
 ##### Hypothesis 3a ############################################################
