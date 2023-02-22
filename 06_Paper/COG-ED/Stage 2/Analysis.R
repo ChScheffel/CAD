@@ -1268,8 +1268,14 @@ model0_h2b <- lmerTest::lmer(sv ~ 1 + (1|subject), data = h2b_data, REML = T)
 
 # get intraclass correlation (ICC)
 
-var_m0_h2b <- as.data.frame(lme4::VarCorr(m0_h2b))
-icc_h2b <- var_m0_h2b$vcov[1] / (var_m0_h2b$vcov[1] + var_m0_h2b$vcov[2]) 
+ICC.Model <- function(Model.Name) {
+  tau.Null <- as.numeric(lapply(summary(Model.Name)$varcor, diag))
+  sigma.Null <- as.numeric(attr(summary(Model.Name)$varcor, "sc")^2)
+  ICC.Null <- tau.Null/(tau.Null+sigma.Null)
+  return(ICC.Null)
+}
+
+model0_h2b_ICC <- ICC.Model(model0_h2b)
 
 # model 2 with the contrast matrix
 
