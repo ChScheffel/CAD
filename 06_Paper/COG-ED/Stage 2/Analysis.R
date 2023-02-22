@@ -1279,8 +1279,21 @@ model0_h2b_ICC <- ICC.Model(model0_h2b)
 
 # model 2 with the contrast matrix
 
-model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
+model1_h2b_raw <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
                          data = h2b_data, REML = T)
+
+# exclude cases with residuals three SDs above mean
+
+excl_cases_h2b <- as.data.frame(subset(h2b_data, abs(scale(resid(model1_h2b_raw))) > 3))
+
+# create data frame without those cases
+
+h2b_data_excl <- droplevels(subset(h2b_data, abs(scale(resid(model1_h2b_raw))) < 3))
+
+# recompute model 2
+
+model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
+                             data = h2b_data_excl, REML = T)
 
 # to plot some fit indices if you like
 #sjPlot::plot_model(model1_h2b, type = "diag")
@@ -1295,7 +1308,7 @@ model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
   # model without effect of level
   
   model1_h2b_no_effect <- lmerTest::lmer(sv ~ 1 + dprime + medianRT + (1|subject),
-                                   data = h2b_data, REML = T)
+                                   data = h2b_data_excl, REML = T)
   # compute R²
   
   h2b_no_effect_r2 <- MuMIn::r.squaredGLMM(model1_h2b_no_effect, pj2014 = T)
@@ -1307,12 +1320,12 @@ model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
 
 # get Bayes Factors
 
-  h2b_data$subject <- as.factor(h2b_data$subject)
+  h2b_data_excl$subject <- as.factor(h2b_data_excl$subject)
   
   h2b_full_BF <- BayesFactor::lmBF(sv ~ level + dprime + medianRT + subject,
-                                   data = h2b_data, whichRandom = 'subject', progress = FALSE)
+                                   data = h2b_data_excl, whichRandom = 'subject', progress = FALSE)
   h2b_null_BF <- BayesFactor::lmBF(sv ~ 1 + dprime + medianRT + subject,
-                                   data = h2b_data, whichRandom = 'subject', progress = FALSE)
+                                   data = h2b_data_excl, whichRandom = 'subject', progress = FALSE)
   h2b_BF <- h2b_full_BF / h2b_null_BF
 
 
