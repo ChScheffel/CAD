@@ -418,7 +418,7 @@ INSERT FIGURE 2 HERE
 Regardless of the preprocessing pipeline, *n*-back level and *d'* were significant predictors of SVs, and had stable effect estimates across all pipelines.
 The only pipelines, in which the median RT was a significant predictor of SVs, were the three pipelines with the highest Bayes Factors and the largest effect of *n*-back level.
 These three pipelines contain data that has been inverse transformed across subjects but within conditions, i.e. within the round of an *n*-back level.
-The two "spikes" in the beta of the median RT in Figure\ \@ref(fig:sca-plot) are from the other two pipelines that used inverse transformation.
+The by far highest values of the beta of the median RT in Figure\ \@ref(fig:sca-plot) are all from the pipelines that used inverse transformation.
 
 ## Differences between NFC groups
 
