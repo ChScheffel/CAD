@@ -1923,7 +1923,7 @@ colnames(sca_upper2) <- c("xaxis","BF10","predictor","pvalue")
 
 sca_upper <- left_join(sca_upper, sca_upper2)
 remove(sca_upper2)
-sca_upper$sign <- ifelse(sca_upper$pvalue < .05, 1, 0)
+sca_upper$sign <- ifelse(sca_upper$pvalue > .05, 0, ifelse(sca_upper$pvalue > .01 & sca_upper$pvalue < .05, 1, ifelse(sca_upper$pvalue > .001 & sca_upper$pvalue < .01, 2, 3)))
 
 # create upper panel with beta weights
 
@@ -1936,7 +1936,7 @@ sca_plot_upper <-
   ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
   labs(x = NULL, y = "beta") +
   scale_x_continuous(labels = NULL) +
-  scale_color_manual(labels = c("p > .05", "p < .05"), values = MetBrewer::met.brewer("Hokusai2",2)) +
+  scale_color_manual(labels = c("p > .05", "p < .05", "p < .01", "p < .001"), values = MetBrewer::met.brewer("Hokusai2",4)) +
   scale_shape_manual(labels = c("d'","n-back level","median RT"), values = c(18,17,19)) +
   scale_y_continuous(breaks = c(-0.05,0,0.05))
 
