@@ -387,7 +387,7 @@ To provide more than one observation per factor level, we used the two rounds pe
 The ICC of the null model indicated that there is a correlation of `r $r=round(model0_h2b_ICC, digits = 3)$` between the SVs of a subject, i.e. that `r paste0(formatC(model0_h2b_ICC * 100, format = "f", digits = 2), "%")` of variance in SVs can be explained by differences between participants.
 We did not use an optimization algorithm to improve the fit of the random intercept model.
 A total of `r nrow(excl_cases_h2b$subject)` data points from `r length(excl_cases_h2b)` were excluded, because the residuals exceeded 3 SD above the mean.
-The results of the final model are displayed in Table\ \@ref(tab:H2b-results)
+The results of the final model are displayed in Table\ \@ref(tab:H2b-results).
 
 ```{r H2b-results, echo=FALSE, message=FALSE, warning=FALSE}
 kable(h2b_result.table,
@@ -405,17 +405,20 @@ The model had an effect size of `r $f^{2} = round(h2b_level_f2, digits = 2)$` fo
 This means that the *n*-back level explained `r paste0(formatC(h2b_level_f2 * 100, format = "f", digits = 2), "%")` and *d'* explained `r paste0(formatC(h2b_dprime_f2 * 100, format = "f", digits = 2), "%")` of variance in SVs relative to the unexplained variance, respectively.
 The effect size of the median RT was `r $f^{2} = format(round(h2b_medianRT_f2, digits = 2), nsmall = 2)$`.
 
-To investigate the dependency of the model results on the RT preprocessing, we conducted a specification curve analysis.
+To investigate the dependency of the model results on the RT preprocessing, we conducted a specification curve analysis (Figure\ \@ref(fig:sca-plot)).
 
 INSERT FIGURE 2 HERE
 
-```{r sca-plot, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Results of the multi level model for each of the 63 preprocessing pipelines. The lower panel indicates the type of preprocessing, the middle panel shows the p-value of the full model, and the upper panel the beta coefficient as a line and its standard deviation as a vertical box. The colourbar indicates the BF10.", fig.pos="H"} 
+```{r sca-plot, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Results of the multi level model for each of the 63 preprocessing pipelines. The lower panel indicates the type of preprocessing, the upper panel shows the beta coefficient of each predictor and its p-value. The colourbar indicates the BF10. The pipelines are sorted in descending order of the magnitude of the n-back level beta.", fig.pos="H"} 
   
   print(sca_plot)
 
 ```
 
-
+Regardless of the preprocessing pipeline, *n*-back level and *d'* were significant predictors of SVs, and had stable effect estimates across all pipelines.
+The only pipelines, in which the median RT was a significant predictor of SVs, were the three pipelines with the highest Bayes Factors and the largest effect of *n*-back level.
+These three pipelines contain data that has been inverse transformed across subjects but within conditions, i.e. within the round of an *n*-back level.
+The two "spikes" in the beta of the median RT in Figure\ \@ref(fig:sca-plot) are from the other two pipelines that used inverse transformation.
 
 ## Differences between NFC groups
 
