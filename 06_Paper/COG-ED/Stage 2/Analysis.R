@@ -1856,7 +1856,7 @@ for (i in 1:length(pipelines_data)) {
 # add a row number and sort the data frame by the fixed effects estimate of the predictor 'declininglogisticlevel'
 
 sca_results <- cbind(sca_results, num = c(1:nrow(sca_results)))
-sca_results <- sca_results[order(sca_results$beta, decreasing = TRUE), ]
+sca_results <- sca_results[order(sca_results$beta_n, decreasing = TRUE), ]
 
 # lock it in place by turning it into a factor
 
@@ -1886,8 +1886,6 @@ sca_results$Excl <- ifelse(substr(sca_results$pipeline,4,4) == "N", 12,
 
 ##### SCA plot #################################################################
 
-# based on the SCA plot by Michael Kossmeier at https://osf.io/e4bs8
-
 # melt pipelines specifications into useful format
 
 sca_lower <- reshape2::melt(sca_results[c("xaxis","BF10","Dim","Trans","Excl")], id = c("xaxis","BF10"))
@@ -1913,36 +1911,40 @@ sca_plot_lower <-
     scale_fill_gradientn(colors = MetBrewer::met.brewer("Homer2")) +
     guides(fill = guide_colourbar(barwidth = 1, barheight = 15, title = "BF10"))
 
-# create the middle panel with the p-values
+# reshape into useful format
 
-sca_plot_middle <-
-  ggplot(sca_results, aes(x = xaxis, y = pvalue)) +
-    geom_vline(xintercept = c(0,10,20,30,40,50,60), colour = "grey", linetype = 3) +
-    geom_line() +
-    ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
-    labs(x = NULL, y = "p") +
-    scale_x_continuous(labels = NULL) +
-    scale_y_continuous(breaks = c(0,3e-48), limits = c(-1e-48,3.2e-48))
+sca_upper <- reshape2::melt(sca_results[c("xaxis","BF10","beta_n","beta_d","beta_r")], id = c("xaxis","BF10"))
+sca_upper$variable <- ifelse(sca_upper$variable == "beta_n", "n", ifelse(sca_upper$variable == "beta_d", "d", "r"))
+colnames(sca_upper) <- c("xaxis","BF10","predictor","beta")
+
+sca_upper2 <- reshape2::melt(sca_results[c("xaxis","BF10","pvalue_n","pvalue_d","pvalue_r")], id = c("xaxis","BF10"))
+sca_upper2$variable <- ifelse(sca_upper2$variable == "pvalue_n", "n", ifelse(sca_upper2$variable == "pvalue_d", "d", "r"))
+colnames(sca_upper2) <- c("xaxis","BF10","predictor","pvalue")
+
+sca_upper <- left_join(sca_upper, sca_upper2)
+remove(sca_upper2)
+sca_upper$sign <- ifelse(sca_upper$pvalue < .05, 1, 0)
 
 # create upper panel with beta weights
 
 sca_plot_upper <-
-  ggplot(sca_results, aes(x = xaxis, y = beta)) +
-    geom_vline(xintercept = c(0,10,20,30,40,50,60), colour = "grey", linetype = 3) +
-    geom_errorbar(aes(ymin = beta-SE,ymax = beta+SE, col = BF10), 
-                  width = 0, size = 2, alpha = .9, show.legend = FALSE) +
-    scale_color_gradientn(colors = MetBrewer::met.brewer("Homer2")) +
-    geom_line(col = "black", size = 0.25) +
-    ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
-    labs(x = NULL, y = "beta") +
-    scale_x_continuous(labels = NULL) +
-    scale_y_continuous(breaks = c(0.042,0.046))
+  ggplot(sca_upper) +
+  geom_vline(xintercept = c(0,10,20,30,40,50,60), colour = "grey", linetype = 3) +
+  geom_line(aes(xaxis, y = beta, group = predictor)) +
+  geom_point(aes(x = xaxis, y = beta, color = as.factor(sign), shape = predictor),
+             size = 3) +
+  ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+  labs(x = NULL, y = "beta") +
+  scale_x_continuous(labels = NULL) +
+  scale_color_manual(labels = c("p > .05", "p < .05"), values = MetBrewer::met.brewer("Hokusai2",2)) +
+  scale_shape_manual(labels = c("d'","n-back level","median RT"), values = c(18,17,19)) +
+  scale_y_continuous(breaks = c(-0.05,0,0.05))
 
 # combine into panel
 
-sca_plot <- egg::ggarrange(sca_plot_upper, sca_plot_middle, sca_plot_lower,
-               ncol = 1, nrow = 3,
-               heights = c(1, 1, 7))
+sca_plot <- egg::ggarrange(sca_plot_upper, sca_plot_lower,
+               ncol = 1, nrow = 2,
+               heights = c(3, 7))
 
 ##### Extra plots ##############################################################
 
