@@ -1168,11 +1168,6 @@ MLM_1 <- lmerTest::lmer(formula = sv ~ strat_c + effort.cwc + arousal.cwc + util
                         data = data_MLM,
                         REML = TRUE)
 
-
-
-test <- lmerTest::lmer(formula = sv ~ effort.cwc + strat_c + arousal.cwc + utility.cwc + Corr.cwc + Lev.cwc + (strat_c | ID),
-                       data = df.MLM.test,
-                       REML = TRUE)
 ### Effect size R-squared for MLM
 # R2m: variance explained by the fixed effects
 # R2c: variance explained by the entire model, including both fixed and random effects
