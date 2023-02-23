@@ -56,7 +56,15 @@ Moreover, we found significantly lower effort during suppression compared with d
 
 To investigate, which variables can predict individual SVs of ER strategies, a multilevel model approach was chosen.
 The ICC of the null model was $ICC=$ `r papaja::printnum(ICC_between_MLM_0)`, indicating that level-2 predictor subject accounted for `r papaja::printnum(round(ICC_between_MLM_0*100, digits = 1))` percent of total variance.
-The preregistered model 
+The preregistered model showed a correlation of $r=$ `r papaja::printnum(attr(summary(MLM_1)$varcor[1]$ID,"correlation")[1,2])` of the random effects subjects and recoded strategy.
+In addition with the estimation that our model explained `r papaja::printnum(MLM1_r2[2])` percent of variance, we assumed our model was overfitted due to inclueding recoded strategy as random slope.
+We therefore set a new model without the recoded strategy as random slope factor, that follew the specification: 
+
+$$
+\begin{split}
+SV \sim \text{effort rating} + \text{arousal rating} + \text{utility rating} + corrugator \text{ activity} \\\ + levator \text{ activity} + (1 |subject)
+\end{split}
+$$ 
 
 
 ``` {r TabMLM_H5, echo=FALSE, message=FALSE, warning=FALSE}
