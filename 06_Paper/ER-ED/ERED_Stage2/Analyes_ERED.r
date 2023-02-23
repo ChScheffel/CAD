@@ -1192,11 +1192,9 @@ MLM2_r2 <- MuMIn::r.squaredGLMM(MLM_2, pj2014 = T)
 # the conditional RGLMM2 is interpreted as a variance explained by the entire model, including both fixed and random effects
 
 # model without effect of effort
-
 MLM2_e_no_effect <- lmerTest::lmer(sv ~ 1 + arousal.cwc + utility.cwc + Corr.cwc + Lev.cwc + (1 | ID),
                                        data = data_MLM, REML = T)
 # compute R²
-
 MLM2_e_no_effect_r2 <- MuMIn::r.squaredGLMM(MLM2_e_no_effect, pj2014 = T)
 
 # compute f² with conditional R²
