@@ -50,9 +50,23 @@ We found a significant effect of strategy (`r papaja::apa_print(SubjEffort_aov)$
 Post-hoc test showed significant higher subjective effort for distraction ($\eta_{p}^{2}=`r papaja::printnum(SubjEffort_con[1,8:9])`$, $BF_{10}=$ `r papaja::printnum(SubjEffort_con[1,7], format = "e")`), distancing ($\eta_{p}^{2}=`r papaja::printnum(SubjEffort_con[2,8:9])`$, $BF_{10}=$ `r papaja::printnum(SubjEffort_con[2,7], format = "e")`), and suppression ($\eta_{p}^{2}=`r papaja::printnum(SubjEffort_con[3,8:9])`$, $BF_{10}=$ `r papaja::printnum(SubjEffort_con[3,7], format = "e")`) compared to active viewing.
 Moreover, we found significantly lower effort during suppression compared with distraction ($\eta_{p}^{2}=`r papaja::printnum(SubjEffort_con[5,8:9])`$, $BF_{10}=$ `r papaja::printnum(SubjEffort_con[5,7], format = "e")`) and distancing ($\eta_{p}^{2}=`r papaja::printnum(SubjEffort_con[6,8:9])`$, $BF_{10}=$ `r papaja::printnum(SubjEffort_con[6,7])`).
 
+[... WAHLVERHALTEN FEHLT NOCH ...]
+
 #### Subjective values of ER strategies
 
-[to be filled]
+To investigate, which variables can predict individual SVs of ER strategies, a multilevel model approach was chosen.
+The ICC of the null model was $ICC=$ `r papaja::printnum(ICC_between_MLM_0)`, indicating that level-2 predictor subject accounted for `r papaja::printnum(round(ICC_between_MLM_0*100, digits = 1))` percent of total variance.
+The preregistered model 
+
+
+``` {r TabMLM_H5, echo=FALSE, message=FALSE, warning=FALSE}
+papaja::apa_table(
+  H5_table,
+  caption = "Results of multilevel model predicting subjective values of ER strategies.",
+  escape = FALSE,
+  placement = "H")
+```
+
 
 #### Associations between subjective values and flexible ER
 

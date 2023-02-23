@@ -1169,10 +1169,77 @@ MLM_1 <- lmerTest::lmer(formula = sv ~ strat_c + effort.cwc + arousal.cwc + util
                         REML = TRUE)
 
 ### Effect size R-squared for MLM
+# R2m: variance explained by the fixed effects
+# R2c: variance explained by the entire model, including both fixed and random effects
 
-# credits to: https://www.learn-mlms.com/11-module-11.html
+MLM1_r2 <- MuMIn::r.squaredGLMM(MLM_1, pj2014 = T)
 
-MLM_1_r2 <- r2mlm::r2mlm(MLM_1)
+# as variance explained by whole model is relatively high, due to variable strat_c, a new model without this predictor was built
+# we assume that this variable captured too much variance which resulted in a "overfitted" model
+
+MLM_2 <- lmerTest::lmer(formula = sv ~ effort.cwc + arousal.cwc + utility.cwc + Corr.cwc + Lev.cwc + (1 | ID),
+                        data = data_MLM,
+                        REML = TRUE)
+
+
+MLM_2_r2 <- r2mlm::r2mlm(MLM_2)
+MLM2_r2 <- MuMIn::r.squaredGLMM(MLM_2, pj2014 = T)
+
+# f2
+
+# the pj argument uses the formula of Johnson (2014)
+# the marginal RGLMM2 represents the variance explained by the fixed effects
+# the conditional RGLMM2 is interpreted as a variance explained by the entire model, including both fixed and random effects
+
+# model without effect of effort
+
+MLM2_e_no_effect <- lmerTest::lmer(sv ~ 1 + arousal.cwc + utility.cwc + Corr.cwc + Lev.cwc + (1 | ID),
+                                       data = data_MLM, REML = T)
+# compute R²
+
+MLM2_e_no_effect_r2 <- MuMIn::r.squaredGLMM(MLM2_e_no_effect, pj2014 = T)
+
+# compute f² with conditional R²
+
+e_f2 <- (MLM2_r2[1,2] - MLM2_e_no_effect_r2[1,2]) / (1 - MLM2_r2[1,2])
+
+# model without effect of utility
+
+MLM2_u_no_effect <- lmerTest::lmer(sv ~ effort.cwc + arousal.cwc + 1 + Corr.cwc + Lev.cwc + (1 | ID),
+                                   data = data_MLM, REML = T)
+# compute R²
+
+MLM2_u_no_effect_r2 <- MuMIn::r.squaredGLMM(MLM2_u_no_effect, pj2014 = T)
+
+# compute f² with conditional R²
+
+u_f2 <- (MLM2_r2[1,2] - MLM2_u_no_effect_r2[1,2]) / (1 - MLM2_r2[1,2])
+
+# model without effect of Corrugator
+
+MLM2_c_no_effect <- lmerTest::lmer(sv ~ effort.cwc + arousal.cwc + utility.cwc + 1 + Lev.cwc + (1 | ID),
+                                   data = data_MLM, REML = T)
+# compute R²
+
+MLM2_c_no_effect_r2 <- MuMIn::r.squaredGLMM(MLM2_c_no_effect, pj2014 = T)
+
+# compute f² with conditional R²
+
+c_f2 <- (MLM2_r2[1,2] - MLM2_c_no_effect_r2[1,2]) / (1 - MLM2_r2[1,2])
+
+####### TEST
+# model without effect of Corrugator
+
+MLM2_t_no_effect <- lmerTest::lmer(sv ~ strat_c + effort.cwc + arousal.cwc + 1 + Corr.cwc + Lev.cwc + (strat_c | ID),
+                                   data = data_MLM, REML = T)
+# compute R²
+
+MLM2_t_no_effect_r2 <- MuMIn::r.squaredGLMM(MLM2_t_no_effect, pj2014 = T)
+
+# compute f² with conditional R²
+
+t_f2 <- (MLM2_r2[1,2] - MLM2_t_no_effect_r2[1,2]) / (1 - MLM2_r2[1,2])
+
 
 ### Bayes Factors
 
