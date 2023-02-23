@@ -387,8 +387,34 @@ To provide more than one observation per factor level, we used the two rounds pe
 The ICC of the null model indicated that there is a correlation of `r $r=round(model0_h2b_ICC, digits = 3)$` between the SVs of a subject, i.e. that `r paste0(formatC(model0_h2b_ICC * 100, format = "f", digits = 2), "%")` of variance in SVs can be explained by differences between participants.
 We did not use an optimization algorithm to improve the fit of the random intercept model.
 A total of `r nrow(excl_cases_h2b$subject)` data points from `r length(excl_cases_h2b)` were excluded, because the residuals exceeded 3 SD above the mean.
-The final model had an effect size of `r $f^{2} = round(h2b_level_f2, digits = 2)$` for the *n*-back levels and `r $f^{2} = round(h2b_dprime_f2, digits = 2)$` for *d'*, which are considered large and small, respectively [@Cohen1992].
+The results of the final model are displayed in Table\ \@ref(tab:H2b-results)
+
+```{r H2b-results, echo=FALSE, message=FALSE, warning=FALSE}
+kable(h2b_result.table,
+        caption = "Results of the multi level model on the influence of n-back level (as a declining logistic contrast) and task performance on subjective values.",
+        booktabs = T,                          # no vertical lines
+        escape = F,                            # correctly print special characters)
+        align = c("l",rep("r",6))) %>%         # right aligns the text in every numerical column
+    kable_styling(latex_options = c("striped")) %>%
+    footnote(general = "$SE$ = standard error, $df$ = degrees of freedom, $SD$ = standard deviation.",
+             escape = F,                    # correctly print special characters
+             threeparttable = T)            # line breaks in the footnote
+```
+
+The model had an effect size of `r $f^{2} = round(h2b_level_f2, digits = 2)$` for the *n*-back levels and `r $f^{2} = round(h2b_dprime_f2, digits = 2)$` for *d'*, which are considered large and small, respectively [@Cohen1992].
+This means that the *n*-back level explained `r paste0(formatC(h2b_level_f2 * 100, format = "f", digits = 2), "%")` and *d'* explained `r paste0(formatC(h2b_dprime_f2 * 100, format = "f", digits = 2), "%")` of variance in SVs relative to the unexplained variance, respectively.
 The effect size of the median RT was `r $f^{2} = format(round(h2b_medianRT_f2, digits = 2), nsmall = 2)$`.
+
+To investigate the dependency of the model results on the RT preprocessing, we conducted a specification curve analysis.
+
+INSERT FIGURE 2 HERE
+
+```{r sca-plot, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Results of the multi level model for each of the 63 preprocessing pipelines. The lower panel indicates the type of preprocessing, the middle panel shows the p-value of the full model, and the upper panel the beta coefficient as a line and its standard deviation as a vertical box. The colourbar indicates the BF10.", fig.pos="H"} 
+  
+  print(sca_plot)
+
+```
+
 
 
 ## Differences between NFC groups
@@ -416,7 +442,8 @@ The funders have/had no role in study design, data collection and analysis, deci
 
 JZ, CS, and AS conceptualized the study and acquired funding.
 JZ and CS developed the methodology, investigated, administered the project, and wrote the software.
-JZ and CK did the formal analysis, visualized the results, and prepared the original draft.
+JZ, CS, and CK did the formal analysis.
+JZ visualized the results, and prepared the original draft.
 All authors reviewed, edited, and approved the final version of the manuscript.
 
 
