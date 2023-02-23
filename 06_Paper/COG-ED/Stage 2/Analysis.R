@@ -1362,7 +1362,7 @@ model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
   h2b_result.table[,c(2:5,7)] <- round(h2b_result.table[,c(2:5,7)], digits = 2)
   h2b_result.table[,6] <- signif(h2b_result.table[,6], digits = 3)
   
-  h2b_result.table$ `$p$-value`[1:3] <- paste0("<.001***")
+  h2b_result.table$ `$p$-value`[1:3] <- paste0("<.001")
   
   h2b_result.table$ `Random Effects (SD)`[2:4] <- paste0("")
 
@@ -1789,7 +1789,11 @@ base::remove(diffscores, mediannfc, h3c_data)
 
 # prepare empty data frame for the loop to feed into
 
-sca_results <- data.frame(pipeline = character(), beta = double(), SE = double(), pvalue = double(), BF10 = double())
+sca_results <- data.frame(pipeline = character(),
+                          beta_n = double(), SE_n = double(), pvalue_n = double(), # values for n-back level
+                          beta_d = double(), SE_d = double(), pvalue_d = double(), # values for dprime
+                          beta_r = double(), SE_r = double(), pvalue_r = double(), # values for reaction time
+                          BF10 = double())
 
 # loop through the pipelines
 
@@ -1833,9 +1837,15 @@ for (i in 1:length(pipelines_data)) {
   # combine current results and the bigger data frame
   
   newdata <- data.frame(pipeline = c(names(pipelines_data[i])),
-                        beta = c(base::summary(model1_sca)$coefficients[2,1]),
-                        SE = c(base::summary(model1_sca)$coefficients[2,2]),
-                        pvalue = c(base::summary(model1_sca)$coefficients[2,5]),
+                        beta_n = c(base::summary(model1_sca)$coefficients[2,1]),
+                        SE_n = c(base::summary(model1_sca)$coefficients[2,2]),
+                        pvalue_n = c(base::summary(model1_sca)$coefficients[2,5]),
+                        beta_d = c(base::summary(model1_sca)$coefficients[5,1]),
+                        SE_d = c(base::summary(model1_sca)$coefficients[5,2]),
+                        pvalue_d = c(base::summary(model1_sca)$coefficients[5,5]),
+                        beta_r = c(base::summary(model1_sca)$coefficients[6,1]),
+                        SE_r = c(base::summary(model1_sca)$coefficients[6,2]),
+                        pvalue_r = c(base::summary(model1_sca)$coefficients[6,5]),
                         BF10 = c(extractBF(sca_BF)$bf))
   sca_results <- rbind(sca_results, newdata)
   
@@ -1930,7 +1940,7 @@ sca_plot_upper <-
 
 # combine into panel
 
-egg::ggarrange(sca_plot_upper, sca_plot_middle, sca_plot_lower,
+sca_plot <- egg::ggarrange(sca_plot_upper, sca_plot_middle, sca_plot_lower,
                ncol = 1, nrow = 3,
                heights = c(1, 1, 7))
 
