@@ -1174,6 +1174,20 @@ MLM_1 <- lmerTest::lmer(formula = sv ~ strat_c + effort.cwc + arousal.cwc + util
 
 MLM1_r2 <- MuMIn::r.squaredGLMM(MLM_1, pj2014 = T)
 
+### Bayes Factor of strat_c
+
+# https://rstudio-pubs-static.s3.amazonaws.com/358672_09291d0b37ce43f08cf001cfd25c16c2.html
+
+data_MLM$ID <- factor(data_MLM$ID)
+
+MLM_1_full_BF <- BayesFactor::lmBF(sv ~ strat_c + effort.cwc + arousal.cwc + utility.cwc + Corr.cwc + Lev.cwc + ID,
+                                   data = data_MLM, whichRandom = "ID", progress = FALSE)
+
+MLM_1_null_BF <- BayesFactor::lmBF(sv ~ 1 + effort.cwc + arousal.cwc + utility.cwc + Corr.cwc + Lev.cwc + ID,
+                                   data = data_MLM, whichRandom = "ID", progress = FALSE)
+
+MLM_1_BF <- MLM_1_full_BF / MLM_1_null_BF
+
 # as variance explained by whole model is relatively high, due to variable strat_c, a new model without this predictor was built
 # we assume that this variable captured too much variance which resulted in a "overfitted" model
 
@@ -1185,99 +1199,100 @@ MLM_2 <- lmerTest::lmer(formula = sv ~ effort.cwc + arousal.cwc + utility.cwc + 
 MLM_2_r2 <- r2mlm::r2mlm(MLM_2)
 MLM2_r2 <- MuMIn::r.squaredGLMM(MLM_2, pj2014 = T)
 
-# f2
+##### f² of predictors
 
-# the pj argument uses the formula of Johnson (2014)
-# the marginal RGLMM2 represents the variance explained by the fixed effects
-# the conditional RGLMM2 is interpreted as a variance explained by the entire model, including both fixed and random effects
+# create lists for no effect models (for better clarity)
 
-# model without effect of effort
-MLM2_e_no_effect <- lmerTest::lmer(sv ~ 1 + arousal.cwc + utility.cwc + Corr.cwc + Lev.cwc + (1 | ID),
-                                       data = data_MLM, REML = T)
-# compute R²
-MLM2_e_no_effect_r2 <- MuMIn::r.squaredGLMM(MLM2_e_no_effect, pj2014 = T)
+# for Models
+MLM2_no_effect <- list()
+# for R²
+MLM2_no_effect_r2 <- list()
 
-# compute f² with conditional R²
+#df for f²
+MLM2_f2 <- data.frame(f2 = double())
 
-e_f2 <- (MLM2_r2[1,2] - MLM2_e_no_effect_r2[1,2]) / (1 - MLM2_r2[1,2])
+# EFFORT
+MLM2_no_effect[["e"]] <- lmerTest::lmer(sv ~ 1 + arousal.cwc + utility.cwc + Corr.cwc + Lev.cwc + (1 | ID),
+                                        data = data_MLM, REML = T)
 
-# model without effect of utility
-
-MLM2_u_no_effect <- lmerTest::lmer(sv ~ effort.cwc + arousal.cwc + 1 + Corr.cwc + Lev.cwc + (1 | ID),
-                                   data = data_MLM, REML = T)
-# compute R²
-
-MLM2_u_no_effect_r2 <- MuMIn::r.squaredGLMM(MLM2_u_no_effect, pj2014 = T)
+MLM2_no_effect_r2[["e"]] <- MuMIn::r.squaredGLMM(MLM2_no_effect[["e"]], pj2014 = T)
 
 # compute f² with conditional R²
 
-u_f2 <- (MLM2_r2[1,2] - MLM2_u_no_effect_r2[1,2]) / (1 - MLM2_r2[1,2])
+MLM2_f2 <- rbind(MLM2_f2, (MLM2_r2[1,2] - MLM2_no_effect_r2[["e"]][1,2]) / (1 - MLM2_r2[1,2]))
 
-# model without effect of Corrugator
+# AROUSAL
 
-MLM2_c_no_effect <- lmerTest::lmer(sv ~ effort.cwc + arousal.cwc + utility.cwc + 1 + Lev.cwc + (1 | ID),
-                                   data = data_MLM, REML = T)
-# compute R²
+MLM2_no_effect[["a"]] <- lmerTest::lmer(sv ~ effort.cwc + 1 + utility.cwc + Corr.cwc + Lev.cwc + (1 | ID),
+                                        data = data_MLM, REML = T)
 
-MLM2_c_no_effect_r2 <- MuMIn::r.squaredGLMM(MLM2_c_no_effect, pj2014 = T)
-
-# compute f² with conditional R²
-
-c_f2 <- (MLM2_r2[1,2] - MLM2_c_no_effect_r2[1,2]) / (1 - MLM2_r2[1,2])
-
-####### TEST
-# model without effect of Corrugator
-
-MLM2_t_no_effect <- lmerTest::lmer(sv ~ strat_c + effort.cwc + arousal.cwc + 1 + Corr.cwc + Lev.cwc + (strat_c | ID),
-                                   data = data_MLM, REML = T)
-# compute R²
-
-MLM2_t_no_effect_r2 <- MuMIn::r.squaredGLMM(MLM2_t_no_effect, pj2014 = T)
+MLM2_no_effect_r2[["a"]] <- MuMIn::r.squaredGLMM(MLM2_no_effect[["a"]], pj2014 = T)
 
 # compute f² with conditional R²
 
-t_f2 <- (MLM2_r2[1,2] - MLM2_t_no_effect_r2[1,2]) / (1 - MLM2_r2[1,2])
+MLM2_f2 <- rbind(MLM2_f2, (MLM2_r2[1,2] - MLM2_no_effect_r2[["a"]][1,2]) / (1 - MLM2_r2[1,2]))
 
+# UTILITY
 
-### Bayes Factors
+MLM2_no_effect[["u"]] <- lmerTest::lmer(sv ~ effort.cwc + arousal.cwc + 1 + Corr.cwc + Lev.cwc + (1 | ID),
+                                        data = data_MLM, REML = T)
 
-# https://rstudio-pubs-static.s3.amazonaws.com/358672_09291d0b37ce43f08cf001cfd25c16c2.html
+MLM2_no_effect_r2[["u"]] <- MuMIn::r.squaredGLMM(MLM2_no_effect[["u"]], pj2014 = T)
 
-data_MLM$ID <- factor(data_MLM$ID)
+# compute f² with conditional R²
 
-MLM_1_full_BF <- BayesFactor::lmBF(sv ~ strat_c + effort.cwc + arousal.cwc + utility.cwc + Corr.cwc + Lev.cwc + ID,
-                              data = data_MLM, whichRandom = "ID", progress = FALSE)
+MLM2_f2 <- rbind(MLM2_f2, (MLM2_r2[1,2] - MLM2_no_effect_r2[["u"]][1,2]) / (1 - MLM2_r2[1,2]))
 
-MLM_1_null_BF <- BayesFactor::lmBF(sv ~ 1 + effort.cwc + arousal.cwc + utility.cwc + Corr.cwc + Lev.cwc + ID,
-                                   data = data_MLM, whichRandom = "ID", progress = FALSE)
+# CORRUGATOR
+MLM2_no_effect[["Corr"]] <- lmerTest::lmer(sv ~ effort.cwc + arousal.cwc + utility.cwc + 1 + Lev.cwc + (1 | ID),
+                                        data = data_MLM, REML = T)
 
-MLM_1_BF <- MLM_1_full_BF / MLM_1_null_BF
+MLM2_no_effect_r2[["Corr"]] <- MuMIn::r.squaredGLMM(MLM2_no_effect[["Corr"]], pj2014 = T)
 
+# compute f² with conditional R²
+
+MLM2_f2 <- rbind(MLM2_f2, (MLM2_r2[1,2] - MLM2_no_effect_r2[["Corr"]][1,2]) / (1 - MLM2_r2[1,2]))
+
+# LEVATOR
+
+MLM2_no_effect[["Lev"]] <- lmerTest::lmer(sv ~ effort.cwc + arousal.cwc + utility.cwc + Corr.cwc + 1 + (1 | ID),
+                                        data = data_MLM, REML = T)
+
+MLM2_no_effect_r2[["Lev"]] <- MuMIn::r.squaredGLMM(MLM2_no_effect[["Lev"]], pj2014 = T)
+
+# compute f² with conditional R²
+
+MLM2_f2 <- rbind(MLM2_f2, (MLM2_r2[1,2] - MLM2_no_effect_r2[["Lev"]][1,2]) / (1 - MLM2_r2[1,2]))
+
+colnames(MLM2_f2) <- "f2"
 # a little bit of preparation for proper reporting of MLM results
 
-M_H5.ranef <- as.data.frame(base::summary(MLM_1)$varcor)
-M_H5.fixef <- base::summary(MLM_1)$coefficients
+M_H5.ranef <- as.data.frame(base::summary(MLM_2)$varcor)
+M_H5.fixef <- base::summary(MLM_2)$coefficients
 
-H5_table <- as.data.frame(cbind(rownames(M_H5.fixef),
+H5_M2_table <- as.data.frame(cbind(rownames(M_H5.fixef),
                                 M_H5.fixef[,c(1,2,5)]))
+# add f2
+H5_M2_table$f2 <- NA
+H5_M2_table$f2[2:6] <- cbind(MLM2_f2$f2)
 
-H5_table$ranef.sd <- NA
-H5_table$ranef.sd[c(1,2)] <- M_H5.ranef$sdcor[c(1,2)]
+H5_M2_table$ranef.sd <- NA
+H5_M2_table$ranef.sd[1] <- M_H5.ranef$sdcor[1]
 
-colnames(H5_table)[1] <- "Parameter"
-colnames(H5_table)[2] <- "Beta"
-colnames(H5_table)[3] <- "$SE$"
-colnames(H5_table)[4] <- "$p$-value"
-colnames(H5_table)[5] <- "Random Effects (SD)"
+colnames(H5_M2_table)[1] <- "Parameter"
+colnames(H5_M2_table)[2] <- "Beta"
+colnames(H5_M2_table)[3] <- "$SE$"
+colnames(H5_M2_table)[4] <- "$p$-value"
+colnames(H5_M2_table)[5] <- "$f^{2}$"
+colnames(H5_M2_table)[6] <- "Random Effects (SD)"
 
-row.names(H5_table) <- NULL
-H5_table$Parameter[1:7] <- c("Intercept", "Strategy", "Effort", "Arousal", "Utility", "Corrugator activity", "Levator activity")
+row.names(H5_M2_table) <- NULL
+H5_M2_table$Parameter[1:6] <- c("Intercept", "Effort", "Arousal", "Utility", "Corrugator activity", "Levator activity")
 
-H5_table[2:5] <- lapply(H5_table[2:5], as.numeric)
-H5_table[c(2,3,5)] <- round(H5_table[c(2,3,5)], digits = 2)
-H5_table[4] <- round(H5_table[4], digits = 3)
+H5_M2_table[2:6] <- lapply(H5_M2_table[2:6], as.numeric)
 
-H5_table$ `Random Effects (SD)`[3:7] <- paste0("")
+H5_M2_table$`$f^{2}$`[1] <- paste0("")
+H5_M2_table$ `Random Effects (SD)`[2:6] <- paste0("")
 
 ######## HYPOTHESIS 6
 
