@@ -68,16 +68,18 @@ SV \sim \text{effort rating} + \text{arousal rating} + \text{utility rating} + c
 $$ 
 
 The second model explained `r papaja::printnum(MLM2_r2[2])` percent of variance. 
-
+All results of the second model are in table\ \@ref(tab:TabMLM_H5).
 
 ``` {r TabMLM_H5, echo=FALSE, message=FALSE, warning=FALSE}
 papaja::apa_table(
   H5_M2_table,
   caption = "Results of multilevel model predicting subjective values of ER strategies.",
+  booktabs = TRUE,
   escape = FALSE,
   placement = "H")
 ```
 
+The predictors effort ($p=$ `r papaja::printnum(summary(MLM_2)$coefficients[1,5])`), ...
 
 #### Associations between subjective values and flexible ER
 
