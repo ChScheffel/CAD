@@ -422,6 +422,20 @@ The by far highest values of the beta of the median RT in Figure\ \@ref(fig:sca-
 
 ## Differences between NFC groups
 
+We used an rmANOVA to investigate whether the difference between the SVs of 1- and 2-back, and 2- and 3-back, respectively, depended on whether a participant's NFC score was above or below the median.
+There was a main effect of the *n*-back level (`r apa_print(hypothesis3a_model)$full_result$nlevels`), but neither a main effect of the NFC group (`r apa_print(hypothesis3a_model)$full_result$nfcmedian`) nor an interaction of NFC group and *n*-back level (`r apa_print(hypothesis3a_model)$full_result$nfcmedian_nlevels`).
+Post-hoc tests showed that the difference between the SVs of 2- and 3-back is slightly more negative than the difference between 1- and 2-back (`r apa_print(pairs(hypothesis3a_emm_nlevel))$full_result`), but there are large interindividual differences, especially for 2- and 3-back (Figure\ \@ref(fig:h3a-plot)).
+This means that across the whole sample, there was a steeper decline in SVs from 2- to 3-back than from 1- to 2-back, but some participants showed a completely opposite pattern.
+
+INSERT FIGURE 3 HERE
+
+```{r h3a-plot, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Difference scores in the subjective values of 1- minus 2-back and of 2- minus 3-back.", fig.pos="H"} 
+  
+  print(plot_h3a)
+
+```
+
+
 \newpage
 
 # References

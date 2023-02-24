@@ -1434,7 +1434,7 @@ hypothesis3a_contrasts_nlevel <- as.data.frame(pairs(hypothesis3a_emm_nlevel))
 # get Bayes factors
 
 hypothesis3a_BF_nlevel <- BayesFactor::anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = h3a_data, progress = FALSE)
-hypothesis3a_contrasts_nlevel$BF10 <- extractBF(hypothesis3a_BF_nlevel[1])$bf
+hypothesis3a_contrasts_nlevel$BF10 <- BayesFactor::extractBF(hypothesis3a_BF_nlevel[1])$bf
 
 # get effect size
 
@@ -1553,7 +1553,7 @@ hypothesis3b_contrasts_levels <- as.data.frame(pairs(hypothesis3b_emm_levels))
 
 # get Bayes factors
 
-hypothesis3b_BF_levels <- anovaBF(formula = ntlx ~ level * nfcmedian, data = h3b_data, progress = FALSE)
+hypothesis3b_BF_levels <- BayesFactor::anovaBF(formula = ntlx ~ level * nfcmedian, data = h3b_data, progress = FALSE)
 hypothesis3b_contrasts_levels$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 1], y = h3b_data$ntlx[h3b_data$level == 2],
                                                                                     progress = FALSE, paired = FALSE))$bf,
                                         BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 1], y = h3b_data$ntlx[h3b_data$level == 3],
@@ -1593,7 +1593,7 @@ hypothesis3b_contrasts_interact <- as.data.frame(pairs(hypothesis3b_emm_interact
 
 # get Bayes factors
 
-hypothesis3b_BF_interact <- anovaBF(formula = ntlx ~ level * nfcmedian, data = h3b_data, progress = FALSE)
+hypothesis3b_BF_interact <- BayesFactor::anovaBF(formula = ntlx ~ level * nfcmedian, data = h3b_data, progress = FALSE)
 hypothesis3b_contrasts_interact$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 1 & h3b_data$nfcmedian == "high"],
                                                                                       y = h3b_data$ntlx[h3b_data$level == 1 & h3b_data$nfcmedian == "low"],
                                                                                       progress = FALSE, paired = FALSE))$bf,
@@ -1629,8 +1629,10 @@ plot_h3b <- ggplot(h3b_data, aes(level, ntlx, fill = nfcmedian, color = nfcmedia
                       boxplot.args.pos = list(width = .1, position = ggpp::position_dodgenudge(
                                                 x = rep(-.13,8)))) +
             ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-            scale_fill_manual(values=c("#B30B0B", "#0941DB")) +
-            scale_color_manual(values=c("#B30B0B", "#0941DB")) +
+            # scale_fill_manual(values=c("#B30B0B", "#0941DB")) +
+            # scale_color_manual(values=c("#B30B0B", "#0941DB")) +
+  scale_fill_manual(values=c("gold3", "cornflowerblue")) +
+  scale_color_manual(values=c("gold3", "cornflowerblue")) +
             labs(x = "n-back levels", y = "NASA-TLX sum score") +
             guides(fill = 'none', color = 'none')
 
@@ -1711,7 +1713,7 @@ hypothesis3c_contrasts_nfc <- as.data.frame(pairs(hypothesis3c_emm_nfc))
 
 # get Bayes factors
 
-hypothesis3c_BF_nfc <- anovaBF(formula = aversdiff ~ nlevels * nfcmedian, data = h3c_data, progress = FALSE)
+hypothesis3c_BF_nfc <- BayesFactor::anovaBF(formula = aversdiff ~ nlevels * nfcmedian, data = h3c_data, progress = FALSE)
 hypothesis3c_contrasts_nfc$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h3c_data$aversdiff[h3c_data$nfcmedian == "high"], y = h3c_data$aversdiff[h3c_data$nfcmedian == "low"],
                                                                                  progress = FALSE, paired = FALSE))$bf)
 
@@ -1741,8 +1743,8 @@ hypothesis3c_contrasts_levels <- as.data.frame(pairs(hypothesis3c_emm_levels))
 
 # get Bayes factors
 
-hypothesis3c_BF_levels <- anovaBF(formula = aversdiff ~ nlevels * nfcmedian, data = h3c_data, progress = FALSE)
-hypothesis3c_contrasts_levels$BF10 <- extractBF(hypothesis3c_BF_levels[1])$bf
+hypothesis3c_BF_levels <- BayesFactor::anovaBF(formula = aversdiff ~ nlevels * nfcmedian, data = h3c_data, progress = FALSE)
+hypothesis3c_contrasts_levels$BF10 <- BayesFactor::extractBF(hypothesis3c_BF_levels[1])$bf
 
 # get effect size
 
