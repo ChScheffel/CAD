@@ -122,7 +122,7 @@ header-includes   :
   
   # load the workspace variables that have been computed with the Analysis.R script
   
-  load(here("06_Paper","COG-ED","Stage 1","Workspace.RData"))
+  load(here("06_Paper","COG-ED","Stage 2","Workspace.RData"))
 
 ```
 
@@ -384,7 +384,7 @@ SV \sim level\ + d' + median RT + (1|subject)
 $$
 This means that the intercept still varies between subjects, but there are no random slopes anymore.
 To provide more than one observation per factor level, we used the two rounds per level per subject, rather than levels per subject.
-The ICC of the null model indicated that there is a correlation of `r $r=round(model0_h2b_ICC, digits = 3)$` between the SVs of a subject, i.e. that `r paste0(formatC(model0_h2b_ICC * 100, format = "f", digits = 2), "%")` of variance in SVs can be explained by differences between participants.
+The ICC of the null model indicated that there is a correlation of $r=$`r round(model0_h2b_ICC, digits = 3)` between the SVs of a subject, i.e. that `r paste0(formatC(model0_h2b_ICC * 100, format = "f", digits = 2), "%")` of variance in SVs can be explained by differences between participants.
 We did not use an optimization algorithm to improve the fit of the random intercept model.
 A total of `r nrow(excl_cases_h2b$subject)` data points from `r length(excl_cases_h2b)` were excluded, because the residuals exceeded 3 SD above the mean.
 The results of the final model are displayed in Table\ \@ref(tab:H2b-results).
@@ -401,9 +401,9 @@ kable(h2b_result.table,
              threeparttable = T)            # line breaks in the footnote
 ```
 
-The model had an effect size of `r $f^{2} = round(h2b_level_f2, digits = 2)$` for the *n*-back levels and `r $f^{2} = round(h2b_dprime_f2, digits = 2)$` for *d'*, which are considered large and small, respectively [@Cohen1992].
+The model had an effect size of $f^{2}=$`r round(h2b_level_f2, digits = 2)` for the *n*-back levels and $f^{2}=$`r round(h2b_dprime_f2, digits = 2)` for *d'*, which are considered large and small, respectively [@Cohen1992].
 This means that the *n*-back level explained `r paste0(formatC(h2b_level_f2 * 100, format = "f", digits = 2), "%")` and *d'* explained `r paste0(formatC(h2b_dprime_f2 * 100, format = "f", digits = 2), "%")` of variance in SVs relative to the unexplained variance, respectively.
-The effect size of the median RT was `r $f^{2} = format(round(h2b_medianRT_f2, digits = 2), nsmall = 2)$`.
+The effect size of the median RT was $f^{2}=$`r format(round(h2b_medianRT_f2, digits = 2), nsmall = 2)`.
 
 To investigate the dependency of the model results on the RT preprocessing, we conducted a specification curve analysis (Figure\ \@ref(fig:sca-plot)).
 
@@ -422,22 +422,41 @@ The by far highest values of the beta of the median RT in Figure\ \@ref(fig:sca-
 
 ## Differences between NFC groups
 
+The median NFC was `r mediannfc`, with $n=$`r nrow(h3b_data[h3b_data$nfcmedian == "low",])/(nrow(h3b_data)/length(unique(h3b_data$subject)))` subjects below and $n=$`r nrow(h3b_data[h3b_data$nfcmedian == "high",])/(nrow(h3b_data)/length(unique(h3b_data$subject)))` above the median.
 We used an rmANOVA to investigate whether the difference between the SVs of 1- and 2-back, and 2- and 3-back, respectively, depended on whether a participant's NFC score was above or below the median.
 There was a main effect of the *n*-back level (`r apa_print(hypothesis3a_model)$full_result$nlevels`), but neither a main effect of the NFC group (`r apa_print(hypothesis3a_model)$full_result$nfcmedian`) nor an interaction of NFC group and *n*-back level (`r apa_print(hypothesis3a_model)$full_result$nfcmedian_nlevels`).
-Post-hoc tests showed that the difference between the SVs of 2- and 3-back is slightly more negative than the difference between 1- and 2-back (`r apa_print(pairs(hypothesis3a_emm_nlevel))$full_result`), but there are large interindividual differences, especially for 2- and 3-back (Figure\ \@ref(fig:h3a-plot)).
+Post-hoc tests showed that the difference between the SVs of 2- and 3-back is slightly more negative than the difference between 1- and 2-back (`r apa_print(pairs(hypothesis3a_emm_nlevel))$full_result`), but there were large interindividual differences, especially for 2- and 3-back (Figure\ \@ref(fig:h3a-plot)).
 This means that across the whole sample, there was a steeper decline in SVs from 2- to 3-back than from 1- to 2-back, but some participants showed a completely opposite pattern.
 
 INSERT FIGURE 3 HERE
 
 ```{r h3a-plot, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Difference scores in the subjective values of 1- minus 2-back and of 2- minus 3-back.", fig.pos="H"} 
   
-  print(plot_h3a)
+  #print(plot_h3a)
 
 ```
 
-The rmANOVA on the association between NFC scores and NASA-TLX scores revealed a main effect of *n*-back level (`r apa_print(hypothesis3b_model)$full_result$level`) and an interaction between *n*-back level and NFC scores (`r apa_print(hypothesis3a_model)$full_result$nfcmedian_level`), but no main effect of NFC scores (`r apa_print(hypothesis3a_model)$full_result$nfcmedian`).
-Post-hoc tests showed that the participants with NFC scores below the median had higher NASA-TLX scores for 3-back (`r apa_print(pairs(hypothesis3b_emm_interact))$full_result$X3_High_low`) and for 4-back (`r apa_print(pairs(hypothesis3b_emm_interact))$full_result$X4_High_low`) than those with NFC scores above the median.
+The rmANOVA on the association between NFC scores and NASA-TLX scores revealed a main effect of *n*-back level (`r apa_print(hypothesis3b_model)$full_result$level`, $BF10=$`r round(BayesFactor::extractBF(hypothesis3b_BF_levels)$bf[1], digits = 2)`) and an interaction between *n*-back level and NFC scores (`r apa_print(hypothesis3b_model)$full_result$nfcmedian_level`), but no main effect of NFC scores (`r apa_print(hypothesis3b_model)$full_result$nfcmedian`, $BF10=$`r round(BayesFactor::extractBF(hypothesis3b_BF_levels)$bf[2], digits = 2)`).
+Post-hoc tests showed that the participants with NFC scores below the median had higher NASA-TLX scores for 3-back (`r apa_print(pairs(hypothesis3b_emm_interact))$full_result$X3_High_low`, `r apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "low" & h3b_data$level == 3], y = h3b_data$ntlx[h3b_data$nfcmedian == "high" & h3b_data$level == 3], progress = FALSE, paired = FALSE))$statistic`) and for 4-back (`r apa_print(pairs(hypothesis3b_emm_interact))$full_result$X4_High_low`, `r apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "low" & h3b_data$level == 4], y = h3b_data$ntlx[h3b_data$nfcmedian == "high" & h3b_data$level == 4], progress = FALSE, paired = FALSE))$statistic`) than those with NFC scores above the median.
 Regardless of NFC scores, NASA-TLX scores were higher for the more difficult level in each pair of *n*-back levels (**Supplement**).
+
+With another rmANOVA was used to investigate whether the difference between the aversiveness scores of 1- and 2-back, and 2- and 3-back, respectively, depended on whether a participant's NFC score was above or below the median.
+There was a main effect of NFC group (`r apa_print(hypothesis3c_model)$full_result$nfcmedian`, $BF10=$`r round(BayesFactor::extractBF(hypothesis3a_BF_nlevel)$bf[2], digits = 2)`) and a main effect of the *n*-back level (`r apa_print(hypothesis3c_model)$full_result$nlevels`, $BF10=$`r round(BayesFactor::extractBF(hypothesis3a_BF_nlevel)$bf[1], digits = 2)`), but no interaction.
+Post-hoc tests revealed that participants with NFC scores below the median reported higher aversiveness than participants with NFC scores above the median (`r apa_print(pairs(hypothesis3c_emm_nfc))$full_result`).
+Regardless of NFC, the difference of the aversiveness scores of 2- and 3-back was smaller and more negative than that of 1- and 2-back (`r apa_print(pairs(hypothesis3c_emm_levels))$full_result`), but again, there were large interindividual differences.
+
+# Discussion
+
+This Registered Report aimed to adapt the Cognitive Effort Discounting Paradigm (COG-ED) paradigm by Westbrook et al. [-@Westbrook2013], which can estimate subjective values of different *n*-back levels, into the Cognitive and Affective Discounting (CAD) paradigm, which can estimate subjective values of tasks without assuming that the easiest level is inherently preferred.
+For this purpose, we changed the way in which the discounting options are presented to the participants, basing the anchor on their own choices rather than on the objective task load.
+The analyses were closely aligned with those in Westbrook et al. [-@Westbrook2013] to demonstrate the changes in SVs brought about by the new paradigm.
+This study also applied the CAD paradigm to an emotion regulation task, the results of which are detailed in **Scheffel et al.**.
+
+## Manipulation checks
+
+The performance measure *d'* did not differ across *n*-back levels, but the RT increased from 1- to 2- to 3-back and then remained on a high level for 4-back.
+This disparity of accuracy and speed has been observed before [@Meule2017] and shows different associations with various measures of intelligence [@Jaeggi2010].
+
 
 \newpage
 
@@ -493,250 +512,10 @@ INSERT FIGURE 1 HERE
 # Design Table {#DesignTableSection}
 
 INSERT DESIGN TABLE HERE
-<!--
-\includepdf[pages={-},landscape=true]{Design_Table_T1.pdf}
--->
+
 \newpage
 
 # Supplement
 
 INSERT SUPPLEMENT HERE
-<!--
-\counterwithin{figure}{section}
-\counterwithin{table}{section}
-\setcounter{section}{19}
-\setcounter{figure}{0}
-\setcounter{table}{0}
 
-## Results of the pilot study
-
-
-## Hypothesis 1a: The signal detection measure d' declines with increasing *n*-back level.
-
-ANOVA:
-
-`r apa_print(hypothesis1a_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1a_rmanova$anova_table[1,"F"], df = hypothesis1a_rmanova$anova_table[1,"num Df"], df_error = hypothesis1a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1a_rmanova$anova_table[1,"F"], df = hypothesis1a_rmanova$anova_table[1,"num Df"], df_error = hypothesis1a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1a_BF)$bf, digits = 2)`
-
-\newpage
-
-## Hypothesis 1b: Reaction time increases with increasing *n*-back level.
-
-ANOVA:
-
-`r apa_print(hypothesis1b_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1b_rmanova$anova_table[1,"F"], df = hypothesis1b_rmanova$anova_table[1,"num Df"], df_error = hypothesis1b_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1b_rmanova$anova_table[1,"F"], df = hypothesis1b_rmanova$anova_table[1,"num Df"], df_error = hypothesis1b_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1b_BF)$bf, digits = 2)`
-
-Paired contrasts:
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-apa_table(
-  hypothesis1b_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing reaction time between *n*-back levels",
-  note = "The column Contrast contains the $n$ of the *n*-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
-  escape = FALSE,
-  placement = "H"
-)
-```
-
-\newpage
-
-## Hypothesis 1c: Ratings on all NASA-TLX dimensions increase with increasing *n*-back level.
-
-Mental subscale ANOVA:
-
-`r apa_print(hypothesis1c_mental_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_mental_rmanova$anova_table[1,"F"], df = hypothesis1c_mental_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_mental_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_mental_rmanova$anova_table[1,"F"], df = hypothesis1c_mental_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_mental_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_mental_BF)$bf, digits = 2)`
-
-Mental subscale paired contrasts:
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE} 
-apa_table(
-  hypothesis1c_mental_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Mental subscale between *n*-back levels",
-  note = "The column Contrast contains the $n$ of the *n*-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
-  escape = FALSE,
-  placement = "H"
-)
-```
-
-\newpage
-
-Physical subscale ANOVA:
-
-`r apa_print(hypothesis1c_physical_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_physical_rmanova$anova_table[1,"F"], df = hypothesis1c_physical_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_physical_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_physical_rmanova$anova_table[1,"F"], df = hypothesis1c_physical_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_physical_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_physical_BF)$bf, digits = 2)`
-
-Physical subscale paired contrasts:
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE} 
-apa_table(
-  hypothesis1c_physical_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Physical subscale between *n*-back levels",
-  note = "The column Contrast contains the $n$ of the *n*-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
-  escape = FALSE,
-  placement = "H"
-)
-```
-
-\newpage
-
-Time subscale ANOVA:
-
-`r apa_print(hypothesis1c_time_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_time_rmanova$anova_table[1,"F"], df = hypothesis1c_time_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_time_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_time_rmanova$anova_table[1,"F"], df = hypothesis1c_time_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_time_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_time_BF)$bf, digits = 2)`
-
-Time subscale paired contrasts:
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE} 
-apa_table(
-  hypothesis1c_time_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Time subscale between *n*-back levels",
-  note = "The column Contrast contains the $n$ of the *n*-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
-  escape = FALSE,
-  placement = "H"
-)
-```
-
-\newpage
-
-Performance subscale ANOVA:
-
-`r apa_print(hypothesis1c_performance_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_performance_rmanova$anova_table[1,"F"], df = hypothesis1c_performance_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_performance_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_performance_rmanova$anova_table[1,"F"], df = hypothesis1c_performance_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_performance_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_performance_BF)$bf, digits = 2)`
-
-Performance subscale paired contrasts:
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE} 
-apa_table(
-  hypothesis1c_performance_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Performance subscale between *n*-back levels",
-  note = "The column Contrast contains the $n$ of the *n*-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
-  escape = FALSE,
-  placement = "H"
-)
-```
-
-\newpage
-
-Effort subscale ANOVA:
-
-`r apa_print(hypothesis1c_effort_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_effort_rmanova$anova_table[1,"F"], df = hypothesis1c_effort_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_effort_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_effort_rmanova$anova_table[1,"F"], df = hypothesis1c_effort_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_effort_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_effort_BF)$bf, digits = 2)`
-
-Effort subscale paired contrasts:
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE} 
-apa_table(
-  hypothesis1c_effort_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Effort subscale between *n*-back levels",
-  note = "The column Contrast contains the $n$ of the *n*-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
-  escape = FALSE,
-  placement = "H"
-)
-```
-
-\newpage
-
-Frustration subscale ANOVA:
-
-`r apa_print(hypothesis1c_frustration_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis1c_frustration_rmanova$anova_table[1,"F"], df = hypothesis1c_frustration_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_frustration_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis1c_frustration_rmanova$anova_table[1,"F"], df = hypothesis1c_frustration_rmanova$anova_table[1,"num Df"], df_error = hypothesis1c_frustration_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`, $BF10=$ `r round(extractBF(hypothesis1c_frustration_BF)$bf, digits = 2)`
-
-Frustration subscale paired contrasts:
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE} 
-apa_table(
-  hypothesis1c_frustration_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Frustration subscale between *n*-back levels",
-  note = "The column Contrast contains the $n$ of the *n*-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
-  escape = FALSE,
-  placement = "H"
-)
-```
-
-\newpage
-
-## Hypothesis 2a: Subjective values decline with increasing *n*-back level.
-
-ANOVA:
-
-`r apa_print(hypothesis2a_rmanova)$statistic`, $\eta_{p}^{2}=$ `r format(F_to_eta2(f = hypothesis2a_rmanova$anova_table[1,"F"], df = hypothesis2a_rmanova$anova_table[1,"num Df"], df_error = hypothesis2a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,1]`, 95%\ CI `r format(F_to_eta2(f = hypothesis2a_rmanova$anova_table[1,"F"], df = hypothesis2a_rmanova$anova_table[1,"num Df"], df_error = hypothesis2a_rmanova$anova_table[1,"den Df"]), digits = 2)[1,2]`
-
-Contrasts:
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE} 
-apa_table(
-  hypothesis2a_contrasts,
-  caption = "Different contrasts for the rmANOVA comparing subjective values between *n*-back levels",
-  note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
-  escape = FALSE,
-  placement = "H"
-)
-```
-
-\newpage
-
-## Hypothesis 2b: Subjective values decline with increasing *n*-back level, even after controlling for declining task performance measured by signal detection d’ and reaction time.
-
-Multi level model:
-
-```{r,echo=FALSE, message=FALSE, warning=FALSE}
-kable(h2b_result.table,
-        caption = "Effects of *n*-back load level on subjective value controlled 
-    for task performance (d' and reaction time).",
-        booktabs = T,                          # no vertical lines
-        escape = F,                            # correctly print special characters)
-        align = c("l",rep("r",7))) %>%         # right aligns the text in every numerical column
-    kable_styling(latex_options = c("striped")) %>%
-    footnote(general = "NFC = Need for Cognition, SE = standard error. ***$p$ < .001, **$p$ < .01, *$p$ < 0.5.",
-             escape = F,                    # correctly print special characters
-             threeparttable = T)            # line breaks in the footnote
-```
-The intraclass correlation equals `r format(icc_h2b, digits = 2)`. 
-
-The Bayes Factor $BF10$ of the multi level model approached infinity.
-
-The conditional $R^2$ of the model describes the proportion of variance explained by both fixed and random effects, and is $R^2=$ `r format(h2b_total_r2[1,2], digits = 2)`.
-
-The effect size is $f^2=$ `r format(h2b_f2, digits = 2)`.
-
-\newpage
-
-## Hypothesis 3a: Participants with high NFC scores have higher subjective values for 2- and 3-back but lower subjective values for 1-back than participants with low NFC scores.
-
-ANOVA:
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE} 
-apa_table(
-  hypothesis3a_rmanova,
-  caption = "Main effects and interaction of NFC group and *n*-back level on subjective values",
-  note = "NFC = Need for Cognition, Sum Sq = sum of squares, $df$ = degrees of freedom, $F$ = $F$-statistic, $p$ = $p$-value, CI = confidence interval.",
-  escape = FALSE,
-  placement = "H",
-  font_size = "footnotesize"
-)
-```
-
-\newpage
-
-## Hypothesis 3b: Participants with high NFC scores have lower NASA-TLX scores in every *n*-back level than participants with low NFC scores.
-
-ANOVA:
-
-Main effect of the NFC group:
-
-`r apa_print(hypothesis3b_model)$full_result$nfcmedian`, $BF10=$ `r format(extractBF(hypothesis3b_BF["nfcmedian"])$bf, digits = 2)`
-
-Main effect of the *n*-back level:
-
-`r apa_print(hypothesis3b_model)$full_result$level`, $BF10=$ `r format(extractBF(hypothesis3b_BF["level"])$bf, digits = 2)`
-
-Interaction effect of NFC group and *n*-back level:
-
-`r apa_print(hypothesis3b_model)$full_result$nfcmedian_level`, $BF10=$ `r format(extractBF(hypothesis3b_BF["level + nfcmedian"])$bf, digits = 2)`
-
-Paired contrasts for the main effect of *n*-back level:
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE} 
-apa_table(
-  hypothesis3b_rmanova,
-  caption = "Main effects and interaction of NFC group and *n*-back level on NASA-TLX scores",
-  note = "NFC = Need for Cognition, Sum Sq = sum of squares, $df$ = degrees of freedom, $F$ = $F$-statistic, $p$ = $p$-value, CI = confidence interval.",
-  escape = FALSE,
-  placement = "H",
-  font_size = "footnotesize")
-```
--->
