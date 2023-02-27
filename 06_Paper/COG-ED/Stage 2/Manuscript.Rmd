@@ -447,15 +447,18 @@ Regardless of NFC, the difference of the aversiveness scores of 2- and 3-back wa
 
 # Discussion
 
-This Registered Report aimed to adapt the Cognitive Effort Discounting Paradigm (COG-ED) paradigm by Westbrook et al. [-@Westbrook2013], which can estimate subjective values of different *n*-back levels, into the Cognitive and Affective Discounting (CAD) paradigm, which can estimate subjective values of tasks without assuming that the easiest level is inherently preferred.
+This Registered Report aimed to adapt the Cognitive Effort Discounting Paradigm (COG-ED) paradigm by Westbrook et al.[-@Westbrook2013], which can estimate subjective values of different *n*-back levels, into the Cognitive and Affective Discounting (CAD) paradigm, which can estimate subjective values of tasks without assuming that the easiest level is inherently preferred.
 For this purpose, we changed the way in which the discounting options are presented to the participants, basing the anchor on their own choices rather than on the objective task load.
-The analyses were closely aligned with those in Westbrook et al. [-@Westbrook2013] to demonstrate the changes in SVs brought about by the new paradigm.
+The analyses were closely aligned with those in Westbrook et al.[-@Westbrook2013] to demonstrate the changes in SVs brought about by the new paradigm.
 This study also applied the CAD paradigm to an emotion regulation task, the results of which are detailed in **Scheffel et al.**.
 
 ## Manipulation checks
 
 The performance measure *d'* did not differ across *n*-back levels, but the RT increased from 1- to 2- to 3-back and then remained on a high level for 4-back.
-This disparity of accuracy and speed has been observed before [@Meule2017] and shows different associations with various measures of intelligence [@Jaeggi2010].
+This points to three important characteristics of the *n*-back task in this context.
+Firstly, RT as a valid group-level indicator of performance might only be useful for levels up to $n=3$, and could be used to investigate interindividual differences for $n>3$.
+Secondly, there is a speed-accuracy tradeoff in the first three levels, that might re-emerge in higher levels, where *d'* would decline and RT would remain stable.
+And lastly, the fact that neither accuracy and nor speed is an informative performance measure by itself has been observed before[@Meule2017] and both show different associations with various measures of intelligence[@Jaeggi2010].
 
 
 \newpage
