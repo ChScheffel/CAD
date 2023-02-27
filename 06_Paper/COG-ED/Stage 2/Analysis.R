@@ -1486,7 +1486,7 @@ raincloudplots::raincloud_2x2_repmes(data_2x2 = plot_h3a_data_nfc,
   scale_x_continuous(breaks=c(1,2), labels=c("1-2", "2-3"), limits=c(0, 3))
 
 ggplot(h3a_data[h3a_data$nlevels %in% c("1-2", "2-3"),], aes(nlevels, svdiff, fill = nfcmedian, color = nfcmedian)) +
-  geom_rain(alpha = .5, rain.side = 'f2x2', id.long.var = "subject",
+  ggrain::geom_rain(alpha = .5, rain.side = 'f2x2', id.long.var = "subject",
             violin.args = list(color = NA, alpha = .7)) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
   scale_fill_manual(values=c("gold3", "cornflowerblue")) +
@@ -1497,7 +1497,7 @@ ggplot(h3a_data[h3a_data$nlevels %in% c("1-2", "2-3"),], aes(nlevels, svdiff, fi
 
 # remove temporary variables
 
-base::remove(diffscores, mediannfc, h3a_data, plot_h3a_data)
+base::remove(diffscores, h3a_data)
 
 ##### Hypothesis 3b ############################################################
 
