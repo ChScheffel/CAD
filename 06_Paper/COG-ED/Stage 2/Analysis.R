@@ -1255,6 +1255,11 @@ detach_package(afex)
 
 h2b_data <- pipelines_data[["AARO"]][ ,c("subject","level","round","sv","dprime","medianRT")]
 
+# center within cluster
+
+h2b_data$dprime.cwc <- h2b_data$dprime - (ave(h2b_data$dprime, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
+h2b_data$medianRT.cwc <- h2b_data$medianRT - (ave(h2b_data$medianRT, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
+
 # turn into factor
 
 h2b_data$level <- as.factor(h2b_data$level)
@@ -1283,7 +1288,7 @@ model0_h2b_ICC <- ICC.Model(model0_h2b)
 
 # model 2 with the contrast matrix
 
-model1_h2b_raw <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
+model1_h2b_raw <- lmerTest::lmer(sv ~ level + dprime.cwc + medianRT.cwc + (1|subject),
                          data = h2b_data, REML = T)
 
 # exclude cases with residuals three SDs above mean
@@ -1296,7 +1301,7 @@ h2b_data_excl <- droplevels(subset(h2b_data, abs(scale(resid(model1_h2b_raw))) <
 
 # recompute model 2
 
-model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
+model1_h2b <- lmerTest::lmer(sv ~ level + dprime.cwc + medianRT.cwc + (1|subject),
                              data = h2b_data_excl, REML = T)
 
 # to plot some fit indices if you like
@@ -1311,11 +1316,11 @@ model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
   
   # models without effects of each variable
   
-  model1_h2b_no_effect_level <- lmerTest::lmer(sv ~ 1 + dprime + medianRT + (1|subject),
+  model1_h2b_no_effect_level <- lmerTest::lmer(sv ~ 1 + dprime.cwc + medianRT.cwc + (1|subject),
                                                data = h2b_data_excl, REML = T)
-  model1_h2b_no_effect_dprime <- lmerTest::lmer(sv ~ level + 1 + medianRT + (1|subject),
+  model1_h2b_no_effect_dprime <- lmerTest::lmer(sv ~ level + 1 + medianRT.cwc + (1|subject),
                                                data = h2b_data_excl, REML = T)
-  model1_h2b_no_effect_medianRT <- lmerTest::lmer(sv ~ level + dprime + 1 + (1|subject),
+  model1_h2b_no_effect_medianRT <- lmerTest::lmer(sv ~ level + dprime.cwc + 1 + (1|subject),
                                                data = h2b_data_excl, REML = T)
   # compute R²
   
@@ -1334,9 +1339,9 @@ model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
 
   h2b_data_excl$subject <- as.factor(h2b_data_excl$subject)
   
-  h2b_full_BF <- BayesFactor::lmBF(sv ~ level + dprime + medianRT + subject,
+  h2b_full_BF <- BayesFactor::lmBF(sv ~ level + dprime.cwc + medianRT.cwc + subject,
                                    data = h2b_data_excl, whichRandom = 'subject', progress = FALSE)
-  h2b_null_BF <- BayesFactor::lmBF(sv ~ 1 + dprime + medianRT + subject,
+  h2b_null_BF <- BayesFactor::lmBF(sv ~ 1 + dprime.cwc + medianRT.cwc + subject,
                                    data = h2b_data_excl, whichRandom = 'subject', progress = FALSE)
   h2b_BF <- h2b_full_BF / h2b_null_BF
 
@@ -1824,6 +1829,11 @@ for (i in 1:length(pipelines_data)) {
   
   sca_data <- droplevels(subset(sca_data[ ,c("subject", "level", "round", "sv", "dprime", "medianRT")]))
   
+  # center within cluster
+  
+  sca_data$dprime.cwc <- sca_data$dprime - (ave(sca_data$dprime, sca_data$subject, FUN = function(x) mean(x, na.rm = T)))
+  sca_data$medianRT.cwc <- sca_data$medianRT - (ave(sca_data$medianRT, sca_data$subject, FUN = function(x) mean(x, na.rm = T)))
+  
   # turn into factor
   
   sca_data$level <- as.factor(sca_data$level)
@@ -1837,16 +1847,16 @@ for (i in 1:length(pipelines_data)) {
   
   # model with the contrast matrix
   
-  model1_sca <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
+  model1_sca <- lmerTest::lmer(sv ~ level + dprime.cwc + medianRT.cwc + (1|subject),
                                data = sca_data, REML = T)
   
   # get Bayes Factors
   
   sca_data$subject <- as.factor(sca_data$subject)
   
-  sca_full_BF <- BayesFactor::lmBF(sv ~ level + dprime + medianRT + subject,
+  sca_full_BF <- BayesFactor::lmBF(sv ~ level + dprime.cwc + medianRT.cwc + subject,
                                    data = sca_data, whichRandom = 'subject', progress = FALSE)
-  sca_null_BF <- BayesFactor::lmBF(sv ~ 1 + dprime + medianRT + subject,
+  sca_null_BF <- BayesFactor::lmBF(sv ~ 1 + dprime.cwc + medianRT.cwc + subject,
                                    data = sca_data, whichRandom = 'subject', progress = FALSE)
   sca_BF <- sca_full_BF / sca_null_BF
   
