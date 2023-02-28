@@ -408,12 +408,13 @@ The effect size of the median RT was $f^{2}=$`r format(round(h2b_medianRT_f2, di
 To investigate the dependency of the model results on the RT preprocessing, we conducted a specification curve analysis (Figure\ \@ref(fig:sca-plot)).
 
 INSERT FIGURE 2 HERE
-
-```{r sca-plot, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Results of the multi level model for each of the 63 preprocessing pipelines. The lower panel indicates the type of preprocessing, the upper panel shows the beta coefficient of each predictor and its p-value. The colourbar indicates the BF10. The pipelines are sorted in descending order of the magnitude of the n-back level beta.", fig.pos="H"} 
+<!--
+```{r sca-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of the multi level model for each of the 63 preprocessing pipelines. The lower panel indicates the type of preprocessing, the upper panel shows the beta coefficient of each predictor and its p-value. The colourbar indicates the BF10. The pipelines are sorted in descending order of the magnitude of the n-back level beta.", fig.pos="H"} 
   
-  print(sca_plot)
+  include_graphics(here("06_Paper", "Stage 2", "Figures", "sca-plot.png"))
 
 ```
+-->
 
 Regardless of the preprocessing pipeline, *n*-back level and *d'* were significant predictors of SVs, and had stable effect estimates across all pipelines.
 The only pipelines, in which the median RT was a significant predictor of SVs, were the three pipelines with the highest Bayes Factors and the largest effect of *n*-back level.
@@ -422,19 +423,35 @@ The by far highest values of the beta of the median RT in Figure\ \@ref(fig:sca-
 
 ## Differences between NFC groups
 
+Figure\ \@ref(fig:nfc-sv) shows a scatterplot of SVs per *n*-back level, colored depending on the participant's NFC score.
+There is a concentration of participants who have assigned their highest SV to 1-back, and this concentration fades across *n*-back levels.
+At the same time, there is a subtle separation of SVs across *n*-back levels, depending on the participant's NFC score: While the SVs of those with higher NFC scores remain elevated, the SVs of those with lower NFC scores decline more strongly.
+Specifically, $n=$`r nrow(data_SV[data_SV$level==1 & data_SV$sv==1,])` participants had an absolute preference for 1-back, $n=$`r nrow(data_SV[data_SV$level==3 & data_SV$sv==1,])` for 2-back, $n=$`r nrow(data_SV[data_SV$level==4 & data_SV$sv==1,])` for 3-back, and $n=$`r nrow(data_SV[data_SV$level==1 & data_SV$sv==1,])` for 4-back.
+There were $n=$`r length(setdiff(unique(data_SV$subject), data_SV$subject[data_SV$sv == 1]))` participants who did not have an absolute preference for any *n*-back level, i.e. none of their SVs was 1.
+
+INSERT FIGURE 3 HERE
+<!--
+```{r nfc-sv, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values per n-back level. Each dot indicates a participant, the colours indicate their Need for Cognition score. $N=116$. There is a horizontal jitter of 0.4 and a vertical jitter of 0.05.", fig.pos="H"} 
+  
+  include_graphics(here("06_Paper", "Stage 2", "Figures", "nfc-sv.png"))
+
+```
+-->
+
 The median NFC was `r mediannfc`, with $n=$`r nrow(h3b_data[h3b_data$nfcmedian == "low",])/(nrow(h3b_data)/length(unique(h3b_data$subject)))` subjects below and $n=$`r nrow(h3b_data[h3b_data$nfcmedian == "high",])/(nrow(h3b_data)/length(unique(h3b_data$subject)))` above the median.
 We used an rmANOVA to investigate whether the difference between the SVs of 1- and 2-back, and 2- and 3-back, respectively, depended on whether a participant's NFC score was above or below the median.
 There was a main effect of the *n*-back level (`r apa_print(hypothesis3a_model)$full_result$nlevels`), but neither a main effect of the NFC group (`r apa_print(hypothesis3a_model)$full_result$nfcmedian`) nor an interaction of NFC group and *n*-back level (`r apa_print(hypothesis3a_model)$full_result$nfcmedian_nlevels`).
 Post-hoc tests showed that the difference between the SVs of 2- and 3-back is slightly more negative than the difference between 1- and 2-back (`r apa_print(pairs(hypothesis3a_emm_nlevel))$full_result`), but there were large interindividual differences, especially for 2- and 3-back (Figure\ \@ref(fig:h3a-plot)).
 This means that across the whole sample, there was a steeper decline in SVs from 2- to 3-back than from 1- to 2-back, but some participants showed a completely opposite pattern.
 
-INSERT FIGURE 3 HERE
-
+INSERT FIGURE 4 HERE
+<!--
 ```{r h3a-plot, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Difference scores in the subjective values of 1- minus 2-back and of 2- minus 3-back.", fig.pos="H"} 
   
-  #print(plot_h3a)
+  include_graphics(here("06_Paper", "Stage 2", "Figures", "h3a-plot.png"))
 
 ```
+-->
 
 The rmANOVA on the association between NFC scores and NASA-TLX scores revealed a main effect of *n*-back level (`r apa_print(hypothesis3b_model)$full_result$level`, $BF10=$`r round(BayesFactor::extractBF(hypothesis3b_BF_levels)$bf[1], digits = 2)`) and an interaction between *n*-back level and NFC scores (`r apa_print(hypothesis3b_model)$full_result$nfcmedian_level`), but no main effect of NFC scores (`r apa_print(hypothesis3b_model)$full_result$nfcmedian`, $BF10=$`r round(BayesFactor::extractBF(hypothesis3b_BF_levels)$bf[2], digits = 2)`).
 Post-hoc tests showed that the participants with NFC scores below the median had higher NASA-TLX scores for 3-back (`r apa_print(pairs(hypothesis3b_emm_interact))$full_result$X3_High_low`, `r apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "low" & h3b_data$level == 3], y = h3b_data$ntlx[h3b_data$nfcmedian == "high" & h3b_data$level == 3], progress = FALSE, paired = FALSE))$statistic`) and for 4-back (`r apa_print(pairs(hypothesis3b_emm_interact))$full_result$X4_High_low`, `r apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "low" & h3b_data$level == 4], y = h3b_data$ntlx[h3b_data$nfcmedian == "high" & h3b_data$level == 4], progress = FALSE, paired = FALSE))$statistic`) than those with NFC scores above the median.
