@@ -411,18 +411,15 @@ The beta coefficients indicated that with every *n*-back level, the SV decreased
 To investigate the dependency of the model results on the RT preprocessing, we conducted a specification curve analysis (Figure\ \@ref(fig:sca-plot)).
 
 INSERT FIGURE 2 HERE
-<!--
 ```{r sca-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of the multi level model for each of the 63 preprocessing pipelines. The lower panel indicates the type of preprocessing, the upper panel shows the beta coefficient of each predictor and its p-value. The colourbar indicates the BF10. The pipelines are sorted in descending order of the magnitude of the n-back level beta.", fig.pos="H"} 
   
-  include_graphics(here("06_Paper", "Stage 2", "Figures", "sca-plot.png"))
+  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "sca-plot.png"))
 
 ```
--->
 
 Regardless of the preprocessing pipeline, *n*-back level and *d'* were significant predictors of SVs, and had stable effect estimates across all pipelines.
-The only pipelines, in which the median RT was a significant predictor of SVs, were the three pipelines with the highest Bayes Factors and the largest effect of *n*-back level.
+The only pipelines, in which the median RT was a significant predictor of SVs, were the three pipelines with the highest Bayes Factors.
 These three pipelines contain data that has been inverse transformed across subjects but within conditions, i.e. within the round of an *n*-back level.
-The by far highest values of the beta of the median RT in Figure\ \@ref(fig:sca-plot) are all from the pipelines that used inverse transformation.
 
 ## Differences between NFC groups
 
@@ -433,13 +430,13 @@ Specifically, $n=$`r nrow(data_SV[data_SV$level==1 & data_SV$sv==1,])` participa
 There were $n=$`r length(setdiff(unique(data_SV$subject), data_SV$subject[data_SV$sv == 1]))` participants who did not have an absolute preference for any *n*-back level, i.e. none of their SVs was 1.
 
 INSERT FIGURE 3 HERE
-<!--
+
 ```{r nfc-sv, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values per n-back level. Each dot indicates a participant, the colours indicate their Need for Cognition score. $N=116$. There is a horizontal jitter of 0.4 and a vertical jitter of 0.05for visual clarity.", fig.pos="H"} 
   
-  include_graphics(here("06_Paper", "Stage 2", "Figures", "nfc-sv.png"))
+  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "nfc-sv.png"))
 
 ```
--->
+
 
 The median NFC was `r mediannfc`, with $n=$`r nrow(h3b_data[h3b_data$nfcmedian == "low",])/(nrow(h3b_data)/length(unique(h3b_data$subject)))` subjects below and $n=$`r nrow(h3b_data[h3b_data$nfcmedian == "high",])/(nrow(h3b_data)/length(unique(h3b_data$subject)))` above the median.
 We used an rmANOVA to investigate whether the difference between the SVs of 1- and 2-back, and 2- and 3-back, respectively, depended on whether a participant's NFC score was above or below the median.
@@ -451,7 +448,7 @@ INSERT FIGURE 4 HERE
 <!--
 ```{r h3a-plot, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Difference scores in the subjective values of 1- minus 2-back and of 2- minus 3-back.", fig.pos="H"} 
   
-  include_graphics(here("06_Paper", "Stage 2", "Figures", "h3a-plot.png"))
+  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "h3a-plot.png"))
 
 ```
 -->
@@ -490,8 +487,8 @@ Ratings on the physical load subscale increased with *n*-back levels, but not be
 
 The rmANOVA with different pre-defined contrasts showed that all fit the SVs to a different degree, and that the SVs do not simply decline linearly across *n*-back levels.
 The best fit was a declining logistic curve, reflecting that the majority of participants preferred 1-back and that SVs for 2-back were also high, before having more interindividual variance for 3- and 4-back.
-The MLM with the logistic contrast showed that the *n*-back level explained the majority of variance in SVs, while the performance measure *d'* also explained some variance in SVs, albeit small.
-In both cases, the SVs decreased when the value of the predictor increased.
+The MLM with the logistic contrast showed that the *n*-back level explained the majority of variance in SVs, while the performance measure *d'* also explained some variance in SVs, albeit less.
+With increasing *n*-back level and decreasing *d'*, the SV decreased.
 The median RT was not a significant predictor in this model, which was somewhat surprising because RT but not *d'* yielded significant differences across levels in the manipulation checks.
 However, participants might have deliberately or subconsciously used the feedback they received at the end of each round, i.e. twice per *n*-back level, as an anchor during the effort discounting.
 This feedback was based on correct responses and not on RT, so if participants based their effort discounting choices at least partly on this feedback, they were either motivated to repeat a task in which they performed well and/or they were reluctant to accept a larger reward for a task in which they did not perform well.
