@@ -361,6 +361,8 @@ Ratings on the physical subscale were higher for more difficult levels (`r apa_p
 
 ## Decline of subjective values
 
+When asking participants what motivated their decisions in the effort discounting, `r round((table(data_quest$motivation)[1]/sum(table(data_quest$motivation)))*100, digits = 1)`% stated that they wanted to avoid boredom, `r round((table(data_quest$motivation)[2]/sum(table(data_quest$motivation)))*100, digits = 1)`% stated that they wanted a challenge, `r round((table(data_quest$motivation)[3]/sum(table(data_quest$motivation)))*100, digits = 1)`% stated that they wanted to avoid effort, and `r round((table(data_quest$motivation)[4]/sum(table(data_quest$motivation)))*100, digits = 1)`% stated that they wanted to relax.
+The remaining `r round((table(data_quest$motivation)[5]/sum(table(data_quest$motivation)))*100, digits = 1)`% of participants used the free text field and provided reasons such as "I wanted a fair relation of effort and reward.", "I wanted the fun that I had in the more challenging levels.", "I wanted to maximize reward first and minimize effort second.", or "I did not want to perform poorly when I was being paid for it.".
 The rmANOVA showed a significant difference between the SVs across *n*-back levels (`r apa_print(hypothesis2a_rmanova)$full_result$level`, `r apa_print(hypothesis2a_BF)$statistic`).
 All four pre-defined contrasts reached significance (Table\ \@ref(tab:H2a-contrasts)), so a purely linear contrast can be rejected.
 
@@ -386,7 +388,7 @@ This means that the intercept still varies between subjects, but there are no ra
 To provide more than one observation per factor level, we used the two rounds per level per subject, rather than levels per subject.
 The ICC of the null model indicated that there is a correlation of $r=$`r round(model0_h2b_ICC, digits = 3)` between the SVs of a subject, i.e. that `r paste0(formatC(model0_h2b_ICC * 100, format = "f", digits = 2), "%")` of variance in SVs can be explained by differences between participants.
 We did not use an optimization algorithm to improve the fit of the random intercept model.
-A total of `r nrow(excl_cases_h2b$subject)` data points from `r length(excl_cases_h2b)` were excluded, because the residuals exceeded 3 SD above the mean.
+A total of `r nrow(excl_cases_h2b)` data points from `r length(unique(excl_cases_h2b$subject))` participants were excluded, because the residuals exceeded 3 SD above the mean.
 The results of the final model are displayed in Table\ \@ref(tab:H2b-results).
 
 ```{r H2b-results, echo=FALSE, message=FALSE, warning=FALSE}
@@ -426,12 +428,12 @@ The by far highest values of the beta of the median RT in Figure\ \@ref(fig:sca-
 Figure\ \@ref(fig:nfc-sv) shows a scatterplot of SVs per *n*-back level, colored depending on the participant's NFC score.
 There is a concentration of participants who have assigned their highest SV to 1-back, and this concentration fades across *n*-back levels.
 At the same time, there is a subtle separation of SVs across *n*-back levels, depending on the participant's NFC score: While the SVs of those with higher NFC scores remain elevated, the SVs of those with lower NFC scores decline more strongly.
-Specifically, $n=$`r nrow(data_SV[data_SV$level==1 & data_SV$sv==1,])` participants had an absolute preference for 1-back, $n=$`r nrow(data_SV[data_SV$level==3 & data_SV$sv==1,])` for 2-back, $n=$`r nrow(data_SV[data_SV$level==4 & data_SV$sv==1,])` for 3-back, and $n=$`r nrow(data_SV[data_SV$level==1 & data_SV$sv==1,])` for 4-back.
+Specifically, $n=$`r nrow(data_SV[data_SV$level==1 & data_SV$sv==1,])` participants had an absolute preference for 1-back, $n=$`r nrow(data_SV[data_SV$level==2 & data_SV$sv==1,])` for 2-back, $n=$`r nrow(data_SV[data_SV$level==3 & data_SV$sv==1,])` for 3-back, and $n=$`r nrow(data_SV[data_SV$level==4 & data_SV$sv==1,])` for 4-back.
 There were $n=$`r length(setdiff(unique(data_SV$subject), data_SV$subject[data_SV$sv == 1]))` participants who did not have an absolute preference for any *n*-back level, i.e. none of their SVs was 1.
 
 INSERT FIGURE 3 HERE
 <!--
-```{r nfc-sv, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values per n-back level. Each dot indicates a participant, the colours indicate their Need for Cognition score. $N=116$. There is a horizontal jitter of 0.4 and a vertical jitter of 0.05.", fig.pos="H"} 
+```{r nfc-sv, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values per n-back level. Each dot indicates a participant, the colours indicate their Need for Cognition score. $N=116$. There is a horizontal jitter of 0.4 and a vertical jitter of 0.05for visual clarity.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "Stage 2", "Figures", "nfc-sv.png"))
 
@@ -474,9 +476,24 @@ This study also applied the CAD paradigm to an emotion regulation task, the resu
 The performance measure *d'* did not differ across *n*-back levels, but the RT increased from 1- to 2- to 3-back and then remained on a high level for 4-back.
 This points to three important characteristics of the *n*-back task in this context.
 Firstly, RT as a valid group-level indicator of performance might only be useful for levels up to $n=3$, and could be used to investigate interindividual differences for $n>3$.
-Secondly, there is a speed-accuracy tradeoff in the first three levels, that might re-emerge in higher levels, where *d'* would decline and RT would remain stable.
-And lastly, the fact that neither accuracy and nor speed is an informative performance measure by itself has been observed before[@Meule2017] and both show different associations with various measures of intelligence[@Jaeggi2010].
+Secondly, there is a speed-accuracy tradeoff in the first three levels, that might even re-emerge in higher levels, where *d'* would decline and RT would remain stable.
+And lastly, the fact that neither accuracy and nor speed is an informative performance measure by itself has been observed before[@Meule2017] and both show different associations with various measures of intelligence[@Jaeggi2010], suggesting that they should always be reported as separate indices.
 
+All NASA-TLX subscales differed across *n*-back levels, but the effort and mental load subscales were the only ones to consistently increase across all levels.
+This would support the notion of the *n*-back task offering a continuous manipulation of task load, as least subjectively.
+Ratings on the frustration and time subscales increased and ratings on the performance subscale decreased until 3-back and then remained stable.
+This pattern is akin to the RT, which also increased and then remained stable.
+Ratings on the physical load subscale increased with *n*-back levels, but not between 2- and 3-back and 3- and 4-back, respectively.
+
+## Decline of subjective values
+
+The rmANOVA with different pre-defined contrasts showed that all fit the SVs to a different degree, and that the SVs do not simply decline linearly across *n*-back levels.
+The best fit was a declining logistic curve, reflecting that the majority of participants preferred 1-back and that SVs for 2-back were also high, before having more interindividual variance for 3- and 4-back.
+The MLM with the logistic contrast showed that the *n*-back level explained the majority of variance in SVs, while the performance measure *d'* also explained some variance in SVs, albeit small.
+In both cases, the SVs decreased when the value of the predictor increased.
+The median RT was not a significant predictor in this model, which was somewhat surprising because RT but not *d'* yielded significant differences across levels in the manipulation checks.
+However, participants might have deliberately or subconsciously used the feedback they received at the end of each round, i.e. twice per *n*-back level, as an anchor during the effort discounting.
+This feedback was based on correct responses and not on RT, so if participants based their effort discounting choices at least partly on this feedback, they were either motivated to repeat a task in which they perform well and/or they were reluctant to accept a larger reward for a task in which they did not perform well.
 
 \newpage
 
@@ -502,7 +519,8 @@ The funders have/had no role in study design, data collection and analysis, deci
 JZ, CS, and AS conceptualized the study and acquired funding.
 JZ and CS developed the methodology, investigated, administered the project, and wrote the software.
 JZ, CS, and CK did the formal analysis.
-JZ visualized the results, and prepared the original draft.
+JZ visualized the results.
+JZ and CK prepared the original draft.
 All authors reviewed, edited, and approved the final version of the manuscript.
 
 
