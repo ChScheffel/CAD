@@ -1649,11 +1649,9 @@ plot_h3b <- ggplot(h3b_data, aes(level, ntlx, fill = nfcmedian, color = nfcmedia
                       boxplot.args.pos = list(width = .1, position = ggpp::position_dodgenudge(
                                                 x = rep(-.13,8)))) +
             ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-            # scale_fill_manual(values=c("#B30B0B", "#0941DB")) +
-            # scale_color_manual(values=c("#B30B0B", "#0941DB")) +
-  scale_fill_manual(values=c("gold3", "cornflowerblue")) +
-  scale_color_manual(values=c("gold3", "cornflowerblue")) +
-            labs(x = "n-back levels", y = "NASA-TLX sum score") +
+            scale_fill_manual(values=c("darkorchid3", "chartreuse3")) +
+            scale_color_manual(values=c("darkorchid3", "chartreuse3")) +
+            labs(x = "n-back level", y = "NASA-TLX sum score") +
             guides(fill = 'none', color = 'none')
 
 # save the plot as an eps file with high resolution
@@ -1963,9 +1961,9 @@ sca_plot_upper <-
   ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
   labs(x = NULL, y = "beta") +
   scale_x_continuous(labels = NULL) +
-  scale_color_manual(labels = c("p > .05", "p < .05", "p < .01", "p < .001"), values = MetBrewer::met.brewer("Hokusai2",4)) +
+  scale_color_manual(labels = c("p > .05", "p < .05", "p < .01"), values = c("darkslategray3","darkslategray4","darkslategray")) +
   scale_shape_manual(labels = c("d'","n-back level","median RT"), values = c(18,17,19)) +
-  scale_y_continuous(breaks = c(-0.05,0,0.05))
+  scale_y_continuous(breaks = c(0,0.05,0.1))
 
 # combine into panel
 
@@ -1979,9 +1977,9 @@ sca_plot <- egg::ggarrange(sca_plot_upper, sca_plot_lower,
 
 plot_sv <-
   ggplot2::ggplot(pipelines_data[["AARO"]], aes(x = level, y = sv, group = subject, color = nfc)) +
-    geom_point(size = 3, alpha = 0.5, position = position_jitter(w = 0.4, h = 0.05)) +
+    geom_point(size = 3, alpha = 0.8, position = position_jitter(w = 0.4, h = 0.05)) +
     ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
-    scale_color_gradient2(midpoint = mediannfc, low = "deepskyblue", mid = "gray", high = "red3", space = "Lab") +
+    scale_color_gradient2(midpoint = mediannfc, low = "chartreuse3", mid = "lightgray", high = "darkorchid3", space = "Lab") +
     geom_vline(xintercept = c(0.5,1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
     xlab("n-back level") + 
     ylab("Subjective values")
