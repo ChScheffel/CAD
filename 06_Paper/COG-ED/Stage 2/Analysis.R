@@ -1962,11 +1962,14 @@ sca_plot <- egg::ggarrange(sca_plot_upper, sca_plot_lower,
 
 # plot showing SVs per subject, colors depend on NFC
 
-ggplot2::ggplot(pipelines_data[["AARO"]], aes(x = level, y = sv, group = subject, color = nfc)) +
-  geom_point(size = 3, alpha = 0.5, position = position_jitter(w = 0.2)) +
-  scale_color_gradient2(midpoint = 0, low = "blue", mid = "grey", high = "red", space = "Lab" ) +
-  ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans")
-
+plot_sv <-
+  ggplot2::ggplot(pipelines_data[["AARO"]], aes(x = level, y = sv, group = subject, color = nfc)) +
+    geom_point(size = 3, alpha = 0.5, position = position_jitter(w = 0.4, h = 0.05)) +
+    ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+    scale_color_gradient2(midpoint = mediannfc, low = "deepskyblue", mid = "gray", high = "firebrick2", space = "Lab") +
+    geom_vline(xintercept = c(0.5,1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
+    xlab("n-back level") + 
+    ylab("Subjective values")
 
 ##### Save variables ###########################################################
 
