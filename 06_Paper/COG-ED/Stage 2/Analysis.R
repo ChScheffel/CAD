@@ -177,6 +177,10 @@ n_quest <- data_quest
 data_quest <- data_quest[!(data_quest$subject == "E17T12" | data_quest$subject == "Z15R03" | data_quest$subject == "C18D18" | data_quest$subject == "H25N04" |
                              data_quest$subject == "D24A05" | data_quest$subject == "T14G09" | data_quest$subject == "D29N05" | data_quest$subject == "W16C01"), ]
 
+# remove any subject who states that they did not adhere to the instructions
+
+data_quest <- data_quest[data_quest$adherence == 1,]
+
 # keep only the data from participants who have both questionnaire and behavioural data
 
 showups <- intersect(data_quest$subject, data_nback$subject)
@@ -1352,18 +1356,19 @@ model1_h2b <- lmerTest::lmer(sv ~ level + dprime + medianRT + (1|subject),
                                  df = as.numeric(model1_h2b_fixef[,3]),
                                  t = as.numeric(model1_h2b_fixef[,4]),
                                  p = as.numeric(model1_h2b_fixef[,5]),
-                                 Random = as.numeric(model1_h2b_ranef$sdcor[1],NA,NA,NA))
+                                 f = as.numeric(c(NA,h2b_level_f2,NA,NA,h2b_dprime_f2,h2b_medianRT_f2)),
+                                 Random = as.numeric(model1_h2b_ranef$sdcor[1],NA,NA,NA,NA,NA))
   
-  colnames(h2b_result.table) <- c("Parameter","Beta","$SE$","$df$","$t$-value","$p$-value","Random Effects (SD)")
+  colnames(h2b_result.table) <- c("Parameter","Beta","$SE$","$df$","$t$-value","$p$-value","$f^{2}$","Random Effects (SD)")
   
   h2b_result.table <- h2b_result.table[c(1,2,5,6),]
-  h2b_result.table$Parameter[1:4] <- c("Intercept", "Declining logistic contrast", "d'", "median RT")
+  h2b_result.table$Parameter[1:4] <- c("Intercept", "n-back level", "d'", "median RT")
   
-  h2b_result.table[,c(2:5,7)] <- round(h2b_result.table[,c(2:5,7)], digits = 2)
+  h2b_result.table[,c(2:5,7,8)] <- format(round(h2b_result.table[,c(2:5,7,8)], digits = 2), nsmall = 2)
   h2b_result.table[,6] <- signif(h2b_result.table[,6], digits = 3)
   
   h2b_result.table$ `$p$-value`[1:3] <- paste0("<.001")
-  
+  h2b_result.table$ `$f^{2}$`[1] <- paste0("")
   h2b_result.table$ `Random Effects (SD)`[2:4] <- paste0("")
 
 
@@ -1966,7 +1971,7 @@ plot_sv <-
   ggplot2::ggplot(pipelines_data[["AARO"]], aes(x = level, y = sv, group = subject, color = nfc)) +
     geom_point(size = 3, alpha = 0.5, position = position_jitter(w = 0.4, h = 0.05)) +
     ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
-    scale_color_gradient2(midpoint = mediannfc, low = "deepskyblue", mid = "gray", high = "firebrick2", space = "Lab") +
+    scale_color_gradient2(midpoint = mediannfc, low = "deepskyblue", mid = "gray", high = "red3", space = "Lab") +
     geom_vline(xintercept = c(0.5,1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
     xlab("n-back level") + 
     ylab("Subjective values")
