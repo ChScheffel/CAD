@@ -1259,6 +1259,7 @@ h2b_data <- pipelines_data[["AARO"]][ ,c("subject","level","round","sv","dprime"
 
 h2b_data$dprime.cwc <- h2b_data$dprime - (ave(h2b_data$dprime, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
 h2b_data$medianRT.cwc <- h2b_data$medianRT - (ave(h2b_data$medianRT, h2b_data$subject, FUN = function(x) mean(x, na.rm = T)))
+h2b_data$levellin <- h2b_data$level
 
 # turn into factor
 
@@ -1303,6 +1304,15 @@ h2b_data_excl <- droplevels(subset(h2b_data, abs(scale(resid(model1_h2b_raw))) <
 
 model1_h2b <- lmerTest::lmer(sv ~ level + dprime.cwc + medianRT.cwc + (1|subject),
                              data = h2b_data_excl, REML = T)
+
+# compute linear model to compare it with logistic model
+
+linmodel_h2b <- lmerTest::lmer(sv ~ levellin + dprime.cwc + medianRT.cwc + (1|subject),
+                               data = h2b_data_excl, REML = T, control = lmerControl(optimizer = "bobyqa"))
+
+# compare the linear and the logistic model
+
+compare_h2b <- anova(linmodel_h2b, model1_h2b)
 
 # to plot some fit indices if you like
 #sjPlot::plot_model(model1_h2b, type = "diag")
