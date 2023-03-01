@@ -1279,8 +1279,8 @@ model0_h2b <- lmerTest::lmer(sv ~ 1 + (1|subject), data = h2b_data, REML = T)
 # get intraclass correlation (ICC)
 
 ICC.Model <- function(Model.Name) {
-  tau.Null <- as.numeric(lapply(summary(Model.Name)$varcor, diag))
-  sigma.Null <- as.numeric(attr(summary(Model.Name)$varcor, "sc")^2)
+  tau.Null <- as.numeric(lapply(base::summary(Model.Name)$varcor, diag))
+  sigma.Null <- as.numeric(attr(base::summary(Model.Name)$varcor, "sc")^2)
   ICC.Null <- tau.Null/(tau.Null+sigma.Null)
   return(ICC.Null)
 }
@@ -1422,7 +1422,7 @@ hypothesis3a_model <- afex::aov_ez("subject", "svdiff", h3a_data,
 
 # format S3 class into data frame
 
-hypothesis3a_rmanova <- summary(hypothesis3a_model)
+hypothesis3a_rmanova <- base::summary(hypothesis3a_model)
 hypothesis3a_rmanova <- hypothesis3a_rmanova[["univariate.tests"]]
 hypothesis3a_rmanova <- as.data.frame(matrix(hypothesis3a_rmanova, nrow = 4, ncol = 6))
 
@@ -1552,7 +1552,7 @@ hypothesis3b_model <- afex::aov_ez("subject", "ntlx", h3b_data,
 
 # format S3 class into data frame
 
-hypothesis3b_rmanova <- summary(hypothesis3b_model)
+hypothesis3b_rmanova <- base::summary(hypothesis3b_model)
 hypothesis3b_rmanova <- hypothesis3b_rmanova[["univariate.tests"]]
 hypothesis3b_rmanova <- as.data.frame(matrix(hypothesis3b_rmanova, nrow = 4, ncol = 6))
 
@@ -1672,7 +1672,7 @@ ggsave(filename = "Figure_4.eps", plot = plot_h3b, device = "eps",
 
 # delete temporary data frame
 
-base::remove(ntlx, h3b_data, mediannfc)
+base::remove(ntlx, h3b_data)
 
 ##### Hypothesis 3c ############################################################
 
@@ -1710,7 +1710,7 @@ hypothesis3c_model <- afex::aov_ez("subject", "aversdiff", h3c_data,
 
 # format S3 class into data frame
 
-hypothesis3c_rmanova <- summary(hypothesis3c_model)
+hypothesis3c_rmanova <- base::summary(hypothesis3c_model)
 hypothesis3c_rmanova <- hypothesis3c_rmanova[["univariate.tests"]]
 hypothesis3c_rmanova <- as.data.frame(matrix(hypothesis3c_rmanova, nrow = 4, ncol = 6))
 
@@ -1810,7 +1810,7 @@ raincloudplots::raincloud_2x2_repmes(data_2x2 = plot_h3c_data,
 
 # remove temporary variables
 
-base::remove(diffscores, mediannfc, h3c_data)
+base::remove(diffscores, h3c_data)
 
 
 ##### Specification Curve Analysis #############################################
