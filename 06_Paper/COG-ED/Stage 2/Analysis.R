@@ -930,18 +930,18 @@ hypothesis1b_contrasts <- as.data.frame(pairs(hypothesis1b_emm))
 # get Bayes factors
 
 hypothesis1b_BF <- BayesFactor::anovaBF(formula = medianRT ~ level, data = h1b_data, progress = FALSE)
-hypothesis1b_contrasts$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = h1b_data$medianRT[h1b_data$level == 1], y = h1b_data$medianRT[h1b_data$level == 2],
-                                                                             progress = FALSE, paired = TRUE))$bf,
-                                 BayesFactor::extractBF(BayesFactor::ttestBF(x = h1b_data$medianRT[h1b_data$level == 1], y = h1b_data$medianRT[h1b_data$level == 3],
-                                                                             progress = FALSE, paired = TRUE))$bf,
-                                 BayesFactor::extractBF(BayesFactor::ttestBF(x = h1b_data$medianRT[h1b_data$level == 1], y = h1b_data$medianRT[h1b_data$level == 4],
-                                                                             progress = FALSE, paired = TRUE))$bf,
-                                 BayesFactor::extractBF(BayesFactor::ttestBF(x = h1b_data$medianRT[h1b_data$level == 2], y = h1b_data$medianRT[h1b_data$level == 3],
-                                                                             progress = FALSE, paired = TRUE))$bf,
-                                 BayesFactor::extractBF(BayesFactor::ttestBF(x = h1b_data$medianRT[h1b_data$level == 2], y = h1b_data$medianRT[h1b_data$level == 4],
-                                                                             progress = FALSE, paired = TRUE))$bf,
-                                 BayesFactor::extractBF(BayesFactor::ttestBF(x = h1b_data$medianRT[h1b_data$level == 3], y = h1b_data$medianRT[h1b_data$level == 4],
-                                                                             progress = FALSE, paired = TRUE))$bf)
+hypothesis1b_contrasts$BF10 <- c(apa_print(BayesFactor::ttestBF(x = h1b_data$medianRT[h1b_data$level == 1], y = h1b_data$medianRT[h1b_data$level == 2],
+                                                                             progress = FALSE, paired = TRUE))$table[1,"statistic"],
+                                 apa_print(BayesFactor::ttestBF(x = h1b_data$medianRT[h1b_data$level == 1], y = h1b_data$medianRT[h1b_data$level == 3],
+                                                                             progress = FALSE, paired = TRUE))$table[1,"statistic"],
+                                 apa_print(BayesFactor::ttestBF(x = h1b_data$medianRT[h1b_data$level == 1], y = h1b_data$medianRT[h1b_data$level == 4],
+                                                                             progress = FALSE, paired = TRUE))$table[1,"statistic"],
+                                 apa_print(BayesFactor::ttestBF(x = h1b_data$medianRT[h1b_data$level == 2], y = h1b_data$medianRT[h1b_data$level == 3],
+                                                                             progress = FALSE, paired = TRUE))$table[1,"statistic"],
+                                 apa_print(BayesFactor::ttestBF(x = h1b_data$medianRT[h1b_data$level == 2], y = h1b_data$medianRT[h1b_data$level == 4],
+                                                                             progress = FALSE, paired = TRUE))$table[1,"statistic"],
+                                 apa_print(BayesFactor::ttestBF(x = h1b_data$medianRT[h1b_data$level == 3], y = h1b_data$medianRT[h1b_data$level == 4],
+                                                                             progress = FALSE, paired = TRUE))$table[1,"statistic"])
 
 # get effect size and confidence interval
 
@@ -952,7 +952,7 @@ hypothesis1b_contrasts <- cbind(hypothesis1b_contrasts,
 
 colnames(hypothesis1b_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis1b_contrasts$Contrast <- gsub("X", "", hypothesis1b_contrasts$Contrast)
-hypothesis1b_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")] <- signif(hypothesis1b_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 3)
+hypothesis1b_contrasts[ ,c("Estimate","$SE$","$t$")] <- signif(hypothesis1b_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 3)
 hypothesis1b_contrasts$`$p$` <- format(round(hypothesis1b_contrasts$`$p$`, digits = 3), nsmall = 2)
 hypothesis1b_contrasts$`$p$`[hypothesis1b_contrasts$`$p$` == 0.000] <- "<.001"
 
@@ -1385,6 +1385,7 @@ compare_h2b <- anova(linmodel_h2b, model1_h2b)
   h2b_result.table$ `$p$-value`[1:3] <- paste0("<.001")
   h2b_result.table$ `$f^{2}$`[1] <- paste0("")
   h2b_result.table$ `Random Effects (SD)`[2:4] <- paste0("")
+  rownames(h2b_result.table) <- NULL
 
 
 ##### Hypothesis 3a ############################################################
