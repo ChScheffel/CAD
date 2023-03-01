@@ -209,13 +209,13 @@ In this study, the SV can be interpreted as "The minimum relative reward require
 Therefore, an SV of 1 indicates that this level is preferred over all others, while SVs lower than 1 indicate that in at least one pair, a different level was preferred over this one.
 
 INSERT FIGURE 1 HERE
-<!--
+
 ```{r figure1, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="An example for subjective values for an $n$-back task with three levels, returned by different modifications of the COG-ED paradigm for a hypothetical participant with the true preference 2-back > 3-back > 1-back. The grey boxes are the choice options shown to the participant. The participant's final reward value of the flexible level is displayed after the first arrow. The resulting subjective value of each level is displayed after the second arrow, in the notation \"SV 3-back(1-back)\" for the subjective value of 3-back when 1-back is the other choice. The Solution and Additional Benefit panel follow the same logic, but are preceded by a choice between equal rewards, and the participant's first choice indicated by an exclamation mark.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "Inkscape Figures", "Paradigm_Scheme.png"))
 
 ```
--->
+
 
 ### Study procedure
 Healthy participants aged 18 to 30\ years were recruited using the software *ORSEE*[@Greiner2015].
@@ -414,7 +414,7 @@ To investigate the dependency of the model results on the RT preprocessing, we c
 INSERT FIGURE 2 HERE
 ```{r sca-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of the multi level model for each of the 63 preprocessing pipelines. The lower panel indicates the type of preprocessing, the upper panel shows the beta coefficient of each predictor and its p-value. The colourbar indicates the BF10. The pipelines are sorted in descending order of the magnitude of the n-back level beta.", fig.pos="H"} 
   
-  #include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "sca-plot.png"))
+  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "sca-plot.png"))
 
 ```
 
