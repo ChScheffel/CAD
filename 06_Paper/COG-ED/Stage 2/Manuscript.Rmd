@@ -497,6 +497,11 @@ Interestingly, the curve of median RT betas in the upper panel of Figure\ \@ref(
 As Fernandez et al.[-@Fernandez2020] found, applying more than one preprocessing step to the reaction time data of a Stroop task increased the risk of false positives beyond $\alpha=.05$, and transformation choices inflated this risk more than outlier exclusion or aggregation choices did.
 Our data seems to corroborate this finding for $n$-back tasks as well.
 Surprisingly, the $d'$ betas appear almost unaffected by the preprocessing pipeline, even though $d'$ was computed after the outlier exclusion.
+This indicates that researchers who are interested in the correctness rather than the speed of responses can choose a simple preprocessing pipeline without risking false positives through elaborate transformations.
+
+## Differences between NFC groups
+
+The majority of participants (`r round(100*((nrow(data_SV[data_SV$level==1 & data_SV$sv==1,]))/nrow(data_quest)), digits = 1)`\ %) had an absolute preference for 1-back over the other levels, but that also means that there were `r round(100*((nrow(data_SV[data_SV$level!=1 & data_SV$sv==1,]))/nrow(data_quest)), digits = 1)`\ % who had an absolute preference for 2-, 3-, or 4-back, and `r round(100*((length(setdiff(unique(data_SV$subject), data_SV$subject[data_SV$sv == 1])))/nrow(data_quest)), digits = 1)`\ % who preferred no specific level over all others.
 
 \newpage
 
