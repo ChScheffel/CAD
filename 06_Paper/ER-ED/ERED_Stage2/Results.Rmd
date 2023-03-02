@@ -62,7 +62,6 @@ The preregistered model showed a correlation of $r=$ `r papaja::printnum(attr(su
 Our model explained `r papaja::printnum(MLM1_r2[2])` percent of variance and thus we assumed our model was overfitted due to including recoded strategy as random slope.
 We therefore set a new model without the recoded strategy as random slope factor to estimate the influence of predictors on SVs more precisely.
 The second model followed the specification: 
-
 $$
 \begin{split}
 SV \sim \text{effort rating} + \text{arousal rating} + \text{utility rating} + corrugator \text{ activity} \\\ + levator \text{ activity} + (1 |subject)
@@ -105,4 +104,15 @@ We found neither a significant associations between $slopes$ of SVs and FlexER s
 However, model fit was relatively low (`r papaja::apa_print(Flex_LM)$full_result$modelfit$r2`).
 
 ## 3.3. Exploratory analyses
+
+We exploratory wanted to investigate the influence of self-control and the investment trait Need for Cognition (NFC) on individual SVs of ER strategies.
+The starting point for this was the model reported before. 
+Only predictors that had previously shown a significant association with SVs were included in the model together with level 2 predictors self-control and NFC.
+The third model followed the specification:
+$$
+\begin{split}
+SV \sim \text{effort rating} + \\text{utility rating} + corrugator \text{ activity} \\\ self-control + NFC + (1 |subject)
+\end{split}
+$$
+
 
