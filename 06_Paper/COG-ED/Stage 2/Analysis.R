@@ -358,11 +358,17 @@ for (i in 1:nrow(data_quest)) {
 
 # add the NFC scores trial-wise to the nback data-frame
 
-data_nback <- left_join(data_nback, data_nfc, by = "subject")
+data_nback <- dplyr::left_join(data_nback, data_nfc, by = "subject")
 
 # remove the temporary variables
 
 base::remove(nfc, data_nfc)
+
+##### Motivation data frame ####################################################
+
+# combine NFC, SVs, and motivation
+
+data_motiv <- dplyr::left_join(data_SV, data_quest[,c("subject","motivation")], by = "subject")
 
 ##### Preprocessing pipelines for the SCA ######################################
 
@@ -1986,7 +1992,6 @@ sca_plot <- egg::ggarrange(sca_plot_upper, sca_plot_lower,
 
 # plot showing SVs per subject, colors depend on NFC
 
-plot_sv <-
   ggplot2::ggplot(pipelines_data[["AARO"]], aes(x = level, y = sv, group = subject, color = nfc)) +
     geom_point(size = 3, alpha = 0.8, position = position_jitter(w = 0.4, h = 0.05)) +
     ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
@@ -1994,6 +1999,15 @@ plot_sv <-
     geom_vline(xintercept = c(0.5,1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
     xlab("n-back level") + 
     ylab("Subjective values")
+
+# plot showing SVs per level, colors depend on motivation
+
+  ggplot2::ggplot(data_motiv, aes(as.factor(level), sv, fill = as.factor(motivation), color = as.factor(motivation))) +
+    geom_boxplot(alpha = .7) +
+    ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
+    scale_fill_manual(values=c("lightskyblue", "skyblue3","blue1","blue4","gray20")) +
+    scale_color_manual(values=c("lightskyblue", "skyblue3","blue1","blue4","gray20")) +
+    labs(x = "n-back level", y = "Subjective value")
 
 ##### Save variables ###########################################################
 
