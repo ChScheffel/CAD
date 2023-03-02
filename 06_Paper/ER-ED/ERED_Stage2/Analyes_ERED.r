@@ -891,24 +891,24 @@ EMGCorrReg_BF <- BayesFactor::anovaBF(formula = Corr ~ block,
                                        data = EMG_reg,
                                        progress = FALSE)
 
-EMGCorrReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
-                                                                     progress = FALSE, paired = FALSE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
-                                                                     progress = FALSE, paired = FALSE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = FALSE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
-                                                                     progress = FALSE, paired = FALSE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = FALSE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
-                                                                     y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = FALSE))$bf)
+EMGCorrReg_con$BF10 <- c(papaja::apa_print(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
+                                                                y = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
+                                                                progress = FALSE, paired = FALSE))$table[1,"statistic"],
+                         papaja::apa_print(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
+                                                                y = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
+                                                                progress = FALSE, paired = FALSE))$table[1,"statistic"],
+                         papaja::apa_print(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
+                                                                y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
+                                                                progress = FALSE, paired = FALSE))$table[1,"statistic"],
+                         papaja::apa_print(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
+                                                                y = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
+                                                                progress = FALSE, paired = FALSE))$table[1,"statistic"],
+                         papaja::apa_print(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
+                                                                y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
+                                                                progress = FALSE, paired = FALSE))$table[1,"statistic"],
+                         papaja::apa_print(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "4_distancing"],
+                                                                y = EMG_reg$Corr[EMG_reg$block == "5_suppression"],
+                                                                progress = FALSE, paired = FALSE))$table[1,"statistic"])
 
 EMGCorrReg_con <- cbind(EMGCorrReg_con,
                         format(effectsize::t_to_eta2(t = EMGCorrReg_con$t.ratio,
@@ -962,24 +962,24 @@ EMGLevReg_BF <- BayesFactor::anovaBF(formula = Lev ~ block,
                                      data = EMG_reg,
                                      progress = FALSE)
 
-EMGLevReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
-                                                                    y = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
-                                                                    progress = FALSE, paired = FALSE))$bf,
-                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
-                                                                    y = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
-                                                                    progress = FALSE, paired = FALSE))$bf,
-                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
-                                                                    y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
-                                                                    progress = FALSE, paired = FALSE))$bf,
-                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
-                                                                    y = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
-                                                                    progress = FALSE, paired = FALSE))$bf,
-                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
-                                                                    y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
-                                                                    progress = FALSE, paired = FALSE))$bf,
-                        BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
-                                                                    y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
-                                                                    progress = FALSE, paired = FALSE))$bf)
+EMGLevReg_con$BF10 <- c(papaja::apa_print(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
+                                                               y = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
+                                                               progress = FALSE, paired = FALSE))$table[1,"statistic"],
+                        papaja::apa_print(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
+                                                               y = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
+                                                               progress = FALSE, paired = FALSE))$table[1,"statistic"],
+                        papaja::apa_print(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
+                                                               y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
+                                                               progress = FALSE, paired = FALSE))$table[1,"statistic"],
+                        papaja::apa_print(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
+                                                               y = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
+                                                               progress = FALSE, paired = FALSE))$table[1,"statistic"],
+                        papaja::apa_print(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "3_distraction"],
+                                                               y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
+                                                               progress = FALSE, paired = FALSE))$table[1,"statistic"],
+                        papaja::apa_print(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "4_distancing"],
+                                                               y = EMG_reg$Lev[EMG_reg$block == "5_suppression"],
+                                                               progress = FALSE, paired = FALSE))$table[1,"statistic"])
 
 EMGLevReg_con <- cbind(EMGLevReg_con,
                        format(effectsize::t_to_eta2(t = EMGLevReg_con$t.ratio,
@@ -1037,24 +1037,24 @@ SubjEffort_BF <- BayesFactor::anovaBF(formula = effort ~ block,
                                       data = Ratings_reg,
                                       progress = FALSE)
 
-SubjEffort_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"],
-                                                                     y = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"],
-                                                                     y = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"],
-                                                                     y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],
-                                                                     y = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],
-                                                                     y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = TRUE))$bf,
-                         BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],
-                                                                     y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],
-                                                                     progress = FALSE, paired = TRUE))$bf)
+SubjEffort_con$BF10 <- c(papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"],
+                                                                y = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],
+                                                                progress = FALSE, paired = TRUE))$table[1,"statistic"],
+                         papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"],
+                                                                y = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],
+                                                                progress = FALSE, paired = TRUE))$table[1,"statistic"],
+                         papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"],
+                                                                y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],
+                                                                progress = FALSE, paired = TRUE))$table[1,"statistic"],
+                         papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],
+                                                                y = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],
+                                                                progress = FALSE, paired = TRUE))$table[1,"statistic"],
+                         papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],
+                                                                y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],
+                                                                progress = FALSE, paired = TRUE))$table[1,"statistic"],
+                         papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],
+                                                                y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],
+                                                                progress = FALSE, paired = TRUE))$table[1,"statistic"])
  
 SubjEffort_con <- cbind(SubjEffort_con,
                         format(effectsize::t_to_eta2(t = SubjEffort_con$t.ratio,
@@ -1271,13 +1271,14 @@ M_H5.ranef <- as.data.frame(base::summary(MLM_2)$varcor)
 M_H5.fixef <- base::summary(MLM_2)$coefficients
 
 H5_M2_table <- as.data.frame(cbind(rownames(M_H5.fixef),
-                                M_H5.fixef[,c(1,2,5)]))
+                                papaja::printnum(M_H5.fixef[,1], format = "e"),
+                                M_H5.fixef[,c(2,5)]))
 # add f2
 H5_M2_table$f2 <- NA
 H5_M2_table$f2[2:6] <- cbind(MLM2_f2$f2)
 
 H5_M2_table$ranef.sd <- NA
-H5_M2_table$ranef.sd[1] <- M_H5.ranef$sdcor[1]
+H5_M2_table$ranef.sd[1] <- cbind(M_H5.ranef$sdcor[1])
 
 colnames(H5_M2_table)[1] <- "Parameter"
 colnames(H5_M2_table)[2] <- "Beta"
@@ -1289,10 +1290,7 @@ colnames(H5_M2_table)[6] <- "Random Effects (SD)"
 row.names(H5_M2_table) <- NULL
 H5_M2_table$Parameter[1:6] <- c("Intercept", "Effort", "Arousal", "Utility", "Corrugator activity", "Levator activity")
 
-H5_M2_table[2:6] <- lapply(H5_M2_table[2:6], as.numeric)
-
-H5_M2_table$`$f^{2}$`[1] <- paste0("")
-H5_M2_table$ `Random Effects (SD)`[2:6] <- paste0("")
+H5_M2_table[3:6] <- lapply(H5_M2_table[3:6], as.numeric)
 
 ######## HYPOTHESIS 6
 
