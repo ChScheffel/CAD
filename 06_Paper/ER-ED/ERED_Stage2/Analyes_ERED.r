@@ -1405,7 +1405,27 @@ Flex_LM_BF <- BayesFactor::regressionBF(formula = FlexER ~ intercept + slope, da
 
 PCA.SC <- psych::principal(data_quest[,c("bscs_sum","srs_sum","bis11_sum")], rotate="none")
 
+# fill self-control value in data_quest
 
+data_quest$SC <- PCA.SC[["scores"]][,1]
+
+# fill SC values in df data_MLM
+
+for (i in seq_len(nrow(data_MLM))) {
+  
+  data_MLM$SC[i] <- data_quest$SC[data_quest$record_id_2 == data_MLM$ID[i]]
+  data_MLM$NFC[i] <- data_quest$nfc_sum[data_quest$record_id_2 == data_MLM$ID[i]]
+}
+
+# grand mean centering of SC
+# https://philippmasur.de/2018/05/23/how-to-center-in-multilevel-models/
+
+data_MLM$SC.gmc <- data_MLM$SC - mean(data_MLM$SC)
+data_MLM$NFC.gmc <- data_MLM$NFC - mean(data_MLM$NFC)
+
+MLM_3 <- lmerTest::lmer(formula = sv ~ effort.cwc + utility.cwc + Corr.cwc + SC.gmc + (1 | ID),
+                     data = data_MLM,
+                     REML = TRUE)
 #################### SAVE WORKSPACE IMAGE #######################
 
 save.image(file = "Workspace_ERED.RData")
