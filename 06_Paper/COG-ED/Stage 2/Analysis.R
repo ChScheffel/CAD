@@ -710,7 +710,7 @@ base::remove(pipedrop, pipeexclude, pipemad, pipemedian, piperows, pipeline_name
 
 for (j in 1:length(pipelines_data)) {
   
-  # compute index of rows in which the levels change
+  # compute index of rows in which the rounds of levels change
   
   roundindex <- c(1,which(pipelines_data[[j]]$round != dplyr::lag(pipelines_data[[j]]$round)),nrow(pipelines_data[[j]]))
   
@@ -782,7 +782,7 @@ base::remove(falsealarms, hits)
 
 for (j in 1:length(pipelines_data)) {
   
-  # compute index of rows in which the levels change
+  # compute index of rows in which the rounds of levels change
   
   roundindex <- c(1,which(pipelines_data[[j]]$round != dplyr::lag(pipelines_data[[j]]$round)),nrow(pipelines_data[[j]]))
   
