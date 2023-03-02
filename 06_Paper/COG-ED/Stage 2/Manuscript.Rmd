@@ -489,6 +489,13 @@ However, participants might have deliberately or subconsciously used the feedbac
 This feedback was based on correct responses and not on RT, so if participants based their effort discounting choices at least partly on this feedback, they were either motivated to repeat a task in which they performed well and/or they were reluctant to accept a larger reward for a task in which they did not perform well.
 Since more participants reported effort avoidance as their motivation in the effort discounting than those who reported seeking a challenge, we can assume that they were more motivated to repeat a task in which they performed well because their good performance coincided with low effort.
 
+The declining logistic $n$-back levels and $d'$ remained significant predictors of SVs throughout all 63 preprocessing pipelines in the specification curve analysis, with betas that varied by less than 0.01.
+In contrast to this stood the variability of the median RT betas, which ranged from about 0.11 to -0.01, and reached significance in only three pipelines.
+These three pipelines had the highest $BF_{10}$ and applied inverse transformation to the RT data, across subjects but within conditions, and excluded data based on the MAD.
+Interestingly, the curve of median RT betas in the upper panel of Figure\ \@ref(fig:sca-plot) mirrored the rectangular pipeline indicators in the transformation rows of the lower panel, so the transformation choice influenced the median RT much more than the dimension or the exclusion choice did.
+As Fernandez et al.[-@Fernandez2020] found, applying more than one preprocessing step to the reaction time data of a Stroop task increased the risk of false positives beyond $\alpha=.05$, and transformation choices inflated this risk more than outlier exclusion or aggregation choices did.
+Our data seems to corroborate this finding for $n$-back tasks as well.
+
 \newpage
 
 # References
