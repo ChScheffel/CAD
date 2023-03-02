@@ -108,6 +108,7 @@ header-includes   :
   library(bibtex)       # for referencing, "bibtex" package
   library(here)         # for path independent file referencing, "here" package
   library(papaja)       # APA conform output, "papaja" package
+  options(papaja.na_string = "")
   library(kableExtra)   # for great tables in R Markdown, "kableExtra" package
   library(interactions) # for simple slopes plots, "interactions" package
   library(BayesFactor)  # computing Bayes factors, "BayesFactor" package
