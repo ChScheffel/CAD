@@ -30,7 +30,7 @@ source(here("06_Paper","COG-ED", "Stage 2", "renv", "activate.R"))
 # the required packages are:
 # "bibtex", "here", "tidyverse", "bayestestR", "papaja", "lmerTest", "afex", "emmeans", "sjPlot", "purrr", "broom",
 # "kableExtra", "interactions", "glmmTMB", "BayesFactor", "ggplot2", "egg", "knitr", "effectsize", "pracma", "MuMIn",
-# "MetBrewer", "lubridate", "nlraa" and "ggprism"
+# "MetBrewer", "lubridate", and "ggprism"
 library(tidyverse) # as an explicit call because renv somehow refuses to remember it
 
 # sets orthogonal contrasts for mixed-effects model and rmANOVA globally in order to get meaningful Type-III tests
@@ -1972,7 +1972,7 @@ sca_plot_upper <-
   ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
   labs(x = NULL, y = "beta") +
   scale_x_continuous(labels = NULL) +
-  scale_color_manual(labels = c("p > .05", "p < .05", "p < .01"), values = c("darkslategray3","darkslategray4","darkslategray")) +
+  scale_color_manual(labels = c("p > .05", "p < .05", "p < .01"), values = c("darkgray","darkturquoise","deepskyblue4")) +
   scale_shape_manual(labels = c("d'","n-back level","median RT"), values = c(18,17,19)) +
   scale_y_continuous(breaks = c(0,0.05,0.1))
 

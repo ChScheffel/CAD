@@ -496,6 +496,7 @@ These three pipelines had the highest $BF_{10}$ and applied inverse transformati
 Interestingly, the curve of median RT betas in the upper panel of Figure\ \@ref(fig:sca-plot) mirrored the rectangular pipeline indicators in the transformation rows of the lower panel, so the transformation choice influenced the median RT much more than the dimension or the exclusion choice did.
 As Fernandez et al.[-@Fernandez2020] found, applying more than one preprocessing step to the reaction time data of a Stroop task increased the risk of false positives beyond $\alpha=.05$, and transformation choices inflated this risk more than outlier exclusion or aggregation choices did.
 Our data seems to corroborate this finding for $n$-back tasks as well.
+Surprisingly, the $d'$ betas appear almost unaffected by the preprocessing pipeline, even though $d'$ was computed after the outlier exclusion.
 
 \newpage
 
