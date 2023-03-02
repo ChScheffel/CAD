@@ -94,24 +94,21 @@ papaja::apa_table(
   SubjArousalReg_con,
   caption = "Post-hoc tests for effects of ER strategies on subjective arousal ratings.",
   escape = FALSE,
-  placement = "H",
-  font_size = "footnotesize"
+  placement = "H"
   ) 
 
 papaja::apa_table(
   EMGCorrReg_con,
   caption = "Post-hoc tests for effects of ER strategies on Corrugator activity",
   escape = FALSE,
-  placement = "H",
-  font_size = "footnotesize"
+  placement = "H"
   )
 
 papaja::apa_table(
   EMGLevReg_con,
   caption = "Post-hoc tests for effects of ER strategies on Levator activity",
   escape = FALSE,
-  placement = "H",
-  font_size = "footnotesize"
+  placement = "H"
   )
 
 ```
