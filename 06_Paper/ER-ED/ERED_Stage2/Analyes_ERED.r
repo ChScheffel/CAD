@@ -932,7 +932,7 @@ EMGCorrReg_con[6, 1] <- "$Distancing - Suppression$"
 EMG_reg_plot <- EMG_reg %>% group_by(ID, block) %>% summarise_at(vars("Corr","Lev"), list(mean))
 
 FigEMGCorrReg <- ggplot2::ggplot(EMG_reg_plot, aes(x = block, y = Corr, fill = factor(block))) +
-  ggdist::stat_dots(justification = -0.2, quantiles = 150, limits = c(.05, .95), scale = 0.7, color = NA) +
+  ggdist::stat_dots(justification = -0.2, quantiles = 150, limits = c(.05, .95), scale = 0.8, color = NA) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
   geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.5)+
   #geom_point(size = 1, alpha = 0.75, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), aes(col = factor(block)))+
@@ -1003,7 +1003,7 @@ EMGLevReg_con[6, 1] <- "$Distancing - Suppression$"
 
 # figure
 FigEMGLevReg <- ggplot2::ggplot(EMG_reg_plot, aes(x = block, y = Lev, fill = factor(block))) +
-  ggdist::stat_dots(justification = -0.2, quantiles = 150, limits = c(.05, .95), scale = 0.7, color = NA) +
+  ggdist::stat_dots(justification = -0.2, quantiles = 150, limits = c(.05, .95), scale = 0.9, color = NA) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
   geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.5)+
   #geom_point(size = 1, alpha = 0.75, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), aes(col = factor(block)))+
@@ -1080,7 +1080,7 @@ SubjEffort_con[6, 1] <- "$Distancing - Suppression$"
 # Figure to visualize effort ratings across blocks
 
 FigSubjEffort <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort, fill = factor(block))) +
-  ggdist::stat_dots(justification = -0.2, quantiles = 150, limits = c(.05, .95), scale = 0.7, color = NA) +
+  ggdist::stat_dots(justification = -0.2, quantiles = 150, limits = c(.05, .95), scale = 0.8, color = NA) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
   geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.5)+
   #geom_point(size = 1, alpha = 0.75, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), aes(col = factor(block)))+
