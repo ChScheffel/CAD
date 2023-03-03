@@ -331,6 +331,8 @@ But our paradigm can also account for the case that a person does not have a cle
 Then no SV will be 1, but still, the SVs of all strategies can be interpreted as absolute values and in relation to the other strategy's SVs (see Figure \ref{fig:ResponsePatterns}).
 In a separate study, we will test our adapted paradigm together with a \emph{n}-back task and explore whether this paradigm can describe individuals that do not prefer the easiest \emph{n}-back option (see Zerna, Scheffel et al.\textsuperscript{34}).
 
+{[}INSERT FIGURE 1 HERE{]}
+
 \begin{figure}
 \includegraphics[width=\textwidth]{figures/Paradigm_Scheme_T2} \caption{Exemplary visualization of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can be represented by our paradigm. Figure available at https://osf.io/vnj8x/, under a CC-BY4.0 license.}\label{fig:ResponsePatterns}
 \end{figure}
@@ -450,6 +452,8 @@ Importantly, there was no further instruction on what basis they should make the
 Participants should make their decision freely, according to criteria they consider important for themselves.
 However, participants were asked to state the reasons for the decision afterwards in RedCap using a free text field.
 As soon as they have decided, they saw the respective instruction and the block with another 20 negative pictures started.
+
+{[}INSERT FIGURE 2 HERE{]}
 
 \begin{figure}
 \includegraphics[width=\textwidth]{figures/Design_ER-ED} \caption{Block design of the paradigm. Every participant starts with two "active viewing" blocks continaing neutral (Block 1) and negative (Block 2) pictures. Order of the regulation blocks (Blocks 3, 4, and 5) was randomized between participants. After, the discounting procedure took place. All three regulation strategies were compared pairwise. Before the last block, participants could decide which regulation strategy they wanted to reapply. Subjective arousal and effort ratings were assessed after each block using a slider on screen with a continuous scale. Figure available at https://osf.io/vnj8x/, under a CC-BY4.0 license.}\label{fig:DesignERED}
@@ -602,6 +606,11 @@ Moreover, we found significantly lower effort during suppression compared with d
 \hypertarget{subjective-values-of-er-strategies}{%
 \paragraph{Subjective values of ER strategies}\label{subjective-values-of-er-strategies}}
 
+Individual SVs could be determined for 120 participants for all three ER strategies.
+SVs ranged between 0.005 and 1.00.
+In sum, \(n=\) 119 had a SVs of 1.0, indicating a clear preference for one ER strategy.
+Highest SV for distraction was reported by \(n=\) 41, for distancing by \(n=\) 36, and for suppression by \(n=\) 36.
+
 To investigate, which variables can predict individual SVs of ER strategies, a multilevel model approach was chosen.
 The ICC of the null model was \(ICC=\) 0.19, indicating that level-2 predictor subject accounted for 19.10 percent of total variance.
 The preregistered model showed a correlation of \(r=\) 0.95 of the random effects subjects and recoded strategy (\(BF10\) of the variable strategy: \(\mathrm{BF}_{\textrm{10}} = \infty\)).
@@ -615,14 +624,16 @@ SV \sim \text{effort rating} + \text{arousal rating} + \text{utility rating} + c
 \]
 
 The second model explained 0.41 percent of variance.
-All results of the second model are in table~@ref(tab:TabMLM\_H5).
+All results of the second model are in table~\ref{tab:TabMLMH5}.
+
+{[}INSERT TABLE 1 HERE{]}
 
 \begin{table}[H]
 
 \begin{center}
 \begin{threeparttable}
 
-\caption{\label{tab:TabMLM_H5}Results of multilevel model predicting subjective values of ER strategies.}
+\caption{\label{tab:TabMLMH5}Results of multilevel model predicting subjective values of ER strategies.}
 
 \begin{tabular}{llllll}
 \toprule
@@ -1155,7 +1166,7 @@ Levator Suppression & 0.01 & 1.00 & 0.55 & 0.00\\
 
 \caption{\label{tab:SupplEffectER}Post-hoc tests for effects of ER strategies on subjective arousal ratings.}
 
-\small{
+\footnotesize{
 
 \begin{tabular}{lllllllll}
 \toprule
