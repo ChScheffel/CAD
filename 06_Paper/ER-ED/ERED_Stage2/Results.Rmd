@@ -80,7 +80,7 @@ papaja::apa_table(
   placement = "H")
 ```
 
-The predictors effort rating (`r papaja::apa_print(MLM_2)$full_result$effort_cwc`), utility rating (`r papaja::apa_print(MLM_2)$full_result$effort_cwc`), and *Corrugator* activity (`r papaja::apa_print(MLM_2)$full_result$effort_cwc`) showed a significant association with SVs.
+The predictors effort rating (`r papaja::apa_print(MLM_2)$full_result$effort_cwc`), utility rating (`r papaja::apa_print(MLM_2)$full_result$effort_cwc`), and *Corrugator* activity (`r papaja::apa_print(MLM_2)$full_result$Corr_cwc`) showed a significant association with SVs.
 The values were relatively small, so the respective effect size $f^{2}$ was calculated as the explained variance.
 Interestingly, utility rating showed the greatest effect size of all predictors ($f^{2}=$ `r papaja::printnum(H5_M2_table[4,5], digits = 3)`), indicating that utility rating explained `r papaja::printnum(H5_M2_table[4,5]*100, digits = 1)` percent of variance in SVs. 
 Effort rating showed an effect size of $f^{2}=$ `r papaja::printnum(H5_M2_table[2,5], digits = 3)`.
@@ -114,5 +114,8 @@ $$
 SV \sim \text{effort rating} + \\text{utility rating} + corrugator \text{ activity} \\\ self-control + NFC + (1 |subject)
 \end{split}
 $$
-
+As one would expect, the predictors effort rating (`r papaja::apa_print(MLM_3)$full_result$effort_cwc`), utility rating (`r papaja::apa_print(MLM_3)$full_result$effort_cwc`), and *Corrugator* activity (`r papaja::apa_print(MLM_3)$full_result$Corr_cwc`) showed a significant association with SVs.
+In addition, a positive association was also found between self-control and SVs (`r papaja::apa_print(MLM_3)$full_result$SC_gmc`).
+However, effect size of self-control was negligibly small ($f^{2}=$ `r papaja::printnum(Exp_M3_table[5,5], digits = 3)`).
+Detailed information can be found in the [supplementary material](#SupplementExploratory).
 
