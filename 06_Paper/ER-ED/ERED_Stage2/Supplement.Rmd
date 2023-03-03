@@ -17,6 +17,8 @@ library(tidyverse)
 # load workspace variables from analyses_ERED.R script
 base::load(here("06_Paper","ER-ED","ERED_Stage2","Workspace_ERED_pilot.RData"))
 base::load(here("06_Paper","ER-ED","ERED_Stage2","Workspace_ERED.RData"))
+
+options(papaja.na_string = "")
 ```
 
 # Supplementary Material {#SupplementaryMaterial}
@@ -94,22 +96,37 @@ papaja::apa_table(
   SubjArousalReg_con,
   caption = "Post-hoc tests for effects of ER strategies on subjective arousal ratings.",
   escape = FALSE,
-  placement = "H"
+  placement = "H",
+  font_size = "footnotesize"
   ) 
 
 papaja::apa_table(
   EMGCorrReg_con,
   caption = "Post-hoc tests for effects of ER strategies on Corrugator activity",
   escape = FALSE,
-  placement = "H"
+  placement = "H",
+  font_size = "footnotesize"
   )
 
 papaja::apa_table(
   EMGLevReg_con,
   caption = "Post-hoc tests for effects of ER strategies on Levator activity",
   escape = FALSE,
-  placement = "H"
+  placement = "H",
+  font_size = "footnotesize"
   )
 
 ```
 
+\newpage
+
+## Exploratory analysis: Association between SVs and self-control and NFC
+
+``` {r TabExp, echo=FALSE, message=FALSE, warning=FALSE} 
+papaja::apa_table(
+  Exp_M3_table,
+  caption = "Exploratory analysis: Results of MLM predicting SVs of ER strategies with level 2 predictors self-control and NFC.",
+  booktabs = TRUE,
+  escape = FALSE,
+  placement = "H")
+```

@@ -331,6 +331,8 @@ But our paradigm can also account for the case that a person does not have a cle
 Then no SV will be 1, but still, the SVs of all strategies can be interpreted as absolute values and in relation to the other strategy's SVs (see Figure \ref{fig:ResponsePatterns}).
 In a separate study, we will test our adapted paradigm together with a \emph{n}-back task and explore whether this paradigm can describe individuals that do not prefer the easiest \emph{n}-back option (see Zerna, Scheffel et al.\textsuperscript{34}).
 
+{[}INSERT FIGURE 1 HERE{]}
+
 \begin{figure}
 \includegraphics[width=\textwidth]{figures/Paradigm_Scheme_T2} \caption{Exemplary visualization of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can be represented by our paradigm. Figure available at https://osf.io/vnj8x/, under a CC-BY4.0 license.}\label{fig:ResponsePatterns}
 \end{figure}
@@ -450,6 +452,8 @@ Importantly, there was no further instruction on what basis they should make the
 Participants should make their decision freely, according to criteria they consider important for themselves.
 However, participants were asked to state the reasons for the decision afterwards in RedCap using a free text field.
 As soon as they have decided, they saw the respective instruction and the block with another 20 negative pictures started.
+
+{[}INSERT FIGURE 2 HERE{]}
 
 \begin{figure}
 \includegraphics[width=\textwidth]{figures/Design_ER-ED} \caption{Block design of the paradigm. Every participant starts with two "active viewing" blocks continaing neutral (Block 1) and negative (Block 2) pictures. Order of the regulation blocks (Blocks 3, 4, and 5) was randomized between participants. After, the discounting procedure took place. All three regulation strategies were compared pairwise. Before the last block, participants could decide which regulation strategy they wanted to reapply. Subjective arousal and effort ratings were assessed after each block using a slider on screen with a continuous scale. Figure available at https://osf.io/vnj8x/, under a CC-BY4.0 license.}\label{fig:DesignERED}
@@ -594,44 +598,53 @@ For detailed information on post-hoc tests, please see \protect\hyperlink{Supple
 
 To investigate whether ER strategies require cognitive effort, we conducted an rmANOVA comparing the subjective effort ratings of four strategies (active viewing, distraction, distancing, suppression).
 We found a significant effect of strategy (\(F(2.92, 347.65) = 128.47\), \(p < .001\), \(\hat{\eta}^2_G = .327\), 90\% CI \([.261, .384]\), \(\mathrm{BF}_{\textrm{10}} = 1.84 \times 10^{37}\)).
-Post-hoc test showed significant higher subjective effort for distraction (\(\eta_{p}^{2}=0.47, [0.42, 1.00]\), \(BF_{10}=\) \(3.61 \times 10^{30}\)), distancing (\(\eta_{p}^{2}=0.41, [0.35, 1.00]\), \(BF_{10}=\) \(1.60 \times 10^{28}\)), and suppression (\(\eta_{p}^{2}=0.30, [0.23, 1.00]\), \(BF_{10}=\) \(1.27 \times 10^{19}\)) compared to active viewing.
-Moreover, we found significantly lower effort during suppression compared with distraction (\(\eta_{p}^{2}=0.08, [0.04, 1.00]\), \(BF_{10}=\) \(1.61 \times 10^{6}\)) and distancing (\(\eta_{p}^{2}=0.03, [0.01, 1.00]\), \(BF_{10}=\) 29.19).
+Post-hoc test showed significant higher subjective effort for distraction (\(t(357) = -17.92\), \(p_\mathrm{\scriptsize Tukey(4)} < .001\), \(\mathrm{BF}_{\textrm{10}} = 3.61 \times 10^{30}\)), distancing (\(t(357) = -15.82\), \(p_\mathrm{\scriptsize Tukey(4)} < .001\), \(\mathrm{BF}_{\textrm{10}} = 1.60 \times 10^{28}\)), and suppression (\(t(357) = -12.26\), \(p_\mathrm{\scriptsize Tukey(4)} < .001\), \(\mathrm{BF}_{\textrm{10}} = 1.27 \times 10^{19}\)) compared to active viewing.
+Moreover, we found significantly lower effort during suppression compared with distraction (\(t(357) = 5.66\), \(p_\mathrm{\scriptsize Tukey(4)} < .001\), \(\mathrm{BF}_{\textrm{10}} = 1.61 \times 10^{6}\)) and distancing (\(t(357) = 3.55\), \(p_\mathrm{\scriptsize Tukey(4)} = .002\), \(\mathrm{BF}_{\textrm{10}} = 29.19\)).
 
 {[}\ldots{} WAHLVERHALTEN FEHLT NOCH \ldots{]}
 
 \hypertarget{subjective-values-of-er-strategies}{%
 \paragraph{Subjective values of ER strategies}\label{subjective-values-of-er-strategies}}
 
+Individual SVs could be determined for 120 participants for all three ER strategies.
+SVs ranged between 0.005 and 1.00.
+In sum, \(n=\) 119 had a SVs of 1.0, indicating a clear preference for one ER strategy.
+Highest SV for distraction was reported by \(n=\) 41, for distancing by \(n=\) 36, and for suppression by \(n=\) 36.
+
 To investigate, which variables can predict individual SVs of ER strategies, a multilevel model approach was chosen.
 The ICC of the null model was \(ICC=\) 0.19, indicating that level-2 predictor subject accounted for 19.10 percent of total variance.
-The preregistered model showed a correlation of \(r=\) 0.95 of the random effects subjects and recoded strategy.
-In addition with the estimation that our model explained 0.90 percent of variance, we assumed our model was overfitted due to inclueding recoded strategy as random slope.
-We therefore set a new model without the recoded strategy as random slope factor, that followed the specification:
-
+The preregistered model showed a correlation of \(r=\) 0.95 of the random effects subjects and recoded strategy (\(BF10\) of the variable strategy: \(\mathrm{BF}_{\textrm{10}} = \infty\)).
+Our model explained 0.90 percent of variance and thus we assumed our model was overfitted due to including recoded strategy as random slope.
+We therefore set a new model without the recoded strategy as random slope factor to estimate the influence of predictors on SVs more precisely.
+The second model followed the specification:
 \[
 \begin{split}
 SV \sim \text{effort rating} + \text{arousal rating} + \text{utility rating} + corrugator \text{ activity} \\\ + levator \text{ activity} + (1 |subject)
 \end{split}
 \]
 
+The second model explained 0.41 percent of variance.
+All results of the second model are in table~\ref{tab:TabMLMH5}.
+
+{[}INSERT TABLE 1 HERE{]}
+
 \begin{table}[H]
 
 \begin{center}
 \begin{threeparttable}
 
-\caption{\label{tab:TabMLM_H5}Results of multilevel model predicting subjective values of ER strategies.}
+\caption{\label{tab:TabMLMH5}Results of multilevel model predicting subjective values of ER strategies.}
 
-\begin{tabular}{lllll}
+\begin{tabular}{llllll}
 \toprule
-Parameter & \multicolumn{1}{c}{Beta} & \multicolumn{1}{c}{$SE$} & \multicolumn{1}{c}{$p$-value} & \multicolumn{1}{c}{Random Effects (SD)}\\
+Parameter & \multicolumn{1}{c}{Beta} & \multicolumn{1}{c}{$SE$} & \multicolumn{1}{c}{$p$-value} & \multicolumn{1}{c}{$f^{2}$} & \multicolumn{1}{c}{Random Effects (SD)}\\
 \midrule
-Intercept & 0.80 & 0.01 & 0.00 & 0.12\\
-Strategy & -0.22 & 0.01 & 0.00 & 0.14\\
-Effort & 0.00 & 0.00 & 0.00 & \\
-Arousal & 0.00 & 0.00 & 0.00 & \\
-Utility & 0.00 & 0.00 & 0.00 & \\
-Corrugator activity & 0.00 & 0.00 & 0.17 & \\
-Levator activity & 0.00 & 0.00 & 0.90 & \\
+Intercept & $8.03 \times 10^{-1}$ & 0.01 & 0.00 &  & 0.11\\
+Effort & $-6.85 \times 10^{-4}$ & 0.00 & 0.00 & 0.03 & \\
+Arousal & $-7.84 \times 10^{-5}$ & 0.00 & 0.32 & 0.00 & \\
+Utility & $1.42 \times 10^{-3}$ & 0.00 & 0.00 & 0.15 & \\
+Corrugator activity & $7.45 \times 10^{-3}$ & 0.00 & 0.04 & 0.00 & \\
+Levator activity & $5.32 \times 10^{-3}$ & 0.00 & 0.07 & 0.00 & \\
 \bottomrule
 \end{tabular}
 
@@ -639,6 +652,12 @@ Levator activity & 0.00 & 0.00 & 0.90 & \\
 \end{center}
 
 \end{table}
+
+The predictors effort rating (\(\hat{\beta} = 0.00\), 95\% CI \([0.00, 0.00]\), \(t(5,618.96) = -13.98\), \(p < .001\)), utility rating (\(\hat{\beta} = 0.00\), 95\% CI \([0.00, 0.00]\), \(t(5,618.96) = -13.98\), \(p < .001\)), and \emph{Corrugator} activity (\(\hat{\beta} = 0.01\), 95\% CI \([0.00, 0.01]\), \(t(5,618.96) = 2.09\), \(p = .037\)) showed a significant association with SVs.
+The values were relatively small, so the respective effect size \(f^{2}\) was calculated as the explained variance.
+Interestingly, utility rating showed the greatest effect size of all predictors (\(f^{2}=\) 0.155), indicating that utility rating explained 15.5 percent of variance in SVs.
+Effort rating showed an effect size of \(f^{2}=\) 0.035.
+The effect sizes of all other predictors were negligibly small (\(f^{2}< 0.01\)).
 
 \hypertarget{associations-between-subjective-values-and-flexible-er}{%
 \paragraph{Associations between subjective values and flexible ER}\label{associations-between-subjective-values-and-flexible-er}}
@@ -660,6 +679,20 @@ However, model fit was relatively low (\(R^2 = .03\), \(F(2, 117) = 1.93\), \(p 
 
 \hypertarget{exploratory-analyses}{%
 \subsection{3.3. Exploratory analyses}\label{exploratory-analyses}}
+
+We exploratory wanted to investigate the influence of self-control and the investment trait Need for Cognition (NFC) on individual SVs of ER strategies.
+The starting point for this was the model reported before.
+Only predictors that had previously shown a significant association with SVs were included in the model together with level 2 predictors self-control and NFC.
+The third model followed the specification:
+\[
+\begin{split}
+SV \sim \text{effort rating} + \text{utility rating} + corrugator \text{ activity} \\\ \text{self-control} + \text{NFC} + (1 |subject)
+\end{split}
+\]
+As one would expect, the predictors effort rating (\(\hat{\beta} = 0.00\), 95\% CI \([0.00, 0.00]\), \(t(5,620.93) = -14.26\), \(p < .001\)), utility rating (\(\hat{\beta} = 0.00\), 95\% CI \([0.00, 0.00]\), \(t(5,620.93) = -14.26\), \(p < .001\)), and \emph{Corrugator} activity (\(\hat{\beta} = 0.01\), 95\% CI \([0.00, 0.01]\), \(t(5,620.93) = 2.12\), \(p = .034\)) showed a significant association with SVs.
+In addition, a positive association was also found between self-control and SVs (\(\hat{\beta} = 0.02\), 95\% CI \([0.00, 0.05]\), \(t(97.97) = 2.04\), \(p = .044\)).
+However, effect size of self-control was negligibly small (\(f^{2}=\) 0.002).
+Detailed information can be found in the \protect\hyperlink{SupplementExploratory}{supplementary material}.
 
 \hypertarget{references}{%
 \section{References}\label{references}}
@@ -1170,10 +1203,10 @@ Contrast & \multicolumn{1}{c}{Estimate} & \multicolumn{1}{c}{$SE$} & \multicolum
 \midrule
 $View_{neg} - Distraction$ & 0.18 & 0.04 & 351.00 & 4.79 & 0.00 & 21,919.73 & 0.06 & {}[0.03, 1.00]\\
 $View_{neg} - Distancing$ & 0.19 & 0.04 & 351.00 & 5.09 & 0.00 & 139,814.01 & 0.07 & {}[0.03, 1.00]\\
-$View_{neg} - Suppression$ & 0.21 & 0.04 & 351.00 & 5.67 & 0.00 & 18,426,055.49 & 0.08 & {}[0.04, 1.00]\\
-$Distraction - Distancing$ & 0.01 & 0.04 & 351.00 & 0.30 & 1.00 & 0.04 & 2.61e-04 & {}[0.00, 1.00]\\
-$Distraction - Suppression$ & 0.03 & 0.04 & 351.00 & 0.88 & 1.00 & 0.08 & 2.21e-03 & {}[0.00, 1.00]\\
-$Distancing - Suppression$ & 0.02 & 0.04 & 351.00 & 0.58 & 1.00 & 0.05 & 9.51e-04 & {}[0.00, 1.00]\\
+$View_{neg} - Suppression$ & 0.21 & 0.04 & 351.00 & 5.67 & 0.00 & $1.84 \times 10^{7}$ & 0.08 & {}[0.04, 1.00]\\
+$Distraction - Distancing$ & 0.01 & 0.04 & 351.00 & 0.30 & 1.00 & $3.77 \times 10^{-2}$ & 2.61e-04 & {}[0.00, 1.00]\\
+$Distraction - Suppression$ & 0.03 & 0.04 & 351.00 & 0.88 & 1.00 & $8.02 \times 10^{-2}$ & 2.21e-03 & {}[0.00, 1.00]\\
+$Distancing - Suppression$ & 0.02 & 0.04 & 351.00 & 0.58 & 1.00 & $4.79 \times 10^{-2}$ & 9.51e-04 & {}[0.00, 1.00]\\
 \bottomrule
 \end{tabular}
 
@@ -1197,16 +1230,46 @@ $Distancing - Suppression$ & 0.02 & 0.04 & 351.00 & 0.58 & 1.00 & 0.05 & 9.51e-0
 \toprule
 Contrast & \multicolumn{1}{c}{Estimate} & \multicolumn{1}{c}{$SE$} & \multicolumn{1}{c}{$df$} & \multicolumn{1}{c}{$t$} & \multicolumn{1}{c}{$p$} & \multicolumn{1}{c}{$BF10$} & \multicolumn{1}{c}{$\eta_{p}^{2}$} & \multicolumn{1}{c}{$95\% CI$}\\
 \midrule
-$View_{neg} - Distraction$ & 0.34 & 0.05 & 351.00 & 6.73 & 0.00 & 202,428,623,285.88 & 0.11 & {}[0.07, 1.00]\\
-$View_{neg} - Distancing$ & 0.28 & 0.05 & 351.00 & 5.66 & 0.00 & 39,887,367.63 & 0.08 & {}[0.04, 1.00]\\
-$View_{neg} - Suppression$ & 0.32 & 0.05 & 351.00 & 6.37 & 0.00 & 86,036,487,908.69 & 0.10 & {}[0.06, 1.00]\\
+$View_{neg} - Distraction$ & 0.34 & 0.05 & 351.00 & 6.73 & 0.00 & $2.02 \times 10^{11}$ & 0.11 & {}[0.07, 1.00]\\
+$View_{neg} - Distancing$ & 0.28 & 0.05 & 351.00 & 5.66 & 0.00 & $3.99 \times 10^{7}$ & 0.08 & {}[0.04, 1.00]\\
+$View_{neg} - Suppression$ & 0.32 & 0.05 & 351.00 & 6.37 & 0.00 & $8.60 \times 10^{10}$ & 0.10 & {}[0.06, 1.00]\\
 $Distraction - Distancing$ & -0.05 & 0.05 & 351.00 & -1.07 & 1.00 & 0.22 & 3.26e-03 & {}[0.00, 1.00]\\
-$Distraction - Suppression$ & -0.02 & 0.05 & 351.00 & -0.36 & 1.00 & 0.04 & 3.70e-04 & {}[0.00, 1.00]\\
-$Distancing - Suppression$ & 0.04 & 0.05 & 351.00 & 0.71 & 1.00 & 0.10 & 1.44e-03 & {}[0.00, 1.00]\\
+$Distraction - Suppression$ & -0.02 & 0.05 & 351.00 & -0.36 & 1.00 & $3.91 \times 10^{-2}$ & 3.70e-04 & {}[0.00, 1.00]\\
+$Distancing - Suppression$ & 0.04 & 0.05 & 351.00 & 0.71 & 1.00 & $9.86 \times 10^{-2}$ & 1.44e-03 & {}[0.00, 1.00]\\
 \bottomrule
 \end{tabular}
 
 }
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\newpage
+
+\hypertarget{exploratory-analysis-association-between-svs-and-self-control-and-nfc}{%
+\subsection{Exploratory analysis: Association between SVs and self-control and NFC}\label{exploratory-analysis-association-between-svs-and-self-control-and-nfc}}
+
+\begin{table}[H]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:TabExp}Exploratory analysis: Results of MLM predicting SVs of ER strategies with level 2 predictors self-control and NFC.}
+
+\begin{tabular}{llllll}
+\toprule
+Parameter & \multicolumn{1}{c}{Beta} & \multicolumn{1}{c}{$SE$} & \multicolumn{1}{c}{$p$-value} & \multicolumn{1}{c}{$f^{2}$} & \multicolumn{1}{c}{Random Effects (SD)}\\
+\midrule
+Intercept & $8.03 \times 10^{-1}$ & 0.01 & 0.00 &  & 0.11\\
+Effort & $-6.93 \times 10^{-4}$ & 0.00 & 0.00 & 0.04 & \\
+Utility & $1.44 \times 10^{-3}$ & 0.00 & 0.00 & 0.20 & \\
+Corrugator activity & $7.54 \times 10^{-3}$ & 0.00 & 0.03 & 0.00 & \\
+Self-Control & $2.44 \times 10^{-2}$ & 0.01 & 0.04 & 0.00 & \\
+NFC & $7.58 \times 10^{-4}$ & 0.00 & 0.44 & 0.00 & \\
+\bottomrule
+\end{tabular}
 
 \end{threeparttable}
 \end{center}
