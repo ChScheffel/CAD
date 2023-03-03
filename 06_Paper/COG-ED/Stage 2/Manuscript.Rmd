@@ -364,6 +364,8 @@ Ratings on the physical subscale were higher for more difficult levels (`r apa_p
 
 When asking participants what motivated their decisions in the effort discounting, `r format(round((table(data_quest$motivation)[1]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% stated that they wanted to avoid boredom, `r format(round((table(data_quest$motivation)[2]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% stated that they wanted a challenge, `r format(round((table(data_quest$motivation)[3]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% stated that they wanted to avoid effort, and `r format(round((table(data_quest$motivation)[4]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% stated that they wanted to relax.
 The remaining `r format(round((table(data_quest$motivation)[5]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% of participants used the free text field and provided reasons such as "I wanted a fair relation of effort and reward.", "I wanted the fun that I had in the more challenging levels.", "I wanted to maximize reward first and minimize effort second.", or "I did not want to perform poorly when I was being paid for it.".
+**Figure XX in the Supplement** shows the different motivations in the context of the SVs per $n$-back level.
+
 The rmANOVA showed a significant difference between the SVs across $n$-back levels (`r apa_print(hypothesis2a_rmanova)$full_result$level`, `r apa_print(hypothesis2a_BF)$statistic`).
 All four pre-defined contrasts reached significance (Table\ \@ref(tab:H2a-contrasts)), so a purely linear contrast can be rejected.
 
@@ -398,7 +400,6 @@ kable(h2b_result.table,
         booktabs = T,                          # no vertical lines
         escape = F,                            # correctly print special characters)
         align = c("l",rep("r",7))) %>%         # right aligns the text in every numerical column
-    kable_styling(latex_options = c("striped")) %>%
     footnote(general = "$SE$ = standard error, $df$ = degrees of freedom, $SD$ = standard deviation.",
              escape = F,                    # correctly print special characters
              threeparttable = T)            # line breaks in the footnote
@@ -453,7 +454,7 @@ The rmANOVA on the association between NFC scores and NASA-TLX scores revealed a
 Post-hoc tests showed that the participants with NFC scores below the median had higher NASA-TLX scores for 3-back (`r apa_print(pairs(hypothesis3b_emm_interact))$statistic$X3_High_low`, `r apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "low" & h3b_data$level == 3], y = h3b_data$ntlx[h3b_data$nfcmedian == "high" & h3b_data$level == 3], progress = FALSE, paired = FALSE))$statistic`) and for 4-back (`r apa_print(pairs(hypothesis3b_emm_interact))$statistic$X4_High_low`, `r apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "low" & h3b_data$level == 4], y = h3b_data$ntlx[h3b_data$nfcmedian == "high" & h3b_data$level == 4], progress = FALSE, paired = FALSE))$statistic`) than those with NFC scores above the median.
 Regardless of NFC scores, NASA-TLX scores were higher for the more difficult level in each pair of $n$-back levels (**Supplement**).
 
-With another rmANOVA was used to investigate whether the difference between the aversiveness scores of 1- and 2-back, and 2- and 3-back, respectively, depended on whether a participant's NFC score was above or below the median.
+With another rmANOVA we investigated whether the difference between the aversiveness scores of 1- and 2-back, and 2- and 3-back, respectively, depended on whether a participant's NFC score was above or below the median.
 There was a main effect of NFC group (`r apa_print(hypothesis3c_model)$full_result$nfcmedian`, `r apa_print(hypothesis3c_BF_levels)$statistic$nfc`) and a main effect of the $n$-back level (`r apa_print(hypothesis3c_model)$full_result$nlevels`, `r apa_print(hypothesis3c_BF_levels)$statistic$levels`), but no interaction.
 Post-hoc tests revealed that participants with NFC scores below the median reported higher aversiveness than participants with NFC scores above the median (`r apa_print(pairs(hypothesis3c_emm_nfc))$statistic`).
 Regardless of NFC, the difference of the aversiveness scores of 2- and 3-back was smaller and more negative than that of 1- and 2-back (`r apa_print(pairs(hypothesis3c_emm_levels))$statistic`), but again, there were large interindividual differences.
@@ -502,6 +503,14 @@ This indicates that researchers who are interested in the correctness rather tha
 ## Differences between NFC groups
 
 The majority of participants (`r round(100*((nrow(data_SV[data_SV$level==1 & data_SV$sv==1,]))/nrow(data_quest)), digits = 1)`\ %) had an absolute preference for 1-back over the other levels, but that also means that there were `r round(100*((nrow(data_SV[data_SV$level!=1 & data_SV$sv==1,]))/nrow(data_quest)), digits = 1)`\ % who had an absolute preference for 2-, 3-, or 4-back, and `r round(100*((length(setdiff(unique(data_SV$subject), data_SV$subject[data_SV$sv == 1])))/nrow(data_quest)), digits = 1)`\ % who preferred no specific level over all others.
+It shows that when given the choice, there is a large number of participants who do not prefer the easiest level, confirming the necessity of an effort discounting paradigm that works independent of the objective task load.
+The CAD paradigm provides the means to depict these preferences.
+
+Despite the visual separation of the SVs of participants with very low and high NFC scores in higher $n$-back levels, the NFC group did not reach significance in predicting SVs.
+This was likely due to the bandwidth of SVs of participants with NFC scores around the median, and due to the fact that the difference appeared most pronounced for $4$-back, and we only analyzed the difference scores between 1- and 2-back and 2- and 3-back.
+The analysis of NASA-TLX scores showed that the sum score increased with every $n$-back level, and that participants with NFC scores below the median had higher NASA-TLX scores for 3- and 4-back than those below the median.
+This demonstrates that higher $n$-back levels have a higher discriminatory power regarding interindividual differences in subjective effort perception.
+This was also supported by the fact that higher $n$-back levels were perceived as more aversive, and participants with NFC scores below the median reported higher aversion than those with NFC scores above the median.
 
 \newpage
 
