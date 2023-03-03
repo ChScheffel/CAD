@@ -111,7 +111,7 @@ Only predictors that had previously shown a significant association with SVs wer
 The third model followed the specification:
 $$
 \begin{split}
-SV \sim \text{effort rating} + \\text{utility rating} + corrugator \text{ activity} \\\ self-control + NFC + (1 |subject)
+SV \sim \text{effort rating} + \text{utility rating} + corrugator \text{ activity} \\\ \text{self-control} + \text{NFC} + (1 |subject)
 \end{split}
 $$
 As one would expect, the predictors effort rating (`r papaja::apa_print(MLM_3)$full_result$effort_cwc`), utility rating (`r papaja::apa_print(MLM_3)$full_result$effort_cwc`), and *Corrugator* activity (`r papaja::apa_print(MLM_3)$full_result$Corr_cwc`) showed a significant association with SVs.
