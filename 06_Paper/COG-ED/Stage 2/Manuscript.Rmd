@@ -408,7 +408,7 @@ kable(h2b_result.table,
 An exploratory was used ANOVA to compare the fit of the final model with a linear random intercept model, confirming that the two models were different from each other ($\chi^2 (`r compare_h2b$Df[2]`)$ = `r compare_h2b$Chisq[2]`, $p<.001$), and with an Akaike Information Criterion of $AIC=`r compare_h2b$AIC[2]`$ and a Bayesian Information Criterion of $BIC=`r compare_h2b$BIC[2]`$ the declining logistic model was superior to the linear model ($AIC=`r compare_h2b$AIC[1]`$, $BIC=`r compare_h2b$BIC[1]`$).
 The final model had an effect size of $f^{2}=$ `r round(h2b_level_f2, digits = 2)` for the $n$-back levels and $f^{2}=$ `r round(h2b_dprime_f2, digits = 2)` for $d'$, which are considered large and small, respectively [@Cohen1992].
 This means that the $n$-back level explained `r paste0(formatC(h2b_level_f2 * 100, format = "f", digits = 2), "%")` and $d'$ explained `r paste0(formatC(h2b_dprime_f2 * 100, format = "f", digits = 2), "%")` of variance in SVs relative to the unexplained variance, respectively.
-The beta coefficients indicated that with every $n$-back level, the SV decreased by `r as.numeric(h2b_result.table[2,"Beta"])`, and for every 1-unit increase in $d'$, the SV increased by `r as.numeric(h2b_result.table[3,"Beta"])`.
+The beta coefficient indicated that with every 1-unit increase in $d'$, the SV increased by `r as.numeric(h2b_result.table[3,"Beta"])`.
 The effect size of the median RT was $f^{2}=$ `r format(round(h2b_medianRT_f2, digits = 2), nsmall = 2)`.
 
 To investigate the dependency of the model results on the RT preprocessing, we conducted a specification curve analysis (Figure\ \@ref(fig:sca-plot)).
@@ -513,6 +513,16 @@ This was likely due to the bandwidth of SVs of participants with NFC scores arou
 The analysis of NASA-TLX scores showed that the sum score increased with every $n$-back level, and that participants with NFC scores below the median had higher NASA-TLX scores for 3- and 4-back than those below the median.
 This demonstrates that higher $n$-back levels have a higher discriminatory power regarding inter-individual differences in subjective effort perception.
 This was also supported by the fact that higher $n$-back levels were perceived as more aversive, and participants with NFC scores below the median reported higher aversion than those with NFC scores above the median.
+
+## Limitations
+
+When developing a new paradigm, it is challenging to decide on the optimal analysis strategy, as every hypothesis is based on the expected data patterns.
+While the Stage 1 review process helped greatly in making the analyses as robust as possible, there were still unknown factors that should be addressed by future studies.
+For instance, the differences between participants with higher and lower NFC should be investigated with extreme groups rather than a median split, especially in academic samples where NFC can be expected to be higher on average and more narrow in range.
+Additionally, we expected the SVs of participants with lower NFC scores to peak at 1-back and the SVs of those with higher scores to peak at 2-back, but the way the SVs of both groups appeared to drift apart in the higher $n$-back levels suggests that an analysis of those levels would be more fruitful in determining group differences.
+Another important point is the instruction, not just for the $n$-back task, but for the effort discounting as well.
+We had to exclude several participants for misunderstanding the task instruction, so we will add a visual instruction or a training next time.
+And even though the participants were instructed to do the effort discounting with the aim to be satisfied with their choices instead of trying to increase the rewards, we cannot ensure that they did so.
 
 \newpage
 
