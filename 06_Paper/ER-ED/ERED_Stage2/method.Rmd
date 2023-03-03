@@ -130,6 +130,8 @@ Participants should make their decision freely, according to criteria they consi
 However, participants were asked to state the reasons for the decision afterwards in RedCap using a free text field.
 As soon as they have decided, they saw the respective instruction and the block with another 20 negative pictures started.
 
+[INSERT FIGURE 2 HERE]
+
 ```{r DesignERED, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Block design of the paradigm. Every participant starts with two \"active viewing\" blocks continaing neutral (Block 1) and negative (Block 2) pictures. Order of the regulation blocks (Blocks 3, 4, and 5) was randomized between participants. After, the discounting procedure took place. All three regulation strategies were compared pairwise. Before the last block, participants could decide which regulation strategy they wanted to reapply. Subjective arousal and effort ratings were assessed after each block using a slider on screen with a continuous scale. Figure available at https://osf.io/vnj8x/, under a CC-BY4.0 license."}
 knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "Design_ER-ED.png"))
 ```

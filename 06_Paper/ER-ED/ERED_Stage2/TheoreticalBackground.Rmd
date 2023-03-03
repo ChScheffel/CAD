@@ -115,6 +115,8 @@ But our paradigm can also account for the case that a person does not have a cle
 Then no SV will be 1, but still, the SVs of all strategies can be interpreted as absolute values and in relation to the other strategy's SVs (see Figure \@ref(fig:ResponsePatterns)).
 In a separate study, we will test our adapted paradigm together with a *n*-back task and explore whether this paradigm can describe individuals that do not prefer the easiest *n*-back option (see Zerna, Scheffel et al.[@ZernaScheffel2022]).
 
+[INSERT FIGURE 1 HERE]
+
 ```{r ResponsePatterns, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Exemplary visualization of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can be represented by our paradigm. Figure available at https://osf.io/vnj8x/, under a CC-BY4.0 license."}
 include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "Paradigm_Scheme_T2.png" ))
 ```
