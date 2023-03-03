@@ -1951,7 +1951,8 @@ sca_plot_lower <-
                                                                 "None", "2 MAD from median", " 2.5 MAD from median",
                                                                 "3 MAD from median", "100ms after onset", "200ms after onset")) +
     scale_fill_gradientn(colors = MetBrewer::met.brewer("Homer2")) +
-    guides(fill = guide_colourbar(barwidth = 1, barheight = 15, title = "BF10"))
+    guides(fill = guide_colourbar(barwidth = 1, barheight = 15, title = expression(BF[10]))) +
+    theme(legend.title = element_text())
 
 # reshape into useful format
 
@@ -1976,11 +1977,12 @@ sca_plot_upper <-
   geom_point(aes(x = xaxis, y = beta, color = as.factor(sign), shape = predictor),
              size = 3) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
-  labs(x = NULL, y = "beta") +
+  labs(x = NULL, y = "beta", color = "p-value", shape = "Predictor") +
   scale_x_continuous(labels = NULL) +
   scale_color_manual(labels = c("p > .05", "p < .05", "p < .01"), values = c("darkgray","darkturquoise","deepskyblue4")) +
   scale_shape_manual(labels = c("d'","n-back level","median RT"), values = c(18,17,19)) +
-  scale_y_continuous(breaks = c(0,0.05,0.1))
+  scale_y_continuous(breaks = c(0,0.05,0.1)) +
+  theme(legend.title = element_text())
 
 # combine into panel
 
@@ -1995,10 +1997,11 @@ sca_plot <- egg::ggarrange(sca_plot_upper, sca_plot_lower,
   ggplot2::ggplot(pipelines_data[["AARO"]], aes(x = level, y = sv, group = subject, color = nfc)) +
     geom_point(size = 3, alpha = 0.8, position = position_jitter(w = 0.4, h = 0.05)) +
     ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
-    scale_color_gradient2(midpoint = mediannfc, low = "chartreuse3", mid = "lightgray", high = "darkorchid3", space = "Lab") +
+    scale_color_gradient2(midpoint = mediannfc, low = "chartreuse3", mid = "lightgray", high = "darkorchid3", space = "Lab", name = "NFC") +
     geom_vline(xintercept = c(0.5,1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
     xlab("n-back level") + 
-    ylab("Subjective values")
+    ylab("Subjective values") +
+    theme(legend.title = element_text())
 
 # plot showing SVs per level, colors depend on motivation
 
@@ -2012,3 +2015,4 @@ sca_plot <- egg::ggarrange(sca_plot_upper, sca_plot_lower,
 ##### Save variables ###########################################################
 
 save.image(file = "Workspace.RData")
+  
