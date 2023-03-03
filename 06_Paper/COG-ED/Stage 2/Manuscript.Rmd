@@ -168,7 +168,7 @@ The COG-ED paradigm has been applied to tasks in different domains before, showi
 Our hypotheses were derived from the results of Westbrook et al.[-@Westbrook2013].
 As a manipulation check, we hypothesized that with increasing $n$-back level the (1a) the signal detection parameter $d'$ declines, while (1b) reaction time and (1c) perceived task load increase.
 Regarding the associations of task load and effort discounting we hypothesized that (2a) SVs decline with increasing $n$-back level, and (2b) they do so even after controlling for declining task performance.
-And finally, we hypothesized that the CAD paradigm can show interindividual differences in effort discounting, such that participants with higher NFC have (3a) lower SVs for 1-back but higher SVs for 2- and 3-back, (3b) lower perceived task load across all levels, and (3c) higher aversion against 1-back but lower aversion against 2- and 3-back.
+And finally, we hypothesized that the CAD paradigm can show inter-individual differences in effort discounting, such that participants with higher NFC have (3a) lower SVs for 1-back but higher SVs for 2- and 3-back, (3b) lower perceived task load across all levels, and (3c) higher aversion against 1-back but lower aversion against 2- and 3-back.
 Each hypothesis is detailed in the [Design Table](#DesignTableSection) in the Appendix.
 
 # Methods
@@ -444,7 +444,7 @@ INSERT FIGURE 3 HERE
 The median NFC was `r mediannfc`, with $n=`r nrow(h3b_data[h3b_data$nfcmedian == "low",])/(nrow(h3b_data)/length(unique(h3b_data$subject)))`$ subjects below and $n=`r nrow(h3b_data[h3b_data$nfcmedian == "high",])/(nrow(h3b_data)/length(unique(h3b_data$subject)))`$ above the median.
 We used an rmANOVA to investigate whether the difference between the SVs of 1- and 2-back, and 2- and 3-back, respectively, depended on whether a participant's NFC score was above or below the median.
 There was a main effect of the $n$-back level (`r apa_print(hypothesis3a_model)$full_result$nlevels`), but neither a main effect of the NFC group (`r apa_print(hypothesis3a_model)$full_result$nfcmedian`) nor an interaction of NFC group and $n$-back level (`r apa_print(hypothesis3a_model)$full_result$nfcmedian_nlevels`).
-Post-hoc tests showed that the difference between the SVs of 2- and 3-back is slightly more negative than the difference between 1- and 2-back (`r apa_print(pairs(hypothesis3a_emm_nlevel))$statistic`), but there were large interindividual differences, especially for 2- and 3-back (Figure\ \@ref(fig:h3a-plot)).
+Post-hoc tests showed that the difference between the SVs of 2- and 3-back is slightly more negative than the difference between 1- and 2-back (`r apa_print(pairs(hypothesis3a_emm_nlevel))$statistic`), but there were large inter-individual differences, especially for 2- and 3-back (Figure\ \@ref(fig:h3a-plot)).
 This means that across the whole sample, there was a steeper decline in SVs from 2- to 3-back than from 1- to 2-back, but some participants showed a completely opposite pattern.
 
 INSERT FIGURE 4 HERE
@@ -457,7 +457,7 @@ Regardless of NFC scores, NASA-TLX scores were higher for the more difficult lev
 With another rmANOVA we investigated whether the difference between the aversiveness scores of 1- and 2-back, and 2- and 3-back, respectively, depended on whether a participant's NFC score was above or below the median.
 There was a main effect of NFC group (`r apa_print(hypothesis3c_model)$full_result$nfcmedian`, `r apa_print(hypothesis3c_BF_levels)$statistic$nfc`) and a main effect of the $n$-back level (`r apa_print(hypothesis3c_model)$full_result$nlevels`, `r apa_print(hypothesis3c_BF_levels)$statistic$levels`), but no interaction.
 Post-hoc tests revealed that participants with NFC scores below the median reported higher aversiveness than participants with NFC scores above the median (`r apa_print(pairs(hypothesis3c_emm_nfc))$statistic`).
-Regardless of NFC, the difference of the aversiveness scores of 2- and 3-back was smaller and more negative than that of 1- and 2-back (`r apa_print(pairs(hypothesis3c_emm_levels))$statistic`), but again, there were large interindividual differences.
+Regardless of NFC, the difference of the aversiveness scores of 2- and 3-back was smaller and more negative than that of 1- and 2-back (`r apa_print(pairs(hypothesis3c_emm_levels))$statistic`), but again, there were large inter-individual differences.
 
 # Discussion
 
@@ -470,9 +470,11 @@ This study also applied the CAD paradigm to an emotion regulation task, the resu
 
 The performance measure $d'$ did not differ across $n$-back levels, but the RT increased from 1- to 2- to 3-back and then remained on a high level for 4-back.
 This points to three important characteristics of the $n$-back task in this context.
-Firstly, RT as a valid group-level indicator of performance might only be useful for levels up to $n=3$, and could be used to investigate interindividual differences for $n>3$.
+Firstly, RT as a valid group-level indicator of performance might only be useful for levels up to $n=3$, and could be used to investigate inter-individual differences for $n>3$.
 Secondly, there is a speed-accuracy tradeoff in the first three levels, that might even re-emerge in higher levels, where $d'$ would decline and RT would remain stable.
 And lastly, the fact that neither accuracy and nor speed is an informative performance measure by itself has been observed before[@Meule2017] and both show different associations with various measures of intelligence[@Jaeggi2010], suggesting that they should always be reported as separate indices.
+Additionally, $d'$ might not have differed across $n$-back levels because the manipulation of task load is not strictly continuous.
+Several participants said that they perceived 3-back as more difficult than 4-back because they found it is easier to remember chunks of stimuli when $n$ was an even number than when $n$ was an odd number.
 
 All NASA-TLX subscales differed across $n$-back levels, but the effort and mental load subscales were the only ones to consistently increase across all levels.
 This would support the notion of the $n$-back task offering a continuous manipulation of task load, as least subjectively.
@@ -483,7 +485,7 @@ Ratings on the physical load subscale increased with $n$-back levels, but not be
 ## Decline of subjective values
 
 The rmANOVA with different pre-defined contrasts showed that all fit the SVs to a different degree, and that the SVs do not simply decline linearly across $n$-back levels.
-The best fit was a declining logistic curve, reflecting that the majority of participants preferred 1-back and that SVs for 2-back were also high, before having more interindividual variance for 3- and 4-back.
+The best fit was a declining logistic curve, reflecting that the majority of participants preferred 1-back and that SVs for 2-back were also high, before having more inter-individual variance for 3- and 4-back.
 The MLM with the logistic contrast showed that the $n$-back level explained the majority of variance in SVs, while the performance measure $d'$ also explained some variance in SVs, albeit less.
 With increasing $n$-back level and decreasing $d'$, the SV decreased.
 The median RT was not a significant predictor in this model, which was somewhat surprising because RT but not $d'$ yielded significant differences across levels in the manipulation checks.
@@ -509,7 +511,7 @@ The CAD paradigm provides the means to depict these preferences.
 Despite the visual separation of the SVs of participants with very low and high NFC scores in higher $n$-back levels, the NFC group did not reach significance in predicting SVs.
 This was likely due to the bandwidth of SVs of participants with NFC scores around the median, and due to the fact that the difference appeared most pronounced for $4$-back, and we only analyzed the difference scores between 1- and 2-back and 2- and 3-back.
 The analysis of NASA-TLX scores showed that the sum score increased with every $n$-back level, and that participants with NFC scores below the median had higher NASA-TLX scores for 3- and 4-back than those below the median.
-This demonstrates that higher $n$-back levels have a higher discriminatory power regarding interindividual differences in subjective effort perception.
+This demonstrates that higher $n$-back levels have a higher discriminatory power regarding inter-individual differences in subjective effort perception.
 This was also supported by the fact that higher $n$-back levels were perceived as more aversive, and participants with NFC scores below the median reported higher aversion than those with NFC scores above the median.
 
 \newpage
