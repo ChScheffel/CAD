@@ -591,15 +591,21 @@ We found a highly significant main effect of valence for subjective arousal (\(F
 
 To investigate whether ER strategies reduce emotional arousal and physiological respoindng, we conducted separate rmANOVA comparing subjective arousal, \emph{Corrugator}, and \emph{Levator} activity of four strategies (active viewing, distraction, distancing, suppression).
 We found a significant effect of strategy for subjective arousal (\(F(2.71, 322.55) = 7.39\), \(p < .001\), \(\hat{\eta}^2_G = .015\), 90\% CI \([.000, .036]\), \(\mathrm{BF}_{\textrm{10}} = 0.21\)), \emph{Corrugator} activity (\(F(1.76, 206.02) = 13.70\), \(p < .001\), \(\hat{\eta}^2_G = .056\), 90\% CI \([.019, .094]\), \(\mathrm{BF}_{\textrm{10}} = 6.16 \times 10^{7}\)), and \emph{Levator} activity (\(F(1.54, 180.41) = 19.95\), \(p < .001\), \(\hat{\eta}^2_G = .089\), 90\% CI \([.043, .134]\), \(\mathrm{BF}_{\textrm{10}} = 3.22 \times 10^{17}\)), indicating that regulation strategies reduced subjective arousal and physiological responding.
-For detailed information on post-hoc tests, please see \protect\hyperlink{SupplementEffectER}{supplementary material}.
+For detailed information on post-hoc tests, please see tables \ref{tab:SupplEffectArousalReg} to \ref{tab:SupplEffectLevReg} and figures \ref{fig:SupplFigArousalReg} to \ref{fig:SupplFigLevReg} in \protect\hyperlink{SupplementEffectER}{supplementary material}.
 
 \hypertarget{subjective-effort-of-er-strategies}{%
 \paragraph{Subjective effort of ER strategies}\label{subjective-effort-of-er-strategies}}
 
 To investigate whether ER strategies require cognitive effort, we conducted an rmANOVA comparing the subjective effort ratings of four strategies (active viewing, distraction, distancing, suppression).
-We found a significant effect of strategy (\(F(2.92, 347.65) = 128.47\), \(p < .001\), \(\hat{\eta}^2_G = .327\), 90\% CI \([.261, .384]\), \(\mathrm{BF}_{\textrm{10}} = 1.84 \times 10^{37}\)).
+We found a significant effect of strategy (\(F(2.92, 347.65) = 128.47\), \(p < .001\), \(\hat{\eta}^2_G = .327\), 90\% CI \([.261, .384]\), \(\mathrm{BF}_{\textrm{10}} = 1.84 \times 10^{37}\); see figure~\ref{fig:FigSubjEffort}).
 Post-hoc test showed significant higher subjective effort for distraction (\(t(357) = -17.92\), \(p_\mathrm{\scriptsize Tukey(4)} < .001\), \(\mathrm{BF}_{\textrm{10}} = 3.61 \times 10^{30}\)), distancing (\(t(357) = -15.82\), \(p_\mathrm{\scriptsize Tukey(4)} < .001\), \(\mathrm{BF}_{\textrm{10}} = 1.60 \times 10^{28}\)), and suppression (\(t(357) = -12.26\), \(p_\mathrm{\scriptsize Tukey(4)} < .001\), \(\mathrm{BF}_{\textrm{10}} = 1.27 \times 10^{19}\)) compared to active viewing.
 Moreover, we found significantly lower effort during suppression compared with distraction (\(t(357) = 5.66\), \(p_\mathrm{\scriptsize Tukey(4)} < .001\), \(\mathrm{BF}_{\textrm{10}} = 1.61 \times 10^{6}\)) and distancing (\(t(357) = 3.55\), \(p_\mathrm{\scriptsize Tukey(4)} = .002\), \(\mathrm{BF}_{\textrm{10}} = 29.19\)).
+
+{[}INSERT FIGURE 3 HERE{]}
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{figures/FigSubjEffort} \caption{Subjective effort ratings vizalized as boxplots. Dots represent individual effort ratings placed in 150 qantiles.}\label{fig:FigSubjEffort}
+\end{figure}
 
 {[}\ldots{} WAHLVERHALTEN FEHLT NOCH \ldots{]}
 
@@ -609,6 +615,7 @@ Moreover, we found significantly lower effort during suppression compared with d
 Individual SVs could be determined for 120 participants for all three ER strategies.
 SVs ranged between 0.005 and 1.00.
 In sum, \(n=\) 119 had a SVs of 1.0, indicating a clear preference for one ER strategy.
+Absolute preferences for ER strategies were relatively equally distributed.
 Highest SV for distraction was reported by \(n=\) 41, for distancing by \(n=\) 36, and for suppression by \(n=\) 36.
 
 To investigate, which variables can predict individual SVs of ER strategies, a multilevel model approach was chosen.
@@ -664,7 +671,14 @@ The effect sizes of all other predictors were negligibly small (\(f^{2}< 0.01\))
 
 To investigate the ecological validity of the subjective values of ER strategies we calculated, we looked to see if SVs were associated with the actual choice of participants in the choice block.
 Therefore, a \(\chi^{2}\) test with predicted choice (i.e., the strategy with the highest SV of each participant) and actual choice was computed.
-There was a significant association between predicted choice and actual choice (\(\chi^2(4, n = 120) = 115.40\), \(p < .001\), \(\mathrm{BF}_{\textrm{10}} = 1.62 \times 10^{21}\)).
+There was a significant association between predicted choice and actual choice (\(\chi^2(4, n = 120) = 115.40\), \(p < .001\), \(\mathrm{BF}_{\textrm{10}} = 1.62 \times 10^{21}\); see figure~\ref{fig:FigSVchoice}).
+
+{[}INSERT FIGURE 4 HERE{]}
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{figures/FigSVChoice} \caption{Individual subjective values per ER strategy, grouped by choice in last experimental block. Each dot indicates SV of one particpant, the colours indicate their choice in last experimental block. $N=120$}\label{fig:FigSVChoice}
+\end{figure}
+
 We then conducted a ordinal regression with the dependent variable ``choice'' and the individual SVs of all three strategies as independent variables.
 Overall model fit was fair with \(R^{2}=\) 0.27.
 The predictor SV of strategy distraction was found to contribute to the model (\(b = -6.29\), 95\% CI \([-10.81, -3.02]\), \(z = -3.21\), \(p = .001\), \(BF10=\) 2.00).
@@ -689,7 +703,7 @@ The third model followed the specification:
 SV \sim \text{effort rating} + \text{utility rating} + corrugator \text{ activity} \\\ \text{self-control} + \text{NFC} + (1 |subject)
 \end{split}
 \]
-As one would expect, the predictors effort rating (\(\hat{\beta} = 0.00\), 95\% CI \([0.00, 0.00]\), \(t(5,620.93) = -14.26\), \(p < .001\)), utility rating (\(\hat{\beta} = 0.00\), 95\% CI \([0.00, 0.00]\), \(t(5,620.93) = -14.26\), \(p < .001\)), and \emph{Corrugator} activity (\(\hat{\beta} = 0.01\), 95\% CI \([0.00, 0.01]\), \(t(5,620.93) = 2.12\), \(p = .034\)) showed a significant association with SVs.
+As one would expect, the predictors effort rating (\(\hat{\beta} = 0.00\), 95\% CI \([0.00, 0.00]\), \(t(5,620.93) = -14.26\), \(p < .001\)), utility rating (\(\hat{\beta} = 0.00\), 95\% CI \([0.00, 0.00]\), \(t(5,620.93) = 33.28\), \(p < .001\)), and \emph{Corrugator} activity (\(\hat{\beta} = 0.01\), 95\% CI \([0.00, 0.01]\), \(t(5,620.93) = 2.12\), \(p = .034\)) showed a significant association with SVs.
 In addition, a positive association was also found between self-control and SVs (\(\hat{\beta} = 0.02\), 95\% CI \([0.00, 0.05]\), \(t(97.97) = 2.04\), \(p = .044\)).
 However, effect size of self-control was negligibly small (\(f^{2}=\) 0.002).
 Detailed information can be found in the \protect\hyperlink{SupplementExploratory}{supplementary material}.
@@ -1013,8 +1027,6 @@ The authors declare no competing interests.
 \hypertarget{figures-and-figure-captions}{%
 \section{Figures and figure captions}\label{figures-and-figure-captions}}
 
-\newpage
-
 \begin{figure}
 \includegraphics[width=\textwidth]{figures/Paradigm_Scheme_T2} \caption{ }\label{fig:ResponsePatternsAppendix}
 \end{figure}
@@ -1164,7 +1176,7 @@ Levator Suppression & 0.01 & 1.00 & 0.55 & 0.00\\
 \begin{center}
 \begin{threeparttable}
 
-\caption{\label{tab:SupplEffectER}Post-hoc tests for effects of ER strategies on subjective arousal ratings.}
+\caption{\label{tab:SupplEffectArousalReg}Post-hoc tests for effects of ER strategies on subjective arousal ratings.}
 
 \footnotesize{
 
@@ -1188,12 +1200,16 @@ $Distancing - Suppression$ & -4.66 & 6.68 & 357.00 & -0.70 & 1.00 & 0.14 & 1.36e
 
 \end{table}
 
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{figures/FigSubjArousal} \caption{Subjective arousal ratings vizalized as boxplots. Dots represent individual effort ratings placed in 150 qantiles.}\label{fig:SupplFigArousalReg}
+\end{figure}
+
 \begin{table}[H]
 
 \begin{center}
 \begin{threeparttable}
 
-\caption{\label{tab:SupplEffectER}Post-hoc tests for effects of ER strategies on Corrugator activity}
+\caption{\label{tab:SupplEffectCorrReg}Post-hoc tests for effects of ER strategies on Corrugator activity}
 
 \footnotesize{
 
@@ -1217,12 +1233,16 @@ $Distancing - Suppression$ & 0.02 & 0.04 & 351.00 & 0.58 & 1.00 & $4.79 \times 1
 
 \end{table}
 
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{figures/FigCorrReg} \caption{Corrugator activity in mV vizalized as boxplots. Dots represent individual Levatorr activity measures placed in 150 qantiles.}\label{fig:SupplFigCorrReg}
+\end{figure}
+
 \begin{table}[H]
 
 \begin{center}
 \begin{threeparttable}
 
-\caption{\label{tab:SupplEffectER}Post-hoc tests for effects of ER strategies on Levator activity}
+\caption{\label{tab:SupplEffectLevReg}Post-hoc tests for effects of ER strategies on Levator activity}
 
 \footnotesize{
 
@@ -1245,6 +1265,10 @@ $Distancing - Suppression$ & 0.04 & 0.05 & 351.00 & 0.71 & 1.00 & $9.86 \times 1
 \end{center}
 
 \end{table}
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{figures/FigLevReg} \caption{Levator activity in mV vizalized as boxplots. Dots represent individual Levator activity measures placed in 150 qantiles.}\label{fig:SupplFigLevReg}
+\end{figure}
 
 \newpage
 

@@ -173,30 +173,9 @@ The authors declare no competing interests.
 \newpage
 \setcounter{figure}{0}
 ```
-# Figures and figure captions
 
-\newpage
-
-```{r ResponsePatternsAppendix, echo = FALSE, message = FALSE, warning = FALSE}
-include_graphics(here("06_Paper","ER-ED", "ERED_Stage2", "figures", "Paradigm_Scheme_T2.png" ))
+```{r child = "Figures.Rmd"}
 ```
-
-*Figure 1.* Exemplary visualization of two response patterns.
-In the top half, the person has a clear preference for one of the three strategies.
-In the lower half, they have no clear preference and therefore show an inconsistent response pattern.
-This pattern can also be represented by our paradigm.
-
-```{r DesignEREDappendix, echo=FALSE, message=FALSE, warning=FALSE, fig.pos="H"}
-include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "Design_ER-ED.png"))
-```
-
-*Figure 2.* Block design of the paradigm.
-Every participant starts with two "active viewing" blocks containing neutral (Block 1) and negative (Block 2) pictures.
-Order of the regulation blocks (Blocks 3, 4, and 5) is randomized between participants.
-After, the discounting procedure takes place.
-All three regulation strategies are pairwise compared.
-Before the last block, participants can decide which regulation strategy they want to reapply.
-Subjective arousal and effort ratings are assessed after each block using a slider on screen with a continuous scale.
 
 # Design Table {#DesignTable}
 

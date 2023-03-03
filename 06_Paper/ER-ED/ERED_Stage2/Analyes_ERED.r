@@ -849,15 +849,17 @@ SubjArousalReg_con[6, 1] <- "$Distancing - Suppression$"
 
 # figure
 FigSubjArousalReg <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal, fill = factor(block))) +
-  ggdist::stat_halfeye(adjust = 0.5, justification = -0.2, .width = 0, point_colour = NA, limits = c(.05, .95)) +
+  ggdist::stat_dots(justification = -0.2, quantiles = 150, limits = c(.05, .95), scale = 0.7, color = NA) +
+  ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
   geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.5)+
-  geom_point(size = 1, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), aes(col = factor(block)))+
+  #geom_point(size = 1, alpha = 0.75, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), aes(col = factor(block)))+
   ggthemes::scale_fill_tableau(palette = "Tableau 10")+
   ggthemes::scale_color_tableau(palette = "Tableau 10")+
+  #geom_vline(xintercept = c(1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
   scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
                    labels = c("View", "Distraction", "Distancing", "Suppression")) +
-  theme_minimal() +
+  ylab("Arousal rating")+
   theme(legend.position = "none")
 
 
@@ -929,16 +931,18 @@ EMGCorrReg_con[6, 1] <- "$Distancing - Suppression$"
 # 
 EMG_reg_plot <- EMG_reg %>% group_by(ID, block) %>% summarise_at(vars("Corr","Lev"), list(mean))
 
-FigEMGCorrReg <- ggplot2::ggplot(EMG_reg_plot, aes(x = block, y = Corr, fill = block)) +
-  geom_boxplot(width = 0.2, alpha = .95) +
-  geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
-  see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
+FigEMGCorrReg <- ggplot2::ggplot(EMG_reg_plot, aes(x = block, y = Corr, fill = factor(block))) +
+  ggdist::stat_dots(justification = -0.2, quantiles = 150, limits = c(.05, .95), scale = 0.8, color = NA) +
+  ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+  geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.5)+
+  #geom_point(size = 1, alpha = 0.75, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), aes(col = factor(block)))+
+  ggthemes::scale_fill_tableau(palette = "Tableau 10")+
+  ggthemes::scale_color_tableau(palette = "Tableau 10")+
+  #geom_vline(xintercept = c(1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
   scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
                    labels = c("View", "Distraction", "Distancing", "Suppression")) +
-  viridis::scale_color_viridis(discrete = TRUE) +
-  labs(y = "Corrugator activity") +
-  theme_minimal() +
+  ylab("Corrugator activity (in mV)")+
   theme(legend.position = "none")
 
 #### HYPOTHESIS 3b
@@ -998,16 +1002,18 @@ EMGLevReg_con[6, 1] <- "$Distancing - Suppression$"
 # Figure to visualize levator activity across regulation blocks
 
 # figure
-FigEMGLevReg <- ggplot2::ggplot(EMG_reg_plot, aes(x = block, y = Lev, fill = block)) +
-  geom_boxplot(width = 0.2, alpha = .95) +
-  geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
-  see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
+FigEMGLevReg <- ggplot2::ggplot(EMG_reg_plot, aes(x = block, y = Lev, fill = factor(block))) +
+  ggdist::stat_dots(justification = -0.2, quantiles = 150, limits = c(.05, .95), scale = 0.9, color = NA) +
+  ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+  geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.5)+
+  #geom_point(size = 1, alpha = 0.75, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), aes(col = factor(block)))+
+  ggthemes::scale_fill_tableau(palette = "Tableau 10")+
+  ggthemes::scale_color_tableau(palette = "Tableau 10")+
+  #geom_vline(xintercept = c(1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
   scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
                    labels = c("View", "Distraction", "Distancing", "Suppression")) +
-  viridis::scale_color_viridis(discrete = TRUE) +
-  labs(y = "Levator activity") +
-  theme_minimal() +
+  ylab("Levator activity (in mV)")+
   theme(legend.position = "none")
 
 ######## HYPOTHESIS 4
@@ -1073,17 +1079,18 @@ SubjEffort_con[6, 1] <- "$Distancing - Suppression$"
 
 # Figure to visualize effort ratings across blocks
 
-FigSubjEffort <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort, fill = block)) +
-  geom_boxplot(width = 0.2, alpha = .95) +
-  geom_jitter(size = .3, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), alpha = .3)+
-  see::geom_violinhalf(position = position_nudge(x = .12), alpha = .3) +
-  ylim(c(0,400))+
+FigSubjEffort <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort, fill = factor(block))) +
+  ggdist::stat_dots(justification = -0.2, quantiles = 150, limits = c(.05, .95), scale = 0.8, color = NA) +
+  ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+  geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.5)+
+  #geom_point(size = 1, alpha = 0.75, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), aes(col = factor(block)))+
+  ggthemes::scale_fill_tableau(palette = "Tableau 10")+
+  ggthemes::scale_color_tableau(palette = "Tableau 10")+
+  #geom_vline(xintercept = c(1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
   scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
                    labels = c("View", "Distraction", "Distancing", "Suppression")) +
-  viridis::scale_color_viridis(discrete = TRUE) +
-  labs(y = "Effort Rating") +
-  theme_minimal()+
+  ylab("Effort rating")+
   theme(legend.position = "none")
 
 ######## HYPOTHESIS 5
@@ -1352,13 +1359,16 @@ for (i in seq_len(nrow(data_choice_long))) {
 FigSVChoice <- ggplot2::ggplot(data = data_choice_long, aes(x = strategy, y = sv, colour = factor(choice))) +
   geom_jitter(size = 3, alpha = 0.8, position = position_jitterdodge(jitter.height = 0.05)) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
-  scale_colour_brewer(palette = "Set2", 
-                      name = "Choice",labels=c("Distraction","Distancing","Suppression")) +
-  geom_vline(xintercept = c(0.5,1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
+  theme(legend.title = element_text())+
+  scale_colour_brewer(name = "Choice",
+                      labels=c("Distraction","Distancing","Suppression"),
+                      palette = "Set2") +
+  geom_vline(xintercept = c(0.5,1.5,2.5,3.5), colour = "grey", linetype = 3) +
   scale_x_discrete(name = "Strategy",
                    limits = c("distraction", "distancing", "suppression"),
                    labels = c("Distraction", "Distancing", "Suppression")) +
   ylab("Subjective values")
+
 
 # ORDINAL REGRESSION
 

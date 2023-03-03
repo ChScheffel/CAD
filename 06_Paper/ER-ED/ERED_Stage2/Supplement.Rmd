@@ -91,15 +91,21 @@ papaja::apa_table(
 
 ## Post-hoc tests of strategies for effects of ER on subjective arousal and physiological responding {#SupplementEffectER} 
 
-``` {r SupplEffectER, echo=FALSE, message=FALSE, warning=FALSE} 
+``` {r SupplEffectArousalReg, echo=FALSE, message=FALSE, warning=FALSE} 
 papaja::apa_table(
   SubjArousalReg_con,
   caption = "Post-hoc tests for effects of ER strategies on subjective arousal ratings.",
   escape = FALSE,
   placement = "H",
   font_size = "footnotesize"
-  ) 
+  )
+```
 
+``` {r SupplFigArousalReg, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective arousal ratings vizalized as boxplots. Dots represent individual effort ratings placed in 150 qantiles.", fig.pos="H"}
+knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigSubjArousal.png"))
+```
+
+``` {r SupplEffectCorrReg, echo=FALSE, message=FALSE, warning=FALSE}
 papaja::apa_table(
   EMGCorrReg_con,
   caption = "Post-hoc tests for effects of ER strategies on Corrugator activity",
@@ -107,7 +113,13 @@ papaja::apa_table(
   placement = "H",
   font_size = "footnotesize"
   )
+```
 
+``` {r SupplFigCorrReg, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Corrugator activity in mV vizalized as boxplots. Dots represent individual Levatorr activity measures placed in 150 qantiles.", fig.pos="H"}
+knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigCorrReg.png"))
+```
+
+``` {r SupplEffectLevReg, echo=FALSE, message=FALSE, warning=FALSE}
 papaja::apa_table(
   EMGLevReg_con,
   caption = "Post-hoc tests for effects of ER strategies on Levator activity",
@@ -116,6 +128,10 @@ papaja::apa_table(
   font_size = "footnotesize"
   )
 
+```
+
+``` {r SupplFigLevReg, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Levator activity in mV vizalized as boxplots. Dots represent individual Levator activity measures placed in 150 qantiles.", fig.pos="H"}
+knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigLevReg.png"))
 ```
 
 \newpage
