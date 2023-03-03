@@ -1335,6 +1335,31 @@ choice_chisq <- stats::chisq.test(data_choice$choice, data_choice$pred_choice)
 
 choice_chisq_BF <- BayesFactor::contingencyTableBF(x = choice_chisq[["observed"]],
                                                    sampleType = "jointMulti")
+
+# build df in long format
+
+data_choice_long <- data_SV[,1:3]
+
+# add choice to new df
+
+for (i in seq_len(nrow(data_choice_long))) {
+  
+  data_choice_long$choice[i] <- data_choice$choice[data_choice$ID == data_choice_long$ID[i]]
+  
+}
+
+
+FigSVChoice <- ggplot2::ggplot(data = data_choice_long, aes(x = strategy, y = sv, colour = factor(choice))) +
+  geom_jitter(size = 3, alpha = 0.8, position = position_jitterdodge(jitter.height = 0.05)) +
+  ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+  scale_colour_brewer(palette = "Set2", 
+                      name = "Choice",labels=c("Distraction","Distancing","Suppression")) +
+  geom_vline(xintercept = c(0.5,1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
+  scale_x_discrete(name = "Strategy",
+                   limits = c("distraction", "distancing", "suppression"),
+                   labels = c("Distraction", "Distancing", "Suppression")) +
+  ylab("Subjective values")
+
 # ORDINAL REGRESSION
 
 # https://marissabarlaz.github.io/portfolio/ols/
