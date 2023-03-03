@@ -17,6 +17,8 @@ library(tidyverse)
 # load workspace variables from analyses_ERED.R script
 base::load(here("06_Paper","ER-ED","ERED_Stage2","Workspace_ERED_pilot.RData"))
 base::load(here("06_Paper","ER-ED","ERED_Stage2","Workspace_ERED.RData"))
+
+options(papaja.na_string = "")
 ```
 
 # Supplementary Material {#SupplementaryMaterial}
@@ -113,3 +115,15 @@ papaja::apa_table(
 
 ```
 
+\newpage
+
+## Exploratory analysis: Association between SVs and self-control and NFC
+
+``` {r TabExp, echo=FALSE, message=FALSE, warning=FALSE} 
+papaja::apa_table(
+  Exp_M3_table,
+  caption = "Exploratory analysis: Results of MLM predicting SVs of ER strategies with level 2 predictors self-control and NFC.",
+  booktabs = TRUE,
+  escape = FALSE,
+  placement = "H")
+```
