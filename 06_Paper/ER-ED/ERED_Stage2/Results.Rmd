@@ -98,7 +98,14 @@ The effect sizes of all other predictors were negligibly small ($f^{2}< 0.01$).
 
 To investigate the ecological validity of the subjective values of ER strategies we calculated, we looked to see if SVs were associated with the actual choice of participants in the choice block.
 Therefore, a $\chi^{2}$ test with predicted choice (i.e., the strategy with the highest SV of each participant) and actual choice was computed.
-There was a significant association between predicted choice and actual choice (`r papaja::apa_print(choice_chisq, n=120)$statistic[[1]]`, `r papaja::apa_print(choice_chisq_BF)$statistic`). 
+There was a significant association between predicted choice and actual choice (`r papaja::apa_print(choice_chisq, n=120)$statistic[[1]]`, `r papaja::apa_print(choice_chisq_BF)$statistic`; see figure\ \@ref(fig:FigSVchoice)). 
+
+[INSERT FIGURE 3 HERE]
+
+```{r FigSVChoice, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Individual subjective values per ER strategy, grouped by choice in last experimental block. Each dot indicates SV of one particpant, the colours indicate their choice in last experimental block. $N=120$", fig.pos="H"}
+knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigSVChoice.png"))
+```
+
 We then conducted a ordinal regression with the dependent variable "choice" and the individual SVs of all three strategies as independent variables.
 Overall model fit was fair with $R^{2}=$ `r papaja::printnum(Choice_OrdReg_R2)`.
 The predictor SV of strategy distraction was found to contribute to the model (`r papaja::apa_print(Choice_OrdReg)$full_result$distraction_sv`, $BF10=$ `r papaja::printnum(Choice_OrdReg_Posterior$BFtu_exploratory[2,2])`).
