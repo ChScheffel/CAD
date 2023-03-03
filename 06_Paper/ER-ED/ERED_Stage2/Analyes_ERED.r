@@ -1423,9 +1423,105 @@ for (i in seq_len(nrow(data_MLM))) {
 data_MLM$SC.gmc <- data_MLM$SC - mean(data_MLM$SC)
 data_MLM$NFC.gmc <- data_MLM$NFC - mean(data_MLM$NFC)
 
-MLM_3 <- lmerTest::lmer(formula = sv ~ effort.cwc + utility.cwc + Corr.cwc + SC.gmc + (1 | ID),
+MLM_3 <- lmerTest::lmer(formula = sv ~ effort.cwc + utility.cwc + Corr.cwc + SC.gmc + NFC.gmc + (1 | ID),
                      data = data_MLM,
                      REML = TRUE)
+
+MLM_3_r2 <- r2mlm::r2mlm(MLM_3)
+MLM3_r2 <- MuMIn::r.squaredGLMM(MLM_3, pj2014 = T)
+
+##### f² of predictors
+
+# create lists for no effect models (for better clarity)
+
+# for Models
+MLM3_no_effect <- list()
+# for R²
+MLM3_no_effect_r2 <- list()
+
+#df for f²
+MLM3_f2 <- data.frame(f2 = double())
+
+# EFFORT
+MLM3_no_effect[["e"]] <- lmerTest::lmer(sv ~ 1 + utility.cwc + Corr.cwc + SC.gmc + NFC.gmc + (1 | ID),
+                                        data = data_MLM, REML = T)
+
+MLM3_no_effect_r2[["e"]] <- MuMIn::r.squaredGLMM(MLM3_no_effect[["e"]], pj2014 = T)
+
+# compute f² with conditional R²
+
+MLM3_f2 <- rbind(MLM3_f2, (MLM3_r2[1,2] - MLM3_no_effect_r2[["e"]][1,2]) / (1 - MLM3_r2[1,2]))
+
+# UTILITY
+MLM3_no_effect[["u"]] <- lmerTest::lmer(sv ~ effort.cwc + 1 + Corr.cwc + SC.gmc + NFC.gmc + (1 | ID),
+                                        data = data_MLM, REML = T)
+
+MLM3_no_effect_r2[["u"]] <- MuMIn::r.squaredGLMM(MLM3_no_effect[["u"]], pj2014 = T)
+
+# compute f² with conditional R²
+
+MLM3_f2 <- rbind(MLM3_f2, (MLM3_r2[1,2] - MLM3_no_effect_r2[["u"]][1,2]) / (1 - MLM3_r2[1,2]))
+
+# CORRUGATOR
+MLM3_no_effect[["Corr"]] <- lmerTest::lmer(sv ~ effort.cwc + utility.cwc + 1 + SC.gmc + NFC.gmc + (1 | ID),
+                                           data = data_MLM, REML = T)
+
+MLM3_no_effect_r2[["Corr"]] <- MuMIn::r.squaredGLMM(MLM3_no_effect[["Corr"]], pj2014 = T)
+
+# compute f² with conditional R²
+
+MLM3_f2 <- rbind(MLM3_f2, (MLM3_r2[1,2] - MLM3_no_effect_r2[["Corr"]][1,2]) / (1 - MLM3_r2[1,2]))
+
+# SELF-CONTROL
+MLM3_no_effect[["SC"]] <- lmerTest::lmer(sv ~ effort.cwc + utility.cwc + Corr.cwc + 1 + NFC.gmc + (1 | ID),
+                                           data = data_MLM, REML = T)
+
+MLM3_no_effect_r2[["SC"]] <- MuMIn::r.squaredGLMM(MLM3_no_effect[["SC"]], pj2014 = T)
+
+# compute f² with conditional R²
+
+MLM3_f2 <- rbind(MLM3_f2, (MLM3_r2[1,2] - MLM3_no_effect_r2[["SC"]][1,2]) / (1 - MLM3_r2[1,2]))
+
+## NFC
+MLM3_no_effect[["NFC"]] <- lmerTest::lmer(sv ~ effort.cwc + utility.cwc + Corr.cwc + SC.gmc + 1 + (1 | ID),
+                                         data = data_MLM, REML = T)
+
+MLM3_no_effect_r2[["NFC"]] <- MuMIn::r.squaredGLMM(MLM3_no_effect[["NFC"]], pj2014 = T)
+
+# compute f² with conditional R²
+
+MLM3_f2 <- rbind(MLM3_f2, (MLM3_r2[1,2] - MLM3_no_effect_r2[["NFC"]][1,2]) / (1 - MLM3_r2[1,2]))
+
+colnames(MLM3_f2) <- "f2"
+
+# a little bit of preparation for proper reporting of MLM results
+
+M_exp.ranef <- as.data.frame(base::summary(MLM_3)$varcor)
+M_exp.fixef <- base::summary(MLM_3)$coefficients
+
+Exp_M3_table <- as.data.frame(cbind(rownames(M_exp.fixef),
+                                   papaja::printnum(M_exp.fixef[,1], format = "e"),
+                                   M_exp.fixef[,c(2,5)]))
+# add f2
+Exp_M3_table$f2 <- NA
+Exp_M3_table$f2[2:6] <- cbind(MLM3_f2$f2)
+
+Exp_M3_table$ranef.sd <- NA
+Exp_M3_table$ranef.sd[1] <- cbind(M_exp.ranef$sdcor[1])
+
+colnames(Exp_M3_table)[1] <- "Parameter"
+colnames(Exp_M3_table)[2] <- "Beta"
+colnames(Exp_M3_table)[3] <- "$SE$"
+colnames(Exp_M3_table)[4] <- "$p$-value"
+colnames(Exp_M3_table)[5] <- "$f^{2}$"
+colnames(Exp_M3_table)[6] <- "Random Effects (SD)"
+
+row.names(Exp_M3_table) <- NULL
+Exp_M3_table$Parameter[1:6] <- c("Intercept", "Effort", "Utility", "Corrugator activity", "Self-Control", "NFC")
+
+Exp_M3_table[3:6] <- lapply(Exp_M3_table[3:6], as.numeric)
+
+
 #################### SAVE WORKSPACE IMAGE #######################
 
 save.image(file = "Workspace_ERED.RData")
