@@ -241,8 +241,8 @@ Study data was collected and managed using REDCap electronic data capture tools 
 ## Sampling plan
 
 Sample size determination was mainly based on the results of the analyses of Westbrook et al.[-@Westbrook2013] (see [Design Table](#DesignTableSection)).
-The hypothesis that yielded the largest necessary sample size was a repeated measures ANOVA with within-between interaction of NFC and $n$-back level influencing SVs.
-Sample size analysis with *G\*Power*[@Faul2007; @Faul2009] indicated that we should collect data from at least 72 participants, assuming $\alpha=.05$ and $\beta=.95$.
+The hypothesis that yielded the largest necessary sample size was a repeated measures, within-factors ANOVA of reaction time and $n$-back level.
+Sample size analysis with *G\*Power*[@Faul2007; @Faul2009] indicated that we should collect data from at least 53 participants, assuming $\alpha=.05$ and $\beta=.95$.
 However, the sample size analysis for the hypotheses of the second lab session revealed a larger necessary sample size of 85 participants to find an effect of $d=-0.32$ of emotion regulation on facial muscle activity with $\alpha=.05$ and $\beta=.95$.
 To account for technical errors, noisy physiological data, or participants who indicate that they did not follow the instructions, we aimed to collect about $50\%$ more data sets than necessary, $N=120$ in total.
 
@@ -335,7 +335,8 @@ The Stage 1 Registered Report protocol has been approved and is available at [os
 Data was collected between the 16th of August 2022 and the 3rd of February 2023.
 All of the $N=`r n_quest`$ participants who filled out the online questionnaires came to the first lab session.
 Based on the experimenters' notes, we excluded the data of seven participants from analysis for misunderstanding the instruction of the $n$-back task, and the data of one participant who reported that they confused the colours of the levels during effort discounting.
-Our final data set therefore included $N=`r nrow(data_quest)`$ participants.
+Our final data set therefore included $N=`r nrow(data_quest)`$ participants, which is `r round(nrow(data_quest)/53, digits = 1)` times more than what the highest sample size calculation required.
+
 
 ## Manipulation checks
 
@@ -516,13 +517,29 @@ This was also supported by the fact that higher $n$-back levels were perceived a
 
 ## Limitations
 
-When developing a new paradigm, it is challenging to decide on the optimal analysis strategy, as every hypothesis is based on the expected data patterns.
-While the Stage 1 review process helped greatly in making the analyses as robust as possible, there were still unknown factors that should be addressed by future studies.
+When developing a new paradigm, it is challenging to decide on the optimal analysis strategy, as every hypothesis is based on expected data patterns rather than previous findings.
+While the Stage 1 review process made the analyses as robust as possible, there were still unknown factors that should be addressed by future studies.
 For instance, the differences between participants with higher and lower NFC should be investigated with extreme groups rather than a median split, especially in academic samples where NFC can be expected to be higher on average and more narrow in range.
 Additionally, we expected the SVs of participants with lower NFC scores to peak at 1-back and the SVs of those with higher scores to peak at 2-back, but the way the SVs of both groups appeared to drift apart in the higher $n$-back levels suggests that an analysis of those levels would be more fruitful in determining group differences.
 Another important point is the instruction, not just for the $n$-back task, but for the effort discounting as well.
 We had to exclude several participants for misunderstanding the task instruction, so we will add a visual instruction or a training next time.
-And even though the participants were instructed to do the effort discounting with the aim to be satisfied with their choices instead of trying to increase the rewards, we cannot ensure that they did so.
+And even though the participants were instructed to do the effort discounting with the aim to be satisfied with their choices instead of trying to increase the rewards, we cannot be sure that they did so.
+Nevertheless, we exceeded the largest required sample size by `r round(nrow(data_quest)/53, digits = 1)` times, which gives our analyses high statistical power, and we adhered to the agreed upon analyses of Stage 1.
+
+## Conclusion
+
+Effort and reward are two highly subjective concepts with relevance in daily life.
+With each decision an individual makes, they must weigh the required effort against the expected reward to decide if and how to behave in that situation.
+So far, effort discounting paradigms have relied on the assumption that the task that is objectively easiest is the one that is preferred by everyone, and each more difficult task is simply being devalued compared to the easy one.
+However, effort-related traits such as NFC suggest that this is not the case.
+Therefore, we developed a paradigm that allows effort discounting independent of objective task load, which we tested using an $n$-back task.
+The results showed that many participants indeed preferred a more or even the most difficult $n$-back level.
+Spanning the entire sample, these preferences took the shape of a declining logistic curve across $n$-back levels.
+While the subjective value declined with increasing levels, it increased with better performance as measured in $d'$, and was unaffected by the reaction time.
+Participants with NFC scores above the median reported lower subjective task load in and less aversion to more difficult levels.
+However, they did not have higher subjective values per se, which was likely due to our choice of median split and our assumption that these group differences would emerge in lower levels.
+In fact, the reaction time and self-report data suggest that individual differences emerge especially from 3-back upwards, emphasizing the need for a flexible effort discounting paradigm.
+The CAD paradigm offers this flexibility, and we encourage future studies to question traditional assumptions in the field of effort discounting in the light of these findings.
 
 \newpage
 
