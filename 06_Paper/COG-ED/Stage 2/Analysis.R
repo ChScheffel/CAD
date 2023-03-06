@@ -1408,9 +1408,9 @@ data_SV <- pipelines_data[["AARO"]][ ,c("subject","level","sv","nfc")]
 
 data_SV <- unique(data_SV)
 
-# create a data frame with the difference scores per subject (2-1,3-2)
+# create a data frame with the difference scores per subject (1-2,2-3)
 
-diffscores <- diff(data_SV$sv)
+diffscores <- (diff(data_SV$sv))*-1
 h3a_data <- data.frame(subject = data_SV$subject[c(seq(from = 1, to = nrow(data_SV), length.out = nrow(data_SV)/2))],
                        nlevels = as.factor(rep(c("1-2","2-3"), nrow(data_SV)/4)),
                        svdiff = c(rbind(diffscores[c(seq(from = 1, to = nrow(data_SV), by = 4))],diffscores[c(seq(from = 2, to = nrow(data_SV), by = 4))])),
@@ -1477,54 +1477,25 @@ hypothesis3a_contrasts_nlevel[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(r
 hypothesis3a_contrasts_nlevel$`$p$` <- format(round(hypothesis3a_contrasts_nlevel$`$p$`, digits = 3), nsmall = 2)
 hypothesis3a_contrasts_nlevel$`$p$`[hypothesis3a_contrasts_nlevel$`$p$` == "0.000"] <- "<.001"
 
-# prepare raincloud plot for main effect of n-back levels
+# plot
 
-plot_h3a_data_nlevel <- raincloudplots::data_1x1(array_1 = h3a_data$svdiff[h3a_data$nlevels == "1-2"],
-                          array_2 = h3a_data$svdiff[h3a_data$nlevels == "2-3"],
-                          jit_distance = .09,
-                          jit_seed = 73)
-
-raincloudplots::raincloud_1x1_repmes(data_1x1 = plot_h3a_data_nlevel,
-                                 size = 2,
-                                 alpha = .6) +
+ggplot(h3a_data, aes(nlevels, svdiff, fill = nfcmedian, color = nfcmedian)) +
+  ggrain::geom_rain(alpha = .5, rain.side = 'f2x2', id.long.var = "subject", likert = FALSE,
+            violin.args = list(color = NA, alpha = .7, scale = "count", adjust = 1.3, width = 0.8),
+            line.args = list(size = .6, alpha = .5),
+            line.args.pos = list(position = position_jitter(width = 0, height = 0.1)),
+            point.args = list(alpha = 0)) +
+  ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
+  scale_fill_manual(values=c("darkorchid3", "chartreuse3")) +
+  scale_color_manual(values=c("darkorchid3", "chartreuse3"), name = "NFC group", labels = c("Above median","Below median")) +
+  guides(fill = 'none') +
   xlab("n-back levels") + 
   ylab("Difference in subjective values") +
-  ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-  scale_x_continuous(breaks=c(1,2), labels=c("1-2", "2-3"), limits=c(0, 3))
-
-# prepare another raincloud plot to show the (non-significant) effect of NFC
-
-plot_h3a_data_nfc <- raincloudplots::data_2x2(array_1 = h3a_data$svdiff[h3a_data$nlevels == "1-2" & h3a_data$nfcmedian == "low"],
-                                          array_2 = h3a_data$svdiff[h3a_data$nlevels == "2-3" & h3a_data$nfcmedian == "low"],
-                                          array_3 = h3a_data$svdiff[h3a_data$nlevels == "1-2" & h3a_data$nfcmedian == "high"],
-                                          array_4 = h3a_data$svdiff[h3a_data$nlevels == "2-3" & h3a_data$nfcmedian == "high"],
-                                          labels = (c("NFC below median","NFC above median")), # blue is below, orange is above
-                                          jit_distance = .09,
-                                          jit_seed = 73,
-                                          spread_x_ticks = FALSE)
-
-raincloudplots::raincloud_2x2_repmes(data_2x2 = plot_h3a_data_nfc,
-                                     size = 2,
-                                     alpha = .6,
-                                     spread_x_ticks = FALSE) +
-  xlab("n-back levels") + 
-  ylab("Difference in subjective values") +
-  ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-  scale_x_continuous(breaks=c(1,2), labels=c("1-2", "2-3"), limits=c(0, 3))
-
-ggplot(h3a_data[h3a_data$nlevels %in% c("1-2", "2-3"),], aes(nlevels, svdiff, fill = nfcmedian, color = nfcmedian)) +
-  ggrain::geom_rain(alpha = .5, rain.side = 'f2x2', id.long.var = "subject",
-            violin.args = list(color = NA, alpha = .7)) +
-  ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-  scale_fill_manual(values=c("gold3", "cornflowerblue")) +
-  scale_color_manual(values=c("gold3", "cornflowerblue")) +
-  guides(fill = 'none', color = 'none') +
-  xlab("n-back levels") + 
-  ylab("Difference in subjective values")
+  theme(legend.title = element_text())
 
 # remove temporary variables
 
-base::remove(diffscores, h3a_data)
+base::remove(diffscores)
 
 ##### Hypothesis 3b ############################################################
 
@@ -1660,22 +1631,17 @@ hypothesis3b_contrasts_interact$`$p$`[hypothesis3b_contrasts_interact$`$p$` == "
 
 # plot these results
 
-plot_h3b <- ggplot(h3b_data, aes(level, ntlx, fill = nfcmedian, color = nfcmedian)) +
-            ggrain::geom_rain(alpha = .5,
-                      violin.args = list(color = NA, alpha = .7), # removes the lines around the violins
-                      boxplot.args.pos = list(width = .1, position = ggpp::position_dodgenudge(
-                                                x = rep(-.13,8)))) +
-            ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-            scale_fill_manual(values=c("darkorchid3", "chartreuse3")) +
-            scale_color_manual(values=c("darkorchid3", "chartreuse3")) +
-            labs(x = "n-back level", y = "NASA-TLX sum score") +
-            guides(fill = 'none', color = 'none')
-
-# save the plot as an eps file with high resolution
-
-ggsave(filename = "Figure_4.eps", plot = plot_h3b, device = "eps",
-       path = here("06_Paper","COG-ED","Stage 1","Figures"),
-       dpi = "retina", bg = NULL)
+ggplot(h3b_data, aes(level, ntlx, fill = nfcmedian, color = nfcmedian)) +
+      ggrain::geom_rain(alpha = .5,
+                violin.args = list(color = NA, alpha = .7), # removes the lines around the violins
+                boxplot.args.pos = list(width = .1, position = ggpp::position_dodgenudge(
+                                          x = rep(-.13,8)))) +
+      ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
+      scale_fill_manual(values=c("darkorchid3", "chartreuse3")) +
+      scale_color_manual(values=c("darkorchid3", "chartreuse3"), name = "NFC group", labels = c("Above median","Below median")) +
+      labs(x = "n-back level", y = "NASA-TLX sum score") +
+      guides(fill = 'none') +
+      theme(legend.title = element_text())
 
 # delete temporary data frame
 
@@ -1695,9 +1661,9 @@ data_avers <- data_ntlx[ ,c("subject","level","aversion")]
 
 data_avers <- left_join(data_avers, unique(data_nback[,c("subject","nfc")]), by = "subject")
 
-# create a data frame with the difference scores per subject (2-1,3-2)
+# create a data frame with the difference scores per subject (1-2,2-3)
 
-diffscores <- diff(data_avers$aversion)
+diffscores <- (diff(data_avers$aversion))*-1
 h3c_data <- data.frame(subject = data_avers$subject[c(seq(from = 1, to = nrow(data_avers), length.out = nrow(data_avers)/2))],
                        nlevels = as.factor(rep(c("1-2","2-3"), nrow(data_avers)/4)),
                        aversdiff = c(rbind(diffscores[c(seq(from = 1, to = nrow(data_avers), by = 4))],diffscores[c(seq(from = 2, to = nrow(data_avers), by = 4))])),
@@ -1795,29 +1761,25 @@ hypothesis3c_contrasts_levels[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(r
 hypothesis3c_contrasts_levels$`$p$` <- format(round(hypothesis3c_contrasts_levels$`$p$`, digits = 3), nsmall = 2)
 hypothesis3c_contrasts_levels$`$p$`[hypothesis3c_contrasts_levels$`$p$` == "0.000"] <- "<.001"
 
-# prepare raincloud plot
+# plot
 
-plot_h3c_data <- raincloudplots::data_2x2(array_1 = h3c_data$aversdiff[h3c_data$nlevels == "1-2" & h3c_data$nfcmedian == "low"],
-                          array_2 = h3c_data$aversdiff[h3c_data$nlevels == "2-3" & h3c_data$nfcmedian == "low"],
-                          array_3 = h3c_data$aversdiff[h3c_data$nlevels == "1-2" & h3c_data$nfcmedian == "high"],
-                          array_4 = h3c_data$aversdiff[h3c_data$nlevels == "2-3" & h3c_data$nfcmedian == "high"],
-                          labels = (c("NFC below median","NFC above median")), # below is blue, above is orange
-                          jit_distance = .04,
-                          jit_seed = 73,
-                          spread_x_ticks = FALSE)
-
-raincloudplots::raincloud_2x2_repmes(data_2x2 = plot_h3c_data,
-                                 size = 2,
-                                 alpha = .6,
-                                 spread_x_ticks = FALSE) +
-  xlab("n-back levels") + 
-  ylab("Aversiveness ratings") +
+ggplot(h3c_data, aes(nlevels, aversdiff, fill = nfcmedian, color = nfcmedian)) +
+  ggrain::geom_rain(alpha = .5, rain.side = 'f2x2', id.long.var = "subject", likert = FALSE,
+                    violin.args = list(color = NA, alpha = .7, scale = "count", adjust = 1.3, width = 0.8),
+                    line.args = list(size = .6, alpha = .5),
+                    line.args.pos = list(position = position_jitter(width = 0, height = 0.1)),
+                    point.args = list(alpha = 0)) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-  scale_x_continuous(breaks=c(1,2), labels=c("1-2", "2-3"), limits=c(0, 3))
+  scale_fill_manual(values=c("darkorchid3", "chartreuse3")) +
+  scale_color_manual(values=c("darkorchid3", "chartreuse3"), name = "NFC group", labels = c("Above median","Below median")) +
+  guides(fill = 'none') +
+  xlab("n-back levels") + 
+  ylab("Difference in aversiveness ratings") +
+  theme(legend.title = element_text())
 
 # remove temporary variables
 
-base::remove(diffscores, h3c_data)
+base::remove(diffscores)
 
 
 ##### Specification Curve Analysis #############################################
