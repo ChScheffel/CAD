@@ -60,12 +60,13 @@ abstract: |
   We replicated the analysis of Westbrook and colleagues with our adaptation, the Cognitive and Affective Discounting (CAD) Paradigm, which quantifies SVs without assuming that the easiest level is preferred, thereby enabling the quantification of SVs for tasks without objective order of task load.
   Results show that many participants preferred a more or the most difficult level.
   Variance in SVs was best explained by a declining logistic contrast of the $n$-back levels and by the accuracy of responses, while reaction time as a predictor was highly volatile depending on the preprocessing pipeline.
-  Participants with higher Need for Cognition scores perceived higher levels as less effortful and found them less aversive.
+  Participants with higher Need for Cognition scores perceived higher $n$-back levels as less effortful and found them less aversive.
   Effects of Need for Cognition on SVs in lower levels did not reach significance, as group differences mainly emerged in higher levels.
+  The CAD Paradigm appears to be well suited for assessing and analysing task preferences independent of the supposed objective task difficulty.
   
   
 keywords          : "effort discounting, registered report, specification curve analysis, need for cognition, $n$-back"
-wordcount         : "~ 4,300"
+wordcount         : "~ 7000"
 bibliography      : CAD.bib
 floatsintext      : yes
 figsintext        : yes
@@ -341,7 +342,7 @@ The Stage 1 Registered Report protocol has been approved and is available at [os
 
 There were two necessary adjustments of the methods.
 First, we failed to update the necessary sample size after the analyses changed with the first review round.
-Instead of the 72 subjects stated above, the largest minimum sample size was actually 53 subjects (see hypothesis 1b in the **Design Table**).
+Instead of the 72 subjects stated above, the largest minimum sample size was actually 53 subjects (see hypothesis 1b in the Design Table in the **Supplementary Material**).
 And secondly, we needed to re-assign the SCA to the MLM in hypothesis 2b, to which it belonged in the initial submission.
 Following the advice of the reviewers, we had separated the NFC analysis from the MLM, and wanted to apply the SCA to the new NFC analysis (hypothesis 3a), as this was one of our main points of interest.
 However, since hypothesis 3a does not contain any RT data and the SCA is therefore only useful for the MLM in hypothesis 2b, we applied it to the MLM.
@@ -351,7 +352,7 @@ However, since hypothesis 3a does not contain any RT data and the SCA is therefo
 Data was collected between the 16th of August 2022 and the 3rd of February 2023.
 All of the $N=`r n_quest`$ participants who filled out the online questionnaires came to the first lab session.
 Based on the experimenters' notes, we excluded the data of seven participants from analysis for misunderstanding the instruction of the $n$-back task, and the data of one participant who reported that they confused the colours of the levels during effort discounting.
-Our final data set therefore included $N=`r nrow(data_quest)`$ participants (`r round((table(data_quest$gender)[2]/nrow(data_quest))*100, digits = 1)`% female, $M=`r round(mean(data_quest[,"age"]), digits = 1)`$ ($SD=`r round(sd(data_quest[,"age"]), digits = 1)`$)\ years old), which is `r round(nrow(data_quest)/53, digits = 1)` times more than what the highest sample size calculation required.
+Our final data set therefore included $N=`r nrow(data_quest)`$ participants (`r round((table(data_quest$gender)[2]/nrow(data_quest))*100, digits = 1)`% female, $M=`r round(mean(data_quest[,"age"]), digits = 1)`$ ($SD=`r round(sd(data_quest[,"age"]), digits = 1)`$)\ years old), which is `r format(round(nrow(data_quest)/53, digits = 1), nsmall = 1)` times more than what the highest sample size calculation required.
 
 ## Manipulation checks
 
@@ -450,7 +451,7 @@ There were $n=`r length(setdiff(unique(data_SV$subject), data_SV$subject[data_SV
 
 INSERT FIGURE 3 HERE
 
-```{r nfc-sv, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values per n-back level. Each dot indicates a participant, the colours indicate their Need for Cognition score. $N=116$. There is a horizontal jitter of 0.4 and a vertical jitter of 0.05 for visual clarity.", fig.pos="H"} 
+```{r nfc-sv, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values per n-back level. Each dot indicates a participant, the colours indicate their Need for Cognition (NFC) score. $N=116$. There is a horizontal jitter of 0.4 and a vertical jitter of 0.05 for visual clarity.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "nfc-sv.png"))
 
@@ -490,10 +491,10 @@ Regardless of NFC, the difference of the aversiveness scores of 2- and 3-back wa
 
 # Discussion
 
-This Registered Report aimed to adapt the Cognitive Effort Discounting Paradigm (COG-ED) paradigm by Westbrook et al.[-@Westbrook2013], which can estimate subjective values of different $n$-back levels, into the Cognitive and Affective Discounting (CAD) paradigm, which can estimate subjective values of tasks without assuming that the easiest level is inherently preferred.
-For this purpose, we changed the way in which the discounting options are presented to the participants, basing the anchor on their own choices rather than on the objective task load.
+This Registered Report aimed to adapt the Cognitive Effort Discounting Paradigm (COG-ED) paradigm by Westbrook et al.[-@Westbrook2013], which can estimate subjective values of different $n$-back levels, into the Cognitive and Affective Discounting (CAD) paradigm, which can estimate SVs of tasks without defaulting to the objective task load as a benchmark.
+For this purpose, we changed the way in which the discounting options are presented to the participants, based the anchor on their own choices, and computed SVs across multiple combinations of task levels.
 The analyses were closely aligned with those in Westbrook et al.[-@Westbrook2013] to demonstrate the changes in SVs brought about by the new paradigm.
-This study also applied the CAD paradigm to an emotion regulation task, the results of which are detailed in **Scheffel et al.**.
+This study also applied the CAD paradigm to an emotion regulation task, the results of which are detailed in a second Registered Report[@ScheffelZerna2022].
 
 ## Manipulation checks
 
@@ -552,6 +553,7 @@ When developing a new paradigm, it is challenging to decide on the optimal analy
 While the Stage 1 review process made the analyses as robust as possible, there were still unknown factors that should be addressed by future studies.
 For instance, the differences between participants with higher and lower NFC should be investigated with extreme groups rather than a median split, especially in academic samples where NFC can be expected to be higher on average and more narrow in range.
 Additionally, we expected the SVs of participants with lower NFC scores to peak at 1-back and the SVs of those with higher scores to peak at 2-back, but the way the SVs of both groups appeared to drift apart in the higher $n$-back levels suggests that an analysis of those levels would be more fruitful in determining group differences.
+Future studies could create a stronger separation between the concepts investigated in this study, and model the SVs and their task-related influencing factors first, before looking at (non-linear) associations with personality.
 Another important point is the instruction, not just for the $n$-back task, but for the effort discounting as well.
 We had to exclude several participants for misunderstanding the task instruction, so we will add a visual instruction or a training next time.
 And even though the participants were instructed to do the effort discounting with the aim to be satisfied with their choices instead of trying to increase the rewards, we cannot be sure that they did so.
@@ -564,15 +566,15 @@ Nevertheless, we exceeded the largest required sample size by `r round(nrow(data
 Effort and reward are two highly subjective concepts with relevance in daily life.
 With each decision an individual makes, they must weigh the required effort against the expected reward to decide if and how to behave in that situation.
 So far, effort discounting paradigms have relied on the assumption that the task that is objectively easiest is the one that is preferred by everyone, and each more difficult task is simply being devalued compared to the easy one.
-However, effort-related traits such as NFC suggest that this is not the case.
+However, effort-related traits such as Need for Cognition suggest that this is not the case.
 Therefore, we developed a paradigm that allows effort discounting independent of objective task load, which we tested using an $n$-back task.
 The results showed that many participants indeed preferred a more or even the most difficult $n$-back level.
 Spanning the entire sample, these preferences took the shape of a declining logistic curve across $n$-back levels.
 While the subjective value declined with increasing levels, it increased with better performance as measured in $d'$, and was unaffected by the reaction time.
-Participants with NFC scores above the median reported lower subjective task load in and less aversion to more difficult levels.
+Participants with Need for Cognition scores above the median reported lower subjective task load in and less aversion to more difficult levels.
 However, they did not have higher subjective values per se, which was likely due to our choice of median split and our assumption that these group differences would emerge in lower levels.
 In fact, the reaction time and self-report data suggest that individual differences emerge especially from 3-back upwards, emphasizing the need for a flexible effort discounting paradigm.
-The CAD paradigm offers this flexibility, and we encourage future studies to question traditional assumptions in the field of effort discounting in the light of these findings.
+The CAD paradigm offers this flexibility, and we encourage future studies to question traditional assumptions in the field of effort discounting in the light of these findings, and to re-use this data set for exploratory analyses.
 
 \newpage
 
@@ -595,6 +597,7 @@ The funders have/had no role in study design, data collection and analysis, deci
 
 # Author Contributions
 
+JZ and CS contributed equally to this work.
 JZ, CS, and AS conceptualized the study and acquired funding.
 JZ and CS developed the methodology, investigated, administered the project, and wrote the software.
 JZ, CS, and CK did the formal analysis.
