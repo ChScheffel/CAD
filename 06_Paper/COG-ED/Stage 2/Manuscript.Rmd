@@ -485,7 +485,7 @@ INSERT FIGURE 5 HERE
 ```
 
 With another rmANOVA we investigated whether the difference between the aversiveness scores of 1- and 2-back, and 2- and 3-back, respectively, depended on whether a participant's NFC score was above or below the median.
-There was a main effect of NFC group (`r apa_print(hypothesis3c_model)$full_result$nfcmedian`, `r apa_print(hypothesis3c_BF_levels)$statistic$nfc`) and a main effect of the $n$-back level (`r apa_print(hypothesis3c_model)$full_result$nlevels`, `r apa_print(hypothesis3c_BF_levels)$statistic$levels`), but no interaction.
+There was a main effect of NFC group (`r apa_print(hypothesis3c_model)$full_result$nfcmedian`, `r apa_print(hypothesis3c_BF_levels)$statistic$nfc`) and a main effect of the $n$-back level (`r apa_print(hypothesis3c_model)$full_result$nlevels`, `r apa_print(hypothesis3c_BF_levels)$statistic$levels`), but no interaction (`r apa_print(hypothesis3c_model)$full_result$nfcmedian_nlevels`).
 Post-hoc tests revealed that participants with NFC scores below the median reported higher aversiveness than participants with NFC scores above the median (`r apa_print(pairs(hypothesis3c_emm_nfc))$statistic`) (right panel of Figure\ \@ref(fig:h3ac-plot)).
 Regardless of NFC, the difference of the aversiveness scores of 2- and 3-back was smaller and more negative than that of 1- and 2-back (`r apa_print(pairs(hypothesis3c_emm_levels))$statistic`), but again, there were large inter-individual differences.
 
