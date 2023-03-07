@@ -894,9 +894,9 @@ hypothesis1a_contrasts <- cbind(hypothesis1a_contrasts,
 
 # rename contrasts and column names, round to two decimals
 
-colnames(hypothesis1a_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+colnames(hypothesis1a_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis1a_contrasts$Contrast <- gsub("X", "", hypothesis1a_contrasts$Contrast)
-hypothesis1a_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")] <- signif(hypothesis1a_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 3)
+hypothesis1a_contrasts[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")] <- signif(hypothesis1a_contrasts[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")], digits = 3)
 hypothesis1a_contrasts$`$p$` <- format(round(hypothesis1a_contrasts$`$p$`, digits = 3), nsmall = 2)
 hypothesis1a_contrasts$`$p$`[hypothesis1a_contrasts$`$p$` == "0.000"] <- "<.001"
 
@@ -956,7 +956,7 @@ hypothesis1b_contrasts <- cbind(hypothesis1b_contrasts,
 
 # rename contrasts and column names, round to two decimals
 
-colnames(hypothesis1b_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+colnames(hypothesis1b_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis1b_contrasts$Contrast <- gsub("X", "", hypothesis1b_contrasts$Contrast)
 hypothesis1b_contrasts[ ,c("Estimate","$SE$","$t$")] <- signif(hypothesis1b_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 3)
 hypothesis1b_contrasts$`$p$` <- format(round(hypothesis1b_contrasts$`$p$`, digits = 3), nsmall = 2)
@@ -1150,39 +1150,39 @@ hypothesis1c_performance_contrasts <- cbind(hypothesis1c_performance_contrasts,
 
 # rename columns and contrasts, round to two decimals
 
-colnames(hypothesis1c_mental_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+colnames(hypothesis1c_mental_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis1c_mental_contrasts$Contrast <- gsub("X", "", hypothesis1c_mental_contrasts$Contrast)
-hypothesis1c_mental_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")] <- signif(hypothesis1c_mental_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 3)
+hypothesis1c_mental_contrasts[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")] <- signif(hypothesis1c_mental_contrasts[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")], digits = 3)
 hypothesis1c_mental_contrasts$`$p$` <- format(round(hypothesis1c_mental_contrasts$`$p$`, digits = 3), nsmall = 2)
 hypothesis1c_mental_contrasts$`$p$`[hypothesis1c_mental_contrasts$`$p$` == "0.000"] <- "<.001"
 
-colnames(hypothesis1c_physical_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+colnames(hypothesis1c_physical_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis1c_physical_contrasts$Contrast <- gsub("X", "", hypothesis1c_physical_contrasts$Contrast)
-hypothesis1c_physical_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")] <- signif(hypothesis1c_physical_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 3)
+hypothesis1c_physical_contrasts[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")] <- signif(hypothesis1c_physical_contrasts[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")], digits = 3)
 hypothesis1c_physical_contrasts$`$p$` <- format(round(hypothesis1c_physical_contrasts$`$p$`, digits = 3), nsmall = 2)
 hypothesis1c_physical_contrasts$`$p$`[hypothesis1c_physical_contrasts$`$p$` == "0.000"] <- "<.001"
 
-colnames(hypothesis1c_performance_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+colnames(hypothesis1c_performance_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis1c_performance_contrasts$Contrast <- gsub("X", "", hypothesis1c_performance_contrasts$Contrast)
-hypothesis1c_performance_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")] <- signif(hypothesis1c_performance_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 3)
+hypothesis1c_performance_contrasts[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")] <- signif(hypothesis1c_performance_contrasts[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")], digits = 3)
 hypothesis1c_performance_contrasts$`$p$` <- format(round(hypothesis1c_performance_contrasts$`$p$`, digits = 3), nsmall = 2)
 hypothesis1c_performance_contrasts$`$p$`[hypothesis1c_performance_contrasts$`$p$` == "0.000"] <- "<.001"
 
-colnames(hypothesis1c_effort_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+colnames(hypothesis1c_effort_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis1c_effort_contrasts$Contrast <- gsub("X", "", hypothesis1c_effort_contrasts$Contrast)
-hypothesis1c_effort_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")] <- signif(hypothesis1c_effort_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 3)
+hypothesis1c_effort_contrasts[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")] <- signif(hypothesis1c_effort_contrasts[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")], digits = 3)
 hypothesis1c_effort_contrasts$`$p$` <- format(round(hypothesis1c_effort_contrasts$`$p$`, digits = 3), nsmall = 2)
 hypothesis1c_effort_contrasts$`$p$`[hypothesis1c_effort_contrasts$`$p$` == "0.000"] <- "<.001"
 
-colnames(hypothesis1c_frustration_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+colnames(hypothesis1c_frustration_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis1c_frustration_contrasts$Contrast <- gsub("X", "", hypothesis1c_frustration_contrasts$Contrast)
-hypothesis1c_frustration_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")] <- signif(hypothesis1c_frustration_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 3)
+hypothesis1c_frustration_contrasts[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")] <- signif(hypothesis1c_frustration_contrasts[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")], digits = 3)
 hypothesis1c_frustration_contrasts$`$p$` <- format(round(hypothesis1c_frustration_contrasts$`$p$`, digits = 3), nsmall = 2)
 hypothesis1c_frustration_contrasts$`$p$`[hypothesis1c_frustration_contrasts$`$p$` == "0.000"] <- "<.001"
 
-colnames(hypothesis1c_time_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+colnames(hypothesis1c_time_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis1c_time_contrasts$Contrast <- gsub("X", "", hypothesis1c_time_contrasts$Contrast)
-hypothesis1c_time_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")] <- signif(hypothesis1c_time_contrasts[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 3)
+hypothesis1c_time_contrasts[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")] <- signif(hypothesis1c_time_contrasts[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")], digits = 3)
 hypothesis1c_time_contrasts$`$p$` <- format(round(hypothesis1c_time_contrasts$`$p$`, digits = 3), nsmall = 2)
 hypothesis1c_time_contrasts$`$p$`[hypothesis1c_time_contrasts$`$p$` == "0.000"] <- "<.001"
 
@@ -1471,9 +1471,9 @@ hypothesis3a_contrasts_nlevel <- cbind(hypothesis3a_contrasts_nlevel,
 
 # rename columns and contrasts, round to two decimals
 
-colnames(hypothesis3a_contrasts_nlevel) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+colnames(hypothesis3a_contrasts_nlevel) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis3a_contrasts_nlevel$Contrast <- c("1-2 - 2-3")
-hypothesis3a_contrasts_nlevel[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(round(hypothesis3a_contrasts_nlevel[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 2), nsmall = 2)
+hypothesis3a_contrasts_nlevel[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")] <- format(round(hypothesis3a_contrasts_nlevel[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")], digits = 2), nsmall = 2)
 hypothesis3a_contrasts_nlevel$`$p$` <- format(round(hypothesis3a_contrasts_nlevel$`$p$`, digits = 3), nsmall = 2)
 hypothesis3a_contrasts_nlevel$`$p$`[hypothesis3a_contrasts_nlevel$`$p$` == "0.000"] <- "<.001"
 
@@ -1583,9 +1583,9 @@ hypothesis3b_contrasts_levels <- cbind(hypothesis3b_contrasts_levels,
 
 # rename columns and contrasts, round to two decimals
 
-colnames(hypothesis3b_contrasts_levels) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+colnames(hypothesis3b_contrasts_levels) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis3b_contrasts_levels$Contrast <- gsub("X", "", hypothesis3b_contrasts_levels$Contrast)
-hypothesis3b_contrasts_levels[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(round(hypothesis3b_contrasts_levels[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 2), nsmall = 2)
+hypothesis3b_contrasts_levels[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")] <- format(round(hypothesis3b_contrasts_levels[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")], digits = 2), nsmall = 2)
 hypothesis3b_contrasts_levels$`$p$` <- format(round(hypothesis3b_contrasts_levels$`$p$`, digits = 3), nsmall = 2)
 hypothesis3b_contrasts_levels$`$p$`[hypothesis3b_contrasts_levels$`$p$` == "0.000"] <- "<.001"
 
@@ -1623,9 +1623,9 @@ hypothesis3b_contrasts_interact <- cbind(hypothesis3b_contrasts_interact,
 
 # rename columns and contrasts, round to two decimals
 
-colnames(hypothesis3b_contrasts_interact) <- c("Contrast", "Level", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+colnames(hypothesis3b_contrasts_interact) <- c("Contrast", "Level", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis3b_contrasts_interact$Level <- gsub("X", "", hypothesis3b_contrasts_interact$Level)
-hypothesis3b_contrasts_interact[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(round(hypothesis3b_contrasts_interact[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 2), nsmall = 2)
+hypothesis3b_contrasts_interact[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")] <- format(round(hypothesis3b_contrasts_interact[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")], digits = 2), nsmall = 2)
 hypothesis3b_contrasts_interact$`$p$` <- format(round(hypothesis3b_contrasts_interact$`$p$`, digits = 3), nsmall = 2)
 hypothesis3b_contrasts_interact$`$p$`[hypothesis3b_contrasts_interact$`$p$` == "0.000"] <- "<.001"
 
@@ -1726,9 +1726,9 @@ hypothesis3c_contrasts_nfc <- cbind(hypothesis3c_contrasts_nfc,
 
 # rename columns and contrasts, round to two decimals
 
-colnames(hypothesis3c_contrasts_nfc) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+colnames(hypothesis3c_contrasts_nfc) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis3c_contrasts_nfc$Contrast <- c("High NFC - Low NFC")
-hypothesis3c_contrasts_nfc[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(round(hypothesis3c_contrasts_nfc[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 2), nsmall = 2)
+hypothesis3c_contrasts_nfc[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")] <- format(round(hypothesis3c_contrasts_nfc[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")], digits = 2), nsmall = 2)
 hypothesis3c_contrasts_nfc$`$p$` <- format(round(hypothesis3c_contrasts_nfc$`$p$`, digits = 3), nsmall = 2)
 hypothesis3c_contrasts_nfc$`$p$`[hypothesis3c_contrasts_nfc$`$p$` == "0.000"] <- "<.001"
 
@@ -1755,9 +1755,9 @@ hypothesis3c_contrasts_levels <- cbind(hypothesis3c_contrasts_levels,
 
 # rename columns and contrasts, round to two decimals
 
-colnames(hypothesis3c_contrasts_levels) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+colnames(hypothesis3c_contrasts_levels) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis3c_contrasts_levels$Contrast <- c("1-2 - 2-3")
-hypothesis3c_contrasts_levels[ ,c("Estimate","$SE$","$t$","$BF10$")] <- format(round(hypothesis3c_contrasts_levels[ ,c("Estimate","$SE$","$t$","$BF10$")], digits = 2), nsmall = 2)
+hypothesis3c_contrasts_levels[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")] <- format(round(hypothesis3c_contrasts_levels[ ,c("Estimate","$SE$","$t$","$\\mathrm{BF}_{\\textrm{10}}$")], digits = 2), nsmall = 2)
 hypothesis3c_contrasts_levels$`$p$` <- format(round(hypothesis3c_contrasts_levels$`$p$`, digits = 3), nsmall = 2)
 hypothesis3c_contrasts_levels$`$p$`[hypothesis3c_contrasts_levels$`$p$` == "0.000"] <- "<.001"
 
