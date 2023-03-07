@@ -142,7 +142,7 @@ Paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
   hypothesis1a_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing $d'$ between $n$-back levels",
+  caption = "Paired contrasts for the rmANOVA comparing $d'$ between $n$-back levels.",
   note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
@@ -162,7 +162,7 @@ Paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 apa_table(
   hypothesis1b_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing the median reaction time between $n$-back levels",
+  caption = "Paired contrasts for the rmANOVA comparing the median reaction time between $n$-back levels.",
   note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
@@ -182,7 +182,7 @@ Mental subscale paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis1c_mental_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Mental subscale between $n$-back levels",
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Mental subscale between $n$-back levels.",
   note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
@@ -200,7 +200,7 @@ Physical subscale paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis1c_physical_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Physical subscale between $n$-back levels",
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Physical subscale between $n$-back levels.",
   note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
@@ -218,7 +218,7 @@ Time subscale paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis1c_time_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Time subscale between $n$-back levels",
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Time subscale between $n$-back levels.",
   note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
@@ -236,7 +236,7 @@ Performance subscale paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis1c_performance_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Performance subscale between $n$-back levels",
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Performance subscale between $n$-back levels.",
   note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
@@ -254,7 +254,7 @@ Effort subscale paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis1c_effort_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Effort subscale between $n$-back levels",
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Effort subscale between $n$-back levels.",
   note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
@@ -272,7 +272,7 @@ Frustration subscale paired contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis1c_frustration_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Frustration subscale between $n$-back levels",
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Frustration subscale between $n$-back levels.",
   note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
@@ -302,7 +302,7 @@ Pre-defined contrasts:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis2a_contrasts,
-  caption = "Contrasts for the rmANOVA comparing the subjective values between $n$-back levels",
+  caption = "Contrasts for the rmANOVA comparing the subjective values between $n$-back levels.",
   note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
@@ -346,7 +346,7 @@ Contrast for main effect level:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis3a_contrasts_nlevel,
-  caption = "Paired contrast for the rmANOVA comparing the influence of Need for Cognition group and $n$-back level on difference scores of subjective values",
+  caption = "Paired contrast for the rmANOVA comparing the influence of Need for Cognition group and $n$-back level on difference scores of subjective values.",
   note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
@@ -370,7 +370,7 @@ Contrast for main effect level:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis3b_contrasts_levels,
-  caption = "Paired contrasts for the rmANOVA comparing the influence of Need for Cognition group and $n$-back level on NASA-TLX scores",
+  caption = "Paired contrasts for the rmANOVA comparing the influence of Need for Cognition group and $n$-back level on NASA-TLX scores.",
   note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
@@ -382,7 +382,7 @@ Contrast for interaction:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis3b_contrasts_interact,
-  caption = "Paired contrasts for the rmANOVA comparing the influence of Need for Cognition group and $n$-back level on NASA-TLX scores",
+  caption = "Paired contrasts for the rmANOVA comparing the influence of Need for Cognition group and $n$-back level on NASA-TLX scores.",
   note = "The column Contrast contains the groups above (high) and below (low) the Need for Cognition score median. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
@@ -406,7 +406,7 @@ Contrast for main effect level:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis3c_contrasts_levels,
-  caption = "Paired contrast for the rmANOVA comparing the influence of Need for Cognition group and $n$-back level on difference scores of aversiveness ratings",
+  caption = "Paired contrast for the rmANOVA comparing the influence of Need for Cognition group and $n$-back level on difference scores of aversiveness ratings.",
   note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
@@ -418,7 +418,7 @@ Contrast for main effect NFC group:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   hypothesis3c_contrasts_nfc,
-  caption = "Paired contrast for the rmANOVA comparing the influence of Need for Cognition (NFC) group and $n$-back level on difference scores of aversiveness ratings",
+  caption = "Paired contrast for the rmANOVA comparing the influence of Need for Cognition (NFC) group and $n$-back level on difference scores of aversiveness ratings.",
   note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
@@ -426,3 +426,38 @@ apa_table(
 ```
 
 \newpage
+
+## Exploratory analyses
+
+ANOVA:
+
+Main effect level: `r apa_print(explor_model)$full_result$level`, `r apa_print(explor_BF)$table[1,"statistic"]`
+
+Main effect NFC group: `r apa_print(explor_model)$full_result$nfcmedian`, `r apa_print(explor_BF)$table[2,"statistic"]`
+
+Interaction: `r apa_print(explor_model)$full_result$nfcmedian_level`
+
+Contrasts for main effect level:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  explor_contrasts_nlevel,
+  caption = "Paired contrast for the rmANOVA comparing the influence of Need for Cognition group and $n$-back level on subjective values.",
+  note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+Contrasts for the interaction:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  explor_contrasts_interact,
+  caption = "Paired contrast for the rmANOVA comparing the influence of Need for Cognition group and $n$-back level on subjectvie values.",
+  note = "The column Contrast contains the groups above (high) and below (low) the Need for Cognition score median. The column Level contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+

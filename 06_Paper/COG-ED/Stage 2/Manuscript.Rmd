@@ -61,7 +61,7 @@ abstract: |
   Results show that many participants preferred a more or the most difficult level.
   Variance in SVs was best explained by a declining logistic contrast of the $n$-back levels and by the accuracy of responses, while reaction time as a predictor was highly volatile depending on the preprocessing pipeline.
   Participants with higher Need for Cognition scores perceived higher $n$-back levels as less effortful and found them less aversive.
-  Effects of Need for Cognition on SVs in lower levels did not reach significance, as group differences mainly emerged in higher levels.
+  Effects of Need for Cognition on SVs in lower levels did not reach significance, as group differences only emerged in higher levels.
   The CAD Paradigm appears to be well suited for assessing and analysing task preferences independent of the supposed objective task difficulty.
   
   
@@ -490,9 +490,12 @@ The full results of these analyses of NFC group differences can be found in Tabl
 
 # Exploratory analysis
 
-To investigate the apparent group difference between the SVs of participants with NFC scores below and above the median in higher $n$-back levels, we computed an rmANOVA with the within-factor level and the between-factor NFC group.
+To investigate the apparent group difference between the SVs of participants with NFC scores below and above the median in higher $n$-back levels, we computed an rmANOVA with the within-factor level (1 to 4) and the between-factor NFC group (below/above median).
 There was no main effect of NFC group (`r apa_print(explor_model)$full_result$nfcmedian`, `r apa_print(explor_BF)$table[2,"statistic"]`), but a main effect of the $n$-back level (`r apa_print(explor_model)$full_result$level`, `r apa_print(explor_BF)$table[1,"statistic"]`) and an interaction (`r apa_print(explor_model)$full_result$nfcmedian_level`).
-Post-hoc tests showed that 
+Post-hoc tests for the main effect of level showed that Svs were lower for the more difficult $n$-back level in each paired contrast except for 1- versus 2-back.
+Post-hoc tests for the interaction effect showed that the NFC groups only had a significant difference in SVs for 4-back, where participants below the NFC median had lower scores (`r apa_print(pairs(explor_emm_interact))$full_result$X4_High_low`).
+Despite not reaching significance, 1-back was the only level in which participants with NFC scores above the median seemed to have lower SVs than those with scores below the median (`r apa_print(pairs(explor_emm_interact))$full_result$X1_High_low`).
+The full results of this exploratory analysis of NFC group differences can be found in Table S.16 and S.17 in the Supplementary Material.
 
 # Discussion
 
@@ -547,7 +550,8 @@ It shows that when given the choice, there is a large number of participants who
 The CAD paradigm provides the means to depict these preferences.
 
 Despite the visual separation of the SVs of participants with very low and high NFC scores in higher $n$-back levels, the NFC group did not reach significance in predicting SVs.
-This was likely due to the bandwidth of SVs of participants with NFC scores around the median, and due to the fact that the difference appeared most pronounced for $4$-back, and we only analyzed the difference scores between 1- and 2-back and 2- and 3-back.
+This was likely due to the bandwidth of SVs of participants with NFC scores around the median, and due to the fact that the difference appeared most pronounced for 4-back, and we only analyzed the difference scores between 1- and 2-back and 2- and 3-back.
+As the exploratory analysis showed, only 4-back yielded a significant group difference, and SVs of participants with NFC scores above the median were higher for 2- to 4-back and lower for 1-back.
 The analysis of NASA-TLX scores showed that the sum score increased with every $n$-back level, and that participants with NFC scores below the median had higher NASA-TLX scores for 3- and 4-back than those below the median.
 This demonstrates that higher $n$-back levels have a higher discriminatory power regarding inter-individual differences in subjective effort perception.
 This was also supported by the fact that higher $n$-back levels were perceived as more aversive, and participants with NFC scores below the median reported higher aversion than those with NFC scores above the median.
@@ -578,7 +582,7 @@ Spanning the entire sample, these preferences took the shape of a declining logi
 While the subjective value declined with increasing levels, it increased with better performance as measured in $d'$, and was unaffected by the reaction time.
 Participants with Need for Cognition scores above the median reported lower subjective task load in and less aversion to more difficult levels.
 However, they did not have higher subjective values per se, which was likely due to our choice of median split and our assumption that these group differences would emerge in lower levels.
-In fact, the reaction time and self-report data suggest that individual differences emerge especially from 3-back upwards, emphasizing the need for a flexible effort discounting paradigm.
+In fact, the reaction time and self-report data suggest that individual differences emerge especially from 3-back upwards, emphasizing the need for tasks with high discriminatory power and effort discounting paradigms with flexible, participant-centered mechanisms.
 The CAD paradigm offers this flexibility, and we encourage future studies to question traditional assumptions in the field of effort discounting in the light of these findings, and to re-use this data set for exploratory analyses.
 
 \newpage
