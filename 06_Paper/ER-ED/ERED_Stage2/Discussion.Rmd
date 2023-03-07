@@ -22,10 +22,27 @@ options(papaja.na_string = "")
 
 # Discussion
 
-The present Registered Report sought to evaluate whether our new Cognitive and Affective Discounting (CAD) paradigm is suitable for determining individual subjective values of emotion regulation strategies.
-We therefore adapted the Cognitive Effort Discounting Paradigm by Westbrook et al. [@Westbrook2013] in a way that it is now possible to determine SVs for tasks that have no objective order of difficulty levels. 
-The new paradigm was tested on an *n*-back task [@ZernaScheffel2022] and a classic ER paradigm with the strategies distraction, distancing, and suppression.
+The present Registered Report sought to evaluate whether our new Cognitive and Affective Discounting (CAD) paradigm is suitable for determining individual subjective values of the ER strategies strategies distraction, distancing, and suppression.
+We therefore adapted the Cognitive Effort Discounting Paradigm by Westbrook et al. [-@Westbrook2013] in a way that it is now possible to determine SVs for tasks that have no objective order of difficulty levels. 
+The new paradigm was tested on an *n*-back task [@ZernaScheffel2022] and a classic ER paradigm.
 The latter was completed by $N=`r sum(data_survey[,"followup_ered_complete"] == 2)`$ participants. 
+As expected, use of ER strategies was associated with decreased subjective and physiological arousal.
+This finding is in line with previous meta-analytic findings, indicating the effectiveness of ER strategies, both on subjective as well as physiological levels [@Webb2012;@Zaehringer2020].
+Further, we found higher levels of subjective cognitive effort for all ER strategies compared to active viewing. 
+This allows us to replicate previous findings from our research group and show that the use of strategies is associated with cognitive effort [@Scheffel2021].
+Both measures also showed great variability between individuals.
+Taken together, this means that the ER strategies had an effect on the participants as intended: Individuals were able to reduce subjective and physiological responding effectively at the expense of cognitive effort.
+We assume that there was a good basis on which individual SVs of ER strategies could be determined.
+
+Almost all participants showed an absolut preference for one strategy, indicated by a SV of 1. 
+
+ 
+Subjective effort, utility, and *Corrugator* muscle activity significantly predicted individual SVs.
+Contrary to our hypothesis, utility was the best predictor for individual SVs, explaining `r papaja::printnum(H5_M2_table[4,5]*100, digits = 1)` percent of variance in SVs.
+However, individual SVs did not show associations with ER flexibility.
+
+## Validity of subjective values of ER strategies
+
 
 
 ## Limitations
