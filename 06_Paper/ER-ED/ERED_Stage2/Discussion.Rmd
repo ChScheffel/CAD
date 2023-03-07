@@ -1,0 +1,33 @@
+---
+title: "Discussion"
+author: "Christoph Scheffel"
+output: html_document
+---
+
+```{r SetupDiscussion, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(here)       # to set directories without defined paths
+# set top level directory to source file
+here::i_am("flag_project_root_CAD.txt")
+
+library(tidyverse)
+
+# load workspace variables from analyses_ERED.R script
+base::load(here("06_Paper","ER-ED","ERED_Stage2","Workspace_ERED_pilot.RData"))
+base::load(here("06_Paper","ER-ED","ERED_Stage2","Workspace_ERED.RData"))
+
+options(papaja.na_string = "")
+```
+
+# Discussion
+
+The present Registered Report sought to evaluate whether our new Cognitive and Affective Discounting (CAD) paradigm is suitable for determining individual subjective values of emotion regulation strategies.
+We therefore adapted the Cognitive Effort Discounting Paradigm by Westbrook et al. [@Westbrook2013] in a way that it is now possible to determine SVs for tasks that have no objective order of difficulty levels. 
+The new paradigm was tested on an *n*-back task [@ZernaScheffel2022] and a classic ER paradigm with the strategies distraction, distancing, and suppression.
+The latter was completed by $N=`r sum(data_survey[,"followup_ered_complete"] == 2)`$ participants. 
+
+
+## Limitations
+
+## Conclusion
