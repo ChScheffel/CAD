@@ -177,7 +177,7 @@ Our hypotheses were derived from the results of Westbrook et al.[-@Westbrook2013
 As a manipulation check, we hypothesized that with increasing $n$-back level the (1a) the signal detection parameter $d'$ declines, while (1b) reaction time and (1c) perceived task load increase.
 Regarding the associations of task load and effort discounting we hypothesized that (2a) SVs decline with increasing $n$-back level, and (2b) they do so even after controlling for declining task performance.
 And finally, we hypothesized that the CAD paradigm can show inter-individual differences in effort discounting, such that participants with higher NFC have (3a) lower SVs for 1-back but higher SVs for 2- and 3-back, (3b) lower perceived task load across all levels, and (3c) higher aversion against 1-back but lower aversion against 2- and 3-back.
-Each hypothesis is detailed in the [Design Table](#DesignTableSection) in the Appendix.
+Each hypothesis is detailed in the Design Table in the Supplementary Material.
 
 # Methods
 
@@ -376,12 +376,13 @@ Three subscales had significant differences between all contrasts except for 3- 
 While ratings on the frustration and time subscales were higher for more difficult levels (`r apa_print(hypothesis1c_frustration_rmanova)$full_result$level`, `r apa_print(hypothesis1c_frustration_BF)$statistic`, and `r apa_print(hypothesis1c_time_rmanova)$full_result$level`, `r apa_print(hypothesis1c_time_BF)$statistic`, respectively), ratings on the performance subscale decreased with higher $n$ (`r apa_print(hypothesis1c_performance_rmanova)$full_result$level`, `r apa_print(hypothesis1c_performance_BF)$statistic`).
 Ratings on the mental subscale consistently increased across all levels (`r apa_print(hypothesis1c_mental_rmanova)$full_result$level`, `r apa_print(hypothesis1c_mental_BF)$statistic`).
 Ratings on the physical subscale were higher for more difficult levels (`r apa_print(hypothesis1c_physical_rmanova)$full_result$level`, `r apa_print(hypothesis1c_physical_BF)$statistic`), apart from the contrasts 2- versus 3-back (`r apa_print(pairs(hypothesis1c_physical_emm))$statistic$X2_X3`, `r apa_print(BayesFactor::ttestBF(x = h1c_data$physical[h1c_data$level == 2], y = h1c_data$physical[h1c_data$level == 3], progress = FALSE, paired = TRUE))$statistic`) and 3- versus 4-back (`r apa_print(pairs(hypothesis1c_physical_emm))$statistic$X3_X4`, `r apa_print(BayesFactor::ttestBF(x = h1c_data$physical[h1c_data$level == 3], y = h1c_data$physical[h1c_data$level == 4], progress = FALSE, paired = TRUE))$statistic`).
+The full results of these manipulation checks are listed in Table S.1 to S.8 in the Supplementary Material.
 
 ## Decline of subjective values
 
 When asking participants what motivated their decisions in the effort discounting, `r format(round((table(data_quest$motivation)[1]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% stated that they wanted to avoid boredom, `r format(round((table(data_quest$motivation)[2]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% stated that they wanted a challenge, `r format(round((table(data_quest$motivation)[3]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% stated that they wanted to avoid effort, and `r format(round((table(data_quest$motivation)[4]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% stated that they wanted to relax.
 The remaining `r format(round((table(data_quest$motivation)[5]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% of participants used the free text field and provided reasons such as "I wanted a fair relation of effort and reward.", "I wanted the fun that I had in the more challenging levels.", "I wanted to maximize reward first and minimize effort second.", or "I did not want to perform poorly when I was being paid for it.".
-**Figure XX in the Supplement** shows the different motivations in the context of the SVs per $n$-back level.
+Figure S.1 in the Supplementary Material shows the different motivations in the context of the SVs per $n$-back level.
 
 The rmANOVA showed a significant difference between the SVs across $n$-back levels (`r apa_print(hypothesis2a_rmanova)$full_result$level`, `r apa_print(hypothesis2a_BF)$statistic`).
 All four pre-defined contrasts reached significance (Table\ \@ref(tab:H2a-contrasts)), so a purely linear contrast can be rejected.
@@ -412,14 +413,11 @@ A total of `r nrow(excl_cases_h2b)` data points from `r length(unique(excl_cases
 The results of the final model are displayed in Table\ \@ref(tab:H2b-results).
 
 ```{r H2b-results, echo=FALSE, message=FALSE, warning=FALSE}
-kable(h2b_result.table,
+apa_table(h2b_result.table,
         caption = "Results of the multi level model on the influence of n-back level (as a declining logistic contrast) and task performance on subjective values.",
-        booktabs = T,                          # no vertical lines
-        escape = F,                            # correctly print special characters)
-        align = c("l",rep("r",7))) %>%         # right aligns the text in every numerical column
-    footnote(general = "$SE$ = standard error, $df$ = degrees of freedom, $SD$ = standard deviation.",
-             escape = F,                    # correctly print special characters
-             threeparttable = T)            # line breaks in the footnote
+        escape = FALSE,
+        note = "$SE$ = standard error, $df$ = degrees of freedom, $SD$ = standard deviation.",
+        placement = "H")
 ```
 
 An exploratory ANOVA was used to compare the fit of the final model with a linear random intercept model, confirming that the two models were different from each other ($\chi^2 (`r compare_h2b$Df[2]`)$ = `r compare_h2b$Chisq[2]`, $p<.001$), and with an Akaike Information Criterion of $AIC=`r compare_h2b$AIC[2]`$ and a Bayesian Information Criterion of $BIC=`r compare_h2b$BIC[2]`$ the declining logistic model was superior to the linear model ($AIC=`r compare_h2b$AIC[1]`$, $BIC=`r compare_h2b$BIC[1]`$).
@@ -488,6 +486,7 @@ With another rmANOVA we investigated whether the difference between the aversive
 There was a main effect of NFC group (`r apa_print(hypothesis3c_model)$full_result$nfcmedian`, `r apa_print(hypothesis3c_BF_levels)$statistic$nfc`) and a main effect of the $n$-back level (`r apa_print(hypothesis3c_model)$full_result$nlevels`, `r apa_print(hypothesis3c_BF_levels)$statistic$levels`), but no interaction (`r apa_print(hypothesis3c_model)$full_result$nfcmedian_nlevels`).
 Post-hoc tests revealed that participants with NFC scores below the median reported higher aversiveness than participants with NFC scores above the median (`r apa_print(pairs(hypothesis3c_emm_nfc))$statistic`) (right panel of Figure\ \@ref(fig:h3ac-plot)).
 Regardless of NFC, the difference of the aversiveness scores of 2- and 3-back was smaller and more negative than that of 1- and 2-back (`r apa_print(pairs(hypothesis3c_emm_levels))$statistic`), but again, there were large inter-individual differences.
+The full results of these analyses of NFC group differences can be found in Table S.11 to S.15 in the Supplementary Material.
 
 # Discussion
 
