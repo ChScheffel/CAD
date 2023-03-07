@@ -610,32 +610,3 @@ All authors reviewed, edited, and approved the final version of the manuscript.
 
 The authors declare no competing interests.
 
-\newpage
-\setcounter{figure}{0}
-
-# Figures and figure Captions
-
-INSERT FIGURE 1 HERE
-
-<!--
-```{r figure1appendix, echo=FALSE, message=FALSE, warning=FALSE}
-
-  include_graphics(here("06_Paper", "Inkscape Figures", "Paradigm_Scheme.png"))
-
-```
--->
-
-*Figure 1.* An example for subjective values for an $n$-back task with three levels, returned by different modifications of the COG-ED paradigm for a hypothetical participant with the true preference 2-back > 3-back > 1-back. The grey boxes are the choice options shown to the participant. The participant's final reward value of the flexible level is displayed after the first arrow. The resulting subjective value of each level is displayed after the second arrow, in the notation "SV 3-back(1-back)" for the subjective value of 3-back when 1-back is the other choice. The Solution and Additional Benefit panel follow the same logic, but are preceded by a choice between equal rewards, and the participant's first choice indicated by an exclamation mark.
-
-\newpage
-
-# Design Table {#DesignTableSection}
-
-INSERT DESIGN TABLE HERE
-
-\newpage
-
-# Supplement
-
-INSERT SUPPLEMENT HERE
-
