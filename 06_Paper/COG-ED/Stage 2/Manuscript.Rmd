@@ -488,6 +488,12 @@ Post-hoc tests revealed that participants with NFC scores below the median repor
 Regardless of NFC, the difference of the aversiveness scores of 2- and 3-back was smaller and more negative than that of 1- and 2-back (`r apa_print(pairs(hypothesis3c_emm_levels))$statistic`), but again, there were large inter-individual differences.
 The full results of these analyses of NFC group differences can be found in Table S.11 to S.15 in the Supplementary Material.
 
+# Exploratory analysis
+
+To investigate the apparent group difference between the SVs of participants with NFC scores below and above the median in higher $n$-back levels, we computed an rmANOVA with the within-factor level and the between-factor NFC group.
+There was no main effect of NFC group (`r apa_print(explor_model)$full_result$nfcmedian`, `r apa_print(explor_BF)$table[2,"statistic"]`), but a main effect of the $n$-back level (`r apa_print(explor_model)$full_result$level`, `r apa_print(explor_BF)$table[1,"statistic"]`) and an interaction (`r apa_print(explor_model)$full_result$nfcmedian_level`).
+Post-hoc tests showed that 
+
 # Discussion
 
 This Registered Report aimed to adapt the Cognitive Effort Discounting Paradigm (COG-ED) paradigm by Westbrook et al.[-@Westbrook2013], which can estimate subjective values of different $n$-back levels, into the Cognitive and Affective Discounting (CAD) paradigm, which can estimate SVs of tasks without defaulting to the objective task load as a benchmark.
