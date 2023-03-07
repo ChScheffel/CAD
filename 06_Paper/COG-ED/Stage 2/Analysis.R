@@ -1977,6 +1977,94 @@ sca_plot <- egg::ggarrange(sca_plot_upper, sca_plot_lower,
     theme(legend.title = element_text()) +
     guides(fill = 'none')
 
+##### Exploratory analyses #####################################################
+
+# make a copy
+  
+explor_data <- data_SV
+
+# add column indicating NFC score above or below median
+
+mediannfc <- median(explor_data$nfc)
+explor_data$nfcmedian <- ifelse(explor_data$nfc < median(explor_data$nfc), "low", "high")
+explor_data$nfcmedian <- as.factor(explor_data$nfcmedian)
+explor_data$level <- as.factor(explor_data$level)
+
+# compute two-way ANOVA
+
+explor_model <- afex::aov_ez("subject", "sv", explor_data,
+                                   between = c("nfcmedian"), within = c("level"),
+                             fun_aggregate = mean)
+explor_rmanova <- base::summary(explor_model)
+explor_rmanova <- explor_rmanova[["univariate.tests"]]
+explor_rmanova <- as.data.frame(matrix(explor_rmanova, nrow = 4, ncol = 6))
+
+
+# get effect size and BF10
+
+explor_rmanova <- cbind(explor_rmanova,
+                        format(effectsize::F_to_eta2(f = explor_rmanova[,5], df = explor_rmanova[,2],
+                                                     df_error = explor_rmanova[,4], ci = 0.95), digits = 2))
+explor_BF <- BayesFactor::anovaBF(formula = sv ~ level * nfcmedian, data = explor_data, progress = FALSE)
+
+# formatting
+
+colnames(explor_rmanova) <- c("Sum Sq", "$df$", "error Sum Sq", "error $df$", "$F$", "$p$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+rownames(explor_rmanova) <- c("Intercept", "NFC group", "n-back level", "NFC group x n-back level")
+explor_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")] <- signif(explor_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")], digits = 3)
+explor_rmanova$`$p$` <- format(round(explor_rmanova$`$p$`, digits = 3), nsmall = 2)
+explor_rmanova$`$p$`[explor_rmanova$`$p$` == "0.000"] <- "<.001"
+
+## post-hoc tests for the n-back levels
+
+explor_emm_level <- emmeans::emmeans(object = explor_model, "level")
+explor_contrasts_nlevel <- as.data.frame(pairs(explor_emm_level))
+explor_contrasts_nlevel$BF10 <- c(apa_print(BayesFactor::ttestBF(x = explor_data$sv[explor_data$level == 1], y = explor_data$sv[explor_data$level == 2],
+                                                                progress = FALSE, paired = TRUE))$table[1,"statistic"],
+                                 apa_print(BayesFactor::ttestBF(x = explor_data$sv[explor_data$level == 1], y = explor_data$sv[explor_data$level == 3],
+                                                                progress = FALSE, paired = TRUE))$table[1,"statistic"],
+                                 apa_print(BayesFactor::ttestBF(x = explor_data$sv[explor_data$level == 1], y = explor_data$sv[explor_data$level == 4],
+                                                                progress = FALSE, paired = TRUE))$table[1,"statistic"],
+                                 apa_print(BayesFactor::ttestBF(x = explor_data$sv[explor_data$level == 2], y = explor_data$sv[explor_data$level == 3],
+                                                                progress = FALSE, paired = TRUE))$table[1,"statistic"],
+                                 apa_print(BayesFactor::ttestBF(x = explor_data$sv[explor_data$level == 2], y = explor_data$sv[explor_data$level == 4],
+                                                                progress = FALSE, paired = TRUE))$table[1,"statistic"],
+                                 apa_print(BayesFactor::ttestBF(x = explor_data$sv[explor_data$level == 3], y = explor_data$sv[explor_data$level == 4],
+                                                                progress = FALSE, paired = TRUE))$table[1,"statistic"])
+explor_contrasts_nlevel <- cbind(explor_contrasts_nlevel,
+                                       format(effectsize::t_to_eta2(t = explor_contrasts_nlevel$t.ratio,
+                                                                    df_error = explor_contrasts_nlevel$df, ci = 0.95), digits = 2))
+colnames(explor_contrasts_nlevel) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+explor_contrasts_nlevel$Contrast <- gsub("X", "", explor_contrasts_nlevel$Contrast)
+explor_contrasts_nlevel[ ,c("Estimate","$SE$","$t$")] <- format(round(explor_contrasts_nlevel[ ,c("Estimate","$SE$","$t$")], digits = 2), nsmall = 2)
+explor_contrasts_nlevel$`$p$` <- format(round(explor_contrasts_nlevel$`$p$`, digits = 3), nsmall = 2)
+explor_contrasts_nlevel$`$p$`[explor_contrasts_nlevel$`$p$` == "0.000"] <- "<.001"
+
+## post-hoc tests for interaction
+
+explor_emm_interact <- emmeans::emmeans(object = explor_model, ~ nfcmedian|level)
+explor_contrasts_interact <- as.data.frame(pairs(explor_emm_interact))
+explor_contrasts_interact$BF10 <- c(apa_print(BayesFactor::ttestBF(x = explor_data$sv[explor_data$level == 1 & explor_data$nfcmedian == "high"],
+                                                                   y = explor_data$sv[explor_data$level == 1 & explor_data$nfcmedian == "low"],
+                                                                 progress = FALSE, paired = FALSE))$table[1,"statistic"],
+                                  apa_print(BayesFactor::ttestBF(x = explor_data$sv[explor_data$level == 2 & explor_data$nfcmedian == "high"],
+                                                                 y = explor_data$sv[explor_data$level == 2 & explor_data$nfcmedian == "low"],
+                                                                 progress = FALSE, paired = FALSE))$table[1,"statistic"],
+                                  apa_print(BayesFactor::ttestBF(x = explor_data$sv[explor_data$level == 3 & explor_data$nfcmedian == "high"],
+                                                                 y = explor_data$sv[explor_data$level == 3 & explor_data$nfcmedian == "low"],
+                                                                 progress = FALSE, paired = FALSE))$table[1,"statistic"],
+                                  apa_print(BayesFactor::ttestBF(x = explor_data$sv[explor_data$level == 4 & explor_data$nfcmedian == "high"],
+                                                                 y = explor_data$sv[explor_data$level == 4 & explor_data$nfcmedian == "low"],
+                                                                 progress = FALSE, paired = FALSE))$table[1,"statistic"])
+explor_contrasts_interact <- cbind(explor_contrasts_interact,
+                              format(effectsize::t_to_eta2(t = explor_contrasts_interact$t.ratio,
+                                                           df_error = explor_contrasts_interact$df, ci = 0.95), digits = 2))
+colnames(explor_contrasts_interact) <- c("Contrast", "Level", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+explor_contrasts_interact$Level <- gsub("X", "", explor_contrasts_interact$Level)
+explor_contrasts_interact[ ,c("Estimate","$SE$","$t$")] <- format(round(explor_contrasts_interact[ ,c("Estimate","$SE$","$t$")], digits = 2), nsmall = 2)
+explor_contrasts_interact$`$p$` <- format(round(explor_contrasts_interact$`$p$`, digits = 3), nsmall = 2)
+explor_contrasts_interact$`$p$`[explor_contrasts_interact$`$p$` == "0.000"] <- "<.001" 
+  
 ##### Save variables ###########################################################
 
 save.image(file = "Workspace.RData")
