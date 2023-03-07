@@ -1,0 +1,428 @@
+---
+title             : "Supplementary Material for the Registered Report titled: 'When easy is not preferred: A discounting paradigm to assess load-independent task preference'"
+shorttitle        : "Supplement for CAD Paradigm"
+author: 
+  - name          : "Josephine Zerna"
+    orcid         : "0000-0003-2892-884X"
+    affiliation   : "1"
+    corresponding : yes
+    address       : "Zellescher Weg 17, 01069 Dresden, Germany"
+    email         : "josephine.zerna@tu-dresden.de"
+    equal_contrib : yes
+    role:         # Contributorship roles (e.g., CRediT, credit.niso.org)
+      - Conceptualization
+      - Data curation
+      - Methodology
+      - Funding acquisition
+      - Formal analysis
+      - Investigation
+      - Project administration
+      - Software
+      - Visualization
+      - Writing - original draft
+      - Writing - review & editing
+  - name          : "Christoph Scheffel"
+    orcid         : "0000-0001-5963-9229"
+    affiliation   : "1"
+    equal_contrib : yes
+    role:
+      - Conceptualization
+      - Methodology
+      - Funding acquisition
+      - Investigation
+      - Project administration
+      - Software
+      - Writing - review & editing
+  - name          : "Corinna Kührt"
+    orcid         : "0000-0002-6418-6479"
+    affiliation   : "1"
+    role:
+      - Formal analysis
+      - Writing - review & editing
+  - name          : "Alexander Strobel"
+    orcid         : "0000-0002-9426-5397"
+    affiliation   : "1"
+    role: 
+      - Conceptualization
+      - Resources
+      - Supervision
+      - Funding acquistion
+      - Writing - review & editing
+affiliation:
+  - id            : "1"
+    institution   : "Faculty of Psychology, Technische Universität Dresden, 01069 Dresden, Germany"
+keywords          : "effort discounting, registered report, specification curve analysis, need for cognition, $n$-back"
+bibliography      : CAD.bib
+floatsintext      : yes
+figsintext        : yes
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+csl               : nature.csl
+always_allow_html : true
+header-includes   :
+    - \usepackage{booktabs}
+    - \usepackage{longtable}
+    - \usepackage{array}
+    - \usepackage{multirow}
+    - \usepackage{wrapfig}
+    - \usepackage{float}
+    - \usepackage{colortbl}
+    - \usepackage{pdflscape}
+    - \usepackage{tabu}
+    - \usepackage{threeparttable}
+    - \usepackage{threeparttablex}
+    - \usepackage[normalem]{ulem}
+    - \usepackage{makecell}
+    - \usepackage{xcolor}
+    - \usepackage{setspace}\doublespacing
+    - \usepackage[final]{pdfpages}
+    - \usepackage{chngcntr}
+
+---
+\newpage
+\renewcommand\thesection{\Alph{section}}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\setcounter{section}{19}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+
+  # set the output for figures and tables to the width of the text throughout the entire script
+
+  knitr::opts_chunk$set(out.width = "\\textwidth")
+
+  # load libraries
+
+  library(bibtex)       # for referencing, "bibtex" package
+  library(here)         # for path independent file referencing, "here" package
+  library(papaja)       # APA conform output, "papaja" package
+  options(papaja.na_string = "")
+  library(kableExtra)   # for great tables in R Markdown, "kableExtra" package
+  library(interactions) # for simple slopes plots, "interactions" package
+  library(BayesFactor)  # computing Bayes factors, "BayesFactor" package
+  library(ggplot2)      # for plotting, "ggplot2" package
+  library(knitr)        # for including plots and such, "knitr" package
+  library(effectsize)   # for effect sizes and CIs, "effectsize" package
+  
+  # set top level directory to source file
+
+  here::i_am("flag_project_root_CAD.txt")
+  
+  # load the workspace variables that have been computed with the Analysis.R script
+  
+  load(here("06_Paper","COG-ED","Stage 2","Workspace.RData"))
+
+```
+
+## Design Table
+
+(Starts on next page)
+
+\includepdf[pages={-},landscape=true]{Design_Table_T1.pdf}
+
+\newpage
+
+## Hypothesis 1a: The signal detection measure $d'$ declines with increasing $n$-back level.
+
+ANOVA:
+
+`r apa_print(hypothesis1a_rmanova)$full_result`, `r apa_print(hypothesis1a_BF)$statistic`
+
+Paired contrasts:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+apa_table(
+  hypothesis1a_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing $d'$ between $n$-back levels",
+  note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
+
+## Hypothesis 1b: The median reaction time increases with increasing $n$-back level.
+
+ANOVA:
+
+`r apa_print(hypothesis1b_rmanova)$full_result`, `r apa_print(hypothesis1b_BF)$statistic`
+
+Paired contrasts:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+apa_table(
+  hypothesis1b_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing the median reaction time between $n$-back levels",
+  note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
+
+## Hypothesis 1c: Ratings on all NASA-TLX dimensions increase with increasing $n$-back level.
+
+Mental subscale ANOVA:
+
+`r apa_print(hypothesis1c_mental_rmanova)$full_result`, `r apa_print(hypothesis1c_mental_BF)$statistic`
+
+Mental subscale paired contrasts:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis1c_mental_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Mental subscale between $n$-back levels",
+  note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
+
+Physical subscale ANOVA:
+
+`r apa_print(hypothesis1c_physical_rmanova)$full_result`, `r apa_print(hypothesis1c_physical_BF)$statistic`
+
+Physical subscale paired contrasts:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis1c_physical_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Physical subscale between $n$-back levels",
+  note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
+
+Time subscale ANOVA:
+
+`r apa_print(hypothesis1c_time_rmanova)$full_result`, `r apa_print(hypothesis1c_time_BF)$statistic`
+
+Time subscale paired contrasts:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis1c_time_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Time subscale between $n$-back levels",
+  note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
+
+Performance subscale ANOVA:
+
+`r apa_print(hypothesis1c_performance_rmanova)$full_result`, `r apa_print(hypothesis1c_performance_BF)$statistic`
+
+Performance subscale paired contrasts:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis1c_performance_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Performance subscale between $n$-back levels",
+  note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
+
+Effort subscale ANOVA:
+
+`r apa_print(hypothesis1c_effort_rmanova)$full_result`, `r apa_print(hypothesis1c_effort_BF)$statistic`
+
+Effort subscale paired contrasts:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis1c_effort_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Effort subscale between $n$-back levels",
+  note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
+
+Frustration subscale ANOVA:
+
+`r apa_print(hypothesis1c_frustration_rmanova)$full_result`, `r apa_print(hypothesis1c_frustration_BF)$statistic`
+
+Frustration subscale paired contrasts:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis1c_frustration_contrasts,
+  caption = "Paired contrasts for the rmANOVA comparing ratings on the NASA-TLX Frustration subscale between $n$-back levels",
+  note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
+
+## Motivations for effort discounting behaviour
+
+```{r motiv-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values per $n$-back level for each participant, grouped by the motivation for effort discounting that they indicated in the single choice question after the paradigm. $N=116$", fig.pos="H"} 
+  
+  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "motivation.png"))
+
+```
+
+\newpage
+
+## Hypothesis 2a: Subjective values decline with increasing $n$-back level.
+
+ANOVA:
+
+`r apa_print(hypothesis2a_rmanova)$full_result`, `r apa_print(hypothesis2a_BF)$statistic`
+
+Pre-defined contrasts:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis2a_contrasts,
+  caption = "Contrasts for the rmANOVA comparing the subjective values between $n$-back levels",
+  note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
+
+## Hypothesis 2b: Subjective values decline with increasing $n$-back level, even after controlling for declining task performance measured by signal detection d’ and reaction time.
+
+Multi level model:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+apa_table(h2b_result.table,
+        caption = "Results of the multi level model on the influence of n-back level (as a declining logistic contrast) and task performance on subjective values.",
+        escape = FALSE,
+        note = "$SE$ = standard error, $df$ = degrees of freedom, $SD$ = standard deviation.",
+        placement = "H")
+```
+
+The final model had an effect size of $f^{2}=$ `r round(h2b_level_f2, digits = 2)` for the $n$-back levels and $f^{2}=$ `r round(h2b_dprime_f2, digits = 2)` for $d'$.
+This means that the $n$-back level explained `r paste0(formatC(h2b_level_f2 * 100, format = "f", digits = 2), "%")` and $d'$ explained `r paste0(formatC(h2b_dprime_f2 * 100, format = "f", digits = 2), "%")` of variance in SVs relative to the unexplained variance, respectively.
+The beta coefficient indicated that with every 1-unit increase in $d'$, the SV increased by `r as.numeric(h2b_result.table[3,"Beta"])`.
+The effect size of the median RT was $f^{2}=$ `r format(round(h2b_medianRT_f2, digits = 2), nsmall = 2)`.
+The Bayes Factor of the full model against the null model was `r apa_print(h2b_BF)$statistic`.
+
+\newpage
+
+## Hypothesis 3a: Participants with higher NFC scores have higher subjective values for 2- and 3-back but lower subjective values for 1-back than participants with lower NFC scores.
+
+ANOVA:
+
+Main effect level: `r apa_print(hypothesis3a_model)$full_result$nlevels`, `r apa_print(hypothesis3a_BF_nlevel)$statistic$nlevels`
+
+Main effect NFC group: `r apa_print(hypothesis3a_model)$full_result$nfcmedian`, `r apa_print(hypothesis3a_BF_nlevel)$statistic$nfcmedian`
+
+Interaction: `r apa_print(hypothesis3a_model)$full_result$nfcmedian_nlevels`
+
+Contrast for main effect level:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis3a_contrasts_nlevel,
+  caption = "Paired contrast for the rmANOVA comparing the influence of Need for Cognition group and $n$-back level on difference scores of subjective values",
+  note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
+
+## Hypothesis 3b: Participants with higher NFC scores have lower NASA-TLX scores in every n-back level than participants with lower NFC scores.
+
+ANOVA:
+
+Main effect level: `r apa_print(hypothesis3b_model)$full_result$level`, `r apa_print(hypothesis3b_BF_levels)$statistic$level`
+
+Main effect NFC group: `r apa_print(hypothesis3b_model)$full_result$nfcmedian`, `r apa_print(hypothesis3b_BF_levels)$statistic$nfcmedian`
+
+Interaction: `r apa_print(hypothesis3b_model)$full_result$nfcmedian_level`
+
+Contrast for main effect level:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis3b_contrasts_levels,
+  caption = "Paired contrasts for the rmANOVA comparing the influence of Need for Cognition group and $n$-back level on NASA-TLX scores",
+  note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+Contrast for interaction:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis3b_contrasts_interact,
+  caption = "Paired contrasts for the rmANOVA comparing the influence of Need for Cognition group and $n$-back level on NASA-TLX scores",
+  note = "The column Contrast contains the groups above (high) and below (low) the Need for Cognition score median. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
+
+## Hypothesis 3c: Participants with higher NFC scores have lower aversiveness ratings for 2- and 3-back but higher higher aversiveness ratings for 1-back than participants with lower NFC scores.
+
+ANOVA:
+
+Main effect level: `r apa_print(hypothesis3c_model)$full_result$nlevels`, `r apa_print(hypothesis3c_BF_levels)$statistic$levels`
+
+Main effect NFC group: `r apa_print(hypothesis3c_model)$full_result$nfcmedian`, `r apa_print(hypothesis3c_BF_levels)$statistic$nfc`
+
+Interaction: `r apa_print(hypothesis3c_model)$full_result$nfcmedian_nlevels`
+
+Contrast for main effect level:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis3c_contrasts_levels,
+  caption = "Paired contrast for the rmANOVA comparing the influence of Need for Cognition group and $n$-back level on difference scores of aversiveness ratings",
+  note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+Contrast for main effect NFC group:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  hypothesis3c_contrasts_nfc,
+  caption = "Paired contrast for the rmANOVA comparing the influence of Need for Cognition (NFC) group and $n$-back level on difference scores of aversiveness ratings",
+  note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
