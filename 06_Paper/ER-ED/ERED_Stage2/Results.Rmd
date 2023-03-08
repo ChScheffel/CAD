@@ -58,7 +58,10 @@ Moreover, we found significantly lower effort during suppression compared with d
 knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigSubjEffort.png"))
 ```
 
-[... WAHLVERHALTEN FEHLT NOCH ...]
+The cognitive effort expended also plays the most important role in the subsequent choice decision, which resembles previous findings of our group[@Scheffel2021]. 
+Here, `r round((54/119)*100, digits = 1)` percent stated that they again chose the strategy that was easiest for them to implement.
+`r round((29/119)*100, digits = 1)` percent stated they chose the strategy that was most effective and `r round((14/119)*100, digits = 1)` percent stated their chosen strategy was the easiest and most effective.
+A more detailed list of all reasons can be found in table XX in [supplementary material](#SupplementReasonChoice).
 
 #### Subjective values of ER strategies
 
