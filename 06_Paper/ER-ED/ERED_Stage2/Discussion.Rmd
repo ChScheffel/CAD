@@ -62,6 +62,18 @@ Furthermore, we were able to confirm our manipulation checks, indicating that im
 Taken together, these two facts may have led to slightly lower associations between SVs and predictors.
 
 Third, it is a major limitation that participants had to use three given ER strategies.
+It could be that some of the participants did not implement or were used to any of the three strategies in everyday life.
+So it may be that none of the strategies has a really high subjective value for the person.
+However, strategies for attentional deployment, cognitive change, and response modulation were chosen that meta-analytically proved to be most effective [@Webb2012]. 
+Related to that, individual SVs of each person have to be interpreted with caution. 
+They depend on the specific context: The stimulus material presented and the strategies that are compared with each other.
+Thus, it could be that SVs for one ER strategy would be higher or lower when using other stimuli or valences of stimuli and other comparison strategies.
+That is because the computation of SVs is inseparable form the other SVs.
 
+Fourth, the highest value during the discounting paradigm was set to 2 € as fixed value.
+Participants should imagine that this was the amount of money they would get when they would repeat this strategy.
+One might argue that 2 € as an incentive to repeat an entire block is quite low.
+However, we chose this amount because, first, we have followed the original paradigm of Westbrook[@Westbrook2013].
+Further it was shown that 
 
 ## Conclusion
