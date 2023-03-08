@@ -33,18 +33,23 @@ This allows us to replicate previous findings from our research group and show t
 Both measures also showed great variability between individuals.
 Taken together, this means that the ER strategies had an effect on the participants as intended: Individuals were able to reduce subjective and physiological responding effectively at the expense of cognitive effort.
 We assume that there was a good basis on which individual SVs of ER strategies could be determined.
+All in all, our hypotheses H1 to H5 were confirmed.
 
-Almost all participants showed an absolut preference for one strategy, indicated by a SV of 1. 
-
- 
+Almost all participants showed an absolute preference for one strategy, indicated by a SV of 1. 
+We also found a wide range of SVs (between `r papaja::apa_num(min(data_SV$sv), digits = 3)` and `r papaja::apa_num(max(data_SV$sv))`), suggesting that individuals prefer strategies to different extents.
+There was a significant relationship between SVs and choice of strategy. 
+Overly frequent the strategy would be chosen by the persons for whom the highest subjective value had been determined before, which confirms our hypothesis H7.
+Further, we found associations between individual SVs and different predictors.
 Subjective effort, utility, and *Corrugator* muscle activity significantly predicted individual SVs.
-Contrary to our hypothesis, utility was the best predictor for individual SVs, explaining `r papaja::printnum(H5_M2_table[4,5]*100, digits = 1)` percent of variance in SVs.
-However, individual SVs did not show associations with ER flexibility.
+Contrary to our hypothesis H6, utility was the best predictor for individual SVs, explaining `r papaja::printnum(H5_M2_table[4,5]*100, digits = 1)` percent of variance in SVs.
+However, individual SVs did not show associations with ER flexibility, we therefore found no evidence for hypothesis H7.
 
 ## Validity of subjective values of ER strategies
 
 
 
 ## Limitations
+
+Our findings must be considered in light of several limitions.
 
 ## Conclusion
