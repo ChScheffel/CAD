@@ -330,7 +330,7 @@ The data of this study can be downloaded from [osf.io/vnj8x/](https://osf.io/vnj
 
 ## Code availability
 
-The paradigm code as well as the R Markdown file used to analyze the data and write this document are available at [github.com/ChScheffel/CAD](https://github.com/ChScheffel/CAD).
+The paradigm code, the R script for analysis, and the R Markdown file used to compile this document are available at [osf.io/vnj8x/](https://osf.io/vnj8x/).
 
 ## Protocol registration
 
@@ -342,7 +342,7 @@ The Stage 1 Registered Report protocol has been approved and is available at [os
 
 There were two necessary adjustments of the methods.
 First, we failed to update the necessary sample size after the analyses changed with the first review round.
-Instead of the 72 subjects stated above, the largest minimum sample size was actually 53 subjects (see hypothesis 1b in the Design Table in the **Supplementary Material**).
+Instead of the 72 subjects stated above, the largest minimum sample size was actually 53 subjects (see hypothesis 1b in the Design Table in the Supplementary Material).
 And secondly, we needed to re-assign the SCA to the MLM in hypothesis 2b, to which it belonged in the initial submission.
 Following the advice of the reviewers, we had separated the NFC analysis from the MLM, and wanted to apply the SCA to the new NFC analysis (hypothesis 3a), as this was one of our main points of interest.
 However, since hypothesis 3a does not contain any RT data and the SCA is therefore only useful for the MLM in hypothesis 2b, we applied it to the MLM.
