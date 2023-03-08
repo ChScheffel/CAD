@@ -48,8 +48,9 @@ However, individual SVs did not show associations with ER flexibility, we theref
 
 
 
+
 ## Limitations
 
-Our findings must be considered in light of several limitions.
+Our findings must be considered in light of several limitations.
 
 ## Conclusion
