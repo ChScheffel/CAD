@@ -52,5 +52,11 @@ However, individual SVs did not show associations with ER flexibility, we theref
 ## Limitations
 
 Our findings must be considered in light of several limitations.
+First, it must be mentioned that a block design was used.
+This is important for two reasons: first, because this allows for habituation effects of EMG activity within the block, and second, because this is how the subjective ratings were made retrospectively.
+This may have led to the fact that the correlations we found between SVs and predictors were lower than if we had used an event-related design.
+However, block designs are common in ER research [@Barreiros2019] and were used in previous studies [@Scheffel2019].
+Furthermore, we were able to confirm our manipulation checks, indicating that implementation of ER strategies was successful, both on subjective and physiological levels.s
+
 
 ## Conclusion
