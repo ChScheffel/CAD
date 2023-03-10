@@ -1472,24 +1472,6 @@
         "survival"
       ]
     },
-    "raincloudplots": {
-      "Package": "raincloudplots",
-      "Version": "0.2.0",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "raincloudplots",
-      "RemoteUsername": "jorvlan",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "e5530fcba2e4b8d6d43633d90320d6a86d1fbcb4",
-      "Hash": "5abbe1c5a7a05195fd026f4b359c8db0",
-      "Requirements": [
-        "dplyr",
-        "gghalves",
-        "ggplot2",
-        "magrittr"
-      ]
-    },
     "rappdirs": {
       "Package": "rappdirs",
       "Version": "0.3.3",
