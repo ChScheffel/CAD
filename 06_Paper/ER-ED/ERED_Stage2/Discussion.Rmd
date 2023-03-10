@@ -72,8 +72,9 @@ That is because the computation of SVs is inseparable form the other SVs.
 
 Fourth, the highest value during the discounting paradigm was set to 2 € as fixed value.
 Participants should imagine that this was the amount of money they would get when they would repeat this strategy.
-One might argue that 2 € as an incentive to repeat an entire block is quite low.
+Thus, 2 € as an incentive to repeat an entire regulation block could be quite low.
 However, we chose this amount because, first, we have followed the original paradigm of Westbrook[@Westbrook2013].
-Further it was shown that 
+Further it was shown that at least in cognitive effort discounting, a lower incentive could even increase sensitivity in participants for differences in effort[@Bialaszek2017].
+n the future, however, it should be examined how the level of incentives affects subjective values.
 
 ## Conclusion
