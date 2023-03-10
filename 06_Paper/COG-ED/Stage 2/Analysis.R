@@ -1482,16 +1482,19 @@ hypothesis3a_contrasts_nlevel$`$p$`[hypothesis3a_contrasts_nlevel$`$p$` == "0.00
 ggplot(h3a_data, aes(nlevels, svdiff, fill = nfcmedian, color = nfcmedian)) +
   ggrain::geom_rain(alpha = .5, rain.side = 'f2x2', id.long.var = "subject", likert = FALSE,
             violin.args = list(color = NA, alpha = .7, scale = "count", adjust = 1.3, width = 0.8),
-            line.args = list(size = .6, alpha = .5),
+            line.args = list(size = .9, alpha = .5),
             line.args.pos = list(position = position_jitter(width = 0, height = 0.1)),
             point.args = list(alpha = 0)) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-  scale_fill_manual(values=c("darkorchid3", "chartreuse3")) +
-  scale_color_manual(values=c("darkorchid3", "chartreuse3"), name = "NFC group", labels = c("Above median","Below median")) +
-  guides(fill = 'none') +
+  scale_fill_manual(values = MetBrewer::met.brewer("Hiroshige",2), name = "NFC group", labels = c("Above median","Below median")) +
+  scale_color_manual(values = MetBrewer::met.brewer("Hiroshige",2)) +
+  guides(color = 'none') +
   xlab("n-back levels") + 
   ylab("Difference in subjective values") +
   theme(legend.title = element_text())
+
+ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 7, height = 5, units = "in",
+       device = "tiff", dpi = 900, filename = "h3a-plot.eps")
 
 # remove temporary variables
 
@@ -1637,11 +1640,14 @@ ggplot(h3b_data, aes(level, ntlx, fill = nfcmedian, color = nfcmedian)) +
                 boxplot.args.pos = list(width = .1, position = ggpp::position_dodgenudge(
                                           x = rep(-.13,8)))) +
       ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-      scale_fill_manual(values=c("darkorchid3", "chartreuse3")) +
-      scale_color_manual(values=c("darkorchid3", "chartreuse3"), name = "NFC group", labels = c("Above median","Below median")) +
+      scale_fill_manual(values = MetBrewer::met.brewer("Hiroshige",2), name = "NFC group", labels = c("Above median","Below median")) +
+      scale_color_manual(values = MetBrewer::met.brewer("Hiroshige",2)) +
       labs(x = "n-back level", y = "NASA-TLX sum score") +
-      guides(fill = 'none') +
+      guides(color = 'none') +
       theme(legend.title = element_text())
+
+ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 7, height = 4.5, units = "in",
+       device = "tiff", dpi = 900, filename = "h3b-plot.eps")
 
 # delete temporary data frame
 
@@ -1765,16 +1771,19 @@ hypothesis3c_contrasts_levels$`$p$`[hypothesis3c_contrasts_levels$`$p$` == "0.00
 ggplot(h3c_data, aes(nlevels, aversdiff, fill = nfcmedian, color = nfcmedian)) +
   ggrain::geom_rain(alpha = .5, rain.side = 'f2x2', id.long.var = "subject", likert = FALSE,
                     violin.args = list(color = NA, alpha = .7, scale = "count", adjust = 1.3, width = 0.8),
-                    line.args = list(size = .6, alpha = .5),
+                    line.args = list(size = .9, alpha = .5),
                     line.args.pos = list(position = position_jitter(width = 0, height = 0.1)),
                     point.args = list(alpha = 0)) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-  scale_fill_manual(values=c("darkorchid3", "chartreuse3")) +
-  scale_color_manual(values=c("darkorchid3", "chartreuse3"), name = "NFC group", labels = c("Above median","Below median")) +
-  guides(fill = 'none') +
+  scale_fill_manual(values = MetBrewer::met.brewer("Hiroshige",2), name = "NFC group", labels = c("Above median","Below median")) +
+  scale_color_manual(values = MetBrewer::met.brewer("Hiroshige",2)) +
+  guides(color = 'none') +
   xlab("n-back levels") + 
   ylab("Difference in aversiveness ratings") +
   theme(legend.title = element_text())
+
+ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 7, height = 5, units = "in",
+       device = "tiff", dpi = 900, filename = "h3c-plot.eps")
 
 # remove temporary variables
 
@@ -1915,6 +1924,9 @@ sca_plot_lower <-
     guides(fill = guide_colourbar(barwidth = 1, barheight = 15, title = expression(BF[10]))) +
     theme(legend.title = element_text())
 
+ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 10, height = 4, units = "in",
+       device = "tiff", dpi = 900, filename = "sca-lower.eps")
+
 # reshape into useful format
 
 sca_upper <- reshape2::melt(sca_results[c("xaxis","BF10","beta_n","beta_d","beta_r")], id = c("xaxis","BF10"))
@@ -1940,16 +1952,13 @@ sca_plot_upper <-
   ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
   labs(x = NULL, y = "beta", color = "p-value", shape = "Predictor") +
   scale_x_continuous(labels = NULL) +
-  scale_color_manual(labels = c("p > .05", "p < .05", "p < .01"), values = c("darkgray","darkturquoise","deepskyblue4")) +
+  scale_color_manual(labels = c("p > .05", "p < .05", "p < .01"), values = MetBrewer::met.brewer("Cassatt1",3)) +
   scale_shape_manual(labels = c("d'","n-back level","median RT"), values = c(18,17,19)) +
   scale_y_continuous(breaks = c(0,0.05,0.1)) +
   theme(legend.title = element_text())
 
-# combine into panel
-
-sca_plot <- egg::ggarrange(sca_plot_upper, sca_plot_lower,
-               ncol = 1, nrow = 2,
-               heights = c(3, 7))
+ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 10, height = 3, units = "in",
+       device = "tiff", dpi = 900, filename = "sca-upper.eps")
 
 ##### Extra plots ##############################################################
 
@@ -1958,11 +1967,14 @@ sca_plot <- egg::ggarrange(sca_plot_upper, sca_plot_lower,
   ggplot2::ggplot(pipelines_data[["AARO"]], aes(x = level, y = sv, group = subject, color = nfc)) +
     geom_point(size = 3, alpha = 0.8, position = position_jitter(w = 0.4, h = 0.05)) +
     ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
-    scale_color_gradient2(midpoint = mediannfc, low = "chartreuse3", mid = "lightgray", high = "darkorchid3", space = "Lab", name = "NFC") +
+    scale_color_gradientn(colors = rev(MetBrewer::met.brewer("Hiroshige")), name = "NFC") +
     geom_vline(xintercept = c(0.5,1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
     xlab("n-back level") + 
     ylab("Subjective values") +
     theme(legend.title = element_text())
+
+  ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 7, height = 4.5, units = "in",
+         device = "tiff", dpi = 900, filename = "nfc-sv.eps")
 
 # plot showing SVs per level, colors depend on motivation
 
