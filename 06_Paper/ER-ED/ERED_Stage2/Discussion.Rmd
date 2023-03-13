@@ -35,7 +35,7 @@ Taken together, this means that the ER strategies had an effect on the participa
 We assume that there was a good basis on which individual SVs of ER strategies could be determined.
 All in all, our hypotheses H1 to H5 were confirmed.
 
-Almost all participants showed an absolute preference for one strategy, indicated by a SV of 1. 
+Almost all participants showed an absolute preference for one strategy, indicated by an SV of 1. 
 We also found a wide range of SVs (between `r papaja::apa_num(min(data_SV$sv), digits = 3)` and `r papaja::apa_num(max(data_SV$sv))`), suggesting that individuals prefer strategies to different extents.
 There was a significant relationship between SVs and choice of strategy. 
 Overly frequent the strategy would be chosen by the persons for whom the highest subjective value had been determined before, which confirms our hypothesis H7.
