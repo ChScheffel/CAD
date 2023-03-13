@@ -602,6 +602,7 @@ The CAD paradigm offers this flexibility, and we encourage future studies to que
 
 This research is partly funded by the German Research Foundation (DFG) as part of the Collaborative Research Center (CRC) 940, and partly funded by centralized funds of the Faculty of Psychology at Technische Universität Dresden.
 The funders have/had no role in study design, data collection and analysis, decision to publish or preparation of the manuscript.
+The authors would like to thank Juliana Krause and Maja Hentschel for their help with data collection.
 
 
 # Author Contributions
