@@ -248,7 +248,7 @@ Study data was collected and managed using REDCap electronic data capture tools 
 
 ## Sampling plan
 
-Sample size determination was mainly based on the results of the analyses of Westbrook et al.[-@Westbrook2013] (see [Design Table](#DesignTableSection)). <!-- CK: ...in Supplementary Material -->
+Sample size determination was mainly based on the results of the analyses of Westbrook et al.[-@Westbrook2013] (see Design Table in the Supplementary Material).
 The hypothesis that yielded the largest necessary sample size was a repeated measures ANOVA with within-between interaction of NFC and $n$-back level influencing SVs.
 Sample size analysis with *G\*Power*[@Faul2007; @Faul2009] indicated that we should collect data from at least 72 participants, assuming $\alpha=.05$ and $\beta=.95$.
 However, the sample size analysis for the hypotheses of the second lab session revealed a larger necessary sample size of 85 participants to find an effect of $d=-0.32$ of emotion regulation on facial muscle activity with $\alpha=.05$ and $\beta=.95$.
@@ -281,18 +281,18 @@ Depending on whether the linear or one of the other three contrasts fit the curv
 To determine the influence of task performance on the association of SVs and $n$-back level, we performed MLM. 
 We applied restricted maximum likelihood (REML) to fit the model.
 As an effect size measure for random effects we first calculated the intraclass correlation (ICC), which displays the proportion of variance that is explained by differences between persons.
-Second, we estimated a random slopes model of $n$-back level (level 1, fixed, and random factor: 0-back, 1-back, 2-back, 3-back <!-- CK: der random factor ist nicht mehr enthalten -->) predicting SV nested within subjects.
-As Mussel et al.[-@Mussel2016] could show, participants with high versus low NFC not only have a more shallow decline in performance with higher $n$-back levels, but show a demand-specific increase in EEG theta oscillations, which has been associated with mental effort. <!-- CK: der Zusammenhang der Aussage mit dem Rest wird nicht klar -->
+Second, we estimated a random slopes model of $n$-back level (level 1, fixed, and random factor: 0-back, 1-back, 2-back, 3-back) predicting SV nested within subjects.
+As Mussel et al.[-@Mussel2016] could show, participants with high versus low NFC not only have a more shallow decline in performance with higher $n$-back levels, but show a demand-specific increase in EEG theta oscillations, which has been associated with mental effort.
 We controlled for performance, i.e., $d'$ (level 1, fixed factor, continuous), median RT (level 1, fixed factor, continuous) in order to eliminate a possible influence of declining performance on SV ratings.
 $$
-SV \sim level\ + d' + median RT + (1|subject)
+SV \sim level\ + d' + median RT + (level|subject)
 $$
 Level-1-predictors were centered within cluster as recommended by Enders & Tofighi[-@Enders2007]. 
 By this, the model yields interpretable parameter estimates. 
-If necessary, we will adjusted the optimization algorithm to improve model fit.<!-- CK: anpassen an was gemacht wurde --> 
-We visually inspected the residuals of the model. <!-- CK: zum Model criticism: das ist nicht mehr up to date und sollte so nicht gemacht werden. bitte auch in den Analysen anpassen /rausnehmen -->
+If necessary, we will adjusted the optimization algorithm to improve model fit. 
+We visually inspected the residuals of the model for evidence to perform model criticism. 
+This was done by excluding all data points with absolute standardized residuals above 3 SD. 
 As effect size measures, we calculated pseudo $R^{2}$ for our model and $f^{2}$ to estimate the effect of $n$-back level according to Lorah[-@Lorah2018].
-<!-- CK: hier müssten noch eure Anpassungen mit rein: Kontraste etc., rounds?  -->
 
 The association of SVs and NFC was examined with an rmANOVA.
 We subtracted the SV of 1- from 2-back and 2- from 3-back, yielding two SV difference scores per participant.
