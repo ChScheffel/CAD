@@ -42,7 +42,7 @@ We found a highly significant main effect of valence for subjective arousal (`r 
 
 To investigate whether ER strategies reduce emotional arousal and physiological responding, we conducted separate rmANOVA comparing subjective arousal, *Corrugator* and *Levator* activity of four strategies (active viewing, distraction, distancing, suppression). 
 We found a significant effect of strategy for subjective arousal (`r papaja::apa_print(SubjArousalReg_aov)$full_result`, `r papaja::apa_print(SubjArousalReg_BF)$statistic`), *Corrugator* activity (`r papaja::apa_print(EMGCorrReg_aov)$full_result`, `r papaja::apa_print(EMGCorrReg_BF)$statistic`), and *Levator* activity (`r papaja::apa_print(EMGLevReg_aov)$full_result`, `r papaja::apa_print(EMGLevReg_BF)$statistic`), indicating that regulation strategies reduced subjective arousal and physiological responding.
-For detailed information on post-hoc tests, please see tables \@ref(tab:SupplEffectArousalReg) to \@ref(tab:SupplEffectLevReg) and figures \@ref(fig:SupplFigArousalReg) to \@ref(fig:SupplFigLevReg) in [supplementary material](#SupplementEffectER). 
+For detailed information on post-hoc tests, please see tables \@ref(tab:SupplEffectArousalReg) to \@ref(tab:SupplEffectLevReg) and figures \@ref(fig:SupplFigArousalReg) to \@ref(fig:SupplFigLevReg) in the [supplementary material](#SupplementEffectER). 
 
 
 #### Subjective effort of ER strategies
