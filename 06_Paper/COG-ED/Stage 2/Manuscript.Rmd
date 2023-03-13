@@ -49,15 +49,16 @@ author:
       - Funding acquistion
       - Writing - review & editing
 affiliation:
-  - id            : "1" <!-- CK: im Prinzip kann diese Fußnote weggelassen werden, da wir alle die gleich Affilliation haben -->
-    institution   : "Faculty of Psychology, Technische Universität Dresden, 01069 Dresden, Germany" <!-- CK: Postfach ist 01062 Dresden -->
+  - id            : "1"
+    institution   : "Faculty of Psychology, Technische Universität Dresden, 01062 Dresden, Germany"
 authornote: |
 abstract: |
-  When individuals set goals, they consider the subjective value (SV) of the anticipated reward and the required effort, <!-- CK: "-" statt "," --> a trade-off that is of great interest to psychological research.
-  One approach to quantify the SVs of levels of a cognitive task <!-- CK: Was meint hier levels? --> is the Cognitive Effort Discounting Paradigm by Westbrook and colleagues (2013).
-  However, it fails to acknowledge the highly subjective nature of effort, as it assumes a <!-- CK: "an" --> unidirectional, inverse relationship between task load and SVs.
+  When individuals set goals, they consider the subjective value (SV) of the anticipated reward and the required effort, a trade-off that is of great interest to psychological research.
+  One approach to quantify the SVs of levels of difficulty of a cognitive task is the Cognitive Effort Discounting Paradigm by Westbrook and colleagues (2013).
+  However, it fails to acknowledge the highly subjective nature of effort, as it assumes a unidirectional, inverse relationship between task load and SVs.
   Therefore, it cannot map differences in effort perception that arise from traits like Need for Cognition, since individuals who enjoy effortful cognitive activities likely do not prefer the easiest level.
-  We replicated the analysis of Westbrook and colleagues with our adaptation, the Cognitive and Affective Discounting (CAD) Paradigm, which quantifies SVs without assuming that the easiest level is preferred, thereby enabling the quantification of SVs for tasks without objective order of task load. <!-- CK: Ich würde hier zwei Sätze draus machen und den Punkt nach Paradigm setzen. Dadurch bekommt der erste Satz also die Entwicklung der Task mehr Gewicht. Als Vorschlag statt "our adaptation": "...with an adapted version of their paragigm, the ..." -->
+  We replicated the analysis of Westbrook and colleagues with an adapted version, the Cognitive and Affective Discounting (CAD) Paradigm.
+  It quantifies SVs without assuming that the easiest level is preferred, thereby enabling the quantification of SVs for tasks without objective order of task load.
   Results show that many participants preferred a more or the most difficult level.
   Variance in SVs was best explained by a declining logistic contrast of the $n$-back levels and by the accuracy of responses, while reaction time as a predictor was highly volatile depending on the preprocessing pipeline.
   Participants with higher Need for Cognition scores perceived higher $n$-back levels as less effortful and found them less aversive.
@@ -183,13 +184,13 @@ Each hypothesis is detailed in the Design Table in the Supplementary Material.
 
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study[cf. @Simmons2012].
 The paradigm was written and presented using *Psychopy*[@Peirce2019].
-We used *R* with *R Studio*[@RCT2020; @RStudioTeam2020] <!-- CK: die Refernz für "R" würde ich an "R" setzen --> with the main packages *afex*[@Singmann2021] and *BayesFactor*[@Morey2021] for all our analyses.
+We used *R*[@RCT2020] with *R Studio*[@RStudioTeam2020] with the main packages *afex*[@Singmann2021] and *BayesFactor*[@Morey2021] for all our analyses.
 
 ## Ethics information
 
 The study protocol complies with all relevant ethical regulations and was approved by the ethics committee of the Technische Universität Dresden (reference number SR-EK-50012022).
 Prior to testing, written informed consent was obtained.
-Participants received 24€ <!-- CK: €24, auch für die nachfolgenden Geldbeträge :) --> in total or course credit for participation.
+Participants received 24€ in total or course credit for participation.
 
 ## Design
 
@@ -197,18 +198,18 @@ Participants received 24€ <!-- CK: €24, auch für die nachfolgenden Geldbetr
 Figure\ 1 illustrates how different modifications of the COG-ED paradigm [@Westbrook2013] return SVs that do or do not reflect the true preference of a hypothetical participant, who likes 2-back most, 3-back less, and 1-back least (for reasons of clarity there are only three levels in the example).
 The COG-ED paradigm, which compares every more difficult level with 1-back sets the SV of 1-back to 1, regardless of the response pattern.
 Adding a comparison of the more difficult levels with each other allows the SVs of those two levels to be more differentiated, but leaves the SV of 1-back unchanged.
-Adding those same pairs again, but with the opposite assignment of fixed and flexible level, does approach the true preference, but has two disadvantages. <!-- CK: hier fehlt das Subjekt. it? -->
+Adding those same pairs again, but with the opposite assignment of fixed and flexible level, does approach the true preference, but has two disadvantages.
 First, the SVs are still quite alike across levels due to the fact that every more difficult level has only been compared with the easiest level, and second, having more task levels than just three would lead to an exponential increase in comparisons.
 Therefore, the solution lies in reducing the number of necessary comparisons by presenting only one effort discounting round for each possible pair of levels after determining for each pair which level should be fixed and which should be flexible.
-This is determined by presenting each possible pair of levels on screen with the question "Would you prefer 1\ € for level A or 1\ € for level B?".
+This is determined by presenting each possible pair of levels on screen with the question "Would you prefer 1€ for level A or 1€ for level B?".
 Participants respond by clicking the respective on-screen button.
 Each pair is presented three times, resulting in 18 presented pairs, which are fully randomized in order and in the assignment of which level is on the left or right of the screen.
-For each pair, the level that was chosen by the participant at least two out of three times will be used as the level with a flexible value, which starts at 1\ € and is changed <!-- CK: "changes"  -->in every iteration.
-The other level in the pair will be set to a fixed value of 2\ €.
+For each pair, the level that was chosen by the participant at least two out of three times will be used as the level with a flexible value, which starts at 1€ and changes in every iteration.
+The other level in the pair will be set to a fixed value of 2€.
 Then, the effort discounting sensu Westbrook et al.[-@Westbrook2013] begins, but with all possible pairs and with the individually determined assignment of fixed and flexible level.
-The order in which the pairs are presented is fully randomized, and each pair goes through all iteration steps of adding/subtracting 0.50\ €, 0.25\ €, 0.13\ €, 0.06\ €, 0.03\ €, 0.02\ € to/from the flexible level's reward (each adjustment half of the previous one, rounded to two decimals) before moving on to the next one.
+The order in which the pairs are presented is fully randomized, and each pair goes through all iteration steps of adding/subtracting 0.50€, 0.25€, 0.13€, 0.06€, 0.03€, 0.02€ to/from the flexible level's reward (each adjustment half of the previous one, rounded to two decimals) before moving on to the next one.
 This procedure allows to compute SVs based on actual individual preference instead of objective task load.
-For each pair, the SV of the flexible level is 1, as it was preferred when faced with equal rewards, and the SV of the fixed level is the final reward of the flexible level divided by 2\ €.
+For each pair, the SV of the flexible level is 1, as it was preferred when faced with equal rewards, and the SV of the fixed level is the final reward of the flexible level divided by 2€.
 Each level's "global" SV is calculated as the mean of this level's SVs from all pairs in which it appeared.
 If the participant has a clear preference for one level, this level's SV will be 1.
 If not, then no level's SV will be 1, but each level's SV can still be interpreted as an absolute and relative value, so each participant's effort discounting behaviour can still be quantified.
@@ -216,8 +217,6 @@ The interpretation of SVs in Westbrook et al.[-@Westbrook2013] was "The minimum 
 So if the SV of 3-back was 0.6, the participant would need to be rewarded with at least 60\ % of what they are being offered for doing 3-back to do 1-back instead, forgoing the higher reward for 3-back.
 In this study, the SV can be interpreted as "The minimum relative reward required for me to choose any other level over this level".
 Therefore, an SV of 1 indicates that this level is preferred over all others, while SVs lower than 1 indicate that in at least one pair, a different level was preferred over this one.
-
-INSERT FIGURE 1 HERE <!-- CK: das kann raus, oder? -->
 
 ```{r figure1, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="An example for subjective values for an $n$-back task with three levels, returned by different modifications of the COG-ED paradigm for a hypothetical participant with the true preference 2-back > 3-back > 1-back. The grey boxes are the choice options shown to the participant. The participant's final reward value of the flexible level is displayed after the first arrow. The resulting subjective value of each level is displayed after the second arrow, in the notation \"SV 3-back(1-back)\" for the subjective value of 3-back when 1-back is the other choice. The Solution and Additional Benefit panel follow the same logic, but are preceded by a choice between equal rewards, and the participant's first choice indicated by an exclamation mark.", fig.pos="H"} 
   
@@ -271,7 +270,7 @@ Another rmANOVA with six paired contrasts was computed to compare the median RT 
 To investigate changes in NASA-TLX ratings, six rmANOVAs were computed, one for each NASA-TLX subscale, and each with six paired contrasts comparing the ratings between two levels of 1- to 4-back at a time.
 
 *Subjective values.*
-For each effort discounting round, the SV of the fixed level was calculated by adding or subtracting the last adjustment of 0.02\ € from the last monetary value of the flexible level, depending on the participant's last choice, and dividing this value by 2\ €.
+For each effort discounting round, the SV of the fixed level was calculated by adding or subtracting the last adjustment of 0.02€ from the last monetary value of the flexible level, depending on the participant's last choice, and dividing this value by 2€.
 This yielded an SV between 0 and 1 for the fixed compared with the flexible level, while the SV of the flexible level was 1.
 The closer the SV of the fixed level is to 0, the stronger the preference for the flexible level.
 All SVs of each level were averaged to compute one "global" SV for each level.
@@ -429,7 +428,6 @@ The effect size of the median RT was $f^{2}=$ `r format(round(h2b_medianRT_f2, d
 
 To investigate the dependency of the model results on the RT preprocessing, we conducted a specification curve analysis (Figure\ \@ref(fig:sca-plot)). <!-- CK: ich dachte, das wäre raus und die SCA wäre nur für H3? -->
 
-INSERT FIGURE 2 HERE 
 ```{r sca-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of the multi level model for each of the 63 preprocessing pipelines. The lower panel indicates the type of preprocessing, the upper panel shows the beta coefficient of each predictor and its p-value. The colourbar indicates the BF10. The pipelines are sorted in descending order of the magnitude of the n-back level beta.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "sca-plot.png"))
@@ -448,8 +446,6 @@ At the same time, there is a subtle separation of SVs across $n$-back levels, de
 Specifically, $n=`r nrow(data_SV[data_SV$level==1 & data_SV$sv==1,])`$ participants had an absolute preference for 1-back, $n=`r nrow(data_SV[data_SV$level==2 & data_SV$sv==1,])`$ for 2-back, $n=`r nrow(data_SV[data_SV$level==3 & data_SV$sv==1,])`$ for 3-back, and $n=`r nrow(data_SV[data_SV$level==4 & data_SV$sv==1,])`$ for 4-back.
 There were $n=`r length(setdiff(unique(data_SV$subject), data_SV$subject[data_SV$sv == 1]))`$ participants who did not have an absolute preference for any $n$-back level, i.e. none of their SVs was 1.
 
-INSERT FIGURE 3 HERE
-
 ```{r nfc-sv, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values per n-back level. Each dot indicates a participant, the colours indicate their Need for Cognition (NFC) score. $N=116$. There is a horizontal jitter of 0.4 and a vertical jitter of 0.05 for visual clarity.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "nfc-sv.png"))
@@ -463,8 +459,6 @@ There was a main effect of the $n$-back level (`r apa_print(hypothesis3a_model)$
 Post-hoc tests showed that the difference between the SVs of 2- and 3-back is slightly more negative than the difference between 1- and 2-back (`r apa_print(pairs(hypothesis3a_emm_nlevel))$statistic`), but there were large inter-individual differences, especially for 2- and 3-back (left panel of Figure\ \@ref(fig:h3ac-plot)).
 This means that across the whole sample, there was a steeper decline in SVs from 2- to 3-back than from 1- to 2-back, but some participants showed a completely opposite pattern.
 
-INSERT FIGURE 4 HERE
-
 ```{r h3ac-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Difference scores for subjective values (left) and aversiveness ratings (right) when subtracting 2- from 1-back and 3- from 2-back. Each line indicates a participant, the colours indicate their Need for Cognition (NFC) score. $N=116$.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "h3ac-plot.png"))
@@ -474,8 +468,6 @@ INSERT FIGURE 4 HERE
 The rmANOVA on the association between NFC scores and NASA-TLX scores revealed a main effect of $n$-back level (`r apa_print(hypothesis3b_model)$full_result$level`, `r apa_print(hypothesis3b_BF_levels)$statistic$level`) and an interaction between $n$-back level and NFC scores (`r apa_print(hypothesis3b_model)$full_result$nfcmedian_level`), but no main effect of NFC scores (`r apa_print(hypothesis3b_model)$full_result$nfcmedian`, `r apa_print(hypothesis3b_BF_levels)$statistic$nfcmedian`).
 Post-hoc tests showed that the participants with NFC scores below the median had higher NASA-TLX <!-- CK: Konsistenz: NASA-TLX oder NASA TLX --> scores for 3-back (`r apa_print(pairs(hypothesis3b_emm_interact))$statistic$X3_High_low`, `r apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "low" & h3b_data$level == 3], y = h3b_data$ntlx[h3b_data$nfcmedian == "high" & h3b_data$level == 3], progress = FALSE, paired = FALSE))$statistic`) and for 4-back (`r apa_print(pairs(hypothesis3b_emm_interact))$statistic$X4_High_low`, `r apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "low" & h3b_data$level == 4], y = h3b_data$ntlx[h3b_data$nfcmedian == "high" & h3b_data$level == 4], progress = FALSE, paired = FALSE))$statistic`) than those with NFC scores above the median.
 Regardless of NFC scores, NASA-TLX scores were higher for the more difficult level in each pair of $n$-back levels (Figure\ \@ref(fig:h3b-plot)).
-
-INSERT FIGURE 5 HERE
 
 ```{r h3b-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="NASA-TLX sum scores for each $n$-back level. Colours indicate Need for Cognition (NFC) score above or below the median. $N=116$.", fig.pos="H"} 
   
@@ -568,7 +560,7 @@ Future studies could create a stronger separation between the concepts investiga
 Another important point is the instruction, not just for the $n$-back task, but for the effort discounting as well.
 We had to exclude several participants for misunderstanding the task instruction, so we will add a visual instruction or a training next time.
 And even though the participants were instructed to do the effort discounting with the aim to be satisfied with their choices instead of trying to increase the rewards, we cannot be sure that they did so.
-One might also argue that the 2\ € reward range was not large enough to be an incentive for effort expenditure.
+One might also argue that the 2€ reward range was not large enough to be an incentive for effort expenditure.
 However, findings by Bialaszek et al.[-@Bialaszek2017] suggest that participants are actually more sensitive to effort when the reward is small.
 Nevertheless, we exceeded the largest required sample size by `r round(nrow(data_quest)/53, digits = 1)` times, which gives our analyses high statistical power, and we adhered to the agreed upon analyses of Stage 1.
 
