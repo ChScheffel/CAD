@@ -69,7 +69,7 @@ Individual SVs could be determined for `r nrow(data_SV)/3` participants for all 
 SVs ranged between `r papaja::apa_num(min(data_SV$sv), digits = 3)` and `r papaja::apa_num(max(data_SV$sv))`.
 In sum, $n=$ `r  papaja::printnum(sum(data_SV$sv == 1))` had one SV of 1.0, indicating a clear preference for one ER strategy.
 Absolute preferences for ER strategies were relatively equally distributed.
-Highest SV for distraction was reported by $n=$ `r  papaja::printnum(sum(data_SV$strat_c[data_SV$strategy == "distraction"] == -1))`, for distancing by $n=$ `r  papaja::printnum(sum(data_SV$strat_c[data_SV$strategy == "distancing"] == -1))`, and for suppression by $n=$ `r papaja::printnum(sum(data_SV$strat_c[data_SV$strategy == "distancing"] == -1))`.
+Highest SV for distraction was reported by $n=$ `r  papaja::printnum(sum(data_SV$strat_c[data_SV$strategy == "distraction"] == -1))`, for distancing by $n=$ `r  papaja::printnum(sum(data_SV$strat_c[data_SV$strategy == "distancing"] == -1))`, and for suppression by $n=$ `r papaja::printnum(sum(data_SV$strat_c[data_SV$strategy == "suppression"] == -1))`.
 
 To investigate, which variables can predict individual SVs of ER strategies, a multilevel model approach was chosen.
 The ICC of the null model was $ICC=$ `r papaja::printnum(ICC_between_MLM_0)`, indicating that level-2 predictor subject accounted for `r papaja::printnum(round(ICC_between_MLM_0*100, digits = 1))` percent of total variance.
