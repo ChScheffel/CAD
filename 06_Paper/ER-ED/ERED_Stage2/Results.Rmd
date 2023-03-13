@@ -67,7 +67,7 @@ A more detailed list of all reasons can be found in table XX in [supplementary m
 
 Individual SVs could be determined for `r nrow(data_SV)/3` participants for all three ER strategies.
 SVs ranged between `r papaja::apa_num(min(data_SV$sv), digits = 3)` and `r papaja::apa_num(max(data_SV$sv))`.
-In sum, $n=$ `r  papaja::printnum(sum(data_SV$sv == 1))` participants had one SV of 1.0, indicating a clear preference for one ER strategy.
+In sum, $n=$ `r  papaja::printnum(sum(data_SV$sv == 1))` had one SV of 1.0, indicating a clear preference for one ER strategy.
 Absolute preferences for ER strategies were relatively equally distributed.
 Highest SV for distraction was reported by $n=$ `r  papaja::printnum(sum(data_SV$strat_c[data_SV$strategy == "distraction"] == -1))`, for distancing by $n=$ `r  papaja::printnum(sum(data_SV$strat_c[data_SV$strategy == "distancing"] == -1))`, and for suppression by $n=$ `r papaja::printnum(sum(data_SV$strat_c[data_SV$strategy == "distancing"] == -1))`.
 
