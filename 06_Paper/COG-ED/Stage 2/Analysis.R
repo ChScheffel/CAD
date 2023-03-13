@@ -1298,7 +1298,7 @@ model0_h2b_ICC <- ICC.Model(model0_h2b)
 model1_h2b_raw <- lmerTest::lmer(sv ~ level + dprime.cwc + medianRT.cwc + (1|subject),
                          data = h2b_data, REML = T)
 
-# exclude cases with residuals three SDs above mean
+# exclude cases with residuals three SDs above mean <!-- CK: Ist das noch von mir drin? Das sollte unbedingt raus. ist nicht mehr up to date -->
 
 excl_cases_h2b <- as.data.frame(subset(h2b_data, abs(scale(resid(model1_h2b_raw))) > 3))
 
