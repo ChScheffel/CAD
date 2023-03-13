@@ -397,7 +397,7 @@ apa_table(
 )
 ```
 
-The declining logistic contrast had the highest effect estimate (`r apa_print(emmeans::contrast(hypothesis2a_emm, method = list("Declining Linear" = c(3,1,-1,-3),"Ascending Quadratic" = c(-1,1,1,-1),"Declining Logistic" = c(3,2,-2,-3),"Positively Skewed Normal" = c(1,2,-1,-2))))$statistic$DecliningLogistic`), <!-- CK: stimmt irgendwie nciht mit der Table 2 überein -->suggesting a shallow decline of SVs between 1- and 2-back, and 3- and 4-back, respectively, and a steeper decline of SVs between 2- and 3-back.
+The declining logistic contrast had the highest effect estimate (`r apa_print(emmeans::contrast(hypothesis2a_emm, method = list("Declining Linear" = c(3,1,-1,-3),"Ascending Quadratic" = c(-1,1,1,-1),"Declining Logistic" = c(3,2,-2,-3),"Positively Skewed Normal" = c(1,2,-1,-2))))$statistic$DecliningLogistic`), suggesting a shallow decline of SVs between 1- and 2-back, and 3- and 4-back, respectively, and a steeper decline of SVs between 2- and 3-back.
 
 Consequently, we had to adapt the MLM to incorporate this non-linear trend.
 To apply the contrast to the $n$-back levels, we had to turn the variables into a factor, with two consequences:
