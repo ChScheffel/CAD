@@ -549,7 +549,6 @@ As the exploratory analysis showed, only 4-back yielded a significant group diff
 The analysis of NASA-TLX scores showed that the sum score increased with every $n$-back level, and that participants with NFC scores below the median had higher NASA-TLX scores for 3- and 4-back than those below the median.
 This demonstrates that higher $n$-back levels have a higher discriminatory power regarding inter-individual differences in subjective effort perception.
 This was also supported by the fact that higher $n$-back levels were perceived as more aversive, and participants with NFC scores below the median reported higher aversion than those with NFC scores above the median.
-<!-- CK: für die Diskussion wäre es noch gut, eine Entscheidung zu treffen, ob die jeweilige Hypothese angenommen oder abgelehnt wurde und das klar hinzuschreiben. -->
 
 ## Limitations
 
