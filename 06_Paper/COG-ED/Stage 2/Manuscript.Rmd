@@ -51,8 +51,8 @@ author:
 affiliation:
   - id            : "1"
     institution   : "Faculty of Psychology, Technische Universität Dresden, 01062 Dresden, Germany"
-authornote: |
-abstract: |
+authornote        :
+abstract          : |
   When individuals set goals, they consider the subjective value (SV) of the anticipated reward and the required effort, a trade-off that is of great interest to psychological research.
   One approach to quantify the SVs of levels of difficulty of a cognitive task is the Cognitive Effort Discounting Paradigm by Westbrook and colleagues (2013).
   However, it fails to acknowledge the highly subjective nature of effort, as it assumes a unidirectional, inverse relationship between task load and SVs.
