@@ -162,11 +162,9 @@ base::load(here("06_Paper","ER-ED","ERED_Stage2","Workspace_ERED.RData"))
 
 # Acknowledgements
 
-This research is partly funded by the German Research Foundation (DFG) as part of the Collaborative Research Center (CRC) 940.
-Additionally, we have applied for funding of the participants' compensation from centralized funds of the Faculty of Psychology at Technische Universität Dresden.
-Applications for the centralized funds will be reviewed in May.
-Regardless of whether or not this additional funding will be granted, the study can commence immediately.
-The funders have/had no role in study design, data collection and analysis, decision to publish or preparation of the manuscript.
+This research is partly funded by the German Research Foundation (DFG) as part of the Collaborative Research Center (CRC) 940, and partly funded by centralized funds of the Faculty of Psychology at Technische Universität Dresden.
+The funders had no role in study design, data collection and analysis, decision to publish or preparation of the manuscript.
+The authors would like to thank Juliana Krause and Maja Hentschel for their help with data collection.
 
 # Competing Interests
 
