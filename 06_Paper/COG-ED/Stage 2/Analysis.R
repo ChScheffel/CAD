@@ -896,7 +896,7 @@ hypothesis1a_contrasts <- cbind(hypothesis1a_contrasts,
 
 colnames(hypothesis1a_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis1a_contrasts$Contrast <- gsub("X", "", hypothesis1a_contrasts$Contrast)
-hypothesis1a_contrasts[ ,c("Estimate","$SE$","$t$")] <- signif(hypothesis1a_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 3)
+hypothesis1a_contrasts[ ,c("Estimate","$SE$","$t$")] <- round(hypothesis1a_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 2)
 hypothesis1a_contrasts$`$p$` <- format(round(hypothesis1a_contrasts$`$p$`, digits = 3), nsmall = 2)
 hypothesis1a_contrasts$`$p$`[hypothesis1a_contrasts$`$p$` == "0.000"] <- "<.001"
 
@@ -958,7 +958,7 @@ hypothesis1b_contrasts <- cbind(hypothesis1b_contrasts,
 
 colnames(hypothesis1b_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis1b_contrasts$Contrast <- gsub("X", "", hypothesis1b_contrasts$Contrast)
-hypothesis1b_contrasts[ ,c("Estimate","$SE$","$t$")] <- signif(hypothesis1b_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 3)
+hypothesis1b_contrasts[ ,c("Estimate","$SE$","$t$")] <- round(hypothesis1b_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 2)
 hypothesis1b_contrasts$`$p$` <- format(round(hypothesis1b_contrasts$`$p$`, digits = 3), nsmall = 2)
 hypothesis1b_contrasts$`$p$`[hypothesis1b_contrasts$`$p$` == 0.000] <- "<.001"
 
@@ -1152,37 +1152,37 @@ hypothesis1c_performance_contrasts <- cbind(hypothesis1c_performance_contrasts,
 
 colnames(hypothesis1c_mental_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis1c_mental_contrasts$Contrast <- gsub("X", "", hypothesis1c_mental_contrasts$Contrast)
-hypothesis1c_mental_contrasts[ ,c("Estimate","$SE$","$t$")] <- signif(hypothesis1c_mental_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 3)
+hypothesis1c_mental_contrasts[ ,c("Estimate","$SE$","$t$")] <- round(hypothesis1c_mental_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 2)
 hypothesis1c_mental_contrasts$`$p$` <- format(round(hypothesis1c_mental_contrasts$`$p$`, digits = 3), nsmall = 2)
 hypothesis1c_mental_contrasts$`$p$`[hypothesis1c_mental_contrasts$`$p$` == "0.000"] <- "<.001"
 
 colnames(hypothesis1c_physical_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis1c_physical_contrasts$Contrast <- gsub("X", "", hypothesis1c_physical_contrasts$Contrast)
-hypothesis1c_physical_contrasts[ ,c("Estimate","$SE$","$t$")] <- signif(hypothesis1c_physical_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 3)
+hypothesis1c_physical_contrasts[ ,c("Estimate","$SE$","$t$")] <- round(hypothesis1c_physical_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 2)
 hypothesis1c_physical_contrasts$`$p$` <- format(round(hypothesis1c_physical_contrasts$`$p$`, digits = 3), nsmall = 2)
 hypothesis1c_physical_contrasts$`$p$`[hypothesis1c_physical_contrasts$`$p$` == "0.000"] <- "<.001"
 
 colnames(hypothesis1c_performance_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis1c_performance_contrasts$Contrast <- gsub("X", "", hypothesis1c_performance_contrasts$Contrast)
-hypothesis1c_performance_contrasts[ ,c("Estimate","$SE$","$t$")] <- signif(hypothesis1c_performance_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 3)
+hypothesis1c_performance_contrasts[ ,c("Estimate","$SE$","$t$")] <- round(hypothesis1c_performance_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 2)
 hypothesis1c_performance_contrasts$`$p$` <- format(round(hypothesis1c_performance_contrasts$`$p$`, digits = 3), nsmall = 2)
 hypothesis1c_performance_contrasts$`$p$`[hypothesis1c_performance_contrasts$`$p$` == "0.000"] <- "<.001"
 
 colnames(hypothesis1c_effort_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis1c_effort_contrasts$Contrast <- gsub("X", "", hypothesis1c_effort_contrasts$Contrast)
-hypothesis1c_effort_contrasts[ ,c("Estimate","$SE$","$t$")] <- signif(hypothesis1c_effort_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 3)
+hypothesis1c_effort_contrasts[ ,c("Estimate","$SE$","$t$")] <- round(hypothesis1c_effort_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 2)
 hypothesis1c_effort_contrasts$`$p$` <- format(round(hypothesis1c_effort_contrasts$`$p$`, digits = 3), nsmall = 2)
 hypothesis1c_effort_contrasts$`$p$`[hypothesis1c_effort_contrasts$`$p$` == "0.000"] <- "<.001"
 
 colnames(hypothesis1c_frustration_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis1c_frustration_contrasts$Contrast <- gsub("X", "", hypothesis1c_frustration_contrasts$Contrast)
-hypothesis1c_frustration_contrasts[ ,c("Estimate","$SE$","$t$")] <- signif(hypothesis1c_frustration_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 3)
+hypothesis1c_frustration_contrasts[ ,c("Estimate","$SE$","$t$")] <- round(hypothesis1c_frustration_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 2)
 hypothesis1c_frustration_contrasts$`$p$` <- format(round(hypothesis1c_frustration_contrasts$`$p$`, digits = 3), nsmall = 2)
 hypothesis1c_frustration_contrasts$`$p$`[hypothesis1c_frustration_contrasts$`$p$` == "0.000"] <- "<.001"
 
 colnames(hypothesis1c_time_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis1c_time_contrasts$Contrast <- gsub("X", "", hypothesis1c_time_contrasts$Contrast)
-hypothesis1c_time_contrasts[ ,c("Estimate","$SE$","$t$")] <- signif(hypothesis1c_time_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 3)
+hypothesis1c_time_contrasts[ ,c("Estimate","$SE$","$t$")] <- round(hypothesis1c_time_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 2)
 hypothesis1c_time_contrasts$`$p$` <- format(round(hypothesis1c_time_contrasts$`$p$`, digits = 3), nsmall = 2)
 hypothesis1c_time_contrasts$`$p$`[hypothesis1c_time_contrasts$`$p$` == "0.000"] <- "<.001"
 
@@ -1230,7 +1230,7 @@ hypothesis2a_contrasts <- cbind(hypothesis2a_contrasts,
 
 colnames(hypothesis2a_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis2a_contrasts$Contrast <- gsub("X", "", hypothesis2a_contrasts$Contrast)
-hypothesis2a_contrasts[ ,c("Estimate","$SE$","$t$")] <- signif(hypothesis2a_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 3)
+hypothesis2a_contrasts[ ,c("Estimate","$SE$","$t$")] <- round(hypothesis2a_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 2)
 hypothesis2a_contrasts$`$p$` <- format(round(hypothesis2a_contrasts$`$p$`, digits = 3), nsmall = 2)
 hypothesis2a_contrasts$`$p$`[hypothesis2a_contrasts$`$p$` == "0.00"] <- "<.001"
 
@@ -1444,7 +1444,7 @@ hypothesis3a_rmanova <- cbind(hypothesis3a_rmanova,
 
 colnames(hypothesis3a_rmanova) <- c("Sum Sq", "$df$", "error Sum Sq", "error $df$", "$F$", "$p$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 rownames(hypothesis3a_rmanova) <- c("Intercept", "NFC group", "n-back level", "NFC group x n-back level")
-hypothesis3a_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")] <- signif(hypothesis3a_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")], digits = 3)
+hypothesis3a_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")] <- round(hypothesis3a_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")], digits = 2)
 hypothesis3a_rmanova$`$p$` <- format(round(hypothesis3a_rmanova$`$p$`, digits = 3), nsmall = 2)
 hypothesis3a_rmanova$`$p$`[hypothesis3a_rmanova$`$p$` == "0.000"] <- "<.001"
 
@@ -1548,7 +1548,7 @@ hypothesis3b_rmanova <- cbind(hypothesis3b_rmanova,
 
 colnames(hypothesis3b_rmanova) <- c("Sum Sq", "$df$", "error Sum Sq", "error $df$", "$F$", "$p$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 rownames(hypothesis3b_rmanova) <- c("Intercept", "NFC group", "n-back level", "NFC group x n-back level")
-hypothesis3b_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")] <- signif(hypothesis3b_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")], digits = 3)
+hypothesis3b_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")] <- round(hypothesis3b_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")], digits = 2)
 hypothesis3b_rmanova$`$p$` <- format(round(hypothesis3b_rmanova$`$p$`, digits = 3), nsmall = 2)
 hypothesis3b_rmanova$`$p$`[hypothesis3b_rmanova$`$p$` == "0.000"] <- "<.001"
 
@@ -1704,7 +1704,7 @@ hypothesis3c_rmanova <- cbind(hypothesis3c_rmanova,
 
 colnames(hypothesis3c_rmanova) <- c("Sum Sq", "$df$", "error Sum Sq", "error $df$", "$F$", "$p$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 rownames(hypothesis3c_rmanova) <- c("Intercept", "NFC group", "n-back level", "NFC group x n-back level")
-hypothesis3c_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")] <- signif(hypothesis3c_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")], digits = 3)
+hypothesis3c_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")] <- round(hypothesis3c_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")], digits = 2)
 hypothesis3c_rmanova$`$p$` <- format(round(hypothesis3c_rmanova$`$p$`, digits = 3), nsmall = 2)
 hypothesis3c_rmanova$`$p$`[hypothesis3c_rmanova$`$p$` == "0.000"] <- "<.001"
 
@@ -2023,7 +2023,7 @@ explor_BF <- BayesFactor::anovaBF(formula = sv ~ level * nfcmedian, data = explo
 
 colnames(explor_rmanova) <- c("Sum Sq", "$df$", "error Sum Sq", "error $df$", "$F$", "$p$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 rownames(explor_rmanova) <- c("Intercept", "NFC group", "n-back level", "NFC group x n-back level")
-explor_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")] <- signif(explor_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")], digits = 3)
+explor_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")] <- round(explor_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")], digits = 2)
 explor_rmanova$`$p$` <- format(round(explor_rmanova$`$p$`, digits = 3), nsmall = 2)
 explor_rmanova$`$p$`[explor_rmanova$`$p$` == "0.000"] <- "<.001"
 
