@@ -356,7 +356,8 @@ Our final data set therefore included $N=`r nrow(data_quest)`$ participants (`r 
 
 ## Manipulation checks
 
-The performance measure $d'$ did not change across $n$-back levels (`r apa_print(hypothesis1a_rmanova)$full_result$level`, `r apa_print(hypothesis1a_BF)$statistic`), but the median RT did (`r apa_print(hypothesis1b_rmanova)$full_result$level`, `r apa_print(hypothesis1b_BF)$statistic`).
+We used rmANOVAs to investigate whether objective performance measures and subjective task load measures changed across $n$-back levels.
+The performance measure $d'$ did not change across $n$-back levels (`r apa_print(hypothesis1a_rmanova)$full_result$level`, `r apa_print(hypothesis1a_BF)$statistic`), but the median RT did (`r apa_print(hypothesis1b_rmanova)$full_result$level`, `r apa_print(hypothesis1b_BF)$statistic`), evidence was not in favour of H1a but in favour of H1b.
 Specifically, the median RT was higher for the more difficult level in every contrast, with two exceptions:
 It did not differ between 2- and 4-back, and it was higher for 3- than for 4-back (Table\ \@ref(tab:H1b-contrasts)).
 
@@ -370,7 +371,7 @@ apa_table(
 )
 ```
 
-All NASA-TLX subscale scores increased across $n$-back levels.
+All NASA-TLX subscale scores increased across $n$-back levels, so evidence was in favour of H1c.
 The effort subscale (`r apa_print(hypothesis1c_effort_rmanova)$full_result$level`, `r apa_print(hypothesis1c_effort_BF)$statistic`) increased across all levels, but the magnitude of change decreased from 1- to 2-back (`r apa_print(pairs(hypothesis1c_effort_emm))$statistic$X1_X2`, `r apa_print(BayesFactor::ttestBF(x = h1c_data$effort[h1c_data$level == 1], y = h1c_data$effort[h1c_data$level == 2], progress = FALSE, paired = TRUE))$statistic`) to 3- to 4-back (`r apa_print(pairs(hypothesis1c_effort_emm))$statistic$X3_X4`, `r apa_print(BayesFactor::ttestBF(x = h1c_data$effort[h1c_data$level == 3], y = h1c_data$effort[h1c_data$level == 4], progress = FALSE, paired = TRUE))$statistic`).
 Three subscales had significant differences between all contrasts except for 3- versus 4-back:
 While ratings on the frustration and time subscales were higher for more difficult levels (`r apa_print(hypothesis1c_frustration_rmanova)$full_result$level`, `r apa_print(hypothesis1c_frustration_BF)$statistic`, and `r apa_print(hypothesis1c_time_rmanova)$full_result$level`, `r apa_print(hypothesis1c_time_BF)$statistic`, respectively), ratings on the performance subscale decreased with higher $n$ (`r apa_print(hypothesis1c_performance_rmanova)$full_result$level`, `r apa_print(hypothesis1c_performance_BF)$statistic`).
@@ -384,7 +385,7 @@ When asking participants what motivated their decisions in the effort discountin
 The remaining `r format(round((table(data_quest$motivation)[5]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% of participants used the free text field and provided reasons such as "I wanted a fair relation of effort and reward.", "I wanted the fun that I had in the more challenging levels.", "I wanted to maximize reward first and minimize effort second.", or "I did not want to perform poorly when I was being paid for it.".
 Figure S.1 in the Supplementary Material shows the different motivations in the context of the SVs per $n$-back level.
 
-The rmANOVA showed a significant difference between the SVs across $n$-back levels (`r apa_print(hypothesis2a_rmanova)$full_result$level`, `r apa_print(hypothesis2a_BF)$statistic`).
+The rmANOVA showed a significant difference between the SVs across $n$-back levels (`r apa_print(hypothesis2a_rmanova)$full_result$level`, `r apa_print(hypothesis2a_BF)$statistic`), so evidence was in favour of H2a.
 All four pre-defined contrasts reached significance (Table\ \@ref(tab:H2a-contrasts)), so a purely linear contrast can be rejected.
 
 ```{r H2a-contrasts, echo=FALSE, message=FALSE, warning=FALSE}
@@ -425,6 +426,7 @@ The final model had an effect size of $f^{2}=$ `r round(h2b_level_f2, digits = 2
 This means that the $n$-back level explained `r paste0(formatC(h2b_level_f2 * 100, format = "f", digits = 2), "%")` and $d'$ explained `r paste0(formatC(h2b_dprime_f2 * 100, format = "f", digits = 2), "%")` of variance in SVs relative to the unexplained variance, respectively.
 The beta coefficient indicated that with every 1-unit increase in $d'$, the SV increased by `r as.numeric(h2b_result.table[3,"Beta"])`.
 The effect size of the median RT was $f^{2}=$ `r format(round(h2b_medianRT_f2, digits = 2), nsmall = 2)`.
+Since SVs decline with increasing level, beyond the variance explained by $d'$, evidence was in favour of H2b.
 
 To investigate the dependency of the model results on the RT preprocessing, we conducted a specification curve analysis (Figure\ \@ref(fig:sca-plot)).
 
@@ -452,10 +454,9 @@ There were $n=`r length(setdiff(unique(data_SV$subject), data_SV$subject[data_SV
 
 ```
 
-
 The median NFC was `r mediannfc`, with $n=`r nrow(h3b_data[h3b_data$nfcmedian == "low",])/(nrow(h3b_data)/length(unique(h3b_data$subject)))`$ subjects below and $n=`r nrow(h3b_data[h3b_data$nfcmedian == "high",])/(nrow(h3b_data)/length(unique(h3b_data$subject)))`$ above the median.
 We used an rmANOVA to investigate whether the difference between the SVs of 1- and 2-back, and 2- and 3-back, respectively, depended on whether a participant's NFC score was above or below the median.
-There was a main effect of the $n$-back level (`r apa_print(hypothesis3a_model)$full_result$nlevels`, `r apa_print(hypothesis3a_BF_nlevel)$statistic$nlevels`), but neither a main effect of the NFC group (`r apa_print(hypothesis3a_model)$full_result$nfcmedian`, `r apa_print(hypothesis3a_BF_nlevel)$statistic$nfcmedian`) nor an interaction of NFC group and $n$-back level (`r apa_print(hypothesis3a_model)$full_result$nfcmedian_nlevels`).
+There was a main effect of the $n$-back level (`r apa_print(hypothesis3a_model)$full_result$nlevels`, `r apa_print(hypothesis3a_BF_nlevel)$statistic$nlevels`), but neither a main effect of the NFC group (`r apa_print(hypothesis3a_model)$full_result$nfcmedian`, `r apa_print(hypothesis3a_BF_nlevel)$statistic$nfcmedian`) nor an interaction of NFC group and $n$-back level (`r apa_print(hypothesis3a_model)$full_result$nfcmedian_nlevels`), so evidence was not in favour of H3a.
 Post-hoc tests showed that the difference between the SVs of 2- and 3-back is slightly more negative than the difference between 1- and 2-back (`r apa_print(pairs(hypothesis3a_emm_nlevel))$statistic`), but there were large inter-individual differences, especially for 2- and 3-back (left panel of Figure\ \@ref(fig:h3ac-plot)).
 This means that across the whole sample, there was a steeper decline in SVs from 2- to 3-back than from 1- to 2-back, but some participants showed a completely opposite pattern.
 
@@ -466,7 +467,7 @@ This means that across the whole sample, there was a steeper decline in SVs from
 ```
 
 The rmANOVA on the association between NFC scores and NASA-TLX scores revealed a main effect of $n$-back level (`r apa_print(hypothesis3b_model)$full_result$level`, `r apa_print(hypothesis3b_BF_levels)$statistic$level`) and an interaction between $n$-back level and NFC scores (`r apa_print(hypothesis3b_model)$full_result$nfcmedian_level`), but no main effect of NFC scores (`r apa_print(hypothesis3b_model)$full_result$nfcmedian`, `r apa_print(hypothesis3b_BF_levels)$statistic$nfcmedian`).
-Post-hoc tests showed that the participants with NFC scores below the median had higher NASA-TLX scores for 3-back (`r apa_print(pairs(hypothesis3b_emm_interact))$statistic$X3_High_low`, `r apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "low" & h3b_data$level == 3], y = h3b_data$ntlx[h3b_data$nfcmedian == "high" & h3b_data$level == 3], progress = FALSE, paired = FALSE))$statistic`) and for 4-back (`r apa_print(pairs(hypothesis3b_emm_interact))$statistic$X4_High_low`, `r apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "low" & h3b_data$level == 4], y = h3b_data$ntlx[h3b_data$nfcmedian == "high" & h3b_data$level == 4], progress = FALSE, paired = FALSE))$statistic`) than those with NFC scores above the median.
+Post-hoc tests showed that the participants with NFC scores below the median had higher NASA-TLX scores for 3-back (`r apa_print(pairs(hypothesis3b_emm_interact))$statistic$X3_High_low`, `r apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "low" & h3b_data$level == 3], y = h3b_data$ntlx[h3b_data$nfcmedian == "high" & h3b_data$level == 3], progress = FALSE, paired = FALSE))$statistic`) and for 4-back (`r apa_print(pairs(hypothesis3b_emm_interact))$statistic$X4_High_low`, `r apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "low" & h3b_data$level == 4], y = h3b_data$ntlx[h3b_data$nfcmedian == "high" & h3b_data$level == 4], progress = FALSE, paired = FALSE))$statistic`) than those with NFC scores above the median, so evidence was in favour of H3b.
 Regardless of NFC scores, NASA-TLX scores were higher for the more difficult level in each pair of $n$-back levels (Figure\ \@ref(fig:h3b-plot)).
 
 ```{r h3b-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="NASA-TLX sum scores for each $n$-back level. Colours indicate Need for Cognition (NFC) score above or below the median. $N=116$.", fig.pos="H"} 
@@ -477,7 +478,7 @@ Regardless of NFC scores, NASA-TLX scores were higher for the more difficult lev
 
 With another rmANOVA we investigated whether the difference between the aversiveness scores of 1- and 2-back, and 2- and 3-back, respectively, depended on whether a participant's NFC score was above or below the median.
 There was a main effect of NFC group (`r apa_print(hypothesis3c_model)$full_result$nfcmedian`, `r apa_print(hypothesis3c_BF_levels)$statistic$nfc`) and a main effect of the $n$-back level (`r apa_print(hypothesis3c_model)$full_result$nlevels`, `r apa_print(hypothesis3c_BF_levels)$statistic$levels`), but no interaction (`r apa_print(hypothesis3c_model)$full_result$nfcmedian_nlevels`).
-Post-hoc tests revealed that participants with NFC scores below the median reported higher aversiveness than participants with NFC scores above the median (`r apa_print(pairs(hypothesis3c_emm_nfc))$statistic`) (right panel of Figure\ \@ref(fig:h3ac-plot)).
+In favour of H3c, post-hoc tests revealed that participants with NFC scores below the median reported higher aversiveness than participants with NFC scores above the median (`r apa_print(pairs(hypothesis3c_emm_nfc))$statistic`) (right panel of Figure\ \@ref(fig:h3ac-plot)).
 Regardless of NFC, the difference of the aversiveness scores of 2- and 3-back was smaller and more negative than that of 1- and 2-back (`r apa_print(pairs(hypothesis3c_emm_levels))$statistic`), but again, there were large inter-individual differences.
 The full results of these analyses of NFC group differences can be found in Table S.11 to S.15 in the Supplementary Material.
 
