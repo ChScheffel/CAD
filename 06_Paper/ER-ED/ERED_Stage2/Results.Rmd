@@ -124,7 +124,7 @@ The estimated odds ration indicated that a participant is more likely to later c
 
 Last, we investigated whether SVs are associated with ER flexibility.
 We conducted a logistic regression to inspect whether participants' individual $slopes$ and $intercepts$ of ordered SVs could predict their ER flexibility score.
-We found neither a significant associations between $slopes$ of SVs and FlexER score (`r papaja::apa_print(Flex_LM)$full_result$slope`, `r papaja::apa_print(Flex_LM_BF)$full_result$slope`), nor between $intercepts$ and FlexER score (`r papaja::apa_print(Flex_LM)$full_result$intercept`, `r papaja::apa_print(Flex_LM_BF)$full_result$intercept`).
+We found neither a significant association between $slopes$ of SVs and FlexER score (`r papaja::apa_print(Flex_LM)$full_result$slope`, `r papaja::apa_print(Flex_LM_BF)$full_result$slope`), nor between $intercepts$ and FlexER score (`r papaja::apa_print(Flex_LM)$full_result$intercept`, `r papaja::apa_print(Flex_LM_BF)$full_result$intercept`).
 However, model fit was relatively low (`r papaja::apa_print(Flex_LM)$full_result$modelfit$r2`).
 
 ## 3.3. Exploratory analyses
