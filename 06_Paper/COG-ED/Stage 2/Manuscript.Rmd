@@ -405,9 +405,9 @@ Centered variables cannot be turned into factors, so we entered the variable lev
 $$
 SV \sim level\ + d' + median RT + (1|subject)
 $$
-This means that the intercept still varies between subjects, but there are no random slopes anymore.
+This means that the intercept still varied between subjects, but there were no random slopes anymore.
 To provide more than one observation per factor level, we used the two rounds per $n$-back level per subject, rather than $n$-back levels per subject.
-The ICC of the null model indicated that there is a correlation of $r=$ `r sub("^(-?)0.", "\\1.", sprintf("%.2f", round(model0_h2b_ICC, digits = 3)))` between the SVs of a subject, i.e. that `r paste0(formatC(model0_h2b_ICC * 100, format = "f", digits = 2), "%")` of variance in SVs can be explained by differences between participants.
+The ICC of the null model indicated that there was a correlation of $r=$ `r sub("^(-?)0.", "\\1.", sprintf("%.2f", round(model0_h2b_ICC, digits = 3)))` between the SVs of a subject, i.e. that `r paste0(formatC(model0_h2b_ICC * 100, format = "f", digits = 2), "%")` of variance in SVs could be explained by differences between participants.
 We did not use an optimization algorithm to improve the fit of the random intercept model.
 We did not exclude any data points.
 The results of the final model are displayed in Table\ \@ref(tab:H2b-results).
