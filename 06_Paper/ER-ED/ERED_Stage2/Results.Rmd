@@ -99,7 +99,7 @@ papaja::apa_table(
 
 The predictors effort rating (`r papaja::apa_print(MLM_2)$full_result$effort_cwc`), utility rating (`r papaja::apa_print(MLM_2)$full_result$utility_cwc`), and *Corrugator* activity (`r papaja::apa_print(MLM_2)$full_result$Corr_cwc`) showed a significant association with SVs.
 The values were relatively small, so the respective effect size $f^{2}$ was calculated as the explained variance.
-Interestingly, utility rating showed the greatest effect size of all predictors ($f^{2}=$ `r papaja::printnum(H5_M2_table[4,5], digits = 3)`), indicating that utility rating explained `r papaja::printnum(H5_M2_table[4,5]*100, digits = 1)`% of variance in SVs. 
+Interestingly, utility rating showed the greatest effect size of all predictors ($f^{2}=$ `r papaja::printnum(H5_M2_table[4,5], digits = 3)`), indicating that utility rating explained `r papaja::printnum(H5_M2_table[4,5]*100, digits = 1)`% of variance in SVs.<!--JZ: Mir wurde mal die Verwendung von Worten wie "interestingly" im Ergebnisteil angekreidet, also die Bewertung vielleicht bis zum Diskussionsteil aufheben-->
 Effort rating showed an effect size of $f^{2}=$ `r papaja::printnum(H5_M2_table[2,5], digits = 3)`.
 The effect sizes of all other predictors were negligibly small ($f^{2}< 0.01$).
 
