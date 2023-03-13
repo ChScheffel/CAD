@@ -107,7 +107,7 @@ The effect sizes of all other predictors were negligibly small ($f^{2}< 0.01$).
 
 To investigate the ecological validity of the subjective values of ER strategies we calculated, we tested whether SVs were associated with the actual choice of participants in the choice block.
 Therefore, a $\chi^{2}$ test with predicted choice (i.e., the strategy with the highest SV of each participant) and actual choice was computed.
-There was a significant association between predicted choice and actual choice (`r papaja::apa_print(choice_chisq, n=119)$statistic[[1]]`, `r papaja::apa_print(choice_chisq_BF)$statistic`; see figure\ \@ref(fig:FigSVchoice)). 
+There was a significant association between predicted choice and actual choice (`r papaja::apa_print(choice_chisq, n=119)$statistic[[1]]`, `r papaja::apa_print(choice_chisq_BF)$statistic`; see figure\ \@ref(fig:FigSVChoice)). 
 
 [INSERT FIGURE 4 HERE]
 
