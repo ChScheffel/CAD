@@ -231,15 +231,16 @@ Participants completed the personality questionnaires online and then visited th
 NFC was assessed using the 16-item short form of the Need for Cognition Scale [@Cacioppo1984; @Bless1994].
 Responses to each item (e.g., "Thinking is not my idea of fun", recoded) were recorded on a 7-point Likert scale.
 The NFC scale shows comparably high internal consistency (Cronbach's $\alpha>.80$) [@Bless1994; @Fleischhauer2010].
-Several other personality questionnaires were used in this study but are the topic of the Registered Report for the second lab session[@ScheffelZerna2022]. <!-- CK: ich würde an dieser Stelle (oder gleich im zweiten Satz) kurz auflisten, welche anderen FB zum Einsatz kamen entsprechend des Simmons Statements -->
+Several other personality questionnaires were used in this study but are the topic of the Registered Report for the second lab session[@ScheffelZerna2022].
 A full list of measures can be found in our [Github repository](https://github.com/ChScheffel/CAD).
 In the first session, participants provided informed consent and demographic data before completing the computer-based paradigm.
-The paradigm started with the $n$-back levels one to four, presented sequentially with two runs per level, <!-- CK: and --> consisting of 64 consonants (16 targets, 48 non-targets) per run.
-The levels were referred to by color (1-back black, 2-back red, 3-back blue, 4-back green <!-- CK: nach back würde ich ":" setzen oder vieleicht auch "-" -->) to avoid anchor effects in the effort discounting procedure.
+The paradigm started with the $n$-back levels one to four, presented sequentially with two runs per level, consisting of 64 consonants (16 targets, 48 non-targets) per run.
+The levels were referred to by color (1-back: black, 2-back: red, 3-back: blue, 4-back: green) to avoid anchor effects in the effort discounting procedure.
 To assess perceived task load, we used the 6-item NASA Task Load Index (NASA-TLX)[@Hart1988], where participants evaluate their subjective perception of mental load, physical load, effort, frustration, performance, and time pressure during the task on a 20-point scale.
 At the end of each level, participants filled out the NASA-TLX on a tablet, plus an item with the same response scale, asking them how aversive they found this $n$-back level.
 After the $n$-back task, participants completed the CAD paradigm on screen and were instructed to do so as realistically as possible, even though the displayed rewards were not paid out on top of their compensation.
-They were told that one of their choices would be randomly picked for the final run of $n$-back, the data of which <!-- CK: ".However, the data was not analyzed ..." --> was not analyzed as it only served to incentivise truthful behavior and stay close to the design of Westbrook et al.[-@Westbrook2013].
+They were told that one of their choices would be randomly picked for the final run of $n$-back.
+However, this data was not analyzed as it only served to incentivise truthful behavior and to stay close to the design of Westbrook et al.[-@Westbrook2013].
 After the CAD paradigm, participants filled out a short questionnaire on the tablet, indicating whether they adhered to the instructions (yes/no) and what the primary motivation for their decisions during the effort discounting procedure was (avoid boredom/relax/avoid effort/seek challenge/other).  
 The second session consisted of an emotion regulation task with negative pictures and the instruction to suppress facial reactions, detach cognitively from the picture content, and distract oneself, respectively.
 The paradigm followed the same structure of task and effort discounting procedure, but participants could decide which strategy they wanted to reapply in the last block.
