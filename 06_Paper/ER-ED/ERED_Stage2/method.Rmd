@@ -41,7 +41,7 @@ A complete list of all measures assessed in the study can be found at OSF (<http
 
 The study protocol complies with all relevant ethical regulations and was approved by the ethics committee of the Technische Universität Dresden (reference number EK50012022). 
 Prior to testing, written informed consent was obtained.
-Participants received 24 € in total or course credit for participation.
+Participants received 24€ in total or course credit for participation.
 
 ## 2.2 Pilot data
 
@@ -113,15 +113,15 @@ After each block, participants retrospectively rated their subjective emotional 
 *Part two: ER effort discounting.* <br> In the second part, ER effort discounting took place.
 The procedure of the discounting will follow the COG-ED paradigm by Westbrook et al.[-@Westbrook2013] with a major change.
 We used the following adaption that allowed the computation of SVs for different strategies without presuming that all individuals would inherently evaluate the same strategy as the easiest one: For each possible pairing (distraction vs. distancing, distraction vs. suppression, and distancing vs. suppression), each of the two strategies were presented with a monetary reward.
-Because there is no strategy that is objectively more difficult, we added initial comparisons asking the participants to choose between "1 € for strategy A or 1 € for strategy B".
+Because there is no strategy that is objectively more difficult, we added initial comparisons asking the participants to choose between "1€ for strategy A or 1€ for strategy B".
 They decided by clicking the on-screen button of the respective option.
 Each of the three strategy pairs were presented three times in total, in a randomized order and randomly assigned which strategy appeared on the left or right side of the screen.
-For each pair, the strategy that was chosen at least two out of three times was assigned the flexible starting value of 1 €, the other strategy was assigned the fixed value of 2 €.
+For each pair, the strategy that was chosen at least two out of three times was assigned the flexible starting value of 1€, the other strategy was assigned the fixed value of 2€.
 After this, comparisons between strategies followed the original COG-ED paradigm[@Westbrook2013].
-Each pairing was presented six consecutive times, and with each decision the reward of the strategy with the starting value of 1 € was either lowered (if this strategy was chosen) or raised (if the strategy with the fixed 2 € reward was chosen).
-The adjustment started at 0.50 € and each was half the adjustment of the previous step, rounded to two digits after the decimal point.
-If a participant always chose the strategy with the fixed 2 € reward, the other strategy's last value on display was 1.97 €, if they always choose the lower strategy, its last value was 0.03 €.
-The sixth adjustment of 0.02 € was done during data analysis, based on the participants' decision in the last display of the pairing.
+Each pairing was presented six consecutive times, and with each decision the reward of the strategy with the starting value of 1€ was either lowered (if this strategy was chosen) or raised (if the strategy with the fixed 2€ reward was chosen).
+The adjustment started at 0.50€ and each was half the adjustment of the previous step, rounded to two digits after the decimal point.
+If a participant always chose the strategy with the fixed 2€ reward, the other strategy's last value on display was 1.97€, if they always choose the lower strategy, its last value was 0.03€.
+The sixth adjustment of 0.02€ was done during data analysis, based on the participants' decision in the last display of the pairing.
 Participants were instructed to decide as realistically as possible by imagining that the monetary reward was actually available for choice.
 
 *Part three: ER choice.* <br> After the discounting part, participants chose which one of the three ER strategies (distraction, distancing or suppression) they wanted to re-apply.
@@ -190,8 +190,8 @@ To investigate the effects of the three ER strategies on subjective arousal (H2a
 To examine the effects of the three ER strategies on physiological responding (H3a and H3b), another rmANOVA with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for EMG *corrugator* and *levator* activity was conducted.
 To examine the effect of ER strategies on subjective effort (H4a), a rmANOVA with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for subjective effort ratings was conducted.
 
-*Subjective values of emotion regulation strategies.* <br> For each ER strategy, SVs were calculated as follows: first, the value 0.02 € was added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
-Second, to obtain the SV of the fixed strategy (the minimum relative reward required for participants to choose the flexible over the fixed strategy), the last value of the flexible strategy was divided by 2 €.
+*Subjective values of emotion regulation strategies.* <br> For each ER strategy, SVs were calculated as follows: first, the value 0.02€ was added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
+Second, to obtain the SV of the fixed strategy (the minimum relative reward required for participants to choose the flexible over the fixed strategy), the last value of the flexible strategy was divided by 2€.
 Therefore, the SVs of the flexible strategies were 1, because they were chosen in the initial comparison of each pairing in which the same value was offered for both strategies, so they were the preferred strategy of each pairing.
 The SVs of the fixed strategies lay between 0 and 1, with lower values indicating that the participant would need a much higher monetary incentive to choose this strategy over the other one in the pairing. 
 The final SV per strategy for each participant was computed by averaging the SVs of each strategy across pairings.
