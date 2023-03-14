@@ -289,7 +289,7 @@ SV \sim level\ + d' + median RT + (level|subject)
 $$
 Level-1-predictors were centered within cluster as recommended by Enders & Tofighi[-@Enders2007]. 
 By this, the model yields interpretable parameter estimates. 
-If necessary, we will adjusted the optimization algorithm to improve model fit. 
+If necessary, we adjusted the optimization algorithm to improve model fit. 
 We visually inspected the residuals of the model for evidence to perform model criticism. 
 This was done by excluding all data points with absolute standardized residuals above 3 SD. 
 As effect size measures, we calculated pseudo $R^{2}$ for our model and $f^{2}$ to estimate the effect of $n$-back level according to Lorah[-@Lorah2018].
