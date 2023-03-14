@@ -70,9 +70,9 @@ Also those that are rarely used or even marked as maladaptive, such as alcohol c
 In order to draw a more comprehensive picture on ER, dynamic or cyclic processes have to be considered.
 The extended process model of emotion regulation[@Gross2015] postulates three sequential stages, namely identification, selection, and implementation, to achieve a given goal in a situation.
 If it is determined that the regulation goal is not being achieved, the ER strategy can be maintained, stopped or switched[@Gross2015].
-Importantly, information about the effects of implementing ER strategies influences the choice of ER strategies in future situations, due to contextual feedback even changes the context[@Gross2015;@AldaoChristensen2015;@Murphy2018].
+Importantly, information about the effects of implementing ER strategies influences the choice of ER strategies in future situations, due to contextual feedback even changes the context[@Gross2015;@AldaoChristensen2015;@Murphy2018;@Sheppes2020].
 This means that for studies on ER Choice, not only situational factors should be taken into account, but also contextual factors[@Murphy2018].
-For example, Murphy and Young[@Murphy2018] could show that in a classic ER choice paradigm[@Sheppes2011], strategy selection was singificantly influenced by strategy selection and negative affect of the preceding trial.
+For example, Murphy and Young[@Murphy2018] could show that in a classic ER choice paradigm[@Sheppes2011], strategy selection was significantly influenced by strategy selection and negative affect of the preceding trial.
 
 
 - Unser paradigma bezieht das aber mit ein, dennindem die SVs auf Grundlage vorheriger Erfahrungen gebildet werden.
