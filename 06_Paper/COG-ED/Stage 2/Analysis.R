@@ -1651,7 +1651,7 @@ ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 7, height =
 
 # delete temporary data frame
 
-base::remove(ntlx, h3b_data)
+base::remove(ntlx)
 
 ##### Hypothesis 3c ############################################################
 
