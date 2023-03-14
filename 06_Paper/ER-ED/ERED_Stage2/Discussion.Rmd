@@ -82,12 +82,9 @@ Therefore, the question arises as to how stable these individual SVs are.
 
 ## Trait character of SVs
 From relatively early on in ER research, the question was asked whether the use of certain strategies is habitual, i.e. whether they have a trait character[@GrossJohn2003].
-Although 
+
+
 The individual SVs computed in our CAD paradigm were assessed in the laboratory in a single situation.
-
-
-
-Hat das Trait-Charakter?
 
 State character of goals @Wilms2020
 
