@@ -49,31 +49,44 @@ However, individual SVs did not show associations with ER flexibility, we theref
 Our goal was to calculate individual subjective values to develop a better understanding of ER stratagem selection.
 Most individuals show great variability in the choice of strategies, both, within-strategy and between-strategy[@Blanke2020;@Burr2020;@Elkjaer2022]. 
 Greater variability might even adaptive [@Blanke2020;@Aldao2015].
-In addition, a wide variety of factors that influence the choice of stratgies in specific situations were examined[@Scheffel2021;@Sheppes2011;@Sheppes2014;@Wilms2020;@Young2020].
-Thus, different factors have only rarely been studied together[@Young2020].
-Moreover, the usual paradigms used in ER choice research (e.g., Sheppes et al.[@Sheppes2011]) cannot be used to determine what internal subjective value the subjects associated with the strategies.
-However, we succeeded in this with our new CAD paradigm.
+In addition, a wide variety of factors that influence the choice of strategies in specific situations were examined[@Scheffel2021;@Sheppes2011;@Sheppes2014;@Wilms2020;@Young2020;@Matthews2021], including intensity of the situation and effort.
+However, these factors have often been studied separately.
+Only rarely have effects of the factors been studied in combination[@Young2020].
+Moreover, the usual paradigms used in ER choice research (e.g., Sheppes et al.[@Sheppes2011]) can only estimate how a factor tends to drive the choice in one direction or the other.
+However, it cannot be determined in this way what internal subjective value individuals attribute to the choice options.
+We are confident that we have succeeded in this with the present paradigm.
 On the one hand, we were able to show which factors influence the values, but on the other hand, we were able to show the actual practical relevance of the values.
 The highest SVs of the individuals were associated with the choice made by the participants. 
 Until now, it has been difficult to transfer such findings from the laboratory to everyday life[@Wilms2020].
-This could be due to the fact that the strategies that have to be chosen between are often fixed in laboratory tests by the experimental design[@Sheppes2011;@Sheppes2014;@Scheffel2021].
+This may be due to the fact that in laboratory studies, the choice options are often predetermined by the design of the experiment [@Sheppes2011;@Sheppes2014;@Scheffel2021].
 It was therefore attempted to investigate ER choice and influencing factors in everyday life.
-However, even there, certain strategies were often prescribed (for example studies, see English et al.[@Englisch2017], Millgram et al.[@Millgram2019], Wilms et al.[@Wilms2020]). 
+However, even there, certain strategies were often prescribed (for example studies, see English et al.[@English2017], Millgram et al.[@Millgram2019], Wilms et al.[@Wilms2020]). 
 Although these covered a large area of the emotion-genesis process[@Gross1998emerging], they were nevertheless ultimately fixed.
 Of course, the calculation of SVs in our new CAD paradigm is tied to the strategies with which the strategy of interest is compared.
 However, it would be possible to use ecological momentary assessment to capture ER strategies[@Koval2020].
 This would allow all strategies of the ER repertoire to be recorded for each individual[@Aldao2015]. 
 Also those that are rarely used or even marked as maladaptive, such as alcohol consumption or rumination[@Pena-Sarrionandia2015].
 
-
-
-
-Dynamic processes in emotion regulation choice
-Jonathan W. Murphy
-& Michael A. Young
-
+In order to draw a more comprehensive picture on ER, dynamic or cyclic processes have to be considered.
+The extended process model of emotion regulation[@Gross2015] postulates three sequential stages, namely identification, selection, and implementation, to achieve a given goal in a situation.
+If it is determined that the regulation goal is not being achieved, the ER strategy can be maintained, stopped or switched[@Gross2015].
+Importantly, information about the effects of implementing ER strategies influences the choice of ER strategies in future situations, due to contextual feedback even changes the context[@Gross2015;@AldaoChristensen2015;@Murphy2018;@Sheppes2020].
+This means that for studies on ER Choice, not only situational factors should be taken into account, but also contextual factors[@Murphy2018].
+For example, Murphy and Young[@Murphy2018] could show that in a classic ER choice paradigm[@Sheppes2011], strategy selection was significantly influenced by strategy selection and negative affect of the preceding trial.
+This provides empirical evidence that experience gained during use of ER strategies influences future choice of ER strategies.
+Our newly developed paradigm also makes an important contribution here.
+The information and experiences that participants gather when using strategies subsequently flow implicitly into the calculation of subjective values.
+That is, because the participants first go through all the strategies and then make the monetary decisions on the basis that they should repeat the strategies again. 
+The decisions are made on the basis of the stimulus material that the individuals previously viewed. 
+Therefore, the question arises as to how stable these individual SVs are.
 
 ## Trait character of SVs
+From relatively early on in ER research, the question was asked whether the use of certain strategies is habitual, i.e. whether they have a trait character[@GrossJohn2003].
+Although 
+The individual SVs computed in our CAD paradigm were assessed in the laboratory in a single situation.
+
+
+
 Hat das Trait-Charakter?
 
 State character of goals @Wilms2020
@@ -85,7 +98,7 @@ First, it must be mentioned that a block design was used.
 This allows for habituation effects of EMG activity within the block.
 However, block designs are common in ER research [@Barreiros2019] and were used in previous studies [@Scheffel2019]. 
 Second, it has to be mentioned that subjective arousal, effort, and utility ratings were conducted retrospectively at the end of each block.
-It is also known that affect labeling might attenuate emotional experience [@Liebermann2007;@Torre2018]. 
+It is also known that affect labeling might attenuate emotional experience [@Lieberman2007;@Torre2018]. 
 That is why we decided not to have the ratings done after every image.
 Furthermore, we were able to confirm our manipulation checks, indicating that implementation of ER strategies was successful, both on subjective and physiological levels.
 Taken together, these two facts may have led to slightly lower associations between SVs and predictors.
