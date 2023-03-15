@@ -41,7 +41,7 @@ author:
       - Writing - review & editing
   - name          : "Denise Dörfel"
     orcid         : "0000-0002-5632-419X"
-    affiliation   : "1", "2"
+    affiliation   : "1,2"
     role          :
       - Conceptuatlization
       - Writing - review & editing
