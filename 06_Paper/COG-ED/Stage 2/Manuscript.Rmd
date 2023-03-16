@@ -410,7 +410,7 @@ This means that the intercept still varied between subjects, but there were no r
 To provide more than one observation per factor level, we used the two rounds per $n$-back level per subject, rather than $n$-back levels per subject.
 The ICC of the null model indicated that there was a correlation of $r=$ `r sub("^(-?)0.", "\\1.", sprintf("%.2f", round(model0_h2b_ICC, digits = 3)))` between the SVs of a subject, i.e. that `r paste0(formatC(model0_h2b_ICC * 100, format = "f", digits = 2), "%")` of variance in SVs could be explained by differences between participants.
 We did not use an optimization algorithm to improve the fit of the random intercept model.
-We did not exclude any data points.
+A total of `r nrow(excl_cases_h2b)` data points from `r length(unique(excl_cases_h2b$subject))` participants were excluded, because the residuals exceeded 3 SD above the mean.
 The results of the final model are displayed in Table\ \@ref(tab:H2b-results).
 
 ```{r H2b-results, echo=FALSE, message=FALSE, warning=FALSE}
@@ -425,6 +425,7 @@ An exploratory ANOVA was used to compare the fit of the final model with a linea
 The final model had an effect size of $f^{2}=$ `r round(h2b_level_f2, digits = 2)` for the $n$-back levels and $f^{2}=$ `r round(h2b_dprime_f2, digits = 2)` for $d'$, which are considered large and small, respectively [@Cohen1992].
 This means that the $n$-back level explained `r paste0(formatC(h2b_level_f2 * 100, format = "f", digits = 2), "%")` and $d'$ explained `r paste0(formatC(h2b_dprime_f2 * 100, format = "f", digits = 2), "%")` of variance in SVs relative to the unexplained variance, respectively.
 The beta coefficient indicated that with every 1-unit increase in $d'$, the SV increased by `r as.numeric(h2b_result.table[3,"Beta"])`.
+Due to the coding scheme of the logistic contrast, the beta coefficient of the $n$-back level has to be interpreted inversely, so SVs decline with increasing $n$-back level.
 The effect size of the median RT was $f^{2}=$ `r format(round(h2b_medianRT_f2, digits = 2), nsmall = 2)`.
 Since SVs decline with increasing level, beyond the variance explained by $d'$, evidence was in favour of H2b.
 
@@ -437,8 +438,8 @@ To investigate the dependency of the model results on the RT preprocessing, we c
 ```
 
 Regardless of the preprocessing pipeline, $n$-back level and $d'$ were significant predictors of SVs, and had stable effect estimates across all pipelines.
-The only pipelines in which the median RT was a significant predictor of SVs, were the three pipelines with the highest Bayes Factors.
-These three pipelines contain data that has been inverse transformed across subjects but within conditions, i.e. within the round of an $n$-back level.
+There was only one pipeline in which the median RT was a significant predictor of SVs.
+This pipeline contained data that had been inverse transformed across subjects but within conditions, i.e. within the round of an $n$-back level, and RTs beyond 2 $MAD$ from the median had been excluded.
 
 ## Differences between NFC groups
 
@@ -529,8 +530,8 @@ This feedback was based on correct responses and not on RT, so if participants b
 Since more participants reported effort avoidance as their motivation in the effort discounting than those who reported seeking a challenge, we can assume that they were more motivated to repeat a task in which they performed well because their good performance coincided with low effort.
 
 The declining logistic $n$-back levels and $d'$ remained significant predictors of SVs throughout all 63 preprocessing pipelines in the specification curve analysis, with betas that varied by less than 0.01.
-In contrast to this stood the variability of the median RT betas, which ranged from about 0.11 to -0.01, and reached significance in only three pipelines.
-These three pipelines had the highest $BF_{10}$ and applied inverse transformation to the RT data, across subjects but within conditions, and excluded data based on the MAD.
+In contrast to this stood the variability of the median RT betas, which ranged from about `r round(max(sca_results$beta_r), digits = 2)` to `r round(min(sca_results$beta_r), digits = 2)`, and reached significance in only one pipeline.
+This pipeline was among the three pipelines with the highest $BF_{10}$, and applied inverse transformation to the RT data, across subjects but within conditions, and excluded data beyond 2 $MAD$ from the median.
 Interestingly, the curve of median RT betas in the upper panel of Figure\ \@ref(fig:sca-plot) mirrored the rectangular pipeline indicators in the transformation rows of the lower panel, so the transformation choice influenced the median RT much more than the dimension or the exclusion choice did.
 As Fernandez et al.[-@Fernandez2020] found, applying more than one preprocessing step to the reaction time data of a Stroop task increased the risk of false positives beyond $\alpha=.05$, and transformation choices inflated this risk more than outlier exclusion or aggregation choices did.
 Our data seems to corroborate this finding for $n$-back tasks as well.

@@ -1298,13 +1298,20 @@ model0_h2b_ICC <- ICC.Model(model0_h2b)
 model1_h2b_raw <- lmerTest::lmer(sv ~ level + dprime.cwc + medianRT.cwc + (1|subject),
                          data = h2b_data, REML = T)
 
-# exclude cases with residuals three SDs above mean <!-- CK: Ist das noch von mir drin? Das sollte unbedingt raus. ist nicht mehr up to date -->
+# exclude cases with residuals three SDs above mean
 
 excl_cases_h2b <- as.data.frame(subset(h2b_data, abs(scale(resid(model1_h2b_raw))) > 3))
 
 # create data frame without those cases
 
 h2b_data_excl <- droplevels(subset(h2b_data, abs(scale(resid(model1_h2b_raw))) < 3))
+
+# define contrasts
+
+h2b_data_excl_contrasts <- c(3,2,-2,-3)
+contrasts(h2b_data_excl$level) <- cbind(h2b_data_excl_contrasts, c(-1,1,0,0), c(0,0,-1,1))
+rownames(contrasts(h2b_data_excl$level)) <- c("level1","level2","level3","level4")
+colnames(contrasts(h2b_data_excl$level)) <- c("declin_log","opp1","opp2")
 
 # recompute model 2
 
@@ -1314,7 +1321,7 @@ model1_h2b <- lmerTest::lmer(sv ~ level + dprime.cwc + medianRT.cwc + (1|subject
 # compute linear model to compare it with logistic model
 
 linmodel_h2b <- lmerTest::lmer(sv ~ levellin + dprime.cwc + medianRT.cwc + (1|subject),
-                               data = h2b_data_excl, REML = T, control = lmerControl(optimizer = "bobyqa"))
+                               data = h2b_data_excl, REML = T)
 
 # compare the linear and the logistic model
 
@@ -1832,8 +1839,28 @@ for (i in 1:length(pipelines_data)) {
   
   # model with the contrast matrix
   
-  model1_sca <- lmerTest::lmer(sv ~ level + dprime.cwc + medianRT.cwc + (1|subject),
+  model1_sca_raw <- lmerTest::lmer(sv ~ level + dprime.cwc + medianRT.cwc + (1|subject),
                                data = sca_data, REML = T)
+  
+  # identify outliers
+  
+  excl_cases_sca <- as.data.frame(subset(sca_data, abs(scale(resid(model1_sca_raw))) > 3))
+  
+  # create data frame without those cases
+  
+  sca_data_excl <- droplevels(subset(sca_data, abs(scale(resid(model1_sca_raw))) < 3))
+  
+  # define contrasts
+  
+  sca_data_excl_contrasts <- c(3,2,-2,-3)
+  contrasts(sca_data_excl$level) <- cbind(sca_data_excl_contrasts, c(-1,1,0,0), c(0,0,-1,1))
+  rownames(contrasts(sca_data_excl$level)) <- c("level1","level2","level3","level4")
+  colnames(contrasts(sca_data_excl$level)) <- c("declin_log","opp1","opp2")
+  
+  # recompute model 2
+  
+  model1_sca <- lmerTest::lmer(sv ~ level + dprime.cwc + medianRT.cwc + (1|subject),
+                               data = sca_data_excl, REML = T)
   
   # get Bayes Factors
   
