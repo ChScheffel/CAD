@@ -65,11 +65,16 @@ abstract          : |
  Perceived costs of ER strategies in the form of effort, however, are highly subjective. 
  Subjective values (SVs) should therefore represent a trade-off between effectiveness and subjectively required cognitive effort. 
  However, SVs of ER strategies have not been determined so far. 
- We present a paradigm that is suitable for determining individual SVs of ER strategies. 
- Using a multilevel modelling approach, it will be investigated whether individual SVs can be explained by effectiveness (subjective arousal, facial muscle activity) and subjective effort. 
- Relations of SVs to personality traits will be explored.
-keywords          : "emotion regulation, regulatory effort, effort discounting, registered report, specification curve analysis"
-wordcount         : "XXXXX"
+ We present a new paradigm for quantifying individual SVs of ER strategies by offering monetary values for ER strategies in an iterative process. 
+ $N=120$ participants first conducted an ER paradigm with the strategies distraction, distancing, and suppression.
+ Afterwards, individual SVs were determined using the new CAD paradigm.
+ SVs significantly predicted later choice for an ER strategy ($\chi^2(4, \textit{n} = 119)=115.40$, $p<.001$, $BF10=1.62*1021$).
+ Further, SVs were associated with Corrugator activity ($t(5, 618.96)=2.09$, $p=.037$, $f^2<0.001$), subjective effort ($t(5, 618.96)=-13.98$, $p<.001$, $f^2=0.035$), and self-reported utility ($t(5, 618.96)=29.49$, $p<.001$, $f^2=0.155$).
+ SVs were further associated with self-control ($t(97.97)=2.04$, $p=.044$, $f^2=0.002$), but not with flexible ER. 
+ With our paradigm, we were able to determine subjective values. 
+ The trait character of the values will be discussed.
+keywords          : "emotion regulation, regulatory effort, effort discounting, registered report, emotion regulation choice, emotion regulation flexibility, electromyography"
+wordcount         : "about 9000"
 bibliography      : ["ER_ED.bib"]
 floatsintext      : yes
 figsintext        : yes
