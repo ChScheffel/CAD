@@ -81,10 +81,21 @@ The decisions are made on the basis of the stimulus material that the individual
 Therefore, the question arises as to how stable these individual SVs are.
 
 ## Trait character of SVs
-From relatively early on in ER research, the question was asked whether the use of certain strategies is habitual, i.e. whether they have a trait character[@GrossJohn2003].
 
-
+In order to further assess the relevance of the calculated individual SVs, it would be important to know how stable the values are, i.e. whether they would show trait character.
+In other words, do the values we calculate represent a stable value within the individual?
+This conclusion cannot be drawn from the present study alone.
 The individual SVs computed in our CAD paradigm were assessed in the laboratory in a single situation.
+By definition, this represents a state.
+As previously noted, personal regulation goals, situational factors, and contextual demands influence the choice for or against ER strategies[@Aldao2015;@Bonanno2013@Sheppes2011;@Scheffel2021;@Haines2016].
+We belief that these goals, factors and demands also influence individual SVs of ER strategies.
+Our data presented in this study support this idea.
+However, this also means that SVs should differ according to situational factors (e.g., intensity of stimuli).
+It also must be taken into account which ER goals the individuals are pursuing in a particular situation.
+
+
+has been noted by Wilms and colleagues[@Wilms2020] that situational factors and ER goals should be treated as states.
+
 
 State character of goals @Wilms2020
 
