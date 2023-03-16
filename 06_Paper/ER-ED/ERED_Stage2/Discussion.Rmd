@@ -99,6 +99,7 @@ It should also be noted that the computation of individual SVs in our CAD paradi
 Therefore, SVs could vary if other reference strategies are used.
 It is conceivable that the subjective values are likely to correlate very highly in situations with similar demands and goals. 
 They would thus reflect habits, or habitual use of ER strategies, which has already been attempted to capture by means of questionnaires[@GrossJohn2003]. 
+The other way round, of course, it is also conceivable that such habits influence the internal formation of these subjective values.
 However, our data are not suitable for answering this question.
 In future, the SVs should therefore be collected in several similar situations. 
 Subsequently, the association of the values with each other could be assessed, as well as correlations with relevant external criteria, such as well-being[@GrossJohn2003].
@@ -132,3 +133,12 @@ Further it was shown that at least in cognitive effort discounting, a lower ince
 In the future, however, it should be examined how the level of incentives affects subjective values.
 
 ## Conclusion
+
+In order to cope with changing emotional demands, individuals can flexibly select and apply strategies from their repertoire[@Bonanno2013;@Aldao2015].
+The strategy that is most suitable for dealing with contextual demands and achieving regulatory goals is selected[@Aldao2015;@Tamir2016].
+The combination of influencing factors should be reflected in subjective values, which are formed for all alternatives and serve as a basis for decision-making.
+So far, such subjective values for ER strategies have not been determined.
+Our proposed CAD paradigm contributes to research on ER Choice and ER Flexibility by allowing quantification of these values. 
+This provides a more detailed investigation of factors influencing the internal generation of these SVs of ER strategies.
+It seems that it is primarily the perceived usefulness and the effort expended that determine the subjective value attributed to a strategy.
+Finally, further research is needed to investigate the factors influencing subjective values and whether these values represent habitual use of ER strategies by individuals.
