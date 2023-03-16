@@ -40,8 +40,8 @@ author:
       - Formal analysis
       - Writing - review & editing
   - name          : "Denise Dörfel"
-    orcid         :
-    affiliation   : "1"
+    orcid         : "0000-0002-5632-419X"
+    affiliation   : "1,2"
     role          :
       - Conceptuatlization
       - Writing - review & editing
@@ -54,7 +54,9 @@ author:
       - Writing - review & editing 
 affiliation       :
   - id            : "1"
-    institution   : "Faculty of Psychology, Technische Universität Dresden, 01069 Dresden, Germany"
+    institution   : "Chair of Differential and Personality Psychology, Faculty of Psychology, Technische Universität Dresden, 01069 Dresden, Germany"
+  - id            : "2"
+    institution   : "Center for Information Services and High Performance Computing, Technische Universität Dresden, 01069 Dresden, Germany"
 authornote        :
 abstract          : |
  Individuals have a repertoire of emotion regulation (ER) strategies at their disposal, which they can use more or less flexibly. 
