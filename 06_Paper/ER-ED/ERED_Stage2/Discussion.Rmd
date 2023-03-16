@@ -92,12 +92,16 @@ We belief that these goals, factors and demands also influence individual SVs of
 Our data presented in this study support this idea.
 However, this also means that SVs should differ according to situational factors (e.g., intensity of stimuli).
 It also must be taken into account which ER goals the individuals are pursuing in a particular situation.
-
-
-has been noted by Wilms and colleagues[@Wilms2020] that situational factors and ER goals should be treated as states.
-
-
-State character of goals @Wilms2020
+In our laboratory setting, participants pursue mainly prohedonic goals, but certainly not social goals[@Tamir2016].
+Wilms and colleagues[@Wilms2020] pointed out that ER goals, as well as situational factors, should be treated as states, because both vary strongly among events and situations.
+In another situation, for example outside the laboratory, where an individual is primarily pursuing a social goal, another strategy might appear more helpful and thus have a higher SV.
+It should also be noted that the computation of individual SVs in our CAD paradigm always refers to the alternative strategies that were available to the individuals (see also [Limitations](#Limitations)).
+Therefore, SVs could vary if other reference strategies are used.
+It is conceivable that the subjective values are likely to correlate very highly in situations with similar demands and goals. 
+They would thus reflect habits, or habitual use of ER strategies, which has already been attempted to capture by means of questionnaires[@GrossJohn2003]. 
+However, our data are not suitable for answering this question.
+In future, the SVs should therefore be collected in several similar situations. 
+Subsequently, the association of the values with each other could be assessed, as well as correlations with relevant external criteria, such as well-being[@GrossJohn2003].
 
 ## Limitations
 
@@ -125,6 +129,6 @@ Participants should imagine that this was the amount of money they would get whe
 Thus, 2 € as an incentive to repeat an entire regulation block could be quite low.
 However, we chose this amount because, first, we have followed the original paradigm of Westbrook[@Westbrook2013].
 Further it was shown that at least in cognitive effort discounting, a lower incentive could even increase sensitivity in participants for differences in effort[@Bialaszek2017].
-n the future, however, it should be examined how the level of incentives affects subjective values.
+In the future, however, it should be examined how the level of incentives affects subjective values.
 
 ## Conclusion
