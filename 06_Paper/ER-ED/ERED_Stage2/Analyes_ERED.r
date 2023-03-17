@@ -1386,6 +1386,11 @@ choice_chisq <- stats::chisq.test(data_choice$choice, data_choice$pred_choice)
 choice_chisq_BF <- BayesFactor::contingencyTableBF(x = choice_chisq[["observed"]],
                                                    sampleType = "jointMulti")
 
+# Heat Map
+
+# Chisq.Map <- ggplot2::ggplot(data = choice_chisq$observed, aes(x))
+# heatmap(choice_chisq$observed, Colv = NA, Rowv = NA, scale = "column")
+
 # build df in long format
 
 data_choice_long <- data_SV[,1:3]
@@ -1468,12 +1473,6 @@ Flex_LM <- stats::lm(formula = FlexER ~ intercept + slope, data = data_flex)
 
 Flex_LM_BF <- BayesFactor::regressionBF(formula = FlexER ~ intercept + slope, data = data_flex)
 
-
-# ggplot2::ggplot(data_SV, aes(x = strat_r, y = sv, color  = ID))+
-#   geom_point(color = "black") +
-#   geom_smooth(method = "lm", fill = NA)+
-#   theme(legend.position = "none")+
-#   ylim(0,1.5)
 
 #################### STATISTICAL ANALYSES: EXPLORATORY ANALYSES ############
 
