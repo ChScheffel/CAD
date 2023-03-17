@@ -176,7 +176,7 @@ The authors would like to thank Juliana Krause and Maja Hentschel for their help
 # Competing Interests
 
 The authors declare no competing interests.
-
+<!--
 ```{=tex}
 \newpage
 \setcounter{figure}{0}
@@ -184,7 +184,7 @@ The authors declare no competing interests.
 
 ```{r child = "Figures.Rmd"}
 ```
-
+-->
 # Design Table {#DesignTable}
 
 \includepdf[pages={-}, landscape=true]{Supplement/Design_Table_T2.pdf}
