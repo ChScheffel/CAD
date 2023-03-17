@@ -50,9 +50,9 @@ For detailed information on post-hoc tests, please see tables \@ref(tab:SupplEff
 papaja::apa_table(
   df.descr,
   caption = "$M \\pm SD$ of subjective arousal, subjetive effort, subjective utility, Corrugator activity, and Levator activity for each condition.",
-  booktabs = TRUE,
   escape = FALSE,
-  placement = "H")
+  placement = "H",
+  landscape = TRUE)
 ```
 
 #### Subjective effort of ER strategies
@@ -148,8 +148,8 @@ $$
 SV \sim \text{effort rating} + \text{utility rating} + corrugator \text{ activity} \\\ \text{self-control} + \text{NFC} + (1 |subject)
 \end{split}
 $$
-As one would expect, the predictors effort rating (`r papaja::apa_print(MLM_3)$full_result$effort_cwc`), utility rating (`r papaja::apa_print(MLM_3)$full_result$utility_cwc`), and *Corrugator* activity (`r papaja::apa_print(MLM_3)$full_result$Corr_cwc`) showed a significant association with SVs.
-In addition, a positive association was also found between self-control and SVs (`r papaja::apa_print(MLM_3)$full_result$SC_gmc`).<!--JZ: Auch hier gern die Richtung des Effekts mit hinschreiben (dass Corrugator und Utility beide mit höheren SVs zusammenhängen, ist ja eher unerwartet-->
+As one would expect, the predictors effort rating (`r papaja::apa_print(MLM_3)$full_result$effort_cwc`) showed a negative association with SVs, while utility rating (`r papaja::apa_print(MLM_3)$full_result$utility_cwc`), and *Corrugator* activity (`r papaja::apa_print(MLM_3)$full_result$Corr_cwc`) showed a significant positive association with SVs.
+In addition, a positive association was also found between self-control and SVs (`r papaja::apa_print(MLM_3)$full_result$SC_gmc`).
 However, the effect size of self-control was negligibly small ($f^{2}=$ `r papaja::printnum(Exp_M3_table[5,5], digits = 3)`).
 Detailed information can be found in the [supplementary material](#SupplementExploratory).
 
