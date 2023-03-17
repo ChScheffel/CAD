@@ -544,7 +544,50 @@ for (i in seq_len(nrow(data_descr))) {
   data_descr$gender[i] <- data_quest$gender[data_quest$record_id_2 == data_descr$ID[i]]
 }
 
-#data_descr <- reshape(data = data_descr, idvar = "ID", timevar = "strategy", direction = "wide")
+# Table for reporting descriptive values for each block
+
+df.descr <- data.frame(arousal = double(), effort = double(), utility = double(),
+                       Corr = double(), Lev = double())
+
+# fill mean and sd values for each block and each measure
+
+# arousal
+df.descr[1,1] <- paste0(round(mean(data_ER$arousal[data_ER$block=="1_view_neu"]), digits = 1), " \U00B1 " , round(sd(data_ER$arousal[data_ER$block=="1_view_neu"]),digits = 1))
+df.descr[2,1] <- paste0(round(mean(data_ER$arousal[data_ER$block=="2_view_neg"]), digits = 1), " \U00B1 " , round(sd(data_ER$arousal[data_ER$block=="2_view_neg"]),digits = 1))
+df.descr[3,1] <- paste0(round(mean(data_ER$arousal[data_ER$block=="3_distraction"]), digits = 1), " \U00B1 " , round(sd(data_ER$arousal[data_ER$block=="3_distraction"]),digits = 1))
+df.descr[4,1] <- paste0(round(mean(data_ER$arousal[data_ER$block=="4_distancing"]), digits = 1), " \U00B1 " , round(sd(data_ER$arousal[data_ER$block=="4_distancing"]),digits = 1))
+df.descr[5,1] <- paste0(round(mean(data_ER$arousal[data_ER$block=="5_suppression"]), digits = 1), " \U00B1 " , round(sd(data_ER$arousal[data_ER$block=="5_suppression"]),digits = 1))
+
+# effort
+df.descr[1,2] <- paste0(round(mean(data_ER$effort[data_ER$block=="1_view_neu"]), digits = 1), " \U00B1 " , round(sd(data_ER$effort[data_ER$block=="1_view_neu"]),digits = 1))
+df.descr[2,2] <- paste0(round(mean(data_ER$effort[data_ER$block=="2_view_neg"]), digits = 1), " \U00B1 " , round(sd(data_ER$effort[data_ER$block=="2_view_neg"]),digits = 1))
+df.descr[3,2] <- paste0(round(mean(data_ER$effort[data_ER$block=="3_distraction"]), digits = 1), " \U00B1 " , round(sd(data_ER$effort[data_ER$block=="3_distraction"]),digits = 1))
+df.descr[4,2] <- paste0(round(mean(data_ER$effort[data_ER$block=="4_distancing"]), digits = 1), " \U00B1 " , round(sd(data_ER$effort[data_ER$block=="4_distancing"]),digits = 1))
+df.descr[5,2] <- paste0(round(mean(data_ER$effort[data_ER$block=="5_suppression"]), digits = 1), " \U00B1 " , round(sd(data_ER$effort[data_ER$block=="5_suppression"]),digits = 1))
+
+# utility
+df.descr[1,3] <- NA
+df.descr[2,3] <- NA
+df.descr[3,3] <- paste0(round(mean(data_ER$utility[data_ER$block=="3_distraction"], na.rm = T), digits = 1), " \U00B1 " , round(sd(data_ER$utility[data_ER$block=="3_distraction"], na.rm = T),digits = 1))
+df.descr[4,3] <- paste0(round(mean(data_ER$utility[data_ER$block=="4_distancing"], na.rm = T), digits = 1), " \U00B1 " , round(sd(data_ER$utility[data_ER$block=="4_distancing"], na.rm = T),digits = 1))
+df.descr[5,3] <- paste0(round(mean(data_ER$utility[data_ER$block=="5_suppression"], na.rm = T), digits = 1), " \U00B1 " , round(sd(data_ER$utility[data_ER$block=="5_suppression"], na.rm = T),digits = 1))
+
+# Corrugator
+df.descr[1,4] <- paste0(round(mean(data_EMG$Corr[data_EMG$block=="1_view_neu"], na.rm = T), digits = 2), " \U00B1 " , round(sd(data_EMG$Corr[data_EMG$block=="1_view_neu"], na.rm = T),digits = 2))
+df.descr[2,4] <- paste0(round(mean(data_EMG$Corr[data_EMG$block=="2_view_neg"], na.rm = T), digits = 2), " \U00B1 " , round(sd(data_EMG$Corr[data_EMG$block=="2_view_neg"], na.rm = T),digits = 2))
+df.descr[3,4] <- paste0(round(mean(data_EMG$Corr[data_EMG$block=="3_distraction"], na.rm = T), digits = 2), " \U00B1 " , round(sd(data_EMG$Corr[data_EMG$block=="3_distraction"], na.rm = T),digits = 2))
+df.descr[4,4] <- paste0(round(mean(data_EMG$Corr[data_EMG$block=="4_distancing"], na.rm = T), digits = 2), " \U00B1 " , round(sd(data_EMG$Corr[data_EMG$block=="4_distancing"], na.rm = T),digits = 2))
+df.descr[5,4] <- paste0(round(mean(data_EMG$Corr[data_EMG$block=="5_suppression"], na.rm = T), digits = 2), " \U00B1 " , round(sd(data_EMG$Corr[data_EMG$block=="5_suppression"], na.rm = T),digits = 2))
+
+# Levator
+df.descr[1,5] <- paste0(round(mean(data_EMG$Lev[data_EMG$block=="1_view_neu"], na.rm = T), digits = 2), " \U00B1 " , round(sd(data_EMG$Lev[data_EMG$block=="1_view_neu"], na.rm = T),digits = 2))
+df.descr[2,5] <- paste0(round(mean(data_EMG$Lev[data_EMG$block=="2_view_neg"], na.rm = T), digits = 2), " \U00B1 " , round(sd(data_EMG$Lev[data_EMG$block=="2_view_neg"], na.rm = T),digits = 2))
+df.descr[3,5] <- paste0(round(mean(data_EMG$Lev[data_EMG$block=="3_distraction"], na.rm = T), digits = 2), " \U00B1 " , round(sd(data_EMG$Lev[data_EMG$block=="3_distraction"], na.rm = T),digits = 2))
+df.descr[4,5] <- paste0(round(mean(data_EMG$Lev[data_EMG$block=="4_distancing"], na.rm = T), digits = 2), " \U00B1 " , round(sd(data_EMG$Lev[data_EMG$block=="4_distancing"], na.rm = T),digits = 2))
+df.descr[5,5] <- paste0(round(mean(data_EMG$Lev[data_EMG$block=="5_suppression"], na.rm = T), digits = 2), " \U00B1 " , round(sd(data_EMG$Lev[data_EMG$block=="5_suppression"], na.rm = T),digits = 2))
+
+rownames(df.descr) <- c("$View_{neu}$","$View_{neg}$","Distraction","Distancing","Suppression")
+colnames(df.descr) <- c("Subjective Arousal", "Subjective Effort", "Subjective Utility", "Corrugator activity (in mV)", "Levator activity (in mV)")
 
 #################### STATISTICS: ASSUMPTIONS ############
 
