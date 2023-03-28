@@ -83,7 +83,7 @@ Implicit theories of willpower in emotion control was assessed using the implici
 To assess Need for Cognition, the German version short form of the Need for Cognition Scale[@Cacioppo1982; @Bless1994] was used.
 To assess self-control [@Paschke2016], sum scores of the German versions of the following questionnaires were used: the Self-Regulation Scale (SRS)[@Schwarzer1999], the Brief Self-Control Scale (BSCS)[@Tangney2004; @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11)[@Patton1995; @Hartmann2011].
 Attentional control were assessed using the Attentional Control Scale (ACS)[@Derryberry2002].
-For more detailed information on psychometric properties of the questionnaires, please see [supplementary material](#SupplementQuestionnaires). 
+For more detailed information on psychometric properties of the questionnaires, please see the [supplementary material](#SupplementQuestionnaires). 
 
 ### 2.3.2 Emotion regulation paradigm
 
