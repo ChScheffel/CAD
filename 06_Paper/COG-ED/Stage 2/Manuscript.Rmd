@@ -498,8 +498,8 @@ The full results of this exploratory analysis of NFC group differences can be fo
 
 # Discussion
 
-This Registered Report aimed to adapt the Cognitive Effort Discounting (COG-ED) paradigm by Westbrook et al.[-@Westbrook2013], which estimates subjective values of different $n$-back levels, into the Cognitive and Affective Discounting (CAD) paradigm, which estimates SVs of tasks without defaulting to the objective task load as a benchmark.
-For this purpose, we changed the way in which the discounting options are presented to the participants, based the anchor on their own choices, and computed SVs across multiple combinations of task levels.
+This Registered Report aimed to adapt the Cognitive Effort Discounting (COG-ED) paradigm by Westbrook et al.[-@Westbrook2013], which estimates subjective values of different $n$-back levels, into the Cognitive and Affective Discounting (CAD) paradigm to estimate SVs of tasks without defaulting to the assumed objective task load as a benchmark.
+For this purpose, we adapted the way in which the discounting options are presented to the participants, based the anchor on their own choices, and computed SVs across multiple combinations of task levels.
 The analyses were closely aligned with those in Westbrook et al.[-@Westbrook2013] to demonstrate the changes in SVs brought about by the new paradigm.
 This study also applied the CAD paradigm to an emotion regulation task, the results of which are detailed in a second Registered Report[@ScheffelZerna2022].
 
@@ -548,7 +548,7 @@ The majority of participants (`r round(100*((nrow(data_SV[data_SV$level==1 & dat
 It shows that when given the choice, there is a large number of participants who do not prefer the easiest level, confirming the necessity of an effort discounting paradigm that works independent of the objective task load.
 The CAD paradigm provides the means to depict these preferences.
 
-Despite the visual separation of the SVs of participants with very low and high NFC scores in higher $n$-back levels, the NFC group did not reach significance in predicting SVs.
+In the analysis of SV difference scores, the NFC group did not reach significance as a predictor.
 This was likely due to the bandwidth of SVs of participants with NFC scores around the median, and due to the fact that the difference appeared most pronounced for 4-back, and we only analyzed the difference scores between 1- and 2-back and 2- and 3-back.
 As the exploratory analysis showed, only 4-back yielded a significant group difference, and SVs of participants with NFC scores above the median were higher for 2- to 4-back and lower for 1-back.
 The analysis of NASA-TLX scores showed that the sum score increased with every $n$-back level, and that participants with NFC scores below the median had higher NASA-TLX scores for 3- and 4-back than those below the median.
@@ -559,7 +559,7 @@ This was also supported by the fact that higher $n$-back levels were perceived a
 
 When developing a new paradigm, it is challenging to decide on the optimal analysis strategy, as every hypothesis is based on expected data patterns rather than previous findings.
 While the Stage 1 review process made the analyses as robust as possible, there were still unknown factors that should be addressed by future studies.
-For instance, the differences between participants with higher and lower NFC should be investigated with extreme groups rather than a median split, especially in academic samples where NFC can be expected to be higher on average and more narrow in range.
+For instance, the differences between participants with higher and lower NFC should be investigated with extreme groups rather than a median split, or even more promising, as a continuous measure, especially in academic samples where NFC can be expected to be higher on average and more narrow in range.
 Additionally, we expected the SVs of participants with lower NFC scores to peak at 1-back and the SVs of those with higher scores to peak at 2-back, but the way the SVs of both groups appeared to drift apart in the higher $n$-back levels suggests that an analysis of those levels would be more fruitful in determining group differences.
 Future studies could create a stronger separation between the concepts investigated in this study (discounting curve, effort perception, performance, SV computation, NFC), and model the SVs and their task-related influencing factors first, before looking at (non-linear) associations with personality.
 Another important point is the instruction, not just for the $n$-back task, but for the effort discounting as well.
@@ -567,15 +567,15 @@ We had to exclude several participants for misunderstanding the task instruction
 And even though the participants were instructed to do the effort discounting with the aim to be satisfied with their choices instead of trying to increase the rewards, we cannot be sure that they did so.
 One might also argue that the 2€ reward range was not large enough to be an incentive for effort expenditure.
 However, findings by Bialaszek et al.[-@Bialaszek2017] suggest that participants are actually more sensitive to effort when the reward is small.
-Nevertheless, we exceeded the largest required sample size by `r round(nrow(data_quest)/53, digits = 1)` times, which gives our analyses high statistical power, and we adhered to the agreed upon analyses of Stage 1.
+Nevertheless, we exceeded the largest required sample size by `r round(nrow(data_quest)/53, digits = 1)` times, which gives our analyses high statistical power.
 
 ## Conclusion
 
-Effort and reward are two highly subjective concepts with relevance in daily life.
+Effort and reward are relevant in everyday life, yet these constructs vary in their conceptualization across individuals and even studies.
 With each decision an individual makes, they must weigh the required effort against the expected reward to decide if and how to behave in that situation.
 So far, effort discounting paradigms have relied on the assumption that the task that is objectively easiest is the one that is preferred by everyone, and each more difficult task is simply being devalued compared to the easy one.
 However, effort-related traits such as Need for Cognition suggest that this is not the case.
-Therefore, we developed a paradigm that allows effort discounting independent of objective task load, which we tested using an $n$-back task.
+Therefore, we developed a paradigm that allows to examine effort discounting independent of objective task load, which we tested using an $n$-back task.
 The results showed that many participants indeed preferred a more or even the most difficult $n$-back level.
 Spanning the entire sample, these preferences took the shape of a declining logistic curve across $n$-back levels.
 While the subjective value declined with increasing levels, it increased with better performance as measured in $d'$, and was unaffected by the reaction time.
