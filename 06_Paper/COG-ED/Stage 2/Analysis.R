@@ -1654,7 +1654,7 @@ ggplot(h3b_data, aes(level, ntlx, fill = nfcmedian, color = nfcmedian)) +
       theme(legend.title = element_text())
 
 ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 7, height = 4.5, units = "in",
-       device = "tiff", dpi = 900, filename = "h3b-plot.eps")
+       device = "tiff", dpi = 500, filename = "h3b-plot.eps")
 
 # delete temporary data frame
 
@@ -2104,6 +2104,24 @@ explor_contrasts_interact[ ,c("Estimate","$SE$","$t$")] <- format(round(explor_c
 explor_contrasts_interact$`$p$` <- format(round(explor_contrasts_interact$`$p$`, digits = 3), nsmall = 2)
 explor_contrasts_interact$`$p$`[explor_contrasts_interact$`$p$` == "0.000"] <- "<.001" 
   
+# plot results
+
+ggplot2::ggplot(explor_data, aes(x = level, y = sv, fill = nfcmedian)) +
+  geom_smooth(aes(group = nfcmedian, color = nfcmedian), method = "loess") +
+  geom_boxplot(alpha = .4, outlier.shape = NA, width = .45, position = position_dodge(width = 0.7)) +
+  geom_jitter(aes(color = nfcmedian, fill = NA), shape = 1, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.7)) +
+  ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+  scale_fill_manual(values = MetBrewer::met.brewer("Hiroshige",2), name = "NFC group", labels = c("Above median","Below median")) +
+  scale_color_manual(values = MetBrewer::met.brewer("Hiroshige",2)) +
+  guides(color = "none") +
+  geom_vline(xintercept = c(0.5,1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
+  xlab("n-back level") + 
+  ylab("Subjective values") +
+  theme(legend.title = element_text())
+
+ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 7, height = 5, units = "in",
+       device = "tiff", dpi = 500, filename = "nfcgroups-sv.eps")
+
 ##### Save variables ###########################################################
 
 save.image(file = "Workspace.RData")
