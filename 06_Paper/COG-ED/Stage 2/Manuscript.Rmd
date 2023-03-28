@@ -343,9 +343,12 @@ The Stage 1 Registered Report protocol has been approved and is available at [os
 There were two necessary adjustments of the methods.
 First, we failed to update the necessary sample size after the analyses changed with the first review round.
 Instead of the 72 subjects stated above, the largest minimum sample size was actually 53 subjects (see hypothesis 1b in the Design Table in the Supplementary Material).
-And secondly, we needed to re-assign the SCA to the MLM in hypothesis 2b, to which it belonged in the initial submission.
-Following the advice of the reviewers, we had separated the NFC analysis from the MLM, and wanted to apply the SCA to the new NFC analysis (hypothesis 3a), as this was one of our main points of interest.
-However, since hypothesis 3a does not contain any RT data and the SCA is therefore only useful for the MLM in hypothesis 2b, we applied it to the MLM.
+And secondly, we changed to which hypothesis we applied the specification curve analysis (SCA).
+In the initial Stage 1 submission, we had applied it to the MLM of hypothesis 2b, which at this point included NFC as a predictor.
+Following the advice of the reviewers, we removed NFC from the MLM, and analyzed NFC in an rmANOVA (hypothesis 3a) instead.
+Since NFC was of great interest to us, we decided to apply the SCA to hypothesis 3a rather than 2b to provide a measure of robustness.
+However, hypothesis 3a does not contain any RT data, so the SCA is only useful for the MLM in hypothesis 2b.
+Therefore, we applied it to the MLM.
 
 ## Sample
 
@@ -356,6 +359,7 @@ Our final data set therefore included $N=`r nrow(data_quest)`$ participants (`r 
 
 ## Manipulation checks
 
+For each rmANOVA we report the generalized eta squared $\\hat{\\eta}^2_G$, which estimates the effect size in analyses that contain both manipulated and non-manipulated terms.
 We used rmANOVAs to investigate whether objective performance measures and subjective task load measures changed across $n$-back levels.
 The performance measure $d'$ did not change across $n$-back levels (`r apa_print(hypothesis1a_rmanova)$full_result$level`, `r apa_print(hypothesis1a_BF)$statistic`), but the median RT did (`r apa_print(hypothesis1b_rmanova)$full_result$level`, `r apa_print(hypothesis1b_BF)$statistic`), evidence was not in favour of H1a but in favour of H1b.
 Specifically, the median RT was higher for the more difficult level in every contrast, with two exceptions:
@@ -443,15 +447,15 @@ This pipeline contained data that had been inverse transformed across subjects b
 
 ## Differences between NFC groups
 
-Figure\ \@ref(fig:nfc-sv) shows a scatterplot of SVs per $n$-back level, colored depending on the participant's NFC score.
+Figure\ \@ref(fig:nfcgroups-sv) shows the SVs per $n$-back level for participants with NFC scores above and below the median.
 There is a concentration of participants who have assigned their highest SV to 1-back, and this concentration fades across $n$-back levels.
 At the same time, there is a subtle separation of SVs across $n$-back levels, depending on the participant's NFC score: While the SVs of those with higher NFC scores remain elevated, the SVs of those with lower NFC scores decline more strongly.
 Specifically, $n=`r nrow(data_SV[data_SV$level==1 & data_SV$sv==1,])`$ participants had an absolute preference for 1-back, $n=`r nrow(data_SV[data_SV$level==2 & data_SV$sv==1,])`$ for 2-back, $n=`r nrow(data_SV[data_SV$level==3 & data_SV$sv==1,])`$ for 3-back, and $n=`r nrow(data_SV[data_SV$level==4 & data_SV$sv==1,])`$ for 4-back.
 There were $n=`r length(setdiff(unique(data_SV$subject), data_SV$subject[data_SV$sv == 1]))`$ participants who did not have an absolute preference for any $n$-back level, i.e. none of their SVs was 1.
 
-```{r nfc-sv, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values per n-back level. Each dot indicates a participant, the colours indicate their Need for Cognition (NFC) score. $N=116$. There is a horizontal jitter of 0.4 and a vertical jitter of 0.05 for visual clarity. Figure available at https://osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+```{r nfcgroups-sv, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values per n-back level for participants with Need for Cognition (NFC) scores above and below the median. $N=116$. The scatter has a horizontal jitter of 0.2. Smoothing of conditional means with Loess method. Figure available at https://osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
   
-  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "nfc-sv.png"))
+  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "nfcgroups-sv.png"))
 
 ```
 
