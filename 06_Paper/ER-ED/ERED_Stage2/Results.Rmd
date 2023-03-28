@@ -53,8 +53,8 @@ papaja::apa_table(
   caption = "$M \\pm SD$ of subjective arousal, subjetive effort, subjective utility, Corrugator activity, and Levator activity for each condition.",
   escape = FALSE,
   placement = "H",
-  font_size = "footnotesize",
-  align = c("l","c","c","c","c"))
+  align = c("r","c","c","c","c","c"),
+  landscape = TRUE)
 ```
 
 #### Subjective effort of ER strategies
