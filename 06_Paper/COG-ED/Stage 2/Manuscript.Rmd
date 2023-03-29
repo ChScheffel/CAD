@@ -355,7 +355,7 @@ Therefore, we applied it to the MLM.
 Data was collected between the 16th of August 2022 and the 3rd of February 2023.
 Of the $N=`r n_quest`$ participants who filled out the online questionnaires, $n=`r nrow(data_quest)`$ came to the first lab session.
 Based on the experimenters' notes, we excluded the data of seven participants from analysis for misunderstanding the instruction of the $n$-back task, and the data of one participant who reported that they confused the colours of the levels during effort discounting.
-Our final data set therefore included $N=`r nrow(data_quest)`$ participants (`r round((table(data_quest$gender)[2]/nrow(data_quest))*100, digits = 1)`% female, $M±SD=`r format(round(mean(data_quest[,"age"]), digits = 1), nsmall = 1)`±`r round(sd(data_quest[,"age"]), digits = 1)`$)\ years old), which is `r format(round(nrow(data_quest)/53, digits = 1), nsmall = 1)` times more than what the highest sample size calculation required.
+Our final data set therefore included $N=`r nrow(data_quest)`$ participants (`r round((table(data_quest$gender)[2]/nrow(data_quest))*100, digits = 1)`% female, $M\\pmSD=`r format(round(mean(data_quest[,"age"]), digits = 1), nsmall = 1)`\\pm`r round(sd(data_quest[,"age"]), digits = 1)`$)\ years old), which is `r format(round(nrow(data_quest)/53, digits = 1), nsmall = 1)` times more than what the highest sample size calculation required.
 
 ## Manipulation checks
 
@@ -472,7 +472,7 @@ This means that across the whole sample, there was a steeper decline in SVs from
 
 ```
 
-The rmANOVA on the association between NFC scores and NASA-TLX scores revealed a main effect of $n$-back level (`r apa_print(hypothesis3b_model)$full_result$level`, `r apa_print(hypothesis3b_BF_levels)$statistic$level`) and an interaction between $n$-back level and NFC scores (`r apa_print(hypothesis3b_model)$full_result$nfcmedian_level`), but no main effect of NFC scores (`r apa_print(hypothesis3b_model)$full_result$nfcmedian`, `r apa_print(hypothesis3b_BF_levels)$statistic$nfcmedian`).
+The rmANOVA on the association between NFC scores and NASA-TLX scores revealed a main effect of $n$-back level (`r apa_print(hypothesis3b_model)$full_result$level`, `r unlist(strsplit(apa_print(hypothesis3b_BF_levels)$statistic$level, split=' \\pm', fixed=TRUE))[1]`) and an interaction between $n$-back level and NFC scores (`r apa_print(hypothesis3b_model)$full_result$nfcmedian_level`), but no main effect of NFC scores (`r apa_print(hypothesis3b_model)$full_result$nfcmedian`, `r unlist(strsplit(apa_print(hypothesis3b_BF_levels)$statistic$nfcmedian, split=' \\pm', fixed=TRUE))[1]`).
 Post-hoc tests showed that the participants with NFC scores below the median had higher NASA-TLX scores for 3-back (`r apa_print(pairs(hypothesis3b_emm_interact))$statistic$X3_High_low`, `r apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "low" & h3b_data$level == 3], y = h3b_data$ntlx[h3b_data$nfcmedian == "high" & h3b_data$level == 3], progress = FALSE, paired = FALSE))$statistic`) and for 4-back (`r apa_print(pairs(hypothesis3b_emm_interact))$statistic$X4_High_low`, `r apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "low" & h3b_data$level == 4], y = h3b_data$ntlx[h3b_data$nfcmedian == "high" & h3b_data$level == 4], progress = FALSE, paired = FALSE))$statistic`) than those with NFC scores above the median, so evidence was in favour of H3b.
 Regardless of NFC scores, NASA-TLX scores were higher for the more difficult level in each pair of $n$-back levels (Figure\ \@ref(fig:h3b-plot)).
 
