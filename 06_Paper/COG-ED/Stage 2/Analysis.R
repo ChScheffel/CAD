@@ -1154,7 +1154,7 @@ colnames(hypothesis1c_mental_contrasts) <- c("Contrast", "Estimate", "$SE$", "$d
 hypothesis1c_mental_contrasts$Contrast <- gsub("X", "", hypothesis1c_mental_contrasts$Contrast)
 hypothesis1c_mental_contrasts[ ,c("Estimate","$SE$","$t$")] <- round(hypothesis1c_mental_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 2)
 hypothesis1c_mental_contrasts$`$p$` <- format(round(hypothesis1c_mental_contrasts$`$p$`, digits = 3), nsmall = 2)
-hypothesis1c_mental_contrasts$`$p$`[hypothesis1c_mental_contrasts$`$p$` == "0.000"] <- "<.001"
+hypothesis1c_mental_contrasts$`$p$`[hypothesis1c_mental_contrasts$`$p$` == "0.00"] <- "<.001"
 
 colnames(hypothesis1c_physical_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$\\mathrm{BF}_{\\textrm{10}}$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 hypothesis1c_physical_contrasts$Contrast <- gsub("X", "", hypothesis1c_physical_contrasts$Contrast)
