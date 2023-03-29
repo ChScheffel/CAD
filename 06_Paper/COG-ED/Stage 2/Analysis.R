@@ -164,7 +164,7 @@ data_quest <- cbind(data_quest, adherence = all_quest$followup_adherence[setinde
 
 # some participants started filling out the questionnaires two times, so their code appears twice
 
-data_quest <- data_quest %>% filter(complete.cases(.))
+data_quest <- data_quest %>% filter(!is.na(nfc_16))
 
 # make a copy for counting the amount of participants who filled out the questionnaires
 
