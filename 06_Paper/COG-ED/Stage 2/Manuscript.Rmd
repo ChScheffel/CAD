@@ -464,7 +464,7 @@ The median NFC was `r mediannfc`, with $n=`r nrow(h3b_data[h3b_data$nfcmedian ==
 We used an rmANOVA to investigate whether the difference between the SVs of 1- and 2-back, and 2- and 3-back, respectively, depended on whether a participant's NFC score was above or below the median.
 There was a main effect of the $n$-back level (`r apa_print(hypothesis3a_model)$full_result$nlevels`, `r apa_print(hypothesis3a_BF_nlevel)$statistic$nlevels`), but neither a main effect of the NFC group (`r apa_print(hypothesis3a_model)$full_result$nfcmedian`, `r apa_print(hypothesis3a_BF_nlevel)$statistic$nfcmedian`) nor an interaction of NFC group and $n$-back level (`r apa_print(hypothesis3a_model)$full_result$nfcmedian_nlevels`), so evidence was not in favour of H3a.
 Post-hoc tests showed that the difference between the SVs of 2- and 3-back is slightly more negative than the difference between 1- and 2-back (`r apa_print(pairs(hypothesis3a_emm_nlevel))$statistic`), but there were large inter-individual differences, especially for 2- and 3-back (Figure\ \@ref(fig:h3ac-plot)a).
-This means that across the whole sample, there was a steeper decline in SVs from 2- to 3-back than from 1- to 2-back, but some participants showed a completely opposite pattern.
+This means that across the whole sample, there was a steeper decline in SVs from 2- to 3-back than from 1- to 2-back, again resembling the declining logistic function.
 
 ```{r h3ac-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Difference scores for subjective values (left) and aversiveness ratings (right) when subtracting 2- from 1-back and 3- from 2-back. Each line indicates a participant, the colours indicate their Need for Cognition (NFC) score. $N=116$. Figure available at https://osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
   
@@ -485,7 +485,7 @@ Regardless of NFC scores, NASA-TLX scores were higher for the more difficult lev
 With another rmANOVA we investigated whether the difference between the aversiveness scores of 1- and 2-back, and 2- and 3-back, respectively, depended on whether a participant's NFC score was above or below the median.
 There was a main effect of NFC group (`r apa_print(hypothesis3c_model)$full_result$nfcmedian`, `r apa_print(hypothesis3c_BF_levels)$statistic$nfc`) and a main effect of the $n$-back level (`r apa_print(hypothesis3c_model)$full_result$nlevels`, `r apa_print(hypothesis3c_BF_levels)$statistic$levels`), but no interaction (`r apa_print(hypothesis3c_model)$full_result$nfcmedian_nlevels`).
 In favour of H3c, post-hoc tests revealed that participants with NFC scores below the median reported higher aversiveness than participants with NFC scores above the median (`r apa_print(pairs(hypothesis3c_emm_nfc))$statistic`) (Figure\ \@ref(fig:h3ac-plot)b).
-Regardless of NFC, the difference of the aversiveness scores of 2- and 3-back was smaller and more negative than that of 1- and 2-back (`r apa_print(pairs(hypothesis3c_emm_levels))$statistic`), but again, there were large inter-individual differences.
+Regardless of NFC, the difference of the aversiveness scores of 2- and 3-back was more negative than that of 1- and 2-back (`r apa_print(pairs(hypothesis3c_emm_levels))$statistic`), indicating that in the same way in which the SVs decreased more strongly from 2- to 3-back than from 1- to 2-back, the aversion increased more strongly.
 The full results of these analyses of NFC group differences can be found in Table S.11 to S.15 in the Supplementary Material.
 
 # Exploratory analysis
