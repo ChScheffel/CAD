@@ -1487,21 +1487,19 @@ hypothesis3a_contrasts_nlevel$`$p$`[hypothesis3a_contrasts_nlevel$`$p$` == "0.00
 # plot
 
 ggplot(h3a_data, aes(nlevels, svdiff, fill = nfcmedian, color = nfcmedian)) +
-  ggrain::geom_rain(alpha = .5, rain.side = 'f2x2', id.long.var = "subject", likert = FALSE,
-            violin.args = list(color = NA, alpha = .7, scale = "count", adjust = 1.3, width = 0.8),
-            line.args = list(size = .9, alpha = .5),
-            line.args.pos = list(position = position_jitter(width = 0, height = 0.1)),
-            point.args = list(alpha = 0)) +
+  geom_violin(alpha = .5, scale = "count", adjust = 2.5) +
+  geom_boxplot(alpha = .5, width = .1, color = "black", position = position_dodge(.9)) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
   scale_fill_manual(values = MetBrewer::met.brewer("Hiroshige",2), name = "NFC group", labels = c("Above median","Below median")) +
   scale_color_manual(values = MetBrewer::met.brewer("Hiroshige",2)) +
   guides(color = 'none') +
+  geom_vline(xintercept = 1.5, colour = "darkgrey", linetype = 3) +
   xlab("n-back levels") + 
   ylab("Difference in subjective values") +
   theme(legend.title = element_text())
 
 ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 7, height = 5, units = "in",
-       device = "tiff", dpi = 900, filename = "h3a-plot.eps")
+       device = "tiff", dpi = 500, filename = "h3a-plot.eps")
 
 # remove temporary variables
 
@@ -1776,21 +1774,19 @@ hypothesis3c_contrasts_levels$`$p$`[hypothesis3c_contrasts_levels$`$p$` == "0.00
 # plot
 
 ggplot(h3c_data, aes(nlevels, aversdiff, fill = nfcmedian, color = nfcmedian)) +
-  ggrain::geom_rain(alpha = .5, rain.side = 'f2x2', id.long.var = "subject", likert = FALSE,
-                    violin.args = list(color = NA, alpha = .7, scale = "count", adjust = 1.3, width = 0.8),
-                    line.args = list(size = .9, alpha = .5),
-                    line.args.pos = list(position = position_jitter(width = 0, height = 0.1)),
-                    point.args = list(alpha = 0)) +
+  geom_violin(alpha = .5, scale = "count", adjust = 1.5) +
+  geom_boxplot(alpha = .5, width = .1, color = "black", position = position_dodge(.9)) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
   scale_fill_manual(values = MetBrewer::met.brewer("Hiroshige",2), name = "NFC group", labels = c("Above median","Below median")) +
   scale_color_manual(values = MetBrewer::met.brewer("Hiroshige",2)) +
   guides(color = 'none') +
+  geom_vline(xintercept = 1.5, colour = "darkgrey", linetype = 3) +
   xlab("n-back levels") + 
   ylab("Difference in aversiveness ratings") +
   theme(legend.title = element_text())
 
 ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 7, height = 5, units = "in",
-       device = "tiff", dpi = 900, filename = "h3c-plot.eps")
+       device = "tiff", dpi = 500, filename = "h3c-plot.eps")
 
 # remove temporary variables
 
