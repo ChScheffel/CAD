@@ -463,10 +463,10 @@ There were $n=`r length(setdiff(unique(data_SV$subject), data_SV$subject[data_SV
 The median NFC was `r mediannfc`, with $n=`r nrow(h3b_data[h3b_data$nfcmedian == "low",])/(nrow(h3b_data)/length(unique(h3b_data$subject)))`$ subjects below and $n=`r nrow(h3b_data[h3b_data$nfcmedian == "high",])/(nrow(h3b_data)/length(unique(h3b_data$subject)))`$ above the median.
 We used an rmANOVA to investigate whether the difference between the SVs of 1- and 2-back, and 2- and 3-back, respectively, depended on whether a participant's NFC score was above or below the median.
 There was a main effect of the $n$-back level (`r apa_print(hypothesis3a_model)$full_result$nlevels`, `r apa_print(hypothesis3a_BF_nlevel)$statistic$nlevels`), but neither a main effect of the NFC group (`r apa_print(hypothesis3a_model)$full_result$nfcmedian`, `r apa_print(hypothesis3a_BF_nlevel)$statistic$nfcmedian`) nor an interaction of NFC group and $n$-back level (`r apa_print(hypothesis3a_model)$full_result$nfcmedian_nlevels`), so evidence was not in favour of H3a.
-Post-hoc tests showed that the difference between the SVs of 2- and 3-back is slightly more negative than the difference between 1- and 2-back (`r apa_print(pairs(hypothesis3a_emm_nlevel))$statistic`), but there were large inter-individual differences, especially for 2- and 3-back (Figure\ \@ref(fig:h3ac-plot)a).
+Post-hoc tests showed that the difference between the SVs of 2- and 3-back is slightly more negative than the difference between 1- and 2-back (`r apa_print(pairs(hypothesis3a_emm_nlevel))$statistic`), but there were large inter-individual differences (Figure\ \@ref(fig:h3ac-plot)a).
 This means that across the whole sample, there was a steeper decline in SVs from 2- to 3-back than from 1- to 2-back, again resembling the declining logistic function.
 
-```{r h3ac-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Difference scores for subjective values (left) and aversiveness ratings (right) when subtracting 2- from 1-back and 3- from 2-back. Each line indicates a participant, the colours indicate their Need for Cognition (NFC) score. $N=116$. Figure available at https://osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+```{r h3ac-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Difference scores for subjective values (a) and aversiveness ratings (b) when subtracting 2- from 1-back and 3- from 2-back. Horizontal lines of the boxplots represent the median per group, whiskers represent 1.5 interquartile ranges. NFC = Need for Cognition score. $N=116$. Figure available at https://osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "h3ac-plot.png"))
 
@@ -557,11 +557,13 @@ This demonstrates that higher $n$-back levels have a higher discriminatory power
 This was also supported by the fact that higher $n$-back levels were perceived as more aversive, and participants with NFC scores below the median reported higher aversion than those with NFC scores above the median.
 Our data supports the notion of a nonlinear interaction between person and situation that has also been described by Schmidt et al. (2013)[-@Schmidt2013] and Blum et al. (2018)[-@Blum2018] in the same-named NIPS model.
 The NIPS model describes behaviour as a function of situational affordance which is mediated by personality traits.
-The behavioural variability follows an s-shaped curve that is shifted along the y-axis depending on the trait level, such that "strong" situations with low or high situational affordance elicit the least behavioural variability, while "weak" situations with moderate affordance maximize individual differences.
-In our study, the situational affordance is the $n$-back level and the behaviour is the SV.
+The behavioural variability follows an s-shaped curve, such that "strong" situations with low or high situational affordance elicit the least behavioural variability, while "weak" situations with moderate affordance maximize individual differences.
+These differences are caused by a person's expression of a certain trait, which shifts the curve along the y-axis.
+In our study, the situational affordance is the $n$-back level and the behaviour is the SV, following a declining logistic curve, i.e. a mirrored s-shape.
 Hence, the variability in SVs increased from 1- to 4-back, and participants with higher NFC showed a more shallow decline in SVs as the situational affordance approached moderate values.
 According to the NIPS model, we can expect the SVs of participants with higher and lower NFC to converge again in levels of $n>4$, since behavioural variability decreases when situational affordance is high.
-The declining logistic contrast of SVs across levels resembles the asymptotic s-shaped curve of the NIPS model[@Schmidt2013;@Blum2018] and should be tested in a setting with $n$-back levels exceeding $n=4$.
+An investigation of this relationship using the COG-ED paradigm[-@Westbrook2013] had been encouraged by Strobel et al.[@Strobel2020] based on their findings on demand avoidance and cognitive effort investment.
+With the CAD paradigm, the declining logistic contrast of SVs across levels resembles the ascending logistic curve of the NIPS model[@Schmidt2013;@Blum2018] and should be tested further in a setting with $n$-back levels exceeding $n=4$.
 
 
 ## Limitations
