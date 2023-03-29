@@ -555,6 +555,14 @@ As the exploratory analysis showed, only 4-back yielded a significant group diff
 The analysis of NASA-TLX scores showed that the sum score increased with every $n$-back level, and that participants with NFC scores below the median had higher NASA-TLX scores for 3- and 4-back than those below the median.
 This demonstrates that higher $n$-back levels have a higher discriminatory power regarding inter-individual differences in subjective effort perception.
 This was also supported by the fact that higher $n$-back levels were perceived as more aversive, and participants with NFC scores below the median reported higher aversion than those with NFC scores above the median.
+Our data supports the notion of a nonlinear interaction between person and situation that has also been described by Schmidt et al. (2013)[-@Schmidt2013] and Blum et al. (2018)[-@Blum2018] in the same-named NIPS model.
+The NIPS model describes behaviour as a function of situational affordance which is mediated by personality traits.
+The behavioural variability follows an s-shaped curve that is shifted along the y-axis depending on the trait level, such that "strong" situations with low or high situational affordance elicit the least behavioural variability, while "weak" situations with moderate affordance maximize individual differences.
+In our study, the situational affordance is the $n$-back level and the behaviour is the SV.
+Hence, the variability in SVs increased from 1- to 4-back, and participants with higher NFC showed a more shallow decline in SVs as the situational affordance approached moderate values.
+According to the NIPS model, we can expect the SVs of participants with higher and lower NFC to converge again in levels of $n>4$, since behavioural variability decreases when situational affordance is high.
+The declining logistic contrast of SVs across levels resembles the asymptotic s-shaped curve of the NIPS model[@Schmidt2013;@Blum2018] and should be tested in a setting with $n$-back levels exceeding $n=4$.
+
 
 ## Limitations
 
