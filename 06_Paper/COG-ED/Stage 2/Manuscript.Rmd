@@ -353,7 +353,7 @@ Therefore, we applied it to the MLM.
 ## Sample
 
 Data was collected between the 16th of August 2022 and the 3rd of February 2023.
-All of the $N=`r n_quest`$ participants who filled out the online questionnaires came to the first lab session.
+Of the $N=`r n_quest`$ participants who filled out the online questionnaires, $n=`r nrow(data_quest)`$ came to the first lab session.
 Based on the experimenters' notes, we excluded the data of seven participants from analysis for misunderstanding the instruction of the $n$-back task, and the data of one participant who reported that they confused the colours of the levels during effort discounting.
 Our final data set therefore included $N=`r nrow(data_quest)`$ participants (`r round((table(data_quest$gender)[2]/nrow(data_quest))*100, digits = 1)`% female, $M=`r round(mean(data_quest[,"age"]), digits = 1)`$ ($SD=`r round(sd(data_quest[,"age"]), digits = 1)`$)\ years old), which is `r format(round(nrow(data_quest)/53, digits = 1), nsmall = 1)` times more than what the highest sample size calculation required.
 
