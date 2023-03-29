@@ -960,7 +960,7 @@ colnames(hypothesis1b_contrasts) <- c("Contrast", "Estimate", "$SE$", "$df$", "$
 hypothesis1b_contrasts$Contrast <- gsub("X", "", hypothesis1b_contrasts$Contrast)
 hypothesis1b_contrasts[ ,c("Estimate","$SE$","$t$")] <- round(hypothesis1b_contrasts[ ,c("Estimate","$SE$","$t$")], digits = 2)
 hypothesis1b_contrasts$`$p$` <- format(round(hypothesis1b_contrasts$`$p$`, digits = 3), nsmall = 2)
-hypothesis1b_contrasts$`$p$`[hypothesis1b_contrasts$`$p$` == 0.000] <- "<.001"
+hypothesis1b_contrasts$`$p$`[hypothesis1b_contrasts$`$p$` == "0.000"] <- "<.001"
 
 # remove the temporary variable
 
