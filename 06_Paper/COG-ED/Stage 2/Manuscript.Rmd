@@ -426,6 +426,7 @@ apa_table(h2b_result.table,
 ```
 
 An exploratory ANOVA was used to compare the fit of the final model with a linear random intercept model, confirming that the two models were different from each other ($\chi^2 (`r compare_h2b$Df[2]`)$ = `r compare_h2b$Chisq[2]`, $p<.001$), and with an Akaike Information Criterion of $AIC=`r compare_h2b$AIC[2]`$ and a Bayesian Information Criterion of $BIC=`r compare_h2b$BIC[2]`$ the declining logistic model was superior to the linear model ($AIC=`r compare_h2b$AIC[1]`$, $BIC=`r compare_h2b$BIC[1]`$).
+Both AIC and BIC subtract the likelihood of the model from the number of parameters and/or data points, so lower values indicate better model fit.
 The final model had an effect size of $f^{2}=$ `r round(h2b_level_f2, digits = 2)` for the $n$-back levels and $f^{2}=$ `r round(h2b_dprime_f2, digits = 2)` for $d'$, which are considered large and small, respectively [@Cohen1992].
 This means that the $n$-back level explained `r paste0(formatC(h2b_level_f2 * 100, format = "f", digits = 2), "%")` and $d'$ explained `r paste0(formatC(h2b_dprime_f2 * 100, format = "f", digits = 2), "%")` of variance in SVs relative to the unexplained variance, respectively.
 The beta coefficient indicated that with every 1-unit increase in $d'$, the SV increased by `r as.numeric(h2b_result.table[3,"Beta"])`.
@@ -560,6 +561,7 @@ This was also supported by the fact that higher $n$-back levels were perceived a
 When developing a new paradigm, it is challenging to decide on the optimal analysis strategy, as every hypothesis is based on expected data patterns rather than previous findings.
 While the Stage 1 review process made the analyses as robust as possible, there were still unknown factors that should be addressed by future studies.
 For instance, the differences between participants with higher and lower NFC should be investigated with extreme groups rather than a median split, or even more promising, as a continuous measure, especially in academic samples where NFC can be expected to be higher on average and more narrow in range.
+To arrive at a sample with more balanced NFC scores, recruitment efforts should be focused on representative population samples and/or collecting data with an NFC-based stop rule.
 Additionally, we expected the SVs of participants with lower NFC scores to peak at 1-back and the SVs of those with higher scores to peak at 2-back, but the way the SVs of both groups appeared to drift apart in the higher $n$-back levels suggests that an analysis of those levels would be more fruitful in determining group differences.
 Future studies could create a stronger separation between the concepts investigated in this study (discounting curve, effort perception, performance, SV computation, NFC), and model the SVs and their task-related influencing factors first, before looking at (non-linear) associations with personality.
 Another important point is the instruction, not just for the $n$-back task, but for the effort discounting as well.
