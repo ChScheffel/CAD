@@ -195,7 +195,7 @@ Participants received 24€ in total or course credit for participation.
 ## Design
 
 ### CAD Paradigm
-Figure\ 1 illustrates how different modifications of the COG-ED paradigm [@Westbrook2013] return SVs that do or do not reflect the true preference of a hypothetical participant, who likes 2-back most, 3-back less, and 1-back least (for reasons of clarity there are only three levels in the example).
+Figure \@ref(fig:cadparadigm) illustrates how different modifications of the COG-ED paradigm [@Westbrook2013] return SVs that do or do not reflect the true preference of a hypothetical participant, who likes 2-back most, 3-back less, and 1-back least (for reasons of clarity there are only three levels in the example).
 The COG-ED paradigm, which compares every more difficult level with 1-back sets the SV of 1-back to 1, regardless of the response pattern.
 Adding a comparison of the more difficult levels with each other allows the SVs of those two levels to be more differentiated, but leaves the SV of 1-back unchanged.
 Adding those same pairs again, but with the opposite assignment of fixed and flexible level, does approach the true preference, but has two disadvantages.
@@ -218,7 +218,7 @@ So if the SV of 3-back was 0.6, the participant would need to be rewarded with a
 In this study, the SV can be interpreted as "The minimum relative reward required for me to choose any other level over this level".
 Therefore, an SV of 1 indicates that this level is preferred over all others, while SVs lower than 1 indicate that in at least one pair, a different level was preferred over this one.
 
-```{r figure1, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="An example for subjective values for an $n$-back task with three levels, returned by different modifications of the COG-ED paradigm for a hypothetical participant with the true preference 2-back > 3-back > 1-back. The grey boxes are the choice options shown to the participant. The participant's final reward value of the flexible level is displayed after the first arrow. The resulting subjective value of each level is displayed after the second arrow, in the notation \"SV 3-back(1-back)\" for the subjective value of 3-back when 1-back is the other choice. The Solution and Additional Benefit panel follow the same logic, but are preceded by a choice between equal rewards, and the participant's first choice indicated by an exclamation mark. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+```{r cadparadigm, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="An example for subjective values for an $n$-back task with three levels, returned by different modifications of the COG-ED paradigm for a hypothetical participant with the true preference 2-back > 3-back > 1-back. The grey boxes are the choice options shown to the participant. The participant's final reward value of the flexible level is displayed after the first arrow. The resulting subjective value of each level is displayed after the second arrow, in the notation \"SV 3-back(1-back)\" for the subjective value of 3-back when 1-back is the other choice. The Solution and Additional Benefit panel follow the same logic, but are preceded by a choice between equal rewards, and the participant's first choice indicated by an exclamation mark. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "Inkscape Figures", "Paradigm_Scheme.png"))
 
@@ -631,3 +631,37 @@ All authors reviewed, edited, and approved the final version of the manuscript.
 
 The authors declare no competing interests.
 
+\newpage
+\setcounter{figure}{0}
+
+# Figures
+
+```{r cadparadigm, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="An example for subjective values for an $n$-back task with three levels, returned by different modifications of the COG-ED paradigm for a hypothetical participant with the true preference 2-back > 3-back > 1-back. The grey boxes are the choice options shown to the participant. The participant's final reward value of the flexible level is displayed after the first arrow. The resulting subjective value of each level is displayed after the second arrow, in the notation \"SV 3-back(1-back)\" for the subjective value of 3-back when 1-back is the other choice. The Solution and Additional Benefit panel follow the same logic, but are preceded by a choice between equal rewards, and the participant's first choice indicated by an exclamation mark. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+  
+  include_graphics(here("06_Paper", "Inkscape Figures", "Paradigm_Scheme.png"))
+
+```
+
+```{r sca-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of the multi level model for each of the 63 preprocessing pipelines. Drawing a vertical through both panels indicates the type of preprocessing (panel b) of the pipeline and the resulting beta estimates of the three predictors in the model (panel a). The colourbar in panel b indicates the BF10 of each multi level model compared to a model in which the n-back level has no effect. The pipelines in both panels are sorted left to right in descending order of the magnitude of the beta estimate of the predictor n-back level. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+  
+  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "sca-plot.png"))
+
+```
+
+```{r nfcgroups-sv, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values per n-back level for participants with Need for Cognition (NFC) scores above and below the median. $N=116$. The scatter has a horizontal jitter of 0.2. Smoothing of conditional means with Loess method. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+  
+  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "nfcgroups-sv.png"))
+
+```
+
+```{r h3ac-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Difference scores for subjective values (a) and aversiveness ratings (b) when subtracting 2- from 1-back and 3- from 2-back. Horizontal lines of the boxplots represent the median per group, whiskers represent 1.5 interquartile ranges. NFC = Need for Cognition score. $N=116$. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+  
+  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "h3ac-plot.png"))
+
+```
+
+```{r h3b-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="NASA-TLX sum scores for each $n$-back level. Colours indicate Need for Cognition (NFC) score above or below the median. $N=116$. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+  
+  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "h3b-plot.png"))
+
+```
