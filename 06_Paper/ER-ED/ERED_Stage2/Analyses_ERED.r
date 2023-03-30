@@ -714,11 +714,9 @@ SubjArousalView_con[1, 1] <- "$View_{neutral} - View_{negative}$"
 FigSubjArousalView <- ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal, fill = factor(block))) +
   ggdist::stat_dots(justification = -0.2, quantiles = 150, limits = c(.05, .95), scale = 0.7, color = NA) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
-  geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.5)+
-  #geom_point(size = 1, alpha = 0.75, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), aes(col = factor(block)))+
-  ggthemes::scale_fill_tableau(palette = "Tableau 10")+
-  ggthemes::scale_color_tableau(palette = "Tableau 10")+
-  #geom_vline(xintercept = c(1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
+  geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.8)+
+  scale_fill_manual(values = c("#006666","#CC3300"))+
+  scale_color_manual(values = c("#006666","#CC3300"))+
   scale_x_discrete(name = "Active viewing",
                    limits = c("1_view_neu", "2_view_neg"),
                    labels = c("Neutral", "Negative")) +
@@ -772,11 +770,9 @@ EMG_view_plot <- EMG_view %>% group_by(ID, block) %>% summarise_at(vars("Corr","
 FigEMGCorrView <- ggplot2::ggplot(EMG_view_plot, aes(x = block, y = Corr, fill = factor(block))) +
   ggdist::stat_dots(justification = -0.2, quantiles = 150, limits = c(.05, .95), scale = 0.8, color = NA) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
-  geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.5)+
-  #geom_point(size = 1, alpha = 0.75, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), aes(col = factor(block)))+
-  ggthemes::scale_fill_tableau(palette = "Tableau 10")+
-  ggthemes::scale_color_tableau(palette = "Tableau 10")+
-  #geom_vline(xintercept = c(1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
+  geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.8)+
+  scale_fill_manual(values = c("#006666","#CC3300"))+
+  scale_color_manual(values = c("#006666","#CC3300"))+
   scale_x_discrete(name = "Active viewing",
                    limits = c("1_view_neu", "2_view_neg"),
                    labels = c("Neutral", "Negative")) +
@@ -824,11 +820,9 @@ EMGLevView_con[1, 1] <- "$View_{neutral} - View_{negative}$"
 FigEMGLevView <- ggplot2::ggplot(EMG_view_plot, aes(x = block, y = Lev, fill = factor(block))) +
   ggdist::stat_dots(justification = -0.2, quantiles = 150, limits = c(.05, .95), scale = 0.8, color = NA) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
-  geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.5)+
-  #geom_point(size = 1, alpha = 0.75, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), aes(col = factor(block)))+
-  ggthemes::scale_fill_tableau(palette = "Tableau 10")+
-  ggthemes::scale_color_tableau(palette = "Tableau 10")+
-  #geom_vline(xintercept = c(1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
+  geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.8)+
+  scale_fill_manual(values = c("#006666","#CC3300"))+
+  scale_color_manual(values = c("#006666","#CC3300"))+
   scale_x_discrete(name = "Active viewing",
                    limits = c("1_view_neu", "2_view_neg"),
                    labels = c("Neutral", "Negative")) +
@@ -906,11 +900,9 @@ SubjArousalReg_con[6, 1] <- "$Distancing - Suppression$"
 FigSubjArousalReg <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal, fill = factor(block))) +
   ggdist::stat_dots(justification = -0.2, quantiles = 150, limits = c(.05, .95), scale = 0.7, color = NA) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
-  geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.5)+
-  #geom_point(size = 1, alpha = 0.75, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), aes(col = factor(block)))+
-  ggthemes::scale_fill_tableau(palette = "Tableau 10")+
-  ggthemes::scale_color_tableau(palette = "Tableau 10")+
-  #geom_vline(xintercept = c(1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
+  geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.8)+
+  scale_fill_manual(values = c("#666666","#66C2A5","#FC8D62","#8DA0CB"))+
+  scale_color_manual(values = c("#666666","#66C2A5","#FC8D62","#8DA0CB"))+
   scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
                    labels = c("View", "Distraction", "Distancing", "Suppression")) +
@@ -991,11 +983,9 @@ EMG_reg_plot <- EMG_reg %>% group_by(ID, block) %>% summarise_at(vars("Corr","Le
 FigEMGCorrReg <- ggplot2::ggplot(EMG_reg_plot, aes(x = block, y = Corr, fill = factor(block))) +
   ggdist::stat_dots(justification = -0.2, quantiles = 150, limits = c(.05, .95), scale = 0.8, color = NA) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
-  geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.5)+
-  #geom_point(size = 1, alpha = 0.75, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), aes(col = factor(block)))+
-  ggthemes::scale_fill_tableau(palette = "Tableau 10")+
-  ggthemes::scale_color_tableau(palette = "Tableau 10")+
-  #geom_vline(xintercept = c(1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
+  geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.8)+
+  scale_fill_manual(values = c("#666666","#66C2A5","#FC8D62","#8DA0CB"))+
+  scale_color_manual(values = c("#666666","#66C2A5","#FC8D62","#8DA0CB"))+
   scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
                    labels = c("View", "Distraction", "Distancing", "Suppression")) +
@@ -1063,11 +1053,9 @@ EMGLevReg_con[6, 1] <- "$Distancing - Suppression$"
 FigEMGLevReg <- ggplot2::ggplot(EMG_reg_plot, aes(x = block, y = Lev, fill = factor(block))) +
   ggdist::stat_dots(justification = -0.2, quantiles = 150, limits = c(.05, .95), scale = 0.9, color = NA) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
-  geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.5)+
-  #geom_point(size = 1, alpha = 0.75, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), aes(col = factor(block)))+
-  ggthemes::scale_fill_tableau(palette = "Tableau 10")+
-  ggthemes::scale_color_tableau(palette = "Tableau 10")+
-  #geom_vline(xintercept = c(1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
+  geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.8)+
+  scale_fill_manual(values = c("#666666","#66C2A5","#FC8D62","#8DA0CB"))+
+  scale_color_manual(values = c("#666666","#66C2A5","#FC8D62","#8DA0CB"))+
   scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
                    labels = c("View", "Distraction", "Distancing", "Suppression")) +
@@ -1141,11 +1129,9 @@ SubjEffort_con[6, 1] <- "$Distancing - Suppression$"
 FigSubjEffort <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort, fill = factor(block))) +
   ggdist::stat_dots(justification = -0.2, quantiles = 150, limits = c(.05, .95), scale = 0.8, color = NA) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
-  geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.5)+
-  #geom_point(size = 1, alpha = 0.75, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.2), aes(col = factor(block)))+
-  ggthemes::scale_fill_tableau(palette = "Tableau 10")+
-  ggthemes::scale_color_tableau(palette = "Tableau 10")+
-  #geom_vline(xintercept = c(1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
+  geom_boxplot(width = 0.12, outlier.color = NA, alpha = 0.8)+
+  scale_fill_manual(values = c("#666666","#66C2A5","#FC8D62","#8DA0CB"))+
+  scale_color_manual(values = c("#666666","#66C2A5","#FC8D62","#8DA0CB"))+
   scale_x_discrete(name = "Strategy",
                    limits = c("2_view_neg", "3_distraction", "4_distancing", "5_suppression"),
                    labels = c("View", "Distraction", "Distancing", "Suppression")) +
