@@ -71,14 +71,16 @@ An internal consistency of Cronbach's $\alpha=.88$ was reported [@Derryberry2002
 
 ## Test for normal distribution of predictor variables {#SupplementNV}
 
-``` {r TabNV, echo=FALSE, message=FALSE, warning=FALSE} 
+``` {r TabNVRatings, echo=FALSE, message=FALSE, warning=FALSE} 
 
 papaja::apa_table(
   df.NV.subj,
   caption = "Results of Shapiro-Wilk test for normal distribution of subjective arousal and effort ratings for all strategies.",
   escape = FALSE,
   placement = "H") 
+```
 
+```{r TabNCEMG}
 papaja::apa_table(
   df.NV.EMG,
   caption = "Results of Shapiro-Wilk test for normal distribution of Corrugator and Levator activity for all strategies.",
@@ -89,40 +91,86 @@ papaja::apa_table(
 
 \newpage
 
-## Post-hoc tests of strategies for effects of ER on subjective arousal and physiological responding {#SupplementEffectER} 
+## Post-hoc contrasts for effects of valence on subjective arousal and physiological responding {#SupplementEffectValence}
 
-``` {r SupplEffectArousalReg, echo=FALSE, message=FALSE, warning=FALSE} 
+``` {r SupplEffectArousalView, echo=FALSE, message=FALSE, warning=FALSE} 
 papaja::apa_table(
-  SubjArousalReg_con,
-  caption = "Post-hoc tests for effects of ER strategies on subjective arousal ratings.",
+  SubjArousalView_con,
+  caption = "Post-hoc contrasts for effects of valence on subjective arousal ratings in the active viewing conditions.",
   escape = FALSE,
   placement = "H",
   font_size = "footnotesize"
   )
 ```
 
-``` {r SupplFigArousalReg, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective arousal ratings vizalized as boxplots. Dots represent individual effort ratings placed in 150 qantiles.", fig.pos="H"}
-knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigSubjArousal.png"))
+``` {r SupplFigArousalView, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective arousal ratings of the active viewing conditions vizalized as boxplots. Dots represent individual effort ratings placed in 150 quantiles.", fig.pos="H"}
+knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigSubjArousalView.png"))
+```
+
+``` {r SupplEffectCorrView, echo=FALSE, message=FALSE, warning=FALSE}
+papaja::apa_table(
+  EMGCorrView_con,
+  caption = "Post-hoc contrasts for effects of valence on Corrugator activity in the active viewing conditions.",
+  escape = FALSE,
+  placement = "H",
+  font_size = "footnotesize"
+  )
+```
+
+``` {r SupplFigCorrView, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Corrugator activity in mV during the active viewing conditions, vizalized as boxplots. Dots represent individual Corrugator activity measures placed in 150 quantiles.", fig.pos="H"}
+knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigCorrView.png"))
+```
+
+``` {r SupplEffectLevView, echo=FALSE, message=FALSE, warning=FALSE}
+papaja::apa_table(
+  EMGLevView_con,
+  caption = "Post-hoc contrasts for effects of valence on Levator activity in the active viewing conditions.",
+  escape = FALSE,
+  placement = "H",
+  font_size = "footnotesize"
+  )
+```
+
+``` {r SupplFigLevView, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Levator activity in mV during the active viewing conditions, vizalized as boxplots. Dots represent individual Levator activity measures placed in 150 quantiles.", fig.pos="H"}
+knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigLevView.png"))
+```
+
+\newpage
+
+## Post-hoc contrasts for effects of ER strategies on subjective arousal and physiological responding {#SupplementEffectER} 
+
+``` {r SupplEffectArousalReg, echo=FALSE, message=FALSE, warning=FALSE} 
+papaja::apa_table(
+  SubjArousalReg_con,
+  caption = "Post-hoc contrasts for effects of ER strategies on subjective arousal ratings.",
+  escape = FALSE,
+  placement = "H",
+  font_size = "footnotesize"
+  )
+```
+
+``` {r SupplFigArousalReg, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective arousal ratings vizalized as boxplots. Dots represent individual effort ratings placed in 150 quantiles.", fig.pos="H"}
+knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigSubjArousalReg.png"))
 ```
 
 ``` {r SupplEffectCorrReg, echo=FALSE, message=FALSE, warning=FALSE}
 papaja::apa_table(
   EMGCorrReg_con,
-  caption = "Post-hoc tests for effects of ER strategies on Corrugator activity",
+  caption = "Post-hoc contrasts for effects of ER strategies on Corrugator activity",
   escape = FALSE,
   placement = "H",
   font_size = "footnotesize"
   )
 ```
 
-``` {r SupplFigCorrReg, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Corrugator activity in mV vizalized as boxplots. Dots represent individual Levatorr activity measures placed in 150 qantiles.", fig.pos="H"}
+``` {r SupplFigCorrReg, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Corrugator activity in mV vizalized as boxplots. Dots represent individual Levatorr activity measures placed in 150 quantiles.", fig.pos="H"}
 knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigCorrReg.png"))
 ```
 
 ``` {r SupplEffectLevReg, echo=FALSE, message=FALSE, warning=FALSE}
 papaja::apa_table(
   EMGLevReg_con,
-  caption = "Post-hoc tests for effects of ER strategies on Levator activity",
+  caption = "Post-hoc contrasts for effects of ER strategies on Levator activity",
   escape = FALSE,
   placement = "H",
   font_size = "footnotesize"
@@ -130,7 +178,7 @@ papaja::apa_table(
 
 ```
 
-``` {r SupplFigLevReg, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Levator activity in mV vizalized as boxplots. Dots represent individual Levator activity measures placed in 150 qantiles.", fig.pos="H"}
+``` {r SupplFigLevReg, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Levator activity in mV vizalized as boxplots. Dots represent individual Levator activity measures placed in 150 quantiles.", fig.pos="H"}
 knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigLevReg.png"))
 ```
 \newpage
