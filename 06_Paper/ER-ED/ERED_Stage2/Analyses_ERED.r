@@ -695,9 +695,9 @@ SubjArousalView_BF <- BayesFactor::anovaBF(formula = arousal ~ block + ID,
                                            data = Ratings_view,
                                            whichRandom = "ID",
                                            progress = FALSE)
-SubjArousalView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_view$arousal[Ratings_view$block == "1_view_neu"],
+SubjArousalView_con$BF10 <- papaja::apa_print(BayesFactor::ttestBF(x = Ratings_view$arousal[Ratings_view$block == "1_view_neu"],
                                                                         y = Ratings_view$arousal[Ratings_view$block == "2_view_neg"],
-                                                                        progress = FALSE, paired = TRUE))$bf
+                                                                        progress = FALSE, paired = TRUE))$table[1,"statistic"]
 
 SubjArousalView_con <- cbind(SubjArousalView_con,
                              format(effectsize::t_to_eta2(t = SubjArousalView_con$t.ratio,
@@ -751,9 +751,9 @@ EMGCorrView_BF <- BayesFactor::anovaBF(formula = Corr ~ block + ID,
                                        data = EMG_view,
                                        whichRandom = "ID",
                                        progress = FALSE)
-EMGCorrView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_view$Corr[EMG_view$block == "1_view_neu"],
+EMGCorrView_con$BF10 <- papaja::apa_print(BayesFactor::ttestBF(x = EMG_view$Corr[EMG_view$block == "1_view_neu"],
                                                                     y = EMG_view$Corr[EMG_view$block == "2_view_neg"],
-                                                                    progress = FALSE, paired = FALSE))$bf
+                                                                    progress = FALSE, paired = FALSE))$table[1,"statistic"]
 
 EMGCorrView_con <- cbind(EMGCorrView_con,
                          format(effectsize::t_to_eta2(t = EMGCorrView_con$t.ratio,
@@ -804,9 +804,10 @@ EMGLevView_BF <- BayesFactor::anovaBF(formula = Lev ~ block + ID,
                                       data = EMG_view,
                                       whichRandom = "ID",
                                       progress = FALSE)
-EMGLevView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_view$Lev[EMG_view$block == "1_view_neu"],
-                                                                   y = EMG_view$Lev[EMG_view$block == "2_view_neg"],
-                                                                   progress = FALSE, paired = FALSE))$bf
+
+EMGLevView_con$BF10 <- papaja::apa_print(BayesFactor::ttestBF(x = EMG_view$Lev[EMG_view$block == "1_view_neu"],
+                                                              y = EMG_view$Lev[EMG_view$block == "2_view_neg"],
+                                                              progress = FALSE, paired = FALSE))$table[1,"statistic"]
 
 EMGLevView_con <- cbind(EMGLevView_con,
                         format(effectsize::t_to_eta2(t = EMGLevView_con$t.ratio,
