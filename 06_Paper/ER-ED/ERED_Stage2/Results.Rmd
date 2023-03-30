@@ -39,11 +39,12 @@ Please note that sample size for individual calculations may be smaller due to f
 
 To explore whether negative pictures evoke emotional arousal and physiological responding, we conducted separate ANOVAs for the active viewing condition with predictors subjective arousal, *Corrugator* and *Levator* activity.
 Descriptive values of each predictor for each condition can be found in table \@ref(tab:TabDescr).
-We found a significant main effect of valence for subjective arousal (`r papaja::apa_print(SubjArousalView_aov)$full_result`, `r papaja::apa_print(SubjArousalView_BF)$statistic`), *Corrugator* activity (`r papaja::apa_print(EMGCorrView_aov)$full_result`, `r papaja::apa_print(EMGCorrView_BF)$statistic`), and *Levator* activity (`r papaja::apa_print(EMGLevView_aov)$full_result`, `r papaja::apa_print(EMGLevView_BF)$statistic`), indicating that negative pictures successfully increased emotional arousal and physiological responding.
+We found a significant main effect of valence for subjective arousal (`r papaja::apa_print(SubjArousalView_aov)$full_result`, `r papaja::apa_print(SubjArousalView_BF)$statistic`), *Corrugator* activity (`r papaja::apa_print(EMGCorrView_aov)$full_result`, `r papaja::apa_print(EMGCorrView_BF)$statistic`), and *Levator* activity (`r papaja::apa_print(EMGLevView_aov)$full_result`, `r papaja::apa_print(EMGLevView_BF)$statistic`).
+Post-hoc contrasts indicated that negative pictures successfully increased emotional arousal and physiological responding (please see Tables \@ref(tab:SupplEffectArousalView) to \@ref(tab:SupplEffectLevView).
 
 To investigate whether ER strategies reduce emotional arousal and physiological responding, we conducted separate rmANOVA comparing subjective arousal, *Corrugator* and *Levator* activity of four strategies (active viewing, distraction, distancing, suppression). 
 We found a significant effect of strategy for subjective arousal (`r papaja::apa_print(SubjArousalReg_aov)$full_result`, `r papaja::apa_print(SubjArousalReg_BF)$statistic`), *Corrugator* activity (`r papaja::apa_print(EMGCorrReg_aov)$full_result`, `r papaja::apa_print(EMGCorrReg_BF)$statistic`), and *Levator* activity (`r papaja::apa_print(EMGLevReg_aov)$full_result`, `r papaja::apa_print(EMGLevReg_BF)$statistic`), indicating that regulation strategies reduced subjective arousal and physiological responding.
-For detailed information on post-hoc tests, please see tables \@ref(tab:SupplEffectArousalReg) to \@ref(tab:SupplEffectLevReg) and figures \@ref(fig:SupplFigArousalReg) to \@ref(fig:SupplFigLevReg) in the [supplementary material](#SupplementEffectER).
+For detailed information on post-hoc tests, please see Tables \@ref(tab:SupplEffectArousalReg) to \@ref(tab:SupplEffectLevReg) and Figures \@ref(fig:SupplFigArousalReg) to \@ref(fig:SupplFigLevReg) in the [supplementary material](#SupplementEffectER).
 
 [INSERT TABLE 1 HERE]
 
@@ -147,7 +148,7 @@ Only predictors that had previously shown a significant association with SVs wer
 The third model followed the specification:
 $$
 \begin{split}
-SV \sim \text{effort rating} + \text{utility rating} + corrugator \text{ activity} \\\ \text{self-control} + \text{NFC} + (1 |subject)
+SV \sim \text{effort rating} + \text{utility rating} + corrugator \text{ activity} \\\ + \text{self-control} + \text{NFC} + (1 |subject)
 \end{split}
 $$
 As one would expect, the predictors effort rating (`r papaja::apa_print(MLM_3)$full_result$effort_cwc`) showed a negative association with SVs, while utility rating (`r papaja::apa_print(MLM_3)$full_result$utility_cwc`), and *Corrugator* activity (`r papaja::apa_print(MLM_3)$full_result$Corr_cwc`) showed a significant positive association with SVs.
