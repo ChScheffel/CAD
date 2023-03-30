@@ -146,7 +146,7 @@ colnames(all_quest)[1] <- "set" # rename the first column
 
 # compute index of rows in which the data sets change
 
-setindex <- c(1,which(all_quest$set != dplyr::lag(all_quest$set)),nrow(all_quest))
+setindex <- c(1,which(all_quest$set != dplyr::lag(all_quest$set)))
 
 # reshape the data frame for better handling (currently three rows per subject, lots of NAs)
 
@@ -162,20 +162,23 @@ data_quest <- cbind(data_quest, adherence = all_quest$followup_adherence[setinde
                     motivation = all_quest$followup_motivation[setindex+1],
                     motivation_other = all_quest$followup_motivation_other[setindex+1])
 
-# some participants started filling out the questionnaires two times, so their code appears twice
+# keep only those who answered all NFC items
 
 data_quest <- data_quest %>% filter(!is.na(nfc_16))
+
+# sets 2, 6, and 7 were dummy sets to test the NASA TLX iterations
+
+data_quest <- data_quest[!(data_quest$set == "2" | data_quest$set == "2_final" | data_quest$set == "6" | data_quest$set == "6_final" |
+                             data_quest$set == "7" | data_quest$set == "7_final"), ]
 
 # make a copy for counting the amount of participants who filled out the questionnaires
 
 n_quest <- data_quest
 
-# remove the following subjects for misunderstanding the instruction: E17T12, Z15R03, C18D18, H25N04, D24A05, T14G09, D29N05
-# remove the following subject for not remembering the level colours correctly during effort discounting: W16C01
-# sets 2, 6, and 7 were dummy sets to test the NASA TLX iterations
+# now remove the original data sets (which we needed for the time stamps) and keep only the edited sets
 
-data_quest <- data_quest[!(data_quest$subject == "E17T12" | data_quest$subject == "Z15R03" | data_quest$subject == "C18D18" | data_quest$subject == "H25N04" |
-                             data_quest$subject == "D24A05" | data_quest$subject == "T14G09" | data_quest$subject == "D29N05" | data_quest$subject == "W16C01"), ]
+n_quest <- n_quest[grep("_final", n_quest$set), ]
+n_quest <- nrow(n_quest)
 
 # remove any subject who states that they did not adhere to the instructions
 
@@ -197,11 +200,6 @@ acqui_time <- range(acqui_time, na.rm = TRUE)
 
 data_quest <- data_quest[grep("_final", data_quest$set), ]
 data_quest <- subset(data_quest, select = -c(set, time_quest, time_lab))
-
-# remove them from the counting variable as well
-
-n_quest <- n_quest[grep("_final", n_quest$set), ]
-n_quest <- nrow(n_quest)
 
 # remove temporary variables
 
@@ -873,7 +871,7 @@ hypothesis1a_contrasts <- as.data.frame(pairs(hypothesis1a_emm))
 
 # get Bayes factors
 
-hypothesis1a_BF <- BayesFactor::anovaBF(formula = dprime ~ level, data = h1a_data, progress = FALSE)
+hypothesis1a_BF <- BayesFactor::anovaBF(formula = dprime ~ level, whichRandom = "subject", data = h1a_data, progress = FALSE)
 hypothesis1a_contrasts$BF10 <- c(apa_print(BayesFactor::ttestBF(x = h1a_data$dprime[h1a_data$level == 1], y = h1a_data$dprime[h1a_data$level == 2],
                                                                              progress = FALSE, paired = TRUE))$table[1,"statistic"],
                                  apa_print(BayesFactor::ttestBF(x = h1a_data$dprime[h1a_data$level == 1], y = h1a_data$dprime[h1a_data$level == 3],
@@ -935,7 +933,7 @@ hypothesis1b_contrasts <- as.data.frame(pairs(hypothesis1b_emm))
 
 # get Bayes factors
 
-hypothesis1b_BF <- BayesFactor::anovaBF(formula = medianRT ~ level, data = h1b_data, progress = FALSE)
+hypothesis1b_BF <- BayesFactor::anovaBF(formula = medianRT ~ level, whichRandom = "subject", data = h1b_data, progress = FALSE)
 hypothesis1b_contrasts$BF10 <- c(apa_print(BayesFactor::ttestBF(x = h1b_data$medianRT[h1b_data$level == 1], y = h1b_data$medianRT[h1b_data$level == 2],
                                                                              progress = FALSE, paired = TRUE))$table[1,"statistic"],
                                  apa_print(BayesFactor::ttestBF(x = h1b_data$medianRT[h1b_data$level == 1], y = h1b_data$medianRT[h1b_data$level == 3],
@@ -1043,7 +1041,7 @@ hypothesis1c_frustration_contrasts <- as.data.frame(pairs(hypothesis1c_frustrati
 
 # get Bayes factors
 
-hypothesis1c_mental_BF <- BayesFactor::anovaBF(formula = mental ~ level, data = h1c_data, progress = FALSE)
+hypothesis1c_mental_BF <- BayesFactor::anovaBF(formula = mental ~ level, whichRandom = "subject", data = h1c_data, progress = FALSE)
 hypothesis1c_mental_contrasts$BF10 <- c(apa_print(BayesFactor::ttestBF(x = h1c_data$mental[h1c_data$level == 1], y = h1c_data$mental[h1c_data$level == 2],
                                                                                     progress = FALSE, paired = TRUE))$table[1,"statistic"],
                                         apa_print(BayesFactor::ttestBF(x = h1c_data$mental[h1c_data$level == 1], y = h1c_data$mental[h1c_data$level == 3],
@@ -1056,7 +1054,7 @@ hypothesis1c_mental_contrasts$BF10 <- c(apa_print(BayesFactor::ttestBF(x = h1c_d
                                                                                     progress = FALSE, paired = TRUE))$table[1,"statistic"],
                                         apa_print(BayesFactor::ttestBF(x = h1c_data$mental[h1c_data$level == 3], y = h1c_data$mental[h1c_data$level == 4],
                                                                                     progress = FALSE, paired = TRUE))$table[1,"statistic"])
-hypothesis1c_physical_BF <- BayesFactor::anovaBF(formula = physical ~ level, data = h1c_data, progress = FALSE)
+hypothesis1c_physical_BF <- BayesFactor::anovaBF(formula = physical ~ level, whichRandom = "subject", data = h1c_data, progress = FALSE)
 hypothesis1c_physical_contrasts$BF10 <- c(apa_print(BayesFactor::ttestBF(x = h1c_data$physical[h1c_data$level == 1], y = h1c_data$physical[h1c_data$level == 2],
                                                                                       progress = FALSE, paired = TRUE))$table[1,"statistic"],
                                           apa_print(BayesFactor::ttestBF(x = h1c_data$physical[h1c_data$level == 1], y = h1c_data$physical[h1c_data$level == 3],
@@ -1069,7 +1067,7 @@ hypothesis1c_physical_contrasts$BF10 <- c(apa_print(BayesFactor::ttestBF(x = h1c
                                                                                       progress = FALSE, paired = TRUE))$table[1,"statistic"],
                                           apa_print(BayesFactor::ttestBF(x = h1c_data$physical[h1c_data$level == 3], y = h1c_data$physical[h1c_data$level == 4],
                                                                                       progress = FALSE, paired = TRUE))$table[1,"statistic"])
-hypothesis1c_time_BF <- BayesFactor::anovaBF(formula = time ~ level, data = h1c_data, progress = FALSE)
+hypothesis1c_time_BF <- BayesFactor::anovaBF(formula = time ~ level, whichRandom = "subject", data = h1c_data, progress = FALSE)
 hypothesis1c_time_contrasts$BF10 <- c(apa_print(BayesFactor::ttestBF(x = h1c_data$time[h1c_data$level == 1], y = h1c_data$time[h1c_data$level == 2],
                                                                                   progress = FALSE, paired = TRUE))$table[1,"statistic"],
                                       apa_print(BayesFactor::ttestBF(x = h1c_data$time[h1c_data$level == 1], y = h1c_data$time[h1c_data$level == 3],
@@ -1082,7 +1080,7 @@ hypothesis1c_time_contrasts$BF10 <- c(apa_print(BayesFactor::ttestBF(x = h1c_dat
                                                                                   progress = FALSE, paired = TRUE))$table[1,"statistic"],
                                       apa_print(BayesFactor::ttestBF(x = h1c_data$time[h1c_data$level == 3], y = h1c_data$time[h1c_data$level == 4],
                                                                                   progress = FALSE, paired = TRUE))$table[1,"statistic"])
-hypothesis1c_performance_BF <- BayesFactor::anovaBF(formula = performance ~ level, data = h1c_data, progress = FALSE)
+hypothesis1c_performance_BF <- BayesFactor::anovaBF(formula = performance ~ level, whichRandom = "subject", data = h1c_data, progress = FALSE)
 hypothesis1c_performance_contrasts$BF10 <- c(apa_print(BayesFactor::ttestBF(x = h1c_data$performance[h1c_data$level == 1], y = h1c_data$performance[h1c_data$level == 2],
                                                                                          progress = FALSE, paired = TRUE))$table[1,"statistic"],
                                              apa_print(BayesFactor::ttestBF(x = h1c_data$performance[h1c_data$level == 1], y = h1c_data$performance[h1c_data$level == 3],
@@ -1095,7 +1093,7 @@ hypothesis1c_performance_contrasts$BF10 <- c(apa_print(BayesFactor::ttestBF(x = 
                                                                                          progress = FALSE, paired = TRUE))$table[1,"statistic"],
                                              apa_print(BayesFactor::ttestBF(x = h1c_data$performance[h1c_data$level == 3], y = h1c_data$performance[h1c_data$level == 4],
                                                                                          progress = FALSE, paired = TRUE))$table[1,"statistic"])
-hypothesis1c_effort_BF <- BayesFactor::anovaBF(formula = effort ~ level, data = h1c_data, progress = FALSE)
+hypothesis1c_effort_BF <- BayesFactor::anovaBF(formula = effort ~ level, whichRandom = "subject", data = h1c_data, progress = FALSE)
 hypothesis1c_effort_contrasts$BF10 <- c(apa_print(BayesFactor::ttestBF(x = h1c_data$effort[h1c_data$level == 1], y = h1c_data$effort[h1c_data$level == 2],
                                                                                     progress = FALSE, paired = TRUE))$table[1,"statistic"],
                                         apa_print(BayesFactor::ttestBF(x = h1c_data$effort[h1c_data$level == 1], y = h1c_data$effort[h1c_data$level == 3],
@@ -1108,7 +1106,7 @@ hypothesis1c_effort_contrasts$BF10 <- c(apa_print(BayesFactor::ttestBF(x = h1c_d
                                                                                     progress = FALSE, paired = TRUE))$table[1,"statistic"],
                                         apa_print(BayesFactor::ttestBF(x = h1c_data$effort[h1c_data$level == 3], y = h1c_data$effort[h1c_data$level == 4],
                                                                                     progress = FALSE, paired = TRUE))$table[1,"statistic"])
-hypothesis1c_frustration_BF <- BayesFactor::anovaBF(formula = frustration ~ level, data = h1c_data, progress = FALSE)
+hypothesis1c_frustration_BF <- BayesFactor::anovaBF(formula = frustration ~ level, whichRandom = "subject", data = h1c_data, progress = FALSE)
 hypothesis1c_frustration_contrasts$BF10 <- c(apa_print(BayesFactor::ttestBF(x = h1c_data$frustration[h1c_data$level == 1], y = h1c_data$frustration[h1c_data$level == 2],
                                                                                          progress = FALSE, paired = TRUE))$table[1,"statistic"],
                                              apa_print(BayesFactor::ttestBF(x = h1c_data$frustration[h1c_data$level == 1], y = h1c_data$frustration[h1c_data$level == 3],
@@ -1218,7 +1216,7 @@ hypothesis2a_contrasts <- emmeans::contrast(hypothesis2a_emm, method = list("Dec
 
 # get Bayes factors
 
-hypothesis2a_BF <- BayesFactor::anovaBF(formula = sv ~ level, data = h2a_data, progress = FALSE)
+hypothesis2a_BF <- BayesFactor::anovaBF(formula = sv ~ level, whichRandom = "subject", data = h2a_data, progress = FALSE)
 
 # get effect size and confidence intervals
 
@@ -1467,7 +1465,7 @@ hypothesis3a_contrasts_nlevel <- as.data.frame(pairs(hypothesis3a_emm_nlevel))
 
 # get Bayes factors
 
-hypothesis3a_BF_nlevel <- BayesFactor::anovaBF(formula = svdiff ~ nlevels * nfcmedian, data = h3a_data, progress = FALSE)
+hypothesis3a_BF_nlevel <- BayesFactor::anovaBF(formula = svdiff ~ nlevels * nfcmedian, whichRandom = "subject", data = h3a_data, progress = FALSE)
 hypothesis3a_contrasts_nlevel$BF10 <- apa_print(hypothesis3a_BF_nlevel)$table[1,"statistic"]
 
 # get effect size
@@ -1569,7 +1567,7 @@ hypothesis3b_contrasts_levels <- as.data.frame(pairs(hypothesis3b_emm_levels))
 
 # get Bayes factors
 
-hypothesis3b_BF_levels <- BayesFactor::anovaBF(formula = ntlx ~ level * nfcmedian, data = h3b_data, progress = FALSE)
+hypothesis3b_BF_levels <- BayesFactor::anovaBF(formula = ntlx ~ level * nfcmedian, whichRandom = "subject", data = h3b_data, progress = FALSE)
 hypothesis3b_contrasts_levels$BF10 <- c(apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 1], y = h3b_data$ntlx[h3b_data$level == 2],
                                                                                     progress = FALSE, paired = FALSE))$table[1,"statistic"],
                                         apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 1], y = h3b_data$ntlx[h3b_data$level == 3],
@@ -1609,7 +1607,7 @@ hypothesis3b_contrasts_interact <- as.data.frame(pairs(hypothesis3b_emm_interact
 
 # get Bayes factors
 
-hypothesis3b_BF_interact <- BayesFactor::anovaBF(formula = ntlx ~ level * nfcmedian, data = h3b_data, progress = FALSE)
+hypothesis3b_BF_interact <- BayesFactor::anovaBF(formula = ntlx ~ level * nfcmedian, whichRandom = "subject", data = h3b_data, progress = FALSE)
 hypothesis3b_contrasts_interact$BF10 <- c(apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$level == 1 & h3b_data$nfcmedian == "high"],
                                                                                       y = h3b_data$ntlx[h3b_data$level == 1 & h3b_data$nfcmedian == "low"],
                                                                                       progress = FALSE, paired = FALSE))$table[1,"statistic"],
@@ -1725,7 +1723,7 @@ hypothesis3c_contrasts_nfc <- as.data.frame(pairs(hypothesis3c_emm_nfc))
 
 # get Bayes factors
 
-hypothesis3c_BF_nfc <- BayesFactor::anovaBF(formula = aversdiff ~ nlevels * nfcmedian, data = h3c_data, progress = FALSE)
+hypothesis3c_BF_nfc <- BayesFactor::anovaBF(formula = aversdiff ~ nlevels * nfcmedian, whichRandom = "subject", data = h3c_data, progress = FALSE)
 hypothesis3c_contrasts_nfc$BF10 <- apa_print(hypothesis3c_BF_nfc)$table[2,"statistic"]
 
 # get effect size
@@ -1754,7 +1752,7 @@ hypothesis3c_contrasts_levels <- as.data.frame(pairs(hypothesis3c_emm_levels))
 
 # get Bayes factors
 
-hypothesis3c_BF_levels <- BayesFactor::anovaBF(formula = aversdiff ~ nlevels * nfcmedian, data = h3c_data, progress = FALSE)
+hypothesis3c_BF_levels <- BayesFactor::anovaBF(formula = aversdiff ~ nlevels * nfcmedian, whichRandom = "subject", data = h3c_data, progress = FALSE)
 hypothesis3c_contrasts_levels$BF10 <- apa_print(hypothesis3c_BF_levels)$table[1,"statistic"]
 
 # get effect size
@@ -2040,7 +2038,7 @@ explor_rmanova <- as.data.frame(matrix(explor_rmanova, nrow = 4, ncol = 6))
 explor_rmanova <- cbind(explor_rmanova,
                         format(effectsize::F_to_eta2(f = explor_rmanova[,5], df = explor_rmanova[,2],
                                                      df_error = explor_rmanova[,4], ci = 0.95), digits = 2))
-explor_BF <- BayesFactor::anovaBF(formula = sv ~ level * nfcmedian, data = explor_data, progress = FALSE)
+explor_BF <- BayesFactor::anovaBF(formula = sv ~ level * nfcmedian, whichRandom = "subject", data = explor_data, progress = FALSE)
 
 # formatting
 
