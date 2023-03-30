@@ -24,11 +24,11 @@ options(papaja.na_string = "")
 
 ## 3.1 Participants and descriptive statistics
 
-Data collection took place between `r format(as.Date(acqui_time[1]), "%Y-%m")` and `r format(as.Date(acqui_time[2]), "%Y-%m")`.
+Data collection took place between 16th of August 2022 and the 3rd of February 2023.
 A total of $N=`r sum(data_survey[,"lay_beliefs_complete"] == 2)`$ participants completed the online survey and were invited to participate in the two lab sessions.
 Of these, $N=`r sum(data_survey[,"files_coged_complete"] == 2)`$ participated in the first laboratory session [@ZernaScheffel2022] and $N=`r sum(data_survey[,"followup_ered_complete"] == 2)`$ completed the second laboratory session.
 Of these, $n=1$ person had to be excluded from analyses because they did not follow the instructions.
-The final sample consisted of $N=`r sum(data_survey[,"followup_ered_complete"] == 2)-1`$ participants (`r length(which(data_descr[which(data_descr[,"ID"] != dplyr::lag(data_descr[,"ID"])),"gender"] == 2))` female; age: $M=`r papaja::printnum(mean(data_descr[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`\text{ }\pm\text{ }SD = `r papaja::printnum(sd(data_descr[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`$).
+The final sample consisted of $N=`r sum(data_survey[,"followup_ered_complete"] == 2)-1`$ participants (`r length(which(data_descr[which(data_descr[,"ID"] != dplyr::lag(data_descr[,"ID"])),"gender"] == 2))` female; age: $M\text{ }\pm\text{ }SD =`r papaja::printnum(mean(data_descr[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`\text{ }\pm\text{ }`r papaja::printnum(sd(data_descr[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`$ years old), which is `r format(round((sum(data_survey[,"followup_ered_complete"] == 2)-1)/85, digits = 1), nsmall = 1)` times more than what the highest sample size calculation required.
 Please note that sample size for individual calculations may be smaller due to failure of EMG recording ($n=1$) and failure to record utility ratings ($n=`r sum(is.na(data_ER[,"utility"][data_ER[,"block"] == "3_distraction"]))`$).
 
 ## 3.2. Confirmatory analyses
@@ -39,7 +39,7 @@ Please note that sample size for individual calculations may be smaller due to f
 
 To explore whether negative pictures evoke emotional arousal and physiological responding, we conducted separate ANOVAs for the active viewing condition with predictors subjective arousal, *Corrugator* and *Levator* activity.
 Descriptive values of each predictor for each condition can be found in table \@ref(tab:TabDescr).
-We found a highly significant main effect of valence for subjective arousal (`r papaja::apa_print(SubjArousalView_aov)$full_result`, `r papaja::apa_print(SubjArousalView_BF)$statistic`), *Corrugator* activity (`r papaja::apa_print(EMGCorrView_aov)$full_result`, `r papaja::apa_print(EMGCorrView_BF)$statistic`), and *Levator* activity (`r papaja::apa_print(EMGLevView_aov)$full_result`, `r papaja::apa_print(EMGLevView_BF)$statistic`), indicating that negative pictures successfully increased emotional arousal and physiological responding.
+We found a significant main effect of valence for subjective arousal (`r papaja::apa_print(SubjArousalView_aov)$full_result`, `r papaja::apa_print(SubjArousalView_BF)$statistic`), *Corrugator* activity (`r papaja::apa_print(EMGCorrView_aov)$full_result`, `r papaja::apa_print(EMGCorrView_BF)$statistic`), and *Levator* activity (`r papaja::apa_print(EMGLevView_aov)$full_result`, `r papaja::apa_print(EMGLevView_BF)$statistic`), indicating that negative pictures successfully increased emotional arousal and physiological responding.
 
 To investigate whether ER strategies reduce emotional arousal and physiological responding, we conducted separate rmANOVA comparing subjective arousal, *Corrugator* and *Levator* activity of four strategies (active viewing, distraction, distancing, suppression). 
 We found a significant effect of strategy for subjective arousal (`r papaja::apa_print(SubjArousalReg_aov)$full_result`, `r papaja::apa_print(SubjArousalReg_BF)$statistic`), *Corrugator* activity (`r papaja::apa_print(EMGCorrReg_aov)$full_result`, `r papaja::apa_print(EMGCorrReg_BF)$statistic`), and *Levator* activity (`r papaja::apa_print(EMGLevReg_aov)$full_result`, `r papaja::apa_print(EMGLevReg_BF)$statistic`), indicating that regulation strategies reduced subjective arousal and physiological responding.
