@@ -211,8 +211,11 @@ data_EMG <- data_EMG[!data_EMG$ID == "T14G09",]
 
 
 # sets 2, 6, and 7 were dummy sets to test NASA TLX iterations (T1)
-
 data_survey <- data_survey[!(data_survey$set == "2_final" | data_survey$set == "6_final" | data_survey$set == "7_final" | data_survey$set == "2" | data_survey$set == "6" | data_survey$set == "7"), ]
+
+# set 23 did not complete T1 session, therefore set variable "files_coged_complete" to 0
+
+data_survey$files_coged_complete[data_survey$set == "23_final"] = 0
 
 #### EMG DATA: EXCLUDE OUTLIER
 # within participants but across conditions
