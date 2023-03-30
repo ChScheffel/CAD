@@ -676,6 +676,7 @@ colnames(df.NV.EMG) <- c("$M$", "$SD$", "$W$", "$p$")
 Ratings_view <- data_ER %>%
   subset(data_ER$block == "1_view_neu" | data_ER$block == "2_view_neg")
 Ratings_view$block <- as.factor(Ratings_view$block)
+Ratings_view$ID <- as.factor(Ratings_view$ID)
 
 SubjArousalView_aov <- afex::aov_ez(data = Ratings_view,
                                     id = "ID",
@@ -690,8 +691,9 @@ SubjArousalView_emm <- emmeans::emmeans(SubjArousalView_aov$aov, specs = "block"
 SubjArousalView_con <- as.data.frame(pairs(SubjArousalView_emm, adjust = "bonferroni"))
 
 # Bayes Factors
-SubjArousalView_BF <- BayesFactor::anovaBF(formula = arousal ~ block,
+SubjArousalView_BF <- BayesFactor::anovaBF(formula = arousal ~ block + ID,
                                            data = Ratings_view,
+                                           whichRandom = "ID",
                                            progress = FALSE)
 SubjArousalView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_view$arousal[Ratings_view$block == "1_view_neu"],
                                                                         y = Ratings_view$arousal[Ratings_view$block == "2_view_neg"],
@@ -729,6 +731,7 @@ FigSubjArousalView <- ggplot2::ggplot(Ratings_view, aes(x = block, y = arousal, 
 EMG_view <- data_EMG.new %>%
   subset(data_EMG.new$block == "1_view_neu" | data_EMG.new$block == "2_view_neg")
 EMG_view$block <- as.factor(EMG_view$block)
+EMG_view$ID <- as.factor(EMG_view$ID)
 
 EMGCorrView_aov <- afex::aov_ez(data = EMG_view,
                                 id = "ID",
@@ -743,8 +746,9 @@ EMGCorrView_emm <- emmeans::emmeans(EMGCorrView_aov$aov, specs = "block")
 EMGCorrView_con <- as.data.frame(pairs(EMGCorrView_emm, adjust = "bonferroni"))
 
 # Bayes Factors
-EMGCorrView_BF <- BayesFactor::anovaBF(formula = Corr ~ block,
+EMGCorrView_BF <- BayesFactor::anovaBF(formula = Corr ~ block + ID,
                                        data = EMG_view,
+                                       whichRandom = "ID",
                                        progress = FALSE)
 EMGCorrView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_view$Corr[EMG_view$block == "1_view_neu"],
                                                                     y = EMG_view$Corr[EMG_view$block == "2_view_neg"],
@@ -796,8 +800,9 @@ EMGLevView_emm <- emmeans::emmeans(EMGLevView_aov$aov, specs = "block")
 EMGLevView_con <- as.data.frame(pairs(EMGLevView_emm, adjust = "bonferroni"))
 
 # Bayes Factors
-EMGLevView_BF <- BayesFactor::anovaBF(formula = Lev ~ block,
+EMGLevView_BF <- BayesFactor::anovaBF(formula = Lev ~ block + ID,
                                       data = EMG_view,
+                                      whichRandom = "ID",
                                       progress = FALSE)
 EMGLevView_con$BF10 <- BayesFactor::extractBF(BayesFactor::ttestBF(x = EMG_view$Lev[EMG_view$block == "1_view_neu"],
                                                                    y = EMG_view$Lev[EMG_view$block == "2_view_neg"],
@@ -838,7 +843,7 @@ FigEMGLevView <- ggplot2::ggplot(EMG_view_plot, aes(x = block, y = Lev, fill = b
 Ratings_reg <- data_ER %>%
   subset(data_ER$block != "1_view_neu" & data_ER$block != "6_choice")
 Ratings_reg$block <- as.factor(Ratings_reg$block)
-
+Ratings_reg$ID <- as.factor(Ratings_reg$ID)
 
 SubjArousalReg_aov <- afex::aov_ez(data = Ratings_reg,
                                    id = "ID",
@@ -853,8 +858,9 @@ SubjArousalReg_emm <- emmeans::emmeans(SubjArousalReg_aov$aov, specs = "block")
 SubjArousalReg_con <- as.data.frame(pairs(SubjArousalReg_emm, adjust = "bonferroni"))
 
 # Bayes Factors
-SubjArousalReg_BF <- BayesFactor::anovaBF(formula = arousal ~ block,
+SubjArousalReg_BF <- BayesFactor::anovaBF(formula = arousal ~ block + ID,
                                           data = Ratings_reg,
+                                          whichRandom = "ID",
                                           progress = FALSE)
 
 SubjArousalReg_con$BF10 <- c(BayesFactor::extractBF(BayesFactor::ttestBF(x = Ratings_reg$arousal[Ratings_reg$block == "2_view_neg"],
@@ -921,6 +927,7 @@ FigSubjArousalReg <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = arousal, fi
 EMG_reg <- data_EMG.new %>%
   subset(data_EMG.new$block != "1_view_neu" & data_EMG.new$block != "6_choice")
 EMG_reg$block <- as.factor(EMG_reg$block)
+EMG_reg$ID <- as.factor(EMG_reg$ID)
 
 EMGCorrReg_aov <- afex::aov_ez(data = EMG_reg,
                                id = "ID",
@@ -935,9 +942,10 @@ EMGCorrReg_emm <- emmeans::emmeans(EMGCorrReg_aov$aov, specs = "block")
 EMGCorrReg_con <- as.data.frame(pairs(EMGCorrReg_emm, adjust = "bonferroni"))
 
 # Bayes Factors
-EMGCorrReg_BF <- BayesFactor::anovaBF(formula = Corr ~ block,
-                                       data = EMG_reg,
-                                       progress = FALSE)
+EMGCorrReg_BF <- BayesFactor::anovaBF(formula = Corr ~ block + ID,
+                                      data = EMG_reg,
+                                      whichRandom = "ID",
+                                      progress = FALSE)
 
 EMGCorrReg_con$BF10 <- c(papaja::apa_print(BayesFactor::ttestBF(x = EMG_reg$Corr[EMG_reg$block == "2_view_neg"],
                                                                 y = EMG_reg$Corr[EMG_reg$block == "3_distraction"],
@@ -1008,8 +1016,9 @@ EMGLevReg_emm <- emmeans::emmeans(EMGLevReg_aov$aov, specs = "block")
 EMGLevReg_con <- as.data.frame(pairs(EMGLevReg_emm, adjust = "bonferroni"))
 
 # Bayes Factors
-EMGLevReg_BF <- BayesFactor::anovaBF(formula = Lev ~ block,
+EMGLevReg_BF <- BayesFactor::anovaBF(formula = Lev ~ block + ID,
                                      data = EMG_reg,
+                                     whichRandom = "ID",
                                      progress = FALSE)
 
 EMGLevReg_con$BF10 <- c(papaja::apa_print(BayesFactor::ttestBF(x = EMG_reg$Lev[EMG_reg$block == "2_view_neg"],
@@ -1085,8 +1094,9 @@ SubjEffort_emm <- emmeans::emmeans(SubjEffort_aov$aov, specs = "block")
 SubjEffort_con <- as.data.frame(pairs(SubjEffort_emm, adjust = "bonferroni"))
 
 # Bayes Factors
-SubjEffort_BF <- BayesFactor::anovaBF(formula = effort ~ block,
+SubjEffort_BF <- BayesFactor::anovaBF(formula = effort ~ block + ID,
                                       data = Ratings_reg,
+                                      whichRandom = "ID",
                                       progress = FALSE)
 
 SubjEffort_con$BF10 <- c(papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"],
