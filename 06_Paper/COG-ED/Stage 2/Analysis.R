@@ -146,7 +146,7 @@ colnames(all_quest)[1] <- "set" # rename the first column
 
 # compute index of rows in which the data sets change
 
-setindex <- c(1,which(all_quest$set != dplyr::lag(all_quest$set)),nrow(all_quest))
+setindex <- c(1,which(all_quest$set != dplyr::lag(all_quest$set)))
 
 # reshape the data frame for better handling (currently three rows per subject, lots of NAs)
 
@@ -162,20 +162,23 @@ data_quest <- cbind(data_quest, adherence = all_quest$followup_adherence[setinde
                     motivation = all_quest$followup_motivation[setindex+1],
                     motivation_other = all_quest$followup_motivation_other[setindex+1])
 
-# some participants started filling out the questionnaires two times, so their code appears twice
+# keep only those who answered all NFC items
 
 data_quest <- data_quest %>% filter(!is.na(nfc_16))
+
+# sets 2, 6, and 7 were dummy sets to test the NASA TLX iterations
+
+data_quest <- data_quest[!(data_quest$set == "2" | data_quest$set == "2_final" | data_quest$set == "6" | data_quest$set == "6_final" |
+                             data_quest$set == "7" | data_quest$set == "7_final"), ]
 
 # make a copy for counting the amount of participants who filled out the questionnaires
 
 n_quest <- data_quest
 
-# remove the following subjects for misunderstanding the instruction: E17T12, Z15R03, C18D18, H25N04, D24A05, T14G09, D29N05
-# remove the following subject for not remembering the level colours correctly during effort discounting: W16C01
-# sets 2, 6, and 7 were dummy sets to test the NASA TLX iterations
+# now remove the original data sets (which we needed for the time stamps) and keep only the edited sets
 
-data_quest <- data_quest[!(data_quest$subject == "E17T12" | data_quest$subject == "Z15R03" | data_quest$subject == "C18D18" | data_quest$subject == "H25N04" |
-                             data_quest$subject == "D24A05" | data_quest$subject == "T14G09" | data_quest$subject == "D29N05" | data_quest$subject == "W16C01"), ]
+n_quest <- n_quest[grep("_final", n_quest$set), ]
+n_quest <- nrow(n_quest)
 
 # remove any subject who states that they did not adhere to the instructions
 
@@ -197,11 +200,6 @@ acqui_time <- range(acqui_time, na.rm = TRUE)
 
 data_quest <- data_quest[grep("_final", data_quest$set), ]
 data_quest <- subset(data_quest, select = -c(set, time_quest, time_lab))
-
-# remove them from the counting variable as well
-
-n_quest <- n_quest[grep("_final", n_quest$set), ]
-n_quest <- nrow(n_quest)
 
 # remove temporary variables
 
