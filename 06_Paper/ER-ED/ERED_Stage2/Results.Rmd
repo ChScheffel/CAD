@@ -35,7 +35,7 @@ Please note that sample size for individual calculations may be smaller due to f
 
 ### Manipulation checks <!-- es gibt keine weitere Überschrift auf dieser Ebene, würde ich jedoch erwarten.-->
 
-#### Subjective arousal and physiological responding <!-- ich würde empfehlen, die selben Überschriften wie in 2.5 Analysis Plan zu nehmen, das wäre für diese Ergebnisse "Effect of valence on arousal and facial EMG." -->
+#### Subjective arousal and physiological responding <!-- ich würde empfehlen, die selben Überschriften wie in 2.5 Analysis Plan zu nehmen, das wäre für diese Ergebnisse "Effect of valence and emotion regulation on arousal and facial EMG." -->
 
 To explore whether negative pictures evoke emotional arousal and physiological responding, we conducted separate rmANOVAs for the active viewing condition with predictors subjective arousal, *Corrugator* and *Levator* activity. <!-- in den Methods habt ihr es klein und kursiv geschrieben. -->
 Descriptive values of each predictor for each condition can be found in table \@ref(tab:TabDescr).
@@ -57,11 +57,11 @@ papaja::apa_table(
   landscape = TRUE)
 ```
 
-#### Subjective effort of ER strategies
+#### Subjective effort of ER strategies <!-- ich würde empfehlen, die selben Überschriften wie in 2.5 Analysis Plan zu nehmen, das wäre für diese Ergebnisse "Effects of emotion regulation on effort" -->
 
 To investigate whether ER strategies require cognitive effort, we conducted an rmANOVA comparing the subjective effort ratings of four strategies (active viewing, distraction, distancing, suppression).
 We found a significant effect of strategy (`r papaja::apa_print(SubjEffort_aov)$full_result`, `r papaja::apa_print(SubjEffort_BF)$statistic`; see figure\ \@ref(fig:FigSubjEffort)).
-Post-hoc test showed significantly higher subjective effort for distraction (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X2viewneg_X3distraction`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"], y = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],progress = FALSE, paired = TRUE))$statistic`), distancing (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X2viewneg_X4distancing`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"], y = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],progress = FALSE, paired = TRUE))$statistic`), and suppression (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X2viewneg_X5suppression`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"], y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],progress = FALSE, paired = TRUE))$statistic`) compared to active viewing. 
+Post-hoc tests showed significantly higher subjective effort for distraction (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X2viewneg_X3distraction`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"], y = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],progress = FALSE, paired = TRUE))$statistic`), distancing (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X2viewneg_X4distancing`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"], y = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],progress = FALSE, paired = TRUE))$statistic`), and suppression (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X2viewneg_X5suppression`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"], y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],progress = FALSE, paired = TRUE))$statistic`) compared to active viewing. 
 Moreover, we found significantly lower effort during suppression compared with distraction (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X3distraction_X5suppression`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "3_distraction"], y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],progress = FALSE, paired = TRUE))$statistic`) and distancing (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X4distancing_X5suppression`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "4_distancing"], y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],progress = FALSE, paired = TRUE))$statistic`).
 
 [INSERT FIGURE 3 HERE]
@@ -70,10 +70,10 @@ Moreover, we found significantly lower effort during suppression compared with d
 knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigSubjEffort.png"))
 ```
 
-The cognitive effort expended also played the most important role in the subsequent choice decision, which resembled previous findings of our group[@Scheffel2021]. 
-Here, `r round((54/119)*100, digits = 1)`% stated that they chose the strategy that was easiest for them to implement.
+Cognitive effort also played the most important role in the subsequent choice decision, which resembled previous findings of our group[@Scheffel2021]. 
+`r round((54/119)*100, digits = 1)`% of the participants stated that they chose the strategy that was easiest for them to implement.
 `r round((29/119)*100, digits = 1)`% stated they chose the strategy that was most effective and `r round((14/119)*100, digits = 1)`% stated their chosen strategy was the easiest and most effective.
-A more detailed list of all reasons can be found in Table XX in [supplementary material](#SupplementReasonChoice).
+A more detailed list of all reasons can be found in Table XX <!-- Nummer noch ergänzen --> in [supplementary material](#SupplementReasonChoice).
 
 #### Subjective values of ER strategies
 
