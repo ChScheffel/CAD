@@ -67,7 +67,7 @@ Moreover, we found significantly lower effort during suppression compared with d
 
 [INSERT FIGURE 3 HERE]
 
-```{r FigSubjEffort, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective effort ratings vizalized as boxplots. Dots represent individual effort ratings placed in 150 quantiles.", fig.pos="H"}
+```{r FigSubjEffort, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective effort ratings vizalized as boxplots. Dots represent individual effort ratings placed in 150 quantiles. Figure available at https://osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"}
 knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigSubjEffort.png"))
 ```
 
@@ -107,10 +107,11 @@ papaja::apa_table(
   caption = "Results of multilevel model predicting subjective values of ER strategies.",
   booktabs = TRUE,
   escape = FALSE,
-  placement = "H")
+  placement = "H",
+  digits = 3)
 ```
 
-The predictors effort rating (`r papaja::apa_print(MLM_2)$full_result$effort_cwc`), utility rating (`r papaja::apa_print(MLM_2)$full_result$utility_cwc`), and *Corrugator* activity (`r papaja::apa_print(MLM_2)$full_result$Corr_cwc`) showed a significant association with SVs.
+The predictors effort rating (`r papaja::apa_print(MLM_2, digits = 3)$full_result$effort_cwc`), utility rating (`r papaja::apa_print(MLM_2, digits = 3)$full_result$utility_cwc`), and *Corrugator* activity (`r papaja::apa_print(MLM_2, digits = 3)$full_result$Corr_cwc`) showed a significant association with SVs.
 The values were relatively small, so the respective effect size $f^{2}$ was calculated as the explained variance.
 The predictor utility rating showed the greatest effect size of all predictors ($f^{2}=$ `r papaja::printnum(H5_M2_table[4,5], digits = 3)`), indicating that utility rating explained `r papaja::printnum(H5_M2_table[4,5]*100, digits = 1)`% of variance in SVs.
 Effort rating showed an effect size of $f^{2}=$ `r papaja::printnum(H5_M2_table[2,5], digits = 3)`.
@@ -120,11 +121,11 @@ The effect sizes of all other predictors were negligibly small ($f^{2}< 0.01$).
 
 To investigate the ecological validity of the subjective values of ER strategies we calculated, we tested whether SVs were associated with the actual choice of participants in the choice block.
 Therefore, a $\chi^{2}$ test with predicted choice (i.e., the strategy with the highest SV of each participant) and actual choice was computed.
-There was a significant association between predicted choice and actual choice (`r papaja::apa_print(choice_chisq, n=119)$statistic[[1]]`, `r papaja::apa_print(choice_chisq_BF)$statistic`; see figure\ \@ref(fig:FigSVChoice)). <!--JZ: Vielleicht wäre hier eine Heatmap auch ganz nice, das scheint wohl eine gute Visualisierung für einen Chi Square Test zu sein (https://www.analyticsvidhya.com/blog/2021/06/decoding-the-chi-square-test%E2%80%8A-%E2%80%8Ause-along-with-implementation-and-visualization/)-->
+There was a significant association between predicted choice and actual choice (`r papaja::apa_print(choice_chisq, n=119)$statistic[[1]]`, `r papaja::apa_print(choice_chisq_BF)$statistic`; see figure\ \@ref(fig:FigSVChoice)). 
 
 [INSERT FIGURE 4 HERE]
 
-```{r FigSVChoice, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Individual subjective values per ER strategy, grouped by choice in last experimental block. Each dot indicates SV of one particpant, the colours indicate their choice in last experimental block. $N=120$", fig.pos="H"}
+```{r FigSVChoice, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Individual subjective values per ER strategy, grouped by choice in last experimental block. Each dot indicates SV of one particpant, the colours indicate their choice in last experimental block. The scatter has a horizontal jitter of 0.40 and a vertical jitter of 0.05. $N=120$". Figure available at https://osf.io/vnj8x/, under a CC-BY-4.0 license., fig.pos="H"}
 knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigSVChoice.png"))
 ```
 
