@@ -133,7 +133,7 @@ Overall model fit was fair with $R^{2}=$ `r papaja::printnum(Choice_OrdReg_R2)`.
 The SV of the strategy distraction contributed significantly to the model (`r papaja::apa_print(Choice_OrdReg)$full_result$distraction_sv`, $BF10=$ `r papaja::printnum(Choice_OrdReg_Posterior$BFtu_exploratory[2,2])`).
 The estimated odds ratio indicated a higher chance of choosing distraction, when the SV of that strategy is higher.
 Additionally, the SV of the strategy suppression contributed significantly to the model (`r papaja::apa_print(Choice_OrdReg)$full_result$suppression_sv`, $BF10=$ `r papaja::printnum(Choice_OrdReg_Posterior$BFtu_exploratory[4,3])`).
-The estimated odds ration indicated that a participant is more likely to later choose suppression, when the SV of the strategy suppression is higher.
+The estimated odds ratio indicated that a participant is more likely to later choose suppression, when the SV of the strategy suppression is higher.
 
 Last, we investigated whether SVs are associated with ER flexibility.
 We conducted a logistic regression to inspect whether participants' individual $slopes$ and $intercepts$ of ordered SVs could predict their ER flexibility score.
