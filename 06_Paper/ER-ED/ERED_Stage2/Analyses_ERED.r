@@ -1344,6 +1344,9 @@ H5_M2_table$Parameter[1:6] <- c("Intercept", "Effort", "Arousal", "Utility", "Co
 
 H5_M2_table[3:6] <- lapply(H5_M2_table[3:6], as.numeric)
 
+H5_M2_table$`$p$-value` <- format(round(H5_M2_table$`$p$-value`, digits = 3), nsmall = 2)
+H5_M2_table$`$p$-value`[H5_M2_table$`$p$-value` == "0.000"] <-  "<.001"
+
 ######## HYPOTHESIS 6
 
 # 
