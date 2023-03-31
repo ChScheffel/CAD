@@ -38,7 +38,7 @@ Please note that sample size for individual calculations may be smaller due to f
 #### Subjective arousal and physiological responding
 
 To explore whether negative pictures evoke emotional arousal and physiological responding, we conducted separate ANOVAs for the active viewing condition with predictors subjective arousal, *Corrugator* and *Levator* activity.
-Descriptive values of each predictor for each condition can be found in table \@ref(tab:TabDescr).
+Descriptive values of each predictor for each condition can be found in Table \@ref(tab:TabDescr).
 We found a significant main effect of valence for subjective arousal (`r papaja::apa_print(SubjArousalView_aov)$full_result`, `r papaja::apa_print(SubjArousalView_BF)$statistic`), *Corrugator* activity (`r papaja::apa_print(EMGCorrView_aov)$full_result`, `r papaja::apa_print(EMGCorrView_BF)$statistic`), and *Levator* activity (`r papaja::apa_print(EMGLevView_aov)$full_result`, `r papaja::apa_print(EMGLevView_BF)$statistic`).
 Post-hoc contrasts indicated that negative pictures successfully increased emotional arousal and physiological responding (please see Tables \@ref(tab:SupplEffectArousalView) to \@ref(tab:SupplEffectLevView and Figures \@ref(fig:SupplFigArousalView) to \@ref(fig:SupplFigLevView) in the [supplement]).
 
@@ -61,7 +61,7 @@ papaja::apa_table(
 #### Subjective effort of ER strategies
 
 To investigate whether ER strategies require cognitive effort, we conducted an rmANOVA comparing the subjective effort ratings of four strategies (active viewing, distraction, distancing, suppression).
-We found a significant effect of strategy (`r papaja::apa_print(SubjEffort_aov)$full_result`, `r papaja::apa_print(SubjEffort_BF)$statistic`; see figure\ \@ref(fig:FigSubjEffort)).
+We found a significant effect of strategy (`r papaja::apa_print(SubjEffort_aov)$full_result`, `r papaja::apa_print(SubjEffort_BF)$statistic`; see Figure\ \@ref(fig:FigSubjEffort)).
 Post-hoc contrasts showed significantly higher subjective effort for distraction (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X2viewneg_X3distraction`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"], y = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],progress = FALSE, paired = TRUE))$statistic`), distancing (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X2viewneg_X4distancing`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"], y = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],progress = FALSE, paired = TRUE))$statistic`), and suppression (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X2viewneg_X5suppression`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"], y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],progress = FALSE, paired = TRUE))$statistic`) compared to active viewing. 
 Moreover, we found significantly lower effort during suppression compared with distraction (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X3distraction_X5suppression`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "3_distraction"], y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],progress = FALSE, paired = TRUE))$statistic`) and distancing (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X4distancing_X5suppression`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "4_distancing"], y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],progress = FALSE, paired = TRUE))$statistic`).
 
@@ -143,7 +143,7 @@ However, model fit was relatively low (`r papaja::apa_print(Flex_LM)$full_result
 
 ## 3.3. Exploratory analyses
 
-We exploratorily wanted to investigate the influence of self-control and the investment trait Need for Cognition (NFC) on individual SVs of ER strategies.
+Because associations between self-control, the investment trait Need for Cognition (NFC) and both, effort discounting and demand avoidance have been reported[@ZernaScheffel2022;@Westbrook2013;@Kool2013], we wanted to investigate the influence of self-control and NFC on individual SVs of ER strategies.
 The starting point for this was the model reported before. 
 Only predictors that had previously shown a significant association with SVs were included in the model together with level-2 predictors self-control and NFC.
 The third model followed the specification:
