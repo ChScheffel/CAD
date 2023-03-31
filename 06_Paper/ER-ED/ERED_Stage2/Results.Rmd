@@ -118,7 +118,7 @@ The effect sizes of all other predictors were negligibly small ($f^{2}< 0.01$).
 
 #### Associations between subjective values and flexible ER
 
-To investigate the ecological validity of the subjective values of ER strategies we calculated, we tested whether SVs were associated with the actual choice of participants in the choice block.
+To investigate the ecological validity of the calculated subjective values of ER strategies, we tested whether SVs were associated with the actual choice of participants in the last experimental block.
 Therefore, a $\chi^{2}$ test with predicted choice (i.e., the strategy with the highest SV of each participant) and actual choice was computed.
 There was a significant association between predicted choice and actual choice (`r papaja::apa_print(choice_chisq, n=119)$statistic[[1]]`, `r papaja::apa_print(choice_chisq_BF)$statistic`; see figure\ \@ref(fig:FigSVChoice)). <!--JZ: Vielleicht wäre hier eine Heatmap auch ganz nice, das scheint wohl eine gute Visualisierung für einen Chi Square Test zu sein (https://www.analyticsvidhya.com/blog/2021/06/decoding-the-chi-square-test%E2%80%8A-%E2%80%8Ause-along-with-implementation-and-visualization/)-->
 
