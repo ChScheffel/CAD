@@ -143,15 +143,15 @@ However, model fit was relatively low (`r papaja::apa_print(Flex_LM)$full_result
 ## 3.3. Exploratory analyses
 
 We exploratorily wanted to investigate the influence of self-control and the investment trait Need for Cognition (NFC) on individual SVs of ER strategies.
-The starting point for this was the model reported before. 
-Only predictors that had previously shown a significant association with SVs were included in the model together with level-2 predictors self-control and NFC.
+The starting point for this was the model reported before. <!-- welches model genau? -->
+Only predictors that had previously shown a significant association with SVs were included in the model together with level-2 predictors self-control and NFC. <!-- ist das wirklich zulässig? Ich hab mich gefragt, ob das nich zu Kritik von den Reviewern führen könnte, dass ihr hier nur die vorher sign. predictors auswählt.-->
 The third model followed the specification:
 $$
 \begin{split}
 SV \sim \text{effort rating} + \text{utility rating} + corrugator \text{ activity} \\\ \text{self-control} + \text{NFC} + (1 |subject)
 \end{split}
 $$
-As one would expect, the predictors effort rating (`r papaja::apa_print(MLM_3)$full_result$effort_cwc`) showed a negative association with SVs, while utility rating (`r papaja::apa_print(MLM_3)$full_result$utility_cwc`), and *Corrugator* activity (`r papaja::apa_print(MLM_3)$full_result$Corr_cwc`) showed a significant positive association with SVs.
+As expected, the predictors effort rating (`r papaja::apa_print(MLM_3)$full_result$effort_cwc`) showed a negative association with SVs, while utility rating (`r papaja::apa_print(MLM_3)$full_result$utility_cwc`), and *Corrugator* activity (`r papaja::apa_print(MLM_3)$full_result$Corr_cwc`) showed a significant positive association with SVs.
 In addition, a positive association was also found between self-control and SVs (`r papaja::apa_print(MLM_3)$full_result$SC_gmc`).
 However, the effect size of self-control was negligibly small ($f^{2}=$ `r papaja::printnum(Exp_M3_table[5,5], digits = 3)`).
 Detailed information can be found in the [supplementary material](#SupplementExploratory).
