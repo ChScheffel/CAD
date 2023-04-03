@@ -37,14 +37,14 @@ Please note that sample size for individual calculations may be smaller due to f
 
 #### Effect of valence on arousal and facial EMG
 
-To explore whether negative pictures evoke emotional arousal and physiological responding, we conducted separate ANOVAs for the active viewing condition with predictors subjective arousal, *Corrugator* and *Levator* activity.
+To explore whether negative pictures evoke emotional arousal and physiological responding, we conducted separate rmANOVAs for the active viewing condition with predictors subjective arousal, *corrugator* and *levator* activity.
 Descriptive values of each predictor for each condition can be found in Table \@ref(tab:TabDescr).
-We found a significant main effect of valence for subjective arousal (`r papaja::apa_print(SubjArousalView_aov)$full_result`, `r papaja::apa_print(SubjArousalView_BF)$statistic`), *Corrugator* activity (`r papaja::apa_print(EMGCorrView_aov)$full_result`, `r papaja::apa_print(EMGCorrView_BF)$statistic`), and *Levator* activity (`r papaja::apa_print(EMGLevView_aov)$full_result`, `r papaja::apa_print(EMGLevView_BF)$statistic`).
+We found a significant main effect of valence for subjective arousal (`r papaja::apa_print(SubjArousalView_aov)$full_result`, `r papaja::apa_print(SubjArousalView_BF)$statistic`), *corrugator* activity (`r papaja::apa_print(EMGCorrView_aov)$full_result`, `r papaja::apa_print(EMGCorrView_BF)$statistic`), and *levator* activity (`r papaja::apa_print(EMGLevView_aov)$full_result`, `r papaja::apa_print(EMGLevView_BF)$statistic`).
 Post-hoc contrasts indicated that negative pictures successfully increased emotional arousal and physiological responding (please see Tables \@ref(tab:SupplEffectArousalView) to \@ref(tab:SupplEffectLevView and Figures \@ref(fig:SupplFigArousalView) to \@ref(fig:SupplFigLevView) in the [supplement]).
 
 #### Effect of emotion regulation on arousal and facial EMG
-To investigate whether ER strategies reduce emotional arousal and physiological responding, we conducted separate rmANOVA comparing subjective arousal, *Corrugator* and *Levator* activity of four strategies (active viewing, distraction, distancing, suppression). 
-We found a significant effect of strategy for subjective arousal (`r papaja::apa_print(SubjArousalReg_aov)$full_result`, `r papaja::apa_print(SubjArousalReg_BF)$statistic`), *Corrugator* activity (`r papaja::apa_print(EMGCorrReg_aov)$full_result`, `r papaja::apa_print(EMGCorrReg_BF)$statistic`), and *Levator* activity (`r papaja::apa_print(EMGLevReg_aov)$full_result`, `r papaja::apa_print(EMGLevReg_BF)$statistic`), indicating that regulation strategies reduced subjective arousal and physiological responding.
+To investigate whether ER strategies reduce emotional arousal and physiological responding, we conducted separate rmANOVA comparing subjective arousal, *corrugator* and *levator* activity of four strategies (active viewing, distraction, distancing, suppression). 
+We found a significant effect of strategy for subjective arousal (`r papaja::apa_print(SubjArousalReg_aov)$full_result`, `r papaja::apa_print(SubjArousalReg_BF)$statistic`), *corrugator* activity (`r papaja::apa_print(EMGCorrReg_aov)$full_result`, `r papaja::apa_print(EMGCorrReg_BF)$statistic`), and *levator* activity (`r papaja::apa_print(EMGLevReg_aov)$full_result`, `r papaja::apa_print(EMGLevReg_BF)$statistic`), indicating that regulation strategies reduced subjective arousal and physiological responding.
 For detailed information on post-hoc contrasts, please see Tables \@ref(tab:SupplEffectArousalReg) to \@ref(tab:SupplEffectLevReg) and Figures \@ref(fig:SupplFigArousalReg) to \@ref(fig:SupplFigLevReg) in the [supplementary material](#SupplementEffectER).
 
 [INSERT TABLE 1 HERE]
@@ -77,7 +77,7 @@ Here, `r round((54/119)*100, digits = 1)`% stated that they chose the strategy t
 `r round((29/119)*100, digits = 1)`% stated they chose the strategy that was most effective and `r round((14/119)*100, digits = 1)`% stated their chosen strategy was the easiest and most effective.
 A more detailed list of all reasons can be found in Table XX in [supplementary material](#SupplementReasonChoice).
 
-### Subjective values of ER strategies
+### Subjective values of ER strategies and their predictors
 
 Individual SVs could be determined for `r nrow(data_SV)/3` participants for all three ER strategies.
 SVs ranged between `r papaja::apa_num(min(data_SV$sv), digits = 3)` and `r papaja::apa_num(max(data_SV$sv))`.
@@ -112,7 +112,7 @@ papaja::apa_table(
   digits = 3)
 ```
 
-The predictors effort rating (`r papaja::apa_print(MLM_2, digits = 3)$full_result$effort_cwc`), utility rating (`r papaja::apa_print(MLM_2, digits = 3)$full_result$utility_cwc`), and *Corrugator* activity (`r papaja::apa_print(MLM_2, digits = 3)$full_result$Corr_cwc`) showed a significant association with SVs.
+The predictors effort rating (`r papaja::apa_print(MLM_2, digits = 3)$full_result$effort_cwc`), utility rating (`r papaja::apa_print(MLM_2, digits = 3)$full_result$utility_cwc`), and *corrugator* activity (`r papaja::apa_print(MLM_2, digits = 3)$full_result$Corr_cwc`) showed a significant association with SVs.
 The values were relatively small, so the respective effect size $f^{2}$ was calculated as the explained variance.
 The predictor utility rating showed the greatest effect size of all predictors ($f^{2}=$ `r papaja::printnum(H5_M2_table[4,5], digits = 3)`), indicating that utility rating explained `r papaja::printnum(H5_M2_table[4,5]*100, digits = 1)`% of variance in SVs.
 Effort rating showed an effect size of $f^{2}=$ `r papaja::printnum(H5_M2_table[2,5], digits = 3)`.
