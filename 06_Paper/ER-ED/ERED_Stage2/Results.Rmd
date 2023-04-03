@@ -148,7 +148,7 @@ However, model fit was relatively low (`r papaja::apa_print(Flex_LM)$full_result
 
 ## 3.3. Exploratory analyses
 
-Because associations between self-control, the investment trait Need for Cognition (NFC) and both, effort discounting and demand avoidance have been reported[@ZernaScheffel2022; @Westbrook2013; @Kool2013], we wanted to investigate the influence of self-control and NFC on individual SVs of ER strategies.
+Because associations between self-control, the investment trait Need for Cognition (NFC) and both, effort discounting and demand avoidance have been reported[@ZernaScheffel2022;@Westbrook2013;@Kool2013], we wanted to investigate the influence of self-control and NFC on individual SVs of ER strategies.
 The starting point for this was the adapted MLM, we reported before.
 Only predictors that had previously shown a significant association with SVs were included in the model together with level-2 predictors self-control and NFC.
 The third model followed the specification: $$
