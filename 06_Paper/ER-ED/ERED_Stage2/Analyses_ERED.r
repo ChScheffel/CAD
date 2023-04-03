@@ -659,7 +659,7 @@ for (i in seq_len(length(unique(data_EMG$block))-1)) {
   
 }
 
-rownames(df.NV.EMG) <- c("Corrgator View Neu", "Corrgator View Neg", "Corrgator Distraction", "Corrgator Distancing", "Corrgator Suppression",
+rownames(df.NV.EMG) <- c("Corrugator View Neu", "Corrugator View Neg", "Corrugator Distraction", "Corrugator Distancing", "Corrugator Suppression",
                           "Levator View Neu", "Levator View Neg", "Levator Distraction", "Levator Distancing", "Levator Suppression")
 colnames(df.NV.EMG) <- c("$M$", "$SD$", "$W$", "$p$")
 
