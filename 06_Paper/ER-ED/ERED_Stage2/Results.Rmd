@@ -2,6 +2,9 @@
 title: "Results"
 author: "Christoph Scheffel"
 output: html_document
+editor_options: 
+  markdown: 
+    wrap: sentence
 ---
 
 ```{r SetupResults, include = FALSE}
@@ -24,30 +27,33 @@ options(papaja.na_string = "")
 
 ## 3.1 Participants and descriptive statistics
 
-Data collection took place between `r format(as.Date(acqui_time[1]), "%Y-%m")` and `r format(as.Date(acqui_time[2]), "%Y-%m")`. <!-- hier wird "2022-08 and 2023-02" geschrieben, finde ich im Lesefluss nicht so schön. Wie wäre es mit "August 2022 and February 2023"?-->
+Data collection took place between 16th of August 2022 and the 3rd of February 2023.
 A total of $N=`r sum(data_survey[,"lay_beliefs_complete"] == 2)`$ participants completed the online survey and were invited to participate in the two lab sessions.
 Of these, $N=`r sum(data_survey[,"files_coged_complete"] == 2)`$ participated in the first laboratory session [@ZernaScheffel2022] and $N=`r sum(data_survey[,"followup_ered_complete"] == 2)`$ completed the second laboratory session.
 Of these, $n=1$ person had to be excluded from analyses because they did not follow the instructions.
-The final sample consisted of $N=`r sum(data_survey[,"followup_ered_complete"] == 2)-1`$ participants (`r length(which(data_descr[which(data_descr[,"ID"] != dplyr::lag(data_descr[,"ID"])),"gender"] == 2))` female; age: $M=`r papaja::printnum(mean(data_descr[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`\text{ }\pm\text{ }SD = `r papaja::printnum(sd(data_descr[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`$).
+The final sample consisted of $N=`r sum(data_survey[,"followup_ered_complete"] == 2)-1`$ participants (`r length(which(data_descr[which(data_descr[,"ID"] != dplyr::lag(data_descr[,"ID"])),"gender"] == 2))` female; age: $M\text{ }\pm\text{ }SD =`r papaja::printnum(mean(data_descr[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`\text{ }\pm\text{ }`r papaja::printnum(sd(data_descr[,"age"], na.rm = TRUE), digits = 1, gt1 = TRUE)`$ years old), which is `r format(round((sum(data_survey[,"followup_ered_complete"] == 2)-1)/85, digits = 1), nsmall = 1)` times more than what the highest sample size calculation required.
 Please note that sample size for individual calculations may be smaller due to failure of EMG recording ($n=1$) and failure to record utility ratings ($n=`r sum(is.na(data_ER[,"utility"][data_ER[,"block"] == "3_distraction"]))`$).
 
 ## 3.2. Confirmatory analyses
 
 ### Manipulation checks <!-- es gibt keine weitere Überschrift auf dieser Ebene, würde ich jedoch erwarten.-->
 
-#### Subjective arousal and physiological responding <!-- ich würde empfehlen, die selben Überschriften wie in 2.5 Analysis Plan zu nehmen, das wäre für diese Ergebnisse "Effect of valence and emotion regulation on arousal and facial EMG." -->
+#### Effect of valence on arousal and facial EMG
 
-To explore whether negative pictures evoke emotional arousal and physiological responding, we conducted separate rmANOVAs for the active viewing condition with predictors subjective arousal, *Corrugator* and *Levator* activity. <!-- in den Methods habt ihr es klein und kursiv geschrieben. -->
-Descriptive values of each predictor for each condition can be found in table \@ref(tab:TabDescr).
-We found a highly significant main effect of valence for subjective arousal (`r papaja::apa_print(SubjArousalView_aov)$full_result`, `r papaja::apa_print(SubjArousalView_BF)$statistic`), *Corrugator* activity (`r papaja::apa_print(EMGCorrView_aov)$full_result`, `r papaja::apa_print(EMGCorrView_BF)$statistic`), and *Levator* activity (`r papaja::apa_print(EMGLevView_aov)$full_result`, `r papaja::apa_print(EMGLevView_BF)$statistic`), indicating that negative pictures successfully increased emotional arousal and physiological responding.
+To explore whether negative pictures evoke emotional arousal and physiological responding, we conducted separate rmANOVAs for the active viewing condition with predictors subjective arousal, *corrugator* and *levator* activity.
+Descriptive values of each predictor for each condition can be found in Table \@ref(tab:TabDescr).
+We found a significant main effect of valence for subjective arousal (`r papaja::apa_print(SubjArousalView_aov)$full_result`, `r papaja::apa_print(SubjArousalView_BF)$statistic`), *corrugator* activity (`r papaja::apa_print(EMGCorrView_aov)$full_result`, `r papaja::apa_print(EMGCorrView_BF)$statistic`), and *levator* activity (`r papaja::apa_print(EMGLevView_aov)$full_result`, `r papaja::apa_print(EMGLevView_BF)$statistic`).
+Post-hoc contrasts indicated that negative pictures successfully increased emotional arousal and physiological responding (please see Tables \@ref(tab:SupplEffectArousalView) to \@ref(tab:SupplEffectLevView and Figures \@ref(fig:SupplFigArousalView) to \@ref(fig:SupplFigLevView) in the [supplement]).
 
-To investigate whether ER strategies reduce emotional arousal and physiological responding, we conducted separate rmANOVA comparing the four instructed strategies (active viewing, distraction, distancing, suppression) with respect to subjective arousal, *corrugator* and *levator* activity. 
-We found a significant effect of strategy for subjective arousal (`r papaja::apa_print(SubjArousalReg_aov)$full_result`, `r papaja::apa_print(SubjArousalReg_BF)$statistic`), *Corrugator* activity (`r papaja::apa_print(EMGCorrReg_aov)$full_result`, `r papaja::apa_print(EMGCorrReg_BF)$statistic`), and *Levator* activity (`r papaja::apa_print(EMGLevReg_aov)$full_result`, `r papaja::apa_print(EMGLevReg_BF)$statistic`), indicating that regulation strategies reduced subjective arousal and physiological responding.
-For detailed information on post-hoc tests, please see tables \@ref(tab:SupplEffectArousalReg) to \@ref(tab:SupplEffectLevReg) and figures \@ref(fig:SupplFigArousalReg) to \@ref(fig:SupplFigLevReg) in the [supplementary material](#SupplementEffectER).
+#### Effect of emotion regulation on arousal and facial EMG
+
+To investigate whether ER strategies reduce emotional arousal and physiological responding, we conducted separate rmANOVA comparing the four instructed strategies (active viewing, distraction, distancing, suppression) with respect to subjective arousal, *corrugator* and *levator* activity.
+We found a significant effect of strategy for subjective arousal (`r papaja::apa_print(SubjArousalReg_aov)$full_result`, `r papaja::apa_print(SubjArousalReg_BF)$statistic`), *corrugator* activity (`r papaja::apa_print(EMGCorrReg_aov)$full_result`, `r papaja::apa_print(EMGCorrReg_BF)$statistic`), and *levator* activity (`r papaja::apa_print(EMGLevReg_aov)$full_result`, `r papaja::apa_print(EMGLevReg_BF)$statistic`), indicating that regulation strategies reduced subjective arousal and physiological responding.
+For detailed information on post-hoc contrasts, please see Tables \@ref(tab:SupplEffectArousalReg) to \@ref(tab:SupplEffectLevReg) and Figures \@ref(fig:SupplFigArousalReg) to \@ref(fig:SupplFigLevReg) in the [supplementary material](#SupplementEffectER).
 
 [INSERT TABLE 1 HERE]
 
-``` {r TabDescr, echo=FALSE, message=FALSE, warning=FALSE}
+```{r TabDescr, echo=FALSE, message=FALSE, warning=FALSE}
 papaja::apa_table(
   df.descr,
   caption = "$M \\pm SD$ of subjective arousal, subjetive effort, subjective utility, Corrugator activity, and Levator activity for each condition.",
@@ -57,26 +63,24 @@ papaja::apa_table(
   landscape = TRUE)
 ```
 
-#### Subjective effort of ER strategies <!-- ich würde empfehlen, die selben Überschriften wie in 2.5 Analysis Plan zu nehmen, das wäre für diese Ergebnisse "Effects of emotion regulation on effort" -->
+#### Effect of emotion regulation of effort
 
 To investigate whether ER strategies require cognitive effort, we conducted an rmANOVA comparing the subjective effort ratings of four strategies (active viewing, distraction, distancing, suppression).
-We found a significant effect of strategy (`r papaja::apa_print(SubjEffort_aov)$full_result`, `r papaja::apa_print(SubjEffort_BF)$statistic`; see figure\ \@ref(fig:FigSubjEffort)).
-Post-hoc tests showed significantly higher subjective effort for distraction (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X2viewneg_X3distraction`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"], y = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],progress = FALSE, paired = TRUE))$statistic`), distancing (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X2viewneg_X4distancing`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"], y = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],progress = FALSE, paired = TRUE))$statistic`), and suppression (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X2viewneg_X5suppression`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"], y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],progress = FALSE, paired = TRUE))$statistic`) compared to active viewing. 
+We found a significant effect of strategy (`r papaja::apa_print(SubjEffort_aov)$full_result`, `r papaja::apa_print(SubjEffort_BF)$statistic`; see Figure \@ref(fig:FigSubjEffort)).
+Post-hoc contrasts showed significantly higher subjective effort for distraction (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X2viewneg_X3distraction`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"], y = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],progress = FALSE, paired = TRUE))$statistic`), distancing (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X2viewneg_X4distancing`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"], y = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],progress = FALSE, paired = TRUE))$statistic`), and suppression (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X2viewneg_X5suppression`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"], y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],progress = FALSE, paired = TRUE))$statistic`) compared to active viewing.
 Moreover, we found significantly lower effort during suppression compared with distraction (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X3distraction_X5suppression`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "3_distraction"], y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],progress = FALSE, paired = TRUE))$statistic`) and distancing (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X4distancing_X5suppression`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "4_distancing"], y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],progress = FALSE, paired = TRUE))$statistic`).
 
 [INSERT FIGURE 3 HERE]
 
-```{r FigSubjEffort, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective effort ratings vizalized as boxplots. Dots represent individual effort ratings placed in 150 qantiles.", fig.pos="H"}
+```{r FigSubjEffort, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective effort ratings vizalized as boxplots. Dots represent individual effort ratings placed in 150 quantiles. Figure available at https://osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"}
 knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigSubjEffort.png"))
 ```
-
-Cognitive effort also played the most important role in the subsequent choice decision, which resembled previous findings of our group[@Scheffel2021]. 
+Cognitive effort also played the most important role in the subsequent choice decision, which resembled previous findings of our group[@Scheffel2021].
 `r round((54/119)*100, digits = 1)`% of the participants stated that they chose the strategy that was easiest for them to implement.
 `r round((29/119)*100, digits = 1)`% stated they chose the strategy that was most effective and `r round((14/119)*100, digits = 1)`% stated their chosen strategy was the easiest and most effective.
 A more detailed list of all reasons can be found in Table XX <!-- Nummer noch ergänzen --> in [supplementary material](#SupplementReasonChoice).
 
-### Neue Überschrift? <!-- ab hier sind es doch keine Manipulation Checks mehr, oder? -->
-#### Subjective values of ER strategies and their predictors
+### Subjective values of ER strategies and their predictors
 
 Individual SVs could be determined for `r nrow(data_SV)/3` participants for all three ER strategies.
 SVs ranged between `r papaja::apa_num(min(data_SV$sv), digits = 3)` and `r papaja::apa_num(max(data_SV$sv))`.
@@ -86,32 +90,33 @@ Highest SV for distraction was reported by $n=$ `r  papaja::printnum(sum(data_SV
 
 To investigate, which variables can predict individual SVs of ER strategies, a multilevel model approach was chosen.
 The ICC of the null model was $ICC=$ `r papaja::printnum(ICC_between_MLM_0)`, indicating that the level-2 predictor subject accounted for `r papaja::printnum(round(ICC_between_MLM_0*100, digits = 1))`% of total variance.
-The preregistered model showed a correlation of $r=$ `r papaja::printnum(attr(summary(MLM_1)$varcor[1]$ID,"correlation")[1,2])` between the random effects subjects and recoded strategy ($BF10$ of the variable strategy: `r papaja::apa_print(MLM_1_BF)$statistic`). <!-- für die Lesbarkeit wäre es besser, wenn die Variablen irgendwie anders formatiert wären, kursiv oder in Anführungszeichen. -->
-Our model explained `r papaja::printnum(MLM1_r2[2])`% of variance <!-- im PDF steht dasnn 0.90% of variance, aber ihr meint doch 90% of variance, oder? --> and thus we assumed our model was overfitted due to including recoded strategy as the random slope.
+The preregistered model showed a correlation of $r=$ `r papaja::printnum(attr(summary(MLM_1)$varcor[1]$ID,"correlation")[1,2])` between the random effects *subjects* and *recoded strategy* ($BF10$ of the variable *strategy*: `r papaja::apa_print(MLM_1_BF)$statistic`).
+Our model explained `r papaja::printnum(MLM1_r2[2]*100, digits=1)`% of variance and thus we assumed our model was overfitted due to including recoded strategy as the random slope.
 We therefore set a new model without the recoded strategy as the random slope factor to estimate the influence of predictors on SVs more precisely.
 The second model followed the specification: 
 $$
 \begin{split}
 SV \sim \text{effort rating} + \text{arousal rating} + \text{utility rating} + corrugator \text{ activity} \\\ + levator \text{ activity} + (1 |subject)
 \end{split}
-$$ 
+$$
 
-The second model explained `r papaja::printnum(MLM2_r2[2])`% of variance <!-- im PDF steht dasnn 0.41% of variance, aber ihr meint doch 41% of variance, oder? --> . 
-All results of the second model are in Table\ \@ref(tab:TabMLMH5).
+The second model explained `r papaja::printnum(MLM2_r2[2]*100, digits=1)`% of variance.
+All results of the second model are in Table \@ref(tab:TabMLMH5).
 
 [INSERT TABLE 2 HERE]
 
-``` {r TabMLMH5, echo=FALSE, message=FALSE, warning=FALSE}
+```{r TabMLMH5, echo=FALSE, message=FALSE, warning=FALSE}
 papaja::apa_table(
   H5_M2_table,
   caption = "Results of multilevel model predicting subjective values of ER strategies.",
   booktabs = TRUE,
   escape = FALSE,
-  placement = "H")
+  placement = "H",
+  digits = 3)
 ```
 
-The predictors effort rating (`r papaja::apa_print(MLM_2)$full_result$effort_cwc`), utility rating (`r papaja::apa_print(MLM_2)$full_result$utility_cwc`), and *Corrugator* activity (`r papaja::apa_print(MLM_2)$full_result$Corr_cwc`) showed a significant association with SVs.
-The values <!-- welche? Beta? --> were relatively small, so the respective effect size $f^{2}$ was calculated as the explained variance.
+The predictors effort rating (`r papaja::apa_print(MLM_2, digits = 3)$full_result$effort_cwc`), utility rating (`r papaja::apa_print(MLM_2, digits = 3)$full_result$utility_cwc`), and *corrugator* activity (`r papaja::apa_print(MLM_2, digits = 3)$full_result$Corr_cwc`) showed a significant association with SVs.
+Beta values were relatively small, so the respective effect size $f^{2}$ was calculated as the explained variance.
 The predictor utility rating showed the greatest effect size of all predictors ($f^{2}=$ `r papaja::printnum(H5_M2_table[4,5], digits = 3)`), indicating that utility rating explained `r papaja::printnum(H5_M2_table[4,5]*100, digits = 1)`% of variance in SVs.
 Effort rating showed an effect size of $f^{2}=$ `r papaja::printnum(H5_M2_table[2,5], digits = 3)`.
 The effect sizes of all other predictors were negligibly small ($f^{2}< 0.01$).
@@ -120,19 +125,19 @@ The effect sizes of all other predictors were negligibly small ($f^{2}< 0.01$).
 
 To investigate the ecological validity of the calculated subjective values of ER strategies, we tested whether SVs were associated with the actual choice of participants in the last experimental block.
 Therefore, a $\chi^{2}$ test with predicted choice (i.e., the strategy with the highest SV of each participant) and actual choice was computed.
-There was a significant association between predicted choice and actual choice (`r papaja::apa_print(choice_chisq, n=119)$statistic[[1]]`, `r papaja::apa_print(choice_chisq_BF)$statistic`; see figure\ \@ref(fig:FigSVChoice)). <!--JZ: Vielleicht wäre hier eine Heatmap auch ganz nice, das scheint wohl eine gute Visualisierung für einen Chi Square Test zu sein (https://www.analyticsvidhya.com/blog/2021/06/decoding-the-chi-square-test%E2%80%8A-%E2%80%8Ause-along-with-implementation-and-visualization/)-->
+There was a significant association between predicted choice and actual choice (`r papaja::apa_print(choice_chisq, n=119)$statistic[[1]]`, `r papaja::apa_print(choice_chisq_BF)$statistic`; see Figure \@ref(fig:FigSVChoice)).
 
 [INSERT FIGURE 4 HERE]
 
-```{r FigSVChoice, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Individual subjective values per ER strategy, grouped by choice in last experimental block. Each dot indicates SV of one particpant, the colours indicate their choice in last experimental block. $N=120$", fig.pos="H"}
+```{r FigSVChoice, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Individual subjective values per ER strategy, grouped by choice in last experimental block. Each dot indicates SV of one particpant, the colours indicate their choice in last experimental block. The scatter has a horizontal jitter of 0.40 and a vertical jitter of 0.05. $N=120$". Figure available at https://osf.io/vnj8x/, under a CC-BY-4.0 license., fig.pos="H"}
 knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigSVChoice.png"))
 ```
 
 We then conducted an ordinal regression with the dependent variable "choice" and the individual SVs of all three strategies as independent variables.
 Overall model fit was fair with $R^{2}=$ `r papaja::printnum(Choice_OrdReg_R2)`.
 The SV of the strategy distraction contributed significantly to the model (`r papaja::apa_print(Choice_OrdReg)$full_result$distraction_sv`, $BF10=$ `r papaja::printnum(Choice_OrdReg_Posterior$BFtu_exploratory[2,2])`).
-The estimated odds ratio indicated a higher chance of choosing distraction, when the SV of that strategy is higher.
-Additionally, the SV of the strategy suppression contributed significantly to the model (`r papaja::apa_print(Choice_OrdReg)$full_result$suppression_sv`, $BF10=$ `r papaja::printnum(Choice_OrdReg_Posterior$BFtu_exploratory[4,3])`).
+The estimated odds ratio indicated a higher chance of choosing strategy distraction, when the SV of that strategy is higher.
+Additionally, the predictor SV of the strategy suppression contributed significantly to the model (`r papaja::apa_print(Choice_OrdReg)$full_result$suppression_sv`, $BF10=$ `r papaja::printnum(Choice_OrdReg_Posterior$BFtu_exploratory[4,3])`).
 The estimated odds ratio indicated that a participant is more likely to later choose suppression, when the SV of the strategy suppression is higher.
 
 Last, we investigated whether SVs are associated with ER flexibility.
@@ -142,17 +147,14 @@ However, model fit was relatively low (`r papaja::apa_print(Flex_LM)$full_result
 
 ## 3.3. Exploratory analyses
 
-We exploratorily wanted to investigate the influence of self-control and the investment trait Need for Cognition (NFC) on individual SVs of ER strategies.
-The starting point for this was the model reported before. <!-- welches model genau? -->
-Only predictors that had previously shown a significant association with SVs were included in the model together with level-2 predictors self-control and NFC. <!-- ist das wirklich zulässig? Ich hab mich gefragt, ob das nich zu Kritik von den Reviewern führen könnte, dass ihr hier nur die vorher sign. predictors auswählt.-->
-The third model followed the specification:
-$$
+Because associations between self-control, the investment trait Need for Cognition (NFC) and both, effort discounting and demand avoidance have been reported[@ZernaScheffel2022;@Westbrook2013;@Kool2013], we wanted to investigate the influence of self-control and NFC on individual SVs of ER strategies.
+The starting point for this was the adapted MLM, we reported before.
+Only predictors that had previously shown a significant association with SVs were included in the model together with level-2 predictors self-control and NFC.
+The third model followed the specification: $$
 \begin{split}
-SV \sim \text{effort rating} + \text{utility rating} + corrugator \text{ activity} \\\ \text{self-control} + \text{NFC} + (1 |subject)
+SV \sim \text{effort rating} + \text{utility rating} + corrugator \text{ activity} \\\ + \text{self-control} + \text{NFC} + (1 |subject)
 \end{split}
-$$
-As expected, the predictors effort rating (`r papaja::apa_print(MLM_3)$full_result$effort_cwc`) showed a negative association with SVs, while utility rating (`r papaja::apa_print(MLM_3)$full_result$utility_cwc`), and *Corrugator* activity (`r papaja::apa_print(MLM_3)$full_result$Corr_cwc`) showed a significant positive association with SVs.
-In addition, a positive association was also found between self-control and SVs (`r papaja::apa_print(MLM_3)$full_result$SC_gmc`).
+$$ As expected, the predictors effort rating (`r papaja::apa_print(MLM_3, digits = 3)$full_result$effort_cwc`) showed a negative association with SVs, while utility rating (`r papaja::apa_print(MLM_3, digits = 3)$full_result$utility_cwc`), and *Corrugator* activity (`r papaja::apa_print(MLM_3, digits = 3)$full_result$Corr_cwc`) showed a significant positive association with SVs.
+In addition, a positive association was also found between self-control and SVs (`r papaja::apa_print(MLM_3, digits = 3)$full_result$SC_gmc`).
 However, the effect size of self-control was negligibly small ($f^{2}=$ `r papaja::printnum(Exp_M3_table[5,5], digits = 3)`).
 Detailed information can be found in the [supplementary material](#SupplementExploratory).
-
