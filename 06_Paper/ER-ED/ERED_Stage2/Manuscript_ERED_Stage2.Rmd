@@ -43,7 +43,7 @@ author:
     orcid         : "0000-0002-5632-419X"
     affiliation   : "1,2"
     role          :
-      - Conceptuatlization
+      - Conceptualization
       - Writing - review & editing
   - name          : "Alexander Strobel"
     orcid         : "0000-0002-9426-5397"

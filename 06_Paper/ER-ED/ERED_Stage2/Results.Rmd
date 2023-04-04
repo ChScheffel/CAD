@@ -36,7 +36,7 @@ Please note that sample size for individual calculations may be smaller due to f
 
 ## 3.2. Confirmatory analyses
 
-### Manipulation checks
+### Manipulation checks <!-- es gibt keine weitere Überschrift auf dieser Ebene, würde ich jedoch erwarten.-->
 
 #### Effect of valence on arousal and facial EMG
 
@@ -75,11 +75,10 @@ Moreover, we found significantly lower effort during suppression compared with d
 ```{r FigSubjEffort, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective effort ratings vizalized as boxplots. Dots represent individual effort ratings placed in 150 quantiles. Figure available at https://osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"}
 knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigSubjEffort.png"))
 ```
-
 Cognitive effort also played the most important role in the subsequent choice decision, which resembled previous findings of our group[@Scheffel2021].
 `r round((54/119)*100, digits = 1)`% of the participants stated that they chose the strategy that was easiest for them to implement.
 `r round((29/119)*100, digits = 1)`% stated they chose the strategy that was most effective and `r round((14/119)*100, digits = 1)`% stated their chosen strategy was the easiest and most effective.
-A more detailed list of all reasons can be found in Table XX in [supplementary material](#SupplementReasonChoice).
+A more detailed list of all reasons can be found in Table XX <!-- Nummer noch ergänzen --> in [supplementary material](#SupplementReasonChoice).
 
 ### Subjective values of ER strategies and their predictors
 
