@@ -22,23 +22,23 @@ options(papaja.na_string = "")
 
 # Discussion
 
-The present Registered Report sought to evaluate whether our new Cognitive and Affective Discounting (CAD) paradigm is suitable for determining individual subjective values of the ER strategies strategies distraction, distancing, and suppression.
-We therefore adapted the Cognitive Effort Discounting Paradigm by Westbrook et al. [-@Westbrook2013] in a way that allows to determine SVs for tasks that have no objective order of difficulty levels. 
-The new paradigm was tested on an *n*-back task [@ZernaScheffel2022] and a classic ER paradigm.
+The present Registered Report was designed to assess whether our new Cognitive and Affective Discounting (CAD) paradigm is suitable for determining individual subjective values of the ER strategies strategies distraction, distancing, and suppression.
+We adapted et al.'s[-@Westbrook2013] Cognitive Effort Discounting paradigm in a way that allows SVs to be determined for tasks without objective difficulty order. 
+The new paradigm was tested on an *n*-back task[@ZernaScheffel2022] and a classic ER paradigm.
 The latter was completed by $N=`r sum(data_survey[,"followup_ered_complete"] == 2)-1`$ participants. 
-As expected, use of ER strategies was associated with decreased subjective and physiological arousal.
-This finding is in line with previous meta-analytic findings, indicating the effectiveness of ER strategies, both on subjective as well as physiological levels [@Webb2012;@Zaehringer2020].
-Further, we found higher levels of subjective cognitive effort for all ER strategies compared to active viewing. 
-This allows us to replicate previous findings from our research group and show that the use of strategies is associated with cognitive effort [@Scheffel2021].
-Both measures also showed great variability between individuals.
-Taken together, this means that the ER strategies had an effect on the participants as intended: Individuals were able to reduce subjective and physiological responding effectively at the expense of cognitive effort.
-We assume that there was a good basis on which individual SVs of ER strategies could be determined.
-All in all, evidence was in favour of hypotheses H1 to H5.
+As expected, the use of ER strategies was associated with reduced subjective and physiological arousal.
+This finding is in line with previous meta-analytic findings indicating the effectiveness of ER strategies, both on subjective as well as physiological levels[@Webb2012;@Zaehringer2020]. <!-- evtl. Einwand warum Suppression am erfolgreichsten war --> 
+Furthermore, we found higher levels of subjective cognitive effort for all ER strategies compared to active viewing. 
+This allows us to replicate previous findings from our research group and show that strategy use is associated with cognitive effort [@Scheffel2021].
+Both measures also showed high variability between individuals.
+Taken together, this means that the ER strategies had the intended effect on the participants: Individuals were able to effectively reduce subjective and physiological responding at the expense of cognitive effort.
+We believe that there was a good basis on which individual SVs of ER strategies could be determined.
+Overall, there was evidence to support hypotheses H1 to H5.
 
-Almost all participants showed an absolute preference for one strategy, indicated by an SV of 1. 
-We also found a wide range of SVs (between `r papaja::apa_num(min(data_SV$sv), digits = 3)` and `r papaja::apa_num(max(data_SV$sv))`), suggesting that individuals prefer strategies to different extents.
-There was a significant relationship between SVs and choice of strategy. 
-Overly frequent the strategy would be chosen by the persons for whom the highest subjective value had been determined before, which speaks in favour of hypothesis H7.
+Almost all participants showed an absolute preference for a particular strategy, indicated by an SV of 1. 
+We also found a wide range of SVs (between `r papaja::apa_num(min(data_SV$sv), digits = 3)` and `r papaja::apa_num(max(data_SV$sv))`), suggesting that individuals have varying degrees of strategy preference.
+There was a significant relationship between SVs and strategy choice. 
+Overly frequent, persons chose the strategy for which the highest subjective value had been determined before, supporting hypothesis H7.
 Further, we found associations between individual SVs and different predictors.
 Subjective effort, utility, and *corrugator* muscle activity significantly predicted individual SVs.
 Contrary to our hypothesis H6, utility was the best predictor for individual SVs, explaining `r papaja::printnum(H5_M2_table[4,5]*100, digits = 1)` percent of variance in SVs.
