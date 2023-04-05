@@ -101,7 +101,7 @@ SV \sim \text{effort rating} + \text{arousal rating} + \text{utility rating} + c
 $$
 
 The second model explained `r papaja::printnum(MLM2_r2[2]*100, digits=1)`% of variance.
-All results of the second model are in Table \@ref(tab:TabMLMH5).
+All results of the second model are in Table \@ref(tab:TabMLMH5).
 
 [INSERT TABLE 2 HERE]
 
@@ -129,7 +129,7 @@ There was a significant association between predicted choice and actual choice (
 
 [INSERT FIGURE 4 HERE]
 
-```{r FigSVChoice, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Individual subjective values per ER strategy, grouped by choice in last experimental block. Each dot indicates SV of one particpant, the colours indicate their choice in last experimental block. The scatter has a horizontal jitter of 0.40 and a vertical jitter of 0.05. $N=120$". Figure available at https://osf.io/vnj8x/, under a CC-BY-4.0 license., fig.pos="H"}
+```{r FigSVChoice, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Individual subjective values per ER strategy, grouped by choice in last experimental block. Each dot indicates SV of one particpant, the colours indicate their choice in last experimental block. The scatter has a horizontal jitter of 0.40 and a vertical jitter of 0.05. $N=120$. Figure available at https://osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"}
 knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigSVChoice.png"))
 ```
 
