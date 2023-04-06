@@ -46,10 +46,10 @@ However, individual SVs did not show associations with self-reported ER flexibil
 
 ## Ecological validity of subjective values of ER strategies
 
-Our goal was to calculate individual subjective values to develop a better understanding of ER stratagem selection.
-Most individuals show great variability in the choice of strategies, both, within-strategy and between-strategy[@Blanke2020;@Burr2020;@Elkjaer2022]. 
-Greater variability might even adaptive [@Blanke2020;@Aldao2015].
-In addition, a wide variety of factors that influence the choice of strategies in specific situations were examined[@Scheffel2021;@Sheppes2011;@Sheppes2014;@Wilms2020;@Young2020;@Matthews2021], including intensity of the situation and effort.
+Our aim was to calculate individual subjective values in order to develop a better understanding of ER strategy selection.
+Most individuals show large variability in strategy choice, both within-strategy and between-strategy[@Blanke2020;@Burr2020;@Elkjaer2022]. 
+Greater variability may even be adaptive[@Blanke2020;@Aldao2015].
+In addition, a variety of factors that influence strategy choice in specific situations have been examined[@Scheffel2021;@Sheppes2011;@Sheppes2014;@Wilms2020;@Young2020;@Matthews2021], including situation intensity and effort.
 However, these factors have often been studied separately.
 Only rarely have effects of the factors been studied in combination[@Young2020].
 Moreover, the usual paradigms used in ER choice research (e.g., Sheppes et al.[@Sheppes2011]) can only estimate how a factor tends to drive the choice in one direction or the other.
