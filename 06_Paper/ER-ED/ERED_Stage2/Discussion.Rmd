@@ -22,18 +22,26 @@ options(papaja.na_string = "")
 
 # Discussion
 
-The present Registered Report was designed to assess whether our new Cognitive and Affective Discounting (CAD) paradigm is suitable for determining individual subjective values of the ER strategies strategies distraction, distancing, and suppression.
-We adapted et al.'s[-@Westbrook2013] Cognitive Effort Discounting paradigm in a way that allows SVs to be determined for tasks without objective difficulty order. 
+The present Registered Report was designed to assess whether our new Cognitive and Affective Discounting (CAD) paradigm is suitable for determining individual subjective values of the ER strategies distraction, distancing, and suppression.
+We adapted Westbrook et al.'s[-@Westbrook2013] Cognitive Effort Discounting paradigm in a way that allows SVs to be determined for tasks without objective difficulty order. 
 The new paradigm was tested on an *n*-back task[@ZernaScheffel2022] and a classic ER paradigm.
-The latter was completed by $N=`r sum(data_survey[,"followup_ered_complete"] == 2)-1`$ participants. 
+The latter was goal of the present study and completed by $N=`r sum(data_survey[,"followup_ered_complete"] == 2)-1`$ participants. 
 As expected, the use of ER strategies was associated with reduced subjective and physiological arousal.
 This finding is in line with previous meta-analytic findings indicating the effectiveness of ER strategies, both on subjective as well as physiological levels[@Webb2012;@Zaehringer2020]. <!-- evtl. Einwand warum Suppression am erfolgreichsten war --> 
 Furthermore, we found higher levels of subjective cognitive effort for all ER strategies compared to active viewing. 
-This allows us to replicate previous findings from our research group and show that strategy use is associated with cognitive effort [@Scheffel2021].
+This allows us to replicate previous findings from our research group and show that strategy use is associated with cognitive effort[@Scheffel2021].
 Both measures also showed high variability between individuals.
 Taken together, this means that the ER strategies had the intended effect on the participants: Individuals were able to effectively reduce subjective and physiological responding at the expense of cognitive effort.
 We believe that there was a good basis on which individual SVs of ER strategies could be determined.
 Overall, there was evidence to support hypotheses H1 to H5.
+It was nevertheless surprising that the strategy suppression showed on average the lowest *corrugator* activity, the lowest effort ratings and the highest utility ratings. 
+In the case of the EEG measurement, this could be due to the fact that the result of the implementation of the instructions ("Maintain a neutral facial expression") is measured directly.
+This also indicates why the required effort is the lowest. 
+The direct instruction to implement the strategy reduces the complexity of the generation process.
+By comparison, distancing increases the complexity, for example, because it requires a distanced reappraisal of the stimulus.
+Ultimately, these two aspects are expressed in terms of greater utility: The implementation of the instructions requires comparatively less effort. 
+In addition, one receives relatively direct feedback from one's own facial muscle activity as to how well the strategy suppression has been implemented.
+In the case of the strategies distraction and distancing, a more detailed evaluation of internal states must take place in order to assess the utility of the strategies.
 
 Almost all participants showed an absolute preference for a particular strategy, indicated by an SV of 1. 
 We also found a wide range of SVs (between `r papaja::apa_num(min(data_SV$sv), digits = 3)` and `r papaja::apa_num(max(data_SV$sv))`), suggesting that individuals have varying degrees of strategy preference.
@@ -41,7 +49,7 @@ There was a significant relationship between SVs and strategy choice.
 Overly frequent, persons chose the strategy for which the highest subjective value had been determined before, supporting hypothesis H7.
 We also found associations between individual SVs and various predictors.
 Subjective effort, utility, and *corrugator* muscle activity significantly predicted individual SVs.
-Contrary to our hypothesis H6, utility was the best predictor for individual SVs, explaining `r papaja::printnum(H5_M2_table[4,5]*100, digits = 1)` percent of variance in SVs.
+Contrary to our hypothesis H6, utility was the best predictor for individual SVs, explaining `r papaja::printnum(H5_M2_table[4,5]*100, digits = 1)` % of variance in SVs.
 However, individual SVs did not show associations with self-reported ER flexibility, we therefore found no evidence for hypothesis H7.
 
 ## Ecological validity of subjective values of ER strategies
@@ -55,11 +63,13 @@ Rarely have their combined effects been investigated[@Young2020].
 Furthermore, the usual paradigms used in ER choice research (e.g., Sheppes et al.[-@Sheppes2011]) can only estimate how a factor tends to drive the choice in one direction or the other.
 They cannot determine the internal subjective value individuals attribute to the choice options.
 We are confident that we have achieved this with the present paradigm.
-On the one hand, we were able to show which factors have an influence the values, and on the other hand, we were able to show the actual practical relevance of the values.
+On the one hand, we were able to show which factors have an influence on the values, and on the other hand, we were able to show the actual practical relevance of the values. <!-- Argumentation Corrugator nicht zw. Lvl unterschiedlich, aber trotzdem einfluss, weil man da eine relativ direkte Rückmeldung hat + Levator eher nicht -> alle Bilder negativ aber nur einige eklig, wenn man also nur diese Bilder reinnimmt, wird vielleicht Levator signifikant; 
+Effort Ergebnisse bestätigen ESER Paper, dass man nach Effort-Minimierung strebt;
+Utility: Subjektive Einschätzung der Strategie als Mittel zur Zielerreichung, was eine überschneidung mit dem SV darstellt und außerdem evtl. eine Interaktion von Effektivität und Effort -->
 The highest SVs of the individuals were associated with the choice made by the participants in the last experimental block. 
 So far, it has been difficult to transfer such findings from the laboratory to everyday life[@Wilms2020].
 This may be because in laboratory studies the choice options are often predetermined by the experimental design[@Sheppes2011;@Sheppes2014;@Scheffel2021].
-Therefore, attempts have been made to investigate ER choice and influencing factors in everyday life, in previous studies.
+Therefore, attempts have been made to investigate ER choice and influencing factors in everyday life in previous studies.
 Even there, however, certain strategies were often prescribed (for example studies, see English et al.[-@English2017], Millgram et al.[-@Millgram2019], Wilms et al.[-@Wilms2020]), although covering a large part of the process of emotion generation[@Gross1998emerging].
 Of course, the calculation of SVs in our new CAD paradigm is similarly tied to the strategies with which the strategy of interest is compared.
 To allow all strategies in the ER repertoire to be recorded for each individual, a study might use ecological momentary assessment[@Aldao2015;@Koval2020].
@@ -70,7 +80,7 @@ The extended process model of emotion regulation[@Gross2015] postulates three se
 If the regulatory goal is not achieved, the ER strategy can be maintained, switched or stopped[@Gross2015].
 Importantly, the information about the success of implementing an ER strategy influences the choice of ER strategies in future situations, because the regulation context is changed through contextual feedback [@Gross2015;@AldaoChristensen2015;@Murphy2018;@Sheppes2020].
 This means that studies on ER Choice should consider not only situational factors, but also contextual factors[@Murphy2018].
-For example, in a classic ER choice paradigm[@Sheppes2011], Murphy and Young[-@Murphy2018] showed that strategy choice was significantly influenced by strategy choice and negative affect on the previous trial.
+For example, in a classic ER choice paradigm[@Sheppes2011], Murphy and Young[-@Murphy2018] showed that strategy choice was significantly influenced by strategy choice and negative affect in the previous trial.
 This provides empirical evidence that experience gained during use of ER strategies influences future choice of ER strategies.
 Our newly developed paradigm also makes an important contribution here.
 The information and experiences that participants gain while using the strategies in the experimental task might be implicitly incorporated into the subsequent calculation of subjective values.
@@ -79,10 +89,9 @@ This raises the question of how stable these individual SVs are.
 
 ## Trait character of SVs
 
-Knowing, whether SVs of ER strategies show a trait character would allow to further evaluate the relevance of the calculated SVs.
+Knowing whether SVs of ER strategies show a trait character would allow to further evaluate the relevance of the calculated SVs.
 However, whether the calculated values represent a stable value within the individual cannot be concluded from the present study alone.
-This conclusion cannot be drawn from the present study alone.
-To establish the *trait* nature of a measure, one could for instance resort to latent state trait modeling[@Steyer2015], as recently employed by our group in a related context[@Strobel2020]
+To establish the *trait* nature of a measure, one could for instance resort to latent state trait modeling[@Steyer2015], as recently employed by our group in a related context[@Strobel2020].
 The individual SVs calculated in our CAD paradigm were assessed in the laboratory in a single situation. 
 By definition, this represents a state.
 As noted above, personal regulatory goals, situational factors, and contextual demands influence the choice for or against ER strategies[@Aldao2015;@Bonanno2013@Sheppes2011;@Scheffel2021;@Haines2016].
@@ -106,10 +115,10 @@ Subsequently, the association of the values with each other could be assessed, a
 
 A number of limitations must be taken into account when considering our findings. 
 First, it should be noted that a block design was used.
-This allows for habituation effects of EMG activity within the block.
+This might have resulted in habituation effects of EMG activity within the block.
 However, block designs are common in ER research [@Barreiros2019] and have been used in previous studies [@Scheffel2019]. 
 Secondly, it should be mentioned that subjective arousal, effort, and utility ratings were made retrospectively at the end of each block.
-It is also known that affect labeling can attenuate emotional experience [@Lieberman2007;@Torre2018]. 
+It is known that affect labeling can attenuate emotional experience [@Lieberman2007;@Torre2018]. 
 Therefore, we decided not to conduct ratings after each image.
 Furthermore, we were able to confirm that the implementation of ER strategies was successful at both subjective and physiological levels.
 Still, these features of our research design may have led to slightly lower associations between SVs and predictors.
@@ -131,11 +140,11 @@ In the future, however, it should be investigated how the level of incentives af
 
 ## Conclusion
 
-In order to cope with changing emotional demands, individuals my flexibly select and apply strategies from their repertoire[@Bonanno2013;@Aldao2015].
+In order to cope with changing emotional demands, individuals may flexibly select and apply ER strategies from their repertoire[@Bonanno2013;@Aldao2015].
 The strategy that is most suitable for coping with contextual demands and achieving regulatory goals is selected[@Aldao2015;@Tamir2016].
 The combination of influencing factors should be reflected in subjective values that are formed for all alternatives and serve as a basis for decision-making.
-To date, such subjective values hace not been established for ER strategies.
+To date, such subjective values have not been established for ER strategies.
 Our proposed CAD paradigm contributes to research on ER Choice and ER Flexibility by allowing quantification of these values. 
-This allows to investigate in more detail the factors influencing the internal generation of these SVs of ER strategies.
-It appears that the subjective value attributed to a strategy is primarily determined by perceived usefulness and the effort.
+This further enables to investigate in more detail the factors influencing the internal generation of these subjective values of ER strategies.
+It appears that the subjective value attributed to a strategy is primarily determined by perceived usefulness and effort.
 Finally, further research is needed to investigate the factors that influence subjective values and whether these values represent habitual use of ER strategies by individuals.
