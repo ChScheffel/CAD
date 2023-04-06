@@ -78,7 +78,7 @@ knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "Fig
 Cognitive effort also played the most important role in the subsequent choice decision, which resembled previous findings of our group[@Scheffel2021].
 `r round((54/119)*100, digits = 1)`% of the participants stated that they chose the strategy that was easiest for them to implement.
 `r round((29/119)*100, digits = 1)`% stated they chose the strategy that was most effective and `r round((14/119)*100, digits = 1)`% stated their chosen strategy was the easiest and most effective.
-A more detailed list of all reasons can be found in Table XX <!-- Nummer noch ergänzen --> in [supplementary material](#SupplementReasonChoice).
+A more detailed list of all reasons can be found online on OSF (<https://osf.io/vnj8x/>).
 
 ### Subjective values of ER strategies and their predictors
 
@@ -150,11 +150,13 @@ However, model fit was relatively low (`r papaja::apa_print(Flex_LM)$full_result
 Because associations between self-control, the investment trait Need for Cognition (NFC) and both, effort discounting and demand avoidance have been reported[@ZernaScheffel2022;@Westbrook2013;@Kool2013], we wanted to investigate the influence of self-control and NFC on individual SVs of ER strategies.
 The starting point for this was the adapted MLM, we reported before.
 Only predictors that had previously shown a significant association with SVs were included in the model together with level-2 predictors self-control and NFC.
-The third model followed the specification: $$
+The third model followed the specification: 
+$$
 \begin{split}
 SV \sim \text{effort rating} + \text{utility rating} + corrugator \text{ activity} \\\ + \text{self-control} + \text{NFC} + (1 |subject)
 \end{split}
-$$ As expected, the predictors effort rating (`r papaja::apa_print(MLM_3, digits = 3)$full_result$effort_cwc`) showed a negative association with SVs, while utility rating (`r papaja::apa_print(MLM_3, digits = 3)$full_result$utility_cwc`), and *Corrugator* activity (`r papaja::apa_print(MLM_3, digits = 3)$full_result$Corr_cwc`) showed a significant positive association with SVs.
+$$ 
+As expected, the predictors effort rating (`r papaja::apa_print(MLM_3, digits = 3)$full_result$effort_cwc`) showed a negative association with SVs, while utility rating (`r papaja::apa_print(MLM_3, digits = 3)$full_result$utility_cwc`), and *Corrugator* activity (`r papaja::apa_print(MLM_3, digits = 3)$full_result$Corr_cwc`) showed a significant positive association with SVs.
 In addition, a positive association was also found between self-control and SVs (`r papaja::apa_print(MLM_3, digits = 3)$full_result$SC_gmc`).
 However, the effect size of self-control was negligibly small ($f^{2}=$ `r papaja::printnum(Exp_M3_table[5,5], digits = 3)`).
 Detailed information can be found in the [supplementary material](#SupplementExploratory).

@@ -181,9 +181,6 @@ papaja::apa_table(
 ``` {r SupplFigLevReg, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Levator activity in mV vizalized as boxplots. Dots represent individual Levator activity measures placed in 150 quantiles.", fig.pos="H"}
 knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigLevReg.png"))
 ```
-\newpage
-
-## Reasons for decision made by the participants in the last regulation block
 
 \newpage
 
