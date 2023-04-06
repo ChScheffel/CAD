@@ -637,6 +637,8 @@ rownames(df.NV.subj) <- c("Arousal View Neu", "Arousal View Neg", "Arousal Distr
                      "Effort View Neu", "Effort View Neg", "Effort Distraction", "Effort Distancing", "Effort Suppression")
 colnames(df.NV.subj) <- c("$M$", "$SD$", "$W$", "$p$")
 
+df.NV.subj$`$p$`[df.NV.subj$`$p$` == "0.000"] <- "<.001"
+
 # EMG activity
 df.NV.EMG <- data.frame(M = double(), SD = double(), W = double(), p = double())
 
@@ -663,6 +665,7 @@ rownames(df.NV.EMG) <- c("Corrugator View Neu", "Corrugator View Neg", "Corrugat
                           "Levator View Neu", "Levator View Neg", "Levator Distraction", "Levator Distancing", "Levator Suppression")
 colnames(df.NV.EMG) <- c("$M$", "$SD$", "$W$", "$p$")
 
+df.NV.EMG$`$p$`[df.NV.EMG$`$p$` == "0"] <- "<.001"
 #################### STATISTICAL ANALYSES: KONFIRMATORY ANALYSES ############
 
 ######## HYPOTHESIS 1
@@ -708,6 +711,8 @@ SubjArousalView_con <- cbind(SubjArousalView_con,
 colnames(SubjArousalView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 # rename contrast for table
 SubjArousalView_con[1, 1] <- "$View_{neutral} - View_{negative}$"
+
+SubjArousalView_con$`$p$` <- "<.001"
 
 # Figure to visualize arousal ratings
 
@@ -763,6 +768,8 @@ colnames(EMGCorrView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$
 # rename contrast for table
 EMGCorrView_con[1, 1] <- "$View_{neutral} - View_{negative}$"
 
+EMGCorrView_con$`$p$` <- "<.001"
+
 # Figure to visualize corrugator activity across view conditions
 
 EMG_view_plot <- EMG_view %>% group_by(ID, block) %>% summarise_at(vars("Corr","Lev"), list(mean))
@@ -814,6 +821,8 @@ EMGLevView_con <- cbind(EMGLevView_con,
 colnames(EMGLevView_con) <- c("Contrast", "Estimate", "$SE$", "$df$", "$t$", "$p$", "$BF10$", "$\\eta_{p}^{2}$", "$95\\% CI$")
 # rename contrast for table
 EMGLevView_con[1, 1] <- "$View_{neutral} - View_{negative}$"
+
+EMGLevView_con$`$p$` <- "<.001"
 
 # Figure to visualize levator activity across view conditions
 
