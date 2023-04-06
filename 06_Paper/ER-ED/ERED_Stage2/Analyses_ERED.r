@@ -637,7 +637,7 @@ rownames(df.NV.subj) <- c("Arousal View Neu", "Arousal View Neg", "Arousal Distr
                      "Effort View Neu", "Effort View Neg", "Effort Distraction", "Effort Distancing", "Effort Suppression")
 colnames(df.NV.subj) <- c("$M$", "$SD$", "$W$", "$p$")
 
-df.NV.subj$`$p$`[df.NV.subj$`$p$` == "0.000"] <- "<.001"
+df.NV.subj$`$p$`[df.NV.subj$`$p$` == "0"] <- "<.001"
 
 # EMG activity
 df.NV.EMG <- data.frame(M = double(), SD = double(), W = double(), p = double())
