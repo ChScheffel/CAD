@@ -34,7 +34,7 @@ Both measures also showed high variability between individuals.
 Taken together, this means that the ER strategies had the intended effect on the participants: Individuals were able to effectively reduce subjective and physiological responding at the expense of cognitive effort.
 We believe that there was a good basis on which individual SVs of ER strategies could be determined.
 Overall, there was evidence to support hypotheses H1 to H5.
-It was nevertheless surprising that the strategy suppression showed on average the lowest *corrugator* activity, the lowest effort ratings and the highest utility ratings. 
+It was nevertheless surprising that the strategy suppression showed on average and descriptively the lowest *corrugator* activity, the lowest effort ratings and the highest utility ratings. 
 In the case of the EEG measurement, this could be due to the fact that the result of the implementation of the instructions ("Maintain a neutral facial expression") is measured directly.
 This also indicates why the required effort is the lowest. 
 The direct instruction to implement the strategy reduces the complexity of the generation process.
@@ -70,7 +70,12 @@ They cannot determine the internal subjective value individuals attribute to the
 We are confident that we have achieved this with the present paradigm.
 On the one hand, we were able to show which factors have an influence on the values, and on the other hand, we were able to show the actual practical relevance of the values. 
 
-<!-- Argumentation Corrugator nicht zw. Lvl unterschiedlich, aber trotzdem einfluss, weil man da eine relativ direkte Rückmeldung hat + Levator eher nicht -> alle Bilder negativ aber nur einige eklig, wenn man also nur diese Bilder reinnimmt, wird vielleicht Levator signifikant; 
+As a predictor of ER effectiveness, *corrugator* activity showed a significant association with SVs, but not *levator* activity or subjective arousal.
+With regard to the EMG measures, this could be because all the pictures we used were negative, i.e. elicited *corrugator* activity, but only a small proportion of the pictures were perceived as disgusting and thus elicited relatively specific *levator* activity. 
+However, *corrugator* activity did not differ significantly between ER strategies, but was still associated with SVs. 
+One possible reason for this could be that muscle activity provides direct feedback on the effectiveness of the current stragey, much more direct than, for example, the subjective arousal rating at the end of each experimental block.
+
+<!--  
 Effort Ergebnisse bestätigen ESER Paper, dass man nach Effort-Minimierung strebt;
 Utility: Subjektive Einschätzung der Strategie als Mittel zur Zielerreichung, was eine überschneidung mit dem SV darstellt und außerdem evtl. eine Interaktion von Effektivität und Effort -->
 
