@@ -33,37 +33,40 @@ options(papaja.na_string = "")
 
 ## Detailed information on psychometric measures {#SupplementQuestionnaires}
 
-*WHO-5.* General psychological well-being is assessed using the WHO-5 scale[@Bech2004; @Braehler2007].
-5 Items such as "Over the past 2 weeks I have felt calm and relaxed." are rated on a 6-point Likert scale raning from 0 (at no time) to 5 (all of the time).
-The german version of the scale showed a high internal consistency (Cronbach's $\alpha=.92$)[@Braehler2007].
+*WHO-5.* General psychological well-being was assessed using the WHO-5 scale[@Bech2004; @Braehler2007].
+Five items such as "Over the past 2 weeks I have felt calm and relaxed." are rated on a 6-point Likert scale raning from 0 (at no time) to 5 (all of the time).
+The German version of the scale showed a high internal consistency (Cronbach's $\alpha=.92$)[@Braehler2007].
 
-*Connor-Davidson Resilience Scale.* Resilience is assessed using the Connor-Davidson Resilience Scale (CD-RISC)[@Connor2003; @Campbell-Sills2007; @Sarubin2015].
-10 items such as "I am able to adapt to change." are rated on a scale from 0 (not true at all) to 4 (true nearly all the time).
-The 10-item version showed a high internal consistency (Cronbach's $\alpha=.84$) and a satisfactory retest-reliability of $r_{tt}=.81$ across 6 month[@Sarubin2015].
+*Connor-Davidson Resilience Scale.* Resilience was assessed using the Connor-Davidson Resilience Scale (CD-RISC)[@Connor2003; @Campbell-Sills2007; @Sarubin2015].
+Ten items such as "I am able to adapt to change." are rated on a scale from 0 (not true at all) to 4 (true nearly all the time).
+The 10-item version showed a high internal consistency (Cronbach's $\alpha=.84$) and a satisfactory retest-reliability of $r_{tt}=.81$ across 6 months[@Sarubin2015].
 
-*Emotion Regulation Questionnaire.* Habitual use of reappraisal and suppression is measured using the 10-item Emotion Regulation Questionnaire (ERQ)[@GrossJohn2003; @Abler2009].
+*Emotion Regulation Questionnaire.* Habitual use of reappraisal and suppression was measured using the 10-item Emotion Regulation Questionnaire (ERQ)[@GrossJohn2003; @Abler2009].
 The scale has items such as "I keep my emotions to myself" (ERQ-suppression - 4 items) and "When I'm faced with a stressful situation, I make myself think about it in a way that helps me stay calm" (ERQ-reappraisal - 6 items), which are answered on a 7-point Likert scale ranging from 1 (strongly disagree) to 7 (strongly agree), and has acceptable to high internal consistency (Cronbach's $\alpha>.75$) [@Preece2020].
 
 *FlexER Scale.* Flexible use of ER strategies is assessed using the FlexER Scale [@Doerfel2019] with items such as "If I want to feel less negative emotions, I have several strategies to achieve this.", which are answered on a 4-point scale ranging from "strongly agree" to "strongly disagree".
 Psychometric properties are currently under investigation.
 
-*Implicit Theories Questionnaire.* Implicit theories of willpower in emotional control are assessed using the Implicit Theories Questionnaire of @Bernecker2017.
-4 items such as "Having to control a strong emotion makes you exhausted and you are less able to manage your feelings right afterwards." are rated on a 6-point scale ranging from 1 (fully agree) to 6 (do not agree at all).
+*Implicit Theories Questionnaire.* Implicit theories of willpower in emotional control were assessed using the Implicit Theories Questionnaire of Bernecker and Job[-@Bernecker2017].
+Four items such as "Having to control a strong emotion makes you exhausted and you are less able to manage your feelings right afterwards." are rated on a 6-point scale ranging from 1 (fully agree) to 6 (do not agree at all).
 The questionnaire showed an internal consistency of Cronbach's $\alpha=.87$[@Bernecker2017].
 
-*Need for Cognition Scale.* Need for Cognition (NFC) is assessed with the 16-item short version of the German NFC scale [@Bless1994]. Responses to each item (e.g., "Thinking is not my idea of fun", recoded) are recorded on a 7-point Likert scale ranging from -3 (completely disagree) to +3 (completely agree) and are summed to the total NFC score. The scale shows comparably high internal consistency (Cronbach's $\alpha>.80$)[@Bless1994; @Fleischhauer2010] and a retest reliability of $r_{tt}=.83$ across 8 to 18 weeks [@Fleischhauer2015].
+*Need for Cognition Scale.* Need for Cognition (NFC) was assessed with the 16-item short version of the German NFC scale [@Bless1994]. 
+Responses to each item (e.g., "Thinking is not my idea of fun", recoded) are recorded on a 7-point Likert scale ranging from -3 (completely disagree) to +3 (completely agree) and are summed to the total NFC score. 
+The scale shows comparably high internal consistency (Cronbach's $\alpha>.80$)[@Bless1994; @Fleischhauer2010] and a retest reliability of $r_{tt}=.83$ across 8 to 18 weeks [@Fleischhauer2015].
 
-*Self-Regulation Scale.* As one measure of self-control, the Self-Regulation Scale (SRS)[@Schwarzer1999] is used. The scale has 10 items (e.g., "It is difficult for me to suppress thoughts that interfere with what I need to do.", recoded) on a 4-point scale ranging from 1 (not at all true) to 4 (exactly true). It has high internal consistency [Cronbach's $\alpha>.80$; @Schwarzer1999].
+*Self-Regulation Scale.* As one measure of self-control, the Self-Regulation Scale (SRS)[@Schwarzer1999] was used. The scale has 10 items (e.g., "It is difficult for me to suppress thoughts that interfere with what I need to do.", recoded) on a 4-point scale ranging from 1 (not at all true) to 4 (exactly true). 
+It has high internal consistency (Cronbach's $\alpha>.80$)[@Schwarzer1999].
 
-*Brief Self-Control Scale.* As a second measure of self-control, the Brief Self-Control Scale (BSCS)[@Tangney2004; @Sproesser2011] is used.
+*Brief Self-Control Scale.* As a second measure of self-control, the Brief Self-Control Scale (BSCS)[@Tangney2004; @Sproesser2011] was used.
 It comprises 13 items (e.g., "I am good at resisting temptations") with a 5-point rating scale ranging from 1 (not at all like me) to 5 (very much like me).
-The scale shows acceptable internal consistency (Cronbach's $\alpha=.81$)[@Sproesser2011] .
+The scale shows acceptable internal consistency (Cronbach's $\alpha=.81$)[@Sproesser2011].
 
-*Barratt Impulsiveness Scale.* As a third measure of self-control, the Barratt Impulsiveness Scale (BIS-11)[@Patton1995; @Hartmann2011] is used.
+*Barratt Impulsiveness Scale.* As a third measure of self-control, the Barratt Impulsiveness Scale (BIS-11)[@Patton1995; @Hartmann2011] was used.
 Responses to each item (e.g., "I am self-controlled.", recoded) are assessed on a 4-point scale ranging from 1 (never/rarely) to 4 (almost always/always).
 An internal consistency of Cronbach's $\alpha=.74$ and a retest reliability of $r_{tt}=.56$ for General Impulsiveness and $r_{tt}=.66$ for Total Score across 6 month were reported [@Hartmann2011].
 
-*Attentional Control Scale.* Attentional control is measured using the Attentional Control Scale (ACS)[@Derryberry2002] with items such as "My concentration is good even if there is music in the room around me".
+*Attentional Control Scale.* Attentional control was measured using the Attentional Control Scale (ACS)[@Derryberry2002] with items such as "My concentration is good even if there is music in the room around me".
 The 20 items are rated on a 4-point scale ranging from 1 (almost never) to 4 (always).
 An internal consistency of Cronbach's $\alpha=.88$ was reported [@Derryberry2002].
 
@@ -77,7 +80,8 @@ papaja::apa_table(
   df.NV.subj,
   caption = "Results of Shapiro-Wilk test for normal distribution of subjective arousal and effort ratings for all strategies.",
   escape = FALSE,
-  placement = "H") 
+  placement = "H",
+  digits = 3) 
 ```
 
 ```{r TabNCEMG}
@@ -85,7 +89,8 @@ papaja::apa_table(
   df.NV.EMG,
   caption = "Results of Shapiro-Wilk test for normal distribution of Corrugator and Levator activity for all strategies.",
   escape = FALSE,
-  placement = "H")
+  placement = "H",
+  digits = 3)
 
 ```
 
@@ -103,7 +108,7 @@ papaja::apa_table(
   )
 ```
 
-``` {r SupplFigArousalView, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective arousal ratings of the active viewing conditions vizalized as boxplots. Dots represent individual effort ratings placed in 150 quantiles.", fig.pos="H"}
+``` {r SupplFigArousalView, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective arousal ratings of the active viewing conditions visualized as boxplots. Dots represent individual effort ratings placed in 150 quantiles.", fig.pos="H"}
 knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigSubjArousalView.png"))
 ```
 
@@ -117,7 +122,7 @@ papaja::apa_table(
   )
 ```
 
-``` {r SupplFigCorrView, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Corrugator activity in mV during the active viewing conditions, vizalized as boxplots. Dots represent individual Corrugator activity measures placed in 150 quantiles.", fig.pos="H"}
+``` {r SupplFigCorrView, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Corrugator activity in mV during the active viewing conditions, visualized as boxplots. Dots represent individual Corrugator activity measures placed in 150 quantiles.", fig.pos="H"}
 knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigCorrView.png"))
 ```
 
@@ -131,7 +136,7 @@ papaja::apa_table(
   )
 ```
 
-``` {r SupplFigLevView, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Levator activity in mV during the active viewing conditions, vizalized as boxplots. Dots represent individual Levator activity measures placed in 150 quantiles.", fig.pos="H"}
+``` {r SupplFigLevView, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Levator activity in mV during the active viewing conditions, visualized as boxplots. Dots represent individual Levator activity measures placed in 150 quantiles.", fig.pos="H"}
 knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigLevView.png"))
 ```
 
@@ -145,11 +150,12 @@ papaja::apa_table(
   caption = "Post-hoc contrasts for effects of ER strategies on subjective arousal ratings.",
   escape = FALSE,
   placement = "H",
-  font_size = "footnotesize"
+  font_size = "footnotesize",
+  digits = 3
   )
 ```
 
-``` {r SupplFigArousalReg, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective arousal ratings vizalized as boxplots. Dots represent individual effort ratings placed in 150 quantiles.", fig.pos="H"}
+``` {r SupplFigArousalReg, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective arousal ratings visualized as boxplots. Dots represent individual effort ratings placed in 150 quantiles.", fig.pos="H"}
 knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigSubjArousalReg.png"))
 ```
 
@@ -159,11 +165,12 @@ papaja::apa_table(
   caption = "Post-hoc contrasts for effects of ER strategies on Corrugator activity",
   escape = FALSE,
   placement = "H",
-  font_size = "footnotesize"
+  font_size = "footnotesize",
+  digits = 3
   )
 ```
 
-``` {r SupplFigCorrReg, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Corrugator activity in mV vizalized as boxplots. Dots represent individual Levatorr activity measures placed in 150 quantiles.", fig.pos="H"}
+``` {r SupplFigCorrReg, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Corrugator activity in mV visualized as boxplots. Dots represent individual Levatorr activity measures placed in 150 quantiles.", fig.pos="H"}
 knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigCorrReg.png"))
 ```
 
@@ -173,12 +180,13 @@ papaja::apa_table(
   caption = "Post-hoc contrasts for effects of ER strategies on Levator activity",
   escape = FALSE,
   placement = "H",
-  font_size = "footnotesize"
+  font_size = "footnotesize",
+  digits = 3
   )
 
 ```
 
-``` {r SupplFigLevReg, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Levator activity in mV vizalized as boxplots. Dots represent individual Levator activity measures placed in 150 quantiles.", fig.pos="H"}
+``` {r SupplFigLevReg, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Levator activity in mV visualized as boxplots. Dots represent individual Levator activity measures placed in 150 quantiles.", fig.pos="H"}
 knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigLevReg.png"))
 ```
 
@@ -192,5 +200,6 @@ papaja::apa_table(
   caption = "Exploratory analysis: Results of MLM predicting SVs of ER strategies with level 2 predictors self-control and NFC.",
   booktabs = TRUE,
   escape = FALSE,
-  placement = "H")
+  placement = "H",
+  digits = 3)
 ```
