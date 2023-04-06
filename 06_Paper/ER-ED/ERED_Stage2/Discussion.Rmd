@@ -52,7 +52,7 @@ Greater variability may even be adaptive[@Blanke2020;@Aldao2015].
 In addition, a variety of factors that influence strategy choice in specific situations have been examined[@Scheffel2021;@Sheppes2011;@Sheppes2014;@Wilms2020;@Young2020;@Matthews2021], including situation intensity and effort.
 However, these factors have often been studied in isolation from each other.
 Rarely have their combined effects been investigated[@Young2020].
-Furthermore, the usual paradigms used in ER choice research (e.g., Sheppes et al.[@Sheppes2011]) can only estimate how a factor tends to drive the choice in one direction or the other.
+Furthermore, the usual paradigms used in ER choice research (e.g., Sheppes et al.[-@Sheppes2011]) can only estimate how a factor tends to drive the choice in one direction or the other.
 They cannot determine the internal subjective value individuals attribute to the choice options.
 We are confident that we have achieved this with the present paradigm.
 On the one hand, we were able to show which factors have an influence the values, and on the other hand, we were able to show the actual practical relevance of the values.
@@ -60,7 +60,7 @@ The highest SVs of the individuals were associated with the choice made by the p
 So far, it has been difficult to transfer such findings from the laboratory to everyday life[@Wilms2020].
 This may be because in laboratory studies the choice options are often predetermined by the experimental design[@Sheppes2011;@Sheppes2014;@Scheffel2021].
 Therefore, attempts have been made to investigate ER choice and influencing factors in everyday life, in previous studies.
-Even there, however, certain strategies were often prescribed (for example studies, see English et al.[@English2017], Millgram et al.[@Millgram2019], Wilms et al.[@Wilms2020]), although covering a large part of the process of emotion generation[@Gross1998emerging].
+Even there, however, certain strategies were often prescribed (for example studies, see English et al.[-@English2017], Millgram et al.[-@Millgram2019], Wilms et al.[-@Wilms2020]), although covering a large part of the process of emotion generation[@Gross1998emerging].
 Of course, the calculation of SVs in our new CAD paradigm is similarly tied to the strategies with which the strategy of interest is compared.
 To allow all strategies in the ER repertoire to be recorded for each individual, a study might use ecological momentary assessment[@Aldao2015;@Koval2020].
 This would also capture strategies that are rarely used or even considered maladaptive, such as alcohol consumption or rumination[@Pena-Sarrionandia2015].
@@ -70,7 +70,7 @@ The extended process model of emotion regulation[@Gross2015] postulates three se
 If the regulatory goal is not achieved, the ER strategy can be maintained, switched or stopped[@Gross2015].
 Importantly, the information about the success of implementing an ER strategy influences the choice of ER strategies in future situations, because the regulation context is changed through contextual feedback [@Gross2015;@AldaoChristensen2015;@Murphy2018;@Sheppes2020].
 This means that studies on ER Choice should consider not only situational factors, but also contextual factors[@Murphy2018].
-For example, in a classic ER choice paradigm[@Sheppes2011], Murphy and Young[@Murphy2018] showed that strategy choice was significantly influenced by strategy choice and negative affect on the previous trial.
+For example, in a classic ER choice paradigm[@Sheppes2011], Murphy and Young[-@Murphy2018] showed that strategy choice was significantly influenced by strategy choice and negative affect on the previous trial.
 This provides empirical evidence that experience gained during use of ER strategies influences future choice of ER strategies.
 Our newly developed paradigm also makes an important contribution here.
 The information and experiences that participants gain while using the strategies in the experimental task might be implicitly incorporated into the subsequent calculation of subjective values.
@@ -79,26 +79,26 @@ This raises the question of how stable these individual SVs are.
 
 ## Trait character of SVs
 
-In order to further assess the relevance of the calculated individual SVs, it would be important to know how stable the values are, i.e. whether they would show trait character.
-In other words, do the values we calculate represent a stable value within the individual?
+Knowing, whether SVs of ER strategies show a trait character would allow to further evaluate the relevance of the calculated SVs.
+However, whether the calculated values represent a stable value within the individual cannot be concluded from the present study alone.
 This conclusion cannot be drawn from the present study alone.
-The individual SVs computed in our CAD paradigm were assessed in the laboratory in a single situation.
+The individual SVs calculated in our CAD paradigm were assessed in the laboratory in a single situation. 
 By definition, this represents a state.
-As previously noted, personal regulation goals, situational factors, and contextual demands influence the choice for or against ER strategies[@Aldao2015;@Bonanno2013@Sheppes2011;@Scheffel2021;@Haines2016].
-We belief that these goals, factors and demands also influence individual SVs of ER strategies.
+As noted above, personal regulatory goals, situational factors, and contextual demands influence the choice for or against ER strategies[@Aldao2015;@Bonanno2013@Sheppes2011;@Scheffel2021;@Haines2016].
+We belief that these goals, factors, and demands also influence individual SVs of ER strategies.
 Our data presented in this study support this idea.
-However, this also means that SVs should differ according to situational factors (e.g., intensity of stimuli).
-It also must be taken into account which ER goals the individuals are pursuing in a particular situation.
-In our laboratory setting, participants pursue mainly prohedonic goals, but certainly not social goals[@Tamir2016].
-Wilms and colleagues[@Wilms2020] pointed out that ER goals, as well as situational factors, should be treated as states, because both vary strongly among events and situations.
-In another situation, for example outside the laboratory, where an individual is primarily pursuing a social goal, another strategy might appear more helpful and thus have a higher SV.
-It should also be noted that the computation of individual SVs in our CAD paradigm always refers to the alternative strategies that were available to the individuals (see also [Limitations](#Limitations)).
-Therefore, SVs could vary if other reference strategies are used.
-It is conceivable that the subjective values are likely to correlate very highly in situations with similar demands and goals. 
-They would thus reflect habits, or habitual use of ER strategies, which has already been attempted to capture by means of questionnaires[@GrossJohn2003]. 
-The other way round, of course, it is also conceivable that such habits influence the internal formation of these subjective values.
+However, this also implies that SVs should differ according to situational factors (e.g., stimulus intensity).
+The ER goals that individuals pursue in a given situation must also be taken into account.
+In our laboratory setting, participants mainly pursue prohedonic goals, but certainly not social goals[@Tamir2016].
+Wilms and colleagues[-@Wilms2020] pointed out that ER goals, as well as situational factors, should be treated as states, because both vary greatly from event to event and situation to situation.
+In a different situation, for example outside the laboratory, where an individual is primarily pursuing a social goal, a different strategy might appear more helpful and thus have a higher SV.
+It should also be noted that the calculation of individual SVs in our CAD paradigm always refers to the alternative strategies that were available to the individuals (see also [Limitations](#Limitations)).
+Therefore, SVs may vary when different reference strategies are used.
+It is conceivable that subjective values are likely to be highly correlated in situations with similar demands and goals. 
+They would thus reflect habits or habitual use of ER strategies, which has already been attempted to capture by means of questionnaires[@GrossJohn2003]. 
+Of course, it is also possible that such habits influence the internal formation of these subjective values.
 However, our data are not suitable for answering this question.
-In future, the SVs should therefore be collected in several similar situations. 
+In the future, SVs should therefore be collected in several similar situations. 
 Subsequently, the association of the values with each other could be assessed, as well as correlations with relevant external criteria, such as well-being[@GrossJohn2003].
 
 ## Limitations
