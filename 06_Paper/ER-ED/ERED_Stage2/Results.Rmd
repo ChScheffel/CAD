@@ -36,7 +36,7 @@ Please note that sample size for individual calculations may be smaller due to f
 
 ## 3.2. Confirmatory analyses
 
-### Manipulation checks <!-- es gibt keine weitere Überschrift auf dieser Ebene, würde ich jedoch erwarten.-->
+### Manipulation checks
 
 #### Effect of valence on arousal and facial EMG
 
@@ -47,7 +47,7 @@ Post-hoc contrasts indicated that negative pictures successfully increased emoti
 
 #### Effect of emotion regulation on arousal and facial EMG
 
-To investigate whether ER strategies reduce emotional arousal and physiological responding, we conducted separate rmANOVA comparing the four instructed strategies (active viewing, distraction, distancing, suppression) with respect to subjective arousal, *corrugator* and *levator* activity.
+To investigate whether ER strategies reduce emotional arousal and physiological responding, we conducted separate rmANOVAs comparing the four instructed strategies (active viewing, distraction, distancing, suppression) with respect to subjective arousal, *corrugator* and *levator* activity.
 We found a significant effect of strategy for subjective arousal (`r papaja::apa_print(SubjArousalReg_aov)$full_result`, `r papaja::apa_print(SubjArousalReg_BF)$statistic`), *corrugator* activity (`r papaja::apa_print(EMGCorrReg_aov)$full_result`, `r papaja::apa_print(EMGCorrReg_BF)$statistic`), and *levator* activity (`r papaja::apa_print(EMGLevReg_aov)$full_result`, `r papaja::apa_print(EMGLevReg_BF)$statistic`), indicating that regulation strategies reduced subjective arousal and physiological responding.
 For detailed information on post-hoc contrasts, please see Tables \@ref(tab:SupplEffectArousalReg) to \@ref(tab:SupplEffectLevReg) and Figures \@ref(fig:SupplFigArousalReg) to \@ref(fig:SupplFigLevReg) in the [supplementary material](#SupplementEffectER).
 
@@ -148,7 +148,7 @@ However, model fit was relatively low (`r papaja::apa_print(Flex_LM)$full_result
 ## 3.3. Exploratory analyses
 
 Because associations between self-control, the investment trait Need for Cognition (NFC) and both, effort discounting and demand avoidance have been reported[@ZernaScheffel2022;@Westbrook2013;@Kool2013], we wanted to investigate the influence of self-control and NFC on individual SVs of ER strategies.
-The starting point for this was the adapted MLM, we reported before.
+The starting point for this was the adapted MLM, which we have reported before.
 Only predictors that had previously shown a significant association with SVs were included in the model together with level-2 predictors self-control and NFC.
 The third model followed the specification: 
 $$
