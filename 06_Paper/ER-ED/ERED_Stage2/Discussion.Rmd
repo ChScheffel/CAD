@@ -39,10 +39,10 @@ Almost all participants showed an absolute preference for a particular strategy,
 We also found a wide range of SVs (between `r papaja::apa_num(min(data_SV$sv), digits = 3)` and `r papaja::apa_num(max(data_SV$sv))`), suggesting that individuals have varying degrees of strategy preference.
 There was a significant relationship between SVs and strategy choice. 
 Overly frequent, persons chose the strategy for which the highest subjective value had been determined before, supporting hypothesis H7.
-Further, we found associations between individual SVs and different predictors.
+We also found associations between individual SVs and various predictors.
 Subjective effort, utility, and *corrugator* muscle activity significantly predicted individual SVs.
 Contrary to our hypothesis H6, utility was the best predictor for individual SVs, explaining `r papaja::printnum(H5_M2_table[4,5]*100, digits = 1)` percent of variance in SVs.
-However, individual SVs did not show associations with ER flexibility, we therefore found no evidence for hypothesis H7.
+However, individual SVs did not show associations with self-reported ER flexibility, we therefore found no evidence for hypothesis H7.
 
 ## Ecological validity of subjective values of ER strategies
 
