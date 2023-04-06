@@ -49,7 +49,7 @@ There was a significant relationship between SVs and strategy choice.
 Overly frequent, persons chose the strategy for which the highest subjective value had been determined before, supporting hypothesis H7.
 We also found associations between individual SVs and various predictors.
 Subjective effort, utility, and *corrugator* muscle activity significantly predicted individual SVs.
-Contrary to our hypothesis H6, utility was the best predictor for individual SVs, explaining `r papaja::printnum(H5_M2_table[4,5]*100, digits = 1)` % of variance in SVs.
+Contrary to our hypothesis H6, utility was the best predictor for individual SVs, explaining `r papaja::printnum(H5_M2_table[4,5]*100, digits = 1)`% of variance in SVs.
 However, individual SVs did not show associations with self-reported ER flexibility, we therefore found no evidence for hypothesis H7.
 In a subsequent exploratory analyses, we found associations between individual SVs and self-control.
 This is consistant with the literature, which has already reported correlations between self-control and demand avoidance[@Kool2013].
@@ -69,16 +69,15 @@ Furthermore, the usual paradigms used in ER choice research (e.g., Sheppes et al
 They cannot determine the internal subjective value individuals attribute to the choice options.
 We are confident that we have achieved this with the present paradigm.
 On the one hand, we were able to show which factors have an influence on the values, and on the other hand, we were able to show the actual practical relevance of the values. 
-
 As a predictor of ER effectiveness, *corrugator* activity showed a significant association with SVs, but not *levator* activity or subjective arousal.
 With regard to the EMG measures, this could be because all the pictures we used were negative, i.e. elicited *corrugator* activity, but only a small proportion of the pictures were perceived as disgusting and thus elicited relatively specific *levator* activity. 
 However, *corrugator* activity did not differ significantly between ER strategies, but was still associated with SVs. 
-One possible reason for this could be that muscle activity provides direct feedback on the effectiveness of the current stragey, much more direct than, for example, the subjective arousal rating at the end of each experimental block.
-
-<!--  
-Effort Ergebnisse bestätigen ESER Paper, dass man nach Effort-Minimierung strebt;
-Utility: Subjektive Einschätzung der Strategie als Mittel zur Zielerreichung, was eine überschneidung mit dem SV darstellt und außerdem evtl. eine Interaktion von Effektivität und Effort -->
-
+One possible reason for this could be that muscle activity provides direct feedback on the effectiveness of the current strategy, much more direct than, for example, the subjective arousal rating at the end of each experimental block.
+Furthermore, the finding that effort is associated with SVs confirms previous research by our group showing that individuals strive to minimise effort when choosing ER strategies[@Scheffel2021].
+Finally, the subjective utility ratings showed the greatest explanation for the variance in the SVs.
+This relationship is highly plausible as it involves individuals assessing the utility of the strategy as a means of achieving external and internal regulatory goals.
+This is likely to overlap with subjective values - some literature argues that utility and subjective values are the same thing[@Schultz2015].
+However, this is contradicted by our data, as subjective utility could only explain `r papaja::printnum(H5_M2_table[4,5]*100, digits = 1)`% of the variance in SVs.
 
 The highest SVs of the individuals were associated with the choice made by the participants in the last experimental block. 
 So far, it has been difficult to transfer such findings from the laboratory to everyday life[@Wilms2020].
