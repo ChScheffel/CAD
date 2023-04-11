@@ -32,8 +32,6 @@ Furthermore, we found higher levels of subjective cognitive effort for all ER st
 This allows us to replicate previous findings from our research group and show that strategy use is associated with cognitive effort[@Scheffel2021].
 Both measures also showed high variability between individuals.
 Taken together, this means that the ER strategies had the intended effect on the participants: Individuals were able to effectively reduce subjective and physiological responding at the expense of cognitive effort.
-We believe that there was a good basis on which individual SVs of ER strategies could be determined.
-Overall, there was evidence to support hypotheses H1 to H5.
 It was nevertheless surprising that the strategy suppression showed on average and descriptively the lowest *corrugator* activity, the lowest effort ratings and the highest utility ratings. 
 In the case of the EEG measurement, this could be due to the fact that the result of the implementation of the instructions ("Maintain a neutral facial expression") is measured directly.
 This also indicates why the required effort is the lowest. 
@@ -42,6 +40,7 @@ By comparison, distancing increases the complexity, for example, because it requ
 Ultimately, these two aspects are expressed in terms of greater utility: The implementation of the instructions requires comparatively less effort. 
 In addition, one receives relatively direct feedback from one's own facial muscle activity as to how well the strategy suppression has been implemented.
 In the case of the strategies distraction and distancing, a more detailed evaluation of internal states must take place in order to assess the utility of the strategies.
+Since these manipulation checks were successful, the subjective and physiological measures were likely to be meaningful in influencing the individual SVs.
 
 Almost all participants showed an absolute preference for a particular strategy, indicated by an SV of 1. 
 We also found a wide range of SVs (between `r papaja::apa_num(min(data_SV$sv), digits = 3)` and `r papaja::apa_num(max(data_SV$sv))`), suggesting that individuals have varying degrees of strategy preference.
