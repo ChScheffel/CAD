@@ -83,7 +83,7 @@ Implicit theories of willpower in emotion control was assessed using the implici
 To assess Need for Cognition, the German version short form of the Need for Cognition Scale[@Cacioppo1982; @Bless1994] was used.
 To assess self-control [@Paschke2016], sum scores of the German versions of the following questionnaires were used: the Self-Regulation Scale (SRS)[@Schwarzer1999], the Brief Self-Control Scale (BSCS)[@Tangney2004; @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11)[@Patton1995; @Hartmann2011].
 Attentional control were assessed using the Attentional Control Scale (ACS)[@Derryberry2002].
-For more detailed information on psychometric properties of the questionnaires, please see the [supplementary material](#SupplementQuestionnaires). 
+For more detailed information on psychometric properties of the questionnaires, please see the supplementary material. 
 
 ### 2.3.2 Emotion regulation paradigm
 
@@ -132,10 +132,6 @@ As soon as they have decided, they saw the respective instruction and the block 
 
 [INSERT FIGURE 2 HERE]
 
-```{r DesignERED, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Block design of the paradigm. Every participant starts with two \"active viewing\" blocks continaing neutral (Block 1) and negative (Block 2) pictures. Order of the regulation blocks (Blocks 3, 4, and 5) was randomized between participants. After, the discounting procedure took place. All three regulation strategies were compared pairwise. Before the last block, participants could decide which regulation strategy they wanted to reapply. Subjective arousal and effort ratings were assessed after each block using a slider on screen with a continuous scale. Figure available at https://osf.io/vnj8x/, under a CC-BY4.0 license."}
-knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "Design_ER-ED.png"))
-```
-
 ### 2.3.3 Stimuli
 
 Pictures that were used in the paradigm were selected from the Emotional Picture Set (EmoPicS) [@Wessa2010] and the International Affective Picture System (IAPS)[@Lang2008].
@@ -167,7 +163,7 @@ To find an effect of $d=-0.32$ of ER on *corrugator* muscle activity with $\alph
 Power analyses of all other hypotheses yielded smaller sample sizes.
 However, if participants withdraw from study participation, technical failures occur, or experimenter considers the participant for not suitable for study participation (e.g., because the participant does not follow instructions or shows great fatigue), respective data will also be excluded from further analyses.
 Therefore, we aimed to collect data of $N=120$ participants, about $50%$ more data sets, than necessary.
-Detailed information on power calculation for each hypothesis can be found in the [design table](#DesignTable).
+Detailed information on power calculation for each hypothesis can be found in the design table.
 
 ## 2.5 Analysis plan
 
