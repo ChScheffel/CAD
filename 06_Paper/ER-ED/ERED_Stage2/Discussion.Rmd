@@ -25,7 +25,7 @@ options(papaja.na_string = "")
 The present Registered Report was designed to assess whether our new Cognitive and Affective Discounting (CAD) paradigm is suitable for determining individual subjective values of the ER strategies distraction, distancing, and suppression.
 We adapted Westbrook et al.'s[-@Westbrook2013] Cognitive Effort Discounting paradigm in a way that allows SVs to be determined for tasks without objective difficulty order. 
 The new paradigm was tested on an *n*-back task[@ZernaScheffel2022] and a classic ER paradigm.
-The latter was goal of the present study and completed by $N=`r sum(data_survey[,"followup_ered_complete"] == 2)-1`$ participants. 
+The latter was the goal of the present study and completed by $N=`r sum(data_survey[,"followup_ered_complete"] == 2)-1`$ participants. 
 As expected, the use of ER strategies was associated with reduced subjective and physiological arousal.
 This finding is in line with previous meta-analytic findings indicating the effectiveness of ER strategies, both on subjective as well as physiological levels[@Webb2012;@Zaehringer2020]. <!-- evtl. Einwand warum Suppression am erfolgreichsten war --> 
 Furthermore, we found higher levels of subjective cognitive effort for all ER strategies compared to active viewing. 
