@@ -69,8 +69,8 @@ abstract          : |
  $N=120$ participants first conducted an ER paradigm with the strategies distraction, distancing, and suppression.
  Afterwards, individual SVs were determined using the new CAD paradigm.
  SVs significantly predicted later choice for an ER strategy ($\chi^2(4, \textit{n} = 119)=115.40$, $p<.001$, $\mathrm{BF}_{\textrm{10}} = 1.62   \times 10^{21}$).
- Further, SVs were associated with Corrugator activity ($t(5, 618.96)=2.09$, $p=.037$, $f^2<0.001$), subjective effort ($t(5, 618.96)=-13.98$,    $p<.001$, $f^2=0.035$), and self-reported utility ($t(5, 618.96)=29.49$, $p<.001$, $f^2=0.155$).
- SVs were further associated with self-control ($t(97.97)=2.04$, $p=.044$, $f^2=0.002$), but not with flexible ER. 
+ Further, SVs were associated with Corrugator activity ($t(5, 618.96)=2.09$, $p=.037$, $f^2<.001$), subjective effort ($t(5, 618.96)=-13.98$,    $p<.001$, $f^2=.035$), and self-reported utility ($t(5, 618.96)=29.49$, $p<.001$, $f^2=.155$).
+ SVs were further associated with self-control ($t(97.97)=2.04$, $p=.044$, $f^2=.002$), but not with flexible ER. 
  With our paradigm, we were able to determine subjective values. 
  The trait character of the values will be discussed.
 keywords          : "emotion regulation, regulatory effort, effort discounting, registered report, emotion regulation choice, emotion regulation flexibility, electromyography"
