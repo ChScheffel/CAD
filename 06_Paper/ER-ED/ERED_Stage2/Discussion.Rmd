@@ -108,7 +108,7 @@ By definition, this represents a state.
 As noted above, personal regulatory goals, situational factors, and contextual demands influence the choice for or against ER strategies[@Aldao2015;@Bonanno2013@Sheppes2011;@Scheffel2021;@Haines2016].
 We believe that these goals, factors, and demands also influence individual SVs of ER strategies.
 Our data presented in this study support this idea.
-However, this also implies that SVs should differ according to situational factors (e.g., stimulus intensity).
+However, this also implies that SVs should differ according to situational factors (e.g. stimulus intensity).
 The ER goals that individuals pursue in a given situation must also be taken into account.
 In our laboratory setting, participants mainly pursue prohedonic goals, but certainly not social goals[@Tamir2016].
 Wilms and colleagues[-@Wilms2020] pointed out that ER goals, as well as situational factors, should be treated as states, because both vary greatly from event to event and situation to situation.
