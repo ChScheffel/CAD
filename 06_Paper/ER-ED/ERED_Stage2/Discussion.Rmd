@@ -36,7 +36,7 @@ It was nevertheless surprising that the strategy suppression showed on average a
 In the case of the EMG measurement, this could be due to the fact that the result of the implementation of the instructions ("Maintain a neutral facial expression") is measured directly. 
 The direct instruction also reduces the complexity of the generation process, which is why the required effort is the lowest.
 By comparison, distancing increases the complexity, because it requires an impersonal reappraisal of the stimulus.
-Ultimately, these two aspects are expressed in terms of greater utility: The implementation of the instructions requires comparatively less effort. 
+Ultimately, the immediacy and simplicity are then expressed in terms of greater utility. 
 In addition, one receives relatively direct feedback from one's own facial muscle activity as to how well the strategy suppression has been implemented.
 In the case of the strategies distraction and distancing, a more detailed evaluation of internal states must take place in order to assess the utility of the strategies.
 Since these manipulation checks were successful, the subjective and physiological measures were likely to be meaningful in influencing the individual SVs.
