@@ -179,12 +179,12 @@ The authors declare no competing interests.
 
 # Figures
 
-```{r ResponsePatterns, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Exemplary visualization of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can be represented by our paradigm. Figure available at https://osf.io/vnj8x/, under a CC-BY4.0 license."}
+```{r ResponsePatterns, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Exemplary visualization of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can be represented by our paradigm. Figure available at https://osf.io/vnj8x/, under a CC-BY4.0 license.", fig.pos="H"}
 include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "Paradigm_Scheme_T2.png" ))
 ```
 
 
-```{r DesignERED, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Block design of the paradigm. Every participant starts with two \"active viewing\" blocks continaing neutral (Block 1) and negative (Block 2) pictures. Order of the regulation blocks (Blocks 3, 4, and 5) was randomized between participants. After, the discounting procedure took place. All three regulation strategies were compared pairwise. Before the last block, participants could decide which regulation strategy they wanted to reapply. Subjective arousal and effort ratings were assessed after each block using a slider on screen with a continuous scale. Figure available at https://osf.io/vnj8x/, under a CC-BY4.0 license."}
+```{r DesignERED, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Block design of the paradigm. Every participant starts with two \"active viewing\" blocks continaing neutral (Block 1) and negative (Block 2) pictures. Order of the regulation blocks (Blocks 3, 4, and 5) was randomized between participants. After, the discounting procedure took place. All three regulation strategies were compared pairwise. Before the last block, participants could decide which regulation strategy they wanted to reapply. Subjective arousal and effort ratings were assessed after each block using a slider on screen with a continuous scale. Figure available at https://osf.io/vnj8x/, under a CC-BY4.0 license.", fig.pos="H"}
 knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "Design_ER-ED.png"))
 ```
 
