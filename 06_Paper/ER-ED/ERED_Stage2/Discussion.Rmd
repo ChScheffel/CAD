@@ -115,7 +115,7 @@ Wilms and colleagues[-@Wilms2020] pointed out that ER goals, as well as situatio
 In a different situation, for example outside the laboratory, where an individual is primarily pursuing a social goal, a different strategy might appear more helpful and thus have a higher SV.
 It should also be noted that the calculation of individual SVs in our CAD paradigm always refers to the alternative strategies that were available to the individuals (see also [Limitations](#Limitations)).
 Therefore, SVs may vary when different reference strategies are used.
-It is conceivable that subjective values are likely to be highly correlated in situations with similar demands and goals. 
+It is conceivable that SVs are likely to be highly correlated in situations with similar demands and goals. 
 They would thus reflect habits or habitual use of ER strategies, which has already been attempted to capture by means of questionnaires[@GrossJohn2003]. 
 Of course, it is also possible that such habits influence the internal formation of these subjective values.
 However, our data are not suitable for answering this question.
