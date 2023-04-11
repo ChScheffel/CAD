@@ -144,8 +144,7 @@ For example, SVs for an ER strategy might be higher or lower when different stim
 Fourth, the highest value during the discounting paradigm was set to 2€ as fixed value.
 Participants were asked to imagine that this was the amount of money they would receive if they repeated this strategy.
 Thus, 2€ could be quite low as an incentive to repeat an whole experimental block of emotion regulation.
-However, we chose this amount because, firstly, we have followed the original paradigm of Westbrook[@Westbrook2013].
-Secondly, it has been shown that, at least in the case of cognitive effort discounting, a lower incentive might even increase participants' sensitivity to effort differences[@Bialaszek2017].
+However, we chose this amount because, firstly, we followed the original paradigm of Westbrook[@Westbrook2013], and secondly, it has been shown in the context of cognitive effort discounting, that a lower incentive increases participants' sensitivity to effort differences[@Bialaszek2017].
 In the future, however, it should be investigated how the level of incentives affects subjective values.
 
 ## Conclusion
