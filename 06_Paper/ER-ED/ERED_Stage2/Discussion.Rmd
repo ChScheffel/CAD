@@ -36,10 +36,10 @@ It was nevertheless surprising that the strategy suppression showed on average a
 In the case of the EMG measurement, this could be due to the fact that the result of the implementation of the instructions ("Maintain a neutral facial expression") is measured directly. 
 The direct instruction also reduces the complexity of the generation process, which is why the required effort is the lowest.
 By comparison, distancing increases the complexity, because it requires an impersonal reappraisal of the stimulus.
-Ultimately, the immediacy and simplicity are then expressed in terms of greater utility. 
+Ultimately, the immediacy and simplicity are then expressed in terms of greater subjective utility of the strategy. 
 In addition, one receives relatively direct feedback from one's own facial muscle activity as to how well the strategy suppression has been implemented.
-In the case of the strategies distraction and distancing, a more detailed evaluation of internal states must take place in order to assess the utility of the strategies.
-Since these manipulation checks were successful, the subjective and physiological measures were likely to be meaningful in influencing the individual SVs.
+In the case of the strategies distraction and distancing, a more detailed evaluation of internal states must take place in order to assess their utility, which again requires more effort.
+Since the manipulation checks were successful, the subjective and physiological measures were likely to be meaningful in influencing the individual SVs.
 
 Almost all participants showed an absolute preference for a particular strategy, indicated by an SV of 1. 
 We also found a wide range of SVs (between `r papaja::apa_num(min(data_SV$sv), digits = 3)` and `r papaja::apa_num(max(data_SV$sv))`), suggesting that individuals have varying degrees of strategy preference.
