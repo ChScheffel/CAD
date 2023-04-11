@@ -27,7 +27,7 @@ We adapted Westbrook et al.'s[-@Westbrook2013] Cognitive Effort Discounting para
 The new paradigm was tested on an *n*-back task[@ZernaScheffel2022] and a classic ER paradigm.
 The latter was the goal of the present study and completed by $N=`r sum(data_survey[,"followup_ered_complete"] == 2)-1`$ participants. 
 As expected, the use of ER strategies was associated with reduced subjective and physiological arousal.
-This finding is in line with previous meta-analytic findings indicating the effectiveness of ER strategies, both on subjective as well as physiological levels[@Webb2012;@Zaehringer2020]. <!-- evtl. Einwand warum Suppression am erfolgreichsten war --> 
+This finding is in line with previous meta-analytic findings indicating the effectiveness of ER strategies, both on subjective as well as physiological levels[@Webb2012;@Zaehringer2020].
 Furthermore, we found higher levels of subjective cognitive effort for all ER strategies compared to active viewing. 
 This allows us to replicate previous findings from our research group and show that strategy use is associated with cognitive effort[@Scheffel2021].
 Both measures also showed high variability between individuals.
