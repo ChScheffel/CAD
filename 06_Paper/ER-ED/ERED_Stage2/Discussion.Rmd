@@ -141,9 +141,9 @@ In this context, the individual SVs of each person must be interpreted with caut
 They depend on the specific context: The stimuli presented and the strategies compared.
 For example, SVs for an ER strategy might be higher or lower when different stimuli or stimulus valences and different comparison strategies are used, because the calculation of SVs is inseparable form the other SVs.
 
-Fourth, the highest value during the discounting paradigm was set to 2 € as fixed value.
+Fourth, the highest value during the discounting paradigm was set to 2€ as fixed value.
 Participants were asked to imagine that this was the amount of money they would receive if they repeated this strategy.
-Thus, 2 € could be quite low as an incentive to repeat an whole experimental block of emotion regulation.
+Thus, 2€ could be quite low as an incentive to repeat an whole experimental block of emotion regulation.
 However, we chose this amount because, firstly, we have followed the original paradigm of Westbrook[@Westbrook2013].
 Secondly, it has been shown that, at least in the case of cognitive effort discounting, a lower incentive might even increase participants' sensitivity to effort differences[@Bialaszek2017].
 In the future, however, it should be investigated how the level of incentives affects subjective values.
