@@ -117,10 +117,6 @@ In a separate study, we will test our adapted paradigm together with a *n*-back 
 
 [INSERT FIGURE 1 HERE]
 
-```{r ResponsePatterns, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Exemplary visualization of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can be represented by our paradigm. Figure available at https://osf.io/vnj8x/, under a CC-BY4.0 license."}
-include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "Paradigm_Scheme_T2.png" ))
-```
-
 The aim of the present study is to evaluate whether this paradigm is suitable for determining SVs of ER strategies. 
 As a manipulation check, we first want to investigate whether the valence of the pictures is affecting subjective and physiological responding, resulting in lower subjective arousal ratings after and lower EMG activity during neutral compared to negative pictures.
 Second, we want to check whether the ER strategies distraction, distancing, and suppression effectively reduce subjective arousal and physiological responding compared to the active viewing condition.
