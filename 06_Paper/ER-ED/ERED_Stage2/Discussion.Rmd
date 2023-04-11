@@ -154,6 +154,6 @@ The strategy that is most suitable for coping with contextual demands and achiev
 The combination of influencing factors should be reflected in subjective values that are formed for all alternatives and serve as a basis for decision-making.
 To date, such subjective values have not been established for ER strategies.
 Our proposed CAD paradigm contributes to research on ER Choice and ER Flexibility by allowing quantification of these values. 
-This further enables to investigate in more detail the factors influencing the internal generation of these subjective values of ER strategies.
+This further enables to investigate the factors influencing the internal generation of these subjective values of ER strategies in more detail.
 It appears that the subjective value attributed to a strategy is primarily determined by perceived usefulness and effort.
 Finally, further research is needed to investigate the factors that influence subjective values and whether these values represent habitual use of ER strategies by individuals.
