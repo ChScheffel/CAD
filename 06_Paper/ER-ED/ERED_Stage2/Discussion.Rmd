@@ -72,7 +72,7 @@ With regard to the EMG measures, this could be because all the pictures we used 
 However, *corrugator* activity did not differ significantly between ER strategies, but was still associated with SVs. 
 One possible reason for this could be that muscle activity provides direct feedback on the effectiveness of the current strategy, much more direct than, for example, the subjective arousal rating at the end of each experimental block.
 Furthermore, the finding that effort is associated with SVs confirms previous research by our group showing that individuals strive to minimise effort when choosing ER strategies[@Scheffel2021].
-Finally, the subjective utility ratings showed the greatest explanation for the variance in the SVs.
+Finally, the subjective utility ratings showed the greatest explained variance in the SVs.
 This relationship is highly plausible as it involves individuals assessing the utility of the strategy as a means of achieving external and internal regulatory goals.
 This is likely to overlap with subjective values - some literature argues that utility and subjective values are the same thing[@Schultz2015].
 However, this is contradicted by our data, as subjective utility could only explain `r papaja::printnum(H5_M2_table[4,5]*100, digits = 1)`% of the variance in SVs.
