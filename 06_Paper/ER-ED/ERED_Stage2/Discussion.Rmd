@@ -80,7 +80,7 @@ However, this is contradicted by our data, as subjective utility could only expl
 The highest SVs of the individuals were associated with the choice made by the participants in the last experimental block. 
 So far, it has been difficult to transfer such findings from the laboratory to everyday life[@Wilms2020].
 This may be because in laboratory studies the choice options are often predetermined by the experimental design[@Sheppes2011;@Sheppes2014;@Scheffel2021].
-Therefore, attempts have been made to investigate ER choice and influencing factors in everyday life in previous studies.
+Therefore, attempts have been made to investigate ER choice and its influencing factors in everyday life in previous studies.
 Even there, however, certain strategies were often prescribed (for example studies, see English et al.[-@English2017], Millgram et al.[-@Millgram2019], Wilms et al.[-@Wilms2020]), although covering a large part of the process of emotion generation[@Gross1998emerging].
 Of course, the calculation of SVs in our new CAD paradigm is similarly tied to the strategies with which the strategy of interest is compared.
 To allow all strategies in the ER repertoire to be recorded for each individual, a study might use ecological momentary assessment[@Aldao2015;@Koval2020].
