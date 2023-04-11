@@ -47,7 +47,7 @@ There was a significant relationship between SVs and strategy choice.
 Overly frequent, persons chose the strategy for which the highest subjective value had been determined before, supporting hypothesis H7.
 We also found associations between individual SVs and various predictors.
 Subjective effort, utility, and *corrugator* muscle activity significantly predicted individual SVs.
-Contrary to our hypothesis H6, utility was the best predictor for individual SVs, explaining `r papaja::printnum(H5_M2_table[4,5]*100, digits = 1)`% of variance in SVs.
+Contrary to our hypothesis H6, utility and not effort was the best predictor for individual SVs, explaining `r papaja::printnum(H5_M2_table[4,5]*100, digits = 1)`% of variance in SVs.
 However, individual SVs did not show associations with self-reported ER flexibility, we therefore found no evidence for hypothesis H7.
 In a subsequent exploratory analyses, we found associations between individual SVs and self-control.
 This is consistant with the literature, which has already reported correlations between self-control and demand avoidance[@Kool2013].
