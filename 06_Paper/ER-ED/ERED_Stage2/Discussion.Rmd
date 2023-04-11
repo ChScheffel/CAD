@@ -93,7 +93,7 @@ Importantly, the information about the success of implementing an ER strategy in
 This means that studies on ER Choice should consider not only situational factors, but also contextual factors[@Murphy2018].
 For example, in a classic ER choice paradigm[@Sheppes2011], Murphy and Young[-@Murphy2018] showed that strategy choice was significantly influenced by strategy choice and negative affect in the previous trial.
 This provides empirical evidence that experience gained during use of ER strategies influences future choice of ER strategies.
-Our newly developed paradigm also makes an important contribution here.
+Our newly developed CAD paradigm also makes an important contribution here.
 The information and experiences that participants gain while using the strategies in the experimental task might be implicitly incorporated into the subsequent calculation of subjective values.
 That is, the participants first apply all the strategies and then make the monetary decisions while expecting that they should repeat the strategies again.
 This raises the question of how stable these individual SVs are.
