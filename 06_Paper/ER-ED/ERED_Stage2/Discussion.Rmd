@@ -53,7 +53,7 @@ In a subsequent exploratory analyses, we found a positive association between in
 This is consistent with the literature, which has already reported correlations between self-control and demand avoidance[@Kool2013].
 However, we did not find an association between NFC and SVs. 
 This is in contrast to the literature, which has reported correlations between NFC, effort discounting and demand avoidance[@ZernaScheffel2022;@Westbrook2013].
-However, these were all cognitive tasks. The role of NFC in affective tasks is not yet known.
+However, these were all cognitive tasks. The role of NFC in affective tasks is not well known yet.
 
 ## Ecological validity of subjective values of ER strategies
 
