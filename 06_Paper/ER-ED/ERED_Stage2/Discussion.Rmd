@@ -49,7 +49,7 @@ We also found associations between individual SVs and various predictors.
 Subjective effort, utility, and *corrugator* muscle activity significantly predicted individual SVs.
 Contrary to our hypothesis H6, utility and not effort was the best predictor for individual SVs, explaining `r papaja::printnum(H5_M2_table[4,5]*100, digits = 1)`% of variance in SVs.
 However, since individual SVs did not show associations with self-reported ER flexibility, we found no evidence for hypothesis H7.
-In a subsequent exploratory analyses, we found associations between individual SVs and self-control.
+In a subsequent exploratory analyses, we found a positive association between individual SVs and self-control.
 This is consistent with the literature, which has already reported correlations between self-control and demand avoidance[@Kool2013].
 However, we did not find an association between NFC and SVs. 
 This is in contrast to the literature, which has reported correlations between NFC, effort discounting and demand avoidance[@ZernaScheffel2022;@Westbrook2013].
