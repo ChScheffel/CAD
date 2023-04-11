@@ -43,13 +43,13 @@ Please note that sample size for individual calculations may be smaller due to f
 To explore whether negative pictures evoke emotional arousal and physiological responding, we conducted separate rmANOVAs for the active viewing condition with predictors subjective arousal, *corrugator* and *levator* activity.
 Descriptive values of each predictor for each condition can be found in Table \@ref(tab:TabDescr).
 We found a significant main effect of valence for subjective arousal (`r papaja::apa_print(SubjArousalView_aov)$full_result`, `r papaja::apa_print(SubjArousalView_BF)$statistic`), *corrugator* activity (`r papaja::apa_print(EMGCorrView_aov)$full_result`, `r papaja::apa_print(EMGCorrView_BF)$statistic`), and *levator* activity (`r papaja::apa_print(EMGLevView_aov)$full_result`, `r papaja::apa_print(EMGLevView_BF)$statistic`).
-Post-hoc contrasts indicated that negative pictures successfully increased emotional arousal and physiological responding (please see Tables \@ref(tab:SupplEffectArousalView) to \@ref(tab:SupplEffectLevView and Figures \@ref(fig:SupplFigArousalView) to \@ref(fig:SupplFigLevView) in the [supplement]).
+Post-hoc contrasts indicated that negative pictures successfully increased emotional arousal and physiological responding (please see Tables S.4 to S.6 and Figures S.1 to S.3 in the supplementary material).
 
 #### Effect of emotion regulation on arousal and facial EMG
 
 To investigate whether ER strategies reduce emotional arousal and physiological responding, we conducted separate rmANOVAs comparing the four instructed strategies (active viewing, distraction, distancing, suppression) with respect to subjective arousal, *corrugator* and *levator* activity.
 We found a significant effect of strategy for subjective arousal (`r papaja::apa_print(SubjArousalReg_aov)$full_result`, `r papaja::apa_print(SubjArousalReg_BF)$statistic`), *corrugator* activity (`r papaja::apa_print(EMGCorrReg_aov)$full_result`, `r papaja::apa_print(EMGCorrReg_BF)$statistic`), and *levator* activity (`r papaja::apa_print(EMGLevReg_aov)$full_result`, `r papaja::apa_print(EMGLevReg_BF)$statistic`), indicating that regulation strategies reduced subjective arousal and physiological responding.
-For detailed information on post-hoc contrasts, please see Tables \@ref(tab:SupplEffectArousalReg) to \@ref(tab:SupplEffectLevReg) and Figures \@ref(fig:SupplFigArousalReg) to \@ref(fig:SupplFigLevReg) in the [supplementary material](#SupplementEffectER).
+For detailed information on post-hoc contrasts, please see Tables S.7 to S.9 and Figures S.4 to S.6 in the supplementary material.
 
 [INSERT TABLE 1 HERE]
 
@@ -72,9 +72,6 @@ Moreover, we found significantly lower effort during suppression compared with d
 
 [INSERT FIGURE 3 HERE]
 
-```{r FigSubjEffort, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective effort ratings vizalized as boxplots. Dots represent individual effort ratings placed in 150 quantiles. Figure available at https://osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"}
-knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigSubjEffort.png"))
-```
 Cognitive effort also played the most important role in the subsequent choice decision, which resembled previous findings of our group[@Scheffel2021].
 `r round((54/119)*100, digits = 1)`% of the participants stated that they chose the strategy that was easiest for them to implement.
 `r round((29/119)*100, digits = 1)`% stated they chose the strategy that was most effective and `r round((14/119)*100, digits = 1)`% stated their chosen strategy was the easiest and most effective.
@@ -129,10 +126,6 @@ There was a significant association between predicted choice and actual choice (
 
 [INSERT FIGURE 4 HERE]
 
-```{r FigSVChoice, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Individual subjective values per ER strategy, grouped by choice in last experimental block. Each dot indicates SV of one particpant, the colours indicate their choice in last experimental block. The scatter has a horizontal jitter of 0.40 and a vertical jitter of 0.05. $N=120$. Figure available at https://osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"}
-knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigSVChoice.png"))
-```
-
 We then conducted an ordinal regression with the dependent variable "choice" and the individual SVs of all three strategies as independent variables.
 Overall model fit was fair with $R^{2}=$ `r papaja::printnum(Choice_OrdReg_R2)`.
 The SV of the strategy distraction contributed significantly to the model (`r papaja::apa_print(Choice_OrdReg)$full_result$distraction_sv`, $BF10=$ `r papaja::printnum(Choice_OrdReg_Posterior$BFtu_exploratory[2,2])`).
@@ -159,4 +152,4 @@ $$
 As expected, the predictors effort rating (`r papaja::apa_print(MLM_3, digits = 3)$full_result$effort_cwc`) showed a negative association with SVs, while utility rating (`r papaja::apa_print(MLM_3, digits = 3)$full_result$utility_cwc`), and *corrugator* activity (`r papaja::apa_print(MLM_3, digits = 3)$full_result$Corr_cwc`) showed a significant positive association with SVs.
 In addition, a positive association was also found between self-control and SVs (`r papaja::apa_print(MLM_3, digits = 3)$full_result$SC_gmc`).
 However, the effect size of self-control was negligibly small ($f^{2}=$ `r papaja::printnum(Exp_M3_table[5,5], digits = 3)`).
-Detailed information can be found in the [supplementary material](#SupplementExploratory).
+Detailed information can be found in the supplementary material.
