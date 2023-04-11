@@ -176,20 +176,22 @@ The authors would like to thank Juliana Krause and Maja Hentschel for their help
 # Competing Interests
 
 The authors declare no competing interests.
-<!--
-```{=tex}
-\newpage
-\setcounter{figure}{0}
+
+# Figures
+
+```{r ResponsePatterns, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Exemplary visualization of two response patterns. In the top half, the person has a clear preference for one of the three strategies. In the lower half, they have no clear preference and therefore show an inconsistent response pattern. This pattern can be represented by our paradigm. Figure available at https://osf.io/vnj8x/, under a CC-BY4.0 license."}
+include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "Paradigm_Scheme_T2.png" ))
 ```
 
-```{r child = "Figures.Rmd"}
+
+```{r DesignERED, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Block design of the paradigm. Every participant starts with two \"active viewing\" blocks continaing neutral (Block 1) and negative (Block 2) pictures. Order of the regulation blocks (Blocks 3, 4, and 5) was randomized between participants. After, the discounting procedure took place. All three regulation strategies were compared pairwise. Before the last block, participants could decide which regulation strategy they wanted to reapply. Subjective arousal and effort ratings were assessed after each block using a slider on screen with a continuous scale. Figure available at https://osf.io/vnj8x/, under a CC-BY4.0 license."}
+knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "Design_ER-ED.png"))
 ```
--->
-# Design Table {#DesignTable}
 
-\includepdf[pages={-}, landscape=true]{Supplement/Design_Table_T2.pdf}
+```{r FigSubjEffort, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective effort ratings visualized as boxplots. Dots represent individual effort ratings placed in 150 quantiles. Figure available at https://osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"}
+knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigSubjEffort.png"))
+```
 
-\newpage
-
-```{r child = "Supplement.Rmd"}
+```{r FigSVChoice, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Individual subjective values per ER strategy, grouped by choice in last experimental block. Each dot indicates SV of one participant, the colours indicate their choice in last experimental block. The scatter has a horizontal jitter of 0.40 and a vertical jitter of 0.05. $N=120$. Figure available at https://osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"}
+knitr::include_graphics(here("06_Paper", "ER-ED", "ERED_Stage2", "figures", "FigSVChoice.png"))
 ```
