@@ -33,7 +33,7 @@ This allows us to replicate previous findings from our research group and show t
 Both measures also showed high variability between individuals.
 Taken together, this means that the ER strategies had the intended effect on the participants: Individuals were able to effectively reduce subjective and physiological responding at the expense of cognitive effort.
 It was nevertheless surprising that the strategy suppression showed on average and descriptively the lowest *corrugator* activity, the lowest effort ratings and the highest utility ratings. 
-In the case of the EEG measurement, this could be due to the fact that the result of the implementation of the instructions ("Maintain a neutral facial expression") is measured directly.
+In the case of the EMG measurement, this could be due to the fact that the result of the implementation of the instructions ("Maintain a neutral facial expression") is measured directly.
 This also indicates why the required effort is the lowest. 
 The direct instruction to implement the strategy reduces the complexity of the generation process.
 By comparison, distancing increases the complexity, for example, because it requires a distanced reappraisal of the stimulus.
