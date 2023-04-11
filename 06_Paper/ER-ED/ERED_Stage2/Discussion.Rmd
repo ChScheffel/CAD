@@ -106,7 +106,7 @@ To establish the *trait* nature of a measure, one could for instance resort to l
 The individual SVs calculated in our CAD paradigm were assessed in the laboratory in a single situation. 
 By definition, this represents a state.
 As noted above, personal regulatory goals, situational factors, and contextual demands influence the choice for or against ER strategies[@Aldao2015;@Bonanno2013@Sheppes2011;@Scheffel2021;@Haines2016].
-We belief that these goals, factors, and demands also influence individual SVs of ER strategies.
+We believe that these goals, factors, and demands also influence individual SVs of ER strategies.
 Our data presented in this study support this idea.
 However, this also implies that SVs should differ according to situational factors (e.g., stimulus intensity).
 The ER goals that individuals pursue in a given situation must also be taken into account.
