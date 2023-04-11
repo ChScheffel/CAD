@@ -84,7 +84,7 @@ Therefore, attempts have been made to investigate ER choice and its influencing 
 Even there, however, certain strategies were often prescribed (for example studies see English et al.[-@English2017], Millgram et al.[-@Millgram2019], Wilms et al.[-@Wilms2020]), although covering a large part of the process of emotion generation[@Gross1998emerging].
 Of course, the calculation of SVs in our new CAD paradigm is similarly tied to the strategies with which the strategy of interest is compared.
 To allow all strategies in the ER repertoire to be recorded for each individual, a study might use ecological momentary assessment[@Aldao2015;@Koval2020].
-This would also capture strategies that are rarely used or even considered maladaptive, such as alcohol consumption or rumination[@Pena-Sarrionandia2015].
+This would also capture strategies that are rarely used or are even considered maladaptive, such as alcohol consumption or rumination[@Pena-Sarrionandia2015].
 
 In order to gain a more comprehensive picture of ER, dynamic or cyclic processes have to be considered.
 The extended process model of emotion regulation[@Gross2015] postulates three sequential stages, namely identification, selection, and implementation, to achieve a given goal in a situation.
