@@ -135,8 +135,7 @@ Furthermore, we were able to confirm that the implementation of ER strategies wa
 Still, these features of our research design may have led to slightly lower associations between SVs and predictors.
 
 Third, a major limitation is that participants had to use three prescribed ER strategies.
-It may be that some of the participants were not used to any of these strategies in everyday life.
-So it could be that none of the strategies has a really high subjective value for the person.
+It may be that some of the participants were not used to any of these strategies in everyday life, so none of the strategies actually had a high subjective value for them.
 However, the strategies selected for attentional deployment, cognitive change, and response modulation have been shown meta-analytically to be most effective[@Webb2012]. 
 In this context, the individual SVs of each person must be interpreted with caution. 
 They depend on the specific context: The stimuli presented and the strategies compared.
