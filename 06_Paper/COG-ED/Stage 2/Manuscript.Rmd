@@ -330,7 +330,7 @@ The paradigm code, the R script for analysis, and the R Markdown file used to co
 
 ## Protocol registration
 
-The Stage 1 Registered Report protocol has been approved and is available at [osf.io/qa2bg/](https://osf.io/qa2bg/).
+The Stage 1 Registered Report protocol has been approved and is available at [osf.io/cpxth/](https://osf.io/cpxth).
 
 # Results
 
