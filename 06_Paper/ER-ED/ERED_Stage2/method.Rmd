@@ -78,7 +78,7 @@ The items were rated on a 4-point scale ranging from "strongly agree" to "strong
 Further psychological constructs were assessed but had no clear hypotheses in the present work and are therefore investigated only exploratory:
 General psychological well-being was assessed using the German version of the WHO-5 scale[@Bech2004; @Braehler2007].
 To measure resilience, the German version 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003; @Campbell-Sills2007; @Sarubin2015] was used.
-Habitual use of ER will was assessed using the German version of the Emotion Regulation Questionnaire (ERQ)[@GrossJohn2003; @Abler2009].
+Habitual use of ER was assessed using the German version of the Emotion Regulation Questionnaire (ERQ)[@GrossJohn2003; @Abler2009].
 Implicit theories of willpower in emotion control was assessed using the implicit theories questionnaire from Bernecker and Job[@Bernecker2017].
 To assess Need for Cognition, the German version short form of the Need for Cognition Scale[@Cacioppo1982; @Bless1994] was used.
 To assess self-control [@Paschke2016], sum scores of the German versions of the following questionnaires were used: the Self-Regulation Scale (SRS)[@Schwarzer1999], the Brief Self-Control Scale (BSCS)[@Tangney2004; @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11)[@Patton1995; @Hartmann2011].
