@@ -74,7 +74,6 @@ abstract          : |
  With our paradigm, we were able to determine subjective values. 
  The trait character of the values will be discussed.
 keywords          : "emotion regulation, regulatory effort, effort discounting, registered report, emotion regulation choice, emotion regulation flexibility, electromyography"
-wordcount         : "9432"
 bibliography      : ["ER_ED.bib"]
 floatsintext      : yes
 figsintext        : yes
