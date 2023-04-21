@@ -472,7 +472,7 @@ The full results of these analyses of NFC group differences can be found in Tabl
 
 To investigate the apparent group difference between the SVs of participants with NFC scores below and above the median in higher $n$-back levels, we computed an rmANOVA with the within-factor level (1 to 4) and the between-factor NFC group (below/above median).
 There was no main effect of NFC group (`r apa_print(explor_model)$full_result$nfcmedian`, `r apa_print(explor_BF)$table[2,"statistic"]`), but a main effect of the $n$-back level (`r apa_print(explor_model)$full_result$level`, `r apa_print(explor_BF)$table[1,"statistic"]`) and an interaction (`r apa_print(explor_model)$full_result$nfcmedian_level`).
-Post-hoc tests for the main effect of level showed that Svs were lower for the more difficult $n$-back level in each paired contrast except for 1- versus 2-back.
+Post-hoc tests for the main effect of level showed that SVs were lower for the more difficult $n$-back level in each paired contrast except for 1- versus 2-back.
 Post-hoc tests for the interaction effect showed that the NFC groups only had a significant difference in SVs for 4-back, where participants below the NFC median had lower scores (`r apa_print(pairs(explor_emm_interact))$full_result$X4_High_low`).
 Despite not reaching significance, 1-back was the only level in which participants with NFC scores above the median seemed to have lower SVs than those with scores below the median (`r apa_print(pairs(explor_emm_interact))$full_result$X1_High_low`).
 The full results of this exploratory analysis of NFC group differences can be found in Table S.16 and S.17 in the Supplementary Material.

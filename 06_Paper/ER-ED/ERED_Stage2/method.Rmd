@@ -78,7 +78,7 @@ The items were rated on a 4-point scale ranging from "strongly agree" to "strong
 Further psychological constructs were assessed but had no clear hypotheses in the present work and are therefore investigated only exploratory:
 General psychological well-being was assessed using the German version of the WHO-5 scale[@Bech2004; @Braehler2007].
 To measure resilience, the German version 10-item-form of the Connor-Davidson resilience Scale (CD-RISC)[@Connor2003; @Campbell-Sills2007; @Sarubin2015] was used.
-Habitual use of ER will was assessed using the German version of the Emotion Regulation Questionnaire (ERQ)[@GrossJohn2003; @Abler2009].
+Habitual use of ER was assessed using the German version of the Emotion Regulation Questionnaire (ERQ)[@GrossJohn2003; @Abler2009].
 Implicit theories of willpower in emotion control was assessed using the implicit theories questionnaire from Bernecker and Job[@Bernecker2017].
 To assess Need for Cognition, the German version short form of the Need for Cognition Scale[@Cacioppo1982; @Bless1994] was used.
 To assess self-control [@Paschke2016], sum scores of the German versions of the following questionnaires were used: the Self-Regulation Scale (SRS)[@Schwarzer1999], the Brief Self-Control Scale (BSCS)[@Tangney2004; @Sproesser2011], and the Barratt Impulsiveness Scale (BIS-11)[@Patton1995; @Hartmann2011].
@@ -193,7 +193,7 @@ The SVs of the fixed strategies lay between 0 and 1, with lower values indicatin
 The final SV per strategy for each participant was computed by averaging the SVs of each strategy across pairings.
 
 To explore the association between subjective effort (H5a), subjective arousal (H5b), subjective utility (H5c), and physiological responding (H5d,e) on SVs, a multilevel model (MLM) was specified using the $lmerTest$ package[@Kuznetsova2017].
-First, ER strategies were recoded and centered for each subject according to their individual SVs: The strategy with the highest SV will be coded as -1, the strategy with the second highest SV 0, and the strategy with the lowest SV will be coded as 1.
+First, ER strategies were recoded and centered for each subject according to their individual SVs: The strategy with the highest SV was coded as -1, the strategy with the second highest SV 0, and the strategy with the lowest SV was coded as 1.
 Restricted maximum likelihood (REML) was applied to fit the model.
 A random slopes model of SVs including subjective effort (effort ratings), subjective arousal (arousal ratings), utility (utility ratings), and physiological responses (*corrugator* and *levator* activity) as level-1-predictors was specified.
 $$
@@ -232,4 +232,4 @@ The paradigm code, the R script for analysis, and the R Markdown file used to co
 
 ## Protocol registration
 
-The Stage 1 Registered Report protocol has been approved and is available at [osf.io/d6sc9/](https://osf.io/d6sc9/).
+The Stage 1 Registered Report protocol has been approved and is available at [https://osf.io/fn9bt](https://osf.io/fn9bt).
