@@ -106,7 +106,11 @@ header-includes   :
 \counterwithout{figure}{section}
 \setcounter{figure}{0}
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+```{r}
+#| label: setup
+#| echo: false
+#| message: false
+#| warning: false
 
   # set the output for figures and tables to the width of the text throughout the entire script
 
@@ -361,7 +365,12 @@ The performance measure $d'$ did not change across $n$-back levels (`r apa_print
 Specifically, the median RT was higher for the more difficult level in every contrast, with two exceptions:
 It did not differ between 2- and 4-back, and it was higher for 3- than for 4-back (Table\ \@ref(tab:H1b-contrasts)).
 
-```{r H1b-contrasts, echo=FALSE, message=FALSE, warning=FALSE}
+```{r}
+#| label: H1b-contrasts
+#| echo: false
+#| message: false
+#| warning: false
+
 apa_table(
   hypothesis1b_contrasts,
   caption = "Paired contrasts for the rmANOVA comparing the median reaction time between $n$-back levels",
@@ -388,7 +397,12 @@ Figure S.1 in the Supplementary Material shows the different motivations in the 
 The rmANOVA showed a significant difference between the SVs across $n$-back levels (`r apa_print(hypothesis2a_rmanova)$full_result$level`, `r apa_print(hypothesis2a_BF)$statistic`), so evidence was in favour of H2a.
 All four pre-defined contrasts reached significance (Table\ \@ref(tab:H2a-contrasts)), so a purely linear contrast can be rejected.
 
-```{r H2a-contrasts, echo=FALSE, message=FALSE, warning=FALSE}
+```{r}
+#| label: H2a-contrasts
+#| echo: false
+#| message: false
+#| warning: false
+
 apa_table(
   hypothesis2a_contrasts,
   caption = "Contrasts for the rmANOVA comparing the subjective values between $n$-back levels",
@@ -413,7 +427,12 @@ We did not use an optimization algorithm to improve the fit of the random interc
 A total of `r nrow(excl_cases_h2b)` data points from `r length(unique(excl_cases_h2b$subject))` participants were excluded, because the residuals exceeded 3 SD above the mean.
 The results of the final model are displayed in Table\ \@ref(tab:H2b-results).
 
-```{r H2b-results, echo=FALSE, message=FALSE, warning=FALSE}
+```{r}
+#| label: H2b-results
+#| echo: false
+#| message: false
+#| warning: false
+
 apa_table(h2b_result.table,
         caption = "Results of the multi level model on the influence of n-back level (as a declining logistic contrast) and task performance on subjective values.",
         escape = FALSE,
