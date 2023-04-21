@@ -184,7 +184,7 @@ Each hypothesis is detailed in the Design Table in the Supplementary Material.
 
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study[cf. @Simmons2012].
 The paradigm was written and presented using *Psychopy*[@Peirce2019].
-We used *R*[@RCT2020] with *R Studio*[@RStudioTeam2020] with the main packages *afex*[@Singmann2021] and *BayesFactor*[@Morey2021] for all our analyses.
+We used *R* (Version 4.2.0)[@RCT2020] with *R Studio* (Version 2022.12.0)[@RStudioTeam2020] with the main packages *papaja* (Version 0.1.1)[@Aust2020], *afex* (Version 1.2-1)[@Singmann2021], and *BayesFactor* (Version 0.9.12-4.4)[@Morey2021] for all our analyses.
 
 ## Ethics information
 
