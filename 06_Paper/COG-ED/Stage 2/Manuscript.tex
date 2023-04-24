@@ -281,7 +281,7 @@ Each hypothesis is detailed in the Design Table in the Supplementary Material.
 
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study\textsuperscript{cf. 18}.
 The paradigm was written and presented using \emph{Psychopy}\textsuperscript{19}.
-We used \emph{R}\textsuperscript{20} with \emph{R Studio}\textsuperscript{21} with the main packages \emph{afex}\textsuperscript{22} and \emph{BayesFactor}\textsuperscript{23} for all our analyses.
+We used \emph{R} (Version 4.2.0)\textsuperscript{20} with \emph{R Studio} (Version 2022.12.0)\textsuperscript{21} with the main packages \emph{papaja} (Version 0.1.1)\textsuperscript{22}, \emph{afex} (Version 1.2-1)\textsuperscript{23}, and \emph{BayesFactor} (Version 0.9.12-4.4)\textsuperscript{24} for all our analyses.
 
 \hypertarget{ethics-information}{%
 \subsection{Ethics information}\label{ethics-information}}
@@ -324,17 +324,17 @@ Therefore, an SV of 1 indicates that this level is preferred over all others, wh
 \hypertarget{study-procedure}{%
 \subsubsection{Study procedure}\label{study-procedure}}
 
-Healthy participants aged 18 to 30~years were recruited using the software \emph{ORSEE}\textsuperscript{24}.
+Healthy participants aged 18 to 30~years were recruited using the software \emph{ORSEE}\textsuperscript{25}.
 Participants completed the personality questionnaires online and then visited the lab for two sessions one week apart.
-NFC was assessed using the 16-item short form of the Need for Cognition Scale\textsuperscript{25,26}.
+NFC was assessed using the 16-item short form of the Need for Cognition Scale\textsuperscript{26,27}.
 Responses to each item (e.g., ``Thinking is not my idea of fun'', recoded) were recorded on a 7-point Likert scale.
-The NFC scale shows comparably high internal consistency (Cronbach's \(\alpha>.80\))\textsuperscript{26,27}.
+The NFC scale shows comparably high internal consistency (Cronbach's \(\alpha>.80\))\textsuperscript{27,28}.
 Several other personality questionnaires were used in this study but are the topic of the Registered Report for the second lab session\textsuperscript{17}.
 A full list of measures can be found in our \href{https://github.com/ChScheffel/CAD}{Github repository}.
 In the first session, participants provided informed consent and demographic data before completing the computer-based paradigm.
 The paradigm started with the \(n\)-back levels one to four, presented sequentially with two runs per level, consisting of 64 consonants (16 targets, 48 non-targets) per run.
 The levels were referred to by color (1-back: black, 2-back: red, 3-back: blue, 4-back: green) to avoid anchor effects in the effort discounting procedure.
-To assess perceived task load, we used the 6-item NASA Task Load Index (NASA-TLX)\textsuperscript{28}, where participants evaluate their subjective perception of mental load, physical load, effort, frustration, performance, and time pressure during the task on a 20-point scale.
+To assess perceived task load, we used the 6-item NASA Task Load Index (NASA-TLX)\textsuperscript{29}, where participants evaluate their subjective perception of mental load, physical load, effort, frustration, performance, and time pressure during the task on a 20-point scale.
 At the end of each level, participants filled out the NASA-TLX on a tablet, plus an item with the same response scale, asking them how aversive they found this \(n\)-back level.
 After the \(n\)-back task, participants completed the CAD paradigm on screen and were instructed to do so as realistically as possible, even though the displayed rewards were not paid out on top of their compensation.
 They were told that one of their choices would be randomly picked for the final run of \(n\)-back.
@@ -342,14 +342,14 @@ However, this data was not analyzed as it only served to incentivise truthful be
 After the CAD paradigm, participants filled out a short questionnaire on the tablet, indicating whether they adhered to the instructions (yes/no) and what the primary motivation for their decisions during the effort discounting procedure was (avoid boredom/relax/avoid effort/seek challenge/other).\\
 The second session consisted of an emotion regulation task with negative pictures and the instruction to suppress facial reactions, detach cognitively from the picture content, and distract oneself, respectively.
 The paradigm followed the same structure of task and effort discounting procedure, but participants could decide which strategy they wanted to reapply in the last block.
-Study data was collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden\textsuperscript{29,30}.
+Study data was collected and managed using REDCap electronic data capture tools hosted at Technische Universität Dresden\textsuperscript{30,31}.
 
 \hypertarget{sampling-plan}{%
 \subsection{Sampling plan}\label{sampling-plan}}
 
 Sample size determination was mainly based on the results of the analyses of Westbrook et al.\textsuperscript{7} (see Design Table in the Supplementary Material).
 The hypothesis that yielded the largest necessary sample size was a repeated measures ANOVA with within-between interaction of NFC and \(n\)-back level influencing SVs.
-Sample size analysis with \emph{G*Power}\textsuperscript{31,32} indicated that we should collect data from at least 72 participants, assuming \(\alpha=.05\) and \(\beta=.95\).
+Sample size analysis with \emph{G*Power}\textsuperscript{32,33} indicated that we should collect data from at least 72 participants, assuming \(\alpha=.05\) and \(\beta=.95\).
 However, the sample size analysis for the hypotheses of the second lab session revealed a larger necessary sample size of 85 participants to find an effect of \(d=-0.32\) of emotion regulation on facial muscle activity with \(\alpha=.05\) and \(\beta=.95\).
 To account for technical errors, noisy physiological data, or participants who indicate that they did not follow the instructions, we aimed to collect about \(50\%\) more data sets than necessary, \(N=120\) in total.
 
@@ -359,11 +359,11 @@ To account for technical errors, noisy physiological data, or participants who i
 Data collection and analysis were not performed blind to the conditions of the experiments.
 We excluded the data of a participant from all analyses, if the participant stated that they did not follow the instructions, if the investigator noted that the participant misunderstood the instructions, or if the participant withdrew their consent.
 No data was replaced.
-The performance measure \(d'\) was computed as the difference of the \emph{z}-transformed hit rate and the \emph{z}-transformed false alarm rate\textsuperscript{33}.
-Reaction time (RT) data was trimmed by excluding all trials with responses faster than 100~ms, as the relevant cognitive processes cannot have been completed before\textsuperscript{34,35}.
-Aggregated RT values were described using the median and the median of absolute deviation (\(MAD\)) as robust estimates of center and variability, respectively\textsuperscript{36}.
-Error- and post-error trials were excluded, because RT in the latter is longer due to more cautious behavior\textsuperscript{37,38}.
-To test our hypotheses, we performed a series of rmANOVAs and an MLM with orthogonal sum-to-zero contrasts in order to meaningfully interpret results\textsuperscript{39}.
+The performance measure \(d'\) was computed as the difference of the \emph{z}-transformed hit rate and the \emph{z}-transformed false alarm rate\textsuperscript{34}.
+Reaction time (RT) data was trimmed by excluding all trials with responses faster than 100~ms, as the relevant cognitive processes cannot have been completed before\textsuperscript{35,36}.
+Aggregated RT values were described using the median and the median of absolute deviation (\(MAD\)) as robust estimates of center and variability, respectively\textsuperscript{37}.
+Error- and post-error trials were excluded, because RT in the latter is longer due to more cautious behavior\textsuperscript{38,39}.
+To test our hypotheses, we performed a series of rmANOVAs and an MLM with orthogonal sum-to-zero contrasts in order to meaningfully interpret results\textsuperscript{40}.
 
 \emph{Manipulation check.}
 Declining performance was investigated by calculating an rmANOVA with six paired contrasts comparing \(d'\) between two levels of 1- to 4-back at a time.
@@ -382,24 +382,24 @@ To determine the influence of task performance on the association of SVs and \(n
 We applied restricted maximum likelihood (REML) to fit the model.
 As an effect size measure for random effects we first calculated the intraclass correlation (ICC), which displays the proportion of variance that is explained by differences between persons.
 Second, we estimated a random slopes model of \(n\)-back level (level 1, fixed, and random factor: 0-back, 1-back, 2-back, 3-back) predicting SV nested within subjects.
-As Mussel et al.\textsuperscript{40} could show, participants with high versus low NFC not only have a more shallow decline in performance with higher \(n\)-back levels, but show a demand-specific increase in EEG theta oscillations, which has been associated with mental effort.
+As Mussel et al.\textsuperscript{41} could show, participants with high versus low NFC not only have a more shallow decline in performance with higher \(n\)-back levels, but show a demand-specific increase in EEG theta oscillations, which has been associated with mental effort.
 We controlled for performance, i.e., \(d'\) (level 1, fixed factor, continuous), median RT (level 1, fixed factor, continuous) in order to eliminate a possible influence of declining performance on SV ratings.
 \[
 SV \sim level\ + d' + median RT + (level|subject)
 \]
-Level-1-predictors were centered within cluster as recommended by Enders \& Tofighi\textsuperscript{41}.
+Level-1-predictors were centered within cluster as recommended by Enders \& Tofighi\textsuperscript{42}.
 By this, the model yields interpretable parameter estimates.
 If necessary, we adjusted the optimization algorithm to improve model fit.
 We visually inspected the residuals of the model for evidence to perform model criticism.
 This was done by excluding all data points with absolute standardized residuals above 3 SD.
-As effect size measures, we calculated pseudo \(R^{2}\) for our model and \(f^{2}\) to estimate the effect of \(n\)-back level according to Lorah\textsuperscript{42}.
+As effect size measures, we calculated pseudo \(R^{2}\) for our model and \(f^{2}\) to estimate the effect of \(n\)-back level according to Lorah\textsuperscript{43}.
 
 The association of SVs and NFC was examined with an rmANOVA.
 We subtracted the SV of 1- from 2-back and 2- from 3-back, yielding two SV difference scores per participant.
 The sample was divided into participants with low and high NFC using a median split.
 We then computed an rmANOVA with the within-factor \(n\)-back level and the between-factor NFC group to determine whether there is a main effect of level and/or group, and/or an interaction between level and group on the SV difference scores.
 Post-hoc tests were computed depending on which effect reached significance at \(p<.01\).
-To ensure the validity of this association, we conducted a specification curve analysis\textsuperscript{43}, which included 63 possible preprocessing pipelines of the RT data.
+To ensure the validity of this association, we conducted a specification curve analysis\textsuperscript{44}, which included 63 possible preprocessing pipelines of the RT data.
 These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, 2, 2.5, or 3~\(MAD\) from the median, RTs below 100~or~200~ms), and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within \(n\)-back levels).
 The rmANOVA was run with each of the 63~pipelines, which also included our main pipeline (untransformed data, exclusion of RTs below 100~ms).
 The ratio of pipelines that lead to significant versus non-significant effects provides an indication of how robust the effect actually is.
@@ -410,8 +410,8 @@ And the association of subjective aversiveness of the task with NFC was examined
 We subtracted the aversiveness ratings of 1- from 2-back and 2- from 3-back, yielding two aversiveness difference scores per participant.
 Then, we computed an rmANOVA with the within-factor \(n\)-back level and the between-factor NFC group, and applied post-hoc tests based on which effect reached significance at \(p<.01\).
 
-The results of each analysis was assessed on the basis of both \(p\)-value and the Bayes factor \(BF_{10}\), calculated with the \emph{BayesFactor} package\textsuperscript{23} using the default prior widths of the functions \emph{anovaBF}, \emph{lmBF} and \emph{ttestBF}.
-We considered a \(BF_{10}\) close to or above 3/10 as moderate/strong evidence for the alternative hypothesis, and a \(BF_{10}\) close to or below .33/.10 as moderate/strong evidence for the null hypothesis\textsuperscript{44}.
+The results of each analysis was assessed on the basis of both \(p\)-value and the Bayes factor \(BF_{10}\), calculated with the \emph{BayesFactor} package\textsuperscript{24} using the default prior widths of the functions \emph{anovaBF}, \emph{lmBF} and \emph{ttestBF}.
+We considered a \(BF_{10}\) close to or above 3/10 as moderate/strong evidence for the alternative hypothesis, and a \(BF_{10}\) close to or below .33/.10 as moderate/strong evidence for the null hypothesis\textsuperscript{45}.
 
 \hypertarget{pilot-data}{%
 \subsection{Pilot data}\label{pilot-data}}
@@ -594,7 +594,7 @@ median RT & 0.02 & 0.07 & 798.58 & 0.30 & 0.768 & 0.00 & \\
 
 An exploratory ANOVA was used to compare the fit of the final model with a linear random intercept model, confirming that the two models were different from each other (\(\chi^2 (2)\) = 34.48, \(p<.001\)), and with an Akaike Information Criterion of \(AIC=-492.61\) and a Bayesian Information Criterion of \(BIC=-454.02\) the declining logistic model was superior to the linear model (\(AIC=-462.12\), \(BIC=-433.18\)).
 Both AIC and BIC subtract the likelihood of the model from the number of parameters and/or data points, so lower values indicate better model fit.
-The final model had an effect size of \(f^{2}=\) 0.64 for the \(n\)-back levels and \(f^{2}=\) 0.04 for \(d'\), which are considered large and small, respectively\textsuperscript{45}.
+The final model had an effect size of \(f^{2}=\) 0.64 for the \(n\)-back levels and \(f^{2}=\) 0.04 for \(d'\), which are considered large and small, respectively\textsuperscript{46}.
 This means that the \(n\)-back level explained 64.20\% and \(d'\) explained 3.95\% of variance in SVs relative to the unexplained variance, respectively.
 The beta coefficient indicated that with every 1-unit increase in \(d'\), the SV increased by 0.02.
 Due to the coding scheme of the logistic contrast, the beta coefficient of the \(n\)-back level has to be interpreted inversely, so SVs decline with increasing \(n\)-back level.
@@ -645,7 +645,7 @@ The full results of these analyses of NFC group differences can be found in Tabl
 
 To investigate the apparent group difference between the SVs of participants with NFC scores below and above the median in higher \(n\)-back levels, we computed an rmANOVA with the within-factor level (1 to 4) and the between-factor NFC group (below/above median).
 There was no main effect of NFC group (\(F(1, 114) = 2.63\), \(p = .108\), \(\hat{\eta}^2_G = .007\), 90\% CI \([.000, .053]\), \(2.95 \times 10^{-1}\)), but a main effect of the \(n\)-back level (\(F(2.01, 229.39) = 67.39\), \(p < .001\), \(\hat{\eta}^2_G = .295\), 90\% CI \([.228, .354]\), \(2.70 \times 10^{30}\)) and an interaction (\(F(2.01, 229.39) = 3.24\), \(p = .041\), \(\hat{\eta}^2_G = .020\), 90\% CI \([.000, .044]\)).
-Post-hoc tests for the main effect of level showed that Svs were lower for the more difficult \(n\)-back level in each paired contrast except for 1- versus 2-back.
+Post-hoc tests for the main effect of level showed that SVs were lower for the more difficult \(n\)-back level in each paired contrast except for 1- versus 2-back.
 Post-hoc tests for the interaction effect showed that the NFC groups only had a significant difference in SVs for 4-back, where participants below the NFC median had lower scores (\(\Delta M = 0.11\), 95\% CI \([0.01, 0.22]\), \(t(114) = 2.13\), \(p = .036\)).
 Despite not reaching significance, 1-back was the only level in which participants with NFC scores above the median seemed to have lower SVs than those with scores below the median (\(\Delta M = -0.05\), 95\% CI \([-0.11, 0.01]\), \(t(114) = -1.50\), \(p = .136\)).
 The full results of this exploratory analysis of NFC group differences can be found in Table S.16 and S.17 in the Supplementary Material.
@@ -665,7 +665,7 @@ The performance measure \(d'\) did not differ across \(n\)-back levels, but the 
 This points to three important characteristics of the \(n\)-back task in this context.
 Firstly, RT as a valid group-level indicator of performance might only be useful for levels up to \(n=3\), and could be used to investigate inter-individual differences for \(n>3\).
 Secondly, there is a speed-accuracy tradeoff in the first three levels, that might even re-emerge in higher levels, where \(d'\) would decline and RT would remain stable.
-And lastly, the fact that neither accuracy nor speed is an informative performance measure by itself has been observed before\textsuperscript{46} and both show different associations with various measures of intelligence\textsuperscript{4}, suggesting that they should always be reported as separate indices.
+And lastly, the fact that neither accuracy nor speed is an informative performance measure by itself has been observed before\textsuperscript{47} and both show different associations with various measures of intelligence\textsuperscript{4}, suggesting that they should always be reported as separate indices.
 Additionally, \(d'\) might not have differed across \(n\)-back levels because the manipulation of task load is not strictly continuous.
 Several participants said that they perceived 3-back as more difficult than 4-back because they found it is easier to remember chunks of stimuli when \(n\) was an even number than when \(n\) was an odd number.
 
@@ -680,9 +680,9 @@ Ratings on the physical load subscale increased with \(n\)-back levels, but not 
 
 The rmANOVA with different pre-defined contrasts showed that all fit the SVs to a different degree, and that the SVs do not simply decline linearly across \(n\)-back levels.
 The best fit was a declining logistic curve, reflecting that the majority of participants preferred 1-back and that SVs for 2-back were also high, before having more inter-individual variance for 3- and 4-back.
-Thomson and Oppenheimer\textsuperscript{47} argue that the different effort curves that have been observed for different tasks are likely due to the fact that we still understand quite little about how and why different manipulations of effort work.
+Thomson and Oppenheimer\textsuperscript{48} argue that the different effort curves that have been observed for different tasks are likely due to the fact that we still understand quite little about how and why different manipulations of effort work.
 For example, the \(n\)-back task is likely not a continuous manipulation of task load, as discussed above.
-However, the declining logistic curve is similar to the sigmoidal curve that had the best fit in a different effort paradigm\textsuperscript{48}, which the authors explained with the low effect of low energy costs, suggesting there are still common features of effort across different tasks and domains.
+However, the declining logistic curve is similar to the sigmoidal curve that had the best fit in a different effort paradigm\textsuperscript{49}, which the authors explained with the low effect of low energy costs, suggesting there are still common features of effort across different tasks and domains.
 The MLM with the logistic contrast showed that the \(n\)-back level explained the majority of variance in SVs, while the performance measure \(d'\) also explained some variance in SVs, albeit less.
 With increasing \(n\)-back level and decreasing \(d'\), the SV decreased.
 The median RT was not a significant predictor in this model, which was somewhat surprising because RT but not \(d'\) yielded significant differences across levels in the manipulation checks.
@@ -694,7 +694,7 @@ The declining logistic \(n\)-back levels and \(d'\) remained significant predict
 In contrast to this stood the variability of the median RT betas, which ranged from about 0.10 to -0.03, and reached significance in only one pipeline.
 This pipeline was among the three pipelines with the highest \(BF_{10}\), and applied inverse transformation to the RT data, across subjects but within conditions, and excluded data beyond 2 \(MAD\) from the median.
 Interestingly, the curve of median RT betas in Figure~\ref{fig:sca-plot}a mirrored the rectangular pipeline indicators in the transformation rows of Figure~\ref{fig:sca-plot}b, so the transformation choice influenced the median RT much more than the dimension or the exclusion choice did.
-As Fernandez et al.\textsuperscript{49} found, applying more than one preprocessing step to the reaction time data of a Stroop task increased the risk of false positives beyond \(\alpha=.05\), and transformation choices inflated this risk more than outlier exclusion or aggregation choices did.
+As Fernandez et al.\textsuperscript{50} found, applying more than one preprocessing step to the reaction time data of a Stroop task increased the risk of false positives beyond \(\alpha=.05\), and transformation choices inflated this risk more than outlier exclusion or aggregation choices did.
 Our data seems to corroborate this finding for \(n\)-back tasks as well.
 Surprisingly, the \(d'\) betas appear almost unaffected by the preprocessing pipeline, even though \(d'\) was computed after the outlier exclusion.
 This indicates that researchers who are interested in the correctness rather than the speed of responses can choose a simple preprocessing pipeline without risking false positives through elaborate transformations.
@@ -712,15 +712,15 @@ As the exploratory analysis showed, only 4-back yielded a significant group diff
 The analysis of NASA-TLX scores showed that the sum score increased with every \(n\)-back level, and that participants with NFC scores below the median had higher NASA-TLX scores for 3- and 4-back than those below the median.
 This demonstrates that higher \(n\)-back levels have a higher discriminatory power regarding inter-individual differences in subjective effort perception.
 This was also supported by the fact that higher \(n\)-back levels were perceived as more aversive, and participants with NFC scores below the median reported higher aversion than those with NFC scores above the median.
-Our data supports the notion of a nonlinear interaction between person and situation that has also been described by Schmitt et al.~(2013)\textsuperscript{50} and Blum et al.~(2018)\textsuperscript{51} in the same-named NIPS model.
+Our data supports the notion of a nonlinear interaction between person and situation that has also been described by Schmitt et al.~(2013)\textsuperscript{51} and Blum et al.~(2018)\textsuperscript{52} in the same-named NIPS model.
 The NIPS model describes behaviour as a function of situational affordance which is mediated by personality traits.
 The behavioural variability follows an s-shaped curve, such that ``strong'' situations with low or high situational affordance elicit the least behavioural variability, while ``weak'' situations with moderate affordance maximize individual differences.
 These differences are caused by a person's expression of a certain trait, which shifts the curve along the y-axis.
 In our study, the situational affordance is the \(n\)-back level and the behaviour is the SV, following a declining logistic curve, i.e.~a mirrored s-shape.
 Hence, the variability in SVs increased from 1- to 4-back, and participants with higher NFC showed a more shallow decline in SVs as the situational affordance approached moderate values.
 According to the NIPS model, we can expect the SVs of participants with higher and lower NFC to converge again in levels of \(n>4\), since behavioural variability decreases when situational affordance is high.
-An investigation of this relationship using the COG-ED paradigm\textsuperscript{7} had been encouraged by Strobel et al.\textsuperscript{52} based on their findings on demand avoidance and cognitive effort investment.
-With the CAD paradigm, the declining logistic contrast of SVs across levels resembles the ascending logistic curve of the NIPS model\textsuperscript{50,51} and should be tested further in a setting with \(n\)-back levels exceeding \(n=4\).
+An investigation of this relationship using the COG-ED paradigm\textsuperscript{7} had been encouraged by Strobel et al.\textsuperscript{53} based on their findings on demand avoidance and cognitive effort investment.
+With the CAD paradigm, the declining logistic contrast of SVs across levels resembles the ascending logistic curve of the NIPS model\textsuperscript{51,52} and should be tested further in a setting with \(n\)-back levels exceeding \(n=4\).
 
 \hypertarget{limitations}{%
 \subsection{Limitations}\label{limitations}}
@@ -735,7 +735,7 @@ Another important point is the instruction, not just for the \(n\)-back task, bu
 We had to exclude several participants for misunderstanding the task instruction, so we will add a visual instruction or a training next time.
 And even though the participants were instructed to do the effort discounting with the aim to be satisfied with their choices instead of trying to increase the rewards, we cannot be sure that they did so.
 One might also argue that the 2€ reward range was not large enough to be an incentive for effort expenditure.
-However, findings by Bialaszek et al.\textsuperscript{53} suggest that participants are actually more sensitive to effort when the reward is small.
+However, findings by Bialaszek et al.\textsuperscript{54} suggest that participants are actually more sensitive to effort when the reward is small.
 Nevertheless, we exceeded the largest required sample size by 2.20 times, which gives our analyses high statistical power.
 
 \hypertarget{conclusion}{%
@@ -849,132 +849,136 @@ The CAD paradigm offers this flexibility, and we encourage future studies to que
 \CSLLeftMargin{21. }%
 \CSLRightInline{RStudio Team. \emph{\href{http://www.rstudio.com/}{{RStudio: Integrated development environment for R}}}. (RStudio, PBC., 2020).}
 
-\leavevmode\vadjust pre{\hypertarget{ref-Singmann2021}{}}%
+\leavevmode\vadjust pre{\hypertarget{ref-Aust2020}{}}%
 \CSLLeftMargin{22. }%
+\CSLRightInline{Aust, F. \& Barth, M. \emph{\href{https://github.com/crsh/papaja}{{papaja}: {Create} {APA} manuscripts with {R Markdown}}}. (2020).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Singmann2021}{}}%
+\CSLLeftMargin{23. }%
 \CSLRightInline{Singmann, H., Bolker, B., Westfall, J., Aust, F. \& Ben-Shachar, M. S. \emph{\href{https://CRAN.R-project.org/package=afex}{Afex: {A}nalysis of factorial experiments}}. (2021).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Morey2021}{}}%
-\CSLLeftMargin{23. }%
+\CSLLeftMargin{24. }%
 \CSLRightInline{Morey, R. D. \& Rouder, J. N. \emph{\href{https://CRAN.R-project.org/package=BayesFactor}{{BayesFactor}: {Computation} of {Bayes} factors for common designs}}. (2021).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Greiner2015}{}}%
-\CSLLeftMargin{24. }%
+\CSLLeftMargin{25. }%
 \CSLRightInline{Greiner, B. \href{https://doi.org/10.1007/s40881-015-0004-4}{Subject pool recruitment procedures: {Organizing} experiments with {ORSEE}}. \emph{Journal of the Economic Science Association} \textbf{1}, 114--125 (2015).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Cacioppo1984}{}}%
-\CSLLeftMargin{25. }%
+\CSLLeftMargin{26. }%
 \CSLRightInline{Cacioppo, J. T., Petty, R. E. \& Kao, C. F. \href{https://doi.org/10.1207/s15327752jpa4803_13}{The efficient assessment of {Need} for {Cognition}}. \emph{Journal of Personality Assessment} \textbf{48}, 306--307 (1984).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Bless1994}{}}%
-\CSLLeftMargin{26. }%
+\CSLLeftMargin{27. }%
 \CSLRightInline{Bless, H., Wänke, M., Bohner, G., Fellhauer, R. F. \& Schwarz, N. \href{https://doi.org/1779110}{Need for {Cognition}: {Eine} {Skala} zur {Erfassung} von {Engagement} und {Freude} bei {Denkaufgaben}}. \emph{Zeitschrift für Sozialpsychologie} \textbf{25}, (1994).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Fleischhauer2010}{}}%
-\CSLLeftMargin{27. }%
+\CSLLeftMargin{28. }%
 \CSLRightInline{Fleischhauer, M. \emph{et al.} \href{https://doi.org/10.1177/0146167209351886}{Same or different? {Clarifying} the relationship of need for cognition to personality and intelligence}. \emph{Personality \& Social Psychology Bulletin} \textbf{36}, 82--96 (2010).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Hart1988}{}}%
-\CSLLeftMargin{28. }%
+\CSLLeftMargin{29. }%
 \CSLRightInline{Hart, S. G. \& Staveland, L. E. \href{https://doi.org/10.1016/S0166-4115(08)62386-9}{Development of {NASA}-{TLX} ({Task} {Load} {Index}): {Results} of empirical and theoretical research}. \textbf{52}, 139--183 (1988).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Harris2009}{}}%
-\CSLLeftMargin{29. }%
+\CSLLeftMargin{30. }%
 \CSLRightInline{Harris, P. A. \emph{et al.} \href{https://doi.org/10.1016/j.jbi.2008.08.010}{Research electronic data capture ({REDCap})---{A} metadata-driven methodology and workflow process for providing translational research informatics support}. \emph{Journal of Biomedical Informatics} \textbf{42}, 377--381 (2009).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Harris2019}{}}%
-\CSLLeftMargin{30. }%
+\CSLLeftMargin{31. }%
 \CSLRightInline{Harris, P. A. \emph{et al.} \href{https://doi.org/10.1016/j.jbi.2019.103208}{The {REDCap} consortium: {Building} an international community of software platform partners}. \emph{Journal of Biomedical Informatics} \textbf{95}, 103208 (2019).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Faul2007}{}}%
-\CSLLeftMargin{31. }%
+\CSLLeftMargin{32. }%
 \CSLRightInline{Faul, F., Erdfelder, E., Lang, A.-G. \& Buchner, A. \href{https://doi.org/10.3758/BF03193146}{G*{Power} 3: {A} flexible statistical power analysis program for the social, behavioral, and biomedical sciences}. \emph{Behavior Research Methods} \textbf{39}, 175--191 (2007).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Faul2009}{}}%
-\CSLLeftMargin{32. }%
+\CSLLeftMargin{33. }%
 \CSLRightInline{Faul, F., Erdfelder, E., Buchner, A. \& Lang, A.-G. \href{https://doi.org/10.3758/BRM.41.4.1149}{Statistical power analyses using {G}*{Power} 3.1: {Tests} for correlation and regression analyses}. \emph{Behavior Research Methods} \textbf{41}, 1149--1160 (2009).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Macmillan1990}{}}%
-\CSLLeftMargin{33. }%
+\CSLLeftMargin{34. }%
 \CSLRightInline{Macmillan, N. A. \& Creelman, C. D. \href{https://doi.org/10.1037/0033-2909.107.3.401}{Response bias: {Characteristics} of detection theory, threshold theory, and "nonparametric" indexes}. \emph{Psychological Bulletin} \textbf{107}, 401--413 (1990).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Whelan2008}{}}%
-\CSLLeftMargin{34. }%
+\CSLLeftMargin{35. }%
 \CSLRightInline{Whelan, R. \href{https://doi.org/10.1007/BF03395630}{Effective analysis of reaction time data}. \emph{The Psychological Record} \textbf{58}, 475--482 (2008).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Berger2021}{}}%
-\CSLLeftMargin{35. }%
+\CSLLeftMargin{36. }%
 \CSLRightInline{Berger, A. \& Kiefer, M. \href{https://doi.org/10.3389/fpsyg.2021.675558}{Comparison of different response time outlier exclusion methods: {A} simulation study}. \emph{Frontiers in Psychology} \textbf{12}, 2194 (2021).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Lachaud2011}{}}%
-\CSLLeftMargin{36. }%
+\CSLLeftMargin{37. }%
 \CSLRightInline{Lachaud, C. M. \& Renaud, O. \href{https://doi.org/10.1017/s0142716410000457}{A tutorial for analyzing human reaction times: {How} to filter data, manage missing values, and choose a statistical model}. \emph{Applied Psycholinguistics} \textbf{32}, 389--416 (2011).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Dutilh2012}{}}%
-\CSLLeftMargin{37. }%
+\CSLLeftMargin{38. }%
 \CSLRightInline{Dutilh, G. \emph{et al.} \href{https://doi.org/10.3758/s13414-011-0243-2}{Testing theories of post-error slowing}. \emph{Attention, Perception, \& Psychophysics} \textbf{74}, 454--465 (2012).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Houtman2012}{}}%
-\CSLLeftMargin{38. }%
+\CSLLeftMargin{39. }%
 \CSLRightInline{Houtman, F., Castellar, E. N. \& Notebaert, W. \href{https://doi.org/10.1080/20445911.2011.617301}{Orienting to errors with and without immediate feedback}. \emph{Journal of Cognitive Psychology} \textbf{24}, 278--285 (2012).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Singmann2019}{}}%
-\CSLLeftMargin{39. }%
+\CSLLeftMargin{40. }%
 \CSLRightInline{Singmann, H. \& Kellen, D. An introduction to mixed models for experimental psychology. in \emph{New methods in cognitive psychology} 4--31 (Routledge, 2019). doi:\href{https://doi.org/10.4324/9780429318405-2}{10.4324/9780429318405-2}.}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Mussel2016}{}}%
-\CSLLeftMargin{40. }%
+\CSLLeftMargin{41. }%
 \CSLRightInline{Mussel, P., Ulrich, N., Allen, J. J. B., Osinsky, R. \& Hewig, J. \href{https://doi.org/10.1038/srep29245}{Patterns of theta oscillation reflect the neural basis of individual differences in epistemic motivation}. \emph{Scientific Reports} \textbf{6}, (2016).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Enders2007}{}}%
-\CSLLeftMargin{41. }%
+\CSLLeftMargin{42. }%
 \CSLRightInline{Enders, C. K. \& Tofighi, D. \href{https://doi.org/10.1037/1082-989x.12.2.121}{Centering predictor variables in cross-sectional multilevel models: {A} new look at an old issue.} \emph{Psychological Methods} \textbf{12}, 121--138 (2007).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Lorah2018}{}}%
-\CSLLeftMargin{42. }%
+\CSLLeftMargin{43. }%
 \CSLRightInline{Lorah, J. \href{https://doi.org/10.1186/s40536-018-0061-2}{Effect size measures for multilevel models: Definition, interpretation, and {TIMSS} example}. \emph{Large-scale Assessments in Education} \textbf{6}, (2018).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Simonsohn2020}{}}%
-\CSLLeftMargin{43. }%
+\CSLLeftMargin{44. }%
 \CSLRightInline{Simonsohn, U., Simmons, J. P. \& Nelson, L. D. \href{https://doi.org/10.1038/s41562-020-0912-z}{Specification curve analysis}. \emph{Nature Human Behaviour} \textbf{4}, 1208--1214 (2020).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Wetzels2015}{}}%
-\CSLLeftMargin{44. }%
+\CSLLeftMargin{45. }%
 \CSLRightInline{Wetzels, R., Ravenzwaaij, D. van \& Wagenmakers, E.-J. Bayesian analysis. 1--11 (2015) doi:\href{https://doi.org/10.1002/9781118625392.wbecp453}{10.1002/9781118625392.wbecp453}.}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Cohen1992}{}}%
-\CSLLeftMargin{45. }%
+\CSLLeftMargin{46. }%
 \CSLRightInline{Cohen, J. \href{https://doi.org/10.1037/0033-2909.112.1.155}{A power primer.} \emph{Psychological Bulletin} \textbf{112}, 155--159 (1992).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Meule2017}{}}%
-\CSLLeftMargin{46. }%
+\CSLLeftMargin{47. }%
 \CSLRightInline{Meule, A. \href{https://doi.org/10.3389/fpsyg.2017.00352}{Reporting and interpreting working memory performance in n-back tasks}. \emph{Frontiers in Psychology} \textbf{8}, (2017).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Thomson2022}{}}%
-\CSLLeftMargin{47. }%
+\CSLLeftMargin{48. }%
 \CSLRightInline{Thomson, K. S. \& Oppenheimer, D. M. \href{https://doi.org/10.1177/17456916211064896}{The {``}{E}ffort {E}lephant{''} in the room: {W}hat is effort, anyway?} \emph{Perspectives on Psychological Science} \textbf{17}, 1633--1652 (2022).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-KleinFluegge2015}{}}%
-\CSLLeftMargin{48. }%
+\CSLLeftMargin{49. }%
 \CSLRightInline{Klein-Flügge, M. C., Kennerley, S. W., Saraiva, A. C., Penny, W. D. \& Bestmann, S. \href{https://doi.org/10.1371/journal.pcbi.1004116}{Behavioral modeling of human choices reveals dissociable effects of physical effort and temporal delay on reward devaluation}. \emph{{PLOS} Computational Biology} \textbf{11}, e1004116 (2015).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Fernandez2020}{}}%
-\CSLLeftMargin{49. }%
+\CSLLeftMargin{50. }%
 \CSLRightInline{Fernández, L. M. \& Vadillo, M. A. \href{https://doi.org/10.1098/rsos.190831}{Flexibility in reaction time analysis: Many roads to a false positive?} \emph{Royal Society Open Science} \textbf{7}, 190831 (2020).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Schmitt2013}{}}%
-\CSLLeftMargin{50. }%
+\CSLLeftMargin{51. }%
 \CSLRightInline{Schmitt, M. \emph{et al.} \href{https://doi.org/10.3389/fpsyg.2013.00499}{Proposal of a nonlinear interaction of person and situation ({NIPS}) model}. \emph{Frontiers in Psychology} \textbf{4}, (2013).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Blum2018}{}}%
-\CSLLeftMargin{51. }%
+\CSLLeftMargin{52. }%
 \CSLRightInline{Blum, G. S., Rauthmann, J. F., Göllner, R., Lischetzke, T. \& Schmitt, M. \href{https://doi.org/10.1002/per.2138}{The nonlinear interaction of person and situation ({NIPS)} model: {Theory} and empirical evidence}. \emph{European Journal of Personality} \textbf{32}, 286--305 (2018).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Strobel2020}{}}%
-\CSLLeftMargin{52. }%
+\CSLLeftMargin{53. }%
 \CSLRightInline{Strobel, A. \emph{et al.} \href{https://doi.org/10.1371/journal.pone.0239817}{Dispositional cognitive effort investment and behavioral demand avoidance: {Are} they related?} \emph{PLOS ONE} \textbf{15}, e0239817 (2020).}
 
 \leavevmode\vadjust pre{\hypertarget{ref-Bialaszek2017}{}}%
-\CSLLeftMargin{53. }%
+\CSLLeftMargin{54. }%
 \CSLRightInline{Białaszek, W., Marcowski, P. \& Ostaszewski, P. \href{https://doi.org/10.1371/journal.pone.0182353}{Physical and cognitive effort discounting across different reward magnitudes: Tests of discounting models}. \emph{{PLOS} {ONE}} \textbf{12}, e0182353 (2017).}
 
 \end{CSLReferences}
