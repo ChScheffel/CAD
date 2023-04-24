@@ -59,8 +59,8 @@ papaja::apa_table(
   caption = "$M \\pm SD$ of subjective arousal, subjetive effort, subjective utility, corrugator activity, and levator activity for each condition.",
   escape = FALSE,
   placement = "H",
-  align = c("r","c","c","c","c","c"),
-  landscape = TRUE)
+  align = c("p{2.5cm}", rep("p{2.5cm}", ncol(df.descr))),
+  landscape = FALSE)
 ```
 
 #### Effect of emotion regulation of effort
