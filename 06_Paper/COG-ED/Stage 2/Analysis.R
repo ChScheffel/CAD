@@ -1983,32 +1983,52 @@ ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 10, height 
 
 ##### Extra plots ##############################################################
 
-# plot showing SVs per subject, colors depend on NFC
-
-  ggplot2::ggplot(pipelines_data[["AARO"]], aes(x = level, y = sv, group = subject, color = nfc)) +
-    geom_point(size = 3, alpha = 0.8, position = position_jitter(w = 0.4, h = 0.05)) +
-    ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
-    scale_color_gradientn(colors = rev(MetBrewer::met.brewer("Hiroshige")), name = "NFC") +
-    geom_vline(xintercept = c(0.5,1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
-    xlab("n-back level") + 
-    ylab("Subjective values") +
-    theme(legend.title = element_text())
-
-  ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 7, height = 4.5, units = "in",
-         device = "tiff", dpi = 900, filename = "nfc-sv.eps")
-
 # plot showing SVs per level, colors depend on motivation
 
   ggplot2::ggplot(data_motiv, aes(as.factor(level), sv, fill = as.factor(motivation), color = as.factor(motivation))) +
-    geom_boxplot(alpha = .5, outlier.alpha = 0) +
-    geom_jitter(position = position_jitterdodge(dodge.width=0.75), size=1.8, alpha=0.7, 
+    geom_boxplot(alpha = .6, outlier.alpha = 0) +
+    geom_jitter(position = position_jitterdodge(), size=1.3, alpha=0.7, 
                 aes(group=as.factor(motivation))) +
     ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-    scale_fill_manual(values = MetBrewer::met.brewer("Klimt",5)) +
-    scale_color_manual(values = MetBrewer::met.brewer("Klimt",5), name = "Motivation", labels = c("Avoid boredom","Seek challenge","Avoid effort","Relax","Other")) +
+    scale_fill_manual(values = c("#ef7d00","#c94b17","#00aca9","#00838d","#65b32e")) +
+    scale_color_manual(values = c("#ef7d00","#c94b17","#00aca9","#00838d","#65b32e"), name = "Motivation", labels = c("Avoid boredom","Seek challenge","Avoid effort","Relax","Other")) +
     labs(x = "n-back level", y = "Subjective value") +
     theme(legend.title = element_text()) +
     guides(fill = 'none')
+  
+  ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 8, height = 4, units = "in",
+         device = "tiff", dpi = 500, filename = "motivation.eps")
+  
+# plot showing SVs depending on where each participant's maximum SV is
+  
+  ggplot2::ggplot(data_SV %>% group_by(subject) %>% filter(any(level == 1 & sv == 1)), aes(level, sv, group = subject)) +
+    geom_line(alpha = .3, position=position_jitter(w = 0, h = 0.02)) +
+    ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
+    scale_y_continuous(limits = c(0.05,1.1), breaks = c(0.2,0.4,0.6,0.8,1)) +
+    labs(x = "n-back level", y = "Subjective value") +
+    geom_text(x = 1.5, y = 0.1, label = paste("n =",length(unique(as.data.frame(data_SV %>% group_by(subject) %>% filter(any(level == 1 & sv == 1)))$subject)))) +
+    geom_smooth(inherit.aes = FALSE, aes(level, sv))
+  ggplot2::ggplot(data_SV %>% group_by(subject) %>% filter(any(level == 2 & sv == 1)), aes(level, sv, group = subject)) +
+    geom_line(alpha = .3, position=position_jitter(w = 0, h = 0.02)) +
+    ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
+    scale_y_continuous(limits = c(0.05,1.1), breaks = c(0.2,0.4,0.6,0.8,1)) +
+    labs(x = "n-back level", y = "Subjective value") +
+    geom_text(x = 1.5, y = 0.1, label = paste("n =",length(unique(as.data.frame(data_SV %>% group_by(subject) %>% filter(any(level == 2 & sv == 1)))$subject)))) +
+    geom_smooth(inherit.aes = FALSE, aes(level, sv))
+  ggplot2::ggplot(data_SV %>% group_by(subject) %>% filter(any(level == 3 & sv == 1)), aes(level, sv, group = subject)) +
+    geom_line(alpha = .3, position=position_jitter(w = 0, h = 0.02)) +
+    ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
+    scale_y_continuous(limits = c(0.05,1.1), breaks = c(0.2,0.4,0.6,0.8,1)) +
+    labs(x = "n-back level", y = "Subjective value") +
+    geom_text(x = 1.5, y = 0.1, label = paste("n =",length(unique(as.data.frame(data_SV %>% group_by(subject) %>% filter(any(level == 3 & sv == 1)))$subject)))) +
+    geom_smooth(inherit.aes = FALSE, aes(level, sv))
+  ggplot2::ggplot(data_SV %>% group_by(subject) %>% filter(any(level == 4 & sv == 1)), aes(level, sv, group = subject)) +
+    geom_line(alpha = .3, position=position_jitter(w = 0, h = 0.02)) +
+    ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
+    scale_y_continuous(limits = c(0.05,1.1), breaks = c(0.2,0.4,0.6,0.8,1)) +
+    labs(x = "n-back level", y = "Subjective value") +
+    geom_text(x = 1.5, y = 0.1, label = paste("n =",length(unique(as.data.frame(data_SV %>% group_by(subject) %>% filter(any(level == 4 & sv == 1)))$subject)))) +
+    geom_smooth(inherit.aes = FALSE, aes(level, sv))
 
 ##### Exploratory analyses #####################################################
 
