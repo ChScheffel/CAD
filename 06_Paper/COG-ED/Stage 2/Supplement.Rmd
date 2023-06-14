@@ -131,6 +131,16 @@ header-includes   :
 
 \newpage
 
+## Contrasts tested for in the repeated measures ANOVA
+
+```{r contrast-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Contrasts tested for in the repeated measures ANOVA that was used as a prerequisite for the multi level model of hypothesis 2b. Ascending quadratic (-1,1,1,-1), declining linear (3,1,-1,-3), declining logistic (3,2,-2,-3), and positively skewed normal (1,2,-1,-2). Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+  
+  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "contrasts.png"))
+
+```
+
+\newpage
+
 ## Hypothesis 1a: The signal detection measure $d'$ declines with increasing $n$-back level.
 
 ANOVA:
@@ -345,6 +355,14 @@ apa_table(
 
 \newpage
 
+```{r h3ac-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Difference scores for subjective values (a) and aversiveness ratings (b) when subtracting 2- from 1-back and 3- from 2-back. Horizontal lines of the boxplots represent the median per group, whiskers represent 1.5 interquartile ranges. NFC = Need for Cognition score. $N=116$. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+  
+  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "h3ac-plot.png"))
+
+```
+
+\newpage
+
 ## Hypothesis 3b: Participants with higher NFC scores have lower NASA-TLX scores in every n-back level than participants with lower NFC scores.
 
 ANOVA:
@@ -377,6 +395,14 @@ apa_table(
   escape = FALSE,
   placement = "H"
 )
+```
+
+\newpage
+
+```{r h3b-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="NASA-TLX sum scores for each $n$-back level. Colours indicate Need for Cognition (NFC) score above or below the median. $N=116$. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+  
+  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "h3b-plot.png"))
+
 ```
 
 \newpage
