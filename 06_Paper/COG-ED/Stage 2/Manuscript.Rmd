@@ -523,7 +523,7 @@ The rmANOVA with different pre-defined contrasts showed that all fit the SVs to 
 The best fit was a declining logistic curve, reflecting that the majority of participants preferred 1-back and that SVs for 2-back were also high, before having more inter-individual variance for 3- and 4-back.
 Thomson and Oppenheimer[-@Thomson2022] argue that the different effort curves that have been observed for different tasks are likely due to the fact that we still understand quite little about how and why different manipulations of effort work.
 For example, the $n$-back task is likely not a continuous manipulation of task load, as discussed above.
-However, the declining logistic curve is similar to the sigmoidal curve that had the best fit in a different effort paradigm[@KleinFluegge2015], which the authors explained with the low effect of low energy costs, suggesting there are still common features of effort across different tasks and domains.
+However, the declining logistic curve is similar to the sigmoidal curve that has been found for a physical[@KleinFluegge2015] and a cognitive effort paradigm[@Massar2019], suggesting there are common features of effort across different tasks and domains.
 The MLM with the logistic contrast showed that the $n$-back level explained the majority of variance in SVs, while the performance measure $d'$ also explained some variance in SVs, albeit less.
 With increasing $n$-back level and decreasing $d'$, the SV decreased.
 The median RT was not a significant predictor in this model, which was somewhat surprising because RT but not $d'$ yielded significant differences across levels in the manipulation checks.
