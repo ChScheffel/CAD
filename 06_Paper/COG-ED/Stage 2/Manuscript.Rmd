@@ -275,7 +275,7 @@ For each effort discounting round, the SV of the fixed level was calculated by a
 This yielded an SV between 0 and 1 for the fixed compared with the flexible level, while the SV of the flexible level was 1.
 The closer the SV of the fixed level is to 0, the stronger the preference for the flexible level.
 All SVs of each level were averaged to compute one "global" SV for each level.
-An rmANOVA with four different contrasts were computed to investigate the association of SVs and the $n$-back levels: Declining linear (3,1,-1,-3), ascending quadratic (-1,1,1,-1), declining logistic (3,2,-2,-3), and positively skewed normal (1,2,-1,-2).
+An rmANOVA with four different contrasts were computed to investigate the association of SVs and the $n$-back levels: Declining linear (3,1,-1,-3), ascending quadratic (-1,1,1,-1), declining logistic (3,2,-2,-3), and positively skewed normal (1,2,-1,-2) (Supplementary Figure S1).
 Depending on whether the linear or one of the other three contrasts fit the curve best, we applied a linear or nonlinear multi-level model in the next step, respectively.
 
 To determine the influence of task performance on the association of SVs and $n$-back level, we performed MLM. 
@@ -390,6 +390,11 @@ The full results of these manipulation checks are listed in Table S.1 to S.8 in 
 
 ## Decline of subjective values
 
+The different curves of SVs across $n$-back levels can be seen in Figure\ \@ref(fig:sv-by-pref), grouped into those participants who had an absolute preference for 1-back ($n=`r nrow(data_SV[data_SV$level==1 & data_SV$sv==1,])`$), for 2-back ($n=`r nrow(data_SV[data_SV$level==2 & data_SV$sv==1,])`$), for 3-back ($n=`r nrow(data_SV[data_SV$level==3 & data_SV$sv==1,])`$), for 4-back ($n=`r nrow(data_SV[data_SV$level==4 & data_SV$sv==1,])`$), or no absolute preference for any level ($n=`r length(setdiff(unique(data_SV$subject), data_SV$subject[data_SV$sv == 1]))`$).
+While the majority of participants preferred the easiest level and showed a linear decline of SVs with increasing task-load, a considerable part of the sample preferred one of the more difficult $n$-back levels.
+
+[FIGURE \@ref(fig:sv-by-pref) HERE]
+
 When asking participants what motivated their decisions in the cognitive effort discounting paradigm, `r format(round((table(data_quest$motivation)[1]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% stated that they wanted to avoid boredom, `r format(round((table(data_quest$motivation)[2]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% stated that they wanted a challenge, `r format(round((table(data_quest$motivation)[3]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% stated that they wanted to avoid effort, and `r format(round((table(data_quest$motivation)[4]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% stated that they wanted to relax.
 The remaining `r format(round((table(data_quest$motivation)[5]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% of participants used the free text field and provided reasons such as "I wanted a fair relation of effort and reward.", "I wanted the fun that I had in the more challenging levels.", "I wanted to maximize reward first and minimize effort second.", or "I did not want to perform poorly when I was being paid for it.".
 Figure \@ref(fig:motivation) shows the different motivations in the context of the SVs per $n$-back level.
@@ -461,31 +466,19 @@ This pipeline contained data that had been inverse transformed across subjects b
 
 ## Differences between NFC groups
 
-Figure\ \@ref(fig:nfcgroups-sv) shows the SVs per $n$-back level for participants with NFC scores above and below the median.
-There is a concentration of participants who have assigned their highest SV to 1-back, and this concentration fades across $n$-back levels.
-At the same time, there is a subtle separation of SVs across $n$-back levels, depending on the participant's NFC score: While the SVs of those with higher NFC scores remain elevated, the SVs of those with lower NFC scores decline more strongly.
-Specifically, $n=`r nrow(data_SV[data_SV$level==1 & data_SV$sv==1,])`$ participants had an absolute preference for 1-back, $n=`r nrow(data_SV[data_SV$level==2 & data_SV$sv==1,])`$ for 2-back, $n=`r nrow(data_SV[data_SV$level==3 & data_SV$sv==1,])`$ for 3-back, and $n=`r nrow(data_SV[data_SV$level==4 & data_SV$sv==1,])`$ for 4-back.
-There were $n=`r length(setdiff(unique(data_SV$subject), data_SV$subject[data_SV$sv == 1]))`$ participants who did not have an absolute preference for any $n$-back level, i.e. none of their SVs was 1.
-
-[FIGURE \@ref(fig:nfcgroups-sv) HERE]
-
 The median NFC was `r mediannfc`, with $n=`r nrow(h3b_data[h3b_data$nfcmedian == "low",])/(nrow(h3b_data)/length(unique(h3b_data$subject)))`$ subjects below and $n=`r nrow(h3b_data[h3b_data$nfcmedian == "high",])/(nrow(h3b_data)/length(unique(h3b_data$subject)))`$ above the median.
 We used an rmANOVA to investigate whether the difference between the SVs of 1- and 2-back, and 2- and 3-back, respectively, depended on whether a participant's NFC score was above or below the median.
 There was a main effect of the $n$-back level (`r apa_print(hypothesis3a_model)$full_result$nlevels`, `r apa_print(hypothesis3a_BF_nlevel)$statistic$nlevels`), but neither a main effect of the NFC group (`r apa_print(hypothesis3a_model)$full_result$nfcmedian`, `r apa_print(hypothesis3a_BF_nlevel)$statistic$nfcmedian`) nor an interaction of NFC group and $n$-back level (`r apa_print(hypothesis3a_model)$full_result$nfcmedian_nlevels`), so evidence was not in favour of H3a.
-Post-hoc tests showed that the difference between the SVs of 2- and 3-back is slightly more negative than the difference between 1- and 2-back (`r apa_print(pairs(hypothesis3a_emm_nlevel))$statistic`), but there were large inter-individual differences (Figure\ \@ref(fig:h3ac-plot)a).
+Post-hoc tests showed that the difference between the SVs of 2- and 3-back is slightly more negative than the difference between 1- and 2-back (`r apa_print(pairs(hypothesis3a_emm_nlevel))$statistic`), but there were large inter-individual differences (Supplementary Figure S2a).
 This means that across the whole sample, there was a steeper decline in SVs from 2- to 3-back than from 1- to 2-back, again resembling the declining logistic function.
-
-[FIGURE \@ref(fig:h3ac-plot) HERE]
 
 The rmANOVA on the association between NFC scores and NASA-TLX scores revealed a main effect of $n$-back level (`r apa_print(hypothesis3b_model)$full_result$level`, `r apa_print(hypothesis3b_BF_levels)$statistic$level`) and an interaction between $n$-back level and NFC scores (`r apa_print(hypothesis3b_model)$full_result$nfcmedian_level`), but no main effect of NFC scores (`r apa_print(hypothesis3b_model)$full_result$nfcmedian`, `r apa_print(hypothesis3b_BF_levels)$statistic$nfcmedian`).
 Post-hoc tests showed that the participants with NFC scores below the median had higher NASA-TLX scores for 3-back (`r apa_print(pairs(hypothesis3b_emm_interact))$statistic$X3_High_low`, `r apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "low" & h3b_data$level == 3], y = h3b_data$ntlx[h3b_data$nfcmedian == "high" & h3b_data$level == 3], progress = FALSE, paired = FALSE))$statistic`) and for 4-back (`r apa_print(pairs(hypothesis3b_emm_interact))$statistic$X4_High_low`, `r apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "low" & h3b_data$level == 4], y = h3b_data$ntlx[h3b_data$nfcmedian == "high" & h3b_data$level == 4], progress = FALSE, paired = FALSE))$statistic`) than those with NFC scores above the median, so evidence was in favour of H3b.
-Regardless of NFC scores, NASA-TLX scores were higher for the more difficult level in each pair of $n$-back levels (Figure\ \@ref(fig:h3b-plot)).
-
-[FIGURE \@ref(fig:h3b-plot) HERE]
+Regardless of NFC scores, NASA-TLX scores were higher for the more difficult level in each pair of $n$-back levels (Supplementary Figure S3).
 
 With another rmANOVA we investigated whether the difference between the aversiveness scores of 1- and 2-back, and 2- and 3-back, respectively, depended on whether a participant's NFC score was above or below the median.
 There was a main effect of NFC group (`r apa_print(hypothesis3c_model)$full_result$nfcmedian`, `r apa_print(hypothesis3c_BF_levels)$statistic$nfc`) and a main effect of the $n$-back level (`r apa_print(hypothesis3c_model)$full_result$nlevels`, `r apa_print(hypothesis3c_BF_levels)$statistic$levels`), but no interaction (`r apa_print(hypothesis3c_model)$full_result$nfcmedian_nlevels`).
-In favour of H3c, post-hoc tests revealed that participants with NFC scores below the median reported higher aversiveness than participants with NFC scores above the median (`r apa_print(pairs(hypothesis3c_emm_nfc))$statistic`) (Figure\ \@ref(fig:h3ac-plot)b).
+In favour of H3c, post-hoc tests revealed that participants with NFC scores below the median reported higher aversiveness than participants with NFC scores above the median (`r apa_print(pairs(hypothesis3c_emm_nfc))$statistic`) (Supplementary Figure S2b).
 Regardless of NFC, the difference of the aversiveness scores of 2- and 3-back was more negative than that of 1- and 2-back (`r apa_print(pairs(hypothesis3c_emm_levels))$statistic`), indicating that in the same way in which the SVs decreased more strongly from 2- to 3-back than from 1- to 2-back, the aversion increased more strongly.
 The full results of these analyses of NFC group differences can be found in Table S.11 to S.15 in the Supplementary Material.
 
@@ -497,6 +490,9 @@ Post-hoc tests for the main effect of level showed that SVs were lower for the m
 Post-hoc tests for the interaction effect showed that the NFC groups only had a significant difference in SVs for 4-back, where participants below the NFC median had lower scores (`r apa_print(pairs(explor_emm_interact))$full_result$X4_High_low`).
 Despite not reaching significance, 1-back was the only level in which participants with NFC scores above the median seemed to have lower SVs than those with scores below the median (`r apa_print(pairs(explor_emm_interact))$full_result$X1_High_low`).
 The full results of this exploratory analysis of NFC group differences can be found in Table S.16 and S.17 in the Supplementary Material.
+Figure\ \@ref(fig:nfcgroups-sv) shows the SVs per $n$-back level for participants with NFC scores above and below the median.
+
+[FIGURE \@ref(fig:nfcgroups-sv) HERE]
 
 # Discussion
 
@@ -642,7 +638,13 @@ The authors declare no competing interests.
 
 ```
 
-```{r motivation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values per $n$-back level for each participant, grouped by the motivation for effort discounting that they indicated in the single choice question after the paradigm. $N=116$. 'Other' opened up a free text field, in which participants gave responses such as 'I wanted fair pay for my effort', 'I wanted to have fun', and 'I wanted to maximize the reward'. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+```{r sv-by-pref, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values per $n$-back level, grouped into those who had an absolute preference for 1-back, for 2-back, for 3-back, for 4-back, or no absolute preference for any level. The lines have a vertical jitter of 0.02. Smoothing of conditional means with Loess method. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+  
+  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "sv_by_pref.png"))
+
+```
+
+```{r motivation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values per $n$-back level for each participant, grouped by the motivation for effort discounting that they indicated in the single choice question after the paradigm. $N=116$. 'Other' opened up a free text field. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "motivation.png"))
 
@@ -657,17 +659,5 @@ The authors declare no competing interests.
 ```{r nfcgroups-sv, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values per n-back level for participants with Need for Cognition (NFC) scores above and below the median. $N=116$. The scatter has a horizontal jitter of 0.2. Smoothing of conditional means with Loess method. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "nfcgroups-sv.png"))
-
-```
-
-```{r h3ac-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Difference scores for subjective values (a) and aversiveness ratings (b) when subtracting 2- from 1-back and 3- from 2-back. Horizontal lines of the boxplots represent the median per group, whiskers represent 1.5 interquartile ranges. NFC = Need for Cognition score. $N=116$. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
-  
-  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "h3ac-plot.png"))
-
-```
-
-```{r h3b-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="NASA-TLX sum scores for each $n$-back level. Colours indicate Need for Cognition (NFC) score above or below the median. $N=116$. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
-  
-  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "h3b-plot.png"))
 
 ```
