@@ -2145,8 +2145,8 @@ ggplot2::ggplot(explor_data, aes(x = level, y = sv, fill = nfcmedian)) +
   geom_boxplot(alpha = .4, outlier.shape = NA, width = .45, position = position_dodge(width = 0.7)) +
   geom_jitter(aes(color = nfcmedian, fill = NA), shape = 1, position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.7)) +
   ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
-  scale_fill_manual(values = MetBrewer::met.brewer("Hiroshige",2), name = "NFC group", labels = c("Above median","Below median")) +
-  scale_color_manual(values = MetBrewer::met.brewer("Hiroshige",2)) +
+  scale_fill_manual(values = c("#C94B17","#f7a941"), name = "NFC group", labels = c("Above median","Below median")) +
+  scale_color_manual(values = c("#C94B17","#f7a941")) +
   guides(color = "none") +
   geom_vline(xintercept = c(0.5,1.5,2.5,3.5,4.5), colour = "grey", linetype = 3) +
   xlab("n-back level") + 
