@@ -281,16 +281,6 @@ apa_table(
 
 \newpage
 
-## Motivations for effort discounting behaviour
-
-```{r motiv-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values per $n$-back level for each participant, grouped by the motivation for effort discounting that they indicated in the single choice question after the paradigm. $N=116$", fig.pos="H"} 
-  
-  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "motivation.png"))
-
-```
-
-\newpage
-
 ## Hypothesis 2a: Subjective values decline with increasing $n$-back level.
 
 ANOVA:
