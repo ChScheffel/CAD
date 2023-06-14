@@ -2006,33 +2006,45 @@ ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 10, height 
     ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
     scale_y_continuous(limits = c(0.05,1), breaks = c(0.2,0.4,0.6,0.8,1), oob = scales::rescale_none) +
     labs(x = "n-back level", y = "Subjective value") +
-    geom_text(x = 1.5, y = 0.1, label = paste("n =",length(unique(as.data.frame(data_SV %>% group_by(subject) %>% filter(any(level == 1 & sv == 1)))$subject)))) +
+    geom_text(x = 1.25, y = 0.1, hjust = 0,
+              label = paste("SV = 1 at 1-back\nn =",length(unique(as.data.frame(data_SV %>% group_by(subject) %>% filter(any(level == 1 & sv == 1)))$subject)))) +
     geom_smooth(inherit.aes = FALSE, aes(level, sv), color = "#c94b17", fill = "#ef7d00", span = 1)
   sv_plot2 <- ggplot2::ggplot(data_SV %>% group_by(subject) %>% filter(any(level == 2 & sv == 1)), aes(level, sv, group = subject)) +
     geom_line(alpha = .3, position=position_jitter(w = 0, h = 0.02)) +
     ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
     scale_y_continuous(limits = c(0.05,1), breaks = c(0.2,0.4,0.6,0.8,1), oob = scales::rescale_none) +
     labs(x = "n-back level", y = NULL) +
-    geom_text(x = 1.5, y = 0.1, label = paste("n =",length(unique(as.data.frame(data_SV %>% group_by(subject) %>% filter(any(level == 2 & sv == 1)))$subject)))) +
+    geom_text(x = 1.25, y = 0.1, hjust = 0,
+              label = paste("SV = 1 at 2-back\nn =",length(unique(as.data.frame(data_SV %>% group_by(subject) %>% filter(any(level == 2 & sv == 1)))$subject)))) +
     geom_smooth(inherit.aes = FALSE, aes(level, sv), color = "#c94b17", fill = "#ef7d00", span = 1)
   sv_plot3 <- ggplot2::ggplot(data_SV %>% group_by(subject) %>% filter(any(level == 3 & sv == 1)), aes(level, sv, group = subject)) +
     geom_line(alpha = .3, position=position_jitter(w = 0, h = 0.02)) +
     ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
     scale_y_continuous(limits = c(0.05,1), breaks = c(0.2,0.4,0.6,0.8,1), oob = scales::rescale_none) +
     labs(x = "n-back level", y = NULL) +
-    geom_text(x = 1.5, y = 0.1, label = paste("n =",length(unique(as.data.frame(data_SV %>% group_by(subject) %>% filter(any(level == 3 & sv == 1)))$subject)))) +
+    geom_text(x = 1.25, y = 0.1, hjust = 0,
+              label = paste("SV = 1 at 3-back\nn =",length(unique(as.data.frame(data_SV %>% group_by(subject) %>% filter(any(level == 3 & sv == 1)))$subject)))) +
     geom_smooth(inherit.aes = FALSE, aes(level, sv), color = "#c94b17", fill = "#ef7d00", span = 1)
   sv_plot4 <- ggplot2::ggplot(data_SV %>% group_by(subject) %>% filter(any(level == 4 & sv == 1)), aes(level, sv, group = subject)) +
     geom_line(alpha = .3, position=position_jitter(w = 0, h = 0.02)) +
     ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
     scale_y_continuous(limits = c(0.05,1), breaks = c(0.2,0.4,0.6,0.8,1), oob = scales::rescale_none) +
     labs(x = "n-back level", y = NULL) +
-    geom_text(x = 1.5, y = 0.1, label = paste("n =",length(unique(as.data.frame(data_SV %>% group_by(subject) %>% filter(any(level == 4 & sv == 1)))$subject)))) +
+    geom_text(x = 1.25, y = 0.1, hjust = 0,
+              label = paste("SV = 1 at 4-back\nn =",length(unique(as.data.frame(data_SV %>% group_by(subject) %>% filter(any(level == 4 & sv == 1)))$subject)))) +
     geom_smooth(inherit.aes = FALSE, aes(level, sv), color = "#c94b17", fill = "#ef7d00", span = 1)
+  sv_plot5 <- ggplot2::ggplot(data_SV[data_SV$subject %in% setdiff(unique(data_SV$subject), data_SV$subject[data_SV$sv == 1]),], aes(level, sv, group = subject)) +
+    geom_line(alpha = .3, position=position_jitter(w = 0, h = 0.02)) +
+    ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
+    scale_y_continuous(limits = c(0.05,1), breaks = c(0.2,0.4,0.6,0.8,1), oob = scales::rescale_none) +
+    labs(x = "n-back level", y = NULL) +
+    geom_text(x = 1.25, y = 0.1, hjust = 0,
+              label = paste("No SV = 1\nn =",length(setdiff(unique(data_SV$subject), data_SV$subject[data_SV$sv == 1])))) +
+    geom_smooth(inherit.aes = FALSE, aes(level, sv), color = "#0077ae", fill = "#00a1d9", span = 1)
   
-  ggpubr::ggarrange(sv_plot1, sv_plot2, sv_plot3, sv_plot4, ncol = 4, nrow = 1)
+  ggpubr::ggarrange(sv_plot1, sv_plot2, sv_plot3, sv_plot4, sv_plot5, ncol = 5, nrow = 1)
   
-  ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 11, height = 3, units = "in",
+  ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 13, height = 4, units = "in",
          device = "tiff", dpi = 500, filename = "sv_by_pref.eps")
   
 # plot showing the different contrasts
