@@ -1973,7 +1973,7 @@ sca_plot_upper <-
   ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
   labs(x = NULL, y = "beta", color = "p-value", shape = "Predictor") +
   scale_x_continuous(labels = NULL) +
-  scale_color_manual(labels = c("p > .05", "p < .05", "p < .01"), values = MetBrewer::met.brewer("Cassatt1",3)) +
+  scale_color_manual(labels = c("p > .05", "p < .05", "p < .01"), values = c("#84cfed","#00a1d9","#0077ae")) +
   scale_shape_manual(labels = c("d'","n-back level","median RT"), values = c(18,17,19)) +
   scale_y_continuous(breaks = c(0,0.05,0.1)) +
   theme(legend.title = element_text())
