@@ -2001,34 +2001,39 @@ ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 10, height 
   
 # plot showing SVs depending on where each participant's maximum SV is
   
-  ggplot2::ggplot(data_SV %>% group_by(subject) %>% filter(any(level == 1 & sv == 1)), aes(level, sv, group = subject)) +
+  sv_plot1 <- ggplot2::ggplot(data_SV %>% group_by(subject) %>% filter(any(level == 1 & sv == 1)), aes(level, sv, group = subject)) +
     geom_line(alpha = .3, position=position_jitter(w = 0, h = 0.02)) +
     ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-    scale_y_continuous(limits = c(0.05,1.1), breaks = c(0.2,0.4,0.6,0.8,1)) +
+    scale_y_continuous(limits = c(0.05,1), breaks = c(0.2,0.4,0.6,0.8,1), oob = scales::rescale_none) +
     labs(x = "n-back level", y = "Subjective value") +
     geom_text(x = 1.5, y = 0.1, label = paste("n =",length(unique(as.data.frame(data_SV %>% group_by(subject) %>% filter(any(level == 1 & sv == 1)))$subject)))) +
-    geom_smooth(inherit.aes = FALSE, aes(level, sv))
-  ggplot2::ggplot(data_SV %>% group_by(subject) %>% filter(any(level == 2 & sv == 1)), aes(level, sv, group = subject)) +
+    geom_smooth(inherit.aes = FALSE, aes(level, sv), color = "#c94b17", fill = "#ef7d00")
+  sv_plot2 <- ggplot2::ggplot(data_SV %>% group_by(subject) %>% filter(any(level == 2 & sv == 1)), aes(level, sv, group = subject)) +
     geom_line(alpha = .3, position=position_jitter(w = 0, h = 0.02)) +
     ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-    scale_y_continuous(limits = c(0.05,1.1), breaks = c(0.2,0.4,0.6,0.8,1)) +
-    labs(x = "n-back level", y = "Subjective value") +
+    scale_y_continuous(limits = c(0.05,1), breaks = c(0.2,0.4,0.6,0.8,1), oob = scales::rescale_none) +
+    labs(x = "n-back level", y = NULL) +
     geom_text(x = 1.5, y = 0.1, label = paste("n =",length(unique(as.data.frame(data_SV %>% group_by(subject) %>% filter(any(level == 2 & sv == 1)))$subject)))) +
-    geom_smooth(inherit.aes = FALSE, aes(level, sv))
-  ggplot2::ggplot(data_SV %>% group_by(subject) %>% filter(any(level == 3 & sv == 1)), aes(level, sv, group = subject)) +
+    geom_smooth(inherit.aes = FALSE, aes(level, sv), color = "#c94b17", fill = "#ef7d00")
+  sv_plot3 <- ggplot2::ggplot(data_SV %>% group_by(subject) %>% filter(any(level == 3 & sv == 1)), aes(level, sv, group = subject)) +
     geom_line(alpha = .3, position=position_jitter(w = 0, h = 0.02)) +
     ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-    scale_y_continuous(limits = c(0.05,1.1), breaks = c(0.2,0.4,0.6,0.8,1)) +
-    labs(x = "n-back level", y = "Subjective value") +
+    scale_y_continuous(limits = c(0.05,1), breaks = c(0.2,0.4,0.6,0.8,1), oob = scales::rescale_none) +
+    labs(x = "n-back level", y = NULL) +
     geom_text(x = 1.5, y = 0.1, label = paste("n =",length(unique(as.data.frame(data_SV %>% group_by(subject) %>% filter(any(level == 3 & sv == 1)))$subject)))) +
-    geom_smooth(inherit.aes = FALSE, aes(level, sv))
-  ggplot2::ggplot(data_SV %>% group_by(subject) %>% filter(any(level == 4 & sv == 1)), aes(level, sv, group = subject)) +
+    geom_smooth(inherit.aes = FALSE, aes(level, sv), color = "#c94b17", fill = "#ef7d00")
+  sv_plot4 <- ggplot2::ggplot(data_SV %>% group_by(subject) %>% filter(any(level == 4 & sv == 1)), aes(level, sv, group = subject)) +
     geom_line(alpha = .3, position=position_jitter(w = 0, h = 0.02)) +
     ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-    scale_y_continuous(limits = c(0.05,1.1), breaks = c(0.2,0.4,0.6,0.8,1)) +
-    labs(x = "n-back level", y = "Subjective value") +
+    scale_y_continuous(limits = c(0.05,1), breaks = c(0.2,0.4,0.6,0.8,1), oob = scales::rescale_none) +
+    labs(x = "n-back level", y = NULL) +
     geom_text(x = 1.5, y = 0.1, label = paste("n =",length(unique(as.data.frame(data_SV %>% group_by(subject) %>% filter(any(level == 4 & sv == 1)))$subject)))) +
-    geom_smooth(inherit.aes = FALSE, aes(level, sv))
+    geom_smooth(inherit.aes = FALSE, aes(level, sv), color = "#c94b17", fill = "#ef7d00")
+  
+  ggpubr::ggarrange(sv_plot1, sv_plot2, sv_plot3, sv_plot4, ncol = 4, nrow = 1)
+  
+  ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 11, height = 3, units = "in",
+         device = "tiff", dpi = 500, filename = "sv_by_pref.eps")
 
 ##### Exploratory analyses #####################################################
 
