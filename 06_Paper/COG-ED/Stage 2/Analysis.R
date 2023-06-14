@@ -2062,7 +2062,7 @@ ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 10, height 
   ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 6, height = 4.4, units = "in",
          device = "tiff", dpi = 500, filename = "contrasts.eps")
 
-##### Exploratory analyses #####################################################
+##### Exploratory analyses 1 ###################################################
 
 # make a copy
   
@@ -2167,6 +2167,54 @@ ggplot2::ggplot(explor_data, aes(x = level, y = sv, fill = nfcmedian)) +
 
 ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 7, height = 5, units = "in",
        device = "tiff", dpi = 500, filename = "nfcgroups-sv.eps")
+
+##### Exploratory analyses 2 ###################################################
+
+# standardize NFC scores
+
+explor_data$nfc <- scale(explor_data$nfc)
+
+# compute two-way ANOVA
+
+explor2_model <- afex::aov_ez("subject", "sv", explor_data,
+                             within = c("level"), covariate = c("nfc"),
+                             fun_aggregate = mean, factorize = FALSE)
+explor2_rmanova <- base::summary(explor2_model)
+explor2_rmanova <- explor2_rmanova[["univariate.tests"]]
+explor2_rmanova <- as.data.frame(matrix(explor2_rmanova, nrow = 4, ncol = 6))
+
+
+# get effect size
+
+explor2_rmanova <- cbind(explor2_rmanova,
+                        format(effectsize::F_to_eta2(f = explor2_rmanova[,5], df = explor2_rmanova[,2],
+                                                     df_error = explor2_rmanova[,4], ci = 0.95), digits = 2))
+
+# formatting
+
+colnames(explor2_rmanova) <- c("Sum Sq", "$df$", "error Sum Sq", "den $df$", "$F$", "$p$", "$\\eta_{p}^{2}$", "$95\\% CI$")
+rownames(explor2_rmanova) <- c("Intercept", "NFC", "n-back level", "NFC x n-back level")
+explor2_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")] <- round(explor2_rmanova[ ,c("Sum Sq","error Sum Sq","$F$")], digits = 2)
+explor2_rmanova$`$p$` <- format(round(explor2_rmanova$`$p$`, digits = 3), nsmall = 2)
+explor2_rmanova$`$p$`[explor2_rmanova$`$p$` == "0.000"] <- "<.001"
+
+## post-hoc tests for slope differences
+
+explor2_emm <- emmeans::emtrends(lm(sv ~ nfc * level, data = explor_data), pairwise ~ level, var = "nfc")
+
+# visualize the slopes
+
+emmeans::emmip(lm(sv ~ nfc * level, data = explor_data), level ~ nfc, cov.reduce = range, linearg = list(size = 1.3, linetype = "solid")) +
+  ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
+  scale_color_manual(values = c("#65b32e","#00a1d9","#ef7d00","#e8412c"), name = "Level", labels = c("1-back","2-back","3-back","4-back")) +
+  xlab("Standardized Need for Cognition score") + 
+  ylab("Predicted subjective value") +
+  scale_y_continuous(limits = c(0,1), breaks = c(0.2,0.4,0.6,0.8,1)) +
+  scale_x_continuous(limits = c(-3,2.5), breaks = c(-3,-2,-1,0,1,2)) +
+  theme(legend.title = element_text())
+
+ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 5.5, height = 5, units = "in",
+       device = "tiff", dpi = 500, filename = "explor2.eps")
 
 ##### Save variables ###########################################################
 
