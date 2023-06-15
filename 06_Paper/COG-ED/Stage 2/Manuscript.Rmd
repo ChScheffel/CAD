@@ -482,7 +482,7 @@ In favour of H3c, post-hoc tests revealed that participants with NFC scores belo
 Regardless of NFC, the difference of the aversiveness scores of 2- and 3-back was more negative than that of 1- and 2-back (`r apa_print(pairs(hypothesis3c_emm_levels))$statistic`), indicating that in the same way in which the SVs decreased more strongly from 2- to 3-back than from 1- to 2-back, the aversion increased more strongly.
 The full results of these analyses of NFC group differences can be found in Table S.11 to S.15 in the Supplementary Material.
 
-# Exploratory analysis
+# Exploratory analyses
 
 To investigate the apparent group difference between the SVs of participants with NFC scores below and above the median in higher $n$-back levels, we computed an rmANOVA with the within-factor level (1 to 4) and the between-factor NFC group (below/above median).
 There was no main effect of NFC group (`r apa_print(explor_model)$full_result$nfcmedian`, `r apa_print(explor_BF)$table[2,"statistic"]`), but a main effect of the $n$-back level (`r apa_print(explor_model)$full_result$level`, `r apa_print(explor_BF)$table[1,"statistic"]`) and an interaction (`r apa_print(explor_model)$full_result$nfcmedian_level`).
@@ -490,9 +490,15 @@ Post-hoc tests for the main effect of level showed that SVs were lower for the m
 Post-hoc tests for the interaction effect showed that the NFC groups only had a significant difference in SVs for 4-back, where participants below the NFC median had lower scores (`r apa_print(pairs(explor_emm_interact))$full_result$X4_High_low`).
 Despite not reaching significance, 1-back was the only level in which participants with NFC scores above the median seemed to have lower SVs than those with scores below the median (`r apa_print(pairs(explor_emm_interact))$full_result$X1_High_low`).
 The full results of this exploratory analysis of NFC group differences can be found in Table S.16 and S.17 in the Supplementary Material.
-Figure\ \@ref(fig:nfcgroups-sv) shows the SVs per $n$-back level for participants with NFC scores above and below the median.
+Supplementary Figure S4 shows the SVs per $n$-back level for participants with NFC scores above and below the median.
 
-[FIGURE \@ref(fig:nfcgroups-sv) HERE]
+Following a reviewer's recommendation, we also analyzed the association of SVs with NFC as a continuous variable.
+We computed an rmANOVA with the $n$-back level as a within variable and the standardized NFC score as a covariate to predict SVs.
+Both the NFC score (`r apa_print(explor2_model)$full_result$nfc`, `r apa_print(explor2_BF_nfc)$statistic`) and the $n$-back level (`r apa_print(explor2_model)$full_result$level`, `r apa_print(explor2_BF_level)$statistic`) showed significant main effects, as well as a significant interaction (`r apa_print(explor2_model)$full_result$nfc_level`, `r apa_print(explor2_BF_interact)$statistic`).
+Analyzing the estimated marginal means of the linear trends for each $n$-back level indicated a significant difference between the slopes of 1-back and 4-back (`r apa_print(explor2_slopes$contrasts)$full_result$Level1_level4`), but not between any other two levels.
+Plotting the predicted slopes shows that there is a negative association between the predicted SVs and the NFC scores for 1-back, but a positive association between the predicted SVs and the NFC scores for 4-back (Figure\ \@ref:nfccont-sv).
+
+[FIGURE \@ref(fig:nfccont-sv) HERE]
 
 # Discussion
 
@@ -567,12 +573,12 @@ With the CAD paradigm, the declining logistic contrast of SVs across levels rese
 
 When developing a new paradigm, it is challenging to decide on the optimal analysis strategy, as every hypothesis is based on expected data patterns rather than previous findings.
 While the Stage 1 review process made the analyses as robust as possible, there were still unknown factors that should be addressed by future studies.
-For instance, the differences between participants with higher and lower NFC should be investigated with extreme groups rather than a median split, or even more promising, as a continuous measure, especially in academic samples where NFC can be expected to be higher on average and more narrow in range.
+For instance, the differences between participants with higher and lower NFC should be investigated with extreme groups or as a continuous variable rather than with a median split, especially in academic samples where NFC can be expected to be higher on average and more narrow in range.
 To arrive at a sample with more balanced NFC scores, recruitment efforts should be focused on representative population samples and/or collecting data with an NFC-based stop rule.
 Additionally, we expected the SVs of participants with lower NFC scores to peak at 1-back and the SVs of those with higher scores to peak at 2-back, but the way the SVs of both groups appeared to drift apart in the higher $n$-back levels suggests that an analysis of those levels would be more fruitful in determining group differences.
 Future studies could create a stronger separation between the concepts investigated in this study (discounting curve, effort perception, performance, SV computation, NFC), and model the SVs and their task-related influencing factors first, before looking at (non-linear) associations with personality.
 Another important point is the instruction, not just for the $n$-back task, but for the effort discounting as well.
-We had to exclude several participants for misunderstanding the task instruction, so we will add a visual instruction or a training next time.
+We had to exclude several participants for misunderstanding the task instruction, so we will add a visual instruction and/or a training next time.
 And even though the participants were instructed to do the effort discounting with the aim to be satisfied with their choices instead of trying to increase the rewards, we cannot be sure that they did so.
 One might also argue that the 2€ reward range was not large enough to be an incentive for effort expenditure.
 However, findings by Bialaszek et al.[-@Bialaszek2017] suggest that participants are actually more sensitive to effort when the reward is small.
@@ -589,7 +595,8 @@ The results showed that many participants indeed preferred a more or even the mo
 Spanning the entire sample, these preferences took the shape of a declining logistic curve across $n$-back levels.
 While the subjective value declined with increasing levels, it increased with better performance as measured in $d'$, and was unaffected by the reaction time.
 Participants with Need for Cognition scores above the median reported lower subjective task load in and less aversion to more difficult levels.
-However, they did not have higher subjective values per se, which was likely due to our choice of median split and our assumption that these group differences would emerge in lower levels.
+However, they did not have higher subjective values per se, which was due to our choice of median split and our assumption that these group differences would emerge in lower levels.
+The exploratory analysis showed that the predicted slope of subjective values depending on Need for Cognition scores differed between 1- and 4-back.
 In fact, the reaction time and self-report data suggest that individual differences emerge especially from 3-back upwards, emphasizing the need for tasks with high discriminatory power and effort discounting paradigms with flexible, participant-centered mechanisms.
 The CAD paradigm offers this flexibility, and we encourage future studies to question traditional assumptions in the field of effort discounting in the light of these findings, and to re-use this data set for exploratory analyses.
 
@@ -656,8 +663,8 @@ The authors declare no competing interests.
 
 ```
 
-```{r nfcgroups-sv, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values per n-back level for participants with Need for Cognition (NFC) scores above and below the median. $N=116$. The scatter has a horizontal jitter of 0.2. Smoothing of conditional means with Loess method. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+```{r nfccont-sv, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Predicted slopes of subjective values depending on individual Need for Cognition scores for each $n$-back level. $N=116$. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
   
-  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "nfcgroups-sv.png"))
+  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "nfccont_sv.png"))
 
 ```
