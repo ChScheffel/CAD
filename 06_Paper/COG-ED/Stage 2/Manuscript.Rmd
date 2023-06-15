@@ -390,8 +390,9 @@ The full results of these manipulation checks are listed in Table S.1 to S.8 in 
 
 ## Decline of subjective values
 
-The different curves of SVs across $n$-back levels can be seen in Figure\ \@ref(fig:sv-by-pref), grouped into those participants who had an absolute preference for 1-back ($n=`r nrow(data_SV[data_SV$level==1 & data_SV$sv==1,])`$), for 2-back ($n=`r nrow(data_SV[data_SV$level==2 & data_SV$sv==1,])`$), for 3-back ($n=`r nrow(data_SV[data_SV$level==3 & data_SV$sv==1,])`$), for 4-back ($n=`r nrow(data_SV[data_SV$level==4 & data_SV$sv==1,])`$), or no absolute preference for any level ($n=`r length(setdiff(unique(data_SV$subject), data_SV$subject[data_SV$sv == 1]))`$).
-While the majority of participants preferred the easiest level and showed a linear decline of SVs with increasing task-load, a considerable part of the sample preferred one of the more difficult $n$-back levels.
+The different curves of SVs across $n$-back levels can be seen in Figure\ \@ref(fig:sv-by-pref), grouped into those participants who had an SV of 1.0 for 1-back ($n=`r nrow(data_SV[data_SV$level==1 & data_SV$sv==1,])`$), for 2-back ($n=`r nrow(data_SV[data_SV$level==2 & data_SV$sv==1,])`$), for 3-back ($n=`r nrow(data_SV[data_SV$level==3 & data_SV$sv==1,])`$), for 4-back ($n=`r nrow(data_SV[data_SV$level==4 & data_SV$sv==1,])`$), or all SVs below 1.0, i.e. no absolute preference for any level ($n=`r length(setdiff(unique(data_SV$subject), data_SV$subject[data_SV$sv == 1]))`$).
+While the majority of participants preferred the easiest level and showed an approximately linear decline of SVs with increasing task-load, a substantial part of the sample had higher SVs for one of the more difficult $n$-back levels.
+However, each panel in Figure\ \@ref(fig:sv-by-pref) contains curves of participants who had large differences between their four SVs and curves of participants who had a difference of less than 0.2 between their highest and their lowest SV, so preferring one level does not necessarily mean having a strong aversion against the others, regardless of difficulty level.
 
 [FIGURE \@ref(fig:sv-by-pref) HERE]
 
@@ -420,6 +421,7 @@ apa_table(
 ```
 
 The declining logistic contrast had the highest effect estimate (`r apa_print(emmeans::contrast(hypothesis2a_emm, method = list("Declining Linear" = c(3,1,-1,-3),"Ascending Quadratic" = c(-1,1,1,-1),"Declining Logistic" = c(3,2,-2,-3),"Positively Skewed Normal" = c(1,2,-1,-2))))$statistic$DecliningLogistic`), suggesting a shallow decline of SVs between 1- and 2-back, and 3- and 4-back, respectively, and a steeper decline of SVs between 2- and 3-back.
+Based on the effect estimate, the ascending quadratic and the skewed normal contrasts were rejected in favour of the declining logistic contrast.
 
 Consequently, we had to adapt the MLM to incorporate this non-linear trend.
 To apply the contrast to the $n$-back levels, we had to turn the variables into a factor, with two consequences:
@@ -496,7 +498,7 @@ Following a reviewer's recommendation, we also analyzed the association of SVs w
 We computed an rmANOVA with the $n$-back level as a within variable and the standardized NFC score as a covariate to predict SVs.
 Both the NFC score (`r apa_print(explor2_model)$full_result$nfc`, `r apa_print(explor2_BF_nfc)$statistic`) and the $n$-back level (`r apa_print(explor2_model)$full_result$level`, `r apa_print(explor2_BF_level)$statistic`) showed significant main effects, as well as a significant interaction (`r apa_print(explor2_model)$full_result$nfc_level`, `r apa_print(explor2_BF_interact)$statistic`).
 Analyzing the estimated marginal means of the linear trends for each $n$-back level indicated a significant difference between the slopes of 1-back and 4-back (`r apa_print(explor2_slopes$contrasts)$full_result$Level1_level4`), but not between any other two levels.
-Plotting the predicted slopes shows that there is a negative association between the predicted SVs and the NFC scores for 1-back, but a positive association between the predicted SVs and the NFC scores for 4-back (Figure\ \@ref:nfccont-sv).
+Plotting the predicted slopes shows that there is a negative association between the predicted SVs and the NFC scores for 1-back, but a positive association between the predicted SVs and the NFC scores for 4-back (Figure\ \@ref(fig:nfccont-sv)).
 
 [FIGURE \@ref(fig:nfccont-sv) HERE]
 
@@ -526,7 +528,11 @@ Ratings on the physical load subscale increased with $n$-back levels, but not be
 ## Decline of subjective values
 
 The rmANOVA with different pre-defined contrasts showed that all fit the SVs to a different degree, and that the SVs do not simply decline linearly across $n$-back levels.
-The best fit was a declining logistic curve, reflecting that the majority of participants preferred 1-back and that SVs for 2-back were also high, before having more inter-individual variance for 3- and 4-back.
+The best fit was a declining logistic curve, reflecting that the majority of participants preferred 1-back and that SVs for 2-back were also quite high, before declining more strongly for 3- and 4-back.
+Since the majority of participants preferred the easiest level, we rejected the ascending quadratic and skewed normal contrasts, which implied lower SVs for 1- than for 2-back.
+Figure\ \@ref(fig:sv-by-pref) suggests that those who prefer either 1- or 2-back have a slightly steeper discounting curve than those who prefer 3- or 4-back, meaning they have lower SVs for higher levels than those who prefer a higher level have for the easier levels.
+But as the figure also shows, there is great interindividual variability in the discounting patterns, regardless of which level has the highest SV.
+The fact that the majority of participants preferred lower over higher effort, but a minority showed the opposite pattern, is in line with previous research on cognitive effort by Kool et al. (2010)[-@Kool2010].
 Thomson and Oppenheimer[-@Thomson2022] argue that the different effort curves that have been observed for different tasks are likely due to the fact that we still understand quite little about how and why different manipulations of effort work.
 For example, the $n$-back task is likely not a continuous manipulation of task load, as discussed above.
 However, the declining logistic curve is similar to the sigmoidal curve that has been found for a physical[@KleinFluegge2015] and a cognitive effort paradigm[@Massar2019], suggesting there are common features of effort across different tasks and domains.
@@ -553,12 +559,12 @@ It shows that when given the choice, there is a large number of participants who
 The CAD paradigm provides the means to depict these preferences.
 
 In the analysis of SV difference scores, the NFC group did not reach significance as a predictor.
-This was likely due to the bandwidth of SVs of participants with NFC scores around the median, and due to the fact that the difference appeared most pronounced for 4-back, and we only analyzed the difference scores between 1- and 2-back and 2- and 3-back.
-As the exploratory analysis showed, only 4-back yielded a significant group difference, and SVs of participants with NFC scores above the median were higher for 2- to 4-back and lower for 1-back.
+This was likely due to the bandwidth of SVs of participants with NFC scores around the median, and due to the fact that the difference appeared most pronounced for 4-back, and we only registered analyses of the difference scores between 1- and 2-back and 2- and 3-back.
+As the exploratory analyses showed, a median split of NFC scores yielded a significant group difference in SVs for 4-back only, while predicting SVs with NFC as a continuous covariate showed a difference in the slopes of 1-back and 4-back.
 The analysis of NASA-TLX scores showed that the sum score increased with every $n$-back level, and that participants with NFC scores below the median had higher NASA-TLX scores for 3- and 4-back than those below the median.
 This demonstrates that higher $n$-back levels have a higher discriminatory power regarding inter-individual differences in subjective effort perception.
 This was also supported by the fact that higher $n$-back levels were perceived as more aversive, and participants with NFC scores below the median reported higher aversion than those with NFC scores above the median.
-Our data supports the notion of a nonlinear interaction between person and situation that has also been described by Schmitt et al. (2013)[-@Schmitt2013] and Blum et al. (2018)[-@Blum2018] in the same-named NIPS model.
+Our data supports the notion of a Nonlinear Interaction between Person and Situation that has also been described by Schmitt et al. (2013)[-@Schmitt2013] and Blum et al. (2018)[-@Blum2018] in the same-named NIPS model.
 The NIPS model describes behaviour as a function of situational affordance which is mediated by personality traits.
 The behavioural variability follows an s-shaped curve, such that "strong" situations with low or high situational affordance elicit the least behavioural variability, while "weak" situations with moderate affordance maximize individual differences.
 These differences are caused by a person's expression of a certain trait, which shifts the curve along the y-axis.
@@ -591,12 +597,13 @@ With each decision an individual makes, they must weigh the required effort agai
 So far, effort discounting paradigms have relied on the assumption that the task that is objectively easiest is the one that is preferred by everyone, and each more difficult task is simply being devalued compared to the easy one.
 However, effort-related traits such as Need for Cognition suggest that this is not the case.
 Therefore, we developed a paradigm that allows to examine effort discounting independent of objective task load, which we tested using an $n$-back task.
-The results showed that many participants indeed preferred a more or even the most difficult $n$-back level.
-Spanning the entire sample, these preferences took the shape of a declining logistic curve across $n$-back levels.
-While the subjective value declined with increasing levels, it increased with better performance as measured in $d'$, and was unaffected by the reaction time.
+Despite the fact that the task design allowed individuals to express a preference for higher over lower objective load levels, the overall subjective values took the shape of a declining logistic curve across $n$-back levels.
+The majority of participants showed a decline in subjective values at higher effort levels.
+A minority of participants deviated from this pattern and showed a clear preference for 2-, 3, or 4-back over 1-back.
+While the subjective values declined with increasing levels, they increased with better performance as measured in $d'$, and were unaffected by the reaction time.
 Participants with Need for Cognition scores above the median reported lower subjective task load in and less aversion to more difficult levels.
 However, they did not have higher subjective values per se, which was due to our choice of median split and our assumption that these group differences would emerge in lower levels.
-The exploratory analysis showed that the predicted slope of subjective values depending on Need for Cognition scores differed between 1- and 4-back.
+The exploratory analyses showed that the predicted slope of subjective values depending on Need for Cognition scores differed between 1- and 4-back, but not between other levels.
 In fact, the reaction time and self-report data suggest that individual differences emerge especially from 3-back upwards, emphasizing the need for tasks with high discriminatory power and effort discounting paradigms with flexible, participant-centered mechanisms.
 The CAD paradigm offers this flexibility, and we encourage future studies to question traditional assumptions in the field of effort discounting in the light of these findings, and to re-use this data set for exploratory analyses.
 
@@ -663,7 +670,7 @@ The authors declare no competing interests.
 
 ```
 
-```{r nfccont-sv, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Predicted slopes of subjective values depending on individual Need for Cognition scores for each $n$-back level. $N=116$. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+```{r nfccont-sv, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Predicted slopes of subjective values depending on individual Need for Cognition scores for each $n$-back level. The slopes of 1-back and 4-back are different at $p=.01$. $N=116$. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "nfccont_sv.png"))
 
