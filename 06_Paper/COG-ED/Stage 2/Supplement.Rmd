@@ -477,3 +477,10 @@ apa_table(
 )
 ```
 
+\newpage
+
+```{r nfcgroups-sv, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values per n-back level for participants with Need for Cognition (NFC) scores above and below the median. $N=116$. The scatter has a horizontal jitter of 0.2. Smoothing of conditional means with Loess method. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+  
+  include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "nfcgroups-sv.png"))
+
+```
