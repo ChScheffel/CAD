@@ -2189,6 +2189,9 @@ explor2_rmanova <- as.data.frame(matrix(explor2_rmanova, nrow = 4, ncol = 6))
 explor2_rmanova <- cbind(explor2_rmanova,
                         format(effectsize::F_to_eta2(f = explor2_rmanova[,5], df = explor2_rmanova[,2],
                                                      df_error = explor2_rmanova[,4], ci = 0.95), digits = 2))
+explor2_BF_level <- BayesFactor::lmBF(formula = sv ~ level, whichRandom = "subject", data = explor_data, progress = FALSE)
+explor2_BF_nfc <- BayesFactor::lmBF(formula = sv ~ nfc, whichRandom = "subject", data = explor_data, progress = FALSE)
+explor2_BF_interact <- BayesFactor::lmBF(formula = sv ~ nfc:level, whichRandom = "subject", data = explor_data, progress = FALSE)
 
 # formatting
 
@@ -2200,7 +2203,16 @@ explor2_rmanova$`$p$`[explor2_rmanova$`$p$` == "0.000"] <- "<.001"
 
 ## post-hoc tests for slope differences
 
-explor2_emm <- emmeans::emtrends(lm(sv ~ nfc * level, data = explor_data), pairwise ~ level, var = "nfc")
+explor2_slopes <- emmeans::emtrends(lm(sv ~ nfc * level, data = explor_data), pairwise ~ level, var = "nfc")
+
+# formatting
+
+explor2_emm <- as.data.frame(explor2_slopes$contrasts)
+colnames(explor2_emm) <- c("$n$-back level", "Estimate", "$SE$", "$df$", "$t$", "$p$")
+explor2_emm$'$n$-back level' <- gsub("level", "", as.character(explor2_emm$'$n$-back level'))
+explor2_emm[ ,c("Estimate", "$SE$", "$t$", "$p$")] <- round(explor2_emm[ ,c("Estimate", "$SE$", "$t$", "$p$")], digits = 2)
+explor2_emm$`$p$` <- format(round(explor2_emm$`$p$`, digits = 3), nsmall = 2)
+
 
 # visualize the slopes
 
@@ -2214,7 +2226,7 @@ emmeans::emmip(lm(sv ~ nfc * level, data = explor_data), level ~ nfc, cov.reduce
   theme(legend.title = element_text())
 
 ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 5.5, height = 5, units = "in",
-       device = "tiff", dpi = 500, filename = "explor2.eps")
+       device = "tiff", dpi = 500, filename = "nfccont_sv.eps")
 
 ##### Save variables ###########################################################
 
