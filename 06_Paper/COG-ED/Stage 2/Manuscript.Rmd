@@ -529,11 +529,12 @@ Ratings on the physical load subscale increased with $n$-back levels, but not be
 ## Decline of subjective values
 
 The rmANOVA with different pre-defined contrasts showed that all fit the SVs to a different degree, and that the SVs do not simply decline linearly across $n$-back levels.
-The best fit was a declining logistic curve, reflecting that the majority of participants preferred 1-back and that SVs for 2-back were also quite high, before declining more strongly for 3- and 4-back.
+The best fit was a declining logistic curve, reflecting that 1) the majority of participants preferred the easiest level, 2) 2-back was generally closer in preference to 1-back than 3-back was to 2-back, and 3) objective task load and subjective preference do not stand in a linear relationship.
 Since the majority of participants preferred the easiest level, we rejected the ascending quadratic and skewed normal contrasts, which implied lower SVs for 1- than for 2-back.
+The fact that the majority of participants preferred lower over higher effort, but a minority showed the opposite pattern, is in line with previous research on cognitive effort by Kool et al. (2010)[-@Kool2010].
+Importantly, having a paradigm that can accurately assess the preferences of the minority is necessary but not sufficient, because the interindividual variability is so high that it blurs effects on the group level.
 Figure\ \@ref(fig:sv-by-pref) suggests that those who prefer either 1- or 2-back have a slightly steeper discounting curve than those who prefer 3- or 4-back, meaning they have lower SVs for higher levels than those who prefer a higher level have for the easier levels.
 But as the figure also shows, there is great interindividual variability in the discounting patterns, regardless of which level has the highest SV.
-The fact that the majority of participants preferred lower over higher effort, but a minority showed the opposite pattern, is in line with previous research on cognitive effort by Kool et al. (2010)[-@Kool2010].
 Thomson and Oppenheimer[-@Thomson2022] argue that the different effort curves that have been observed for different tasks are likely due to the fact that we still understand quite little about how and why different manipulations of effort work.
 For example, the $n$-back task is likely not a continuous manipulation of task load, as discussed above.
 However, the declining logistic curve is similar to the sigmoidal curve that has been found for a physical[@KleinFluegge2015] and a cognitive effort paradigm[@Massar2019], suggesting there are common features of effort across different tasks and domains.
@@ -555,12 +556,13 @@ This indicates that researchers who are interested in the correctness rather tha
 
 ## Differences between NFC groups
 
-The majority of participants (`r round(100*((nrow(data_SV[data_SV$level==1 & data_SV$sv==1,]))/nrow(data_quest)), digits = 1)`\ %) had an absolute preference for 1-back over the other levels, but that also means that there were `r round(100*((nrow(data_SV[data_SV$level!=1 & data_SV$sv==1,]))/nrow(data_quest)), digits = 1)`\ % who had an absolute preference for 2-, 3-, or 4-back, and `r round(100*((length(setdiff(unique(data_SV$subject), data_SV$subject[data_SV$sv == 1])))/nrow(data_quest)), digits = 1)`\ % who preferred no specific level over all others.
-It shows that when given the choice, there is a large number of participants who do not prefer the easiest level, confirming the necessity of an effort discounting paradigm that works independent of the objective task load.
+The majority of participants (`r round(100*((nrow(data_SV[data_SV$level==1 & data_SV$sv==1,]))/nrow(data_quest)), digits = 1)`\ %) had a preference for 1-back over the other levels, but that also means that there were `r round(100*((nrow(data_SV[data_SV$level!=1 & data_SV$sv==1,]))/nrow(data_quest)), digits = 1)`\ % who had a preference for 2-, 3-, or 4-back, and `r round(100*((length(setdiff(unique(data_SV$subject), data_SV$subject[data_SV$sv == 1])))/nrow(data_quest)), digits = 1)`\ % who preferred no specific level over all others.
+It shows that when given the choice, there is a number of participants who do not prefer the easiest level, confirming the necessity of an effort discounting paradigm that works independent of the objective task load.
 The CAD paradigm provides the means to depict these preferences.
 
 In the analysis of SV difference scores, the NFC group did not reach significance as a predictor.
-This was likely due to the bandwidth of SVs of participants with NFC scores around the median, and due to the fact that the difference appeared most pronounced for 4-back, and we only registered analyses of the difference scores between 1- and 2-back and 2- and 3-back.
+Conceptually, this was likely due to the partial but not full overlap between self-reported and behavioural effort investment, which has also been found for a demand selection task[@Strobel2020].
+Another possible reason is the bandwidth of SVs of participants with NFC scores around the median, and the fact that the difference appeared most pronounced for 4-back, and we only registered analyses of the difference scores between 1- and 2-back and 2- and 3-back.
 As the exploratory analyses showed, a median split of NFC scores yielded a significant group difference in SVs for 4-back only, while predicting SVs with NFC as a continuous covariate showed a difference in the slopes of 1-back and 4-back.
 The analysis of NASA-TLX scores showed that the sum score increased with every $n$-back level, and that participants with NFC scores below the median had higher NASA-TLX scores for 3- and 4-back than those below the median.
 This demonstrates that higher $n$-back levels have a higher discriminatory power regarding inter-individual differences in subjective effort perception.
@@ -601,6 +603,7 @@ Therefore, we developed a paradigm that allows to examine effort discounting ind
 Despite the fact that the task design allowed individuals to express a preference for higher over lower objective load levels, the overall subjective values took the shape of a declining logistic curve across $n$-back levels.
 The majority of participants showed a decline in subjective values at higher effort levels.
 A minority of participants deviated from this pattern and showed a clear preference for 2-, 3, or 4-back over 1-back.
+The CAD paradigm was able to depict the individual preference patterns for both those who do and do not prefer the lowest effort level.
 While the subjective values declined with increasing levels, they increased with better performance as measured in $d'$, and were unaffected by the reaction time.
 Participants with Need for Cognition scores above the median reported lower subjective task load in and less aversion to more difficult levels.
 However, they did not have higher subjective values per se, which was due to our choice of median split and our assumption that these group differences would emerge in lower levels.
@@ -623,7 +626,7 @@ The CAD paradigm offers this flexibility, and we encourage future studies to que
 
 # Acknowledgements
 
-This research is partly funded by the German Research Foundation (DFG) as part of the Collaborative Research Center (CRC) 940, and partly funded by centralized funds of the Faculty of Psychology at Technische Universität Dresden.
+This research was partly funded by the German Research Foundation (DFG) as part of the Collaborative Research Center (CRC) 940, and partly funded by centralized funds of the Faculty of Psychology at Technische Universität Dresden.
 The funders have/had no role in study design, data collection and analysis, decision to publish or preparation of the manuscript.
 The authors would like to thank Juliana Krause and Maja Hentschel for their help with data collection.
 
@@ -653,13 +656,13 @@ The authors declare no competing interests.
 
 ```
 
-```{r sv-by-pref, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values (SV) per $n$-back level, grouped into those who had an SV = 1 for 1-back, for 2-back, for 3-back, for 4-back, or no SV = 1 for any level. The lines have a vertical jitter of 0.02. Smoothing of conditional means with Loess method. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+```{r sv-by-pref, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values (SV) per $n$-back level, grouped into those who had an SV = 1 for 1-back, for 2-back, for 3-back, for 4-back, or no SV = 1 for any level. The lines have a vertical jitter of 0.02. Smoothing of conditional means with Loess method. Transparent overlays depict the 95\\% confidence interval. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "sv_by_pref.png"))
 
 ```
 
-```{r motivation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values per $n$-back level for each participant, grouped by the motivation for effort discounting that they indicated in the single choice question after the paradigm. $N=116$. 'Other' opened up a free text field. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+```{r motivation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Trajectories of subjective values per $n$-back level for each participant, grouped by the motivation for effort discounting that they indicated in the single choice question after the paradigm. $N=116$. 'Other' opened up a free text field. Smoothing of conditional means with Loess method. Transparent overlays depict the 95\\% confidence interval. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "motivation.png"))
 
