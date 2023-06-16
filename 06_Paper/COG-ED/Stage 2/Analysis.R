@@ -1986,7 +1986,7 @@ ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 10, height 
 # plot showing SVs per level, colors depend on motivation
 
   ggplot2::ggplot(data_motiv, aes(level, sv, fill = as.factor(motivation), color = as.factor(motivation))) +
-    geom_smooth(alpha = .2, span = 1, size = 2) +
+    geom_smooth(alpha = .3, span = 1, size = 2) +
     ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
     scale_fill_manual(values = c("#f7a941","#f08262","#8acbc1","#84cfed","#94c356")) +
     scale_color_manual(values = c("#ef7d00","#cd1619","#00aca9","#0069b4","#65b32e"), name = "Motivation",
