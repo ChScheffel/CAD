@@ -499,6 +499,7 @@ We computed an rmANOVA with the $n$-back level as a within variable and the stan
 Both the NFC score (`r apa_print(explor2_model)$full_result$nfc`, `r apa_print(explor2_BF_nfc)$statistic`) and the $n$-back level (`r apa_print(explor2_model)$full_result$level`, `r apa_print(explor2_BF_level)$statistic`) showed significant main effects, as well as a significant interaction (`r apa_print(explor2_model)$full_result$nfc_level`, `r apa_print(explor2_BF_interact)$statistic`).
 Analyzing the estimated marginal means of the linear trends for each $n$-back level indicated a significant difference between the slopes of 1-back and 4-back (`r apa_print(explor2_slopes$contrasts)$full_result$Level1_level4`), but not between any other two levels.
 Plotting the predicted slopes shows that there is a negative association between the predicted SVs and the NFC scores for 1-back, but a positive association between the predicted SVs and the NFC scores for 4-back (Figure\ \@ref(fig:nfccont-sv)).
+The full results of this exploratory analysis of NFC as a continuous covariate can be found in Table S.18 and S.19 in the Supplementary Material.
 
 [FIGURE \@ref(fig:nfccont-sv) HERE]
 
@@ -652,7 +653,7 @@ The authors declare no competing interests.
 
 ```
 
-```{r sv-by-pref, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values per $n$-back level, grouped into those who had an absolute preference for 1-back, for 2-back, for 3-back, for 4-back, or no absolute preference for any level. The lines have a vertical jitter of 0.02. Smoothing of conditional means with Loess method. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+```{r sv-by-pref, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values (SV) per $n$-back level, grouped into those who had an SV = 1 for 1-back, for 2-back, for 3-back, for 4-back, or no SV = 1 for any level. The lines have a vertical jitter of 0.02. Smoothing of conditional means with Loess method. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "sv_by_pref.png"))
 

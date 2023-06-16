@@ -443,7 +443,7 @@ apa_table(
 
 \newpage
 
-## Exploratory analyses
+## Exploratory analysis with NFC groups by median split
 
 ANOVA:
 
@@ -470,8 +470,36 @@ Contrasts for the interaction:
 ```{r, echo=FALSE, message=FALSE, warning=FALSE} 
 apa_table(
   explor_contrasts_interact,
-  caption = "Paired contrast for the rmANOVA comparing the influence of Need for Cognition group and $n$-back level on subjectvie values.",
+  caption = "Paired contrast for the rmANOVA comparing the influence of Need for Cognition group and $n$-back level on subjective values.",
   note = "The column Contrast contains the groups above (high) and below (low) the Need for Cognition score median. The column Level contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+\newpage
+
+## Exploratory analysis with NFC as a continuous covariate
+
+ANOVA (NFC scores standardized):
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  explor2_rmanova,
+  caption = "Result of the rmANOVA regarding the predictive power of the $n$-back level on the subjective values when including Need for Cognition scores as a centered continuous covariate.",
+  note = "NFC = Need for Cognition. $SE$ = standard error, $df$ = degrees of freedom, $F$ = $F$-statistic, $p$ = $p$-value, $\\eta_{p}^{2}$ = partial eta squared, CI = confidence interval.",
+  escape = FALSE,
+  placement = "H"
+)
+```
+
+Estimated marginal means of the linear trends:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE} 
+apa_table(
+  explor2_emm,
+  caption = "Paired contrast slope analysis as a follow up for the rmANOVA regarding the predictive power of the $n$-back level on the subjective values when including Need for Cognition scores as a centered continuous covariate.",
+  note = "The column $n$-back level contains the $n$ of the task levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value.",
   escape = FALSE,
   placement = "H"
 )
