@@ -1985,18 +1985,22 @@ ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 10, height 
 
 # plot showing SVs per level, colors depend on motivation
 
-  ggplot2::ggplot(data_motiv, aes(as.factor(level), sv, fill = as.factor(motivation), color = as.factor(motivation))) +
-    geom_boxplot(alpha = .6, outlier.alpha = 0) +
-    geom_jitter(position = position_jitterdodge(), size=1.3, alpha=0.7, 
-                aes(group=as.factor(motivation))) +
+  ggplot2::ggplot(data_motiv, aes(level, sv, fill = as.factor(motivation), color = as.factor(motivation))) +
+    geom_smooth(alpha = .2, span = 1, size = 2) +
     ggprism::theme_prism(base_size = 12, base_line_size = 0.8, base_fontface = "plain", base_family = "sans") +
-    scale_fill_manual(values = c("#ef7d00","#c94b17","#00aca9","#00838d","#65b32e")) +
-    scale_color_manual(values = c("#ef7d00","#c94b17","#00aca9","#00838d","#65b32e"), name = "Motivation", labels = c("Avoid boredom","Seek challenge","Avoid effort","Relax","Other")) +
+    scale_fill_manual(values = c("#f7a941","#f08262","#8acbc1","#84cfed","#94c356")) +
+    scale_color_manual(values = c("#ef7d00","#cd1619","#00aca9","#0069b4","#65b32e"), name = "Motivation",
+                       labels = c(paste("Avoid boredom\nn = ", table(data_quest$motivation)[1]),
+                                  paste("Seek challenge\nn = ", table(data_quest$motivation)[2]),
+                                  paste("Avoid effort\nn = ", table(data_quest$motivation)[3]),
+                                  paste("Relax\nn = ", table(data_quest$motivation)[4]),
+                                  paste("Other\nn = ", table(data_quest$motivation)[5]))) +
     labs(x = "n-back level", y = "Subjective value") +
-    theme(legend.title = element_text()) +
-    guides(fill = 'none')
+    scale_y_continuous(limits = c(0.05,1), breaks = c(0.2,0.4,0.6,0.8,1), oob = scales::rescale_none) +
+    theme(legend.title = element_text(), legend.spacing.y = unit(0.2, 'in')) +
+    guides(fill = 'none', color = guide_legend(byrow = TRUE))
   
-  ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 8, height = 4, units = "in",
+  ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 6, height = 5, units = "in",
          device = "tiff", dpi = 500, filename = "motivation.eps")
   
 # plot showing SVs depending on where each participant's maximum SV is
