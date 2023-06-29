@@ -40,15 +40,15 @@ Please note that the sample size for a few analyses may be smaller due to failur
 
 #### Effect of valence on arousal and facial EMG
 
-To explore whether negative pictures evoke emotional arousal and physiological responding, we conducted separate rmANOVAs for the active viewing condition with predictors subjective arousal, *corrugator* and *levator* activity.
-Descriptive values of each predictor for each condition can be found in Table \@ref(tab:TabDescr).
-We found a significant main effect of valence for subjective arousal (`r papaja::apa_print(SubjArousalView_aov)$full_result`, `r papaja::apa_print(SubjArousalView_BF)$statistic`), *corrugator* activity (`r papaja::apa_print(EMGCorrView_aov)$full_result`, `r papaja::apa_print(EMGCorrView_BF)$statistic`), and *levator* activity (`r papaja::apa_print(EMGLevView_aov)$full_result`, `r papaja::apa_print(EMGLevView_BF)$statistic`).
+To explore whether negative pictures evoked emotional arousal and physiological responding, we conducted separate rmANOVAs for the active viewing condition with the predictors subjective arousal, *corrugator* and *levator* activity.
+Descriptive values of each predictor per condition can be found in Table \@ref(tab:TabDescr).
+We found a significant main effect of valence on subjective arousal (`r papaja::apa_print(SubjArousalView_aov)$full_result`, `r papaja::apa_print(SubjArousalView_BF)$statistic`), *corrugator* activity (`r papaja::apa_print(EMGCorrView_aov)$full_result`, `r papaja::apa_print(EMGCorrView_BF)$statistic`), and *levator* activity (`r papaja::apa_print(EMGLevView_aov)$full_result`, `r papaja::apa_print(EMGLevView_BF)$statistic`).
 Post-hoc contrasts indicated that negative pictures successfully increased emotional arousal and physiological responding (please see Tables S.4 to S.6 and Figures S.1 to S.3 in the supplementary material).
 
 #### Effect of emotion regulation on arousal and facial EMG
 
-To investigate whether ER strategies reduce emotional arousal and physiological responding, we conducted separate rmANOVAs comparing the four instructed strategies (active viewing, distraction, distancing, suppression) with respect to subjective arousal, *corrugator* and *levator* activity.
-We found a significant effect of strategy for subjective arousal (`r papaja::apa_print(SubjArousalReg_aov)$full_result`, `r papaja::apa_print(SubjArousalReg_BF)$statistic`), *corrugator* activity (`r papaja::apa_print(EMGCorrReg_aov)$full_result`, `r papaja::apa_print(EMGCorrReg_BF)$statistic`), and *levator* activity (`r papaja::apa_print(EMGLevReg_aov)$full_result`, `r papaja::apa_print(EMGLevReg_BF)$statistic`), indicating that regulation strategies reduced subjective arousal and physiological responding.
+To investigate whether ER strategies reduced emotional arousal and physiological responding, we conducted separate rmANOVAs comparing the four instructed strategies (active viewing, distraction, distancing, suppression) with respect to subjective arousal, *corrugator* and *levator* activity.
+We found a significant main effect of strategy on subjective arousal (`r papaja::apa_print(SubjArousalReg_aov)$full_result`, `r papaja::apa_print(SubjArousalReg_BF)$statistic`), *corrugator* activity (`r papaja::apa_print(EMGCorrReg_aov)$full_result`, `r papaja::apa_print(EMGCorrReg_BF)$statistic`), and *levator* activity (`r papaja::apa_print(EMGLevReg_aov)$full_result`, `r papaja::apa_print(EMGLevReg_BF)$statistic`), indicating that regulation strategies reduced subjective arousal and physiological responding.
 For detailed information on post-hoc contrasts, please see Tables S.7 to S.9 and Figures S.4 to S.6 in the supplementary material.
 
 [INSERT TABLE 1 HERE]
@@ -65,17 +65,16 @@ papaja::apa_table(
 
 #### Effect of emotion regulation of effort
 
-To investigate whether ER strategies require cognitive effort, we conducted an rmANOVA comparing the subjective effort ratings of four strategies (active viewing, distraction, distancing, suppression).
-We found a significant effect of strategy (`r papaja::apa_print(SubjEffort_aov)$full_result`, `r papaja::apa_print(SubjEffort_BF)$statistic`; see Figure \@ref(fig:FigSubjEffort)).
+To investigate whether ER strategies required cognitive effort, we conducted an rmANOVA comparing the subjective effort ratings of four strategies (active viewing, distraction, distancing, suppression).
+We found a significant main effect of strategy (`r papaja::apa_print(SubjEffort_aov)$full_result`, `r papaja::apa_print(SubjEffort_BF)$statistic`; see Figure \@ref(fig:FigSubjEffort)).
 Post-hoc contrasts showed significantly higher subjective effort for distraction (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X2viewneg_X3distraction`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"], y = Ratings_reg$effort[Ratings_reg$block == "3_distraction"],progress = FALSE, paired = TRUE))$statistic`), distancing (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X2viewneg_X4distancing`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"], y = Ratings_reg$effort[Ratings_reg$block == "4_distancing"],progress = FALSE, paired = TRUE))$statistic`), and suppression (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X2viewneg_X5suppression`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "2_view_neg"], y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],progress = FALSE, paired = TRUE))$statistic`) compared to active viewing.
 Moreover, we found significantly lower effort during suppression compared with distraction (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X3distraction_X5suppression`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "3_distraction"], y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],progress = FALSE, paired = TRUE))$statistic`) and distancing (`r papaja::apa_print(pairs(SubjEffort_emm))$statistic$X4distancing_X5suppression`, `r papaja::apa_print(BayesFactor::ttestBF(x = Ratings_reg$effort[Ratings_reg$block == "4_distancing"], y = Ratings_reg$effort[Ratings_reg$block == "5_suppression"],progress = FALSE, paired = TRUE))$statistic`).
 
 [INSERT FIGURE 3 HERE]
 
-Cognitive effort also played the most important role in the subsequent choice decision, which resembled previous findings of our group[@Scheffel2021].
-`r round((54/119)*100, digits = 1)`% of the participants stated that they chose the strategy that was easiest for them to implement.
-`r round((29/119)*100, digits = 1)`% stated they chose the strategy that was most effective and `r round((14/119)*100, digits = 1)`% stated their chosen strategy was the easiest and most effective.
-A more detailed list of all reasons can be found online on OSF (<https://osf.io/vnj8x/>).
+Cognitive effort also played the most important role in the subsequent choice of strategy, which resembled previous findings of our group[@Scheffel2021].
+The majority of participants (`r round((54/119)*100, digits = 1)`%) stated that they chose the strategy that was easiest for them to implement, `r round((29/119)*100, digits = 1)`% stated they chose the strategy that was most effective, and `r round((14/119)*100, digits = 1)`% stated their chosen strategy was the easiest *and* most effective.
+A more detailed list of all reasons, including those given by participants who stated none of the three options above, can be found online on OSF (<https://osf.io/vnj8x/>).
 
 ### Subjective values of ER strategies and their predictors
 
