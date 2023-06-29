@@ -186,10 +186,10 @@ To investigate the effects of the three ER strategies on subjective arousal (H2a
 To examine the effects of the three ER strategies on physiological responding (H3a and H3b), another rmANOVA with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for EMG *corrugator* and *levator* activity was conducted.
 To examine the effect of ER strategies on subjective effort (H4a), a rmANOVA with the factor strategy (active viewing - negative, distraction, distancing, and suppression) for subjective effort ratings was conducted.
 
-*Subjective values of emotion regulation strategies.* <br> For each ER strategy, SVs were calculated as follows: first, the value 0.02€ was added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
-Second, to obtain the SV of the fixed strategy (the minimum relative reward required for participants to choose the flexible over the fixed strategy), the last value of the flexible strategy was divided by 2€.
-Therefore, the SVs of the flexible strategies were 1, because they were chosen in the initial comparison of each pairing in which the same value was offered for both strategies, so they were the preferred strategy of each pairing.
-The SVs of the fixed strategies lay between 0 and 1, with lower values indicating that the participant would need a much higher monetary incentive to choose this strategy over the other one in the pairing. 
+*Subjective values of emotion regulation strategies.* <br> For each ER strategy, SVs were calculated as follows: first, the SV of the flexible strategy was set to 1, because in the first comparison of each pairing where the same value was offered for both strategies, so the flexible strategy was the preferred strategy in each pairing.
+Second, to obtain the SV of the fixed strategy (the minimum relative reward required for participants to choose the flexible strategy over the fixed strategy), the value 0.02€ was added to or subtracted from the last monetary value of the flexible strategy, depending on the participant's last choice.
+The resulting value of the flexible strategy was divided by 2€.
+This yielded an SV of the fixed strategy between 0 and 1, with values closer to 0 indicating a stronger aversion to the fixed strategy compared to the flexible strategy.
 The final SV per strategy for each participant was computed by averaging the SVs of each strategy across pairings.
 
 To explore the association between subjective effort (H5a), subjective arousal (H5b), subjective utility (H5c), and physiological responding (H5d,e) on SVs, a multilevel model (MLM) was specified using the $lmerTest$ package[@Kuznetsova2017].

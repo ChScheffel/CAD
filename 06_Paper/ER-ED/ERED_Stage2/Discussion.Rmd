@@ -30,16 +30,15 @@ As expected, the use of ER strategies was associated with reduced subjective and
 This finding is in line with previous meta-analytic findings indicating the effectiveness of ER strategies, both on subjective as well as physiological levels[@Webb2012;@Zaehringer2020].
 Furthermore, we found higher levels of subjective cognitive effort for all ER strategies compared to active viewing. 
 This allows us to replicate previous findings from our research group and show that strategy use is associated with cognitive effort[@Scheffel2021].
-Both measures also showed high variability between individuals.
+The measures of arousal and effort also showed high variability between individuals.
 Taken together, this means that the ER strategies had the intended effect on the participants: Individuals were able to effectively reduce subjective and physiological responding at the expense of cognitive effort.
 It was nevertheless surprising that the strategy suppression showed on average and descriptively the lowest *corrugator* activity, the lowest effort ratings and the highest utility ratings. 
-In the case of the EMG measurement, this could be due to the fact that the result of the implementation of the instructions ("Maintain a neutral facial expression") is measured directly. 
-The direct instruction also reduces the complexity of the generation process, which is why the required effort is the lowest.
-By comparison, distancing increases the complexity, because it requires an impersonal reappraisal of the stimulus.
-Ultimately, the immediacy and simplicity are then expressed in terms of greater subjective utility of the strategy. 
-In addition, one receives relatively direct feedback from one's own facial muscle activity as to how well the strategy suppression has been implemented.
-In the case of the strategies distraction and distancing, a more detailed evaluation of internal states must take place in order to assess their utility, which again requires more effort.
-Since the manipulation checks were successful, the subjective and physiological measures were likely to be meaningful in influencing the individual SVs.
+In the case of the EMG measurement, this could be due to the fact that the result of the implementation of the instruction ("Maintain a neutral facial expression") is measured directly. 
+The direct instruction also reduces the complexity of the generation process.
+This could be why the required subjective effort is the lowest.
+Finally, immediacy and simplicity are expressed as greater subjective utility of the strategy suppression.
+In addition, one receives relatively direct feedback from one's own facial muscle activity as to how well suppression has been implemented.
+In contrast, the strategies distraction and distancing require a more detailed evaluation of internal states in order to assess their utility, which in turn requires more effort.
 
 Almost all participants showed an absolute preference for a particular strategy, indicated by an SV of 1. 
 We also found a wide range of SVs (between `r papaja::apa_num(min(data_SV$sv), digits = 3)` and `r papaja::apa_num(max(data_SV$sv))`), suggesting that individuals have varying degrees of strategy preference.
@@ -90,7 +89,7 @@ In order to gain a more comprehensive picture of ER, dynamic or cyclic processes
 The extended process model of emotion regulation[@Gross2015] postulates three sequential stages, namely identification, selection, and implementation, to achieve a given goal in a situation.
 If the regulatory goal is not achieved, the ER strategy can be maintained, switched or stopped[@Gross2015].
 Importantly, the information about the success of implementing an ER strategy influences the choice of ER strategies in future situations, because the regulation context is changed through contextual feedback [@Gross2015;@AldaoChristensen2015;@Murphy2018;@Sheppes2020].
-This means that studies on ER Choice should consider not only situational factors, but also contextual factors[@Murphy2018].
+This means that studies on ER Choice should consider not only situational factors (i.e., perceived control, emotional intensity[@Wilms2020]), but also contextual factors (i.e., state-dependent psychological processes of the participant and task characteristics; for a review, see Aldao, 2013[@Aldao2013])[@Murphy2018].
 For example, in a classic ER choice paradigm[@Sheppes2011], Murphy and Young[-@Murphy2018] showed that strategy choice was significantly influenced by strategy choice and negative affect in the previous trial.
 This provides empirical evidence that experience gained during use of ER strategies influences future choice of ER strategies.
 Our newly developed CAD paradigm also makes an important contribution here.
@@ -103,6 +102,7 @@ This raises the question of how stable these individual SVs are.
 Knowing whether SVs of ER strategies show a trait character would allow to further evaluate the relevance of the calculated SVs.
 However, whether the calculated values represent a stable value within the individual cannot be concluded from the present study alone.
 To establish the *trait* nature of a measure, one could for instance resort to latent state trait modeling[@Steyer2015], as recently employed by our group in a related context[@Strobel2020].
+However, this would require at least two measurements of SVs.
 The individual SVs calculated in our CAD paradigm were assessed in the laboratory in a single situation. 
 By definition, this represents a state.
 As noted above, personal regulatory goals, situational factors, and contextual demands influence the choice for or against ER strategies[@Aldao2015;@Bonanno2013@Sheppes2011;@Scheffel2021;@Haines2016].
