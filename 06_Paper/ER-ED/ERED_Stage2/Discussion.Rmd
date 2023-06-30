@@ -90,27 +90,18 @@ The structure of the paradigm provides the opportunity for participants' experie
 
 ## Trait character of SVs
 
-Knowing whether SVs of ER strategies show a trait character would allow to further evaluate the relevance of the calculated SVs.
-However, whether the calculated values represent a stable value within the individual cannot be concluded from the present study alone.
-The individual SVs calculated in our CAD paradigm were assessed in the laboratory in a single situation, which by definition represents a state.
-As noted above, personal regulatory goals, situational factors, and contextual demands influence the choice for or against ER strategies[@Aldao2015;@Bonanno2013@Sheppes2011;@Scheffel2021;@Haines2016].
-We believe that these goals, factors, and demands also influence individual SVs of ER strategies.
-Our data presented in this study support this idea.
-However, this also implies that SVs should differ according to situational factors (e.g. stimulus intensity).
-The ER goals that individuals pursue in a given situation must also be taken into account.
-In our laboratory setting, participants mainly pursue prohedonic goals, but certainly not social goals[@Tamir2016].
-Wilms and colleagues[-@Wilms2020] pointed out that ER goals, as well as situational factors, should be treated as states, because both vary greatly from event to event and situation to situation.
-In a different situation, for example outside the laboratory, where an individual is primarily pursuing a social goal, a different strategy might appear more helpful and thus have a higher SV.
-It should also be noted that the calculation of individual SVs in our CAD paradigm are always relative to the alternative strategies that were available (see also [Limitations](#Limitations)).
-Therefore, SVs may vary if different reference strategies are used, but it is very likely that SVs are highly correlated across situations with similar demands and goals. 
-They would thus reflect habits or habitual use of ER strategies, which has already been attempted to capture by means of questionnaires[@GrossJohn2003]. 
-Of course, it is also possible that such habits influence the internal formation of these subjective values.
-However, our data are not suitable for answering this question.
-To establish the trait nature of a measure, one could for instance resort to latent state trait modeling[@Steyer2015], as recently employed by our group in a related context[@Strobel2020].
-However, this would require the measurement of SVs at two or more points in time, ideally in both the same and different contexts (e.g., changing valence of stimuli and add further ER strategies). 
-Thus, temporal and situational variance could be separated and the stable, habitual part of the subjective values of the individual strategies could be determined.
-In the future, SVs should therefore be collected across similar situations. 
-Subsequently, the association of the values with each other could be assessed, as well as correlations with relevant external criteria, such as well-being[@GrossJohn2003].
+Knowing whether SVs of ER strategies show a trait character would allow to further evaluate their practical relevance and predictive power.
+With the data of the present study, a trait analysis is not possible, because the SVs of the ER strategies were assessed in just one situation at just one time point, which by definition represents a state.
+A habit would imply consistency of SVs across time points in similar situations, while a trait would imply consistency across both time points and situations.
+As noted above, ER choice behaviour is rather state-like, because it is influenced by personal regulatory goals, situational factors, and contextual demands [@Aldao2015;@Bonanno2013@Sheppes2011;@Scheffel2021;@Haines2016].
+We therefore believe that the impact of these factors on ER behaviour translates into state- or habit-like properties of SVs as well.
+Such factors could be varied systematically in order to shed light on the stability of SVs, e.g by manipulating situational factors like stimulus intensity, or by systematically assessing the goals that participants pursue with their ER behaviour.
+As Wilms and colleagues[-@Wilms2020] pointed out, situational factors and ER goals are state-like themselves, because they vary greatly across time points and situations.
+While participants in the lab mainly pursue hedonic but not social goals[@Tamir2016], a real-life situation with social goals will probably not only change their ER behaviour but also the SVs that they assign to different strategies, especially when their choice options are not limited by the experimental design (see also [Limitations](#Limitations)).
+To investigate whether SVs of ER strategies can be conceptualized as states, habits, or traits, one could employ latent state trait modelling, as recently done by our group in a related context[@Strobel2020].
+A systematic (non-)variation of situational factors and the assessment of personal factors, e.g. ER goals, can then help to disentangle time- and situation-specific variance in SVs.
+Importantly, the practical relevance and predictive power of SVs should be assessed at every measurement, because it is entirely possible that the correlation between SVs and ER choice is situation-specific as well.
+Such findings would not only yield important insights into ER behaviour, but allow investigations into the association of ER behaviour with external criteria as well, such as well-being[@GrossJohn2003].
 
 ## Limitations
 
