@@ -92,8 +92,6 @@ The structure of the paradigm provides the opportunity for participants' experie
 
 Knowing whether SVs of ER strategies show a trait character would allow to further evaluate the relevance of the calculated SVs.
 However, whether the calculated values represent a stable value within the individual cannot be concluded from the present study alone.
-To establish the trait nature of a measure, one could for instance resort to latent state trait modeling[@Steyer2015], as recently employed by our group in a related context[@Strobel2020].
-However, this would require the measurement of SVs at two or more points in time.
 The individual SVs calculated in our CAD paradigm were assessed in the laboratory in a single situation, which by definition represents a state.
 As noted above, personal regulatory goals, situational factors, and contextual demands influence the choice for or against ER strategies[@Aldao2015;@Bonanno2013@Sheppes2011;@Scheffel2021;@Haines2016].
 We believe that these goals, factors, and demands also influence individual SVs of ER strategies.
@@ -108,6 +106,9 @@ Therefore, SVs may vary if different reference strategies are used, but it is ve
 They would thus reflect habits or habitual use of ER strategies, which has already been attempted to capture by means of questionnaires[@GrossJohn2003]. 
 Of course, it is also possible that such habits influence the internal formation of these subjective values.
 However, our data are not suitable for answering this question.
+To establish the trait nature of a measure, one could for instance resort to latent state trait modeling[@Steyer2015], as recently employed by our group in a related context[@Strobel2020].
+However, this would require the measurement of SVs at two or more points in time, ideally in both the same and different contexts (e.g., changing valence of stimuli and add further ER strategies). 
+Thus, temporal and situational variance could be separated and the stable, habitual part of the subjective values of the individual strategies could be determined.
 In the future, SVs should therefore be collected across similar situations. 
 Subsequently, the association of the values with each other could be assessed, as well as correlations with relevant external criteria, such as well-being[@GrossJohn2003].
 
