@@ -39,6 +39,11 @@ author:
     role:
       - Formal analysis
       - Writing - review & editing
+  - name          : "Georgia Clay"
+    orcid         : "0000-0001-5641-6804"
+    affiliation   : "2"
+    role:
+      - Formal analysis
   - name          : "Alexander Strobel"
     orcid         : "0000-0002-9426-5397"
     affiliation   : "1"
@@ -50,7 +55,9 @@ author:
       - Writing - review & editing
 affiliation:
   - id            : "1"
-    institution   : "Faculty of Psychology, Technische Universität Dresden, 01062 Dresden, Germany"
+    institution   : "Faculty of Psychology, Dresden University of Technology, 01062 Dresden, Germany"
+  - id            : "2"
+    institution   : "Faculty of Psychology, University of Vienna, Vienna 1010, Austria"
 authornote        :
 abstract          : |
   When individuals set goals, they consider the subjective value (SV) of the anticipated reward and the required effort, a trade-off that is of great interest to psychological research.
@@ -340,15 +347,20 @@ The Stage 1 Registered Report protocol has been approved and is available at [os
 
 ## Adjustments for Stage 2
 
-There were two necessary adjustments of the methods.
+There were three necessary adjustments of the methods.
 First, we failed to update the necessary sample size after the analyses changed with the first review round.
 Instead of the 72 subjects stated above, the largest minimum sample size was actually 53 subjects (see hypothesis 1b in the Design Table in the Supplementary Material).
-And secondly, we changed to which hypothesis we applied the specification curve analysis (SCA).
+Secondly, we changed to which hypothesis we applied the specification curve analysis (SCA).
 In the initial Stage 1 submission, we had applied it to the MLM of hypothesis 2b, which at this point included NFC as a predictor.
 Following the advice of the reviewers, we removed NFC from the MLM, and analyzed NFC in an rmANOVA (hypothesis 3a) instead.
 Since NFC was of great interest to us, we decided to apply the SCA to hypothesis 3a rather than 2b to provide a measure of robustness.
 However, hypothesis 3a does not contain any RT data, so the SCA is only useful for the MLM in hypothesis 2b.
 Therefore, we applied it to the MLM.
+The final adjustment was made during the Stage 2 revision.
+A fellow researcher made us aware that by using the z-transformed hit and false alarm rates for the computation of $d'$, the mean of $d'$ would be approximately 0 for each $n$-back level by design.
+Consequently, $d'$ could not show changes across $n$-back levels in the manipulation check and would likely yield different results in the MLM.
+Therefore, we computed $d'$ with unstandardized hit and false alarm rates.
+We would like to thank G.C. for pointing us to this fallacy and included her as a co-author.
 
 ## Sample
 
@@ -361,7 +373,9 @@ Our final data set therefore included $N=`r nrow(data_quest)`$ participants (`r 
 
 We used rmANOVAs to investigate whether objective performance measures and subjective task load measures changed across $n$-back levels.
 For each rmANOVA we report the generalized eta squared $\hat{\eta}^2_G$, which estimates the effect size in analyses that contain both manipulated and non-manipulated terms.
-The performance measure $d'$ did not change across $n$-back levels (`r apa_print(hypothesis1a_rmanova)$full_result$level`, `r apa_print(hypothesis1a_BF)$statistic`), but the median RT did (`r apa_print(hypothesis1b_rmanova)$full_result$level`, `r apa_print(hypothesis1b_BF)$statistic`), evidence was not in favour of H1a but in favour of H1b.
+In line with hypothesis H1a, the performance measure $d'$ decreased across $n$-back levels (`r apa_print(hypothesis1a_rmanova)$full_result`, `r apa_print(hypothesis1a_BF)$statistic`).
+It decreased more strongly from 2- to 3-back (`r apa_print(pairs(hypothesis1a_emm))$statistic$X2_X3`, `r apa_print(BayesFactor::ttestBF(x = h1a_data$dprime[h1a_data$level == 2], y = h1a_data$dprime[h1a_data$level == 3], progress = FALSE, paired = TRUE))$statistic`) than from 1- to 2-back (`r apa_print(pairs(hypothesis1a_emm))$statistic$X1_X2`, `r apa_print(BayesFactor::ttestBF(x = h1a_data$dprime[h1a_data$level == 1], y = h1a_data$dprime[h1a_data$level == 2], progress = FALSE, paired = TRUE))$statistic`) or 3- to 4-back (`r apa_print(pairs(hypothesis1a_emm))$statistic$X3_X4`, `r apa_print(BayesFactor::ttestBF(x = h1a_data$dprime[h1a_data$level == 3], y = h1a_data$dprime[h1a_data$level == 4], progress = FALSE, paired = TRUE))$statistic`).
+Similarly, the median RT increased across $n$-back levels (`r apa_print(hypothesis1b_rmanova)$full_result$level`, `r apa_print(hypothesis1b_BF)$statistic`), supporting hypothesis H1b.
 Specifically, the median RT was higher for the more difficult level in every contrast, with two exceptions:
 It did not differ between 2- and 4-back, and it was higher for 3- than for 4-back (Table\ \@ref(tab:H1b-contrasts)).
 
@@ -451,7 +465,7 @@ apa_table(h2b_result.table,
 
 An exploratory ANOVA was used to compare the fit of the final model with a linear random intercept model, confirming that the two models were different from each other ($\chi^2 (`r compare_h2b$Df[2]`)$ = `r compare_h2b$Chisq[2]`, $p<.001$), and with an Akaike Information Criterion of $AIC=`r compare_h2b$AIC[2]`$ and a Bayesian Information Criterion of $BIC=`r compare_h2b$BIC[2]`$ the declining logistic model was superior to the linear model ($AIC=`r compare_h2b$AIC[1]`$, $BIC=`r compare_h2b$BIC[1]`$).
 Both AIC and BIC subtract the likelihood of the model from the number of parameters and/or data points, so lower values indicate better model fit.
-The final model had an effect size of $f^{2}=$ `r round(h2b_level_f2, digits = 2)` for the $n$-back levels and $f^{2}=$ `r round(h2b_dprime_f2, digits = 2)` for $d'$, which are considered large and small, respectively [@Cohen1992].
+The final model had an effect size of $f^{2}=$ `r round(h2b_level_f2, digits = 2)` for the $n$-back levels and $f^{2}=$ `r round(h2b_dprime_f2, digits = 2)` for $d'$, which are considered medium and small, respectively [@Cohen1992].
 This means that the $n$-back level explained `r paste0(formatC(h2b_level_f2 * 100, format = "f", digits = 2), "%")` and $d'$ explained `r paste0(formatC(h2b_dprime_f2 * 100, format = "f", digits = 2), "%")` of variance in SVs relative to the unexplained variance, respectively.
 The beta coefficient indicated that with every 1-unit increase in $d'$, the SV increased by `r as.numeric(h2b_result.table[3,"Beta"])`.
 Due to the coding scheme of the logistic contrast, the beta coefficient of the $n$-back level has to be interpreted inversely, so SVs decline with increasing $n$-back level.
@@ -463,8 +477,8 @@ To investigate the dependency of the model results on the RT preprocessing, we c
 [FIGURE \@ref(fig:sca-plot) HERE]
 
 Regardless of the preprocessing pipeline, $n$-back level and $d'$ were significant predictors of SVs, and had stable effect estimates across all pipelines.
-There was only one pipeline in which the median RT was a significant predictor of SVs.
-This pipeline contained data that had been inverse transformed across subjects but within conditions, i.e. within the round of an $n$-back level, and RTs beyond 2 $MAD$ from the median had been excluded.
+There was no pipeline in which the median RT was a significant predictor of SVs, but it showed volatile effect estimates across pipelines.
+The pipelines that yielded the highest estimates for $d'$ and the median RT used log-transformed data, irrespective of the dimension and exclusion criteria.
 
 ## Differences between NFC groups
 
@@ -512,13 +526,13 @@ This study also applied the CAD paradigm to an emotion regulation task, the resu
 
 ## Manipulation checks
 
-The performance measure $d'$ did not differ across $n$-back levels, but the RT increased from 1- to 2- to 3-back and then remained on a high level for 4-back.
-This points to three important characteristics of the $n$-back task in this context.
-Firstly, RT as a valid group-level indicator of performance might only be useful for levels up to $n=3$, and could be used to investigate inter-individual differences for $n>3$.
-Secondly, there is a speed-accuracy tradeoff in the first three levels, that might even re-emerge in higher levels, where $d'$ would decline and RT would remain stable.
+Both $d'$ and the median RT changed across $n$-back levels, indicating that there was an increase in objective task load.
+The steepest decrease in $d'$ between levels was from 2- to 3-back, resembling the declining logistic curve of the SVs.
+Interestingly, the median RT increased from 2- to 3-back, but did not differ between 2- and 4-back.
+Since feedback was given after each round, this pattern could be interpreted in such a way that participants tried to compensate their lower accuracy in 3-back by relying more on luck than on memory in 4-back and prioritized speed over accuracy.
+Furthermore, several participants said that they perceived 3-back as more difficult than 4-back because they found it is easier to remember chunks of stimuli when $n$ was an even number than when $n$ was an odd number.
+This would support the notion that the manipulation of task load in an $n$-back task is not strictly continuous.
 And lastly, the fact that neither accuracy nor speed is an informative performance measure by itself has been observed before[@Meule2017] and both show different associations with various measures of intelligence[@Jaeggi2010], suggesting that they should always be reported as separate indices.
-Additionally, $d'$ might not have differed across $n$-back levels because the manipulation of task load is not strictly continuous.
-Several participants said that they perceived 3-back as more difficult than 4-back because they found it is easier to remember chunks of stimuli when $n$ was an even number than when $n$ was an odd number.
 
 All NASA-TLX subscales differed across $n$-back levels, but the effort and mental load subscales were the only ones to consistently increase across all levels.
 This would support the notion of the $n$-back task offering a continuous manipulation of task load, at least subjectively.
@@ -540,18 +554,18 @@ For example, the $n$-back task is likely not a continuous manipulation of task l
 However, the declining logistic curve is similar to the sigmoidal curve that has been found for a physical[@KleinFluegge2015] and a cognitive effort paradigm[@Massar2019], suggesting there are common features of effort across different tasks and domains.
 The MLM with the logistic contrast showed that the $n$-back level explained the majority of variance in SVs, while the performance measure $d'$ also explained some variance in SVs, albeit less.
 With increasing $n$-back level and decreasing $d'$, the SV decreased.
-The median RT was not a significant predictor in this model, which was somewhat surprising because RT but not $d'$ yielded significant differences across levels in the manipulation checks.
-However, participants might have deliberately or subconsciously used the feedback they received at the end of each round, i.e. twice per $n$-back level, as an anchor during the effort discounting.
+The median RT was not a significant predictor in this model.
+Participants might have deliberately or subconsciously used the feedback they received at the end of each round, i.e. twice per $n$-back level, as an anchor during the effort discounting.
 This feedback was based on correct responses and not on RT, so if participants based their effort discounting choices at least partly on this feedback, they were either motivated to repeat a task in which they performed well and/or they were reluctant to accept a larger reward for a task in which they did not perform well.
 Since more participants reported effort avoidance as their motivation in the effort discounting than those who reported seeking a challenge, we can assume that they were more motivated to repeat a task in which they performed well because their good performance coincided with low effort.
 
-The declining logistic $n$-back levels and $d'$ remained significant predictors of SVs throughout all 63 preprocessing pipelines in the specification curve analysis, with betas that varied by less than 0.01.
-In contrast to this stood the variability of the median RT betas, which ranged from about `r round(max(sca_results$beta_r), digits = 2)` to `r round(min(sca_results$beta_r), digits = 2)`, and reached significance in only one pipeline.
-This pipeline was among the three pipelines with the highest $BF_{10}$, and applied inverse transformation to the RT data, across subjects but within conditions, and excluded data beyond 2 $MAD$ from the median.
-Interestingly, the curve of median RT betas in Figure\ \@ref(fig:sca-plot)a mirrored the rectangular pipeline indicators in the transformation rows of Figure\ \@ref(fig:sca-plot)b, so the transformation choice influenced the median RT much more than the dimension or the exclusion choice did.
+The declining logistic $n$-back levels and $d'$ remained significant predictors of SVs throughout all 63 preprocessing pipelines in the specification curve analysis.
+The effect estimates of the $n$-back level varied by about `r round(diff(range(sca_results$beta_n)), digits = 3)`, those of $d'$ by about `r round(diff(range(sca_results$beta_d)), digits = 3)`.
+In contrast to this stood the variability of the median RT effect estimates (around `r round(diff(range(sca_results$beta_r)), digits = 3)`), which did not reach significance in any pipeline.
+Interestingly, the curve of median RT betas in Figure\ \@ref(fig:sca-plot)a roughly mirrored the rectangular pipeline indicators in the transformation rows of Figure\ \@ref(fig:sca-plot)b, so the transformation choice influenced the median RT much more than the dimension or the exclusion choice did.
 As Fernandez et al.[-@Fernandez2020] found, applying more than one preprocessing step to the reaction time data of a Stroop task increased the risk of false positives beyond $\alpha=.05$, and transformation choices inflated this risk more than outlier exclusion or aggregation choices did.
 Our data seems to corroborate this finding for $n$-back tasks as well.
-Surprisingly, the $d'$ betas appear almost unaffected by the preprocessing pipeline, even though $d'$ was computed after the outlier exclusion.
+Surprisingly, the $d'$ betas appeared almost unaffected by the preprocessing pipeline, even though $d'$ was computed after the outlier exclusion.
 This indicates that researchers who are interested in the correctness rather than the speed of responses can choose a simple preprocessing pipeline without risking false positives through elaborate transformations.
 
 ## Differences between NFC groups
@@ -636,7 +650,7 @@ The authors would like to thank Juliana Krause and Maja Hentschel for their help
 JZ and CS contributed equally to this work.
 JZ, CS, and AS conceptualized the study and acquired funding.
 JZ and CS developed the methodology, investigated, administered the project, and wrote the software.
-JZ, CS, and CK did the formal analysis.
+JZ, CS, GC, and CK did the formal analysis.
 JZ visualized the results.
 JZ and CK prepared the original draft.
 All authors reviewed, edited, and approved the final version of the manuscript.
@@ -668,7 +682,7 @@ The authors declare no competing interests.
 
 ```
 
-```{r sca-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of the multi level model for each of the 63 preprocessing pipelines. Drawing a vertical through both panels indicates the type of preprocessing (panel b) of the pipeline and the resulting beta estimates of the three predictors in the model (panel a). The colourbar in panel b indicates the BF10 of each multi level model compared to a model in which the n-back level has no effect. The pipelines in both panels are sorted left to right in descending order of the magnitude of the beta estimate of the predictor n-back level. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+```{r sca-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of the multi level model for each of the 63 preprocessing pipelines. Drawing a vertical through both panels indicates the type of preprocessing (panel b) of the pipeline and the resulting beta estimates of the three predictors in the model (panel a). The colourbar in panel b indicates the BF10 of each multi level model compared to a model in which the n-back level has no effect. The pipelines in both panels are sorted left to right in ascending order of the magnitude of the beta estimate of the predictor $d'$. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "sca-plot.png"))
 

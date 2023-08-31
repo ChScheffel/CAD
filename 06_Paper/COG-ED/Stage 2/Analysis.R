@@ -744,32 +744,35 @@ for (j in 1:length(pipelines_data)) {
   }
   
   # z-transform the hit rate and the false alarm rate
-  
+
   dprime$hitrate.z = NA
   dprime$falsealarmrate.z = NA
-  
+
   for (i in 1:4) { # for each n-back level
-    
+
     for (z in 1:2) { # for each round
-      
+
       dprime$hitrate.z[which(dprime$level == i & dprime$round == z)]        <- scale(dprime$hitrate[which(dprime$level == i & dprime$round == z)])
       dprime$falsealarmrate.z[which(dprime$level == i & dprime$round == z)] <- scale(dprime$falsealarmrate[which(dprime$level == i & dprime$round == z)])
-      
+
     }
   }
   
   # calculate d'
   
-  dprime$d <- dprime$hitrate.z - dprime$falsealarmrate.z
+  dprime$d.z <- dprime$hitrate.z - dprime$falsealarmrate.z
+  dprime$d <- dprime$hitrate - dprime$falsealarmrate
   
   # feed d' trialwise into the pipeline data frame
   
   for (i in 1:nrow(pipelines_data[[j]])) {
     
+    pipelines_data[[j]]$dprime.z[i] <- dprime$d.z[dprime$subject == pipelines_data[[j]]$subject[i] &
+                                                dprime$level == pipelines_data[[j]]$level[i] &
+                                                dprime$round == pipelines_data[[j]]$round[i]]
     pipelines_data[[j]]$dprime[i] <- dprime$d[dprime$subject == pipelines_data[[j]]$subject[i] &
                                                 dprime$level == pipelines_data[[j]]$level[i] &
                                                 dprime$round == pipelines_data[[j]]$round[i]]
-    
   }
 }
 
@@ -835,8 +838,14 @@ base::remove(mylevel, myround, mysubject, mymedianRT, newdata, medianRT)
 
 for (j in 1:length(pipelines_data)) {
   
-  pipelines_data[[j]] <- unique(pipelines_data[[j]][ ,c("subject","level","round","sv","nfc","dprime","medianRT")])
+  pipelines_data[[j]] <- unique(pipelines_data[[j]][ ,c("subject","level","round","sv","nfc","dprime","dprime.z","medianRT")])
   
+}
+
+#somehow the first row of every data frame has not been removed, so I'll do that here
+#this is a quick fix for working on something else, I'll take care of it later
+for (j in 1:length(pipelines_data)) {
+  pipelines_data[[j]] <- pipelines_data[[j]][-1,]
 }
 
 ##### Hypothesis 1a ############################################################
@@ -898,9 +907,6 @@ hypothesis1a_contrasts[ ,c("Estimate","$SE$","$t$")] <- round(hypothesis1a_contr
 hypothesis1a_contrasts$`$p$` <- format(round(hypothesis1a_contrasts$`$p$`, digits = 3), nsmall = 2)
 hypothesis1a_contrasts$`$p$`[hypothesis1a_contrasts$`$p$` == "0.000"] <- "<.001"
 
-# remove the temporary variable
-
-base::remove(h1a_data)
 
 ##### Hypothesis 1b ############################################################
 
@@ -1886,10 +1892,10 @@ for (i in 1:length(pipelines_data)) {
 
 ##### SCA plot preparation #####################################################
 
-# add a row number and sort the data frame by the fixed effects estimate of the predictor 'declininglogisticlevel'
+# add a row number and sort the data frame by the fixed effects estimate of the predictor 'dprime'
 
 sca_results <- cbind(sca_results, num = c(1:nrow(sca_results)))
-sca_results <- sca_results[order(sca_results$beta_n, decreasing = TRUE), ]
+sca_results <- sca_results[order(sca_results$beta_d, decreasing = FALSE), ]
 
 # lock it in place by turning it into a factor
 
@@ -1945,8 +1951,8 @@ sca_plot_lower <-
     guides(fill = guide_colourbar(barwidth = 1, barheight = 15, title = expression(BF[10]))) +
     theme(legend.title = element_text())
 
-ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 10, height = 4, units = "in",
-       device = "tiff", dpi = 900, filename = "sca-lower.eps")
+ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 12, height = 4, units = "in",
+       device = "tiff", dpi = 400, filename = "sca-lower.eps")
 
 # reshape into useful format
 
@@ -1973,13 +1979,13 @@ sca_plot_upper <-
   ggprism::theme_prism(base_size = 12, base_line_size = 0.5, base_fontface = "plain", base_family = "sans") +
   labs(x = NULL, y = "beta", color = "p-value", shape = "Predictor") +
   scale_x_continuous(labels = NULL) +
-  scale_color_manual(labels = c("p > .05", "p < .05", "p < .01"), values = c("#84cfed","#00a1d9","#0077ae")) +
+  scale_color_manual(labels = c("p > .05", "p < .001"), values = c("#84cfed","#0077ae")) +
   scale_shape_manual(labels = c("d'","n-back level","median RT"), values = c(18,17,19)) +
-  scale_y_continuous(breaks = c(0,0.05,0.1)) +
+  scale_y_continuous(breaks = c(0,0.05,0.1,0.15,0.2,0.25)) +
   theme(legend.title = element_text())
 
-ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 10, height = 3, units = "in",
-       device = "tiff", dpi = 900, filename = "sca-upper.eps")
+ggsave(path = here("06_Paper","COG-ED","Stage 2","Figures"), width = 12, height = 3, units = "in",
+       device = "tiff", dpi = 400, filename = "sca-upper.eps")
 
 ##### Extra plots ##############################################################
 
