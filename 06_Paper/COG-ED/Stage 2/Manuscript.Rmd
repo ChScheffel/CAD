@@ -39,11 +39,6 @@ author:
     role:
       - Formal analysis
       - Writing - review & editing
-  - name          : "Georgia Clay"
-    orcid         : "0000-0001-5641-6804"
-    affiliation   : "2"
-    role:
-      - Formal analysis
   - name          : "Alexander Strobel"
     orcid         : "0000-0002-9426-5397"
     affiliation   : "1"
@@ -56,8 +51,6 @@ author:
 affiliation:
   - id            : "1"
     institution   : "Faculty of Psychology, Dresden University of Technology, 01062 Dresden, Germany"
-  - id            : "2"
-    institution   : "Faculty of Psychology, University of Vienna, Vienna 1010, Austria"
 authornote        :
 abstract          : |
   When individuals set goals, they consider the subjective value (SV) of the anticipated reward and the required effort, a trade-off that is of great interest to psychological research.
@@ -360,7 +353,7 @@ The final adjustment was made during the Stage 2 revision.
 A fellow researcher made us aware that by using the z-transformed hit and false alarm rates for the computation of $d'$, the mean of $d'$ would be approximately 0 for each $n$-back level by design.
 Consequently, $d'$ could not show changes across $n$-back levels in the manipulation check and would likely yield different results in the MLM.
 Therefore, we computed $d'$ with unstandardized hit and false alarm rates.
-We would like to thank G.C. for pointing us to this fallacy and included her as a co-author.
+We would like to thank Georgia Clay for pointing us to this fallacy.
 
 ## Sample
 
@@ -560,7 +553,7 @@ This feedback was based on correct responses and not on RT, so if participants b
 Since more participants reported effort avoidance as their motivation in the effort discounting than those who reported seeking a challenge, we can assume that they were more motivated to repeat a task in which they performed well because their good performance coincided with low effort.
 
 The declining logistic $n$-back levels and $d'$ remained significant predictors of SVs throughout all 63 preprocessing pipelines in the specification curve analysis.
-The effect estimates of the $n$-back level varied by about `r round(diff(range(sca_results$beta_n)), digits = 3)`, those of $d'$ by about `r round(diff(range(sca_results$beta_d)), digits = 3)`.
+The effect estimates of the $n$-back level varied by about `r format(round(diff(range(sca_results$beta_n)), digits = 3), digits = 3)`, those of $d'$ by about `r format(round(diff(range(sca_results$beta_d)), digits = 3), digits = 3)`.
 In contrast to this stood the variability of the median RT effect estimates (around `r round(diff(range(sca_results$beta_r)), digits = 3)`), which did not reach significance in any pipeline.
 Interestingly, the curve of median RT betas in Figure\ \@ref(fig:sca-plot)a roughly mirrored the rectangular pipeline indicators in the transformation rows of Figure\ \@ref(fig:sca-plot)b, so the transformation choice influenced the median RT much more than the dimension or the exclusion choice did.
 As Fernandez et al.[-@Fernandez2020] found, applying more than one preprocessing step to the reaction time data of a Stroop task increased the risk of false positives beyond $\alpha=.05$, and transformation choices inflated this risk more than outlier exclusion or aggregation choices did.
@@ -642,7 +635,7 @@ The CAD paradigm offers this flexibility, and we encourage future studies to que
 
 This research was partly funded by the German Research Foundation (DFG) as part of the Collaborative Research Center (CRC) 940, and partly funded by centralized funds of the Faculty of Psychology at Technische Universität Dresden.
 The funders have/had no role in study design, data collection and analysis, decision to publish or preparation of the manuscript.
-The authors would like to thank Juliana Krause and Maja Hentschel for their help with data collection.
+The authors would like to thank Juliana Krause and Maja Hentschel for their help with data collection, and Georgia Clay for noticing and calling our attention to the fallacy of z-transforming the hit and false alarm rates.
 
 
 # Author Contributions
@@ -650,7 +643,7 @@ The authors would like to thank Juliana Krause and Maja Hentschel for their help
 JZ and CS contributed equally to this work.
 JZ, CS, and AS conceptualized the study and acquired funding.
 JZ and CS developed the methodology, investigated, administered the project, and wrote the software.
-JZ, CS, GC, and CK did the formal analysis.
+JZ, CS, and CK did the formal analysis.
 JZ visualized the results.
 JZ and CK prepared the original draft.
 All authors reviewed, edited, and approved the final version of the manuscript.
