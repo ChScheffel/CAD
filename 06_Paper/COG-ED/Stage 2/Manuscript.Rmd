@@ -1,5 +1,5 @@
 ---
-title             : "When easy is not preferred: A discounting paradigm to assess load-independent task preference"
+title             : "Need for cognition is associated with a preference for higher task load in effort discounting"
 shorttitle        : "The CAD paradigm to assess task preference"
 author: 
   - name          : "Josephine Zerna"
@@ -50,7 +50,7 @@ author:
       - Writing - review & editing
 affiliation:
   - id            : "1"
-    institution   : "Faculty of Psychology, Technische Universität Dresden, 01062 Dresden, Germany"
+    institution   : "Faculty of Psychology, Dresden University of Technology, 01062 Dresden, Germany"
 authornote        :
 abstract          : |
   When individuals set goals, they consider the subjective value (SV) of the anticipated reward and the required effort, a trade-off that is of great interest to psychological research.
@@ -60,13 +60,13 @@ abstract          : |
   We replicated the analysis of Westbrook and colleagues with an adapted version, the Cognitive and Affective Discounting (CAD) Paradigm.
   It quantifies SVs without assuming that the easiest level is preferred, thereby enabling the assessment of SVs for tasks without objective order of task load.
   Results show that many of the 116 participants preferred a more or the most difficult level.
-  Variance in SVs was best explained by a declining logistic contrast of the $n$-back levels and by the accuracy of responses, while reaction time as a predictor was highly volatile depending on the preprocessing pipeline.
-  Participants with higher Need for Cognition scores perceived higher $n$-back levels as less effortful and found them less aversive.
+  Variance in SVs was best explained by a declining logistic contrast of the *n*-back levels and by the accuracy of responses, while reaction time as a predictor was highly volatile depending on the preprocessing pipeline.
+  Participants with higher Need for Cognition scores perceived higher *n*-back levels as less effortful and found them less aversive.
   Effects of Need for Cognition on SVs in lower levels did not reach significance, as group differences only emerged in higher levels.
   The CAD Paradigm appears to be well suited for assessing and analysing task preferences independent of the supposed objective task difficulty.
   
   
-keywords          : "effort discounting, registered report, specification curve analysis, need for cognition, $n$-back"
+keywords          : "effort discounting, registered report, specification curve analysis, need for cognition, *n*-back"
 wordcount         : "~ 7000"
 bibliography      : CAD.bib
 floatsintext      : yes
@@ -148,13 +148,13 @@ A reward is subjectively more valuable if it is obtained with less effort, so th
 However, the cost of the effort itself is also subjective, and research has not yet established which function best describes the relationship between effort and cost[@Kool2018].
 Investigating effort and cost is challenging because "effort is not a property of the target task alone, but also a function of the individual's cognitive capacities, as well as the degree of effort voluntarily mobilized for the task, which in turn is a function of the individual's reward sensitivity" (p. 209)[@Kool2018].
 
-One task that is often used to investigate effort is the $n$-back task, a working memory task in which a continuous stream of stimuli, e.g. letters, is presented on screen.
-Participants indicate via button press whether the current stimulus is the same as $n$ stimuli before, with $n$ being the level of difficulty between one and six[@Mackworth1959].
-The $n$-back task is well suited to investigate effort because it is an almost continuous manipulation of task load as has been shown by monotonic increases in error rates, reaction times[@Jaeggi2010], and brain activity in areas associated with working memory[@Jonides1997; @Owen2005].
-However, its reliability measures are mixed, and associations of $n$-back performance and measures such as executive functioning and fluid intelligence are often inconsistent[@Jaeggi2010].
+One task that is often used to investigate effort is the *n*-back task, a working memory task in which a continuous stream of stimuli, e.g. letters, is presented on screen.
+Participants indicate via button press whether the current stimulus is the same as *n* stimuli before, with *n* being the level of difficulty between one and six[@Mackworth1959].
+The *n*-back task is well suited to investigate effort because it is an almost continuous manipulation of task load as has been shown by monotonic increases in error rates, reaction times[@Jaeggi2010], and brain activity in areas associated with working memory[@Jonides1997; @Owen2005].
+However, its reliability measures are mixed, and associations of *n*-back performance and measures such as executive functioning and fluid intelligence are often inconsistent[@Jaeggi2010].
 
-A way to quantify the subjective cost of each $n$-back level has been developed by Westbrook, Kester, and Braver[-@Westbrook2013], called the Cognitive Effort Discounting Paradigm (COG-ED).
-First, the participants complete the $n$-back levels to familiarize themselves with the task.
+A way to quantify the subjective cost of each *n*-back level has been developed by Westbrook, Kester, and Braver[-@Westbrook2013], called the Cognitive Effort Discounting Paradigm (COG-ED).
+First, the participants complete the *n*-back levels to familiarize themselves with the task.
 Then, 1-back is compared with each more difficult level by asking the participants to decide between receiving a fixed 2\$ for the more difficult level or the flexible starting value of 1\$ for 1-back.
 If they choose the more difficult level, the reward for 1-back increases by 0.50\$, if they choose 1-back, it decreases by 0.50\$.
 This is repeated five more times, with each adjustment of the 1-back reward being half of the previous step, while the reward for the more difficult level remains fixed at 2\$.
@@ -170,17 +170,17 @@ Additionally, it has been shown that individuals avoid cognitive effort only to 
 However, the relation of NFC and SVs might be confounded, since other studies utilizing the COG-ED paradigm found the association of NFC and SVs to disappear after correcting for performance[@Kramer2021] or found no association of NFC and SVs at all[@Crawford2021].
 On the other hand, task load has been shown to be a better predictor of SVs than task performance[@Culbreth2016; @Westbrook2013; @Westbrook2019], so more research is needed to shed light on this issue.
 
-With the present study, we alter one fundamental assumption of the original COG-ED paradigm: That the easiest $n$-back level has the highest SV.
-We therefore adapted the COG-ED paradigm in a way that allows the computation of SVs for different $n$-back levels without presuming that all individuals inherently prefer the easiest level.
+With the present study, we alter one fundamental assumption of the original COG-ED paradigm: That the easiest *n*-back level has the highest SV.
+We therefore adapted the COG-ED paradigm in a way that allows the computation of SVs for different *n*-back levels without presuming that all individuals inherently prefer the easiest level.
 Since we also aim to establish this paradigm for the assessment of tasks with no objective task load, e.g., emotion regulation tasks[@ScheffelZerna2022], we call it the Cognitive and Affective Discounting Paradigm (CAD).
 In the present study, we validated the CAD paradigm by conceptually replicating the findings of Westbrook et al.[-@Westbrook2013].
-Additionally, we compared the effort discounting behavior of participants regarding the $n$-back task and an emotion regulation task.
+Additionally, we compared the effort discounting behavior of participants regarding the *n*-back task and an emotion regulation task.
 The full results of the latter are published in a second Registered Report[@ScheffelZerna2022].
 The COG-ED paradigm has been applied to tasks in different domains before, showing that SVs across task domains correlate[@Crawford2021], but these tasks had an objective order of task load, which is not the case for the choice of emotion regulation strategies or other paradigms where there is no objective order of task load.
 
 Our hypotheses were derived from the results of Westbrook et al.[-@Westbrook2013].
-As a manipulation check, we hypothesized that with increasing $n$-back level the (1a) the signal detection parameter $d'$ declines, while (1b) reaction time and (1c) perceived task load increase.
-Regarding the associations of task load and effort discounting we hypothesized that (2a) SVs decline with increasing $n$-back level, and (2b) they do so even after controlling for declining task performance.
+As a manipulation check, we hypothesized that with increasing *n*-back level the (1a) the signal detection parameter *d'* declines, while (1b) reaction time and (1c) perceived task load increase.
+Regarding the associations of task load and effort discounting we hypothesized that (2a) SVs decline with increasing *n*-back level, and (2b) they do so even after controlling for declining task performance.
 And finally, we hypothesized that the CAD paradigm can show inter-individual differences in effort discounting, such that participants with higher NFC have (3a) lower SVs for 1-back but higher SVs for 2- and 3-back, (3b) lower perceived task load across all levels, and (3c) higher aversion against 1-back but lower aversion against 2- and 3-back.
 Each hypothesis is detailed in the Design Table in the Supplementary Material.
 
@@ -234,12 +234,12 @@ The NFC scale shows comparably high internal consistency (Cronbach's $\alpha>.80
 Several other personality questionnaires were used in this study but are the topic of the Registered Report for the second lab session[@ScheffelZerna2022].
 A full list of measures can be found in our [Github repository](https://github.com/ChScheffel/CAD).
 In the first session, participants provided informed consent and demographic data before completing the computer-based paradigm.
-The paradigm started with the $n$-back levels one to four, presented sequentially with two runs per level, consisting of 64 consonants (16 targets, 48 non-targets) per run.
+The paradigm started with the *n*-back levels one to four, presented sequentially with two runs per level, consisting of 64 consonants (16 targets, 48 non-targets) per run.
 The levels were referred to by color (1-back: black, 2-back: red, 3-back: blue, 4-back: green) to avoid anchor effects in the effort discounting procedure.
 To assess perceived task load, we used the 6-item NASA Task Load Index (NASA-TLX)[@Hart1988], where participants evaluate their subjective perception of mental load, physical load, effort, frustration, performance, and time pressure during the task on a 20-point scale.
-At the end of each level, participants filled out the NASA-TLX on a tablet, plus an item with the same response scale, asking them how aversive they found this $n$-back level.
-After the $n$-back task, participants completed the CAD paradigm on screen and were instructed to do so as realistically as possible, even though the displayed rewards were not paid out on top of their compensation.
-They were told that one of their choices would be randomly picked for the final run of $n$-back.
+At the end of each level, participants filled out the NASA-TLX on a tablet, plus an item with the same response scale, asking them how aversive they found this *n*-back level.
+After the *n*-back task, participants completed the CAD paradigm on screen and were instructed to do so as realistically as possible, even though the displayed rewards were not paid out on top of their compensation.
+They were told that one of their choices would be randomly picked for the final run of *n*-back.
 However, this data was not analyzed as it only served to incentivise truthful behavior and to stay close to the design of Westbrook et al.[-@Westbrook2013].
 After the CAD paradigm, participants filled out a short questionnaire on the tablet, indicating whether they adhered to the instructions (yes/no) and what the primary motivation for their decisions during the effort discounting procedure was (avoid boredom/relax/avoid effort/seek challenge/other).  
 The second session consisted of an emotion regulation task with negative pictures and the instruction to suppress facial reactions, detach cognitively from the picture content, and distract oneself, respectively.
@@ -249,7 +249,7 @@ Study data was collected and managed using REDCap electronic data capture tools 
 ## Sampling plan
 
 Sample size determination was mainly based on the results of the analyses of Westbrook et al.[-@Westbrook2013] (see Design Table in the Supplementary Material).
-The hypothesis that yielded the largest necessary sample size was a repeated measures ANOVA with within-between interaction of NFC and $n$-back level influencing SVs.
+The hypothesis that yielded the largest necessary sample size was a repeated measures ANOVA with within-between interaction of NFC and *n*-back level influencing SVs.
 Sample size analysis with *G\*Power*[@Faul2007; @Faul2009] indicated that we should collect data from at least 72 participants, assuming $\alpha=.05$ and $\beta=.95$.
 However, the sample size analysis for the hypotheses of the second lab session revealed a larger necessary sample size of 85 participants to find an effect of $d=-0.32$ of emotion regulation on facial muscle activity with $\alpha=.05$ and $\beta=.95$.
 To account for technical errors, noisy physiological data, or participants who indicate that they did not follow the instructions, we aimed to collect about $50\%$ more data sets than necessary, $N=120$ in total.
@@ -259,14 +259,14 @@ To account for technical errors, noisy physiological data, or participants who i
 Data collection and analysis were not performed blind to the conditions of the experiments.
 We excluded the data of a participant from all analyses, if the participant stated that they did not follow the instructions, if the investigator noted that the participant misunderstood the instructions, or if the participant withdrew their consent.
 No data was replaced.
-The performance measure $d'$ was computed as the difference of the *z*-transformed hit rate and the *z*-transformed false alarm rate[@Macmillan1990].
+The performance measure *d'* was computed as the difference of the *z*-transformed hit rate and the *z*-transformed false alarm rate[@Macmillan1990].
 Reaction time (RT) data was trimmed by excluding all trials with responses faster than 100\ ms, as the relevant cognitive processes cannot have been completed before[@Whelan2008; @Berger2021].
-Aggregated RT values were described using the median and the median of absolute deviation ($MAD$) as robust estimates of center and variability, respectively[@Lachaud2011].
+Aggregated RT values were described using the median and the median of absolute deviation (*MAD*) as robust estimates of center and variability, respectively[@Lachaud2011].
 Error- and post-error trials were excluded, because RT in the latter is longer due to more cautious behavior[@Dutilh2012; @Houtman2012].
 To test our hypotheses, we performed a series of rmANOVAs and an MLM with orthogonal sum-to-zero contrasts in order to meaningfully interpret results[@Singmann2019].
 
 *Manipulation check.*
-Declining performance was investigated by calculating an rmANOVA with six paired contrasts comparing $d'$ between two levels of 1- to 4-back at a time.
+Declining performance was investigated by calculating an rmANOVA with six paired contrasts comparing *d'* between two levels of 1- to 4-back at a time.
 Another rmANOVA with six paired contrasts was computed to compare the median RT between two levels of 1- to 4-back at a time.
 To investigate changes in NASA-TLX ratings, six rmANOVAs were computed, one for each NASA-TLX subscale, and each with six paired contrasts comparing the ratings between two levels of 1- to 4-back at a time.
 
@@ -275,15 +275,15 @@ For each effort discounting round, the SV of the fixed level was calculated by a
 This yielded an SV between 0 and 1 for the fixed compared with the flexible level, while the SV of the flexible level was 1.
 The closer the SV of the fixed level is to 0, the stronger the preference for the flexible level.
 All SVs of each level were averaged to compute one "global" SV for each level.
-An rmANOVA with four different contrasts were computed to investigate the association of SVs and the $n$-back levels: Declining linear (3,1,-1,-3), ascending quadratic (-1,1,1,-1), declining logistic (3,2,-2,-3), and positively skewed normal (1,2,-1,-2) (Supplementary Figure S1).
+An rmANOVA with four different contrasts were computed to investigate the association of SVs and the *n*-back levels: Declining linear (3,1,-1,-3), ascending quadratic (-1,1,1,-1), declining logistic (3,2,-2,-3), and positively skewed normal (1,2,-1,-2) (Supplementary Figure S1).
 Depending on whether the linear or one of the other three contrasts fit the curve best, we applied a linear or nonlinear multi-level model in the next step, respectively.
 
-To determine the influence of task performance on the association of SVs and $n$-back level, we performed MLM. 
+To determine the influence of task performance on the association of SVs and *n*-back level, we performed MLM. 
 We applied restricted maximum likelihood (REML) to fit the model.
 As an effect size measure for random effects we first calculated the intraclass correlation (ICC), which displays the proportion of variance that is explained by differences between persons.
-Second, we estimated a random slopes model of $n$-back level (level 1, fixed, and random factor: 0-back, 1-back, 2-back, 3-back) predicting SV nested within subjects.
-As Mussel et al.[-@Mussel2016] could show, participants with high versus low NFC not only have a more shallow decline in performance with higher $n$-back levels, but show a demand-specific increase in EEG theta oscillations, which has been associated with mental effort.
-We controlled for performance, i.e., $d'$ (level 1, fixed factor, continuous), median RT (level 1, fixed factor, continuous) in order to eliminate a possible influence of declining performance on SV ratings.
+Second, we estimated a random slopes model of *n*-back level (level 1, fixed, and random factor: 0-back, 1-back, 2-back, 3-back) predicting SV nested within subjects.
+As Mussel et al.[-@Mussel2016] could show, participants with high versus low NFC not only have a more shallow decline in performance with higher *n*-back levels, but show a demand-specific increase in EEG theta oscillations, which has been associated with mental effort.
+We controlled for performance, i.e., *d'* (level 1, fixed factor, continuous), median RT (level 1, fixed factor, continuous) in order to eliminate a possible influence of declining performance on SV ratings.
 $$
 SV \sim level\ + d' + median RT + (level|subject)
 $$
@@ -292,23 +292,23 @@ By this, the model yields interpretable parameter estimates.
 If necessary, we adjusted the optimization algorithm to improve model fit. 
 We visually inspected the residuals of the model for evidence to perform model criticism. 
 This was done by excluding all data points with absolute standardized residuals above 3 SD. 
-As effect size measures, we calculated pseudo $R^{2}$ for our model and $f^{2}$ to estimate the effect of $n$-back level according to Lorah[-@Lorah2018].
+As effect size measures, we calculated pseudo $R^{2}$ for our model and $f^{2}$ to estimate the effect of *n*-back level according to Lorah[-@Lorah2018].
 
 The association of SVs and NFC was examined with an rmANOVA.
 We subtracted the SV of 1- from 2-back and 2- from 3-back, yielding two SV difference scores per participant.
 The sample was divided into participants with low and high NFC using a median split.
-We then computed an rmANOVA with the within-factor $n$-back level and the between-factor NFC group to determine whether there is a main effect of level and/or group, and/or an interaction between level and group on the SV difference scores.
+We then computed an rmANOVA with the within-factor *n*-back level and the between-factor NFC group to determine whether there is a main effect of level and/or group, and/or an interaction between level and group on the SV difference scores.
 Post-hoc tests were computed depending on which effect reached significance at $p<.01$.
 To ensure the validity of this association, we conducted a specification curve analysis[@Simonsohn2020], which included 63 possible preprocessing pipelines of the RT data.
-These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, 2, 2.5, or 3\ $MAD$ from the median, RTs below 100\ or\ 200\ ms), and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within $n$-back levels).
+These pipelines specify which transformation was applied (none, log, inverse, or square-root), which outliers were excluded (none, 2, 2.5, or 3\ *MAD* from the median, RTs below 100\ or\ 200\ ms), and across which dimensions the transformations and exclusions were applied (across/within subjects and across/within *n*-back levels).
 The rmANOVA was run with each of the 63\ pipelines, which also included our main pipeline (untransformed data, exclusion of RTs below 100\ ms).
 The ratio of pipelines that lead to significant versus non-significant effects provides an indication of how robust the effect actually is.
 
 The association of subjective task load with NFC was examined similarly.
-We calculated NASA-TLX sum scores per participant per level, computed an rmANOVA with the within-factor $n$-back level and the between-factor NFC group, and applied post-hoc tests based on which effect reached significance at $p<.01$.
+We calculated NASA-TLX sum scores per participant per level, computed an rmANOVA with the within-factor *n*-back level and the between-factor NFC group, and applied post-hoc tests based on which effect reached significance at $p<.01$.
 And the association of subjective aversiveness of the task with NFC was examined with difference scores as well, since we expected this curve to mirror the SV curve, i.e. as the SV rises, the aversiveness declines, and vice versa.
 We subtracted the aversiveness ratings of 1- from 2-back and 2- from 3-back, yielding two aversiveness difference scores per participant.
-Then, we computed an rmANOVA with the within-factor $n$-back level and the between-factor NFC group, and applied post-hoc tests based on which effect reached significance at $p<.01$.
+Then, we computed an rmANOVA with the within-factor *n*-back level and the between-factor NFC group, and applied post-hoc tests based on which effect reached significance at $p<.01$.
 
 The results of each analysis was assessed on the basis of both $p$-value and the Bayes factor $BF_{10}$, calculated with the *BayesFactor* package[@Morey2021] using the default prior widths of the functions *anovaBF*, *lmBF* and *ttestBF*.
 We considered a $BF_{10}$ close to or above 3/10 as moderate/strong evidence for the alternative hypothesis, and a $BF_{10}$ close to or below .33/.10 as moderate/strong evidence for the null hypothesis [@Wetzels2015].
@@ -318,10 +318,10 @@ We considered a $BF_{10}$ close to or above 3/10 as moderate/strong evidence for
 The sample of the pilot study consisted of $N=15$ participants (53.3% female, $M=24.43$ ($SD=3.59$) years old).
 One participant's data was removed because they misunderstood the instruction.
 Due to a technical error the subjective task load data of one participant was incomplete, so the hypotheses involving the NASA-TLX were analyzed with $n=14$ data sets.
-The results showed increases in subjective and objective task load measures with higher $n$-back level.
-Importantly, SVs were lower for higher $n$-back levels, but not different between 1- and 2-back, which shows that the easiest level is not universally preferred.
-The MLM revealed $n$-back level as a reliable predictor of SV, even after controlling for declining task performance ($d'$ and median RT).
-NASA-TLX scores were higher with higher $n$, and lower for the group with lower NFC scores, but NFC and $n$-back level did not interact.
+The results showed increases in subjective and objective task load measures with higher *n*-back level.
+Importantly, SVs were lower for higher *n*-back levels, but not different between 1- and 2-back, which shows that the easiest level is not universally preferred.
+The MLM revealed *n*-back level as a reliable predictor of SV, even after controlling for declining task performance (*d'* and median RT).
+NASA-TLX scores were higher with higher *n*, and lower for the group with lower NFC scores, but NFC and *n*-back level did not interact.
 All results are detailed in the Supplementary Material.
 
 ## Data availability
@@ -340,28 +340,35 @@ The Stage 1 Registered Report protocol has been approved and is available at [os
 
 ## Adjustments for Stage 2
 
-There were two necessary adjustments of the methods.
+There were three necessary adjustments of the methods.
 First, we failed to update the necessary sample size after the analyses changed with the first review round.
 Instead of the 72 subjects stated above, the largest minimum sample size was actually 53 subjects (see hypothesis 1b in the Design Table in the Supplementary Material).
-And secondly, we changed to which hypothesis we applied the specification curve analysis (SCA).
+Secondly, we changed to which hypothesis we applied the specification curve analysis (SCA).
 In the initial Stage 1 submission, we had applied it to the MLM of hypothesis 2b, which at this point included NFC as a predictor.
 Following the advice of the reviewers, we removed NFC from the MLM, and analyzed NFC in an rmANOVA (hypothesis 3a) instead.
 Since NFC was of great interest to us, we decided to apply the SCA to hypothesis 3a rather than 2b to provide a measure of robustness.
 However, hypothesis 3a does not contain any RT data, so the SCA is only useful for the MLM in hypothesis 2b.
 Therefore, we applied it to the MLM.
+The final adjustment was made during the Stage 2 revision.
+A fellow researcher made us aware that by using the z-transformed hit and false alarm rates for the computation of *d'*, the mean of *d'* would be approximately 0 for each *n*-back level by design.
+Consequently, *d'* could not show changes across *n*-back levels in the manipulation check and would likely yield different results in the MLM.
+Therefore, we computed *d'* with unstandardized hit and false alarm rates.
+We would like to thank Georgia Clay for pointing us to this fallacy.
 
 ## Sample
 
 Data was collected between the 16th of August 2022 and the 3rd of February 2023.
 Of the $N=`r n_quest`$ participants who filled out the NFC questionnaire, $n=`r length(datalist_nback)`$ completed the first lab session.
-Based on the experimenters' notes, we excluded the data of seven participants from analysis for misunderstanding the instruction of the $n$-back task, and the data of one participant who reported that they confused the colours of the levels during effort discounting.
+Based on the experimenters' notes, we excluded the data of seven participants from analysis for misunderstanding the instruction of the *n*-back task, and the data of one participant who reported that they confused the colours of the levels during effort discounting.
 Our final data set therefore included $N=`r nrow(data_quest)`$ participants (`r round((table(data_quest$gender)[2]/nrow(data_quest))*100, digits = 1)`% female, $M \pm SD=`r format(round(mean(data_quest[,"age"]), digits = 1), nsmall = 1)` \pm `r round(sd(data_quest[,"age"]), digits = 1)`$)\ years old), which is `r format(round(nrow(data_quest)/53, digits = 1), nsmall = 1)` times more than what the highest sample size calculation required.
 
 ## Manipulation checks
 
-We used rmANOVAs to investigate whether objective performance measures and subjective task load measures changed across $n$-back levels.
+We used rmANOVAs to investigate whether objective performance measures and subjective task load measures changed across *n*-back levels.
 For each rmANOVA we report the generalized eta squared $\hat{\eta}^2_G$, which estimates the effect size in analyses that contain both manipulated and non-manipulated terms.
-The performance measure $d'$ did not change across $n$-back levels (`r apa_print(hypothesis1a_rmanova)$full_result$level`, `r apa_print(hypothesis1a_BF)$statistic`), but the median RT did (`r apa_print(hypothesis1b_rmanova)$full_result$level`, `r apa_print(hypothesis1b_BF)$statistic`), evidence was not in favour of H1a but in favour of H1b.
+In line with hypothesis H1a, the performance measure *d'* decreased across *n*-back levels (`r apa_print(hypothesis1a_rmanova)$full_result`, `r apa_print(hypothesis1a_BF)$statistic`).
+It decreased more strongly from 2- to 3-back (`r apa_print(pairs(hypothesis1a_emm))$statistic$X2_X3`, `r apa_print(BayesFactor::ttestBF(x = h1a_data$dprime[h1a_data$level == 2], y = h1a_data$dprime[h1a_data$level == 3], progress = FALSE, paired = TRUE))$statistic`) than from 1- to 2-back (`r apa_print(pairs(hypothesis1a_emm))$statistic$X1_X2`, `r apa_print(BayesFactor::ttestBF(x = h1a_data$dprime[h1a_data$level == 1], y = h1a_data$dprime[h1a_data$level == 2], progress = FALSE, paired = TRUE))$statistic`) or 3- to 4-back (`r apa_print(pairs(hypothesis1a_emm))$statistic$X3_X4`, `r apa_print(BayesFactor::ttestBF(x = h1a_data$dprime[h1a_data$level == 3], y = h1a_data$dprime[h1a_data$level == 4], progress = FALSE, paired = TRUE))$statistic`).
+Similarly, the median RT increased across *n*-back levels (`r apa_print(hypothesis1b_rmanova)$full_result$level`, `r apa_print(hypothesis1b_BF)$statistic`), supporting hypothesis H1b.
 Specifically, the median RT was higher for the more difficult level in every contrast, with two exceptions:
 It did not differ between 2- and 4-back, and it was higher for 3- than for 4-back (Table\ \@ref(tab:H1b-contrasts)).
 
@@ -373,36 +380,36 @@ It did not differ between 2- and 4-back, and it was higher for 3- than for 4-bac
 
 apa_table(
   hypothesis1b_contrasts,
-  caption = "Paired contrasts for the rmANOVA comparing the median reaction time between $n$-back levels",
-  note = "The column Contrast contains the $n$ of the $n$-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
+  caption = "Paired contrasts for the rmANOVA comparing the median reaction time between *n*-back levels",
+  note = "The column Contrast contains the *n* of the *n*-back levels. $SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
 )
 ```
 
-All NASA-TLX subscale scores increased across $n$-back levels, so evidence was in favour of H1c.
+All NASA-TLX subscale scores increased across *n*-back levels, so evidence was in favour of H1c.
 Ratings on the effort subscale (`r apa_print(hypothesis1c_effort_rmanova)$full_result$level`, `r apa_print(hypothesis1c_effort_BF)$statistic`) increased across all levels, but the magnitude of change decreased from 1- to 2-back (`r apa_print(pairs(hypothesis1c_effort_emm))$statistic$X1_X2`, `r apa_print(BayesFactor::ttestBF(x = h1c_data$effort[h1c_data$level == 1], y = h1c_data$effort[h1c_data$level == 2], progress = FALSE, paired = TRUE))$statistic`) to 3- to 4-back (`r apa_print(pairs(hypothesis1c_effort_emm))$statistic$X3_X4`, `r apa_print(BayesFactor::ttestBF(x = h1c_data$effort[h1c_data$level == 3], y = h1c_data$effort[h1c_data$level == 4], progress = FALSE, paired = TRUE))$statistic`).
 Three subscales had significant differences between all contrasts except for 3- versus 4-back:
-While ratings on the frustration and time subscales were higher for more difficult levels (`r apa_print(hypothesis1c_frustration_rmanova)$full_result$level`, `r apa_print(hypothesis1c_frustration_BF)$statistic`, and `r apa_print(hypothesis1c_time_rmanova)$full_result$level`, `r apa_print(hypothesis1c_time_BF)$statistic`, respectively), ratings on the performance subscale decreased with higher $n$ (`r apa_print(hypothesis1c_performance_rmanova)$full_result$level`, `r apa_print(hypothesis1c_performance_BF)$statistic`).
+While ratings on the frustration and time subscales were higher for more difficult levels (`r apa_print(hypothesis1c_frustration_rmanova)$full_result$level`, `r apa_print(hypothesis1c_frustration_BF)$statistic`, and `r apa_print(hypothesis1c_time_rmanova)$full_result$level`, `r apa_print(hypothesis1c_time_BF)$statistic`, respectively), ratings on the performance subscale decreased with higher *n* (`r apa_print(hypothesis1c_performance_rmanova)$full_result$level`, `r apa_print(hypothesis1c_performance_BF)$statistic`).
 Ratings on the mental subscale consistently increased across all levels (`r apa_print(hypothesis1c_mental_rmanova)$full_result$level`, `r apa_print(hypothesis1c_mental_BF)$statistic`).
 Ratings on the physical subscale were higher for more difficult levels (`r apa_print(hypothesis1c_physical_rmanova)$full_result$level`, `r apa_print(hypothesis1c_physical_BF)$statistic`), apart from the contrasts 2- versus 3-back (`r apa_print(BayesFactor::ttestBF(x = h1c_data$physical[h1c_data$level == 2], y = h1c_data$physical[h1c_data$level == 3], progress = FALSE, paired = TRUE))$statistic`) and 3- versus 4-back (`r apa_print(BayesFactor::ttestBF(x = h1c_data$physical[h1c_data$level == 3], y = h1c_data$physical[h1c_data$level == 4], progress = FALSE, paired = TRUE))$statistic`).
 The full results of these manipulation checks are listed in Table S.1 to S.8 in the Supplementary Material.
 
 ## Decline of subjective values
 
-The different curves of SVs across $n$-back levels can be seen in Figure\ \@ref(fig:sv-by-pref), grouped into those participants who had an SV of 1.0 for 1-back ($n=`r nrow(data_SV[data_SV$level==1 & data_SV$sv==1,])`$), for 2-back ($n=`r nrow(data_SV[data_SV$level==2 & data_SV$sv==1,])`$), for 3-back ($n=`r nrow(data_SV[data_SV$level==3 & data_SV$sv==1,])`$), for 4-back ($n=`r nrow(data_SV[data_SV$level==4 & data_SV$sv==1,])`$), or all SVs below 1.0, i.e. no absolute preference for any level ($n=`r length(setdiff(unique(data_SV$subject), data_SV$subject[data_SV$sv == 1]))`$).
-While the majority of participants preferred the easiest level and showed an approximately linear decline of SVs with increasing task-load, a substantial part of the sample had higher SVs for one of the more difficult $n$-back levels.
+The different curves of SVs across *n*-back levels can be seen in Figure\ \@ref(fig:sv-by-pref), grouped into those participants who had an SV of 1.0 for 1-back ($n=`r nrow(data_SV[data_SV$level==1 & data_SV$sv==1,])`$), for 2-back ($n=`r nrow(data_SV[data_SV$level==2 & data_SV$sv==1,])`$), for 3-back ($n=`r nrow(data_SV[data_SV$level==3 & data_SV$sv==1,])`$), for 4-back ($n=`r nrow(data_SV[data_SV$level==4 & data_SV$sv==1,])`$), or all SVs below 1.0, i.e. no absolute preference for any level ($n=`r length(setdiff(unique(data_SV$subject), data_SV$subject[data_SV$sv == 1]))`$).
+While the majority of participants preferred the easiest level and showed an approximately linear decline of SVs with increasing task-load, a substantial part of the sample had higher SVs for one of the more difficult *n*-back levels.
 However, each panel in Figure\ \@ref(fig:sv-by-pref) contains curves of participants who had large differences between their four SVs and curves of participants who had a difference of less than 0.2 between their highest and their lowest SV, so preferring one level does not necessarily mean having a strong aversion against the others, regardless of difficulty level.
 
 [FIGURE \@ref(fig:sv-by-pref) HERE]
 
 When asking participants what motivated their decisions in the cognitive effort discounting paradigm, `r format(round((table(data_quest$motivation)[1]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% stated that they wanted to avoid boredom, `r format(round((table(data_quest$motivation)[2]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% stated that they wanted a challenge, `r format(round((table(data_quest$motivation)[3]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% stated that they wanted to avoid effort, and `r format(round((table(data_quest$motivation)[4]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% stated that they wanted to relax.
 The remaining `r format(round((table(data_quest$motivation)[5]/sum(table(data_quest$motivation)))*100, digits = 1), nsmall = 1)`% of participants used the free text field and provided reasons such as "I wanted a fair relation of effort and reward.", "I wanted the fun that I had in the more challenging levels.", "I wanted to maximize reward first and minimize effort second.", or "I did not want to perform poorly when I was being paid for it.".
-Figure \@ref(fig:motivation) shows the different motivations in the context of the SVs per $n$-back level.
+Figure \@ref(fig:motivation) shows the different motivations in the context of the SVs per *n*-back level.
 
 [FIGURE \@ref(fig:motivation) HERE]
 
-The rmANOVA showed a significant difference between the SVs across $n$-back levels (`r apa_print(hypothesis2a_rmanova)$full_result$level`, `r apa_print(hypothesis2a_BF)$statistic`), so evidence was in favour of H2a.
+The rmANOVA showed a significant difference between the SVs across *n*-back levels (`r apa_print(hypothesis2a_rmanova)$full_result$level`, `r apa_print(hypothesis2a_BF)$statistic`), so evidence was in favour of H2a.
 All four pre-defined contrasts reached significance (Table\ \@ref(tab:H2a-contrasts)), so a purely linear contrast can be rejected.
 
 ```{r}
@@ -413,7 +420,7 @@ All four pre-defined contrasts reached significance (Table\ \@ref(tab:H2a-contra
 
 apa_table(
   hypothesis2a_contrasts,
-  caption = "Contrasts for the rmANOVA comparing the subjective values between $n$-back levels",
+  caption = "Contrasts for the rmANOVA comparing the subjective values between *n*-back levels",
   note = "$SE$ = standard error, $df$ = degrees of freedom, $t$ = $t$-statistic, $p$ = $p$-value, CI = confidence interval.",
   escape = FALSE,
   placement = "H"
@@ -424,13 +431,13 @@ The declining logistic contrast had the highest effect estimate (`r apa_print(em
 Based on the effect estimate, the ascending quadratic and the skewed normal contrasts were rejected in favour of the declining logistic contrast.
 
 Consequently, we had to adapt the MLM to incorporate this non-linear trend.
-To apply the contrast to the $n$-back levels, we had to turn the variables into a factor, with two consequences:
+To apply the contrast to the *n*-back levels, we had to turn the variables into a factor, with two consequences:
 Centered variables cannot be turned into factors, so we entered the variable level in its raw form, and factors cannot be used as random slopes, so the model is now defined as:
 $$
 SV \sim level\ + d' + median RT + (1|subject)
 $$
 This means that the intercept still varied between subjects, but there were no random slopes anymore.
-To provide more than one observation per factor level, we used the two rounds per $n$-back level per subject, rather than $n$-back levels per subject.
+To provide more than one observation per factor level, we used the two rounds per *n*-back level per subject, rather than *n*-back levels per subject.
 The ICC of the null model indicated that there was a correlation of $r=$ `r sub("^(-?)0.", "\\1.", sprintf("%.3f", round(model0_h2b_ICC, digits = 3)))` between the SVs of a subject, i.e. that `r paste0(formatC(model0_h2b_ICC * 100, format = "f", digits = 2), "%")` of variance in SVs could be explained by differences between participants.
 We did not use an optimization algorithm to improve the fit of the random intercept model.
 A total of `r nrow(excl_cases_h2b)` data points from `r length(unique(excl_cases_h2b$subject))` participants were excluded, because the residuals exceeded 3 SD above the mean.
@@ -451,53 +458,53 @@ apa_table(h2b_result.table,
 
 An exploratory ANOVA was used to compare the fit of the final model with a linear random intercept model, confirming that the two models were different from each other ($\chi^2 (`r compare_h2b$Df[2]`)$ = `r compare_h2b$Chisq[2]`, $p<.001$), and with an Akaike Information Criterion of $AIC=`r compare_h2b$AIC[2]`$ and a Bayesian Information Criterion of $BIC=`r compare_h2b$BIC[2]`$ the declining logistic model was superior to the linear model ($AIC=`r compare_h2b$AIC[1]`$, $BIC=`r compare_h2b$BIC[1]`$).
 Both AIC and BIC subtract the likelihood of the model from the number of parameters and/or data points, so lower values indicate better model fit.
-The final model had an effect size of $f^{2}=$ `r round(h2b_level_f2, digits = 2)` for the $n$-back levels and $f^{2}=$ `r round(h2b_dprime_f2, digits = 2)` for $d'$, which are considered large and small, respectively [@Cohen1992].
-This means that the $n$-back level explained `r paste0(formatC(h2b_level_f2 * 100, format = "f", digits = 2), "%")` and $d'$ explained `r paste0(formatC(h2b_dprime_f2 * 100, format = "f", digits = 2), "%")` of variance in SVs relative to the unexplained variance, respectively.
-The beta coefficient indicated that with every 1-unit increase in $d'$, the SV increased by `r as.numeric(h2b_result.table[3,"Beta"])`.
-Due to the coding scheme of the logistic contrast, the beta coefficient of the $n$-back level has to be interpreted inversely, so SVs decline with increasing $n$-back level.
+The final model had an effect size of $f^{2}=$ `r round(h2b_level_f2, digits = 2)` for the *n*-back levels and $f^{2}=$ `r round(h2b_dprime_f2, digits = 2)` for *d'*, which are considered medium and small, respectively [@Cohen1992].
+This means that the *n*-back level explained `r paste0(formatC(h2b_level_f2 * 100, format = "f", digits = 2), "%")` and *d'* explained `r paste0(formatC(h2b_dprime_f2 * 100, format = "f", digits = 2), "%")` of variance in SVs relative to the unexplained variance, respectively.
+The beta coefficient indicated that with every 1-unit increase in *d'*, the SV increased by `r as.numeric(h2b_result.table[3,"Beta"])`.
+Due to the coding scheme of the logistic contrast, the beta coefficient of the *n*-back level has to be interpreted inversely, so SVs decline with increasing *n*-back level.
 The effect size of the median RT was $f^{2}=$ `r format(round(h2b_medianRT_f2, digits = 2), nsmall = 2)`.
-Since SVs decline with increasing level, beyond the variance explained by $d'$, evidence was in favour of H2b.
+Since SVs decline with increasing level, beyond the variance explained by *d'*, evidence was in favour of H2b.
 
 To investigate the dependency of the model results on the RT preprocessing, we conducted a specification curve analysis (Figure\ \@ref(fig:sca-plot)).
 
 [FIGURE \@ref(fig:sca-plot) HERE]
 
-Regardless of the preprocessing pipeline, $n$-back level and $d'$ were significant predictors of SVs, and had stable effect estimates across all pipelines.
-There was only one pipeline in which the median RT was a significant predictor of SVs.
-This pipeline contained data that had been inverse transformed across subjects but within conditions, i.e. within the round of an $n$-back level, and RTs beyond 2 $MAD$ from the median had been excluded.
+Regardless of the preprocessing pipeline, *n*-back level and *d'* were significant predictors of SVs, and had stable effect estimates across all pipelines.
+There was no pipeline in which the median RT was a significant predictor of SVs, but it showed volatile effect estimates across pipelines.
+The pipelines that yielded the highest estimates for *d'* and the median RT used log-transformed data, irrespective of the dimension and exclusion criteria.
 
 ## Differences between NFC groups
 
 The median NFC was `r mediannfc`, with $n=`r nrow(h3b_data[h3b_data$nfcmedian == "low",])/(nrow(h3b_data)/length(unique(h3b_data$subject)))`$ subjects below and $n=`r nrow(h3b_data[h3b_data$nfcmedian == "high",])/(nrow(h3b_data)/length(unique(h3b_data$subject)))`$ above the median.
 We used an rmANOVA to investigate whether the difference between the SVs of 1- and 2-back, and 2- and 3-back, respectively, depended on whether a participant's NFC score was above or below the median.
-There was a main effect of the $n$-back level (`r apa_print(hypothesis3a_model)$full_result$nlevels`, `r apa_print(hypothesis3a_BF_nlevel)$statistic$nlevels`), but neither a main effect of the NFC group (`r apa_print(hypothesis3a_model)$full_result$nfcmedian`, `r apa_print(hypothesis3a_BF_nlevel)$statistic$nfcmedian`) nor an interaction of NFC group and $n$-back level (`r apa_print(hypothesis3a_model)$full_result$nfcmedian_nlevels`), so evidence was not in favour of H3a.
+There was a main effect of the *n*-back level (`r apa_print(hypothesis3a_model)$full_result$nlevels`, `r apa_print(hypothesis3a_BF_nlevel)$statistic$nlevels`), but neither a main effect of the NFC group (`r apa_print(hypothesis3a_model)$full_result$nfcmedian`, `r apa_print(hypothesis3a_BF_nlevel)$statistic$nfcmedian`) nor an interaction of NFC group and *n*-back level (`r apa_print(hypothesis3a_model)$full_result$nfcmedian_nlevels`), so evidence was not in favour of H3a.
 Post-hoc tests showed that the difference between the SVs of 2- and 3-back is slightly more negative than the difference between 1- and 2-back (`r apa_print(pairs(hypothesis3a_emm_nlevel))$statistic`), but there were large inter-individual differences (Supplementary Figure S2a).
 This means that across the whole sample, there was a steeper decline in SVs from 2- to 3-back than from 1- to 2-back, again resembling the declining logistic function.
 
-The rmANOVA on the association between NFC scores and NASA-TLX scores revealed a main effect of $n$-back level (`r apa_print(hypothesis3b_model)$full_result$level`, `r apa_print(hypothesis3b_BF_levels)$statistic$level`) and an interaction between $n$-back level and NFC scores (`r apa_print(hypothesis3b_model)$full_result$nfcmedian_level`), but no main effect of NFC scores (`r apa_print(hypothesis3b_model)$full_result$nfcmedian`, `r apa_print(hypothesis3b_BF_levels)$statistic$nfcmedian`).
+The rmANOVA on the association between NFC scores and NASA-TLX scores revealed a main effect of *n*-back level (`r apa_print(hypothesis3b_model)$full_result$level`, `r apa_print(hypothesis3b_BF_levels)$statistic$level`) and an interaction between *n*-back level and NFC scores (`r apa_print(hypothesis3b_model)$full_result$nfcmedian_level`), but no main effect of NFC scores (`r apa_print(hypothesis3b_model)$full_result$nfcmedian`, `r apa_print(hypothesis3b_BF_levels)$statistic$nfcmedian`).
 Post-hoc tests showed that the participants with NFC scores below the median had higher NASA-TLX scores for 3-back (`r apa_print(pairs(hypothesis3b_emm_interact))$statistic$X3_High_low`, `r apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "low" & h3b_data$level == 3], y = h3b_data$ntlx[h3b_data$nfcmedian == "high" & h3b_data$level == 3], progress = FALSE, paired = FALSE))$statistic`) and for 4-back (`r apa_print(pairs(hypothesis3b_emm_interact))$statistic$X4_High_low`, `r apa_print(BayesFactor::ttestBF(x = h3b_data$ntlx[h3b_data$nfcmedian == "low" & h3b_data$level == 4], y = h3b_data$ntlx[h3b_data$nfcmedian == "high" & h3b_data$level == 4], progress = FALSE, paired = FALSE))$statistic`) than those with NFC scores above the median, so evidence was in favour of H3b.
-Regardless of NFC scores, NASA-TLX scores were higher for the more difficult level in each pair of $n$-back levels (Supplementary Figure S3).
+Regardless of NFC scores, NASA-TLX scores were higher for the more difficult level in each pair of *n*-back levels (Supplementary Figure S3).
 
 With another rmANOVA we investigated whether the difference between the aversiveness scores of 1- and 2-back, and 2- and 3-back, respectively, depended on whether a participant's NFC score was above or below the median.
-There was a main effect of NFC group (`r apa_print(hypothesis3c_model)$full_result$nfcmedian`, `r apa_print(hypothesis3c_BF_levels)$statistic$nfc`) and a main effect of the $n$-back level (`r apa_print(hypothesis3c_model)$full_result$nlevels`, `r apa_print(hypothesis3c_BF_levels)$statistic$levels`), but no interaction (`r apa_print(hypothesis3c_model)$full_result$nfcmedian_nlevels`).
+There was a main effect of NFC group (`r apa_print(hypothesis3c_model)$full_result$nfcmedian`, `r apa_print(hypothesis3c_BF_levels)$statistic$nfc`) and a main effect of the *n*-back level (`r apa_print(hypothesis3c_model)$full_result$nlevels`, `r apa_print(hypothesis3c_BF_levels)$statistic$levels`), but no interaction (`r apa_print(hypothesis3c_model)$full_result$nfcmedian_nlevels`).
 In favour of H3c, post-hoc tests revealed that participants with NFC scores below the median reported higher aversiveness than participants with NFC scores above the median (`r apa_print(pairs(hypothesis3c_emm_nfc))$statistic`) (Supplementary Figure S2b).
 Regardless of NFC, the difference of the aversiveness scores of 2- and 3-back was more negative than that of 1- and 2-back (`r apa_print(pairs(hypothesis3c_emm_levels))$statistic`), indicating that in the same way in which the SVs decreased more strongly from 2- to 3-back than from 1- to 2-back, the aversion increased more strongly.
 The full results of these analyses of NFC group differences can be found in Table S.11 to S.15 in the Supplementary Material.
 
 # Exploratory analyses
 
-To investigate the apparent group difference between the SVs of participants with NFC scores below and above the median in higher $n$-back levels, we computed an rmANOVA with the within-factor level (1 to 4) and the between-factor NFC group (below/above median).
-There was no main effect of NFC group (`r apa_print(explor_model)$full_result$nfcmedian`, `r apa_print(explor_BF)$table[2,"statistic"]`), but a main effect of the $n$-back level (`r apa_print(explor_model)$full_result$level`, `r apa_print(explor_BF)$table[1,"statistic"]`) and an interaction (`r apa_print(explor_model)$full_result$nfcmedian_level`).
-Post-hoc tests for the main effect of level showed that SVs were lower for the more difficult $n$-back level in each paired contrast except for 1- versus 2-back.
+To investigate the apparent group difference between the SVs of participants with NFC scores below and above the median in higher *n*-back levels, we computed an rmANOVA with the within-factor level (1 to 4) and the between-factor NFC group (below/above median).
+There was no main effect of NFC group (`r apa_print(explor_model)$full_result$nfcmedian`, `r apa_print(explor_BF)$table[2,"statistic"]`), but a main effect of the *n*-back level (`r apa_print(explor_model)$full_result$level`, `r apa_print(explor_BF)$table[1,"statistic"]`) and an interaction (`r apa_print(explor_model)$full_result$nfcmedian_level`).
+Post-hoc tests for the main effect of level showed that SVs were lower for the more difficult *n*-back level in each paired contrast except for 1- versus 2-back.
 Post-hoc tests for the interaction effect showed that the NFC groups only had a significant difference in SVs for 4-back, where participants below the NFC median had lower scores (`r apa_print(pairs(explor_emm_interact))$full_result$X4_High_low`).
 Despite not reaching significance, 1-back was the only level in which participants with NFC scores above the median seemed to have lower SVs than those with scores below the median (`r apa_print(pairs(explor_emm_interact))$full_result$X1_High_low`).
 The full results of this exploratory analysis of NFC group differences can be found in Table S.16 and S.17 in the Supplementary Material.
-Supplementary Figure S4 shows the SVs per $n$-back level for participants with NFC scores above and below the median.
+Supplementary Figure S4 shows the SVs per *n*-back level for participants with NFC scores above and below the median.
 
 Following a reviewer's recommendation, we also analyzed the association of SVs with NFC as a continuous variable.
-We computed an rmANOVA with the $n$-back level as a within variable and the standardized NFC score as a covariate to predict SVs.
-Both the NFC score (`r apa_print(explor2_model)$full_result$nfc`, `r apa_print(explor2_BF_nfc)$statistic`) and the $n$-back level (`r apa_print(explor2_model)$full_result$level`, `r apa_print(explor2_BF_level)$statistic`) showed significant main effects, as well as a significant interaction (`r apa_print(explor2_model)$full_result$nfc_level`, `r apa_print(explor2_BF_interact)$statistic`).
-Analyzing the estimated marginal means of the linear trends for each $n$-back level indicated a significant difference between the slopes of 1-back and 4-back (`r apa_print(explor2_slopes$contrasts)$full_result$Level1_level4`), but not between any other two levels.
+We computed an rmANOVA with the *n*-back level as a within variable and the standardized NFC score as a covariate to predict SVs.
+Both the NFC score (`r apa_print(explor2_model)$full_result$nfc`, `r apa_print(explor2_BF_nfc)$statistic`) and the *n*-back level (`r apa_print(explor2_model)$full_result$level`, `r apa_print(explor2_BF_level)$statistic`) showed significant main effects, as well as a significant interaction (`r apa_print(explor2_model)$full_result$nfc_level`, `r apa_print(explor2_BF_interact)$statistic`).
+Analyzing the estimated marginal means of the linear trends for each *n*-back level indicated a significant difference between the slopes of 1-back and 4-back (`r apa_print(explor2_slopes$contrasts)$full_result$Level1_level4`), but not between any other two levels.
 Plotting the predicted slopes shows that there is a negative association between the predicted SVs and the NFC scores for 1-back, but a positive association between the predicted SVs and the NFC scores for 4-back (Figure\ \@ref(fig:nfccont-sv)).
 The full results of this exploratory analysis of NFC as a continuous covariate can be found in Table S.18 and S.19 in the Supplementary Material.
 
@@ -505,30 +512,30 @@ The full results of this exploratory analysis of NFC as a continuous covariate c
 
 # Discussion
 
-This Registered Report aimed to adapt the Cognitive Effort Discounting (COG-ED) paradigm by Westbrook et al.[-@Westbrook2013], which estimates subjective values of different $n$-back levels, into the Cognitive and Affective Discounting (CAD) paradigm to estimate SVs of tasks without defaulting to the assumed objective task load as a benchmark.
+This Registered Report aimed to adapt the Cognitive Effort Discounting (COG-ED) paradigm by Westbrook et al.[-@Westbrook2013], which estimates subjective values of different *n*-back levels, into the Cognitive and Affective Discounting (CAD) paradigm to estimate SVs of tasks without defaulting to the assumed objective task load as a benchmark.
 For this purpose, we adapted the way in which the discounting options are presented to the participants, based the anchor on their own choices, and computed SVs across multiple combinations of task levels.
 The analyses were closely aligned with those in Westbrook et al.[-@Westbrook2013] to demonstrate the changes in SVs brought about by the new paradigm.
 This study also applied the CAD paradigm to an emotion regulation task, the results of which are detailed in a second Registered Report[@ScheffelZerna2022].
 
 ## Manipulation checks
 
-The performance measure $d'$ did not differ across $n$-back levels, but the RT increased from 1- to 2- to 3-back and then remained on a high level for 4-back.
-This points to three important characteristics of the $n$-back task in this context.
-Firstly, RT as a valid group-level indicator of performance might only be useful for levels up to $n=3$, and could be used to investigate inter-individual differences for $n>3$.
-Secondly, there is a speed-accuracy tradeoff in the first three levels, that might even re-emerge in higher levels, where $d'$ would decline and RT would remain stable.
+Both *d'* and the median RT changed across *n*-back levels, indicating that there was an increase in objective task load.
+The steepest decrease in *d'* between levels was from 2- to 3-back, resembling the declining logistic curve of the SVs.
+Interestingly, the median RT increased from 2- to 3-back, but did not differ between 2- and 4-back.
+Since feedback was given after each round, this pattern could be interpreted in such a way that participants tried to compensate their lower accuracy in 3-back by relying more on luck than on memory in 4-back and prioritized speed over accuracy.
+Furthermore, several participants said that they perceived 3-back as more difficult than 4-back because they found it is easier to remember chunks of stimuli when *n* was an even number than when *n* was an odd number.
+This would support the notion that the manipulation of task load in an *n*-back task is not strictly continuous.
 And lastly, the fact that neither accuracy nor speed is an informative performance measure by itself has been observed before[@Meule2017] and both show different associations with various measures of intelligence[@Jaeggi2010], suggesting that they should always be reported as separate indices.
-Additionally, $d'$ might not have differed across $n$-back levels because the manipulation of task load is not strictly continuous.
-Several participants said that they perceived 3-back as more difficult than 4-back because they found it is easier to remember chunks of stimuli when $n$ was an even number than when $n$ was an odd number.
 
-All NASA-TLX subscales differed across $n$-back levels, but the effort and mental load subscales were the only ones to consistently increase across all levels.
-This would support the notion of the $n$-back task offering a continuous manipulation of task load, at least subjectively.
+All NASA-TLX subscales differed across *n*-back levels, but the effort and mental load subscales were the only ones to consistently increase across all levels.
+This would support the notion of the *n*-back task offering a continuous manipulation of task load, at least subjectively.
 Ratings on the frustration and time subscales increased and ratings on the performance subscale decreased until 3-back and then remained stable.
 This pattern is akin to the RT, which also increased and then remained stable.
-Ratings on the physical load subscale increased with $n$-back levels, but not between 2- and 3-back and 3- and 4-back, respectively.
+Ratings on the physical load subscale increased with *n*-back levels, but not between 2- and 3-back and 3- and 4-back, respectively.
 
 ## Decline of subjective values
 
-The rmANOVA with different pre-defined contrasts showed that all fit the SVs to a different degree, and that the SVs do not simply decline linearly across $n$-back levels.
+The rmANOVA with different pre-defined contrasts showed that all fit the SVs to a different degree, and that the SVs do not simply decline linearly across *n*-back levels.
 The best fit was a declining logistic curve, reflecting that 1) the majority of participants preferred the easiest level, 2) 2-back was generally closer in preference to 1-back than 3-back was to 2-back, and 3) objective task load and subjective preference do not stand in a linear relationship.
 Since the majority of participants preferred the easiest level, we rejected the ascending quadratic and skewed normal contrasts, which implied lower SVs for 1- than for 2-back.
 The fact that the majority of participants preferred lower over higher effort, but a minority showed the opposite pattern, is in line with previous research on cognitive effort by Kool et al. (2010)[-@Kool2010].
@@ -536,22 +543,22 @@ Importantly, having a paradigm that can accurately assess the preferences of the
 Figure\ \@ref(fig:sv-by-pref) suggests that those who prefer either 1- or 2-back have a slightly steeper discounting curve than those who prefer 3- or 4-back, meaning they have lower SVs for higher levels than those who prefer a higher level have for the easier levels.
 But as the figure also shows, there is great interindividual variability in the discounting patterns, regardless of which level has the highest SV.
 Thomson and Oppenheimer[-@Thomson2022] argue that the different effort curves that have been observed for different tasks are likely due to the fact that we still understand quite little about how and why different manipulations of effort work.
-For example, the $n$-back task is likely not a continuous manipulation of task load, as discussed above.
+For example, the *n*-back task is likely not a continuous manipulation of task load, as discussed above.
 However, the declining logistic curve is similar to the sigmoidal curve that has been found for a physical[@KleinFluegge2015] and a cognitive effort paradigm[@Massar2019], suggesting there are common features of effort across different tasks and domains.
-The MLM with the logistic contrast showed that the $n$-back level explained the majority of variance in SVs, while the performance measure $d'$ also explained some variance in SVs, albeit less.
-With increasing $n$-back level and decreasing $d'$, the SV decreased.
-The median RT was not a significant predictor in this model, which was somewhat surprising because RT but not $d'$ yielded significant differences across levels in the manipulation checks.
-However, participants might have deliberately or subconsciously used the feedback they received at the end of each round, i.e. twice per $n$-back level, as an anchor during the effort discounting.
+The MLM with the logistic contrast showed that the *n*-back level explained the majority of variance in SVs, while the performance measure *d'* also explained some variance in SVs, albeit less.
+With increasing *n*-back level and decreasing *d'*, the SV decreased.
+The median RT was not a significant predictor in this model.
+Participants might have deliberately or subconsciously used the feedback they received at the end of each round, i.e. twice per *n*-back level, as an anchor during the effort discounting.
 This feedback was based on correct responses and not on RT, so if participants based their effort discounting choices at least partly on this feedback, they were either motivated to repeat a task in which they performed well and/or they were reluctant to accept a larger reward for a task in which they did not perform well.
 Since more participants reported effort avoidance as their motivation in the effort discounting than those who reported seeking a challenge, we can assume that they were more motivated to repeat a task in which they performed well because their good performance coincided with low effort.
 
-The declining logistic $n$-back levels and $d'$ remained significant predictors of SVs throughout all 63 preprocessing pipelines in the specification curve analysis, with betas that varied by less than 0.01.
-In contrast to this stood the variability of the median RT betas, which ranged from about `r round(max(sca_results$beta_r), digits = 2)` to `r round(min(sca_results$beta_r), digits = 2)`, and reached significance in only one pipeline.
-This pipeline was among the three pipelines with the highest $BF_{10}$, and applied inverse transformation to the RT data, across subjects but within conditions, and excluded data beyond 2 $MAD$ from the median.
-Interestingly, the curve of median RT betas in Figure\ \@ref(fig:sca-plot)a mirrored the rectangular pipeline indicators in the transformation rows of Figure\ \@ref(fig:sca-plot)b, so the transformation choice influenced the median RT much more than the dimension or the exclusion choice did.
+The declining logistic *n*-back levels and *d'* remained significant predictors of SVs throughout all 63 preprocessing pipelines in the specification curve analysis.
+The effect estimates of the *n*-back level varied by about `r format(round(diff(range(sca_results$beta_n)), digits = 3), digits = 3)`, those of *d'* by about `r format(round(diff(range(sca_results$beta_d)), digits = 3), digits = 3)`.
+In contrast to this stood the variability of the median RT effect estimates (around `r round(diff(range(sca_results$beta_r)), digits = 3)`), which did not reach significance in any pipeline.
+Interestingly, the curve of median RT betas in Figure\ \@ref(fig:sca-plot)a roughly mirrored the rectangular pipeline indicators in the transformation rows of Figure\ \@ref(fig:sca-plot)b, so the transformation choice influenced the median RT much more than the dimension or the exclusion choice did.
 As Fernandez et al.[-@Fernandez2020] found, applying more than one preprocessing step to the reaction time data of a Stroop task increased the risk of false positives beyond $\alpha=.05$, and transformation choices inflated this risk more than outlier exclusion or aggregation choices did.
-Our data seems to corroborate this finding for $n$-back tasks as well.
-Surprisingly, the $d'$ betas appear almost unaffected by the preprocessing pipeline, even though $d'$ was computed after the outlier exclusion.
+Our data seems to corroborate this finding for *n*-back tasks as well.
+Surprisingly, the *d'* betas appeared almost unaffected by the preprocessing pipeline, even though *d'* was computed after the outlier exclusion.
 This indicates that researchers who are interested in the correctness rather than the speed of responses can choose a simple preprocessing pipeline without risking false positives through elaborate transformations.
 
 ## Differences between NFC groups
@@ -564,18 +571,18 @@ In the analysis of SV difference scores, the NFC group did not reach significanc
 Conceptually, this was likely due to the partial but not full overlap between self-reported and behavioural effort investment, which has also been found for a demand selection task[@Strobel2020].
 Another possible reason is the bandwidth of SVs of participants with NFC scores around the median, and the fact that the difference appeared most pronounced for 4-back, and we only registered analyses of the difference scores between 1- and 2-back and 2- and 3-back.
 As the exploratory analyses showed, a median split of NFC scores yielded a significant group difference in SVs for 4-back only, while predicting SVs with NFC as a continuous covariate showed a difference in the slopes of 1-back and 4-back.
-The analysis of NASA-TLX scores showed that the sum score increased with every $n$-back level, and that participants with NFC scores below the median had higher NASA-TLX scores for 3- and 4-back than those below the median.
-This demonstrates that higher $n$-back levels have a higher discriminatory power regarding inter-individual differences in subjective effort perception.
-This was also supported by the fact that higher $n$-back levels were perceived as more aversive, and participants with NFC scores below the median reported higher aversion than those with NFC scores above the median.
+The analysis of NASA-TLX scores showed that the sum score increased with every *n*-back level, and that participants with NFC scores below the median had higher NASA-TLX scores for 3- and 4-back than those below the median.
+This demonstrates that higher *n*-back levels have a higher discriminatory power regarding inter-individual differences in subjective effort perception.
+This was also supported by the fact that higher *n*-back levels were perceived as more aversive, and participants with NFC scores below the median reported higher aversion than those with NFC scores above the median.
 Our data supports the notion of a Nonlinear Interaction between Person and Situation that has also been described by Schmitt et al. (2013)[-@Schmitt2013] and Blum et al. (2018)[-@Blum2018] in the same-named NIPS model.
 The NIPS model describes behaviour as a function of situational affordance which is mediated by personality traits.
 The behavioural variability follows an s-shaped curve, such that "strong" situations with low or high situational affordance elicit the least behavioural variability, while "weak" situations with moderate affordance maximize individual differences.
 These differences are caused by a person's expression of a certain trait, which shifts the curve along the y-axis.
-In our study, the situational affordance is the $n$-back level and the behaviour is the SV, following a declining logistic curve, i.e. a mirrored s-shape.
+In our study, the situational affordance is the *n*-back level and the behaviour is the SV, following a declining logistic curve, i.e. a mirrored s-shape.
 Hence, the variability in SVs increased from 1- to 4-back, and participants with higher NFC showed a more shallow decline in SVs as the situational affordance approached moderate values.
 According to the NIPS model, we can expect the SVs of participants with higher and lower NFC to converge again in levels of $n>4$, since behavioural variability decreases when situational affordance is high.
 An investigation of this relationship using the COG-ED paradigm[-@Westbrook2013] had been encouraged by Strobel et al.[@Strobel2020] based on their findings on demand avoidance and cognitive effort investment.
-With the CAD paradigm, the declining logistic contrast of SVs across levels resembles the ascending logistic curve of the NIPS model[@Schmitt2013;@Blum2018] and should be tested further in a setting with $n$-back levels exceeding $n=4$.
+With the CAD paradigm, the declining logistic contrast of SVs across levels resembles the ascending logistic curve of the NIPS model[@Schmitt2013;@Blum2018] and should be tested further in a setting with *n*-back levels exceeding $n=4$.
 
 
 ## Limitations
@@ -584,9 +591,9 @@ When developing a new paradigm, it is challenging to decide on the optimal analy
 While the Stage 1 review process made the analyses as robust as possible, there were still unknown factors that should be addressed by future studies.
 For instance, the differences between participants with higher and lower NFC should be investigated with extreme groups or as a continuous variable rather than with a median split, especially in academic samples where NFC can be expected to be higher on average and more narrow in range.
 To arrive at a sample with more balanced NFC scores, recruitment efforts should be focused on representative population samples and/or collecting data with an NFC-based stop rule.
-Additionally, we expected the SVs of participants with lower NFC scores to peak at 1-back and the SVs of those with higher scores to peak at 2-back, but the way the SVs of both groups appeared to drift apart in the higher $n$-back levels suggests that an analysis of those levels would be more fruitful in determining group differences.
+Additionally, we expected the SVs of participants with lower NFC scores to peak at 1-back and the SVs of those with higher scores to peak at 2-back, but the way the SVs of both groups appeared to drift apart in the higher *n*-back levels suggests that an analysis of those levels would be more fruitful in determining group differences.
 Future studies could create a stronger separation between the concepts investigated in this study (discounting curve, effort perception, performance, SV computation, NFC), and model the SVs and their task-related influencing factors first, before looking at (non-linear) associations with personality.
-Another important point is the instruction, not just for the $n$-back task, but for the effort discounting as well.
+Another important point is the instruction, not just for the *n*-back task, but for the effort discounting as well.
 We had to exclude several participants for misunderstanding the task instruction, so we will add a visual instruction and/or a training next time.
 And even though the participants were instructed to do the effort discounting with the aim to be satisfied with their choices instead of trying to increase the rewards, we cannot be sure that they did so.
 One might also argue that the 2€ reward range was not large enough to be an incentive for effort expenditure.
@@ -599,12 +606,12 @@ Effort and reward are relevant in everyday life, yet these constructs vary in th
 With each decision an individual makes, they must weigh the required effort against the expected reward to decide if and how to behave in that situation.
 So far, effort discounting paradigms have relied on the assumption that the task that is objectively easiest is the one that is preferred by everyone, and each more difficult task is simply being devalued compared to the easy one.
 However, effort-related traits such as Need for Cognition suggest that this is not the case.
-Therefore, we developed a paradigm that allows to examine effort discounting independent of objective task load, which we tested using an $n$-back task.
-Despite the fact that the task design allowed individuals to express a preference for higher over lower objective load levels, the overall subjective values took the shape of a declining logistic curve across $n$-back levels.
+Therefore, we developed a paradigm that allows to examine effort discounting independent of objective task load, which we tested using an *n*-back task.
+Despite the fact that the task design allowed individuals to express a preference for higher over lower objective load levels, the overall subjective values took the shape of a declining logistic curve across *n*-back levels.
 The majority of participants showed a decline in subjective values at higher effort levels.
 A minority of participants deviated from this pattern and showed a clear preference for 2-, 3, or 4-back over 1-back.
 The CAD paradigm was able to depict the individual preference patterns for both those who do and do not prefer the lowest effort level.
-While the subjective values declined with increasing levels, they increased with better performance as measured in $d'$, and were unaffected by the reaction time.
+While the subjective values declined with increasing levels, they increased with better performance as measured in *d'*, and were unaffected by the reaction time.
 Participants with Need for Cognition scores above the median reported lower subjective task load in and less aversion to more difficult levels.
 However, they did not have higher subjective values per se, which was due to our choice of median split and our assumption that these group differences would emerge in lower levels.
 The exploratory analyses showed that the predicted slope of subjective values depending on Need for Cognition scores differed between 1- and 4-back, but not between other levels.
@@ -628,7 +635,7 @@ The CAD paradigm offers this flexibility, and we encourage future studies to que
 
 This research was partly funded by the German Research Foundation (DFG) as part of the Collaborative Research Center (CRC) 940, and partly funded by centralized funds of the Faculty of Psychology at Technische Universität Dresden.
 The funders have/had no role in study design, data collection and analysis, decision to publish or preparation of the manuscript.
-The authors would like to thank Juliana Krause and Maja Hentschel for their help with data collection.
+The authors would like to thank Juliana Krause and Maja Hentschel for their help with data collection, and Georgia Clay for noticing and calling our attention to the fallacy of z-transforming the hit and false alarm rates.
 
 
 # Author Contributions
@@ -650,31 +657,31 @@ The authors declare no competing interests.
 
 # Figures
 
-```{r cadparadigm, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="An example for subjective values for an $n$-back task with three levels, returned by different modifications of the COG-ED paradigm for a hypothetical participant with the true preference 2-back > 3-back > 1-back. The grey boxes are the choice options shown to the participant. The participant's final reward value of the flexible level is displayed after the first arrow. The resulting subjective value of each level is displayed after the second arrow, in the notation \"SV 3-back(1-back)\" for the subjective value of 3-back when 1-back is the other choice. The Solution and Additional Benefit panel follow the same logic, but are preceded by a choice between equal rewards, and the participant's first choice indicated by an exclamation mark. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+```{r cadparadigm, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="An example for subjective values for an *n*-back task with three levels, returned by different modifications of the COG-ED paradigm for a hypothetical participant with the true preference 2-back > 3-back > 1-back. The grey boxes are the choice options shown to the participant. The participant's final reward value of the flexible level is displayed after the first arrow. The resulting subjective value of each level is displayed after the second arrow, in the notation \"SV 3-back(1-back)\" for the subjective value of 3-back when 1-back is the other choice. The Solution and Additional Benefit panel follow the same logic, but are preceded by a choice between equal rewards, and the participant's first choice indicated by an exclamation mark. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "Inkscape Figures", "Paradigm_Scheme.png"))
 
 ```
 
-```{r sv-by-pref, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values (SV) per $n$-back level, grouped into those who had an SV = 1 for 1-back, for 2-back, for 3-back, for 4-back, or no SV = 1 for any level. The lines have a vertical jitter of 0.02. Smoothing of conditional means with Loess method. Transparent overlays depict the 95\\% confidence interval. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+```{r sv-by-pref, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Subjective values (SV) per *n*-back level, grouped into those who had an SV = 1 for 1-back, for 2-back, for 3-back, for 4-back, or no SV = 1 for any level. The lines have a vertical jitter of 0.02. Smoothing of conditional means with Loess method. Transparent overlays depict the 95\\% confidence interval. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "sv_by_pref.png"))
 
 ```
 
-```{r motivation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Trajectories of subjective values per $n$-back level for each participant, grouped by the motivation for effort discounting that they indicated in the single choice question after the paradigm. $N=116$. 'Other' opened up a free text field. Smoothing of conditional means with Loess method. Transparent overlays depict the 95\\% confidence interval. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+```{r motivation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Trajectories of subjective values per *n*-back level for each participant, grouped by the motivation for effort discounting that they indicated in the single choice question after the paradigm. $N=116$. 'Other' opened up a free text field. Smoothing of conditional means with Loess method. Transparent overlays depict the 95\\% confidence interval. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "motivation.png"))
 
 ```
 
-```{r sca-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of the multi level model for each of the 63 preprocessing pipelines. Drawing a vertical through both panels indicates the type of preprocessing (panel b) of the pipeline and the resulting beta estimates of the three predictors in the model (panel a). The colourbar in panel b indicates the BF10 of each multi level model compared to a model in which the n-back level has no effect. The pipelines in both panels are sorted left to right in descending order of the magnitude of the beta estimate of the predictor n-back level. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+```{r sca-plot, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of the multi level model for each of the 63 preprocessing pipelines. Drawing a vertical through both panels indicates the type of preprocessing (panel b) of the pipeline and the resulting beta estimates of the three predictors in the model (panel a). The colourbar in panel b indicates the BF10 of each multi level model compared to a model in which the n-back level has no effect. The pipelines in both panels are sorted left to right in ascending order of the magnitude of the beta estimate of the predictor *d'*. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "sca-plot.png"))
 
 ```
 
-```{r nfccont-sv, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Predicted slopes of subjective values depending on individual Need for Cognition scores for each $n$-back level. The slopes of 1-back and 4-back are different at $p=.01$. $N=116$. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
+```{r nfccont-sv, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Predicted slopes of subjective values depending on individual Need for Cognition scores for each *n*-back level. The slopes of 1-back and 4-back are different at $p=.01$. $N=116$. Figure available at osf.io/vnj8x/, under a CC-BY-4.0 license.", fig.pos="H"} 
   
   include_graphics(here("06_Paper", "COG-ED", "Stage 2", "Figures", "nfccont_sv.png"))
 

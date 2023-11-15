@@ -1,5 +1,5 @@
 ---
-title             : "Supplementary Material for the Registered Report titled: 'When easy is not preferred: A discounting paradigm to assess load-independent task preference'"
+title             : "Supplementary Material for the Registered Report titled: 'Need for cognition is associated with a preference for higher task load in effort discounting'"
 shorttitle        : "Supplement for CAD Paradigm"
 author: 
   - name          : "Josephine Zerna"
