@@ -1147,6 +1147,9 @@ FigSubjEffort <- ggplot2::ggplot(Ratings_reg, aes(x = block, y = effort, fill = 
   ylab("Effort rating")+
   theme(legend.position = "none")
 
+ggsave(path = "C:/Users/scheffel/Scheffel/Dis/NewFigures ESER/", width = 7, height = 5, units = "in",
+       device = "tiff", dpi = 500, filename = "Subj_Effort_CAD.eps")
+
 ######## HYPOTHESIS 5
 
 # Which variables can predict individual subjective values of ER strategies?
@@ -1431,7 +1434,8 @@ FigSVChoice <- ggplot2::ggplot(data = data_choice_long, aes(x = strategy, y = sv
                    labels = c("Distraction", "Distancing", "Suppression")) +
   ylab("Subjective values")
 
-
+ggsave(path = "C:/Users/scheffel/Scheffel/Dis/NewFigures ESER/", width = 7, height = 5, units = "in",
+       device = "tiff", dpi = 500, filename = "SV_Choice_CAD.eps")
 # ORDINAL REGRESSION
 
 # https://marissabarlaz.github.io/portfolio/ols/
