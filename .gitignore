@@ -24,3 +24,7 @@
 *.aux
 *.log
 *.out
+.DS_Store
+06_Paper/.DS_Store
+/06_Paper
+06_Paper/.DS_Store
